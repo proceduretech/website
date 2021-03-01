@@ -7,7 +7,7 @@ interface FooterProps {
 
 const Footer = ({ className, footer }: IntrinsicProps & FooterProps) => (
   <div className={className}>
-    <p className="text-gray-400 font-semibold">{footer}</p>
+    <p className="text-gray-400 dark:text-gray-200 font-semibold">{footer}</p>
   </div>
 )
 

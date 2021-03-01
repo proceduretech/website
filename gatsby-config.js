@@ -5,6 +5,7 @@ module.exports = {
   plugins: [
     'gatsby-plugin-typescript',
     'gatsby-plugin-postcss',
+    'gatsby-plugin-dark-mode',
     {
       resolve: 'gatsby-plugin-drift',
       options: {
@@ -23,8 +24,7 @@ module.exports = {
       resolve: `gatsby-plugin-purgecss`,
       options: {
         printRejected: true,
-        tailwind: true,
-        develop: true
+        tailwind: true
       }
     }
   ]

@@ -12,9 +12,11 @@ const SubSection = ({
   className
 }: SubSectionProps & IntrinsicProps) => (
   <div className={className}>
-    <h4 className="font-bold mb-1 md:mb-2">{title}</h4>
+    <h4 className="font-bold mb-1 md:mb-2 text-gray-900 dark:text-gray-100">
+      {title}
+    </h4>
     {description.map((text: string) => (
-      <p>{text}</p>
+      <p className="text-gray-900 dark:text-gray-100">{text}</p>
     ))}
   </div>
 )

@@ -11,7 +11,7 @@ interface IndexProps {
 }
 
 const IndexPage = ({ data }: IndexProps) => (
-  <div className="flex flex-col bg-gray-50 h-full justify-between pt-16 md:pt-24">
+  <div className="flex flex-col bg-gray-50 dark:bg-gray-900 h-full justify-between pt-16 md:pt-24">
     <main>
       <title>{data.site.siteMetadata.title}</title>
       <div className="container">

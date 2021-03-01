@@ -16,11 +16,11 @@ const Member = ({
   className
 }: Person & IntrinsicProps) => (
   <div className={className}>
-    <p className="text-base md:text-lg text-gray-800 font-semibold">
+    <p className="text-base md:text-lg text-gray-800 dark:text-gray-100 font-semibold">
       <a href={url}>{name}</a>
     </p>
-    <p>{title}</p>
-    <p>{role}</p>
+    <p className="text-gray-900 dark:text-gray-50">{title}</p>
+    <p className="text-gray-900 dark:text-gray-50">{role}</p>
   </div>
 )
 
