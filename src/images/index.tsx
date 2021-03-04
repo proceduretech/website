@@ -1,11 +1,18 @@
 import React from 'react'
 
-export const Sun = () => (
+interface Size {
+  height?: string
+  width?: string
+}
+
+export const Sun = ({ height, width }: Size) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
-    stroke="currentColor">
+    height={height}
+    width={width}
+    stroke="white">
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -15,11 +22,13 @@ export const Sun = () => (
   </svg>
 )
 
-export const Moon = () => (
+export const Moon = ({ height, width }: Size) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    fill="none"
+    fill="currentColor"
     viewBox="0 0 24 24"
+    height={height}
+    width={width}
     stroke="currentColor">
     <path
       strokeLinecap="round"
