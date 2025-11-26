@@ -5,13 +5,9 @@ export interface ClientLogo {
   name: string;
 }
 
-export interface PerspectiveContent {
+export interface PainPointsContent {
   headline: string;
-  subheadline: string;
-  points: {
-    problem: string;
-    insight: string;
-  }[];
+  painPoints: string[];
 }
 
 export interface Service {
@@ -63,77 +59,41 @@ export const clientLogos: Record<Vertical, ClientLogo[]> = {
   ],
 };
 
-export const perspectiveContent: Record<Vertical, PerspectiveContent> = {
+export const painPointsContent: Record<Vertical, PainPointsContent> = {
   "ai-engineering": {
-    headline: "The AI Demo-to-Production Gap",
-    subheadline: "Why 87% of AI projects never make it to production",
-    points: [
-      {
-        problem: "Teams build impressive demos but lack production infrastructure",
-        insight: "We've deployed 50+ AI systems. The demo is 5% of the work.",
-      },
-      {
-        problem: "Model performance degrades silently without proper monitoring",
-        insight: "Every AI system needs observability from day one, not as an afterthought.",
-      },
-      {
-        problem: "Integration with existing systems is always underestimated",
-        insight: "The hardest part isn't the AI. It's making it work with everything else.",
-      },
+    headline: "Sound familiar?",
+    painPoints: [
+      "Our AI demo works great, but we can't get it to production",
+      "Models keep breaking and we don't know why",
+      "Data pipelines are a mess of scripts and cron jobs",
+      "We're stuck on prototypes while competitors ship",
     ],
   },
   software: {
-    headline: "Technical Debt is a Choice",
-    subheadline: "Most codebases become liabilities within 18 months",
-    points: [
-      {
-        problem: "Teams optimize for shipping fast, then spend years paying it back",
-        insight: "Speed and quality aren't tradeoffs. Bad architecture is slow.",
-      },
-      {
-        problem: "Testing is treated as overhead instead of investment",
-        insight: "Every hour spent on tests saves 10 hours of debugging in production.",
-      },
-      {
-        problem: "Infrastructure becomes the bottleneck for feature delivery",
-        insight: "Your platform should accelerate your team, not constrain it.",
-      },
+    headline: "Sound familiar?",
+    painPoints: [
+      "Every new feature takes longer than the last",
+      "We're afraid to touch legacy code",
+      "Deployments are stressful and unpredictable",
+      "Our infrastructure can't keep up with growth",
     ],
   },
   design: {
-    headline: "Design Theater vs. Design Impact",
-    subheadline: "Pretty pixels don't move business metrics",
-    points: [
-      {
-        problem: "Design teams optimize for aesthetics over user outcomes",
-        insight: "Great design is invisible. Users complete tasks without thinking.",
-      },
-      {
-        problem: "User research happens once, then gets ignored",
-        insight: "Research isn't a phase. It's a continuous feedback loop.",
-      },
-      {
-        problem: "Design systems become graveyards of unused components",
-        insight: "A design system is only valuable if developers actually use it.",
-      },
+    headline: "Sound familiar?",
+    painPoints: [
+      "Users abandon our product but we don't know why",
+      "Design and engineering are constantly misaligned",
+      "We ship features nobody asked for",
+      "Our app feels dated compared to competitors",
     ],
   },
   "ai-security": {
-    headline: "Your AI Has Vulnerabilities You Haven't Considered",
-    subheadline: "Traditional security tools don't protect AI systems",
-    points: [
-      {
-        problem: "Prompt injection can bypass all your safety measures",
-        insight: "If you haven't tested for prompt injection, assume you're vulnerable.",
-      },
-      {
-        problem: "Training data leaks through model outputs",
-        insight: "Your model remembers more than you think. We find out what.",
-      },
-      {
-        problem: "Adversarial attacks can manipulate model decisions invisibly",
-        insight: "Attackers don't need to hack your servers. They hack your model's perception.",
-      },
+    headline: "Sound familiar?",
+    painPoints: [
+      "We deployed AI but haven't tested for attacks",
+      "Our security team doesn't understand AI risks",
+      "We're not sure what data our models leak",
+      "Compliance is asking questions we can't answer",
     ],
   },
 };

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTheme, verticals, Vertical } from "../context/ThemeContext";
 import { useScroll } from "../context/ScrollContext";
 import { LogoTicker } from "./LogoTicker";
+import { CalButton } from "./CalButton";
 
 const verticalOrder: Vertical[] = ["ai-engineering", "software", "design", "ai-security"];
 
@@ -325,24 +326,15 @@ export function Hero() {
 
         {/* CTA */}
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <CalButton />
           <motion.a
-            href="mailto:hello@procedure.tech"
-            className="rounded-full px-8 py-3.5 text-base font-medium text-white"
-            style={{ backgroundColor: config.accentColor }}
-            whileHover={{ scale: 1.02, opacity: 0.9 }}
-            whileTap={{ scale: 0.98 }}
-            transition={{ duration: 0.2 }}
-          >
-            Start a conversation
-          </motion.a>
-          <motion.a
-            href="#perspective"
+            href="#services"
             className="rounded-full border border-[var(--border)] px-8 py-3.5 text-base font-medium text-[var(--foreground)]"
             whileHover={{ scale: 1.02, borderColor: "var(--muted)" }}
             whileTap={{ scale: 0.98 }}
             transition={{ duration: 0.2 }}
           >
-            See our work
+            Explore services
           </motion.a>
         </div>
       </div>
