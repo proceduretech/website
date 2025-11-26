@@ -65,6 +65,10 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
           {
             "--accent": config.accentColor,
             "--accent-rgb": config.accentColorRgb,
+            "--secondary": config.secondaryColor,
+            "--secondary-rgb": config.secondaryColorRgb,
+            "--tertiary": config.tertiaryColor,
+            "--tertiary-rgb": config.tertiaryColorRgb,
           } as React.CSSProperties
         }
       >

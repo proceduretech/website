@@ -84,34 +84,44 @@ export function HowWeWorkSection() {
             Engagement Models
           </h3>
           <div className="grid gap-5 md:grid-cols-3">
-            {engagementModels.map((model, index) => (
-              <motion.div
-                key={model.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="rounded-xl border border-[var(--border)] bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
-              >
-                {/* Icon */}
-                <div
-                  className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg"
-                  style={{
-                    backgroundColor: `rgba(${config.accentColorRgb}, 0.1)`,
-                    color: config.accentColor,
-                  }}
-                >
-                  {model.icon}
-                </div>
+            {engagementModels.map((model, index) => {
+              // Rotate through colors: primary, secondary, tertiary
+              const colorSets = [
+                { color: config.accentColor, colorRgb: config.accentColorRgb },
+                { color: config.secondaryColor, colorRgb: config.secondaryColorRgb },
+                { color: config.tertiaryColor, colorRgb: config.tertiaryColorRgb },
+              ];
+              const { color, colorRgb } = colorSets[index % colorSets.length];
 
-                <h4 className="mb-2 text-lg font-semibold text-[var(--foreground)]">
-                  {model.title}
-                </h4>
-                <p className="text-sm leading-relaxed text-[var(--muted)]">
-                  {model.description}
-                </p>
-              </motion.div>
-            ))}
+              return (
+                <motion.div
+                  key={model.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  className="rounded-xl border border-[var(--border)] bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+                >
+                  {/* Icon */}
+                  <div
+                    className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg"
+                    style={{
+                      backgroundColor: `rgba(${colorRgb}, 0.1)`,
+                      color: color,
+                    }}
+                  >
+                    {model.icon}
+                  </div>
+
+                  <h4 className="mb-2 text-lg font-semibold text-[var(--foreground)]">
+                    {model.title}
+                  </h4>
+                  <p className="text-sm leading-relaxed text-[var(--muted)]">
+                    {model.description}
+                  </p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
 
@@ -121,31 +131,40 @@ export function HowWeWorkSection() {
             Pricing Models
           </h3>
           <div className="grid gap-5 md:grid-cols-2">
-            {pricingModels.map((model, index) => (
-              <motion.div
-                key={model.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="relative overflow-hidden rounded-xl border border-[var(--border)] bg-white p-6 shadow-sm"
-              >
-                {/* Accent bar */}
-                <div
-                  className="absolute left-0 top-0 h-full w-1"
-                  style={{ backgroundColor: config.accentColor }}
-                />
+            {pricingModels.map((model, index) => {
+              // Use secondary and tertiary for pricing cards
+              const colorSets = [
+                { color: config.secondaryColor },
+                { color: config.tertiaryColor },
+              ];
+              const { color } = colorSets[index % colorSets.length];
 
-                <div className="pl-4">
-                  <h4 className="mb-2 text-lg font-semibold text-[var(--foreground)]">
-                    {model.title}
-                  </h4>
-                  <p className="text-sm leading-relaxed text-[var(--muted)]">
-                    {model.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+              return (
+                <motion.div
+                  key={model.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  className="relative overflow-hidden rounded-xl border border-[var(--border)] bg-white p-6 shadow-sm"
+                >
+                  {/* Accent bar */}
+                  <div
+                    className="absolute left-0 top-0 h-full w-1"
+                    style={{ backgroundColor: color }}
+                  />
+
+                  <div className="pl-4">
+                    <h4 className="mb-2 text-lg font-semibold text-[var(--foreground)]">
+                      {model.title}
+                    </h4>
+                    <p className="text-sm leading-relaxed text-[var(--muted)]">
+                      {model.description}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>

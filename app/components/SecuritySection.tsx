@@ -70,32 +70,43 @@ export function SecuritySection() {
         </p>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {highlights.map((item, index) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="rounded-xl border border-[var(--border)] bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
-            >
-              <div
-                className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg"
-                style={{
-                  backgroundColor: `rgba(${config.accentColorRgb}, 0.1)`,
-                  color: config.accentColor,
-                }}
+          {highlights.map((item, index) => {
+            // Rotate through colors: primary, secondary, tertiary, primary
+            const colorSets = [
+              { color: config.accentColor, colorRgb: config.accentColorRgb },
+              { color: config.secondaryColor, colorRgb: config.secondaryColorRgb },
+              { color: config.tertiaryColor, colorRgb: config.tertiaryColorRgb },
+              { color: config.accentColor, colorRgb: config.accentColorRgb },
+            ];
+            const { color, colorRgb } = colorSets[index % colorSets.length];
+
+            return (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="rounded-xl border border-[var(--border)] bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
               >
-                {item.icon}
-              </div>
-              <h3 className="mb-2 text-lg font-semibold text-[var(--foreground)]">
-                {item.title}
-              </h3>
-              <p className="text-sm leading-relaxed text-[var(--muted)]">
-                {item.description}
-              </p>
-            </motion.div>
-          ))}
+                <div
+                  className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg"
+                  style={{
+                    backgroundColor: `rgba(${colorRgb}, 0.1)`,
+                    color: color,
+                  }}
+                >
+                  {item.icon}
+                </div>
+                <h3 className="mb-2 text-lg font-semibold text-[var(--foreground)]">
+                  {item.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-[var(--muted)]">
+                  {item.description}
+                </p>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

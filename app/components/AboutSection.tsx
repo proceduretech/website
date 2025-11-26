@@ -45,27 +45,37 @@ export function AboutSection() {
 
           {/* Right: Stats */}
           <div className="grid grid-cols-3 gap-4">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="text-center"
-              >
+            {stats.map((stat, index) => {
+              // Rotate through colors: primary, secondary, tertiary
+              const colorSets = [
+                config.accentColor,
+                config.secondaryColor,
+                config.tertiaryColor,
+              ];
+              const color = colorSets[index % colorSets.length];
+
+              return (
                 <motion.div
-                  className="mb-2 text-3xl font-bold md:text-4xl"
-                  animate={{ color: config.accentColor }}
-                  transition={{ duration: 0.3 }}
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  className="text-center"
                 >
-                  {stat.value}
+                  <motion.div
+                    className="mb-2 text-3xl font-bold md:text-4xl"
+                    animate={{ color: color }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {stat.value}
+                  </motion.div>
+                  <div className="text-xs font-medium uppercase tracking-wider text-[var(--muted)]">
+                    {stat.label}
+                  </div>
                 </motion.div>
-                <div className="text-xs font-medium uppercase tracking-wider text-[var(--muted)]">
-                  {stat.label}
-                </div>
-              </motion.div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
