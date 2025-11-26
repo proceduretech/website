@@ -308,64 +308,63 @@ body {
 
 /* ========================================
    PROSE / TYPOGRAPHY STYLES FOR BLOG
+   Substack-inspired clean, readable typography
    ======================================== */
 
 .prose {
   color: var(--foreground);
-  max-width: 65ch;
-  font-size: 1.125rem;
-  line-height: 1.75;
+  max-width: 600px;
+  font-size: 1.0625rem;
+  line-height: 1.6;
 }
 
 .prose > * + * {
-  margin-top: 1.5em;
+  margin-top: 1.25em;
 }
 
 /* Headings */
 .prose h1 {
-  font-size: 2.25rem;
+  font-size: 1.75rem;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.25;
   letter-spacing: -0.02em;
-  margin-top: 2.5em;
-  margin-bottom: 0.75em;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
   color: var(--foreground);
 }
 
 .prose h2 {
-  font-size: 1.75rem;
+  font-size: 1.375rem;
   font-weight: 600;
   line-height: 1.3;
   letter-spacing: -0.01em;
-  margin-top: 2em;
-  margin-bottom: 0.75em;
-  color: var(--foreground);
-  padding-bottom: 0.5em;
-  border-bottom: 1px solid var(--border);
-}
-
-.prose h3 {
-  font-size: 1.375rem;
-  font-weight: 600;
-  line-height: 1.4;
   margin-top: 1.75em;
   margin-bottom: 0.5em;
   color: var(--foreground);
 }
 
-.prose h4 {
+.prose h3 {
   font-size: 1.125rem;
   font-weight: 600;
-  line-height: 1.5;
+  line-height: 1.4;
   margin-top: 1.5em;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.375em;
+  color: var(--foreground);
+}
+
+.prose h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-top: 1.25em;
+  margin-bottom: 0.25em;
   color: var(--foreground);
 }
 
 /* Paragraphs */
 .prose p {
-  margin-top: 1.25em;
-  margin-bottom: 1.25em;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 /* Links */
@@ -391,59 +390,71 @@ body {
   font-style: italic;
 }
 
-/* Lists */
+/* Lists - Substack style: tight, consistent spacing */
+.prose ul,
+.prose ol {
+  padding-left: 1.5em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
 .prose ul {
   list-style-type: disc;
-  padding-left: 1.625em;
-  margin-top: 1.25em;
-  margin-bottom: 1.25em;
 }
 
 .prose ol {
   list-style-type: decimal;
-  padding-left: 1.625em;
-  margin-top: 1.25em;
-  margin-bottom: 1.25em;
 }
 
 .prose li {
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  padding-left: 0.375em;
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+  padding-left: 0.25em;
+  line-height: 1.6;
 }
 
 .prose li::marker {
   color: var(--muted);
 }
 
-.prose ul ul,
-.prose ol ol,
-.prose ul ol,
-.prose ol ul {
+.prose li > p {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
 
-/* Blockquotes */
+.prose ul ul,
+.prose ol ol,
+.prose ul ol,
+.prose ol ul {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+}
+
+/* Blockquotes - Simple Substack style */
 .prose blockquote {
-  border-left: 4px solid var(--accent);
-  padding-left: 1.5em;
-  margin: 2em 0;
+  border-left: 3px solid var(--border);
+  padding-left: 1em;
+  margin: 1.25em 0;
   font-style: italic;
   color: var(--muted);
-  background: linear-gradient(90deg, rgba(var(--accent-rgb), 0.05), transparent);
-  padding: 1.25em 1.5em;
-  border-radius: 0 0.5rem 0.5rem 0;
 }
 
 .prose blockquote p {
-  margin: 0;
+  margin: 0.5em 0;
+}
+
+.prose blockquote p:first-child {
+  margin-top: 0;
+}
+
+.prose blockquote p:last-child {
+  margin-bottom: 0;
 }
 
 .prose blockquote cite,
 .prose blockquote footer {
   display: block;
-  margin-top: 0.75em;
+  margin-top: 0.5em;
   font-size: 0.875rem;
   font-style: normal;
   color: var(--muted);
@@ -457,23 +468,22 @@ body {
 .prose code {
   font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 0.875em;
-  background: #f3f4f6;
-  padding: 0.2em 0.4em;
+  background: #f4f4f5;
+  padding: 0.15em 0.35em;
   border-radius: 0.25rem;
-  color: #d946ef;
+  color: var(--foreground);
 }
 
 /* Code - Blocks */
 .prose pre {
-  background: #1f2937;
-  color: #e5e7eb;
-  border-radius: 0.75rem;
-  padding: 1.25rem 1.5rem;
+  background: #18181b;
+  color: #e4e4e7;
+  border-radius: 0.5rem;
+  padding: 1rem 1.25rem;
   overflow-x: auto;
-  margin: 1.75em 0;
-  font-size: 0.875rem;
-  line-height: 1.7;
-  box-shadow: var(--shadow-lg);
+  margin: 1.25em 0;
+  font-size: 0.8125rem;
+  line-height: 1.6;
 }
 
 .prose pre code {
@@ -487,24 +497,23 @@ body {
 .prose table {
   width: 100%;
   border-collapse: collapse;
-  margin: 2em 0;
-  font-size: 0.9375rem;
+  margin: 1.25em 0;
+  font-size: 0.875rem;
 }
 
 .prose thead {
-  border-bottom: 2px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 .prose th {
   text-align: left;
-  padding: 0.75em 1em;
+  padding: 0.5em 0.75em;
   font-weight: 600;
   color: var(--foreground);
-  background: #f9fafb;
 }
 
 .prose td {
-  padding: 0.75em 1em;
+  padding: 0.5em 0.75em;
   border-bottom: 1px solid var(--border);
 }
 
@@ -512,32 +521,31 @@ body {
   background: #f9fafb;
 }
 
-/* Images */
+/* Images - Substack style: clean, no heavy shadows */
 .prose img {
   max-width: 100%;
   height: auto;
-  border-radius: 0.75rem;
-  margin: 2em 0;
-  box-shadow: var(--shadow-lg);
+  border-radius: 0.375rem;
+  margin: 1.5em 0;
 }
 
 .prose figure {
-  margin: 2em 0;
+  margin: 1.5em 0;
 }
 
 .prose figcaption {
   text-align: center;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   color: var(--muted);
-  margin-top: 0.75em;
+  margin-top: 0.5em;
 }
 
 /* Horizontal Rule */
 .prose hr {
   border: none;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--border), transparent);
-  margin: 3em 0;
+  background: var(--border);
+  margin: 2em 0;
 }
 
 /* Task Lists */
@@ -553,21 +561,20 @@ body {
 }
 
 .prose .task-list-item input[type="checkbox"] {
-  margin-top: 0.375em;
+  margin-top: 0.3em;
   accent-color: var(--accent);
 }
 
 /* Embed Containers */
 .prose .embed-container {
   position: relative;
-  margin: 2em 0;
-  border-radius: 0.75rem;
+  margin: 1.5em 0;
+  border-radius: 0.375rem;
   overflow: hidden;
-  box-shadow: var(--shadow-lg);
 }
 
 .prose .embed-container.video {
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  padding-bottom: 56.25%;
 }
 
 .prose .embed-container iframe {
@@ -581,13 +588,13 @@ body {
 
 /* Twitter/X Embed */
 .prose .twitter-embed {
-  margin: 2em 0;
+  margin: 1.5em 0;
   display: flex;
   justify-content: center;
 }
 
 .prose .twitter-embed > div {
-  max-width: 550px;
+  max-width: 100%;
   width: 100%;
 }
 
@@ -595,10 +602,9 @@ body {
 .prose .youtube-embed {
   position: relative;
   padding-bottom: 56.25%;
-  margin: 2em 0;
-  border-radius: 0.75rem;
+  margin: 1.5em 0;
+  border-radius: 0.375rem;
   overflow: hidden;
-  box-shadow: var(--shadow-lg);
 }
 
 .prose .youtube-embed iframe {
@@ -613,26 +619,24 @@ body {
 /* Link Cards */
 .prose .link-card {
   display: flex;
-  gap: 1rem;
-  padding: 1rem;
+  gap: 0.75rem;
+  padding: 0.75rem;
   border: 1px solid var(--border);
-  border-radius: 0.75rem;
-  margin: 1.5em 0;
+  border-radius: 0.375rem;
+  margin: 1.25em 0;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease;
 }
 
 .prose .link-card:hover {
-  border-color: var(--accent);
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
+  border-color: var(--muted);
 }
 
 .prose .link-card-image {
-  width: 120px;
-  height: 80px;
+  width: 100px;
+  height: 70px;
   object-fit: cover;
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
   flex-shrink: 0;
 }
 
@@ -643,15 +647,16 @@ body {
 
 .prose .link-card-title {
   font-weight: 600;
+  font-size: 0.875rem;
   color: var(--foreground);
-  margin-bottom: 0.25em;
+  margin-bottom: 0.125em;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .prose .link-card-description {
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   color: var(--muted);
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -662,28 +667,28 @@ body {
 .prose .link-card-domain {
   font-size: 0.75rem;
   color: var(--muted);
-  margin-top: 0.5em;
+  margin-top: 0.25em;
 }
 
 /* ASCII Art / Diagrams */
 .prose .ascii-diagram {
   font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   line-height: 1.4;
-  background: #f9fafb;
-  padding: 1.5rem;
-  border-radius: 0.75rem;
+  background: #fafafa;
+  padding: 1rem;
+  border-radius: 0.375rem;
   overflow-x: auto;
-  margin: 2em 0;
+  margin: 1.25em 0;
   white-space: pre;
 }
 
 /* Footnotes */
 .prose .footnotes {
-  margin-top: 3em;
-  padding-top: 1.5em;
+  margin-top: 2em;
+  padding-top: 1em;
   border-top: 1px solid var(--border);
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
 }
 
 .prose .footnotes ol {
@@ -698,10 +703,10 @@ body {
 /* Keyboard shortcuts */
 .prose kbd {
   display: inline-block;
-  padding: 0.125em 0.375em;
+  padding: 0.1em 0.3em;
   font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 0.875em;
-  background: #f3f4f6;
+  font-size: 0.8em;
+  background: #f4f4f5;
   border: 1px solid var(--border);
   border-radius: 0.25rem;
   box-shadow: 0 1px 0 var(--border);
@@ -709,17 +714,17 @@ body {
 
 /* Definition Lists */
 .prose dl {
-  margin: 1.5em 0;
+  margin: 1em 0;
 }
 
 .prose dt {
   font-weight: 600;
-  margin-top: 1em;
+  margin-top: 0.75em;
 }
 
 .prose dd {
-  margin-left: 1.5em;
-  margin-top: 0.25em;
+  margin-left: 1.25em;
+  margin-top: 0.125em;
   color: var(--muted);
 }
 
@@ -730,32 +735,32 @@ body {
   }
 
   .prose h1 {
-    font-size: 1.75rem;
-  }
-
-  .prose h2 {
     font-size: 1.5rem;
   }
 
-  .prose h3 {
+  .prose h2 {
     font-size: 1.25rem;
   }
 
+  .prose h3 {
+    font-size: 1.125rem;
+  }
+
   .prose pre {
-    padding: 1rem;
-    font-size: 0.8125rem;
-    border-radius: 0.5rem;
+    padding: 0.875rem 1rem;
+    font-size: 0.75rem;
+    border-radius: 0.25rem;
     margin-left: -1rem;
     margin-right: -1rem;
   }
 
   .prose table {
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
   }
 
   .prose th,
   .prose td {
-    padding: 0.5em 0.75em;
+    padding: 0.375em 0.5em;
   }
 
   .prose .link-card {
