@@ -283,20 +283,22 @@ export function Hero() {
           Four disciplines. One partner.
         </motion.p>
 
-        {/* Dynamic main headline with AnimatePresence */}
-        <AnimatePresence mode="popLayout">
-          <motion.h1
-            key={`tagline-${activeVertical}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            className="mb-10 text-5xl font-bold leading-[1.1] tracking-tight md:text-6xl lg:text-7xl"
-            style={{ color: config.accentColor }}
-          >
-            {config.tagline}
-          </motion.h1>
-        </AnimatePresence>
+        {/* Dynamic main headline - fixed height container to prevent layout shift */}
+        <div className="relative mb-10 h-[120px] md:h-[140px] lg:h-[170px]">
+          <AnimatePresence mode="wait">
+            <motion.h1
+              key={`tagline-${activeVertical}`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="absolute inset-0 flex items-center justify-center text-5xl font-bold leading-[1.1] tracking-tight md:text-6xl lg:text-7xl"
+              style={{ color: config.accentColor }}
+            >
+              {config.tagline}
+            </motion.h1>
+          </AnimatePresence>
+        </div>
 
         {/* Vertical toggle pills */}
         <div className="mb-10 flex flex-wrap items-center justify-center gap-2">
@@ -324,19 +326,21 @@ export function Hero() {
           })}
         </div>
 
-        {/* Dynamic description with AnimatePresence */}
-        <AnimatePresence mode="popLayout">
-          <motion.p
-            key={`desc-${activeVertical}`}
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3, delay: 0.05, ease: "easeOut" }}
-            className="mx-auto mb-14 max-w-2xl text-lg leading-relaxed text-[var(--muted)] md:text-xl lg:text-[1.35rem]"
-          >
-            {config.description}
-          </motion.p>
-        </AnimatePresence>
+        {/* Dynamic description - fixed height container to prevent layout shift */}
+        <div className="relative mx-auto mb-14 h-[80px] max-w-2xl md:h-[60px]">
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={`desc-${activeVertical}`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2, delay: 0.1 }}
+              className="absolute inset-0 flex items-center justify-center text-center text-lg leading-relaxed text-[var(--muted)] md:text-xl lg:text-[1.35rem]"
+            >
+              {config.description}
+            </motion.p>
+          </AnimatePresence>
+        </div>
 
         {/* Logo Ticker - inside hero, above CTAs */}
         <div className="mb-14">
