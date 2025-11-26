@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTheme, Vertical } from "../context/ThemeContext";
 import { services, Service } from "../data/verticalContent";
 
-// Shared service card component - larger with prominent design element
+// Simplified service card component
 function ServiceCard({
   service,
   index,
@@ -33,16 +33,13 @@ function ServiceCard({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
-      whileHover={{ scale: 1.02, y: -4 }}
+      whileHover={{ y: -4 }}
       whileTap={{ scale: 0.98 }}
-      className="group w-full cursor-pointer rounded-2xl border bg-white p-6 text-left transition-all hover:shadow-lg"
-      style={{
-        borderColor: `rgba(${accentColorRgb}, 0.15)`,
-      }}
+      className="group w-full cursor-pointer rounded-xl border border-[var(--border)] bg-white p-6 text-left shadow-sm transition-all hover:shadow-lg"
     >
-      {/* Icon with decorative background */}
+      {/* Icon */}
       <div
-        className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl transition-transform group-hover:scale-110"
+        className="mb-5 flex h-12 w-12 items-center justify-center rounded-lg transition-transform group-hover:scale-105"
         style={{ backgroundColor: `rgba(${accentColorRgb}, 0.1)` }}
       >
         {icon}
@@ -61,11 +58,11 @@ function ServiceCard({
 
       {/* Hover indicator */}
       <div
-        className="mt-4 flex items-center gap-1.5 text-xs font-medium opacity-0 transition-opacity group-hover:opacity-100"
+        className="mt-4 flex items-center gap-1.5 text-sm font-medium opacity-0 transition-opacity group-hover:opacity-100"
         style={{ color: accentColor }}
       >
         <span>Learn more</span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
           <path d="M5 12h14M12 5l7 7-7 7" />
         </svg>
       </div>
@@ -107,8 +104,8 @@ function ServiceGrid({ accentColor, accentColorRgb, vertical }: { accentColor: s
   const icons = iconSets[vertical];
 
   return (
-    <div className="mx-auto max-w-4xl">
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+    <div className="mx-auto max-w-5xl">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:gap-8">
         {serviceList.map((service, index) => (
           <ServiceCard
             key={service.id}
@@ -134,53 +131,27 @@ export function ServicesSection() {
 
   return (
     <section id="services" className="relative overflow-hidden py-24 px-6">
-      {/* Geometric background - crosses pattern */}
+      {/* Geometric background */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="geo-crosses" />
-
-        {/* Accent circle */}
-        <motion.div
-          className="absolute -left-20 bottom-1/3 h-[300px] w-[300px] rounded-full border"
-          style={{ borderColor: `rgba(${config.accentColorRgb}, 0.1)` }}
-          animate={{ borderColor: `rgba(${config.accentColorRgb}, 0.1)` }}
-          transition={{ duration: 0.5 }}
-        />
       </div>
-
-      {/* Subtle gradient overlay */}
-      <motion.div
-        className="pointer-events-none absolute inset-0"
-        animate={{
-          background: `linear-gradient(0deg, transparent 0%, rgba(${config.accentColorRgb}, 0.02) 50%, transparent 100%)`,
-        }}
-        transition={{ duration: 0.5 }}
-      />
 
       <div className="relative mx-auto max-w-6xl">
         {/* Section header */}
-        <div className="mb-16 text-center">
+        <div className="mb-20 text-center">
           <motion.p
-            className="mb-4 text-xs font-medium uppercase tracking-widest"
+            className="mb-5 text-sm font-semibold uppercase tracking-[0.2em]"
             animate={{ color: config.accentColor }}
             transition={{ duration: 0.3 }}
           >
             What We Do
           </motion.p>
 
-          <AnimatePresence mode="wait">
-            <motion.h2
-              key={`services-title-${activeVertical}`}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.4 }}
-              className="mb-4 text-3xl font-semibold tracking-tight text-[var(--foreground)] md:text-4xl"
-            >
-              Our Services
-            </motion.h2>
-          </AnimatePresence>
+          <h2 className="mb-6 text-3xl font-semibold tracking-tight text-[var(--foreground)] md:text-4xl lg:text-5xl">
+            Our Services
+          </h2>
 
-          <p className="mx-auto max-w-2xl text-lg text-[var(--muted)]">
+          <p className="mx-auto max-w-2xl text-lg text-[var(--muted)] md:text-xl">
             From strategy to execution, we partner with you at every stage.
           </p>
         </div>
@@ -204,19 +175,30 @@ export function ServicesSection() {
 
         {/* CTA */}
         <motion.div
-          className="mt-16 text-center"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
+          className="mt-20 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.5 }}
         >
           <motion.a
             href="mailto:hello@procedure.tech"
-            className="inline-block rounded-full px-8 py-3.5 text-base font-medium text-white"
-            style={{ backgroundColor: config.accentColor }}
-            whileHover={{ scale: 1.02, opacity: 0.9 }}
+            className="group inline-flex items-center gap-2 rounded-full px-8 py-4 text-base font-medium text-white transition-all duration-300"
+            style={{
+              backgroundColor: config.accentColor,
+              boxShadow: `0 4px 14px rgba(${config.accentColorRgb}, 0.25), 0 2px 6px rgba(0, 0, 0, 0.08)`,
+            }}
+            whileHover={{ scale: 1.02, y: -2 }}
             whileTap={{ scale: 0.98 }}
           >
             Let&apos;s talk about your needs
+            <svg
+              className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
           </motion.a>
         </motion.div>
       </div>

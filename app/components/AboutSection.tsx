@@ -16,7 +16,7 @@ export function AboutSection() {
     <section id="about" className="relative overflow-hidden py-24 px-6">
       {/* Background */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="geo-dots opacity-40" />
+        <div className="geo-dots opacity-30" />
       </div>
 
       <div className="relative mx-auto max-w-5xl">
@@ -37,7 +37,7 @@ export function AboutSection() {
             </h2>
 
             <p className="text-base leading-relaxed text-[var(--muted)] md:text-lg">
-              We're a team of engineers who've built and scaled products at startups and enterprises alike.
+              We&apos;re a team of engineers who&apos;ve built and scaled products at startups and enterprises alike.
               We partner with companies to solve hard technical problems — from AI systems that actually
               work in production to platforms that scale with your ambition.
             </p>

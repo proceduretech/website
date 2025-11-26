@@ -13,31 +13,43 @@ export function CTASection() {
       <motion.div
         className="pointer-events-none absolute inset-0"
         animate={{
-          background: `linear-gradient(135deg, rgba(${config.accentColorRgb}, 0.08) 0%, transparent 50%, rgba(${config.accentColorRgb}, 0.05) 100%)`,
+          background: `radial-gradient(ellipse 80% 60% at 50% 50%, rgba(${config.accentColorRgb}, 0.06) 0%, transparent 70%)`,
         }}
         transition={{ duration: 0.5 }}
       />
 
-      <div className="relative mx-auto max-w-3xl text-center">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+        className="relative mx-auto max-w-4xl text-center"
+      >
         <motion.h2
-          className="mb-6 text-4xl font-semibold tracking-tight md:text-5xl"
+          className="mb-8 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl"
           animate={{ color: config.accentColor }}
           transition={{ duration: 0.3 }}
         >
-          Let's build something great
+          Let&apos;s build something great
         </motion.h2>
 
-        <p className="mb-10 text-lg text-[var(--muted)] md:text-xl">
+        <p className="mx-auto mb-12 max-w-2xl text-lg text-[var(--muted)] md:text-xl lg:text-[1.35rem]">
           Whether you need to ship faster, scale your AI, or secure your systems —
-          we're ready to help. Book a call and let's talk.
+          we&apos;re ready to help. Book a call and let&apos;s talk.
         </p>
 
-        <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+        <motion.div
+          className="flex flex-col items-center gap-5 sm:flex-row sm:justify-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
           <CalButton />
 
           <a
             href="mailto:hello@procedure.tech"
-            className="inline-flex items-center gap-2 rounded-lg border border-[var(--border)] bg-[var(--background)] px-6 py-3 font-medium text-[var(--foreground)] transition-colors hover:border-[var(--foreground)]"
+            className="group inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-white px-7 py-4 text-base font-medium text-[var(--foreground)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--foreground)] hover:shadow-md"
           >
             <svg
               className="h-5 w-5"
@@ -53,9 +65,17 @@ export function CTASection() {
               />
             </svg>
             Email Us
+            <svg
+              className="h-4 w-4 opacity-60 transition-transform duration-300 group-hover:translate-x-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
           </a>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

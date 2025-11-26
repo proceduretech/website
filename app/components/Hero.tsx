@@ -40,7 +40,7 @@ export function Hero() {
   return (
     <section
       ref={heroRef}
-      className="relative flex min-h-screen flex-col items-center justify-center overflow-x-hidden px-4 pt-16 sm:px-6"
+      className="relative flex min-h-screen flex-col items-center justify-center overflow-x-hidden px-4 pt-20 sm:px-6"
     >
       {/* Geometric background patterns - different per vertical */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -54,38 +54,54 @@ export function Hero() {
               transition={{ duration: 0.5 }}
               className="absolute inset-0"
             >
-              {/* Neural network / connected nodes pattern */}
+              {/* Neural network / connected nodes pattern - with floating */}
               <div
-                className="absolute right-[10%] top-[15%] h-4 w-4 rounded-full"
-                style={{ backgroundColor: `rgba(${config.accentColorRgb}, 0.3)` }}
+                className="animate-float absolute right-[10%] top-[15%] h-5 w-5 rounded-full"
+                style={{
+                  backgroundColor: `rgba(${config.accentColorRgb}, 0.3)`,
+                  boxShadow: `0 0 20px rgba(${config.accentColorRgb}, 0.2)`
+                }}
               />
               <div
-                className="absolute right-[25%] top-[25%] h-3 w-3 rounded-full"
-                style={{ backgroundColor: `rgba(${config.accentColorRgb}, 0.2)` }}
+                className="animate-float-slow absolute right-[25%] top-[25%] h-4 w-4 rounded-full"
+                style={{
+                  backgroundColor: `rgba(${config.accentColorRgb}, 0.25)`,
+                  animationDelay: '1s'
+                }}
               />
               <div
-                className="absolute right-[15%] top-[35%] h-5 w-5 rounded-full"
-                style={{ backgroundColor: `rgba(${config.accentColorRgb}, 0.25)` }}
+                className="animate-float absolute right-[15%] top-[35%] h-6 w-6 rounded-full"
+                style={{
+                  backgroundColor: `rgba(${config.accentColorRgb}, 0.2)`,
+                  boxShadow: `0 0 30px rgba(${config.accentColorRgb}, 0.15)`,
+                  animationDelay: '2s'
+                }}
               />
               <div
-                className="absolute left-[8%] bottom-[20%] h-4 w-4 rounded-full"
-                style={{ backgroundColor: `rgba(${config.accentColorRgb}, 0.2)` }}
+                className="animate-float-slow absolute left-[8%] bottom-[20%] h-5 w-5 rounded-full"
+                style={{
+                  backgroundColor: `rgba(${config.accentColorRgb}, 0.25)`,
+                  boxShadow: `0 0 25px rgba(${config.accentColorRgb}, 0.15)`
+                }}
               />
               <div
-                className="absolute left-[15%] bottom-[35%] h-3 w-3 rounded-full"
-                style={{ backgroundColor: `rgba(${config.accentColorRgb}, 0.15)` }}
+                className="animate-float absolute left-[15%] bottom-[35%] h-4 w-4 rounded-full"
+                style={{
+                  backgroundColor: `rgba(${config.accentColorRgb}, 0.2)`,
+                  animationDelay: '1.5s'
+                }}
               />
               {/* Connecting lines */}
               <svg className="absolute inset-0 h-full w-full">
                 <line
                   x1="90%" y1="17%" x2="75%" y2="27%"
-                  stroke={`rgba(${config.accentColorRgb}, 0.1)`}
-                  strokeWidth="1"
+                  stroke={`rgba(${config.accentColorRgb}, 0.12)`}
+                  strokeWidth="1.5"
                 />
                 <line
                   x1="75%" y1="27%" x2="85%" y2="37%"
-                  stroke={`rgba(${config.accentColorRgb}, 0.1)`}
-                  strokeWidth="1"
+                  stroke={`rgba(${config.accentColorRgb}, 0.12)`}
+                  strokeWidth="1.5"
                 />
                 <line
                   x1="90%" y1="17%" x2="85%" y2="37%"
@@ -94,14 +110,17 @@ export function Hero() {
                 />
                 <line
                   x1="8%" y1="80%" x2="15%" y2="65%"
-                  stroke={`rgba(${config.accentColorRgb}, 0.1)`}
-                  strokeWidth="1"
+                  stroke={`rgba(${config.accentColorRgb}, 0.12)`}
+                  strokeWidth="1.5"
                 />
               </svg>
-              {/* Large decorative circle */}
+              {/* Large decorative circle with glow */}
               <div
-                className="absolute -right-32 top-[20%] h-[400px] w-[400px] rounded-full border"
-                style={{ borderColor: `rgba(${config.accentColorRgb}, 0.08)` }}
+                className="animate-pulse-glow absolute -right-32 top-[20%] h-[450px] w-[450px] rounded-full border-2"
+                style={{
+                  borderColor: `rgba(${config.accentColorRgb}, 0.1)`,
+                  boxShadow: `inset 0 0 60px rgba(${config.accentColorRgb}, 0.03)`
+                }}
               />
             </motion.div>
           )}
@@ -253,13 +272,13 @@ export function Hero() {
         transition={{ duration: 0.7 }}
       />
 
-      <div className="relative z-10 mx-auto w-full max-w-4xl px-4 text-center">
+      <div className="relative z-10 mx-auto w-full max-w-5xl px-4 text-center">
         {/* Anchor line */}
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-6 text-sm font-medium uppercase tracking-widest text-[var(--muted)]"
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mb-8 text-sm font-semibold uppercase tracking-[0.2em] text-[var(--muted)]"
         >
           Four disciplines. One partner.
         </motion.p>
@@ -268,11 +287,11 @@ export function Hero() {
         <AnimatePresence mode="wait">
           <motion.h1
             key={`tagline-${activeVertical}`}
-            initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+            initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            exit={{ opacity: 0, y: -10, filter: "blur(4px)" }}
-            transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="mb-8 text-4xl font-semibold leading-tight tracking-tight md:text-5xl lg:text-6xl"
+            exit={{ opacity: 0, y: -20, filter: "blur(8px)" }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="mb-10 text-5xl font-bold leading-[1.1] tracking-tight md:text-6xl lg:text-7xl"
             style={{ color: config.accentColor }}
           >
             {config.tagline}
@@ -312,31 +331,44 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
-            className="mx-auto mb-12 max-w-2xl text-lg leading-relaxed text-[var(--muted)] md:text-xl"
+            transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
+            className="mx-auto mb-14 max-w-2xl text-lg leading-relaxed text-[var(--muted)] md:text-xl lg:text-[1.35rem]"
           >
             {config.description}
           </motion.p>
         </AnimatePresence>
 
         {/* Logo Ticker - inside hero, above CTAs */}
-        <div className="mb-12">
+        <div className="mb-14">
           <LogoTicker />
         </div>
 
         {/* CTA */}
-        <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <motion.div
+          className="flex flex-col items-center justify-center gap-4 sm:flex-row"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
           <CalButton />
           <motion.a
             href="#services"
-            className="rounded-full border border-[var(--border)] px-8 py-3.5 text-base font-medium text-[var(--foreground)]"
-            whileHover={{ scale: 1.02, borderColor: "var(--muted)" }}
+            className="group inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-white px-7 py-4 text-base font-medium text-[var(--foreground)] transition-all duration-300 hover:border-[var(--foreground)] hover:shadow-md"
+            whileHover={{ scale: 1.02, y: -2 }}
             whileTap={{ scale: 0.98 }}
             transition={{ duration: 0.2 }}
           >
             Explore services
+            <svg
+              className="h-4 w-4 opacity-60 transition-transform duration-300 group-hover:translate-x-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
           </motion.a>
-        </div>
+        </motion.div>
       </div>
 
       {/* Scroll indicator */}

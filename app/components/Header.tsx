@@ -20,11 +20,11 @@ export function Header() {
 
   return (
     <>
-      <header className="fixed left-0 right-0 top-0 z-50 border-b border-[var(--border)] bg-[var(--background)]/80 backdrop-blur-xl">
+      <header className="fixed left-0 right-0 top-0 z-50 border-b border-[var(--border)]/50 bg-[var(--background)]/70 backdrop-blur-xl">
         {/* Desktop Layout */}
-        <div className="mx-auto hidden h-16 max-w-6xl items-center justify-between px-6 lg:flex">
+        <div className="mx-auto hidden h-18 max-w-6xl items-center justify-between px-6 lg:flex">
           {/* Logo */}
-          <Link href="/" className="text-xl font-semibold tracking-tight">
+          <Link href="/" className="text-xl font-bold tracking-tight">
             procedure
             <motion.span
               animate={{ color: config.accentColor }}
@@ -90,13 +90,24 @@ export function Header() {
             {/* CTA button */}
             <motion.a
               href="mailto:hello@procedure.tech"
-              className="rounded-full px-5 py-2 text-sm font-medium text-white"
-              animate={{ backgroundColor: config.accentColor }}
-              whileHover={{ scale: 1.02, opacity: 0.9 }}
+              className="group inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-white transition-all duration-300"
+              style={{
+                backgroundColor: config.accentColor,
+                boxShadow: `0 2px 8px rgba(${config.accentColorRgb}, 0.2)`,
+              }}
+              whileHover={{ scale: 1.02, y: -1 }}
               whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.2 }}
             >
               Get in touch
+              <svg
+                className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
             </motion.a>
           </div>
         </div>
