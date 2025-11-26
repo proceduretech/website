@@ -305,3 +305,465 @@ body {
   box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.1),
               0 0 40px rgba(var(--accent-rgb), 0.05);
 }
+
+/* ========================================
+   PROSE / TYPOGRAPHY STYLES FOR BLOG
+   ======================================== */
+
+.prose {
+  color: var(--foreground);
+  max-width: 65ch;
+  font-size: 1.125rem;
+  line-height: 1.75;
+}
+
+.prose > * + * {
+  margin-top: 1.5em;
+}
+
+/* Headings */
+.prose h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-top: 2.5em;
+  margin-bottom: 0.75em;
+  color: var(--foreground);
+}
+
+.prose h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin-top: 2em;
+  margin-bottom: 0.75em;
+  color: var(--foreground);
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid var(--border);
+}
+
+.prose h3 {
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-top: 1.75em;
+  margin-bottom: 0.5em;
+  color: var(--foreground);
+}
+
+.prose h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  color: var(--foreground);
+}
+
+/* Paragraphs */
+.prose p {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+/* Links */
+.prose a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: rgba(var(--accent-rgb), 0.4);
+  text-underline-offset: 2px;
+  transition: all 0.2s ease;
+}
+
+.prose a:hover {
+  text-decoration-color: var(--accent);
+}
+
+/* Bold and Emphasis */
+.prose strong {
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.prose em {
+  font-style: italic;
+}
+
+/* Lists */
+.prose ul {
+  list-style-type: disc;
+  padding-left: 1.625em;
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+.prose ol {
+  list-style-type: decimal;
+  padding-left: 1.625em;
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+.prose li {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-left: 0.375em;
+}
+
+.prose li::marker {
+  color: var(--muted);
+}
+
+.prose ul ul,
+.prose ol ol,
+.prose ul ol,
+.prose ol ul {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+/* Blockquotes */
+.prose blockquote {
+  border-left: 4px solid var(--accent);
+  padding-left: 1.5em;
+  margin: 2em 0;
+  font-style: italic;
+  color: var(--muted);
+  background: linear-gradient(90deg, rgba(var(--accent-rgb), 0.05), transparent);
+  padding: 1.25em 1.5em;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.prose blockquote p {
+  margin: 0;
+}
+
+.prose blockquote cite,
+.prose blockquote footer {
+  display: block;
+  margin-top: 0.75em;
+  font-size: 0.875rem;
+  font-style: normal;
+  color: var(--muted);
+}
+
+.prose blockquote cite::before {
+  content: "— ";
+}
+
+/* Code - Inline */
+.prose code {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.875em;
+  background: #f3f4f6;
+  padding: 0.2em 0.4em;
+  border-radius: 0.25rem;
+  color: #d946ef;
+}
+
+/* Code - Blocks */
+.prose pre {
+  background: #1f2937;
+  color: #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  overflow-x: auto;
+  margin: 1.75em 0;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  box-shadow: var(--shadow-lg);
+}
+
+.prose pre code {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* Tables */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2em 0;
+  font-size: 0.9375rem;
+}
+
+.prose thead {
+  border-bottom: 2px solid var(--border);
+}
+
+.prose th {
+  text-align: left;
+  padding: 0.75em 1em;
+  font-weight: 600;
+  color: var(--foreground);
+  background: #f9fafb;
+}
+
+.prose td {
+  padding: 0.75em 1em;
+  border-bottom: 1px solid var(--border);
+}
+
+.prose tbody tr:hover {
+  background: #f9fafb;
+}
+
+/* Images */
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  margin: 2em 0;
+  box-shadow: var(--shadow-lg);
+}
+
+.prose figure {
+  margin: 2em 0;
+}
+
+.prose figcaption {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin-top: 0.75em;
+}
+
+/* Horizontal Rule */
+.prose hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  margin: 3em 0;
+}
+
+/* Task Lists */
+.prose ul.task-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.prose .task-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5em;
+}
+
+.prose .task-list-item input[type="checkbox"] {
+  margin-top: 0.375em;
+  accent-color: var(--accent);
+}
+
+/* Embed Containers */
+.prose .embed-container {
+  position: relative;
+  margin: 2em 0;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.prose .embed-container.video {
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+}
+
+.prose .embed-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Twitter/X Embed */
+.prose .twitter-embed {
+  margin: 2em 0;
+  display: flex;
+  justify-content: center;
+}
+
+.prose .twitter-embed > div {
+  max-width: 550px;
+  width: 100%;
+}
+
+/* YouTube Embed */
+.prose .youtube-embed {
+  position: relative;
+  padding-bottom: 56.25%;
+  margin: 2em 0;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.prose .youtube-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Link Cards */
+.prose .link-card {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  margin: 1.5em 0;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.prose .link-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.prose .link-card-image {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  flex-shrink: 0;
+}
+
+.prose .link-card-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.prose .link-card-title {
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 0.25em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.prose .link-card-description {
+  font-size: 0.875rem;
+  color: var(--muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.prose .link-card-domain {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 0.5em;
+}
+
+/* ASCII Art / Diagrams */
+.prose .ascii-diagram {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  background: #f9fafb;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  overflow-x: auto;
+  margin: 2em 0;
+  white-space: pre;
+}
+
+/* Footnotes */
+.prose .footnotes {
+  margin-top: 3em;
+  padding-top: 1.5em;
+  border-top: 1px solid var(--border);
+  font-size: 0.875rem;
+}
+
+.prose .footnotes ol {
+  padding-left: 1.25em;
+}
+
+.prose .footnote-ref {
+  font-size: 0.75em;
+  vertical-align: super;
+}
+
+/* Keyboard shortcuts */
+.prose kbd {
+  display: inline-block;
+  padding: 0.125em 0.375em;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.875em;
+  background: #f3f4f6;
+  border: 1px solid var(--border);
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 0 var(--border);
+}
+
+/* Definition Lists */
+.prose dl {
+  margin: 1.5em 0;
+}
+
+.prose dt {
+  font-weight: 600;
+  margin-top: 1em;
+}
+
+.prose dd {
+  margin-left: 1.5em;
+  margin-top: 0.25em;
+  color: var(--muted);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .prose {
+    font-size: 1rem;
+  }
+
+  .prose h1 {
+    font-size: 1.75rem;
+  }
+
+  .prose h2 {
+    font-size: 1.5rem;
+  }
+
+  .prose h3 {
+    font-size: 1.25rem;
+  }
+
+  .prose pre {
+    padding: 1rem;
+    font-size: 0.8125rem;
+    border-radius: 0.5rem;
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+
+  .prose table {
+    font-size: 0.875rem;
+  }
+
+  .prose th,
+  .prose td {
+    padding: 0.5em 0.75em;
+  }
+
+  .prose .link-card {
+    flex-direction: column;
+  }
+
+  .prose .link-card-image {
+    width: 100%;
+    height: 160px;
+  }
+}

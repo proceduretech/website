@@ -14,6 +14,9 @@ const footerLinks = {
     { label: "About", href: "#about" },
     { label: "How We Work", href: "#how-we-work" },
     { label: "Security", href: "#security" },
+    { label: "Blog", href: "/blog" },
+    { label: "Careers", href: "/careers" },
+    { label: "Contact", href: "/contact" },
   ],
   connect: [
     { label: "LinkedIn", href: "https://linkedin.com/company/procedure" },
