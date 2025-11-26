@@ -2,25 +2,78 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0a0a0a;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --accent: #14b8a6;
+  --accent-rgb: 20, 184, 166;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(var(--accent-rgb), 0.2);
+  color: var(--foreground);
+}
+
+/* Geometric pattern background */
+.geo-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(#e5e7eb 1px, transparent 1px),
+    linear-gradient(90deg, #e5e7eb 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.5;
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black, transparent);
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black, transparent);
+}
+
+.geo-dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, #9ca3af 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+  opacity: 0.3;
+  -webkit-mask-image: radial-gradient(ellipse 70% 50% at 50% 40%, black, transparent);
+  mask-image: radial-gradient(ellipse 70% 50% at 50% 40%, black, transparent);
+}
+
+.geo-crosses {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(#d1d5db 1px, transparent 1px),
+    linear-gradient(90deg, #d1d5db 1px, transparent 1px);
+  background-size: 8px 8px;
+  background-position: center center;
+  opacity: 0.4;
+  -webkit-mask-image:
+    radial-gradient(circle at 50% 50%, transparent 2px, black 2px),
+    radial-gradient(ellipse 60% 50% at 50% 60%, black, transparent);
+  mask-image:
+    radial-gradient(circle at 50% 50%, transparent 2px, black 2px),
+    radial-gradient(ellipse 60% 50% at 50% 60%, black, transparent);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
 }
