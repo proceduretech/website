@@ -40,7 +40,7 @@ export function Hero() {
   return (
     <section
       ref={heroRef}
-      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pt-16"
+      className="relative flex min-h-screen flex-col items-center justify-center overflow-x-hidden px-4 pt-16 sm:px-6"
     >
       {/* Geometric background patterns - different per vertical */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -253,7 +253,7 @@ export function Hero() {
         transition={{ duration: 0.7 }}
       />
 
-      <div className="relative z-10 mx-auto max-w-4xl text-center">
+      <div className="relative z-10 mx-auto w-full max-w-4xl px-4 text-center">
         {/* Anchor line */}
         <motion.p
           initial={{ opacity: 0, y: 10 }}
