@@ -284,13 +284,13 @@ export function Hero() {
         </motion.p>
 
         {/* Dynamic main headline with AnimatePresence */}
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="popLayout">
           <motion.h1
             key={`tagline-${activeVertical}`}
-            initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            exit={{ opacity: 0, y: -20, filter: "blur(8px)" }}
-            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
             className="mb-10 text-5xl font-bold leading-[1.1] tracking-tight md:text-6xl lg:text-7xl"
             style={{ color: config.accentColor }}
           >
@@ -325,13 +325,13 @@ export function Hero() {
         </div>
 
         {/* Dynamic description with AnimatePresence */}
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="popLayout">
           <motion.p
             key={`desc-${activeVertical}`}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
+            transition={{ duration: 0.3, delay: 0.05, ease: "easeOut" }}
             className="mx-auto mb-14 max-w-2xl text-lg leading-relaxed text-[var(--muted)] md:text-xl lg:text-[1.35rem]"
           >
             {config.description}
