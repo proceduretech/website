@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "./context/ThemeContext";
 import { ScrollProvider } from "./context/ScrollContext";
 import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,6 +34,7 @@ export default function RootLayout({
           <ScrollProvider>
             <Header />
             {children}
+            <Footer />
           </ScrollProvider>
         </ThemeProvider>
       </body>
