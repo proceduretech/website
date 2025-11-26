@@ -25,13 +25,13 @@ export const verticals: Record<Vertical, VerticalConfig> = {
     tagline: "We make AI work in production",
     description:
       "Most AI projects die between demo and deployment. We build the infrastructure, pipelines, and integrations that make AI systems reliable at scale.",
-    // Teal primary with analogous blue-cyan palette
-    accentColor: "#14b8a6",
-    accentColorRgb: "20, 184, 166",
-    secondaryColor: "#0ea5e9", // Sky blue
-    secondaryColorRgb: "14, 165, 233",
-    tertiaryColor: "#06b6d4", // Cyan
-    tertiaryColorRgb: "6, 182, 212",
+    // Pearl Aqua primary with analogous blue-green palette
+    accentColor: "#47b8ab",
+    accentColorRgb: "71, 184, 171",
+    secondaryColor: "#6a58a7", // Space Indigo - analogous cool tone
+    secondaryColorRgb: "106, 88, 167",
+    tertiaryColor: "#6cc6bb", // Pearl Aqua 400 - lighter teal
+    tertiaryColorRgb: "108, 198, 187",
   },
   software: {
     id: "software",
@@ -40,13 +40,13 @@ export const verticals: Record<Vertical, VerticalConfig> = {
     tagline: "Software built for the next decade",
     description:
       "We engineer systems designed for change. Clean architecture, pragmatic testing, and infrastructure that accelerates your team instead of slowing it down.",
-    // Green primary with blue-emerald analogous palette
-    accentColor: "#22c55e",
-    accentColorRgb: "34, 197, 94",
-    secondaryColor: "#3b82f6", // Blue
-    secondaryColorRgb: "59, 130, 246",
-    tertiaryColor: "#10b981", // Emerald
-    tertiaryColorRgb: "16, 185, 129",
+    // Jasmine (golden yellow) primary with split-complementary palette
+    accentColor: "#edb312",
+    accentColorRgb: "237, 179, 18",
+    secondaryColor: "#47b8ab", // Pearl Aqua - split complement
+    secondaryColorRgb: "71, 184, 171",
+    tertiaryColor: "#f4d171", // Jasmine 300 - lighter gold
+    tertiaryColorRgb: "244, 209, 113",
   },
   design: {
     id: "design",
@@ -55,13 +55,13 @@ export const verticals: Record<Vertical, VerticalConfig> = {
     tagline: "Design that drives business outcomes",
     description:
       "We don't design for awards. We design interfaces that reduce friction, increase adoption, and move the metrics your business cares about.",
-    // Purple primary with pink-violet analogous palette
-    accentColor: "#a855f7",
-    accentColorRgb: "168, 85, 247",
-    secondaryColor: "#ec4899", // Pink
-    secondaryColorRgb: "236, 72, 153",
-    tertiaryColor: "#8b5cf6", // Violet
-    tertiaryColorRgb: "139, 92, 246",
+    // Space Indigo primary with analogous purple-pink palette
+    accentColor: "#6a58a7",
+    accentColorRgb: "106, 88, 167",
+    secondaryColor: "#8879b9", // Space Indigo 400 - lighter purple
+    secondaryColorRgb: "136, 121, 185",
+    tertiaryColor: "#47b8ab", // Pearl Aqua - complementary accent
+    tertiaryColorRgb: "71, 184, 171",
   },
   "ai-security": {
     id: "ai-security",
@@ -70,13 +70,13 @@ export const verticals: Record<Vertical, VerticalConfig> = {
     tagline: "Secure your AI before others exploit it",
     description:
       "AI systems have attack surfaces your security team hasn't seen. We find the vulnerabilities—prompt injection, data extraction, adversarial attacks—before bad actors do.",
-    // Orange primary with amber-red warm palette
-    accentColor: "#f97316",
-    accentColorRgb: "249, 115, 22",
-    secondaryColor: "#ef4444", // Red
-    secondaryColorRgb: "239, 68, 68",
-    tertiaryColor: "#f59e0b", // Amber
-    tertiaryColorRgb: "245, 158, 11",
+    // Princeton Orange primary with analogous warm palette
+    accentColor: "#ff8000",
+    accentColorRgb: "255, 128, 0",
+    secondaryColor: "#cc6600", // Princeton Orange 600 - deeper orange
+    secondaryColorRgb: "204, 102, 0",
+    tertiaryColor: "#edb312", // Jasmine - analogous gold
+    tertiaryColorRgb: "237, 179, 18",
   },
 };
 
