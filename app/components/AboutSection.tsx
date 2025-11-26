@@ -19,7 +19,7 @@ export function AboutSection() {
         <div className="geo-dots opacity-30" />
       </div>
 
-      <div className="relative mx-auto max-w-5xl">
+      <div className="relative mx-auto max-w-6xl">
         <div className="grid gap-12 md:grid-cols-2 md:items-center">
           {/* Left: Content */}
           <div>

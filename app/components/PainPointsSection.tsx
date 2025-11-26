@@ -15,7 +15,7 @@ export function PainPointsSection() {
         <div className="geo-dots opacity-30" />
       </div>
 
-      <div className="relative mx-auto max-w-5xl">
+      <div className="relative mx-auto max-w-6xl">
         {/* Animated content wrapper */}
         <AnimatePresence mode="wait">
           <motion.div

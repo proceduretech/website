@@ -104,7 +104,7 @@ function ServiceGrid({ accentColor, accentColorRgb, vertical }: { accentColor: s
   const icons = iconSets[vertical];
 
   return (
-    <div className="mx-auto max-w-5xl">
+    <div className="mx-auto max-w-6xl">
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:gap-8">
         {serviceList.map((service, index) => (
           <ServiceCard
