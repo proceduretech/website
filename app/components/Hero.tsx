@@ -338,7 +338,11 @@ export function Hero() {
                 className="group relative cursor-pointer overflow-hidden rounded-full px-6 py-3 text-base font-semibold transition-shadow duration-300"
                 style={{
                   color: isActive ? "#ffffff" : "var(--foreground)",
-                  backgroundColor: isActive ? vertical.accentColor : "rgba(255,255,255,0.8)",
+                  backgroundColor: isActive
+                    ? userHasInteracted
+                      ? vertical.accentColor
+                      : "rgba(255,255,255,0.8)"
+                    : "rgba(255,255,255,0.8)",
                   border: `2px solid ${isActive ? vertical.accentColor : "var(--border)"}`,
                   boxShadow: isActive
                     ? `0 4px 20px rgba(${vertical.accentColorRgb}, 0.35)`
@@ -353,13 +357,13 @@ export function Hero() {
                 whileTap={{ scale: 0.97 }}
                 transition={{ duration: 0.2 }}
               >
-                {tVerticals(`${id}.label`)}
-                {/* Progress indicator for auto-rotation */}
+                {/* Progress fill for auto-rotation - solid color fills in */}
                 {isActive && !userHasInteracted && (
                   <motion.span
-                    className="absolute bottom-0 left-0 h-1 rounded-full bg-white/40"
-                    initial={{ width: "0%" }}
-                    animate={{ width: "100%" }}
+                    className="absolute inset-0 rounded-full"
+                    style={{ backgroundColor: vertical.accentColor }}
+                    initial={{ clipPath: "inset(0 100% 0 0)" }}
+                    animate={{ clipPath: "inset(0 0% 0 0)" }}
                     transition={{
                       duration: ROTATION_INTERVAL / 1000,
                       ease: "linear",
@@ -367,6 +371,16 @@ export function Hero() {
                     key={`progress-${id}-${activeVertical}`}
                   />
                 )}
+                <span
+                  className="relative z-10"
+                  style={{
+                    textShadow: isActive && !userHasInteracted
+                      ? `0 0 8px ${vertical.accentColor}, 0 0 2px ${vertical.accentColor}`
+                      : "none",
+                  }}
+                >
+                  {tVerticals(`${id}.label`)}
+                </span>
               </motion.button>
             );
           })}
