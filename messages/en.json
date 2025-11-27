@@ -257,30 +257,66 @@
     }
   },
   "painPoints": {
-    "headline": "Sound familiar?",
-    "ai-engineering": [
-      "Our AI demo works great, but we can't get it to production",
-      "Models keep breaking and we don't know why",
-      "Data pipelines are a mess of scripts and cron jobs",
-      "We're stuck on prototypes while competitors ship"
-    ],
-    "software": [
-      "Every new feature takes longer than the last",
-      "We're afraid to touch legacy code",
-      "Deployments are stressful and unpredictable",
-      "Our infrastructure can't keep up with growth"
-    ],
-    "design": [
-      "Users abandon our product but we don't know why",
-      "Design and engineering are constantly misaligned",
-      "We ship features nobody asked for",
-      "Our app feels dated compared to competitors"
-    ],
-    "ai-security": [
-      "We deployed AI but haven't tested for attacks",
-      "Our security team doesn't understand AI risks",
-      "We're not sure what data our models leak",
-      "Compliance is asking questions we can't answer"
-    ]
+    "problem": {
+      "label": "The Challenge",
+      "title": "Scaling is",
+      "titleHighlight": "complex.",
+      "ai-engineering": "You've invested millions in AI initiatives. The prototypes are impressive. But production-grade AI? That's where most organizations stall. Models drift. Pipelines break. And the gap between a compelling demo and enterprise-ready systems grows wider every quarter.",
+      "software": "Your platform was built for a different era. Now every release feels like defusing a bomb. Technical debt compounds faster than your team can pay it down. And the architecture that got you here won't get you where you need to go.",
+      "design": "Your product works, but users struggle. Adoption stalls. Support tickets pile up. You're shipping features, but the experience doesn't match the sophistication your enterprise customers expect.",
+      "ai-security": "You've deployed AI across the organization. But have you stress-tested it? Most enterprise security frameworks weren't built for the unique attack surfaces AI introduces. And the risks aren't theoretical—they're actively being exploited."
+    },
+    "solution": {
+      "label": "A Better Way",
+      "title": "There's a",
+      "titleHighlight": "better",
+      "titleEnd": " path forward.",
+      "ai-engineering": [
+        "What if your AI systems could deploy to production in weeks, with the reliability your SLAs demand?",
+        "What if you had full observability into model performance, drift, and cost—before issues hit production?",
+        "What if you had engineering partners who've shipped AI at enterprise scale—and know where the bodies are buried?"
+      ],
+      "software": [
+        "What if your team could ship multiple times a day with complete confidence—even on Friday evenings?",
+        "What if you had full visibility into system health, performance bottlenecks, and infrastructure costs?",
+        "What if you had architects who've modernized legacy systems for the Fortune 500—and know what actually works?"
+      ],
+      "design": [
+        "What if your product was so intuitive that adoption happened organically, without training?",
+        "What if you could measure exactly how design decisions impact revenue, retention, and efficiency?",
+        "What if you had designers who understand enterprise complexity—and know how to make it invisible?"
+      ],
+      "ai-security": [
+        "What if you could deploy AI confidently, knowing you've tested for the attacks that matter?",
+        "What if you had complete visibility into what data your models access, store, and could potentially leak?",
+        "What if you had security experts who specialize in AI threats—before they become compliance nightmares?"
+      ]
+    },
+    "value": {
+      "label": "Our Expertise",
+      "title": "We've",
+      "titleHighlight": "solved",
+      "titleEnd": " this before.",
+      "ai-engineering": [
+        "We build the infrastructure that turns AI experiments into enterprise assets—production-ready, observable, and built to scale.",
+        "We implement MLOps pipelines that give you control over the entire model lifecycle, from training to retirement.",
+        "We bring hard-won experience from deploying AI at companies that can't afford downtime."
+      ],
+      "software": [
+        "We architect systems designed for the next decade—maintainable, scalable, and ready for requirements you haven't imagined yet.",
+        "We modernize legacy platforms incrementally, so you ship value continuously instead of betting everything on a risky rewrite.",
+        "We embed with your team to transfer knowledge, not just code. You'll own the capability long after we're gone."
+      ],
+      "design": [
+        "We design experiences that reduce friction, accelerate adoption, and move the metrics your business cares about.",
+        "We bring research rigor to enterprise UX—understanding your users' workflows before we touch a pixel.",
+        "We bridge design and engineering, ensuring what ships is what was designed—pixel-perfect and performant."
+      ],
+      "ai-security": [
+        "We identify vulnerabilities in your AI systems before adversaries do—prompt injection, data extraction, model manipulation.",
+        "We implement security controls purpose-built for AI, not retrofitted from traditional frameworks.",
+        "We prepare you for the compliance landscape that's coming—so you're ahead of regulations, not scrambling to catch up."
+      ]
+    }
   }
 }

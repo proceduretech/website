@@ -257,30 +257,66 @@
     }
   },
   "painPoints": {
-    "headline": "¿Te suena familiar?",
-    "ai-engineering": [
-      "Nuestra demo de IA funciona genial, pero no podemos llevarla a producción",
-      "Los modelos siguen fallando y no sabemos por qué",
-      "Los pipelines de datos son un desastre de scripts y cron jobs",
-      "Estamos atascados en prototipos mientras la competencia lanza"
-    ],
-    "software": [
-      "Cada nueva funcionalidad toma más tiempo que la anterior",
-      "Tenemos miedo de tocar el código legacy",
-      "Los despliegues son estresantes e impredecibles",
-      "Nuestra infraestructura no puede seguir el ritmo del crecimiento"
-    ],
-    "design": [
-      "Los usuarios abandonan nuestro producto pero no sabemos por qué",
-      "Diseño e ingeniería están constantemente desalineados",
-      "Lanzamos funcionalidades que nadie pidió",
-      "Nuestra app se siente anticuada comparada con la competencia"
-    ],
-    "ai-security": [
-      "Desplegamos IA pero no hemos probado contra ataques",
-      "Nuestro equipo de seguridad no entiende los riesgos de IA",
-      "No estamos seguros de qué datos filtran nuestros modelos",
-      "Cumplimiento está haciendo preguntas que no podemos responder"
-    ]
+    "problem": {
+      "label": "El Desafío",
+      "title": "Escalar es",
+      "titleHighlight": "complejo.",
+      "ai-engineering": "Has invertido millones en iniciativas de IA. Los prototipos son impresionantes. ¿Pero IA lista para producción? Ahí es donde la mayoría de las organizaciones se estancan. Los modelos derivan. Los pipelines fallan. Y la brecha entre una demo convincente y sistemas empresariales crece cada trimestre.",
+      "software": "Tu plataforma fue construida para otra era. Ahora cada lanzamiento se siente como desactivar una bomba. La deuda técnica se acumula más rápido de lo que tu equipo puede pagarla. Y la arquitectura que te trajo aquí no te llevará donde necesitas ir.",
+      "design": "Tu producto funciona, pero los usuarios luchan. La adopción se estanca. Los tickets de soporte se acumulan. Estás lanzando funcionalidades, pero la experiencia no coincide con la sofisticación que esperan tus clientes empresariales.",
+      "ai-security": "Has desplegado IA en toda la organización. ¿Pero la has puesto a prueba? La mayoría de los marcos de seguridad empresarial no fueron construidos para las superficies de ataque únicas que introduce la IA. Y los riesgos no son teóricos—están siendo explotados activamente."
+    },
+    "solution": {
+      "label": "Un Mejor Camino",
+      "title": "Hay un",
+      "titleHighlight": "mejor",
+      "titleEnd": " camino.",
+      "ai-engineering": [
+        "¿Qué pasaría si tus sistemas de IA pudieran desplegarse en producción en semanas, con la confiabilidad que exigen tus SLAs?",
+        "¿Qué pasaría si tuvieras visibilidad completa del rendimiento del modelo, la deriva y el costo—antes de que los problemas lleguen a producción?",
+        "¿Qué pasaría si tuvieras socios de ingeniería que han desplegado IA a escala empresarial—y saben dónde están los problemas?"
+      ],
+      "software": [
+        "¿Qué pasaría si tu equipo pudiera desplegar varias veces al día con total confianza—incluso los viernes por la noche?",
+        "¿Qué pasaría si tuvieras visibilidad completa del estado del sistema, cuellos de botella de rendimiento y costos de infraestructura?",
+        "¿Qué pasaría si tuvieras arquitectos que han modernizado sistemas legacy para el Fortune 500—y saben qué realmente funciona?"
+      ],
+      "design": [
+        "¿Qué pasaría si tu producto fuera tan intuitivo que la adopción ocurriera orgánicamente, sin capacitación?",
+        "¿Qué pasaría si pudieras medir exactamente cómo las decisiones de diseño impactan los ingresos, la retención y la eficiencia?",
+        "¿Qué pasaría si tuvieras diseñadores que entienden la complejidad empresarial—y saben cómo hacerla invisible?"
+      ],
+      "ai-security": [
+        "¿Qué pasaría si pudieras desplegar IA con confianza, sabiendo que has probado contra los ataques que importan?",
+        "¿Qué pasaría si tuvieras visibilidad completa de qué datos acceden, almacenan y podrían filtrar tus modelos?",
+        "¿Qué pasaría si tuvieras expertos en seguridad especializados en amenazas de IA—antes de que se conviertan en pesadillas de cumplimiento?"
+      ]
+    },
+    "value": {
+      "label": "Nuestra Experiencia",
+      "title": "Ya lo hemos",
+      "titleHighlight": "resuelto",
+      "titleEnd": " antes.",
+      "ai-engineering": [
+        "Construimos la infraestructura que convierte experimentos de IA en activos empresariales—listos para producción, observables y construidos para escalar.",
+        "Implementamos pipelines de MLOps que te dan control sobre todo el ciclo de vida del modelo, desde el entrenamiento hasta el retiro.",
+        "Traemos experiencia duramente ganada desplegando IA en empresas que no pueden permitirse tiempo de inactividad."
+      ],
+      "software": [
+        "Arquitectamos sistemas diseñados para la próxima década—mantenibles, escalables y listos para requisitos que aún no has imaginado.",
+        "Modernizamos plataformas legacy incrementalmente, para que entregues valor continuamente en lugar de apostarlo todo a una reescritura arriesgada.",
+        "Nos integramos con tu equipo para transferir conocimiento, no solo código. Serás dueño de la capacidad mucho después de que nos hayamos ido."
+      ],
+      "design": [
+        "Diseñamos experiencias que reducen la fricción, aceleran la adopción y mueven las métricas que importan a tu negocio.",
+        "Traemos rigor de investigación a la UX empresarial—entendiendo los flujos de trabajo de tus usuarios antes de tocar un pixel.",
+        "Conectamos diseño e ingeniería, asegurando que lo que se lanza es lo que se diseñó—perfecto al pixel y performante."
+      ],
+      "ai-security": [
+        "Identificamos vulnerabilidades en tus sistemas de IA antes que los adversarios—inyección de prompts, extracción de datos, manipulación de modelos.",
+        "Implementamos controles de seguridad diseñados específicamente para IA, no adaptados de marcos tradicionales.",
+        "Te preparamos para el panorama regulatorio que viene—para que estés adelante de las regulaciones, no corriendo para alcanzarlas."
+      ]
+    }
   }
 }
