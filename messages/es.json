@@ -1,0 +1,286 @@
+{
+  "metadata": {
+    "title": "Procedure | Consultoría Tecnológica Empresarial",
+    "description": "Servicios de Ingeniería de IA, Ingeniería de Software, Diseño y Seguridad de IA para empresas."
+  },
+  "navigation": {
+    "blog": "Blog",
+    "careers": "Carreras",
+    "contact": "Contacto",
+    "getInTouch": "Contáctanos"
+  },
+  "hero": {
+    "anchor": "Cuatro disciplinas. Un socio.",
+    "exploreServices": "Explorar servicios"
+  },
+  "logoTicker": {
+    "trustedBy": "Confían en nosotros líderes de la industria"
+  },
+  "services": {
+    "label": "Lo Que Hacemos",
+    "title": "Nuestros Servicios",
+    "subtitle": "De la estrategia a la ejecución, nos asociamos contigo en cada etapa.",
+    "learnMore": "Más información",
+    "cta": "Hablemos de tus necesidades"
+  },
+  "howWeWork": {
+    "label": "Cómo Trabajamos",
+    "title": "Modelos de colaboración flexibles",
+    "subtitle": "para adaptarnos a tu forma de operar",
+    "engagementModels": "Modelos de Colaboración",
+    "pricingModels": "Modelos de Precio",
+    "staffAug": {
+      "title": "Aumento de Personal",
+      "description": "Integra a nuestros ingenieros directamente en tu equipo. Escala según sea necesario."
+    },
+    "endToEnd": {
+      "title": "De Principio a Fin",
+      "description": "Nos encargamos del proyecto desde el descubrimiento hasta el despliegue. Tú te enfocas en tu negocio."
+    },
+    "bot": {
+      "title": "Construir-Operar-Transferir",
+      "description": "Lo construimos, lo operamos hasta que sea estable, y luego transferimos la propiedad a tu equipo."
+    },
+    "timeMaterial": {
+      "title": "Tiempo y Materiales",
+      "description": "Alcance flexible, pagas por el trabajo real. Ideal para requisitos cambiantes."
+    },
+    "fixedBid": {
+      "title": "Precio Fijo",
+      "description": "Alcance definido, precio acordado. Ideal para proyectos bien especificados."
+    }
+  },
+  "about": {
+    "label": "Sobre Nosotros",
+    "title": "Equipos de ingeniería",
+    "subtitle": "en los que puedes confiar",
+    "description": "Somos un equipo de ingenieros que ha construido y escalado productos tanto en startups como en empresas. Nos asociamos con empresas para resolver problemas técnicos difíciles — desde sistemas de IA que realmente funcionan en producción hasta plataformas que escalan con tu ambición.",
+    "founded": "Fundada",
+    "engineers": "Ingenieros",
+    "locations": "Ubicaciones",
+    "foundedValue": "2017",
+    "engineersValue": "50+",
+    "locationsValue": "Mumbai y SF"
+  },
+  "security": {
+    "label": "Seguridad y Cumplimiento",
+    "title": "Construido sobre confianza",
+    "description": "La seguridad no es algo secundario — es fundamental en nuestra forma de trabajar. Prácticas de nivel empresarial para proteger tus datos.",
+    "soc2": {
+      "title": "SOC 2 Tipo II",
+      "description": "Auditorías anuales de seguridad, disponibilidad y confidencialidad"
+    },
+    "encryption": {
+      "title": "Cifrado de Datos",
+      "description": "AES-256 en reposo, TLS 1.3 en tránsito"
+    },
+    "gdpr": {
+      "title": "Listo para GDPR",
+      "description": "Cumplimiento total con la protección de datos de la UE"
+    },
+    "accessControl": {
+      "title": "Control de Acceso",
+      "description": "RBAC con registro de auditoría y revisiones periódicas"
+    }
+  },
+  "cta": {
+    "title": "Construyamos algo grandioso",
+    "description": "Ya sea que necesites enviar más rápido, escalar tu IA o asegurar tus sistemas — estamos listos para ayudar. Agenda una llamada y hablemos.",
+    "emailUs": "Envíanos un Email",
+    "bookCall": "Agendar llamada"
+  },
+  "footer": {
+    "tagline": "Equipos de ingeniería en los que puedes confiar. IA, software, diseño y seguridad — desde Mumbai y San Francisco.",
+    "services": "Servicios",
+    "company": "Empresa",
+    "connect": "Conectar",
+    "aiEngineering": "Ingeniería de IA",
+    "softwareDevelopment": "Desarrollo de Software",
+    "design": "Diseño",
+    "aiSecurity": "Seguridad de IA",
+    "aboutLink": "Sobre Nosotros",
+    "howWeWorkLink": "Cómo Trabajamos",
+    "securityLink": "Seguridad",
+    "blogLink": "Blog",
+    "careersLink": "Carreras",
+    "contactLink": "Contacto",
+    "copyright": "Procedure Technologies. Todos los derechos reservados.",
+    "mumbai": "Mumbai",
+    "sanFrancisco": "San Francisco"
+  },
+  "blog": {
+    "label": "Blog y Casos de Estudio",
+    "title": "Perspectivas desde las",
+    "titleHighlight": "trincheras de ingeniería",
+    "description": "Análisis técnicos profundos, casos de estudio y lecciones aprendidas construyendo sistemas en producción.",
+    "allPosts": "Todos los Posts",
+    "featured": "Destacado",
+    "caseStudy": "Caso de Estudio",
+    "noPostsFound": "No se encontraron posts para esta categoría.",
+    "minRead": "min de lectura",
+    "min": "min"
+  },
+  "careers": {
+    "label": "Carreras",
+    "title": "Construye el futuro",
+    "titleHighlight": "con nosotros",
+    "description": "Únete a un equipo de ingenieros y diseñadores resolviendo problemas difíciles para empresas ambiciosas. Primero remoto, impulsado por el impacto, y siempre aprendiendo.",
+    "whatWeValue": "Lo Que Valoramos",
+    "howWeWork": "Cómo trabajamos",
+    "openPositions": "Posiciones Abiertas",
+    "joinOurTeam": "Únete a nuestro equipo",
+    "noRoleFits": "¿No ves un rol que te encaje?",
+    "noRoleFitsDescription": "Siempre estamos buscando personas talentosas. Envíanos tu currículum y cuéntanos qué te apasiona.",
+    "getInTouch": "Contáctanos",
+    "values": {
+      "engineering": {
+        "title": "Excelencia en Ingeniería",
+        "description": "Nos obsesionamos con la calidad del código, el rendimiento y la confiabilidad. Envía rápido, pero envía bien."
+      },
+      "partnership": {
+        "title": "Asociación con el Cliente",
+        "description": "Nos integramos con nuestros clientes, entendiendo profundamente su negocio para generar impacto real."
+      },
+      "learning": {
+        "title": "Aprendizaje Continuo",
+        "description": "El panorama tecnológico evoluciona rápidamente. Nos mantenemos adelante a través de la exploración constante."
+      },
+      "remote": {
+        "title": "Cultura Primero Remoto",
+        "description": "Trabaja desde cualquier lugar. Confiamos en nuestro equipo y optimizamos por resultados, no por horas."
+      }
+    },
+    "positions": {
+      "seniorAI": {
+        "title": "Ingeniero Senior de IA",
+        "location": "Mumbai / Remoto",
+        "type": "Tiempo completo",
+        "description": "Construye y despliega sistemas de IA en producción para clientes empresariales."
+      },
+      "fullStack": {
+        "title": "Ingeniero Full Stack",
+        "location": "Mumbai",
+        "type": "Tiempo completo",
+        "description": "Trabaja en aplicaciones web modernas usando React, Node.js y tecnologías en la nube."
+      },
+      "designer": {
+        "title": "Diseñador de Producto",
+        "location": "Mumbai / Remoto",
+        "type": "Tiempo completo",
+        "description": "Diseña experiencias de usuario intuitivas para aplicaciones empresariales complejas."
+      },
+      "security": {
+        "title": "Ingeniero de Seguridad",
+        "location": "San Francisco / Remoto",
+        "type": "Tiempo completo",
+        "description": "Asegura sistemas de IA e implementa prácticas de seguridad robustas para clientes."
+      }
+    }
+  },
+  "contact": {
+    "label": "Contáctanos",
+    "title": "Hablemos de",
+    "titleHighlight": "tu proyecto",
+    "description": "Cuéntanos sobre tu proyecto y te responderemos en 24 horas.",
+    "form": {
+      "name": "Nombre",
+      "email": "Email",
+      "company": "Empresa",
+      "projectType": "Tipo de Proyecto",
+      "selectAll": "(selecciona todos los que apliquen)",
+      "budgetRange": "Rango de Presupuesto",
+      "timeline": "Plazo",
+      "projectDescription": "Descripción del Proyecto",
+      "projectDescriptionPlaceholder": "Cuéntanos sobre tu proyecto, objetivos y requisitos específicos...",
+      "sendMessage": "Enviar Mensaje",
+      "sending": "Enviando..."
+    },
+    "projectTypes": {
+      "aiml": "Desarrollo de IA/ML",
+      "web": "Aplicación Web",
+      "mobile": "Aplicación Móvil",
+      "design": "Diseño y UX",
+      "security": "Auditoría de Seguridad",
+      "consulting": "Consultoría",
+      "other": "Otro"
+    },
+    "budgetRanges": {
+      "under25k": "Menos de $25,000",
+      "25k50k": "$25,000 - $50,000",
+      "50k100k": "$50,000 - $100,000",
+      "100k250k": "$100,000 - $250,000",
+      "250kPlus": "$250,000+",
+      "notSure": "No estoy seguro aún"
+    },
+    "timelines": {
+      "lessThan1Month": "Menos de 1 mes",
+      "1to3Months": "1-3 meses",
+      "3to6Months": "3-6 meses",
+      "6to12Months": "6-12 meses",
+      "ongoing": "Colaboración continua",
+      "flexible": "Flexible"
+    },
+    "success": {
+      "title": "¡Gracias por contactarnos!",
+      "message": "Hemos recibido tu mensaje y te responderemos en 24 horas.",
+      "backToHome": "Volver al inicio"
+    },
+    "alternative": {
+      "preferToTalk": "¿Prefieres hablar? Agenda una llamada directamente.",
+      "scheduleCall": "Agendar una llamada"
+    }
+  },
+  "verticals": {
+    "ai-engineering": {
+      "label": "Ingeniería de IA",
+      "shortLabel": "IA Eng",
+      "tagline": "Hacemos que la IA funcione en producción",
+      "description": "La mayoría de los proyectos de IA mueren entre la demo y el despliegue. Construimos la infraestructura, pipelines e integraciones que hacen que los sistemas de IA sean confiables a escala."
+    },
+    "software": {
+      "label": "Ingeniería de Software",
+      "shortLabel": "Software",
+      "tagline": "Software construido para la próxima década",
+      "description": "Diseñamos sistemas preparados para el cambio. Arquitectura limpia, pruebas pragmáticas e infraestructura que acelera a tu equipo en lugar de ralentizarlo."
+    },
+    "design": {
+      "label": "Diseño",
+      "shortLabel": "Diseño",
+      "tagline": "Diseño que impulsa resultados de negocio",
+      "description": "No diseñamos para premios. Diseñamos interfaces que reducen la fricción, aumentan la adopción y mueven las métricas que importan a tu negocio."
+    },
+    "ai-security": {
+      "label": "Seguridad de IA",
+      "shortLabel": "IA Sec",
+      "tagline": "Asegura tu IA antes de que otros la exploten",
+      "description": "Los sistemas de IA tienen superficies de ataque que tu equipo de seguridad no ha visto. Encontramos las vulnerabilidades—inyección de prompts, extracción de datos, ataques adversarios—antes que los actores maliciosos."
+    }
+  },
+  "painPoints": {
+    "headline": "¿Te suena familiar?",
+    "ai-engineering": [
+      "Nuestra demo de IA funciona genial, pero no podemos llevarla a producción",
+      "Los modelos siguen fallando y no sabemos por qué",
+      "Los pipelines de datos son un desastre de scripts y cron jobs",
+      "Estamos atascados en prototipos mientras la competencia lanza"
+    ],
+    "software": [
+      "Cada nueva funcionalidad toma más tiempo que la anterior",
+      "Tenemos miedo de tocar el código legacy",
+      "Los despliegues son estresantes e impredecibles",
+      "Nuestra infraestructura no puede seguir el ritmo del crecimiento"
+    ],
+    "design": [
+      "Los usuarios abandonan nuestro producto pero no sabemos por qué",
+      "Diseño e ingeniería están constantemente desalineados",
+      "Lanzamos funcionalidades que nadie pidió",
+      "Nuestra app se siente anticuada comparada con la competencia"
+    ],
+    "ai-security": [
+      "Desplegamos IA pero no hemos probado contra ataques",
+      "Nuestro equipo de seguridad no entiende los riesgos de IA",
+      "No estamos seguros de qué datos filtran nuestros modelos",
+      "Cumplimiento está haciendo preguntas que no podemos responder"
+    ]
+  }
+}

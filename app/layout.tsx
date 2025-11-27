@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "./context/ThemeContext";
-import { ScrollProvider } from "./context/ScrollContext";
-import { Header } from "./components/Header";
-import { Footer } from "./components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,21 +18,19 @@ export const metadata: Metadata = {
     "AI Engineering, Software Engineering, Design, and AI Security services for enterprises.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-}: Readonly<{
+  params,
+}: {
   children: React.ReactNode;
-}>) {
+  params: Promise<{ locale?: string }>;
+}) {
+  const { locale } = await params;
+
   return (
-    <html lang="en">
+    <html lang={locale || "en"}>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <ThemeProvider>
-          <ScrollProvider>
-            <Header />
-            {children}
-            <Footer />
-          </ScrollProvider>
-        </ThemeProvider>
+        {children}
       </body>
     </html>
   );

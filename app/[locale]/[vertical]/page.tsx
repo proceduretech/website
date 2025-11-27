@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
-import { HomePage } from "../components/HomePage";
-import { Vertical, verticals, verticalIds } from "../config/verticals";
+import { HomePage } from "../../components/HomePage";
+import { Vertical, verticals, verticalIds } from "../../config/verticals";
 
 // Generate static params for all verticals
 export function generateStaticParams() {

@@ -1,11 +1,13 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { useTheme } from "../context/ThemeContext";
 import { clientLogos } from "../data/verticalContent";
 
 export function LogoTicker() {
   const { activeVertical, config } = useTheme();
+  const t = useTranslations("logoTicker");
   const logos = clientLogos[activeVertical];
 
   // Duplicate logos for seamless infinite scroll
@@ -19,7 +21,7 @@ export function LogoTicker() {
 
       {/* Label */}
       <p className="mb-6 text-center text-xs font-medium uppercase tracking-widest text-[var(--muted)]">
-        Trusted by industry leaders
+        {t("trustedBy")}
       </p>
 
       {/* Ticker with AnimatePresence for vertical changes */}

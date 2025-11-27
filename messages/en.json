@@ -1,0 +1,286 @@
+{
+  "metadata": {
+    "title": "Procedure | Enterprise Technology Consultancy",
+    "description": "AI Engineering, Software Engineering, Design, and AI Security services for enterprises."
+  },
+  "navigation": {
+    "blog": "Blog",
+    "careers": "Careers",
+    "contact": "Contact",
+    "getInTouch": "Get in touch"
+  },
+  "hero": {
+    "anchor": "Four disciplines. One partner.",
+    "exploreServices": "Explore services"
+  },
+  "logoTicker": {
+    "trustedBy": "Trusted by industry leaders"
+  },
+  "services": {
+    "label": "What We Do",
+    "title": "Our Services",
+    "subtitle": "From strategy to execution, we partner with you at every stage.",
+    "learnMore": "Learn more",
+    "cta": "Let's talk about your needs"
+  },
+  "howWeWork": {
+    "label": "How We Work",
+    "title": "Flexible engagement models",
+    "subtitle": "to fit how you operate",
+    "engagementModels": "Engagement Models",
+    "pricingModels": "Pricing Models",
+    "staffAug": {
+      "title": "Staff Augmentation",
+      "description": "Embed our engineers directly into your team. Scale up or down as needed."
+    },
+    "endToEnd": {
+      "title": "End-to-End",
+      "description": "We own the project from discovery to deployment. You stay focused on your business."
+    },
+    "bot": {
+      "title": "Build-Operate-Transfer",
+      "description": "We build it, run it until it's stable, then transfer ownership to your team."
+    },
+    "timeMaterial": {
+      "title": "Time & Material",
+      "description": "Flexible scope, pay for actual work. Best for evolving requirements."
+    },
+    "fixedBid": {
+      "title": "Fixed Bid",
+      "description": "Defined scope, agreed price. Best for well-specified projects."
+    }
+  },
+  "about": {
+    "label": "About Us",
+    "title": "Engineering teams",
+    "subtitle": "you can rely on",
+    "description": "We're a team of engineers who've built and scaled products at startups and enterprises alike. We partner with companies to solve hard technical problems — from AI systems that actually work in production to platforms that scale with your ambition.",
+    "founded": "Founded",
+    "engineers": "Engineers",
+    "locations": "Locations",
+    "foundedValue": "2017",
+    "engineersValue": "50+",
+    "locationsValue": "Mumbai & SF"
+  },
+  "security": {
+    "label": "Security & Compliance",
+    "title": "Built on trust",
+    "description": "Security isn't an afterthought — it's foundational to how we work. Enterprise-grade practices to protect your data.",
+    "soc2": {
+      "title": "SOC 2 Type II",
+      "description": "Annual audits for security, availability, and confidentiality"
+    },
+    "encryption": {
+      "title": "Data Encryption",
+      "description": "AES-256 at rest, TLS 1.3 in transit"
+    },
+    "gdpr": {
+      "title": "GDPR Ready",
+      "description": "Full compliance with EU data protection"
+    },
+    "accessControl": {
+      "title": "Access Control",
+      "description": "RBAC with audit logging and regular reviews"
+    }
+  },
+  "cta": {
+    "title": "Let's build something great",
+    "description": "Whether you need to ship faster, scale your AI, or secure your systems — we're ready to help. Book a call and let's talk.",
+    "emailUs": "Email Us",
+    "bookCall": "Book a call"
+  },
+  "footer": {
+    "tagline": "Engineering teams you can rely on. AI, software, design, and security — from Mumbai and San Francisco.",
+    "services": "Services",
+    "company": "Company",
+    "connect": "Connect",
+    "aiEngineering": "AI Engineering",
+    "softwareDevelopment": "Software Development",
+    "design": "Design",
+    "aiSecurity": "AI Security",
+    "aboutLink": "About",
+    "howWeWorkLink": "How We Work",
+    "securityLink": "Security",
+    "blogLink": "Blog",
+    "careersLink": "Careers",
+    "contactLink": "Contact",
+    "copyright": "Procedure Technologies. All rights reserved.",
+    "mumbai": "Mumbai",
+    "sanFrancisco": "San Francisco"
+  },
+  "blog": {
+    "label": "Blog & Case Studies",
+    "title": "Insights from the",
+    "titleHighlight": "engineering trenches",
+    "description": "Technical deep-dives, case studies, and lessons learned from building production systems.",
+    "allPosts": "All Posts",
+    "featured": "Featured",
+    "caseStudy": "Case Study",
+    "noPostsFound": "No posts found for this category.",
+    "minRead": "min read",
+    "min": "min"
+  },
+  "careers": {
+    "label": "Careers",
+    "title": "Build the future",
+    "titleHighlight": "with us",
+    "description": "Join a team of engineers and designers solving hard problems for ambitious companies. Remote-first, impact-driven, and always learning.",
+    "whatWeValue": "What We Value",
+    "howWeWork": "How we work",
+    "openPositions": "Open Positions",
+    "joinOurTeam": "Join our team",
+    "noRoleFits": "Don't see a role that fits?",
+    "noRoleFitsDescription": "We're always looking for talented people. Send us your resume and tell us what you're passionate about.",
+    "getInTouch": "Get in touch",
+    "values": {
+      "engineering": {
+        "title": "Engineering Excellence",
+        "description": "We obsess over code quality, performance, and reliability. Ship fast, but ship right."
+      },
+      "partnership": {
+        "title": "Client Partnership",
+        "description": "We embed with our clients, understanding their business deeply to deliver real impact."
+      },
+      "learning": {
+        "title": "Continuous Learning",
+        "description": "The tech landscape evolves quickly. We stay ahead through constant exploration."
+      },
+      "remote": {
+        "title": "Remote-First Culture",
+        "description": "Work from anywhere. We trust our team and optimize for output, not hours."
+      }
+    },
+    "positions": {
+      "seniorAI": {
+        "title": "Senior AI Engineer",
+        "location": "Mumbai / Remote",
+        "type": "Full-time",
+        "description": "Build and deploy production AI systems for enterprise clients."
+      },
+      "fullStack": {
+        "title": "Full Stack Engineer",
+        "location": "Mumbai",
+        "type": "Full-time",
+        "description": "Work on modern web applications using React, Node.js, and cloud technologies."
+      },
+      "designer": {
+        "title": "Product Designer",
+        "location": "Mumbai / Remote",
+        "type": "Full-time",
+        "description": "Design intuitive user experiences for complex enterprise applications."
+      },
+      "security": {
+        "title": "Security Engineer",
+        "location": "San Francisco / Remote",
+        "type": "Full-time",
+        "description": "Secure AI systems and implement robust security practices for clients."
+      }
+    }
+  },
+  "contact": {
+    "label": "Contact Us",
+    "title": "Let's discuss",
+    "titleHighlight": "your project",
+    "description": "Tell us about your project and we'll get back to you within 24 hours.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "company": "Company",
+      "projectType": "Project Type",
+      "selectAll": "(select all that apply)",
+      "budgetRange": "Budget Range",
+      "timeline": "Timeline",
+      "projectDescription": "Project Description",
+      "projectDescriptionPlaceholder": "Tell us about your project, goals, and any specific requirements...",
+      "sendMessage": "Send Message",
+      "sending": "Sending..."
+    },
+    "projectTypes": {
+      "aiml": "AI/ML Development",
+      "web": "Web Application",
+      "mobile": "Mobile Application",
+      "design": "Design & UX",
+      "security": "Security Audit",
+      "consulting": "Consulting",
+      "other": "Other"
+    },
+    "budgetRanges": {
+      "under25k": "Under $25,000",
+      "25k50k": "$25,000 - $50,000",
+      "50k100k": "$50,000 - $100,000",
+      "100k250k": "$100,000 - $250,000",
+      "250kPlus": "$250,000+",
+      "notSure": "Not sure yet"
+    },
+    "timelines": {
+      "lessThan1Month": "Less than 1 month",
+      "1to3Months": "1-3 months",
+      "3to6Months": "3-6 months",
+      "6to12Months": "6-12 months",
+      "ongoing": "Ongoing engagement",
+      "flexible": "Flexible"
+    },
+    "success": {
+      "title": "Thanks for reaching out!",
+      "message": "We've received your message and will get back to you within 24 hours.",
+      "backToHome": "Back to home"
+    },
+    "alternative": {
+      "preferToTalk": "Prefer to talk? Book a call directly.",
+      "scheduleCall": "Schedule a call"
+    }
+  },
+  "verticals": {
+    "ai-engineering": {
+      "label": "AI Engineering",
+      "shortLabel": "AI Eng",
+      "tagline": "We make AI work in production",
+      "description": "Most AI projects die between demo and deployment. We build the infrastructure, pipelines, and integrations that make AI systems reliable at scale."
+    },
+    "software": {
+      "label": "Software Engineering",
+      "shortLabel": "Software",
+      "tagline": "Software built for the next decade",
+      "description": "We engineer systems designed for change. Clean architecture, pragmatic testing, and infrastructure that accelerates your team instead of slowing it down."
+    },
+    "design": {
+      "label": "Design",
+      "shortLabel": "Design",
+      "tagline": "Design that drives business outcomes",
+      "description": "We don't design for awards. We design interfaces that reduce friction, increase adoption, and move the metrics your business cares about."
+    },
+    "ai-security": {
+      "label": "AI Security",
+      "shortLabel": "AI Sec",
+      "tagline": "Secure your AI before others exploit it",
+      "description": "AI systems have attack surfaces your security team hasn't seen. We find the vulnerabilities—prompt injection, data extraction, adversarial attacks—before bad actors do."
+    }
+  },
+  "painPoints": {
+    "headline": "Sound familiar?",
+    "ai-engineering": [
+      "Our AI demo works great, but we can't get it to production",
+      "Models keep breaking and we don't know why",
+      "Data pipelines are a mess of scripts and cron jobs",
+      "We're stuck on prototypes while competitors ship"
+    ],
+    "software": [
+      "Every new feature takes longer than the last",
+      "We're afraid to touch legacy code",
+      "Deployments are stressful and unpredictable",
+      "Our infrastructure can't keep up with growth"
+    ],
+    "design": [
+      "Users abandon our product but we don't know why",
+      "Design and engineering are constantly misaligned",
+      "We ship features nobody asked for",
+      "Our app feels dated compared to competitors"
+    ],
+    "ai-security": [
+      "We deployed AI but haven't tested for attacks",
+      "Our security team doesn't understand AI risks",
+      "We're not sure what data our models leak",
+      "Compliance is asking questions we can't answer"
+    ]
+  }
+}

@@ -1,12 +1,12 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { useTheme } from "../context/ThemeContext";
-import { painPointsContent } from "../data/verticalContent";
 
 export function PainPointsSection() {
   const { activeVertical, config } = useTheme();
-  const content = painPointsContent[activeVertical];
+  const t = useTranslations("painPoints");
 
   return (
     <section id="pain-points" className="relative overflow-hidden py-24 px-6">
@@ -28,7 +28,7 @@ export function PainPointsSection() {
           >
             {/* Headline */}
             <h2 className="mb-14 text-2xl font-semibold tracking-tight text-[var(--muted)] md:text-3xl lg:text-4xl">
-              {content.headline}
+              {t("headline")}
             </h2>
 
             {/* Pain points */}
@@ -46,7 +46,7 @@ export function PainPointsSection() {
                 },
               }}
             >
-              {content.painPoints.map((point, index) => (
+              {[0, 1, 2, 3].map((index) => (
                 <motion.div
                   key={index}
                   variants={{
@@ -74,7 +74,7 @@ export function PainPointsSection() {
                   </div>
 
                   <p className="pl-1 text-base leading-relaxed text-[var(--foreground)]">
-                    {point}
+                    {t(`${activeVertical}.${index}`)}
                   </p>
                 </motion.div>
               ))}

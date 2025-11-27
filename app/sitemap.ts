@@ -1,53 +1,85 @@
 import type { MetadataRoute } from "next";
 import { blogPosts } from "./data/blog";
 import { verticalIds } from "./config/verticals";
+import { locales } from "./i18n/config";
 
 const BASE_URL = "https://procedure.tech";
 
+// Helper to create alternates for a path
+function createAlternates(path: string) {
+  return {
+    languages: Object.fromEntries(
+      locales.map((locale) => [
+        locale,
+        locale === "en" ? `${BASE_URL}${path}` : `${BASE_URL}/${locale}${path}`,
+      ])
+    ),
+  };
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  // Static pages
-  const staticPages: MetadataRoute.Sitemap = [
-    {
-      url: BASE_URL,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: `${BASE_URL}/blog`,
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/careers`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.7,
-    },
-    {
-      url: `${BASE_URL}/contact`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
+  const entries: MetadataRoute.Sitemap = [];
+
+  // Static pages for each locale
+  const staticPaths = [
+    { path: "", priority: 1, changeFrequency: "weekly" as const },
+    { path: "/blog", priority: 0.9, changeFrequency: "daily" as const },
+    { path: "/careers", priority: 0.7, changeFrequency: "weekly" as const },
+    { path: "/contact", priority: 0.8, changeFrequency: "monthly" as const },
   ];
 
-  // Vertical pages
-  const verticalPages: MetadataRoute.Sitemap = verticalIds.map((vertical) => ({
-    url: `${BASE_URL}/${vertical}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly",
-    priority: 0.9,
-  }));
+  for (const locale of locales) {
+    for (const page of staticPaths) {
+      const url =
+        locale === "en"
+          ? `${BASE_URL}${page.path || "/"}`
+          : `${BASE_URL}/${locale}${page.path}`;
 
-  // Blog posts
-  const blogPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
-    url: `${BASE_URL}/blog/${post.slug}`,
-    lastModified: new Date(post.date),
-    changeFrequency: "monthly",
-    priority: post.featured ? 0.8 : 0.6,
-  }));
+      entries.push({
+        url,
+        lastModified: new Date(),
+        changeFrequency: page.changeFrequency,
+        priority: page.priority,
+        alternates: createAlternates(page.path || "/"),
+      });
+    }
+  }
 
-  return [...staticPages, ...verticalPages, ...blogPages];
+  // Vertical pages for each locale
+  for (const locale of locales) {
+    for (const vertical of verticalIds) {
+      const url =
+        locale === "en"
+          ? `${BASE_URL}/${vertical}`
+          : `${BASE_URL}/${locale}/${vertical}`;
+
+      entries.push({
+        url,
+        lastModified: new Date(),
+        changeFrequency: "weekly",
+        priority: 0.9,
+        alternates: createAlternates(`/${vertical}`),
+      });
+    }
+  }
+
+  // Blog posts for each locale
+  for (const locale of locales) {
+    for (const post of blogPosts) {
+      const url =
+        locale === "en"
+          ? `${BASE_URL}/blog/${post.slug}`
+          : `${BASE_URL}/${locale}/blog/${post.slug}`;
+
+      entries.push({
+        url,
+        lastModified: new Date(post.date),
+        changeFrequency: "monthly",
+        priority: post.featured ? 0.8 : 0.6,
+        alternates: createAlternates(`/blog/${post.slug}`),
+      });
+    }
+  }
+
+  return entries;
 }

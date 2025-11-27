@@ -4,9 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useTheme, verticals } from "../context/ThemeContext";
-import { blogPosts, getFeaturedPosts } from "../data/blog";
-import { Vertical } from "../config/verticals";
+import { useTheme, verticals } from "../../context/ThemeContext";
+import { blogPosts, getFeaturedPosts } from "../../data/blog";
+import { Vertical } from "../../config/verticals";
 
 function formatDate(dateString: string): string {
   return new Date(dateString).toLocaleDateString("en-US", {

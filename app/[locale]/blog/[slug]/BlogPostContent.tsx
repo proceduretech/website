@@ -3,9 +3,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useTheme, verticals } from "../../context/ThemeContext";
-import { BlogPost, getRecentPosts } from "../../data/blog";
-import { MarkdownRenderer } from "../../components/MarkdownRenderer";
+import { useTheme, verticals } from "../../../context/ThemeContext";
+import { BlogPost, getRecentPosts } from "../../../data/blog";
+import { MarkdownRenderer } from "../../../components/MarkdownRenderer";
 
 function formatDate(dateString: string): string {
   return new Date(dateString).toLocaleDateString("en-US", {

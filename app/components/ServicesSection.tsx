@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { useTheme, Vertical } from "../context/ThemeContext";
 import { services, Service } from "../data/verticalContent";
 
@@ -18,6 +19,7 @@ function ServiceCard({
   cardColorRgb: string;
   icon?: React.ReactNode;
 }) {
+  const t = useTranslations("services");
   const handleClick = () => {
     const contactSection = document.getElementById("contact");
     if (contactSection) {
@@ -61,7 +63,7 @@ function ServiceCard({
         className="mt-4 flex items-center gap-1.5 text-sm font-medium opacity-0 transition-opacity group-hover:opacity-100"
         style={{ color: cardColor }}
       >
-        <span>Learn more</span>
+        <span>{t("learnMore")}</span>
         <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
           <path d="M5 12h14M12 5l7 7-7 7" />
         </svg>
@@ -148,6 +150,7 @@ function VerticalDiagram({ vertical }: { vertical: Vertical }) {
 
 export function ServicesSection() {
   const { activeVertical, config } = useTheme();
+  const t = useTranslations("services");
 
   return (
     <section id="services" className="relative overflow-hidden py-24 px-6">
@@ -164,15 +167,15 @@ export function ServicesSection() {
             animate={{ color: config.accentColor }}
             transition={{ duration: 0.3 }}
           >
-            What We Do
+            {t("label")}
           </motion.p>
 
           <h2 className="mb-6 text-3xl font-semibold tracking-tight text-[var(--foreground)] md:text-4xl lg:text-5xl">
-            Our Services
+            {t("title")}
           </h2>
 
           <p className="mx-auto max-w-2xl text-lg text-[var(--muted)] md:text-xl">
-            From strategy to execution, we partner with you at every stage.
+            {t("subtitle")}
           </p>
         </div>
 
@@ -206,7 +209,7 @@ export function ServicesSection() {
             whileHover={{ scale: 1.02, y: -2 }}
             whileTap={{ scale: 0.98 }}
           >
-            Let&apos;s talk about your needs
+            {t("cta")}
             <svg
               className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
               fill="none"

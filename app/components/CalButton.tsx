@@ -2,10 +2,12 @@
 
 import { useEffect } from "react";
 import { getCalApi } from "@calcom/embed-react";
+import { useTranslations } from "next-intl";
 import { useTheme } from "../context/ThemeContext";
 
 export function CalButton() {
   const { config } = useTheme();
+  const t = useTranslations("cta");
 
   useEffect(() => {
     (async function () {
@@ -42,7 +44,7 @@ export function CalButton() {
           d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
         />
       </svg>
-      Book a call
+      {t("bookCall")}
       <svg
         className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
         fill="none"

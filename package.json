@@ -12,6 +12,7 @@
     "@calcom/embed-react": "^1.5.3",
     "framer-motion": "^12.23.24",
     "next": "16.0.4",
+    "next-intl": "^4.5.5",
     "react": "19.2.0",
     "react-dom": "19.2.0"
   },

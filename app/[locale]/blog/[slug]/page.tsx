@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { BlogPostContent } from "./BlogPostContent";
-import { blogPosts, getBlogPostBySlug } from "../../data/blog";
+import { blogPosts, getBlogPostBySlug } from "../../../data/blog";
 
 interface PageProps {
   params: Promise<{ slug: string }>;

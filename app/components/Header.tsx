@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { useTheme, verticals, Vertical } from "../context/ThemeContext";
 import { useScroll } from "../context/ScrollContext";
 import { navItems } from "../config/navigation";
@@ -10,6 +11,7 @@ import { MobileLogo } from "./navigation/MobileLogo";
 import { VerticalDropdown } from "./navigation/VerticalDropdown";
 import { MobileMenu, HamburgerButton } from "./navigation/MobileMenu";
 import { NavLink } from "./navigation/NavLink";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 const verticalOrder: Vertical[] = ["ai-engineering", "software", "design", "ai-security"];
 
@@ -17,6 +19,8 @@ export function Header() {
   const { activeVertical, setActiveVertical, config } = useTheme();
   const { isHeroVisible } = useScroll();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const t = useTranslations("navigation");
+  const tVerticals = useTranslations("verticals");
 
   return (
     <>
@@ -60,7 +64,7 @@ export function Header() {
                           : "transparent",
                       }}
                     >
-                      {vertical.shortLabel}
+                      {tVerticals(`${id}.shortLabel`)}
                       {isActive && (
                         <motion.span
                           layoutId="header-active-indicator"
@@ -76,7 +80,7 @@ export function Header() {
             )}
           </AnimatePresence>
 
-          {/* Right section: Nav links + CTA */}
+          {/* Right section: Nav links + Language + CTA */}
           <div className="flex items-center gap-6">
             {/* Secondary nav links */}
             <nav className="flex items-center gap-5">
@@ -86,6 +90,9 @@ export function Header() {
                 </NavLink>
               ))}
             </nav>
+
+            {/* Language Switcher */}
+            <LanguageSwitcher />
 
             {/* CTA button */}
             <motion.a
@@ -99,7 +106,7 @@ export function Header() {
               whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.2 }}
             >
-              Get in touch
+              {t("getInTouch")}
               <svg
                 className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5"
                 fill="none"
