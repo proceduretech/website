@@ -2,6 +2,7 @@
 
 import { useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { useTheme, verticals, Vertical } from "../context/ThemeContext";
 import { useScroll } from "../context/ScrollContext";
 import { LogoTicker } from "./LogoTicker";
@@ -13,6 +14,8 @@ export function Hero() {
   const { activeVertical, setActiveVertical, config } = useTheme();
   const { setIsHeroVisible } = useScroll();
   const heroRef = useRef<HTMLElement>(null);
+  const t = useTranslations("hero");
+  const tVerticals = useTranslations("verticals");
 
   // Intersection Observer to track hero visibility
   useEffect(() => {
@@ -280,7 +283,7 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="mb-8 text-sm font-semibold uppercase tracking-[0.2em] text-[var(--muted)]"
         >
-          Four disciplines. One partner.
+          {t("anchor")}
         </motion.p>
 
         {/* Dynamic main headline - fixed height container to prevent layout shift */}
@@ -295,7 +298,7 @@ export function Hero() {
               className="absolute inset-0 flex items-center justify-center text-5xl font-bold leading-[1.1] tracking-tight md:text-6xl lg:text-7xl"
               style={{ color: config.accentColor }}
             >
-              {config.tagline}
+              {tVerticals(`${activeVertical}.tagline`)}
             </motion.h1>
           </AnimatePresence>
         </div>
@@ -320,7 +323,7 @@ export function Hero() {
                 whileTap={{ scale: 0.98 }}
                 transition={{ duration: 0.2 }}
               >
-                {vertical.label}
+                {tVerticals(`${id}.label`)}
               </motion.button>
             );
           })}
@@ -337,7 +340,7 @@ export function Hero() {
               transition={{ duration: 0.2, delay: 0.1 }}
               className="absolute inset-0 flex items-center justify-center text-center text-lg leading-relaxed text-[var(--muted)] md:text-xl lg:text-[1.35rem]"
             >
-              {config.description}
+              {tVerticals(`${activeVertical}.description`)}
             </motion.p>
           </AnimatePresence>
         </div>
@@ -362,7 +365,7 @@ export function Hero() {
             whileTap={{ scale: 0.98 }}
             transition={{ duration: 0.2 }}
           >
-            Explore services
+            {t("exploreServices")}
             <svg
               className="h-4 w-4 opacity-60 transition-transform duration-300 group-hover:translate-x-1"
               fill="none"

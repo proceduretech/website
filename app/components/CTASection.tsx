@@ -1,11 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { useTheme } from "../context/ThemeContext";
 import { CalButton } from "./CalButton";
 
 export function CTASection() {
   const { config } = useTheme();
+  const t = useTranslations("cta");
 
   return (
     <section id="cta" className="relative overflow-hidden py-32 px-6">
@@ -30,12 +32,11 @@ export function CTASection() {
           animate={{ color: config.accentColor }}
           transition={{ duration: 0.3 }}
         >
-          Let&apos;s build something great
+          {t("title")}
         </motion.h2>
 
         <p className="mx-auto mb-12 max-w-2xl text-lg text-[var(--muted)] md:text-xl lg:text-[1.35rem]">
-          Whether you need to ship faster, scale your AI, or secure your systems —
-          we&apos;re ready to help. Book a call and let&apos;s talk.
+          {t("description")}
         </p>
 
         <motion.div
@@ -64,7 +65,7 @@ export function CTASection() {
                 d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
               />
             </svg>
-            Email Us
+            {t("emailUs")}
             <svg
               className="h-4 w-4 opacity-60 transition-transform duration-300 group-hover:translate-x-1"
               fill="none"

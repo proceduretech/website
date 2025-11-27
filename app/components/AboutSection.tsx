@@ -1,16 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { useTheme } from "../context/ThemeContext";
 
-const stats = [
-  { label: "Founded", value: "2017" },
-  { label: "Engineers", value: "50+" },
-  { label: "Locations", value: "Mumbai & SF" },
-];
+const statKeys = ["founded", "engineers", "locations"] as const;
 
 export function AboutSection() {
   const { config } = useTheme();
+  const t = useTranslations("about");
 
   return (
     <section id="about" className="relative overflow-hidden py-24 px-6">
@@ -28,24 +26,22 @@ export function AboutSection() {
               animate={{ color: config.accentColor }}
               transition={{ duration: 0.3 }}
             >
-              About Us
+              {t("label")}
             </motion.p>
 
             <h2 className="mb-6 text-3xl font-semibold tracking-tight text-[var(--foreground)] md:text-4xl">
-              Engineering teams<br />
-              <span className="text-[var(--muted)]">you can rely on</span>
+              {t("title")}<br />
+              <span className="text-[var(--muted)]">{t("subtitle")}</span>
             </h2>
 
             <p className="text-base leading-relaxed text-[var(--muted)] md:text-lg">
-              We&apos;re a team of engineers who&apos;ve built and scaled products at startups and enterprises alike.
-              We partner with companies to solve hard technical problems — from AI systems that actually
-              work in production to platforms that scale with your ambition.
+              {t("description")}
             </p>
           </div>
 
           {/* Right: Stats */}
           <div className="grid grid-cols-3 gap-4">
-            {stats.map((stat, index) => {
+            {statKeys.map((key, index) => {
               // Rotate through colors: primary, secondary, tertiary
               const colorSets = [
                 config.accentColor,
@@ -56,7 +52,7 @@ export function AboutSection() {
 
               return (
                 <motion.div
-                  key={stat.label}
+                  key={key}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -68,10 +64,10 @@ export function AboutSection() {
                     animate={{ color: color }}
                     transition={{ duration: 0.3 }}
                   >
-                    {stat.value}
+                    {t(`${key}Value`)}
                   </motion.div>
                   <div className="text-xs font-medium uppercase tracking-wider text-[var(--muted)]">
-                    {stat.label}
+                    {t(key)}
                   </div>
                 </motion.div>
               );

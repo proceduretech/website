@@ -1,32 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { useTheme } from "../context/ThemeContext";
 
-const footerLinks = {
-  services: [
-    { label: "AI Engineering", href: "#services" },
-    { label: "Software Development", href: "#services" },
-    { label: "Design", href: "#services" },
-    { label: "AI Security", href: "#services" },
-  ],
-  company: [
-    { label: "About", href: "#about" },
-    { label: "How We Work", href: "#how-we-work" },
-    { label: "Security", href: "#security" },
-    { label: "Blog", href: "/blog" },
-    { label: "Careers", href: "/careers" },
-    { label: "Contact", href: "/contact" },
-  ],
-  connect: [
-    { label: "LinkedIn", href: "https://linkedin.com/company/procedure" },
-    { label: "Twitter", href: "https://twitter.com/procedure" },
-    { label: "GitHub", href: "https://github.com/proceduretech" },
-  ],
-};
+const connectLinks = [
+  { label: "LinkedIn", href: "https://linkedin.com/company/procedure" },
+  { label: "Twitter", href: "https://twitter.com/procedure" },
+  { label: "GitHub", href: "https://github.com/proceduretech" },
+];
 
 export function Footer() {
   const { config } = useTheme();
+  const t = useTranslations("footer");
 
   return (
     <footer className="relative overflow-hidden border-t border-[var(--border)]/50 bg-gradient-to-b from-white to-gray-50/50">
@@ -52,7 +38,7 @@ export function Footer() {
               Procedure
             </motion.div>
             <p className="mb-6 text-[15px] leading-relaxed text-[var(--muted)]">
-              Engineering teams you can rely on. AI, software, design, and security — from Mumbai and San Francisco.
+              {t("tagline")}
             </p>
             <a
               href="mailto:hello@procedure.tech"
@@ -73,48 +59,78 @@ export function Footer() {
           {/* Services column */}
           <div>
             <h4 className="mb-5 text-xs font-semibold uppercase tracking-[0.15em] text-[var(--muted)]">
-              Services
+              {t("services")}
             </h4>
             <ul className="space-y-3.5">
-              {footerLinks.services.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-[15px] text-[var(--foreground)] transition-colors duration-200 hover:text-[var(--muted)]"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a href="#services" className="text-[15px] text-[var(--foreground)] transition-colors duration-200 hover:text-[var(--muted)]">
+                  {t("aiEngineering")}
+                </a>
+              </li>
+              <li>
+                <a href="#services" className="text-[15px] text-[var(--foreground)] transition-colors duration-200 hover:text-[var(--muted)]">
+                  {t("softwareDevelopment")}
+                </a>
+              </li>
+              <li>
+                <a href="#services" className="text-[15px] text-[var(--foreground)] transition-colors duration-200 hover:text-[var(--muted)]">
+                  {t("design")}
+                </a>
+              </li>
+              <li>
+                <a href="#services" className="text-[15px] text-[var(--foreground)] transition-colors duration-200 hover:text-[var(--muted)]">
+                  {t("aiSecurity")}
+                </a>
+              </li>
             </ul>
           </div>
 
           {/* Company column */}
           <div>
             <h4 className="mb-5 text-xs font-semibold uppercase tracking-[0.15em] text-[var(--muted)]">
-              Company
+              {t("company")}
             </h4>
             <ul className="space-y-3.5">
-              {footerLinks.company.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-[15px] text-[var(--foreground)] transition-colors duration-200 hover:text-[var(--muted)]"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a href="#about" className="text-[15px] text-[var(--foreground)] transition-colors duration-200 hover:text-[var(--muted)]">
+                  {t("aboutLink")}
+                </a>
+              </li>
+              <li>
+                <a href="#how-we-work" className="text-[15px] text-[var(--foreground)] transition-colors duration-200 hover:text-[var(--muted)]">
+                  {t("howWeWorkLink")}
+                </a>
+              </li>
+              <li>
+                <a href="#security" className="text-[15px] text-[var(--foreground)] transition-colors duration-200 hover:text-[var(--muted)]">
+                  {t("securityLink")}
+                </a>
+              </li>
+              <li>
+                <a href="/blog" className="text-[15px] text-[var(--foreground)] transition-colors duration-200 hover:text-[var(--muted)]">
+                  {t("blogLink")}
+                </a>
+              </li>
+              <li>
+                <a href="/careers" className="text-[15px] text-[var(--foreground)] transition-colors duration-200 hover:text-[var(--muted)]">
+                  {t("careersLink")}
+                </a>
+              </li>
+              <li>
+                <a href="/contact" className="text-[15px] text-[var(--foreground)] transition-colors duration-200 hover:text-[var(--muted)]">
+                  {t("contactLink")}
+                </a>
+              </li>
             </ul>
           </div>
 
           {/* Connect column */}
           <div>
             <h4 className="mb-5 text-xs font-semibold uppercase tracking-[0.15em] text-[var(--muted)]">
-              Connect
+              {t("connect")}
             </h4>
             <ul className="space-y-3.5">
-              {footerLinks.connect.map((link) => (
+              {connectLinks.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
@@ -149,7 +165,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           <p className="text-sm text-[var(--muted)]">
-            © {new Date().getFullYear()} Procedure Technologies. All rights reserved.
+            © {new Date().getFullYear()} {t("copyright")}
           </p>
 
           {/* Location badges */}
@@ -168,7 +184,7 @@ export function Footer() {
                   }}
                 />
               </span>
-              Mumbai
+              {t("mumbai")}
             </div>
             <div className="flex items-center gap-2.5 text-sm text-[var(--muted)]">
               <span className="relative flex h-2.5 w-2.5">
@@ -184,7 +200,7 @@ export function Footer() {
                   }}
                 />
               </span>
-              San Francisco
+              {t("sanFrancisco")}
             </div>
           </div>
         </div>
