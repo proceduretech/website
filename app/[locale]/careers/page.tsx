@@ -57,7 +57,7 @@ export default function CareersPage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative overflow-hidden px-6 pt-32 pb-20">
+      <section className="relative overflow-hidden px-6 pt-36 pb-20">
         {/* Background */}
         <div className="pointer-events-none absolute inset-0">
           <div className="geo-dots opacity-30" />

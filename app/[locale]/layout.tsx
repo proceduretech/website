@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { locales, type Locale } from "../i18n/config";
 import { ThemeProvider } from "../context/ThemeContext";
 import { ScrollProvider } from "../context/ScrollContext";
+import { TopBanner } from "../components/TopBanner";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 
@@ -35,6 +36,7 @@ export default async function LocaleLayout({
     <NextIntlClientProvider messages={messages}>
       <ThemeProvider>
         <ScrollProvider>
+          <TopBanner />
           <Header />
           {children}
           <Footer />

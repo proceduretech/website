@@ -39,7 +39,7 @@ export default function BlogPage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative overflow-hidden px-6 pt-32 pb-16">
+      <section className="relative overflow-hidden px-6 pt-36 pb-16">
         <div className="pointer-events-none absolute inset-0">
           <div className="geo-dots opacity-30" />
           <motion.div

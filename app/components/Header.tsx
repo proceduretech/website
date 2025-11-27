@@ -11,7 +11,6 @@ import { MobileLogo } from "./navigation/MobileLogo";
 import { VerticalDropdown } from "./navigation/VerticalDropdown";
 import { MobileMenu, HamburgerButton } from "./navigation/MobileMenu";
 import { NavLink } from "./navigation/NavLink";
-import { LanguageSwitcher } from "./LanguageSwitcher";
 
 const verticalOrder: Vertical[] = ["ai-engineering", "software", "design", "ai-security"];
 
@@ -24,7 +23,7 @@ export function Header() {
 
   return (
     <>
-      <header className="fixed left-0 right-0 top-0 z-50 border-b border-[var(--border)]/50 bg-[var(--background)]/70 backdrop-blur-xl">
+      <header className="fixed left-0 right-0 top-8 z-50 border-b border-[var(--border)]/50 bg-[var(--background)]/70 backdrop-blur-xl">
         {/* Desktop Layout */}
         <div className="mx-auto hidden h-18 max-w-6xl items-center justify-between px-6 lg:flex">
           {/* Logo */}
@@ -80,7 +79,7 @@ export function Header() {
             )}
           </AnimatePresence>
 
-          {/* Right section: Nav links + Language + CTA */}
+          {/* Right section: Nav links + CTA */}
           <div className="flex items-center gap-6">
             {/* Secondary nav links */}
             <nav className="flex items-center gap-5">
@@ -90,9 +89,6 @@ export function Header() {
                 </NavLink>
               ))}
             </nav>
-
-            {/* Language Switcher */}
-            <LanguageSwitcher />
 
             {/* CTA button */}
             <motion.a

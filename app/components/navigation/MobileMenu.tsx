@@ -79,14 +79,14 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           transition={{ duration: 0.3 }}
           className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[var(--background)]/95 backdrop-blur-md"
         >
-          {/* Close Button */}
+          {/* Close Button - positioned below top banner */}
           <motion.button
             initial={{ opacity: 0, rotate: -90 }}
             animate={{ opacity: 1, rotate: 0 }}
             exit={{ opacity: 0, rotate: 90 }}
             transition={{ duration: 0.2 }}
             onClick={onClose}
-            className="absolute right-6 top-5 flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border)] text-[var(--foreground)]"
+            className="absolute right-4 top-[calc(2rem+1rem)] flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border)] text-[var(--foreground)]"
           >
             <svg
               className="h-5 w-5"

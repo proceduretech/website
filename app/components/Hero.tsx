@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { useTheme, verticals, Vertical } from "../context/ThemeContext";
@@ -9,13 +9,35 @@ import { LogoTicker } from "./LogoTicker";
 import { CalButton } from "./CalButton";
 
 const verticalOrder: Vertical[] = ["ai-engineering", "software", "design", "ai-security"];
+const ROTATION_INTERVAL = 3000; // 3 seconds per vertical
 
 export function Hero() {
-  const { activeVertical, setActiveVertical, config } = useTheme();
+  const {
+    activeVertical,
+    setActiveVertical,
+    setActiveVerticalVisual,
+    userHasInteracted,
+  } = useTheme();
+  const config = verticals[activeVertical];
   const { setIsHeroVisible } = useScroll();
   const heroRef = useRef<HTMLElement>(null);
   const t = useTranslations("hero");
   const tVerticals = useTranslations("verticals");
+
+  // Auto-rotation logic
+  const rotateToNext = useCallback(() => {
+    const currentIndex = verticalOrder.indexOf(activeVertical);
+    const nextIndex = (currentIndex + 1) % verticalOrder.length;
+    setActiveVerticalVisual(verticalOrder[nextIndex]);
+  }, [activeVertical, setActiveVerticalVisual]);
+
+  // Auto-rotate only when user hasn't interacted
+  useEffect(() => {
+    if (userHasInteracted) return;
+
+    const intervalId = setInterval(rotateToNext, ROTATION_INTERVAL);
+    return () => clearInterval(intervalId);
+  }, [userHasInteracted, rotateToNext]);
 
   // Intersection Observer to track hero visibility
   useEffect(() => {
@@ -29,7 +51,7 @@ export function Hero() {
       },
       {
         threshold: [0, 0.2, 0.5, 1],
-        rootMargin: "-64px 0px 0px 0px", // Account for fixed header
+        rootMargin: "-96px 0px 0px 0px", // Account for fixed header + top banner
       }
     );
 
@@ -43,7 +65,7 @@ export function Hero() {
   return (
     <section
       ref={heroRef}
-      className="relative flex min-h-screen flex-col items-center justify-center overflow-x-hidden px-4 pt-20 sm:px-6"
+      className="relative flex min-h-screen flex-col items-center justify-center overflow-x-hidden px-4 pt-24 sm:px-6"
     >
       {/* Geometric background patterns - different per vertical */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -303,8 +325,8 @@ export function Hero() {
           </AnimatePresence>
         </div>
 
-        {/* Vertical toggle pills */}
-        <div className="mb-10 flex flex-wrap items-center justify-center gap-2">
+        {/* Vertical toggle pills - More prominent */}
+        <div className="mb-10 flex flex-wrap items-center justify-center gap-3">
           {verticalOrder.map((id) => {
             const vertical = verticals[id];
             const isActive = activeVertical === id;
@@ -313,17 +335,38 @@ export function Hero() {
               <motion.button
                 key={id}
                 onClick={() => setActiveVertical(id)}
-                className="group relative cursor-pointer rounded-full px-5 py-2.5 text-sm font-medium"
+                className="group relative cursor-pointer overflow-hidden rounded-full px-6 py-3 text-base font-semibold transition-shadow duration-300"
                 style={{
-                  color: isActive ? "#ffffff" : "var(--muted)",
-                  backgroundColor: isActive ? vertical.accentColor : "transparent",
-                  border: `1px solid ${isActive ? vertical.accentColor : "var(--border)"}`,
+                  color: isActive ? "#ffffff" : "var(--foreground)",
+                  backgroundColor: isActive ? vertical.accentColor : "rgba(255,255,255,0.8)",
+                  border: `2px solid ${isActive ? vertical.accentColor : "var(--border)"}`,
+                  boxShadow: isActive
+                    ? `0 4px 20px rgba(${vertical.accentColorRgb}, 0.35)`
+                    : "0 2px 8px rgba(0,0,0,0.06)",
                 }}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: isActive
+                    ? `0 6px 28px rgba(${vertical.accentColorRgb}, 0.45)`
+                    : `0 4px 16px rgba(${vertical.accentColorRgb}, 0.2)`,
+                }}
+                whileTap={{ scale: 0.97 }}
                 transition={{ duration: 0.2 }}
               >
                 {tVerticals(`${id}.label`)}
+                {/* Progress indicator for auto-rotation */}
+                {isActive && !userHasInteracted && (
+                  <motion.span
+                    className="absolute bottom-0 left-0 h-1 rounded-full bg-white/40"
+                    initial={{ width: "0%" }}
+                    animate={{ width: "100%" }}
+                    transition={{
+                      duration: ROTATION_INTERVAL / 1000,
+                      ease: "linear",
+                    }}
+                    key={`progress-${id}-${activeVertical}`}
+                  />
+                )}
               </motion.button>
             );
           })}

@@ -28,7 +28,7 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative overflow-hidden px-6 pt-32 pb-12">
+      <section className="relative overflow-hidden px-6 pt-36 pb-12">
         <div className="pointer-events-none absolute inset-0">
           <motion.div
             className="absolute inset-0"

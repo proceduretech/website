@@ -26,6 +26,9 @@ const verticalFromPath = (pathname: string): Vertical | null => {
 interface ThemeContextType {
   activeVertical: Vertical;
   setActiveVertical: (vertical: Vertical) => void;
+  setActiveVerticalVisual: (vertical: Vertical) => void;
+  userHasInteracted: boolean;
+  setUserHasInteracted: (value: boolean) => void;
   config: VerticalConfig;
 }
 
@@ -38,6 +41,11 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     const fromPath = verticalFromPath(pathname);
     return fromPath || "ai-engineering";
   });
+  const [userHasInteracted, setUserHasInteracted] = useState<boolean>(() => {
+    // If user lands on a vertical page directly, they've "interacted"
+    const fromPath = verticalFromPath(pathname);
+    return fromPath !== null;
+  });
 
   // Sync state with URL on pathname change
   useEffect(() => {
@@ -47,10 +55,16 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     }
   }, [pathname, activeVertical]);
 
-  // Navigate when vertical changes
+  // Visual-only change (for auto-rotation) - no navigation
+  const setActiveVerticalVisual = useCallback((vertical: Vertical) => {
+    setActiveVerticalState(vertical);
+  }, []);
+
+  // Navigate when vertical changes (user clicks)
   const setActiveVertical = useCallback(
     (vertical: Vertical) => {
       setActiveVerticalState(vertical);
+      setUserHasInteracted(true);
       router.push(`/${vertical}`, { scroll: false });
     },
     [router]
@@ -59,7 +73,16 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const config = verticals[activeVertical];
 
   return (
-    <ThemeContext.Provider value={{ activeVertical, setActiveVertical, config }}>
+    <ThemeContext.Provider
+      value={{
+        activeVertical,
+        setActiveVertical,
+        setActiveVerticalVisual,
+        userHasInteracted,
+        setUserHasInteracted,
+        config,
+      }}
+    >
       <div
         style={
           {
