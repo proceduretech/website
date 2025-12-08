@@ -6,7 +6,7 @@
   --color-muted: #71717a;
   --color-accent: #3b82f6;
   --color-accent-secondary: #06b6d4;
-  --font-poppins: var(--font-poppins);
+  --font-outfit: var(--font-outfit);
 }
 
 @layer base {
@@ -20,7 +20,7 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: var(--font-poppins), system-ui, -apple-system, sans-serif;
+    font-family: var(--font-outfit), system-ui, -apple-system, sans-serif;
   }
 
   ::selection {
