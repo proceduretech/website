@@ -82,6 +82,25 @@ export const navigationData = {
           href: "/expertise/ai-agents",
         },
       ],
+      sections: [
+        {
+          title: "AI Security",
+          items: [
+            {
+              label: "Threat Protection",
+              description:
+                "Guard against prompt injection, jailbreaks, and adversarial attacks.",
+              href: "/expertise/ai-security",
+            },
+            {
+              label: "Data & Privacy",
+              description:
+                "Prevent data leakage and ensure compliance.",
+              href: "/expertise/ai-privacy",
+            },
+          ],
+        },
+      ],
     },
     {
       title: "Product Engineering",
@@ -110,45 +129,39 @@ export const navigationData = {
             "Automated testing, CI/CD integration, and quality assurance.",
           href: "/expertise/qa",
         },
-        {
-          label: "Cloud & DevOps",
-          description:
-            "AWS, GCP, Azure. Kubernetes, MLOps, and AI infrastructure.",
-          href: "/expertise/cloud",
-        },
       ],
     },
     {
-      title: "Design",
+      title: "Cloud & DevOps",
       items: [
         {
-          label: "Product Design",
+          label: "Cloud Architecture",
           description:
-            "Human-centered UX for AI-powered products.",
-          href: "/expertise/product-design",
+            "AWS, GCP, Azure. Scalable and cost-optimized infrastructure.",
+          href: "/expertise/cloud",
         },
         {
-          label: "Design Systems",
+          label: "Kubernetes",
           description:
-            "Scalable component libraries and design tokens.",
-          href: "/expertise/design-systems",
+            "Container orchestration and cloud-native deployments.",
+          href: "/expertise/kubernetes",
         },
       ],
       sections: [
         {
-          title: "AI Security",
+          title: "Design",
           items: [
             {
-              label: "Threat Protection",
+              label: "Product Design",
               description:
-                "Guard against prompt injection, jailbreaks, and adversarial attacks.",
-              href: "/expertise/ai-security",
+                "Human-centered UX for AI-powered products.",
+              href: "/expertise/product-design",
             },
             {
-              label: "Data & Privacy",
+              label: "Design Systems",
               description:
-                "Prevent data leakage and ensure compliance.",
-              href: "/expertise/ai-privacy",
+                "Scalable component libraries and design tokens.",
+              href: "/expertise/design-systems",
             },
           ],
         },
@@ -166,16 +179,16 @@ export const navigationData = {
           href: "/industries/financial-services",
         },
         {
-          label: "Healthcare & Life Sciences",
+          label: "Healthcare",
           description:
-            "HIPAA-compliant AI for diagnostics, drug discovery, and clinical workflows.",
+            "HIPAA-compliant AI for diagnostics and clinical workflows.",
           href: "/industries/healthcare",
         },
         {
-          label: "Legal & Professional Services",
+          label: "EdTech",
           description:
-            "Document AI, contract analysis, and knowledge management systems.",
-          href: "/industries/legal",
+            "AI-powered learning platforms, content generation, and adaptive education.",
+          href: "/industries/edtech",
         },
         {
           label: "SaaS & Technology",
