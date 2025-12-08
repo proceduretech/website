@@ -13,7 +13,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a Next.js 16 project using the App Router, building a premium enterprise software services website.
 
-**Stack:** React 19, TypeScript, Tailwind CSS v4, Geist font
+**Stack:** React 19, TypeScript, Tailwind CSS v4, Outfit font
 
 ### Project Structure
 
@@ -39,9 +39,10 @@ lib/
 
 ### Design System
 
-- **Theme:** Dark premium aesthetic (zinc-950 background)
-- **Accent colors:** Purple (#a855f7) to Indigo (#6366f1) gradients
-- **Typography:** Geist Sans for body, tight tracking for headings
+- **Theme:** Light by default, with dark mode toggle in footer
+- **Accent colors:** Blue (#3b82f6) to Sky (#0ea5e9) gradients
+- **Typography:** Outfit for body, tight tracking for headings
+- **Theme toggle:** Located in footer, persists to localStorage
 
 ### Path Aliases
 

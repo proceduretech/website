@@ -4,27 +4,28 @@ export const navigationData = {
       title: "By Engagement Model",
       items: [
         {
-          label: "CTO as a Service",
+          label: "Forward-Deployed Teams",
           description:
-            "Leverage the expertise of senior tech leaders to develop industry-leading products.",
-          href: "/services/cto-as-a-service",
+            "Senior AI engineers embedded with your team, working in your codebase.",
+          href: "/services/forward-deployed",
         },
         {
-          label: "Remote Engineering Team",
-          description: "Hire remote developers (managed & in one location).",
-          href: "/services/remote-engineering-team",
+          label: "AI Sprints",
+          description:
+            "Rapid 2-4 week engagements to prototype, validate, or ship AI features.",
+          href: "/services/ai-sprints",
         },
         {
-          label: "Complete Product Development",
+          label: "Full Product Build",
           description:
-            "Take your product from concept to MVP and achieve scale.",
-          href: "/services/product-development",
+            "End-to-end product development from concept to production launch.",
+          href: "/services/product-build",
         },
         {
-          label: "Strategic Offshoring",
+          label: "Staff Augmentation",
           description:
-            "Set up your offshore engineering center with low-risk BOT model.",
-          href: "/services/strategic-offshoring",
+            "Scale your team with senior AI and engineering talent on demand.",
+          href: "/services/staff-augmentation",
         },
       ],
     },
@@ -32,14 +33,22 @@ export const navigationData = {
       title: "By Company Stage",
       items: [
         {
-          label: "Early Stage",
-          description: "Build MVPs or a launch ready product.",
-          href: "/services/early-stage",
+          label: "Startups",
+          description:
+            "Build your MVP or launch-ready AI product with velocity.",
+          href: "/services/startups",
         },
         {
-          label: "High-growth",
-          description: "Scale up your engineering efforts. Hire faster!",
-          href: "/services/high-growth",
+          label: "Scale-ups",
+          description:
+            "Scale your engineering team and AI capabilities as you grow.",
+          href: "/services/scale-ups",
+        },
+        {
+          label: "Enterprise",
+          description:
+            "Enterprise-grade AI solutions with security and compliance built in.",
+          href: "/services/enterprise",
         },
       ],
     },
@@ -48,96 +57,102 @@ export const navigationData = {
       highlight: true,
       bullet: true,
       items: [
-        { label: "Experienced, high-caliber engineers", href: "/why-us" },
-        { label: "Scale up as you like", href: "/why-us" },
-        { label: "High employee retention", href: "/why-us" },
-        { label: "Dedicated team leads", href: "/why-us" },
-        { label: "Strong IP protection", href: "/why-us" },
+        { label: "Senior AI engineers, not generalists", href: "/why-us" },
+        { label: "Ship in weeks, not months", href: "/why-us" },
+        { label: "We build, not just consult", href: "/why-us" },
+        { label: "Production-first mindset", href: "/why-us" },
+        { label: "Your team, extended", href: "/why-us" },
       ],
     },
   ],
   expertise: [
     {
+      title: "AI & Machine Learning",
+      items: [
+        {
+          label: "LLM Applications",
+          description:
+            "ChatGPT, Claude, and open-source LLM integrations. RAG, fine-tuning, and prompt engineering.",
+          href: "/expertise/llm-applications",
+        },
+        {
+          label: "AI Agents & Automation",
+          description:
+            "Autonomous agents, workflow automation, and AI-powered business processes.",
+          href: "/expertise/ai-agents",
+        },
+      ],
+    },
+    {
       title: "Product Engineering",
       items: [
         {
-          label: "UI/UX Design",
-          description: "Craft products with brilliant user experience.",
-          href: "/expertise/ui-ux-design",
+          label: "Frontend Development",
+          description:
+            "React, Next.js, Vue, and modern web applications.",
+          href: "/expertise/frontend",
         },
         {
-          label: "React Development",
-          description: "Fast and responsive React apps built with latest technologies.",
-          href: "/expertise/react-development",
-        },
-        {
-          label: "Backend / Middleware",
-          description: "Enterprise-grade backend systems that scale.",
+          label: "Backend Development",
+          description:
+            "Node.js, Python, Go, and cloud-native architectures.",
           href: "/expertise/backend",
         },
         {
-          label: "Mobile App Development",
-          description: "High-quality native and hybrid mobile apps.",
+          label: "Mobile Development",
+          description:
+            "Native iOS, Android, and cross-platform React Native apps.",
           href: "/expertise/mobile",
         },
         {
-          label: "QA / Test Engineering",
-          description: "End to end test engineering services.",
-          href: "/expertise/qa-testing",
+          label: "QA & Test Engineering",
+          description:
+            "Automated testing, CI/CD integration, and quality assurance.",
+          href: "/expertise/qa",
+        },
+        {
+          label: "Cloud & DevOps",
+          description:
+            "AWS, GCP, Azure. Kubernetes, MLOps, and AI infrastructure.",
+          href: "/expertise/cloud",
         },
       ],
     },
     {
-      title: "Cloud & DevOps",
-      sections: [
-        {
-          items: [
-            {
-              label: "CI/CD & Infrastructure Automation",
-              description: "Setup continuous delivery pipelines for short release cycles.",
-              href: "/expertise/cicd",
-            },
-            {
-              label: "Kubernetes Adoption",
-              description: "Accelerate your Kubernetes adoption.",
-              href: "/expertise/kubernetes",
-            },
-          ],
-        },
-        {
-          title: "Data and AI",
-          items: [
-            {
-              label: "Generative AI Development",
-              description: "Leverage the power of ChatGPT, DALL-E and other GenAI tools.",
-              href: "/expertise/generative-ai",
-            },
-            {
-              label: "AI & ML",
-              description: "AI & ML to gather insights from your data.",
-              href: "/expertise/ai-ml",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      title: "Strategy and Consulting",
-      highlight: true,
+      title: "Design",
       items: [
         {
-          label: "Digital Transformation",
+          label: "Product Design",
           description:
-            "Helping enterprises embrace holistic digital transformation and harness emerging technologies.",
-          href: "/expertise/digital-transformation",
+            "Human-centered UX for AI-powered products.",
+          href: "/expertise/product-design",
+        },
+        {
+          label: "Design Systems",
+          description:
+            "Scalable component libraries and design tokens.",
+          href: "/expertise/design-systems",
         },
       ],
-      featured: {
-        badge: "Recognition",
-        title: "Clutch Top Developer 2024",
-        description: "We are proud to be named a top development company.",
-        link: { label: "Read More", href: "/awards" },
-      },
+      sections: [
+        {
+          title: "AI Security",
+          items: [
+            {
+              label: "Threat Protection",
+              description:
+                "Guard against prompt injection, jailbreaks, and adversarial attacks.",
+              href: "/expertise/ai-security",
+            },
+            {
+              label: "Data & Privacy",
+              description:
+                "Prevent data leakage and ensure compliance.",
+              href: "/expertise/ai-privacy",
+            },
+          ],
+        },
+      ],
     },
   ],
   industries: [
@@ -146,49 +161,62 @@ export const navigationData = {
       items: [
         {
           label: "Financial Services",
-          description: "Banking, insurance, and fintech solutions.",
+          description:
+            "AI for trading, risk analysis, fraud detection, and regulatory compliance.",
           href: "/industries/financial-services",
         },
         {
           label: "Healthcare & Life Sciences",
-          description: "HIPAA-compliant healthcare technology.",
+          description:
+            "HIPAA-compliant AI for diagnostics, drug discovery, and clinical workflows.",
           href: "/industries/healthcare",
         },
         {
-          label: "Retail & E-commerce",
-          description: "Scalable commerce platforms and experiences.",
-          href: "/industries/retail",
+          label: "Legal & Professional Services",
+          description:
+            "Document AI, contract analysis, and knowledge management systems.",
+          href: "/industries/legal",
         },
         {
           label: "SaaS & Technology",
-          description: "Product engineering for software companies.",
+          description:
+            "AI features and infrastructure for software companies.",
           href: "/industries/saas",
         },
       ],
     },
     {
-      title: "Enterprise Focus",
+      title: "Use Cases",
       items: [
         {
-          label: "Digital Transformation",
-          description: "Modernize legacy systems and processes.",
-          href: "/industries/digital-transformation",
+          label: "AI-Powered Search",
+          description:
+            "Semantic search, recommendations, and intelligent discovery.",
+          href: "/use-cases/ai-search",
         },
         {
-          label: "Cloud Migration",
-          description: "Seamless transition to cloud infrastructure.",
-          href: "/industries/cloud-migration",
+          label: "Document Intelligence",
+          description:
+            "Extract, classify, and analyze documents at scale.",
+          href: "/use-cases/document-ai",
+        },
+        {
+          label: "Conversational AI",
+          description:
+            "Chatbots, voice assistants, and customer service automation.",
+          href: "/use-cases/conversational-ai",
         },
       ],
     },
     {
       title: "Compliance",
       highlight: true,
+      bullet: true,
       items: [
-        { label: "HIPAA compliant", href: "/compliance" },
-        { label: "PCI DSS certified", href: "/compliance" },
-        { label: "GDPR ready", href: "/compliance" },
         { label: "SOC 2 Type II", href: "/compliance" },
+        { label: "HIPAA compliant", href: "/compliance" },
+        { label: "GDPR ready", href: "/compliance" },
+        { label: "AI governance frameworks", href: "/compliance" },
       ],
     },
   ],
@@ -197,60 +225,67 @@ export const navigationData = {
       items: [
         {
           label: "About Procedure",
-          description: "Learn about our senior leadership and who we are.",
+          description:
+            "AI engineers building the future. Learn about our team and mission.",
           href: "/about",
         },
         {
-          label: "Culture",
-          description: "See how we work & what we value.",
-          href: "/about/culture",
+          label: "Our Approach",
+          description:
+            "Forward-deployed, production-first. How we work differently.",
+          href: "/about/approach",
         },
         {
-          label: "Engineering Excellence",
-          description: "Our commitment to technical quality and best practices.",
-          href: "/about/engineering",
-        },
-        {
-          label: "CSR",
-          description: "Our initiatives to make a positive impact.",
-          href: "/about/csr",
-        },
-      ],
-    },
-    {
-      items: [
-        {
-          label: "IP Protection",
-          description: "Learn how we ensure complete security for your business.",
-          href: "/about/ip-protection",
-        },
-        {
-          label: "How We Deliver",
-          description: "Know what working with Procedure looks like.",
-          href: "/about/how-we-deliver",
+          label: "Team",
+          description:
+            "Meet the engineers behind Procedure.",
+          href: "/about/team",
         },
         {
           label: "Careers",
-          description: "Come join our vibrant tech community.",
+          description:
+            "Join our team of forward-deployed AI engineers.",
           href: "/careers",
-        },
-        {
-          label: "Press",
-          description: "Take a look at our latest news and updates.",
-          href: "/press",
         },
       ],
     },
     {
-      title: "Why Procedure?",
+      items: [
+        {
+          label: "AI Safety & Ethics",
+          description:
+            "Our commitment to responsible AI development.",
+          href: "/about/ai-safety",
+        },
+        {
+          label: "Open Source",
+          description:
+            "Tools and libraries we've built and contributed to.",
+          href: "/about/open-source",
+        },
+        {
+          label: "Press",
+          description:
+            "News and media coverage.",
+          href: "/press",
+        },
+        {
+          label: "Contact",
+          description:
+            "Get in touch with our team.",
+          href: "/contact",
+        },
+      ],
+    },
+    {
+      title: "The Procedure Difference",
       highlight: true,
       bullet: true,
       items: [
-        { label: "Experienced, high-caliber engineers", href: "/why-us" },
-        { label: "Scale up as you like", href: "/why-us" },
-        { label: "High employee retention", href: "/why-us" },
-        { label: "Dedicated team leads", href: "/why-us" },
-        { label: "Strong IP protection", href: "/why-us" },
+        { label: "Engineers, not consultants", href: "/why-us" },
+        { label: "Production code, not POCs", href: "/why-us" },
+        { label: "Embedded with your team", href: "/why-us" },
+        { label: "AI-native from day one", href: "/why-us" },
       ],
     },
   ],
@@ -258,40 +293,45 @@ export const navigationData = {
     {
       items: [
         {
-          label: "Engineering Blogs",
-          description: "Technology blogs written by our engineers.",
+          label: "Engineering Blog",
+          description:
+            "Technical deep-dives on AI, LLMs, and production systems.",
           href: "/blog",
         },
         {
           label: "Case Studies",
-          description: "Deep dives into client success stories.",
+          description:
+            "How we've helped companies ship AI to production.",
           href: "/case-studies",
         },
         {
-          label: "Tech Radar",
-          description: "An insider's view of our technology choices.",
-          href: "/tech-radar",
+          label: "AI Playbooks",
+          description:
+            "Practical guides for building production AI systems.",
+          href: "/playbooks",
         },
       ],
     },
     {
       items: [
         {
-          label: "Events & Webinars",
-          description: "Our virtual tech conferences to exchange knowledge.",
-          href: "/events",
+          label: "Tech Radar",
+          description:
+            "Our current view on AI tools, frameworks, and technologies.",
+          href: "/tech-radar",
         },
         {
-          label: "Procedure In News",
-          description: "See what we've been up to lately.",
-          href: "/news",
+          label: "Events",
+          description:
+            "Meetups, workshops, and conferences.",
+          href: "/events",
         },
       ],
       featured: {
-        badge: "Download",
-        title: "Deep dive into our engineering culture.",
-        description: "",
-        link: { label: "Download Culture Book", href: "/culture-book" },
+        badge: "Guide",
+        title: "Building Production LLM Apps",
+        description: "Our comprehensive guide to shipping LLMs to production.",
+        link: { label: "Read the Guide", href: "/playbooks/llm-production" },
       },
     },
   ],

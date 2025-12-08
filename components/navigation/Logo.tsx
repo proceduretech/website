@@ -37,13 +37,13 @@ export function Logo({ className = "" }: LogoProps) {
               gradientUnits="userSpaceOnUse"
             >
               <stop stopColor="#3b82f6" />
-              <stop offset="1" stopColor="#06b6d4" />
+              <stop offset="1" stopColor="#0ea5e9" />
             </linearGradient>
           </defs>
         </svg>
       </div>
       {/* Company name */}
-      <span className="text-xl font-bold tracking-wide text-white">
+      <span className="text-xl font-bold tracking-wide text-zinc-900 dark:text-white">
         PROCEDURE
       </span>
     </a>

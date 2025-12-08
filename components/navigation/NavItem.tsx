@@ -24,10 +24,10 @@ export function NavItem({ label, href, megaMenu, isOpen, onHover }: NavItemProps
 
   if (!hasDropdown) {
     return (
-      <div className="border-b border-solid border-zinc-800 lg:border-0 flex items-center justify-between lg:justify-start flex-col lg:flex-row">
+      <div className="border-b border-solid border-zinc-200 dark:border-zinc-800 lg:border-0 flex items-center justify-between lg:justify-start flex-col lg:flex-row">
         <a
           href={href}
-          className="w-full lg:w-fit font-normal text-sm xl:text-base text-white flex items-center justify-between lg:justify-start px-4 py-5 lg:p-2 lg:hover:bg-zinc-800 rounded-lg transition-colors"
+          className="w-full lg:w-fit font-normal text-lg text-zinc-700 dark:text-white flex items-center justify-between lg:justify-start px-4 py-5 lg:p-2 lg:hover:bg-zinc-100 dark:lg:hover:bg-zinc-800 rounded-lg transition-colors"
           onMouseEnter={onHover}
         >
           {label}
@@ -38,12 +38,12 @@ export function NavItem({ label, href, megaMenu, isOpen, onHover }: NavItemProps
 
   return (
     <div
-      className="border-b border-solid border-zinc-800 lg:border-0 flex items-center justify-between lg:justify-start flex-col lg:flex-row"
+      className="border-b border-solid border-zinc-200 dark:border-zinc-800 lg:border-0 flex items-center justify-between lg:justify-start flex-col lg:flex-row"
       onMouseEnter={onHover}
     >
       <button
-        className={`w-full lg:w-fit font-normal text-sm xl:text-base text-white flex items-center justify-between lg:justify-start px-4 py-5 lg:p-2 lg:focus:bg-zinc-800 lg:hover:bg-zinc-800 rounded-lg transition-colors ${
-          isOpen ? "lg:bg-zinc-800" : ""
+        className={`w-full lg:w-fit font-normal text-lg text-zinc-700 dark:text-white flex items-center justify-between lg:justify-start px-4 py-5 lg:p-2 lg:focus:bg-zinc-100 dark:lg:focus:bg-zinc-800 lg:hover:bg-zinc-100 dark:lg:hover:bg-zinc-800 rounded-lg transition-colors ${
+          isOpen ? "lg:bg-zinc-100 dark:lg:bg-zinc-800" : ""
         }`}
         aria-expanded={isOpen}
       >

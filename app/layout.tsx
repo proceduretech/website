@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import { Navigation } from "@/components/navigation";
+import { Footer } from "@/components/footer";
+import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -9,10 +11,21 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Procedure | Enterprise Software Engineering",
+  title: "Procedure | Forward-Deployed AI Engineers",
   description:
-    "Premium software engineering services for enterprise customers. Build scalable, secure, and innovative solutions with our expert team.",
+    "Elite AI engineers embedded with your team to ship production-grade AI systems. Build AI. Build with AI.",
 };
+
+const themeScript = `
+  (function() {
+    const stored = localStorage.getItem('theme');
+    if (stored === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  })();
+`;
 
 export default function RootLayout({
   children,
@@ -20,10 +33,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className={`${outfit.variable} antialiased`}>
-        <Navigation />
-        {children}
+        <ThemeProvider>
+          <Navigation />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
