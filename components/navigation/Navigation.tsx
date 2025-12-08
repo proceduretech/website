@@ -34,7 +34,7 @@ export function Navigation() {
           <Logo />
 
           {/* Navigation Items */}
-          <div className="hidden lg:flex items-center gap-0">
+          <nav className="hidden lg:flex lg:space-x-1">
             <NavItem
               label="Services"
               megaMenu={navigationData.services}
@@ -70,7 +70,7 @@ export function Navigation() {
               isOpen={activeMenu === "resources"}
               onHover={() => setActiveMenu("resources")}
             />
-          </div>
+          </nav>
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center gap-4">
@@ -101,8 +101,8 @@ export function Navigation() {
 
       {/* Mega Menu Container */}
       {activeMenu && (
-        <div className="absolute top-full left-0 right-0 px-6 lg:px-8">
-          <div className="max-w-5xl mx-auto">
+        <div className="relative lg:absolute left-0 w-full lg:px-16 bg-zinc-900 lg:bg-zinc-950/85 lg:backdrop-blur-md lg:top-full lg:z-50">
+          <div className="max-w-5xl mx-auto w-full lg:flex lg:justify-center">
             <MegaMenuContent
               sections={
                 navigationData[activeMenu as keyof typeof navigationData] as MenuSection[]
@@ -159,7 +159,7 @@ function MegaMenuContent({ sections }: { sections: MenuSection[] }) {
           >
             {/* Main section title */}
             {section.title && (
-              <h3 className="text-xl font-bold text-blue-600 mb-5">
+              <h3 className="text-lg font-semibold text-blue-600 mb-5">
                 {section.title}
               </h3>
             )}
@@ -178,7 +178,7 @@ function MegaMenuContent({ sections }: { sections: MenuSection[] }) {
                       </>
                     ) : (
                       <a href={item.href} className="group block cursor-pointer">
-                        <span className="text-base text-zinc-900 font-bold group-hover:text-blue-600 transition-colors duration-200">
+                        <span className="text-sm text-zinc-900 font-medium group-hover:text-blue-600 transition-colors duration-200">
                           {item.label}
                         </span>
                         {item.description && (
@@ -199,7 +199,7 @@ function MegaMenuContent({ sections }: { sections: MenuSection[] }) {
                 {section.sections.map((subSection, subIdx) => (
                   <div key={subIdx}>
                     {subSection.title && (
-                      <h4 className="text-xl font-bold text-blue-600 mb-5 mt-8">
+                      <h4 className="text-lg font-semibold text-blue-600 mb-5 mt-8">
                         {subSection.title}
                       </h4>
                     )}
@@ -210,7 +210,7 @@ function MegaMenuContent({ sections }: { sections: MenuSection[] }) {
                             href={item.href}
                             className="group block cursor-pointer"
                           >
-                            <span className="text-base text-zinc-900 font-bold group-hover:text-blue-600 transition-colors duration-200">
+                            <span className="text-sm text-zinc-900 font-medium group-hover:text-blue-600 transition-colors duration-200">
                               {item.label}
                             </span>
                             {item.description && (
@@ -230,18 +230,18 @@ function MegaMenuContent({ sections }: { sections: MenuSection[] }) {
             {/* Featured card */}
             {section.featured && (
               <div className="mt-6 p-4 bg-white rounded-xl border border-zinc-200 shadow-sm">
-                <span className="text-xs font-semibold text-blue-600 uppercase tracking-wider">
+                <span className="text-xs font-medium text-blue-600 uppercase tracking-wider">
                   {section.featured.badge}
                 </span>
-                <h4 className="text-zinc-900 font-semibold mt-2">
+                <h4 className="text-zinc-900 font-medium mt-2">
                   {section.featured.title}
                 </h4>
-                <p className="text-sm text-zinc-500 mt-1">
+                <p className="text-sm text-zinc-500 font-normal mt-1">
                   {section.featured.description}
                 </p>
                 <a
                   href={section.featured.link.href}
-                  className="inline-flex items-center gap-1 text-sm font-semibold text-blue-600 mt-3 hover:text-blue-700 cursor-pointer"
+                  className="inline-flex items-center gap-1 text-sm font-medium text-blue-600 mt-3 hover:text-blue-700 cursor-pointer"
                 >
                   {section.featured.link.label}
                   <svg

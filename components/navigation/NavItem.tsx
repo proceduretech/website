@@ -24,25 +24,32 @@ export function NavItem({ label, href, megaMenu, isOpen, onHover }: NavItemProps
 
   if (!hasDropdown) {
     return (
-      <a
-        href={href}
-        className="px-4 py-2 text-lg font-semibold text-white/80 hover:text-white transition-colors duration-200 cursor-pointer"
-        onMouseEnter={onHover}
-      >
-        {label}
-      </a>
+      <div className="border-b border-solid border-zinc-800 lg:border-0 flex items-center justify-between lg:justify-start flex-col lg:flex-row">
+        <a
+          href={href}
+          className="w-full lg:w-fit font-normal text-sm xl:text-base text-white flex items-center justify-between lg:justify-start px-4 py-5 lg:p-2 lg:hover:bg-zinc-800 rounded-lg transition-colors"
+          onMouseEnter={onHover}
+        >
+          {label}
+        </a>
+      </div>
     );
   }
 
   return (
-    <div className="relative" onMouseEnter={onHover}>
+    <div
+      className="border-b border-solid border-zinc-800 lg:border-0 flex items-center justify-between lg:justify-start flex-col lg:flex-row"
+      onMouseEnter={onHover}
+    >
       <button
-        className="flex items-center gap-1.5 px-4 py-2 text-lg font-semibold text-white/80 hover:text-white transition-colors duration-200 cursor-pointer"
+        className={`w-full lg:w-fit font-normal text-sm xl:text-base text-white flex items-center justify-between lg:justify-start px-4 py-5 lg:p-2 lg:focus:bg-zinc-800 lg:hover:bg-zinc-800 rounded-lg transition-colors ${
+          isOpen ? "lg:bg-zinc-800" : ""
+        }`}
         aria-expanded={isOpen}
       >
-        <span className={isOpen ? "text-white" : ""}>{label}</span>
+        <span>{label}</span>
         <svg
-          className={`w-3.5 h-3.5 transition-transform duration-200 ${
+          className={`w-3.5 h-3.5 ml-1.5 transition-transform duration-200 ${
             isOpen ? "rotate-180" : ""
           }`}
           fill="none"
@@ -53,9 +60,6 @@ export function NavItem({ label, href, megaMenu, isOpen, onHover }: NavItemProps
           <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
         </svg>
       </button>
-      {isOpen && (
-        <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-white/40" />
-      )}
     </div>
   );
 }
