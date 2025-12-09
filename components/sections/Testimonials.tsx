@@ -63,7 +63,14 @@ export function Testimonials() {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+      {/* Circle pattern */}
+      <div
+        className="absolute inset-0 opacity-[0.4]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' width='48' height='48'%3e%3ccircle cx='24' cy='24' r='8' stroke='%23cbd5e1' stroke-width='1' fill='none'/%3e%3c/svg%3e")`,
+        }}
+      />
+      <div className="relative max-w-4xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

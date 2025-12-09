@@ -5,8 +5,15 @@ import { motion } from "framer-motion";
 
 export function CTA() {
   return (
-    <section className="relative py-16 sm:py-24 bg-zinc-50">
+    <section className="relative py-16 sm:py-24 bg-zinc-50 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-sky-500/5" />
+      {/* Diamond/rhombus pattern */}
+      <div
+        className="absolute inset-0 opacity-[0.4]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36' width='36' height='36'%3e%3cpath d='M18 4L32 18L18 32L4 18Z' stroke='%23cbd5e1' stroke-width='1' fill='none'/%3e%3c/svg%3e")`,
+        }}
+      />
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}

@@ -11,8 +11,8 @@ const values = [
     ),
     iconBg: "bg-blue-100",
     hoverBorder: "hover:border-blue-300",
-    title: "Build AI Products",
-    description: "From LLM applications to custom ML models, we architect and build AI systems that solve real business problems.",
+    title: "Your AI Products Built",
+    description: "From LLM applications to custom ML models, you get production-ready AI systems that solve real business problems and scale with you.",
   },
   {
     icon: (
@@ -22,8 +22,8 @@ const values = [
     ),
     iconBg: "bg-sky-100",
     hoverBorder: "hover:border-sky-300",
-    title: "Build with AI",
-    description: "We leverage AI to ship faster. Copilot-augmented development, AI-powered testing, and automated code reviews built into our process.",
+    title: "Ship Faster with AI",
+    description: "Your development velocity increases with AI-augmented workflows. Copilot-powered development, automated testing, and intelligent code reviews accelerate your timeline.",
   },
   {
     icon: (
@@ -33,15 +33,22 @@ const values = [
     ),
     iconBg: "bg-blue-100",
     hoverBorder: "hover:border-blue-300",
-    title: "Forward-Deployed",
-    description: "Our engineers work as an extension of your team—same tools, same standups, same commitment to shipping.",
+    title: "Your Team, Extended",
+    description: "Senior engineers embedded directly with your team—same tools, same standups, same commitment to shipping. You get capacity without the hiring overhead.",
   },
 ];
 
 export function ValueProposition() {
   return (
-    <section className="relative py-16 sm:py-24 bg-zinc-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <section className="relative py-16 sm:py-24 bg-zinc-50 overflow-hidden">
+      {/* Dot pattern */}
+      <div
+        className="absolute inset-0 opacity-[0.4]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3e%3ccircle cx='2' cy='2' r='1' fill='%23cbd5e1'/%3e%3c/svg%3e")`,
+        }}
+      />
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -53,7 +60,7 @@ export function ValueProposition() {
             AI engineering, not AI consulting
           </h2>
           <p className="text-base sm:text-lg text-zinc-600 max-w-2xl mx-auto">
-            We embed senior engineers directly into your team. No slide decks.
+            You get senior engineers embedded directly into your team. No slide decks.
             No endless discovery phases. Just production code shipped fast.
           </p>
         </motion.div>

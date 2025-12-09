@@ -11,8 +11,15 @@ const stats = [
 
 export function Stats() {
   return (
-    <section className="relative py-16 sm:py-24">
+    <section className="relative py-16 sm:py-24 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-white to-zinc-50" />
+      {/* Plus/cross pattern */}
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32'%3e%3cpath d='M16 8v16M8 16h16' stroke='%23000' stroke-width='1' fill='none'/%3e%3c/svg%3e")`,
+        }}
+      />
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
           {stats.map((stat, idx) => (

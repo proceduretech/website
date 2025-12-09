@@ -50,8 +50,7 @@ export function Hero() {
           className="mt-6 sm:mt-8 text-base sm:text-xl text-zinc-600 max-w-2xl mx-auto leading-relaxed"
         >
           Elite AI engineers embedded with your team to ship production-grade
-          AI systems—from strategy to deployment. We don&apos;t just consult.
-          We build.
+          AI systems—from strategy to deployment. You get builders, not consultants.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
