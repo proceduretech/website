@@ -51,7 +51,9 @@ export function Testimonials() {
   }, []);
 
   const prevSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrentIndex(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length,
+    );
   }, []);
 
   // Auto-advance every 6 seconds
@@ -89,7 +91,8 @@ export function Testimonials() {
             Trusted by engineering leaders at scaling companies
           </h2>
           <p className="text-text-secondary max-w-xl mx-auto">
-            Join 50+ companies who&apos;ve shipped production AI with embedded Procedure engineers
+            Join 50+ companies who&apos;ve shipped production AI with embedded
+            Procedure engineers
           </p>
         </motion.div>
 
@@ -127,8 +130,9 @@ export function Testimonials() {
                   <div className="font-semibold text-base sm:text-lg text-white">
                     {testimonials[currentIndex].author}
                   </div>
-                  <div className="text-sm sm:text-base text-gray-400">
-                    {testimonials[currentIndex].role}, {testimonials[currentIndex].company}
+                  <div className="text-sm text-gray-400">
+                    {testimonials[currentIndex].role},{" "}
+                    {testimonials[currentIndex].company}
                   </div>
                 </div>
               </div>
@@ -141,8 +145,18 @@ export function Testimonials() {
             className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-16 w-10 h-10 md:w-12 md:h-12 rounded-full bg-surface-elevated border border-border shadow-lg items-center justify-center text-text-secondary hover:text-text-primary hover:border-accent-teal/50 transition-colors"
             aria-label="Previous testimonial"
           >
-            <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            <svg
+              className="w-4 h-4 md:w-5 md:h-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15 19l-7-7 7-7"
+              />
             </svg>
           </button>
           <button
@@ -150,8 +164,18 @@ export function Testimonials() {
             className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-16 w-10 h-10 md:w-12 md:h-12 rounded-full bg-surface-elevated border border-border shadow-lg items-center justify-center text-text-secondary hover:text-text-primary hover:border-accent-teal/50 transition-colors"
             aria-label="Next testimonial"
           >
-            <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            <svg
+              className="w-4 h-4 md:w-5 md:h-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M9 5l7 7-7 7"
+              />
             </svg>
           </button>
         </div>
