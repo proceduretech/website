@@ -5,6 +5,7 @@ import {
   Testimonials,
   Stats,
   Careers,
+  FAQ,
   CTA,
 } from "@/components/sections";
 
@@ -17,6 +18,7 @@ export default function Home() {
       <Services />
       <Stats />
       <Careers />
+      <FAQ />
       <CTA />
     </main>
   );

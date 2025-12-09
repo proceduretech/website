@@ -3,10 +3,10 @@
 import { motion } from "framer-motion";
 
 const stats = [
-  { value: "50+", label: "AI Systems Deployed" },
-  { value: "10x", label: "Faster Time to Production" },
-  { value: "98%", label: "Client Retention" },
-  { value: "24/7", label: "Forward-Deployed Support" },
+  { value: "50+", label: "Production AI Systems Shipped" },
+  { value: "6", label: "Weeks to First Deployment" },
+  { value: "98%", label: "Client Retention Rate" },
+  { value: "3+", label: "Years Average Partnership" },
 ];
 
 export function Stats() {
@@ -21,6 +21,18 @@ export function Stats() {
         }}
       />
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-10 sm:mb-12"
+        >
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-zinc-900">
+            Proven results from embedded AI engineering
+          </h2>
+        </motion.div>
+
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
           {stats.map((stat, idx) => (
             <motion.div

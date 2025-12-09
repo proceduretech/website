@@ -10,9 +10,25 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Procedure | Forward-Deployed AI Engineers",
+  title: "AI Engineering Services | Enterprise AI Development | Procedure",
   description:
-    "Elite AI engineers embedded with your team to ship production-grade AI systems. Build AI. Build with AI.",
+    "Forward-deployed AI engineers embedded with your team. We build production-grade AI systems, LLM applications, and custom ML models. Get builders, not consultants.",
+  keywords: [
+    "AI engineering services",
+    "enterprise AI development",
+    "AI consulting",
+    "LLM development",
+    "custom AI solutions",
+    "machine learning consulting",
+    "AI integration services",
+    "production AI systems",
+  ],
+  openGraph: {
+    title: "AI Engineering Services | Enterprise AI Development | Procedure",
+    description:
+      "Forward-deployed AI engineers embedded with your team. We build production-grade AI systems, LLM applications, and custom ML models.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

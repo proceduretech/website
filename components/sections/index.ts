@@ -5,4 +5,5 @@ export { Services } from "./Services";
 export { Testimonials } from "./Testimonials";
 export { Stats } from "./Stats";
 export { Careers } from "./Careers";
+export { FAQ } from "./FAQ";
 export { CTA } from "./CTA";
