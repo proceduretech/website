@@ -23,13 +23,13 @@ const clients = [
 export function ClientLogos() {
   return (
     <div className="mt-16">
-      <p className="text-sm text-zinc-500 dark:text-zinc-500 mb-6">
+      <p className="text-sm text-zinc-500 mb-6">
         Trusted by innovative teams
       </p>
       <div className="relative overflow-hidden">
         {/* Fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white dark:from-zinc-950 to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white dark:from-zinc-950 to-transparent z-10" />
+        <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10" />
 
         <motion.div
           className="flex gap-12 md:gap-16"
@@ -48,7 +48,7 @@ export function ClientLogos() {
           {[...clients, ...clients].map((client, idx) => (
             <div
               key={`${client.name}-${idx}`}
-              className="text-zinc-400 dark:text-zinc-500 font-semibold text-lg whitespace-nowrap flex-shrink-0"
+              className="text-zinc-400 font-semibold text-lg whitespace-nowrap flex-shrink-0"
             >
               {client.name}
             </div>

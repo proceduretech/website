@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export function CTA() {
   return (
-    <section className="relative py-16 sm:py-24 bg-zinc-50 dark:bg-zinc-900/50">
+    <section className="relative py-16 sm:py-24 bg-zinc-50">
       <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-sky-500/5" />
 
       <motion.div
@@ -15,10 +15,10 @@ export function CTA() {
         transition={{ duration: 0.6 }}
         className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center"
       >
-        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-zinc-900 dark:text-white mb-4 sm:mb-6">
+        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-zinc-900 mb-4 sm:mb-6">
           Ready to ship AI?
         </h2>
-        <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 mb-8 sm:mb-10 max-w-2xl mx-auto">
+        <p className="text-base sm:text-lg text-zinc-600 mb-8 sm:mb-10 max-w-2xl mx-auto">
           Let&apos;s talk about your AI initiatives. Our forward-deployed engineers
           can be embedded with your team within weeks, not months.
         </p>

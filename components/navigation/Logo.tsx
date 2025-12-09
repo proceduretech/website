@@ -43,7 +43,7 @@ export function Logo({ className = "" }: LogoProps) {
         </svg>
       </div>
       {/* Company name */}
-      <span className="text-xl font-bold tracking-wide text-zinc-900 dark:text-white">
+      <span className="text-xl font-bold tracking-wide text-zinc-900">
         PROCEDURE
       </span>
     </a>

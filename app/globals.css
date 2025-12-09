@@ -19,12 +19,12 @@
   }
 
   body {
-    @apply bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 antialiased;
+    @apply bg-white text-zinc-900 antialiased;
     font-family: var(--font-outfit), system-ui, -apple-system, sans-serif;
   }
 
   ::selection {
-    @apply bg-blue-500/20 text-blue-900 dark:bg-blue-500/30 dark:text-white;
+    @apply bg-blue-500/20 text-blue-900;
   }
 
   a,

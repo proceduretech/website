@@ -59,7 +59,7 @@ export function Testimonials() {
 
   return (
     <section
-      className="relative py-16 sm:py-24 bg-zinc-50 dark:bg-zinc-900/50 overflow-hidden"
+      className="relative py-16 sm:py-24 bg-zinc-50 overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -71,10 +71,10 @@ export function Testimonials() {
           transition={{ duration: 0.6 }}
           className="text-center mb-8 sm:mb-12"
         >
-          <p className="text-xs sm:text-sm font-semibold tracking-widest text-blue-600 dark:text-blue-400 uppercase mb-3 sm:mb-4">
+          <p className="text-xs sm:text-sm font-semibold tracking-widest text-blue-600 uppercase mb-3 sm:mb-4">
             Testimonials
           </p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-zinc-900">
             What our clients say
           </h2>
         </motion.div>
@@ -87,27 +87,27 @@ export function Testimonials() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="p-6 sm:p-8 md:p-12 rounded-2xl bg-white dark:bg-zinc-800/30 border border-zinc-200 dark:border-zinc-800 shadow-sm"
+              className="p-6 sm:p-8 md:p-12 rounded-2xl bg-white border border-zinc-200 shadow-sm"
             >
               <svg
-                className="w-8 h-8 sm:w-10 sm:h-10 text-blue-500/20 dark:text-blue-400/20 mb-4 sm:mb-6"
+                className="w-8 h-8 sm:w-10 sm:h-10 text-blue-500/20 mb-4 sm:mb-6"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
               </svg>
-              <blockquote className="text-base sm:text-lg md:text-xl text-zinc-700 dark:text-zinc-300 leading-relaxed mb-6 sm:mb-8">
+              <blockquote className="text-base sm:text-lg md:text-xl text-zinc-700 leading-relaxed mb-6 sm:mb-8">
                 {testimonials[currentIndex].quote}
               </blockquote>
-              <div className="flex items-center gap-3 sm:gap-4 pt-4 sm:pt-6 border-t border-zinc-100 dark:border-zinc-700">
+              <div className="flex items-center gap-3 sm:gap-4 pt-4 sm:pt-6 border-t border-zinc-100">
                 <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-blue-500 to-sky-500 flex items-center justify-center text-white font-semibold text-lg sm:text-xl flex-shrink-0">
                   {testimonials[currentIndex].author.charAt(0)}
                 </div>
                 <div>
-                  <div className="font-semibold text-base sm:text-lg text-zinc-900 dark:text-white">
+                  <div className="font-semibold text-base sm:text-lg text-zinc-900">
                     {testimonials[currentIndex].author}
                   </div>
-                  <div className="text-sm sm:text-base text-zinc-500 dark:text-zinc-400">
+                  <div className="text-sm sm:text-base text-zinc-500">
                     {testimonials[currentIndex].role}, {testimonials[currentIndex].company}
                   </div>
                 </div>
@@ -118,7 +118,7 @@ export function Testimonials() {
           {/* Navigation arrows - hidden on mobile, shown on sm+ */}
           <button
             onClick={prevSlide}
-            className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-16 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 shadow-lg items-center justify-center text-zinc-600 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-700 transition-colors"
+            className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-16 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border border-zinc-200 shadow-lg items-center justify-center text-zinc-600 hover:bg-zinc-50 transition-colors"
             aria-label="Previous testimonial"
           >
             <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -127,7 +127,7 @@ export function Testimonials() {
           </button>
           <button
             onClick={nextSlide}
-            className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-16 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 shadow-lg items-center justify-center text-zinc-600 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-700 transition-colors"
+            className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-16 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border border-zinc-200 shadow-lg items-center justify-center text-zinc-600 hover:bg-zinc-50 transition-colors"
             aria-label="Next testimonial"
           >
             <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -145,7 +145,7 @@ export function Testimonials() {
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
                 idx === currentIndex
                   ? "w-8 bg-blue-500"
-                  : "bg-zinc-300 dark:bg-zinc-600 hover:bg-zinc-400 dark:hover:bg-zinc-500"
+                  : "bg-zinc-300 hover:bg-zinc-400"
               }`}
               aria-label={`Go to testimonial ${idx + 1}`}
             />

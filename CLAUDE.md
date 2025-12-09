@@ -39,10 +39,9 @@ lib/
 
 ### Design System
 
-- **Theme:** Light by default, with dark mode toggle in footer
+- **Theme:** Light theme only
 - **Accent colors:** Blue (#3b82f6) to Sky (#0ea5e9) gradients
 - **Typography:** Outfit for body, tight tracking for headings
-- **Theme toggle:** Located in footer, persists to localStorage
 
 ### Path Aliases
 
