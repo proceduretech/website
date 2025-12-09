@@ -6,35 +6,39 @@ import { motion, AnimatePresence } from "framer-motion";
 const testimonials = [
   {
     quote:
-      "The Procedure was the first consultancy we truly connected with, sharing our outlook on quality, process, and ownership. Over the years, they have not only augmented our internal team but also taken on critical core roles across teams. What started with one engineer nearly three years ago has grown into a team of five, each fully owning their deliverables and contributing meaningfully to our team's capacity. Ulhas maintains a keen awareness of the landscape, guiding his team through shifting challenges behind the scenes. We're extremely pleased with the commitment and engagement they bring.",
+      "What started with one engineer nearly three years ago has grown into a team of five, each fully owning their deliverables. They've taken on critical core roles across teams. We're extremely pleased with the commitment and engagement they bring.",
     author: "Shrivatsa Swadi",
     role: "Director of Engineering",
     company: "Setu",
     image: "/testimonials/shrivatsa.jpg",
+    highlight: "5 engineers embedded, 3-year partnership",
   },
   {
     quote:
-      "We have worked with Procedure to support our software development initiatives across our portfolio, and the experience has been exceptional from start to finish. They consistently deliver on every promise, and are very responsible to shifting project needs. They are great people to work with and we wholeheartedly recommend Procedure for anyone seeking a reliable, trustworthy development partner.",
+      "We've worked with Procedure across our portfolio, and the experience has been exceptional. They consistently deliver on every promise and adapt quickly to shifting project needs. We wholeheartedly recommend them for anyone seeking a reliable development partner.",
     author: "Chad Laurans",
     role: "Managing Partner",
     company: "Workshop Ventures",
     image: "/testimonials/chad.jpg",
+    highlight: "Portfolio-wide development partner",
   },
   {
     quote:
-      "Procedure has been a partner for Timely from our inception and through our rapid growth. Our team members from Procedure are exceptionally talented and dedicated to their craft and have proven essential to building out our engineering capacity in a fast-paced environment. On top of that, the leadership at Procedure have been thought partners for us on key engineering decisions and in growing each team member to expand their impact with Timely. Couldn't recommend Procedure more highly!",
+      "Procedure has been our partner from inception through rapid growth. Their engineers are exceptionally talented and have proven essential to building out our engineering capacity. The leadership have been thought partners on key engineering decisions. Couldn't recommend them more highly!",
     author: "Faisal Anwar",
     role: "CTO",
     company: "Timely",
     image: "/testimonials/faisal.jpg",
+    highlight: "Partner from inception through rapid growth",
   },
   {
     quote:
-      "Working with Procedure has been amazing! Their clear communication, smooth project management, and expertise made them feel like part of our team. They built and launched our app in just 12 weeks, helping us reach 1000+ paying users in the first 6 months. We're excited to keep building with them!",
+      "Their clear communication and expertise made them feel like part of our team. They built and launched our app in just 12 weeks, helping us reach 1000+ paying users in the first 6 months. We're excited to keep building with them!",
     author: "Eid AlMujaibel",
     role: "CEO",
     company: "Tenmeya",
     image: "/testimonials/eid.jpg",
+    highlight: "App launched in 12 weeks, 1000+ users in 6 months",
   },
 ];
 
@@ -81,9 +85,12 @@ export function Testimonials() {
           <p className="text-xs sm:text-sm font-semibold tracking-widest text-blue-600 uppercase mb-3 sm:mb-4">
             Testimonials
           </p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-zinc-900">
-            What our clients say
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-zinc-900 mb-3 sm:mb-4">
+            Trusted by engineering leaders at scaling companies
           </h2>
+          <p className="text-zinc-600 max-w-xl mx-auto">
+            Join 50+ companies who&apos;ve shipped production AI with embedded Procedure engineers
+          </p>
         </motion.div>
 
         <div className="relative px-0 sm:px-12 md:px-0">
@@ -96,13 +103,19 @@ export function Testimonials() {
               transition={{ duration: 0.4, ease: "easeInOut" }}
               className="p-6 sm:p-8 md:p-12 rounded-2xl bg-white border border-zinc-200 shadow-sm"
             >
-              <svg
-                className="w-8 h-8 sm:w-10 sm:h-10 text-blue-500/20 mb-4 sm:mb-6"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-              </svg>
+              {/* Highlight badge */}
+              <div className="flex items-center gap-3 mb-4 sm:mb-6">
+                <svg
+                  className="w-8 h-8 sm:w-10 sm:h-10 text-blue-500/20"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                </svg>
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs sm:text-sm font-semibold bg-blue-50 text-blue-700 border border-blue-100">
+                  {testimonials[currentIndex].highlight}
+                </span>
+              </div>
               <blockquote className="text-base sm:text-lg md:text-xl text-zinc-700 leading-relaxed mb-6 sm:mb-8">
                 {testimonials[currentIndex].quote}
               </blockquote>

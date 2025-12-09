@@ -23,17 +23,17 @@ export function CTA() {
         className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center"
       >
         <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-zinc-900 mb-4 sm:mb-6">
-          Ready to ship AI?
+          Ready to accelerate your AI initiatives?
         </h2>
         <p className="text-base sm:text-lg text-zinc-600 mb-8 sm:mb-10 max-w-2xl mx-auto">
-          Let&apos;s talk about your AI initiatives. Our forward-deployed engineers
-          can be embedded with your team within weeks, not months.
+          Whether you&apos;re building your first LLM application or scaling existing
+          AI systems, our engineers can be embedded with your team within 2-4 weeks.
         </p>
         <Link
           href="/contact"
           className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-sky-600 rounded-lg hover:from-blue-500 hover:to-sky-500 transition-all duration-200 shadow-lg shadow-blue-500/25"
         >
-          Get in Touch
+          Schedule Your AI Strategy Call
         </Link>
       </motion.div>
     </section>

@@ -20,6 +20,15 @@ const clients = [
   { name: "Workhero", logo: "/logos/workhero.svg" },
 ];
 
+const industries = [
+  "Fintech",
+  "Healthcare",
+  "SaaS",
+  "E-commerce",
+  "Media & Entertainment",
+  "InsurTech",
+];
+
 export function ClientLogos() {
   return (
     <div className="mt-16">
@@ -54,6 +63,18 @@ export function ClientLogos() {
             </div>
           ))}
         </motion.div>
+      </div>
+
+      {/* Industry verticals */}
+      <div className="mt-8 flex flex-wrap justify-center gap-2 sm:gap-3">
+        {industries.map((industry) => (
+          <span
+            key={industry}
+            className="px-3 py-1.5 text-xs font-medium text-zinc-500 bg-zinc-100 rounded-full"
+          >
+            {industry}
+          </span>
+        ))}
       </div>
     </div>
   );

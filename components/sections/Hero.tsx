@@ -62,7 +62,7 @@ export function Hero() {
             href="/contact"
             className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-sky-600 rounded-lg hover:from-blue-500 hover:to-sky-500 transition-all duration-200 shadow-lg shadow-blue-500/25"
           >
-            Start Building
+            Book a Strategy Call
           </Link>
           <Link
             href="/case-studies"
