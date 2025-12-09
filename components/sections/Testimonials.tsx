@@ -63,15 +63,15 @@ export function Testimonials() {
 
   return (
     <section
-      className="relative py-16 sm:py-24 bg-zinc-50 overflow-hidden"
+      className="relative py-16 sm:py-24 bg-surface overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* Circle pattern */}
       <div
-        className="absolute inset-0 opacity-[0.4]"
+        className="absolute inset-0 opacity-[0.03]"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' width='48' height='48'%3e%3ccircle cx='24' cy='24' r='8' stroke='%23cbd5e1' stroke-width='1' fill='none'/%3e%3c/svg%3e")`,
+          backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' width='48' height='48'%3e%3ccircle cx='24' cy='24' r='8' stroke='%23E5E7EB' stroke-width='1' fill='none'/%3e%3c/svg%3e")`,
         }}
       />
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6">
@@ -82,13 +82,13 @@ export function Testimonials() {
           transition={{ duration: 0.6 }}
           className="text-center mb-8 sm:mb-12"
         >
-          <p className="text-xs sm:text-sm font-semibold tracking-widest text-blue-600 uppercase mb-3 sm:mb-4">
+          <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-3 sm:mb-4">
             Testimonials
           </p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-zinc-900 mb-3 sm:mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-3 sm:mb-4">
             Trusted by engineering leaders at scaling companies
           </h2>
-          <p className="text-zinc-600 max-w-xl mx-auto">
+          <p className="text-text-secondary max-w-xl mx-auto">
             Join 50+ companies who&apos;ve shipped production AI with embedded Procedure engineers
           </p>
         </motion.div>
@@ -101,33 +101,33 @@ export function Testimonials() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="p-6 sm:p-8 md:p-12 rounded-2xl bg-white border border-zinc-200 shadow-sm"
+              className="p-6 sm:p-8 md:p-12 rounded-2xl bg-surface-elevated border border-border"
             >
               {/* Highlight badge */}
               <div className="flex items-center gap-3 mb-4 sm:mb-6">
                 <svg
-                  className="w-8 h-8 sm:w-10 sm:h-10 text-blue-500/20"
+                  className="w-8 h-8 sm:w-10 sm:h-10 text-accent-teal/30"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs sm:text-sm font-semibold bg-blue-50 text-blue-700 border border-blue-100">
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs sm:text-sm font-semibold bg-accent-teal/10 text-accent-teal-light border border-accent-teal/20">
                   {testimonials[currentIndex].highlight}
                 </span>
               </div>
-              <blockquote className="text-base sm:text-lg md:text-xl text-zinc-700 leading-relaxed mb-6 sm:mb-8">
+              <blockquote className="text-base sm:text-lg md:text-xl text-text-secondary leading-relaxed mb-6 sm:mb-8">
                 {testimonials[currentIndex].quote}
               </blockquote>
-              <div className="flex items-center gap-3 sm:gap-4 pt-4 sm:pt-6 border-t border-zinc-100">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-blue-500 to-sky-500 flex items-center justify-center text-white font-semibold text-lg sm:text-xl flex-shrink-0">
+              <div className="flex items-center gap-3 sm:gap-4 pt-4 sm:pt-6 border-t border-border">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-accent-teal to-accent-blue flex items-center justify-center text-white font-semibold text-lg sm:text-xl flex-shrink-0">
                   {testimonials[currentIndex].author.charAt(0)}
                 </div>
                 <div>
-                  <div className="font-semibold text-base sm:text-lg text-zinc-900">
+                  <div className="font-semibold text-base sm:text-lg text-white">
                     {testimonials[currentIndex].author}
                   </div>
-                  <div className="text-sm sm:text-base text-zinc-500">
+                  <div className="text-sm sm:text-base text-gray-400">
                     {testimonials[currentIndex].role}, {testimonials[currentIndex].company}
                   </div>
                 </div>
@@ -138,7 +138,7 @@ export function Testimonials() {
           {/* Navigation arrows - hidden on mobile, shown on sm+ */}
           <button
             onClick={prevSlide}
-            className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-16 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border border-zinc-200 shadow-lg items-center justify-center text-zinc-600 hover:bg-zinc-50 transition-colors"
+            className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-16 w-10 h-10 md:w-12 md:h-12 rounded-full bg-surface-elevated border border-border shadow-lg items-center justify-center text-text-secondary hover:text-text-primary hover:border-accent-teal/50 transition-colors"
             aria-label="Previous testimonial"
           >
             <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -147,7 +147,7 @@ export function Testimonials() {
           </button>
           <button
             onClick={nextSlide}
-            className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-16 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border border-zinc-200 shadow-lg items-center justify-center text-zinc-600 hover:bg-zinc-50 transition-colors"
+            className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-16 w-10 h-10 md:w-12 md:h-12 rounded-full bg-surface-elevated border border-border shadow-lg items-center justify-center text-text-secondary hover:text-text-primary hover:border-accent-teal/50 transition-colors"
             aria-label="Next testimonial"
           >
             <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -164,8 +164,8 @@ export function Testimonials() {
               onClick={() => setCurrentIndex(idx)}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
                 idx === currentIndex
-                  ? "w-8 bg-blue-500"
-                  : "bg-zinc-300 hover:bg-zinc-400"
+                  ? "w-8 bg-accent-teal"
+                  : "bg-border hover:bg-text-muted"
               }`}
               aria-label={`Go to testimonial ${idx + 1}`}
             />

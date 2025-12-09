@@ -1,11 +1,26 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #ffffff;
-  --color-foreground: #09090b;
-  --color-muted: #71717a;
-  --color-accent: #3b82f6;
-  --color-accent-secondary: #0ea5e9;
+  /* Dark Theme Color Palette */
+  --color-base: #0F172A;
+  --color-surface: #0B1220;
+  --color-surface-elevated: #131B2E;
+  --color-accent-teal: #0F766E;
+  --color-accent-teal-light: #14B8A6;
+  --color-accent-blue: #2563EB;
+  --color-accent-blue-light: #3B82F6;
+  --color-border: #1E293B;
+  --color-border-light: #334155;
+  --color-text-primary: #E5E7EB;
+  --color-text-secondary: #9CA3AF;
+  --color-text-muted: #6B7280;
+
+  /* Legacy aliases for compatibility */
+  --color-background: #0F172A;
+  --color-foreground: #E5E7EB;
+  --color-muted: #6B7280;
+  --color-accent: #0F766E;
+  --color-accent-secondary: #2563EB;
   --font-outfit: var(--font-outfit);
 }
 
@@ -19,12 +34,12 @@
   }
 
   body {
-    @apply bg-white text-zinc-900 antialiased;
+    @apply bg-base text-text-primary antialiased;
     font-family: var(--font-outfit), system-ui, -apple-system, sans-serif;
   }
 
   ::selection {
-    @apply bg-blue-500/20 text-blue-900;
+    @apply bg-accent-teal/30 text-accent-teal-light;
   }
 
   a,
@@ -33,6 +48,6 @@
   }
 
   :focus-visible {
-    @apply outline-2 outline-blue-500 outline-offset-2;
+    @apply outline-2 outline-accent-teal outline-offset-2;
   }
 }

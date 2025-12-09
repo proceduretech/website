@@ -80,13 +80,12 @@ const services = [
 
 export function Services() {
   return (
-    <section className="relative py-16 sm:py-24 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-white to-zinc-50" />
+    <section className="relative py-16 sm:py-24 overflow-hidden bg-base">
       {/* Diagonal lines pattern */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.02]"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40' width='40' height='40'%3e%3cpath d='M0 40L40 0' stroke='%23000' stroke-width='1' fill='none'/%3e%3c/svg%3e")`,
+          backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40' width='40' height='40'%3e%3cpath d='M0 40L40 0' stroke='%23E5E7EB' stroke-width='1' fill='none'/%3e%3c/svg%3e")`,
         }}
       />
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
@@ -97,10 +96,10 @@ export function Services() {
           transition={{ duration: 0.6 }}
           className="text-center mb-10 sm:mb-16"
         >
-          <p className="text-xs sm:text-sm font-semibold tracking-widest text-blue-600 uppercase mb-3 sm:mb-4">
+          <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-3 sm:mb-4">
             What You Get
           </p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-zinc-900">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">
             Full-spectrum AI and engineering services
           </h2>
         </motion.div>
@@ -113,38 +112,38 @@ export function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
-              className="group bg-white rounded-2xl p-6 sm:p-8 border border-zinc-200 hover:border-blue-200 hover:shadow-lg transition-all duration-300"
+              className="group bg-surface-elevated rounded-2xl p-6 sm:p-8 border border-border hover:border-accent-teal/50 transition-all duration-300"
             >
               {/* Icon */}
-              <div className="w-14 h-14 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600 mb-5">
+              <div className="w-14 h-14 rounded-xl bg-accent-teal/10 border border-accent-teal/20 flex items-center justify-center text-accent-teal-light mb-5">
                 {service.icon}
               </div>
 
               {/* Title */}
-              <h3 className="text-xl font-semibold text-zinc-900 mb-3">
+              <h3 className="text-xl font-semibold text-text-primary mb-3">
                 {service.name}
               </h3>
 
               {/* Description */}
-              <p className="text-zinc-600 text-sm leading-relaxed mb-5">
+              <p className="text-text-secondary text-sm leading-relaxed mb-5">
                 {service.description}
               </p>
 
               {/* Read More Link */}
               <Link
                 href={service.href}
-                className="inline-flex items-center gap-2 text-blue-600 font-medium text-sm group-hover:text-blue-700 transition-colors mb-6"
+                className="inline-flex items-center gap-2 text-accent-teal-light font-medium text-sm group-hover:text-accent-teal transition-colors mb-6"
               >
                 Read More
-                <span className="w-6 h-px bg-blue-600 group-hover:w-8 transition-all" />
+                <span className="w-6 h-px bg-accent-teal-light group-hover:w-8 transition-all" />
               </Link>
 
               {/* Tags */}
-              <div className="flex flex-wrap gap-2 pt-5 border-t border-zinc-100">
+              <div className="flex flex-wrap gap-2 pt-5 border-t border-border">
                 {service.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 text-xs font-medium text-zinc-600 bg-zinc-100 rounded-full"
+                    className="px-3 py-1 text-xs font-medium text-text-muted bg-surface border border-border rounded-full"
                   >
                     {tag}
                   </span>

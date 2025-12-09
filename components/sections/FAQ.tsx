@@ -35,13 +35,12 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="relative py-16 sm:py-24 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-white to-zinc-50" />
+    <section className="relative py-16 sm:py-24 overflow-hidden bg-base">
       {/* Dot pattern */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.02]"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' width='20' height='20'%3e%3ccircle cx='10' cy='10' r='1.5' fill='%23000'/%3e%3c/svg%3e")`,
+          backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' width='20' height='20'%3e%3ccircle cx='10' cy='10' r='1.5' fill='%23E5E7EB'/%3e%3c/svg%3e")`,
         }}
       />
 
@@ -53,10 +52,10 @@ export function FAQ() {
           transition={{ duration: 0.6 }}
           className="text-center mb-10 sm:mb-12"
         >
-          <p className="text-xs sm:text-sm font-semibold tracking-widest text-blue-600 uppercase mb-3 sm:mb-4">
+          <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-3 sm:mb-4">
             FAQ
           </p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-zinc-900">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">
             Frequently asked questions
           </h2>
         </motion.div>
@@ -71,16 +70,16 @@ export function FAQ() {
           {faqs.map((faq, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-xl border border-zinc-200 overflow-hidden"
+              className="bg-surface-elevated rounded-xl border border-border overflow-hidden"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                className="w-full flex items-center justify-between p-5 sm:p-6 text-left hover:bg-zinc-50 transition-colors"
+                className="w-full flex items-center justify-between p-5 sm:p-6 text-left hover:bg-surface transition-colors"
               >
-                <h3 className="text-base sm:text-lg font-semibold text-zinc-900 pr-4">
+                <h3 className="text-base sm:text-lg font-semibold text-text-primary pr-4">
                   {faq.question}
                 </h3>
-                <span className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-zinc-100 text-zinc-600">
+                <span className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-surface border border-border text-text-secondary">
                   <svg
                     className={`w-4 h-4 transition-transform duration-200 ${
                       openIndex === idx ? "rotate-180" : ""
@@ -107,7 +106,7 @@ export function FAQ() {
                     transition={{ duration: 0.2 }}
                     className="overflow-hidden"
                   >
-                    <p className="px-5 sm:px-6 pb-5 sm:pb-6 text-zinc-600 leading-relaxed">
+                    <p className="px-5 sm:px-6 pb-5 sm:pb-6 text-text-secondary leading-relaxed">
                       {faq.answer}
                     </p>
                   </motion.div>

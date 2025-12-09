@@ -32,13 +32,13 @@ const industries = [
 export function ClientLogos() {
   return (
     <div className="mt-16">
-      <p className="text-sm text-zinc-500 mb-6">
+      <p className="text-sm text-text-muted mb-6 text-center">
         Trusted by innovative teams
       </p>
       <div className="relative overflow-hidden">
         {/* Fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10" />
+        <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-base to-transparent z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-base to-transparent z-10" />
 
         <motion.div
           className="flex gap-12 md:gap-16"
@@ -57,7 +57,7 @@ export function ClientLogos() {
           {[...clients, ...clients].map((client, idx) => (
             <div
               key={`${client.name}-${idx}`}
-              className="text-zinc-400 font-semibold text-lg whitespace-nowrap flex-shrink-0"
+              className="text-text-muted font-semibold text-lg whitespace-nowrap flex-shrink-0"
             >
               {client.name}
             </div>
@@ -70,7 +70,7 @@ export function ClientLogos() {
         {industries.map((industry) => (
           <span
             key={industry}
-            className="px-3 py-1.5 text-xs font-medium text-zinc-500 bg-zinc-100 rounded-full"
+            className="px-3 py-1.5 text-xs font-medium text-text-muted bg-surface-elevated border border-border rounded-full"
           >
             {industry}
           </span>

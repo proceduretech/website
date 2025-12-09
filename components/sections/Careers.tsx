@@ -35,13 +35,12 @@ const jobOpenings = [
 
 export function Careers() {
   return (
-    <section className="relative py-16 sm:py-24 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-zinc-50 to-white" />
+    <section className="relative py-16 sm:py-24 overflow-hidden bg-surface">
       {/* Hexagon pattern */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.02]"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' width='48' height='48'%3e%3cpath d='M24 4l18 10v20l-18 10L6 34V14z' stroke='%23000' stroke-width='1' fill='none'/%3e%3c/svg%3e")`,
+          backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' width='48' height='48'%3e%3cpath d='M24 4l18 10v20l-18 10L6 34V14z' stroke='%23E5E7EB' stroke-width='1' fill='none'/%3e%3c/svg%3e")`,
         }}
       />
 
@@ -53,13 +52,13 @@ export function Careers() {
           transition={{ duration: 0.6 }}
           className="text-center mb-10 sm:mb-16"
         >
-          <p className="text-xs sm:text-sm font-semibold tracking-widest text-blue-600 uppercase mb-3 sm:mb-4">
+          <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-3 sm:mb-4">
             Join Our Team
           </p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-zinc-900 mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
             Build the future of AI with us
           </h2>
-          <p className="text-zinc-600 max-w-2xl mx-auto">
+          <p className="text-text-secondary max-w-2xl mx-auto">
             We&apos;re looking for talented engineers who are passionate about
             AI and want to work on challenging problems with real impact.
           </p>
@@ -73,25 +72,25 @@ export function Careers() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
-              className="group relative bg-white rounded-2xl p-6 sm:p-8 border border-zinc-200 hover:border-blue-200 hover:shadow-xl transition-all duration-300"
+              className="group relative bg-surface-elevated rounded-2xl p-6 sm:p-8 border border-border hover:border-accent-teal/50 transition-all duration-300"
             >
               {/* Department badge */}
-              <span className="inline-block px-3 py-1 text-xs font-semibold text-blue-600 bg-blue-50 rounded-full mb-4">
+              <span className="inline-block px-3 py-1 text-xs font-semibold text-accent-teal-light bg-accent-teal/10 border border-accent-teal/20 rounded-full mb-4">
                 {job.department}
               </span>
 
               {/* Job title */}
-              <h3 className="text-xl font-semibold text-zinc-900 mb-3 group-hover:text-blue-600 transition-colors">
+              <h3 className="text-xl font-semibold text-text-primary mb-3 group-hover:text-accent-teal-light transition-colors">
                 {job.title}
               </h3>
 
               {/* Description */}
-              <p className="text-zinc-600 text-sm leading-relaxed mb-5">
+              <p className="text-text-secondary text-sm leading-relaxed mb-5">
                 {job.description}
               </p>
 
               {/* Meta info */}
-              <div className="flex flex-wrap items-center gap-3 mb-6 text-sm text-zinc-500">
+              <div className="flex flex-wrap items-center gap-3 mb-6 text-sm text-text-muted">
                 <span className="flex items-center gap-1.5">
                   <svg
                     className="w-4 h-4"
@@ -113,7 +112,7 @@ export function Careers() {
                   </svg>
                   {job.location}
                 </span>
-                <span className="w-1 h-1 bg-zinc-300 rounded-full" />
+                <span className="w-1 h-1 bg-border rounded-full" />
                 <span className="flex items-center gap-1.5">
                   <svg
                     className="w-4 h-4"
@@ -135,7 +134,7 @@ export function Careers() {
               {/* Apply link */}
               <Link
                 href={`/careers/${job.id}`}
-                className="inline-flex items-center gap-2 text-blue-600 font-medium text-sm group-hover:text-blue-700 transition-colors"
+                className="inline-flex items-center gap-2 text-accent-teal-light font-medium text-sm group-hover:text-accent-teal transition-colors"
               >
                 View Position
                 <svg
@@ -166,7 +165,7 @@ export function Careers() {
         >
           <Link
             href="/careers"
-            className="inline-flex items-center gap-3 px-6 sm:px-8 py-3 sm:py-4 text-base font-semibold text-zinc-700 bg-white border-2 border-zinc-200 rounded-lg hover:border-blue-300 hover:text-blue-600 hover:shadow-lg transition-all duration-200"
+            className="inline-flex items-center gap-3 px-6 sm:px-8 py-3 sm:py-4 text-base font-semibold text-text-primary bg-surface-elevated border-2 border-border rounded-lg hover:border-accent-teal/50 hover:text-accent-teal-light transition-all duration-200"
           >
             <span>View All Openings</span>
             <svg

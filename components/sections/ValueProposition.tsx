@@ -5,34 +5,34 @@ import { motion } from "framer-motion";
 const values = [
   {
     icon: (
-      <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg className="w-6 h-6 text-accent-teal-light" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
       </svg>
     ),
-    iconBg: "bg-blue-100",
-    hoverBorder: "hover:border-blue-300",
+    iconBg: "bg-accent-teal/10",
+    hoverBorder: "hover:border-accent-teal/50",
     title: "Your AI Products Built",
     description: "From LLM applications to custom ML models, you get production-ready AI systems that solve real business problems and scale with you.",
   },
   {
     icon: (
-      <svg className="w-6 h-6 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg className="w-6 h-6 text-accent-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
       </svg>
     ),
-    iconBg: "bg-sky-100",
-    hoverBorder: "hover:border-sky-300",
+    iconBg: "bg-accent-blue/10",
+    hoverBorder: "hover:border-accent-blue/50",
     title: "Ship Faster with AI",
     description: "Your development velocity increases with AI-augmented workflows. Copilot-powered development, automated testing, and intelligent code reviews accelerate your timeline.",
   },
   {
     icon: (
-      <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg className="w-6 h-6 text-accent-teal-light" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
       </svg>
     ),
-    iconBg: "bg-blue-100",
-    hoverBorder: "hover:border-blue-300",
+    iconBg: "bg-accent-teal/10",
+    hoverBorder: "hover:border-accent-teal/50",
     title: "Your Team, Extended",
     description: "Senior engineers embedded directly with your team—same tools, same standups, same commitment to shipping. You get capacity without the hiring overhead.",
   },
@@ -40,12 +40,12 @@ const values = [
 
 export function ValueProposition() {
   return (
-    <section className="relative py-16 sm:py-24 bg-zinc-50 overflow-hidden">
+    <section className="relative py-16 sm:py-24 bg-surface overflow-hidden">
       {/* Dot pattern */}
       <div
-        className="absolute inset-0 opacity-[0.4]"
+        className="absolute inset-0 opacity-[0.03]"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3e%3ccircle cx='2' cy='2' r='1' fill='%23cbd5e1'/%3e%3c/svg%3e")`,
+          backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3e%3ccircle cx='2' cy='2' r='1' fill='%23E5E7EB'/%3e%3c/svg%3e")`,
         }}
       />
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
@@ -56,10 +56,10 @@ export function ValueProposition() {
           transition={{ duration: 0.6 }}
           className="text-center mb-10 sm:mb-16"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-zinc-900 mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
             AI engineering, not AI consulting
           </h2>
-          <p className="text-base sm:text-lg text-zinc-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-text-secondary max-w-2xl mx-auto">
             You get senior engineers embedded directly into your team. No slide decks.
             No endless discovery phases. Just production code shipped fast.
           </p>
@@ -73,13 +73,13 @@ export function ValueProposition() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className={`p-8 rounded-2xl bg-white border border-zinc-200 ${card.hoverBorder} transition-colors shadow-sm`}
+              className={`p-8 rounded-2xl bg-surface-elevated border border-border ${card.hoverBorder} transition-colors`}
             >
               <div className={`w-12 h-12 rounded-xl ${card.iconBg} flex items-center justify-center mb-6`}>
                 {card.icon}
               </div>
-              <h3 className="text-xl font-semibold text-zinc-900 mb-3">{card.title}</h3>
-              <p className="text-zinc-600">{card.description}</p>
+              <h3 className="text-xl font-semibold text-text-primary mb-3">{card.title}</h3>
+              <p className="text-text-secondary">{card.description}</p>
             </motion.div>
           ))}
         </div>
@@ -90,32 +90,32 @@ export function ValueProposition() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-12 sm:mt-16 pt-8 sm:pt-10 border-t border-zinc-200"
+          className="mt-12 sm:mt-16 pt-8 sm:pt-10 border-t border-border"
         >
-          <p className="text-center text-xs sm:text-sm font-medium text-zinc-500 uppercase tracking-wider mb-6">
+          <p className="text-center text-xs sm:text-sm font-medium text-text-muted uppercase tracking-wider mb-6">
             Enterprise-ready security & compliance
           </p>
           <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10">
-            <div className="flex items-center gap-2 text-zinc-600">
-              <svg className="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <div className="flex items-center gap-2 text-text-secondary">
+              <svg className="w-5 h-5 text-accent-teal-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
               </svg>
               <span className="text-sm font-medium">SOC 2 Compliant</span>
             </div>
-            <div className="flex items-center gap-2 text-zinc-600">
-              <svg className="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <div className="flex items-center gap-2 text-text-secondary">
+              <svg className="w-5 h-5 text-accent-teal-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
               </svg>
               <span className="text-sm font-medium">NDA Protected</span>
             </div>
-            <div className="flex items-center gap-2 text-zinc-600">
-              <svg className="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <div className="flex items-center gap-2 text-text-secondary">
+              <svg className="w-5 h-5 text-accent-teal-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
               </svg>
               <span className="text-sm font-medium">IP Assignment</span>
             </div>
-            <div className="flex items-center gap-2 text-zinc-600">
-              <svg className="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <div className="flex items-center gap-2 text-text-secondary">
+              <svg className="w-5 h-5 text-accent-teal-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
               </svg>
               <span className="text-sm font-medium">Secure Code Practices</span>

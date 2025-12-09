@@ -1,12 +1,14 @@
 "use client";
 
+import Link from "next/link";
+
 interface LogoProps {
   className?: string;
 }
 
 export function Logo({ className = "" }: LogoProps) {
   return (
-    <a href="/" className={`flex items-center gap-3 ${className}`}>
+    <Link href="/" className={`flex items-center gap-3 ${className}`}>
       {/* Geometric logo mark */}
       <div className="relative w-10 h-10">
         <svg
@@ -36,16 +38,16 @@ export function Logo({ className = "" }: LogoProps) {
               y2="36"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stopColor="#3b82f6" />
-              <stop offset="1" stopColor="#0ea5e9" />
+              <stop stopColor="#14B8A6" />
+              <stop offset="1" stopColor="#2563EB" />
             </linearGradient>
           </defs>
         </svg>
       </div>
       {/* Company name */}
-      <span className="text-xl font-bold tracking-wide text-zinc-900">
+      <span className="text-xl font-bold tracking-wide text-text-primary">
         PROCEDURE
       </span>
-    </a>
+    </Link>
   );
 }

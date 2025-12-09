@@ -24,10 +24,10 @@ export function Button({
 
   const variants = {
     primary:
-      "bg-zinc-900 text-white hover:bg-zinc-800 border border-transparent",
+      "bg-gradient-to-r from-accent-teal to-accent-blue text-white hover:from-accent-teal-light hover:to-accent-blue-light border border-transparent shadow-lg shadow-accent-teal/20",
     outline:
-      "bg-transparent text-zinc-700 border border-zinc-300 hover:border-zinc-400 hover:bg-zinc-50",
-    ghost: "bg-transparent text-zinc-700 hover:bg-zinc-100",
+      "bg-transparent text-text-primary border border-border hover:border-accent-teal hover:text-accent-teal-light",
+    ghost: "bg-transparent text-text-secondary hover:bg-surface-elevated hover:text-text-primary",
   };
 
   const sizes = {
