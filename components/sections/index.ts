@@ -4,4 +4,5 @@ export { ValueProposition } from "./ValueProposition";
 export { Services } from "./Services";
 export { Testimonials } from "./Testimonials";
 export { Stats } from "./Stats";
+export { Careers } from "./Careers";
 export { CTA } from "./CTA";

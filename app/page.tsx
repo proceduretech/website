@@ -4,6 +4,7 @@ import {
   Services,
   Testimonials,
   Stats,
+  Careers,
   CTA,
 } from "@/components/sections";
 
@@ -15,6 +16,7 @@ export default function Home() {
       <Testimonials />
       <Services />
       <Stats />
+      <Careers />
       <CTA />
     </main>
   );
