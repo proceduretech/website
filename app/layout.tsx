@@ -18,7 +18,12 @@ export const metadata: Metadata = {
 
 const themeScript = `
   (function() {
-    const stored = localStorage.getItem('theme');
+    // One-time migration to light mode default (remove after deploying)
+    if (!localStorage.getItem('theme_v2_migrated')) {
+      localStorage.setItem('theme', 'light');
+      localStorage.setItem('theme_v2_migrated', 'true');
+    }
+    var stored = localStorage.getItem('theme');
     if (stored === 'dark') {
       document.documentElement.classList.add('dark');
     } else {

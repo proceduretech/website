@@ -1,9 +1,9 @@
 "use client";
 
 interface MenuSection {
-  title: string;
+  title?: string;
   titleColor?: "default" | "blue";
-  items: {
+  items?: {
     label: string;
     description?: string;
     href: string;

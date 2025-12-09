@@ -185,10 +185,10 @@ export const navigationData = {
           href: "/industries/healthcare",
         },
         {
-          label: "EdTech",
+          label: "Education",
           description:
             "AI-powered learning platforms, content generation, and adaptive education.",
-          href: "/industries/edtech",
+          href: "/industries/education",
         },
         {
           label: "SaaS & Technology",
@@ -249,10 +249,10 @@ export const navigationData = {
           href: "/about/approach",
         },
         {
-          label: "Team",
+          label: "Culture",
           description:
-            "Meet the engineers behind Procedure.",
-          href: "/about/team",
+            "How we work and what we value.",
+          href: "/about/culture",
         },
         {
           label: "Careers",
@@ -277,10 +277,10 @@ export const navigationData = {
           href: "/about/open-source",
         },
         {
-          label: "Press",
+          label: "Rubber Duck",
           description:
-            "News and media coverage.",
-          href: "/press",
+            "Our 8-week intensive cohort for fresh graduates to become industry-ready engineers.",
+          href: "/rubber-duck",
         },
         {
           label: "Contact",
