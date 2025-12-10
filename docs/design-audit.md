@@ -23,7 +23,7 @@ This audit evaluates the Procedure website against standards set by award-winnin
 - **Careers page** at `/careers` with benefits, values, and 6 job listings with expandable cards
 - **Speed-focused messaging** - Updated all timelines from weeks to days (e.g., "5 Days to First Deployment", "Ship in days, not weeks")
 - Social links updated (GitHub: proceduretech, Twitter: procedurehq)
-- **Service pages** - AI Engineering and Product Engineering pages with SEO-optimized copy
+- **Service pages** - All 7 service pages aligned with navigation: Forward-Deployed, AI Sprints, Staff Augmentation, Full Product Build, Startups, Scale-ups, Enterprise
 - **Case studies page** at `/case-studies` with 6 case studies, filtering, and testimonials
 - **Featured case studies** section on homepage showcasing top 3 results
 - **Team section** on homepage with 2 leadership profiles, 4 team members, and values strip
@@ -346,14 +346,16 @@ className="... text-gray-900 ..."
 | ~~CRITICAL~~ | ~~About~~ | `/about` | **DONE** |
 | ~~CRITICAL~~ | ~~Careers (listing)~~ | `/careers` | **DONE** |
 | ~~CRITICAL~~ | ~~Case Studies (listing)~~ | `/case-studies` | **DONE** |
-| ~~HIGH~~ | ~~AI Engineering~~ | `/services/ai-engineering` | **DONE** |
-| ~~HIGH~~ | ~~Product Engineering~~ | `/services/product-engineering` | **DONE** |
 | ~~HIGH~~ | ~~Why Us~~ | `/why-us` | **DONE** |
-| HIGH | Forward-Deployed Teams | `/services/forward-deployed` | **DONE** |
-| HIGH | AI Sprints | `/services/ai-sprints` | **DONE** |
-| HIGH | Staff Augmentation | `/services/staff-augmentation` | **DONE** |
+| ~~HIGH~~ | ~~Forward-Deployed Teams~~ | `/services/forward-deployed` | **DONE** |
+| ~~HIGH~~ | ~~AI Sprints~~ | `/services/ai-sprints` | **DONE** |
+| ~~HIGH~~ | ~~Staff Augmentation~~ | `/services/staff-augmentation` | **DONE** |
+| ~~HIGH~~ | ~~Full Product Build~~ | `/services/product-build` | **DONE** |
+| ~~HIGH~~ | ~~Startups~~ | `/services/startups` | **DONE** |
+| ~~HIGH~~ | ~~Scale-ups~~ | `/services/scale-ups` | **DONE** |
+| ~~HIGH~~ | ~~Enterprise~~ | `/services/enterprise` | **DONE** |
 | MEDIUM | Industry pages | `/industries/*` | Missing |
-| MEDIUM | Expertise pages | `/expertise/*` | Missing |
+| MEDIUM | Expertise pages | `/expertise/*` | Missing
 | LOW | Blog | `/blog` | Missing |
 | LOW | Legal pages | `/privacy`, `/terms` | Missing |
 
@@ -518,12 +520,15 @@ className="... text-gray-900 ..."
 34. `components/sections/CTA.tsx` (UPDATED - speed messaging)
 35. `components/sections/FAQ.tsx` (UPDATED - speed messaging)
 36. `app/about/page.tsx` (UPDATED - speed messaging)
-37. `app/services/ai-engineering/page.tsx` (NEW)
-38. `app/services/ai-engineering/layout.tsx` (NEW)
-39. `app/services/product-engineering/page.tsx` (NEW)
-40. `app/services/product-engineering/layout.tsx` (NEW)
-41. `app/case-studies/page.tsx` (NEW)
-42. `app/case-studies/layout.tsx` (NEW)
-43. `components/sections/FeaturedCaseStudies.tsx` (NEW)
-44. `components/sections/index.ts` (UPDATED - added FeaturedCaseStudies export)
-45. `app/page.tsx` (UPDATED - added FeaturedCaseStudies section)
+37. `app/services/forward-deployed/page.tsx`
+38. `app/services/ai-sprints/page.tsx`
+39. `app/services/staff-augmentation/page.tsx`
+40. `app/services/product-build/page.tsx` (NEW)
+41. `app/services/startups/page.tsx` (NEW)
+42. `app/services/scale-ups/page.tsx` (NEW)
+43. `app/services/enterprise/page.tsx` (NEW)
+44. `app/case-studies/page.tsx` (NEW)
+45. `app/case-studies/layout.tsx` (NEW)
+46. `components/sections/FeaturedCaseStudies.tsx` (NEW)
+47. `components/sections/index.ts` (UPDATED - added FeaturedCaseStudies export)
+48. `app/page.tsx` (UPDATED - added FeaturedCaseStudies section)
