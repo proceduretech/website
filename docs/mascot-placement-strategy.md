@@ -43,7 +43,7 @@ Together, they symbolize the blend of dedicated partnership (dog) and intelligen
 
 ## Character Roster
 
-### Primary Characters (The Core Team)
+### Primary Characters (The Core Team - Dogs & Cats)
 
 #### 1. **Chip** - The Shiba Inu Engineer
 - **Personality**: Enthusiastic, reliable, always ready to help
@@ -105,6 +105,58 @@ Together, they symbolize the blend of dedicated partnership (dog) and intelligen
   - Expression: Alert, watchful, serious but not scary
 - **Use For**: Security content, compliance, protection themes
 
+### Extended Characters (The Zoo Team)
+
+These additional characters expand the mascot family for variety and richer scenes:
+
+#### 7. **Elephant** - The Wise Architect
+- **Personality**: Thoughtful, never forgets, sees the big picture
+- **Visual Details**:
+  - Cute grey/pink kawaii elephant with big ears
+  - Rosy cheeks, sparkly eyes
+  - Often holding coffee or working at laptop
+- **Use For**: Architecture, memory/data, big-picture thinking
+
+#### 8. **Panda** - The Zen Developer
+- **Personality**: Calm, balanced, enjoys the simple things
+- **Visual Details**:
+  - Fluffy black & white panda
+  - Often seen with bamboo tea/coffee, peaceful expression
+  - Blushy cheeks, relaxed poses
+- **Use For**: Work-life balance, calm problem-solving, mindful development
+
+#### 9. **Lion** - The Team Leader
+- **Personality**: Confident, warm, encouraging
+- **Visual Details**:
+  - Friendly golden lion with fluffy mane
+  - Big smile, laughing expressions
+  - Not intimidating - approachable leader vibes
+- **Use For**: Leadership content, team collaboration, mentorship
+
+#### 10. **Honey Badger** - The Fearless Debugger
+- **Personality**: Feisty, determined, never gives up
+- **Visual Details**:
+  - Small grey/brown honey badger
+  - Tool belt, wrench, determined expression
+  - "Honey badger don't care" attitude toward bugs
+- **Use For**: Debugging, persistence, tackling hard problems
+
+#### 11. **Sloth** - The Thoughtful Reviewer
+- **Personality**: Slow and steady, thorough, relaxed
+- **Visual Details**:
+  - Brown fuzzy sloth hanging from branch
+  - Peaceful smile, often with coffee
+  - Zen "zzz" vibes
+- **Use For**: Code review, patience, taking time to do things right
+
+#### 12. **Tortoise** - The Documentation Expert
+- **Personality**: Wise, methodical, values documentation
+- **Visual Details**:
+  - Green/brown tortoise with cute glasses
+  - Surrounded by books and papers
+  - Scholarly but approachable
+- **Use For**: Documentation, best practices, long-term thinking
+
 ---
 
 ## Color Palette & Style Guidelines
@@ -133,17 +185,25 @@ Outline/Shadow:
 
 ### Illustration Style Specifications
 
-1. **Line Quality**: Clean, confident strokes with subtle line weight variation. Not overly thick (cartoon) or overly thin (technical).
+**UPDATED STYLE DIRECTION**: After iteration, we settled on a warmer, more playful kawaii style inspired by PostHog's hedgehog mascots.
 
-2. **Shading**: Soft cel-shading with 2-3 tone levels. Subtle gradients for depth.
+1. **Line Quality**: Hand-drawn, sketchy feel with wobbly charming lines. Visible pen/marker strokes add warmth and personality.
 
-3. **Proportions**: Slightly stylized (larger heads, expressive eyes) but not chibi/kawaii. Think Notion or Linear illustration style.
+2. **Shading**: Simple color fills with minimal shading. Soft highlights, rosy cheeks, sparkly eyes.
 
-4. **Detail Level**: Medium detail - enough to show personality without overwhelming. Props are simple and iconic.
+3. **Proportions**: **Kawaii/chibi style** - Big heads, small bodies, huge expressive eyes, blushy cheeks. Cute and approachable.
 
-5. **Poses**: Natural, task-oriented poses. Characters should look like they're actively engaged in work, not just standing.
+4. **Detail Level**: Medium detail with colorful fills. Props are cute and iconic (coffee mugs with faces, plants, yarn balls, books).
 
-6. **Background Elements**: When characters appear with contextual objects (laptops, servers, etc.), these should be rendered in a simpler, more iconic style than the characters themselves.
+5. **Poses**: Playful, interactive poses. Characters should be:
+   - Playing with each other in groups of 2-3
+   - Some doing solo activities (reading, working)
+   - NOT stiffly facing camera - candid, natural moments
+   - High-fiving, laughing, collaborating
+
+6. **Color Palette**: Warm, vibrant, colorful! Not muted or desaturated. Think cute stickers.
+
+7. **Background Approach**: Use solid #00FF00 green screen for illustrations, then remove background for transparent PNGs that can be placed on the dark website.
 
 ### Size Guidelines
 
@@ -674,12 +734,80 @@ Character approximately 150px tall.
 
 ---
 
+## Image Processing Scripts
+
+Two Python scripts are available for processing mascot illustrations:
+
+### `scripts/remove_background.py`
+Removes green screen (#00FF00) background from illustrations.
+
+```bash
+# Basic usage
+uv run scripts/remove_background.py --input image.png --output output.png
+
+# With tolerance adjustment (default: 50)
+uv run scripts/remove_background.py --input image.png --output output.png --tolerance 60
+
+# Aggressive mode for varied greens
+uv run scripts/remove_background.py --input image.png --output output.png --aggressive
+```
+
+**Note**: Be careful with tolerance - too aggressive removes greens from characters (elephant skin, plant pots, teal accents).
+
+### `scripts/stitch_images.py`
+Stitches two images side by side horizontally.
+
+```bash
+# Basic stitch
+uv run scripts/stitch_images.py --left left.png --right right.png --output combined.png
+
+# With overlap (negative gap brings images closer)
+uv run scripts/stitch_images.py --left left.png --right right.png --output combined.png --gap -400
+
+# With gap
+uv run scripts/stitch_images.py --left left.png --right right.png --output combined.png --gap 50
+```
+
+---
+
+## Footer Parade Implementation
+
+### Current Implementation
+
+The footer parade consists of two panels stitched together:
+- **Left panel**: Dogs & Cats team (Chip, Byte, Scout, Pixel, Atlas, Cipher)
+- **Right panel**: Zoo team (Elephant, Panda, Lion, Honey Badger, Sloth, Tortoise)
+
+**Files**:
+- `public/mascots/scenes/footer-left-panel.png` - Left panel with green background
+- `public/mascots/scenes/footer-right-panel.png` - Right panel with green background
+- `public/mascots/scenes/footer-parade.png` - Final stitched image (used in footer)
+
+**Style**: Colorful kawaii with playful interactions:
+- Chip & Byte high-fiving with hearts
+- Scout & Pixel playing with yarn
+- Atlas studying globe, Cipher reading
+- Elephant squirting water at giggling Panda
+- Lion laughing with Honey Badger
+- Sloth chilling with coffee, Tortoise reading
+
+### Regenerating Footer Parade
+
+1. Generate left panel with green background (#00FF00)
+2. Generate right panel with green background (#00FF00)
+3. Remove backgrounds: `uv run scripts/remove_background.py --tolerance 50`
+4. Stitch together: `uv run scripts/stitch_images.py --gap -100`
+
+---
+
 ## Version History
 
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0 | 2024-12 | Initial strategy document |
 | 1.1 | 2024-12 | Enhanced 404 page with multi-character "Search Party" grand scene |
+| 1.2 | 2024-12 | Added Zoo Team characters (Elephant, Panda, Lion, Honey Badger, Sloth, Tortoise) |
+| 1.3 | 2024-12 | Updated style to kawaii/playful, added image processing scripts documentation |
 
 ---
 
