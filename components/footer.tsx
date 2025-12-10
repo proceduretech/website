@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const footerLinks = {
   services: [
@@ -62,8 +63,17 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8 mb-12">
           {/* Brand & Contact */}
           <div className="col-span-2">
-            <Link href="/" className="text-xl font-bold text-text-primary">
-              Procedure
+            <Link
+              href="/"
+              className="inline-block hover:opacity-80 transition-opacity"
+            >
+              <Image
+                src="/logos/procedure/green-short-logo.svg"
+                alt="Procedure"
+                width={80}
+                height={36}
+                className="h-9 w-auto"
+              />
             </Link>
             <p className="mt-4 text-sm text-text-secondary max-w-xs">
               Forward-deployed AI engineers building production-grade systems
