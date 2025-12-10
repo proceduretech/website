@@ -3,7 +3,7 @@
 
 **Audit Date:** December 2024
 **Last Updated:** December 2024
-**Overall Score:** 7.5/10 (improved from 6.5/10)
+**Overall Score:** 8.0/10 (improved from 7.5/10)
 
 ---
 
@@ -11,7 +11,7 @@
 
 This audit evaluates the Procedure website against standards set by award-winning enterprise software services websites like Thoughtworks, Toptal, Turing, and Tribe.ai. The website demonstrates solid foundational work with recent significant improvements addressing critical conversion and credibility gaps.
 
-**Recent Improvements (Phase 1 Complete):**
+**Recent Improvements (Phase 1 Complete, Phase 2 In Progress):**
 - Contact page with premium glassmorphic form
 - About page with mission, values, team, and timeline sections
 - Form components (Input, Textarea, Select) with floating labels
@@ -19,6 +19,10 @@ This audit evaluates the Procedure website against standards set by award-winnin
 - Testimonial headshot photos
 - Footer with contact info, social links, and legal links
 - CLAUDE.md documentation updated
+- **How We Work** homepage section with 5-step process timeline and 3 engagement models
+- **Careers page** at `/careers` with benefits, values, and 6 job listings with expandable cards
+- **Speed-focused messaging** - Updated all timelines from weeks to days (e.g., "5 Days to First Deployment", "Ship in days, not weeks")
+- Social links updated (GitHub: proceduretech, Twitter: procedurehq)
 
 The site now has a functional conversion funnel and improved enterprise credibility signals. Remaining work focuses on service pages, case studies, and content depth.
 
@@ -335,7 +339,7 @@ className="... text-gray-900 ..."
 |----------|------|------|--------|
 | ~~CRITICAL~~ | ~~Contact~~ | `/contact` | **DONE** |
 | ~~CRITICAL~~ | ~~About~~ | `/about` | **DONE** |
-| CRITICAL | Careers (listing) | `/careers` | Missing |
+| ~~CRITICAL~~ | ~~Careers (listing)~~ | `/careers` | **DONE** |
 | CRITICAL | Case Studies (listing) | `/case-studies` | Missing |
 | HIGH | AI Engineering | `/services/ai-engineering` | Missing |
 | HIGH | Product Engineering | `/services/product-engineering` | Missing |
@@ -351,7 +355,7 @@ className="... text-gray-900 ..."
 
 | Section | Priority | Why It Matters |
 |---------|----------|----------------|
-| Process/How We Work | CRITICAL | Enterprise buyers need to understand engagement model |
+| ~~Process/How We Work~~ | ~~CRITICAL~~ | **DONE** - 5-step process timeline + 3 engagement models |
 | Case Study Previews | CRITICAL | Visual proof of work is essential for credibility |
 | Team/Leadership | HIGH | People trust people, not companies |
 | Tech Partners/Stack | MEDIUM | Shows technical credibility and alignment |
@@ -473,7 +477,7 @@ className="... text-gray-900 ..."
 1. `app/globals.css`
 2. `app/layout.tsx`
 3. `app/page.tsx`
-4. `app/contact/page.tsx` (NEW)
+4. `app/contact/page.tsx` (NEW, UPDATED - speed messaging)
 5. `app/contact/layout.tsx` (NEW)
 6. `app/about/page.tsx` (NEW)
 7. `app/about/layout.tsx` (NEW)
@@ -494,11 +498,15 @@ className="... text-gray-900 ..."
 22. `components/ui/Textarea.tsx` (NEW)
 23. `components/ui/Select.tsx` (NEW)
 24. `components/ui/index.ts` (UPDATED)
-25. `components/footer.tsx` (UPDATED)
-26. `lib/navigation-data.ts`
+25. `components/footer.tsx` (UPDATED - social links)
+26. `lib/navigation-data.ts` (UPDATED - speed messaging)
 27. `CLAUDE.md` (UPDATED)
 28. `public/logos/*.svg` (NEW - 15 files)
 29. `public/testimonials/*.jpg` (NEW - 4 files)
 30. `components/sections/HowWeWork.tsx` (NEW)
 31. `app/careers/page.tsx` (NEW)
 32. `app/careers/layout.tsx` (NEW)
+33. `components/sections/Stats.tsx` (UPDATED - "5 Days to First Deployment")
+34. `components/sections/CTA.tsx` (UPDATED - speed messaging)
+35. `components/sections/FAQ.tsx` (UPDATED - speed messaging)
+36. `app/about/page.tsx` (UPDATED - speed messaging)
