@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
+import { CalButton } from "@/components/CalButton";
 
 export function CTA() {
   return (
@@ -30,12 +30,9 @@ export function CTA() {
           existing AI systems, our engineers can be embedded with your team
           within 2-4 weeks.
         </p>
-        <Link
-          href="/contact"
-          className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base font-semibold text-white bg-gradient-to-r from-accent-teal to-accent-blue rounded-lg hover:from-accent-teal-light hover:to-accent-blue-light transition-all duration-200 shadow-lg shadow-accent-teal/20"
-        >
+        <CalButton className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base font-semibold text-white bg-gradient-to-r from-accent-teal to-accent-blue rounded-lg hover:from-accent-teal-light hover:to-accent-blue-light transition-all duration-200 shadow-lg shadow-accent-teal/20 cursor-pointer">
           Schedule Your AI Strategy Call
-        </Link>
+        </CalButton>
       </motion.div>
     </section>
   );

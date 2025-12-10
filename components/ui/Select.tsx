@@ -47,55 +47,16 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
       props.onChange?.(e);
     };
 
-    const isLabelFloating = isFocused || hasValue;
-
     return (
       <div className={`relative ${className}`}>
         <div className="relative">
-          <select
-            ref={ref}
-            id={selectId}
-            {...props}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
-            onChange={handleChange}
-            className={`
-              peer w-full px-4 pt-6 pb-2 pr-10
-              bg-surface-elevated border rounded-xl
-              text-text-primary text-base
-              transition-all duration-200 ease-out
-              outline-none appearance-none cursor-pointer
-              ${!hasValue ? "text-text-muted" : ""}
-              ${
-                error
-                  ? "border-red-500/50 focus:border-red-500 focus:ring-2 focus:ring-red-500/20"
-                  : "border-border hover:border-border-light focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/20"
-              }
-              disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:border-border
-            `}
-          >
-            <option value="" disabled>
-              {placeholder}
-            </option>
-            {options.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-
-          {/* Floating label */}
+          {/* Static floating label - always at top for select */}
           <label
             htmlFor={selectId}
             className={`
-              absolute left-4
-              transition-all duration-200 ease-out
-              pointer-events-none
-              ${
-                isLabelFloating
-                  ? "top-2 text-xs font-medium"
-                  : "top-1/2 -translate-y-1/2 text-base"
-              }
+              absolute left-4 top-2 text-xs font-medium
+              transition-colors duration-200 ease-out
+              pointer-events-none z-10
               ${
                 error
                   ? "text-red-400"
@@ -110,6 +71,39 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
               <span className="text-accent-teal-light ml-0.5">*</span>
             )}
           </label>
+
+          <select
+            ref={ref}
+            id={selectId}
+            defaultValue=""
+            {...props}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            onChange={handleChange}
+            className={`
+              peer w-full px-4 pt-6 pb-2 pr-10
+              bg-surface-elevated border rounded-xl
+              text-base
+              transition-all duration-200 ease-out
+              outline-none appearance-none cursor-pointer
+              ${hasValue ? "text-text-primary" : "text-text-muted"}
+              ${
+                error
+                  ? "border-red-500/50 focus:border-red-500 focus:ring-2 focus:ring-red-500/20"
+                  : "border-border hover:border-border-light focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/20"
+              }
+              disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:border-border
+            `}
+          >
+            <option value="" disabled hidden>
+              {placeholder}
+            </option>
+            {options.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
 
           {/* Dropdown arrow */}
           <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
