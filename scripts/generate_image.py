@@ -13,7 +13,6 @@ Environment:
 """
 
 import argparse
-import base64
 import sys
 from pathlib import Path
 
@@ -91,12 +90,12 @@ def generate_image(
         if part.text is not None:
             text_response = part.text
         elif part.inline_data is not None:
-            # Save the generated image
+            # Save the generated image using SDK's convenience method
             output = Path(output_path)
             output.parent.mkdir(parents=True, exist_ok=True)
 
-            image_data = base64.b64decode(part.inline_data.data)
-            output.write_bytes(image_data)
+            image = part.as_image()
+            image.save(output_path)
             image_saved = True
 
     if image_saved:
