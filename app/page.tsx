@@ -3,8 +3,10 @@ import {
   ValueProposition,
   Services,
   HowWeWork,
+  FeaturedCaseStudies,
   Testimonials,
   Stats,
+  Team,
   Careers,
   FAQ,
   CTA,
@@ -18,7 +20,9 @@ export default function Home() {
       <Testimonials />
       <Services />
       <HowWeWork />
+      <FeaturedCaseStudies />
       <Stats />
+      <Team />
       <Careers />
       <FAQ />
       <CTA />

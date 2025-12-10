@@ -1,0 +1,8 @@
+<svg width="120" height="48" viewBox="0 0 120 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="48" rx="8" fill="#1E293B"/>
+  <rect x="0.5" y="0.5" width="119" height="47" rx="7.5" stroke="#334155"/>
+  <circle cx="24" cy="24" r="12" fill="#3B82F6" fill-opacity="0.2"/>
+  <path d="M24 14L14 19V24C14 29.55 18.16 34.74 24 36C29.84 34.74 34 29.55 34 24V19L24 14ZM22 29L17 24L18.41 22.59L22 26.17L29.59 18.58L31 20L22 29Z" fill="#3B82F6"/>
+  <text x="44" y="21" fill="#E5E7EB" font-family="system-ui, sans-serif" font-size="10" font-weight="600">ISO 27001</text>
+  <text x="44" y="33" fill="#9CA3AF" font-family="system-ui, sans-serif" font-size="9">Certified</text>
+</svg>

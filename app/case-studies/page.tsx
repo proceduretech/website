@@ -1,0 +1,638 @@
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import { CalButton } from "@/components/CalButton";
+
+// Case studies data
+const caseStudies = [
+  {
+    id: "fintech-fraud-detection",
+    industry: "Financial Services",
+    serviceType: "AI Engineering",
+    title: "Real-Time Fraud Detection That Saved $47M in Year One",
+    description:
+      "A Fortune 500 bank needed to replace their rules-based fraud system that was missing sophisticated attacks while flagging legitimate transactions. We deployed a multi-model AI ensemble that analyzes transactions in under 50ms, catching fraud patterns their legacy system never could.",
+    metrics: [
+      { value: "94%", label: "Fraud detection rate" },
+      { value: "67%", label: "Fewer false positives" },
+      { value: "$47M", label: "Prevented losses" },
+    ],
+    tags: ["PyTorch", "Kafka", "AWS SageMaker", "Real-time ML"],
+    image: "/case-studies/fintech.jpg",
+  },
+  {
+    id: "healthcare-clinical-ai",
+    industry: "Healthcare",
+    serviceType: "AI Engineering",
+    title: "Clinical Documentation AI That Gives Physicians 2 Hours Back Daily",
+    description:
+      "Physicians at a 12-hospital network were spending 40% of their time on documentation instead of patient care. We built a HIPAA-compliant AI assistant that listens to patient encounters and generates structured clinical notes, reducing documentation time by 75%.",
+    metrics: [
+      { value: "2hrs", label: "Saved per physician daily" },
+      { value: "98.7%", label: "Clinical accuracy" },
+      { value: "4.8/5", label: "Physician satisfaction" },
+    ],
+    tags: ["LLMs", "Speech-to-Text", "HIPAA", "Azure"],
+    image: "/case-studies/healthcare.jpg",
+  },
+  {
+    id: "ecommerce-personalization",
+    industry: "E-Commerce",
+    serviceType: "AI Engineering",
+    title: "AI-Powered Search That Increased Revenue by $180M Annually",
+    description:
+      "A leading online retailer struggled with search relevance—customers were abandoning searches and leaving the site. We rebuilt their search infrastructure with semantic understanding and real-time personalization, transforming their highest-traffic feature into their highest-converting one.",
+    metrics: [
+      { value: "34%", label: "Higher conversion rate" },
+      { value: "180M", label: "Additional annual revenue" },
+      { value: "2.3x", label: "Search-to-purchase rate" },
+    ],
+    tags: ["Vector Search", "Elasticsearch", "Python", "Recommendation Systems"],
+    image: "/case-studies/ecommerce.jpg",
+  },
+  {
+    id: "saas-ai-copilot",
+    industry: "SaaS",
+    serviceType: "Product Engineering",
+    title: "AI Copilot Feature That Became Their Fastest-Growing Product Line",
+    description:
+      "A B2B software company wanted to add AI capabilities but lacked the expertise to build production-grade features. We embedded with their product team to ship an AI copilot that now accounts for 40% of new customer acquisition and commands premium pricing.",
+    metrics: [
+      { value: "40%", label: "New customer attribution" },
+      { value: "28%", label: "Price premium vs. competitors" },
+      { value: "12wks", label: "Time to market" },
+    ],
+    tags: ["React", "Node.js", "OpenAI", "PostgreSQL"],
+    image: "/case-studies/saas.jpg",
+  },
+  {
+    id: "manufacturing-predictive",
+    industry: "Manufacturing",
+    serviceType: "AI Engineering",
+    title: "Predictive Maintenance AI That Cut Downtime by 73%",
+    description:
+      "Unplanned equipment failures were costing this manufacturer $2M per incident in lost production. We deployed IoT sensors and built ML models that predict failures 72 hours in advance, enabling scheduled maintenance that keeps production lines running.",
+    metrics: [
+      { value: "73%", label: "Reduction in unplanned downtime" },
+      { value: "72hrs", label: "Advance failure prediction" },
+      { value: "$12M", label: "Annual savings" },
+    ],
+    tags: ["IoT", "Time Series ML", "Edge Computing", "Python"],
+    image: "/case-studies/manufacturing.jpg",
+  },
+  {
+    id: "tech-platform-rebuild",
+    industry: "Technology",
+    serviceType: "Product Engineering",
+    title: "Platform Modernization That Enabled 10x Scale",
+    description:
+      "A fast-growing tech company hit a wall—their monolithic architecture could not handle increasing load and slowed development to a crawl. Our engineers led a strategic microservices transformation that unlocked both technical scalability and team velocity.",
+    metrics: [
+      { value: "10x", label: "Traffic capacity increase" },
+      { value: "3x", label: "Faster deployment cycles" },
+      { value: "99.99%", label: "Uptime achieved" },
+    ],
+    tags: ["Kubernetes", "Go", "gRPC", "Terraform"],
+    image: "/case-studies/technology.jpg",
+  },
+];
+
+// Service type filter options
+const serviceFilters = ["All", "AI Engineering", "Product Engineering"];
+
+// Industry filter options
+const industryFilters = [
+  "All",
+  "Financial Services",
+  "Healthcare",
+  "E-Commerce",
+  "SaaS",
+  "Manufacturing",
+  "Technology",
+];
+
+export default function CaseStudiesPage() {
+  const [activeServiceFilter, setActiveServiceFilter] = useState("All");
+  const [activeIndustryFilter, setActiveIndustryFilter] = useState("All");
+
+  // Filter case studies
+  const filteredStudies = caseStudies.filter((study) => {
+    const matchesService =
+      activeServiceFilter === "All" || study.serviceType === activeServiceFilter;
+    const matchesIndustry =
+      activeIndustryFilter === "All" || study.industry === activeIndustryFilter;
+    return matchesService && matchesIndustry;
+  });
+
+  return (
+    <main className="relative min-h-screen bg-base overflow-hidden">
+      {/* ============================================
+          HERO SECTION
+          ============================================ */}
+      <section className="relative pt-32 pb-20 sm:pb-24 overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-surface via-base to-base" />
+          <div className="absolute top-20 right-1/4 w-[600px] h-[600px] bg-accent-teal/8 rounded-full blur-[120px] animate-pulse" />
+          <div className="absolute top-40 left-1/4 w-[500px] h-[500px] bg-accent-blue/8 rounded-full blur-[100px]" />
+          <div
+            className="absolute inset-0 opacity-[0.015]"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='%23E5E7EB'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e")`,
+            }}
+          />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-accent-teal/5 via-transparent to-transparent" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            {/* Eyebrow */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent-teal/10 border border-accent-teal/20 mb-6"
+            >
+              <span className="w-2 h-2 rounded-full bg-accent-teal animate-pulse" />
+              <span className="text-xs font-medium text-accent-teal-light">
+                Proven results across industries
+              </span>
+            </motion.div>
+
+            {/* Headline */}
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary leading-[1.1] tracking-tight mb-6"
+            >
+              AI That Ships.
+              <br />
+              <span className="bg-gradient-to-r from-accent-teal-light to-accent-blue-light bg-clip-text text-transparent">
+                Results That Matter.
+              </span>
+            </motion.h1>
+
+            {/* Subheadline */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-lg sm:text-xl text-text-secondary leading-relaxed mb-10 max-w-2xl mx-auto"
+            >
+              From Fortune 500 enterprises to high-growth startups, we help
+              organizations turn AI ambitions into production systems that drive
+              measurable business outcomes.
+            </motion.p>
+
+            {/* Stats row */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex flex-wrap justify-center gap-8 sm:gap-12"
+            >
+              {[
+                { value: "$250M+", label: "Client ROI Generated" },
+                { value: "50+", label: "Production AI Systems" },
+                { value: "98%", label: "Client Retention" },
+              ].map((stat) => (
+                <div key={stat.label} className="text-center">
+                  <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-accent-teal-light to-accent-blue-light bg-clip-text text-transparent">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm text-text-muted mt-1">{stat.label}</div>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================
+          FILTERS SECTION
+          ============================================ */}
+      <section className="relative py-8 bg-surface border-y border-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-between">
+            {/* Service Type Filter */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
+              <span className="text-sm text-text-muted font-medium">Service:</span>
+              <div className="flex flex-wrap gap-2">
+                {serviceFilters.map((filter) => (
+                  <button
+                    key={filter}
+                    onClick={() => setActiveServiceFilter(filter)}
+                    className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
+                      activeServiceFilter === filter
+                        ? "bg-accent-teal/20 text-accent-teal-light border border-accent-teal/30"
+                        : "bg-surface-elevated text-text-secondary border border-border hover:border-accent-teal/30 hover:text-text-primary"
+                    }`}
+                  >
+                    {filter}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Industry Filter */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
+              <span className="text-sm text-text-muted font-medium">Industry:</span>
+              <div className="flex flex-wrap gap-2">
+                {industryFilters.slice(0, 4).map((filter) => (
+                  <button
+                    key={filter}
+                    onClick={() => setActiveIndustryFilter(filter)}
+                    className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
+                      activeIndustryFilter === filter
+                        ? "bg-accent-teal/20 text-accent-teal-light border border-accent-teal/30"
+                        : "bg-surface-elevated text-text-secondary border border-border hover:border-accent-teal/30 hover:text-text-primary"
+                    }`}
+                  >
+                    {filter}
+                  </button>
+                ))}
+                {/* Dropdown for remaining industries on larger screens */}
+                <select
+                  value={
+                    industryFilters.slice(4).includes(activeIndustryFilter)
+                      ? activeIndustryFilter
+                      : ""
+                  }
+                  onChange={(e) => {
+                    if (e.target.value) setActiveIndustryFilter(e.target.value);
+                  }}
+                  className="px-4 py-2 text-sm font-medium rounded-lg bg-surface-elevated text-text-secondary border border-border hover:border-accent-teal/30 cursor-pointer focus:outline-none focus:border-accent-teal"
+                >
+                  <option value="">More...</option>
+                  {industryFilters.slice(4).map((filter) => (
+                    <option key={filter} value={filter}>
+                      {filter}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================
+          CASE STUDIES GRID
+          ============================================ */}
+      <section className="relative py-16 sm:py-24 bg-base">
+        <div
+          className="absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32'%3e%3cpath d='M16 8v16M8 16h16' stroke='%23E5E7EB' stroke-width='1' fill='none'/%3e%3c/svg%3e")`,
+          }}
+        />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`${activeServiceFilter}-${activeIndustryFilter}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+            >
+              {filteredStudies.map((study, idx) => (
+                <motion.article
+                  key={study.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  className="group relative"
+                >
+                  {/* Card glow effect */}
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-accent-teal/20 to-accent-blue/20 rounded-2xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
+
+                  <div className="relative h-full flex flex-col bg-surface-elevated border border-border rounded-2xl overflow-hidden group-hover:border-accent-teal/30 transition-all duration-300">
+                    {/* Image placeholder */}
+                    <div className="relative h-48 bg-gradient-to-br from-accent-teal/20 to-accent-blue/20 overflow-hidden">
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-16 h-16 rounded-2xl bg-surface/80 backdrop-blur flex items-center justify-center">
+                          <svg
+                            className="w-8 h-8 text-accent-teal-light"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={1.5}
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                      {/* Industry & Service badges */}
+                      <div className="absolute top-4 left-4 flex gap-2">
+                        <span className="px-2.5 py-1 text-xs font-medium text-accent-teal-light bg-surface/90 backdrop-blur rounded-full border border-accent-teal/20">
+                          {study.industry}
+                        </span>
+                      </div>
+                      <div className="absolute top-4 right-4">
+                        <span
+                          className={`px-2.5 py-1 text-xs font-medium rounded-full border backdrop-blur ${
+                            study.serviceType === "AI Engineering"
+                              ? "text-accent-teal-light bg-accent-teal/20 border-accent-teal/30"
+                              : "text-accent-blue-light bg-accent-blue/20 border-accent-blue/30"
+                          }`}
+                        >
+                          {study.serviceType}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="flex-1 p-6 flex flex-col">
+                      <h3 className="text-lg font-semibold text-text-primary mb-3 leading-snug group-hover:text-accent-teal-light transition-colors">
+                        {study.title}
+                      </h3>
+                      <p className="text-sm text-text-secondary leading-relaxed mb-6 flex-1">
+                        {study.description}
+                      </p>
+
+                      {/* Metrics */}
+                      <div className="grid grid-cols-3 gap-3 mb-6">
+                        {study.metrics.map((metric) => (
+                          <div
+                            key={metric.label}
+                            className="text-center p-3 rounded-lg bg-surface border border-border"
+                          >
+                            <div className="text-lg font-bold text-accent-teal-light">
+                              {metric.value}
+                            </div>
+                            <div className="text-xs text-text-muted mt-0.5 leading-tight">
+                              {metric.label}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-2">
+                        {study.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="px-2.5 py-1 text-xs font-medium text-text-muted bg-surface border border-border rounded-md"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </motion.article>
+              ))}
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Empty state */}
+          {filteredStudies.length === 0 && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="text-center py-16"
+            >
+              <div className="w-16 h-16 rounded-2xl bg-surface-elevated border border-border flex items-center justify-center mx-auto mb-4">
+                <svg
+                  className="w-8 h-8 text-text-muted"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={1.5}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-lg font-semibold text-text-primary mb-2">
+                No matching case studies
+              </h3>
+              <p className="text-text-secondary mb-6">
+                Try adjusting your filters to see more results.
+              </p>
+              <button
+                onClick={() => {
+                  setActiveServiceFilter("All");
+                  setActiveIndustryFilter("All");
+                }}
+                className="px-6 py-3 text-sm font-semibold text-accent-teal-light bg-accent-teal/10 border border-accent-teal/30 rounded-lg hover:bg-accent-teal/20 transition-colors"
+              >
+                Clear all filters
+              </button>
+            </motion.div>
+          )}
+        </div>
+      </section>
+
+      {/* ============================================
+          SOCIAL PROOF SECTION
+          ============================================ */}
+      <section className="relative py-16 sm:py-20 bg-surface">
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3e%3ccircle cx='2' cy='2' r='1' fill='%23E5E7EB'/%3e%3c/svg%3e")`,
+          }}
+        />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-4">
+              Trusted by industry leaders
+            </p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">
+              What our clients say
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
+            <motion.blockquote
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="relative p-6 sm:p-8 rounded-2xl bg-surface-elevated border border-border"
+            >
+              <div className="absolute -top-3 left-6 text-5xl text-accent-teal/30 font-serif">
+                &ldquo;
+              </div>
+              <p className="text-text-secondary leading-relaxed mb-6 pt-4">
+                Procedure&apos;s engineers integrated seamlessly with our team.
+                Within three months, they delivered an AI system that our
+                internal team had been struggling with for over a year. The ROI
+                was immediate and substantial.
+              </p>
+              <footer className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent-teal to-accent-blue flex items-center justify-center">
+                  <span className="text-lg font-bold text-white">JR</span>
+                </div>
+                <div>
+                  <div className="font-semibold text-text-primary">
+                    James Richardson
+                  </div>
+                  <div className="text-sm text-text-muted">
+                    CTO, Fortune 500 Financial Services
+                  </div>
+                </div>
+              </footer>
+            </motion.blockquote>
+
+            <motion.blockquote
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="relative p-6 sm:p-8 rounded-2xl bg-surface-elevated border border-border"
+            >
+              <div className="absolute -top-3 left-6 text-5xl text-accent-teal/30 font-serif">
+                &ldquo;
+              </div>
+              <p className="text-text-secondary leading-relaxed mb-6 pt-4">
+                We needed senior AI talent fast, and traditional hiring was
+                taking 6+ months. Procedure had production-ready engineers
+                embedded with us in under a week. They are now a permanent
+                extension of our engineering org.
+              </p>
+              <footer className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent-blue to-accent-teal flex items-center justify-center">
+                  <span className="text-lg font-bold text-white">SK</span>
+                </div>
+                <div>
+                  <div className="font-semibold text-text-primary">
+                    Sarah Kim
+                  </div>
+                  <div className="text-sm text-text-muted">
+                    VP Engineering, Series C SaaS
+                  </div>
+                </div>
+              </footer>
+            </motion.blockquote>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================
+          CTA SECTION
+          ============================================ */}
+      <section className="relative py-20 sm:py-28 bg-base overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-accent-teal/5 to-accent-blue/5" />
+        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-accent-teal/10 rounded-full blur-[100px]" />
+        <div className="absolute top-0 right-1/4 w-[300px] h-[300px] bg-accent-blue/10 rounded-full blur-[80px]" />
+
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-text-primary mb-6">
+              Ready to Build Your
+              <br />
+              <span className="bg-gradient-to-r from-accent-teal-light to-accent-blue-light bg-clip-text text-transparent">
+                Success Story?
+              </span>
+            </h2>
+            <p className="text-lg text-text-secondary mb-10 max-w-2xl mx-auto">
+              Every case study started with a conversation. Tell us about your
+              AI challenges, and our engineers will give you an honest
+              assessment of how we can help—even if that means pointing you in
+              a different direction.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <CalButton className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-accent-teal to-accent-blue rounded-xl hover:from-accent-teal-light hover:to-accent-blue-light transition-all duration-200 shadow-lg shadow-accent-teal/20 cursor-pointer">
+                Book a Strategy Call
+                <svg
+                  className="w-5 h-5 ml-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                  />
+                </svg>
+              </CalButton>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-xl hover:border-accent-teal hover:bg-accent-teal/10 transition-all duration-200"
+              >
+                Contact Us
+              </Link>
+            </div>
+
+            {/* Trust indicators */}
+            <div className="mt-12 flex flex-wrap items-center justify-center gap-6">
+              <div className="flex items-center gap-2 text-xs text-text-muted">
+                <svg
+                  className="w-4 h-4 text-accent-teal"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                No obligation
+              </div>
+              <div className="w-1 h-1 rounded-full bg-border" />
+              <div className="flex items-center gap-2 text-xs text-text-muted">
+                <svg
+                  className="w-4 h-4 text-accent-teal"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                30-minute call
+              </div>
+              <div className="w-1 h-1 rounded-full bg-border" />
+              <div className="flex items-center gap-2 text-xs text-text-muted">
+                <svg
+                  className="w-4 h-4 text-accent-teal"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                Talk with engineers, not sales
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </main>
+  );
+}

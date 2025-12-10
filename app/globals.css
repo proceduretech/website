@@ -13,12 +13,12 @@
     --color-border-light: #334155;
     --color-text-primary: #e5e7eb;
     --color-text-secondary: #9ca3af;
-    --color-text-muted: #6b7280;
+    --color-text-muted: #7c8594;
 
     /* Legacy aliases for compatibility */
     --color-background: #0f172a;
     --color-foreground: #e5e7eb;
-    --color-muted: #6b7280;
+    --color-muted: #7c8594;
     --color-accent: #0f766e;
     --color-accent-secondary: #2563eb;
     --font-outfit: var(--font-outfit);
