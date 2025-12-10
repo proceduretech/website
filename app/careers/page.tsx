@@ -505,7 +505,7 @@ export default function CareersPage() {
           </motion.div>
 
           {/* Job Listings */}
-          <div className="space-y-4">
+          <div className="space-y-4 max-w-4xl mx-auto">
             {filteredJobs.map((job, idx) => (
               <motion.div
                 key={job.id}
