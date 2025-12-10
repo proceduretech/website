@@ -15,7 +15,7 @@ const budgetOptions = [
 ];
 
 const timelineOptions = [
-  { value: "immediate", label: "Immediate - Within 2 weeks" },
+  { value: "immediate", label: "Immediate - Within days" },
   { value: "1-2-months", label: "1-2 months - Planning complete" },
   { value: "3-6-months", label: "3-6 months - Exploratory" },
   { value: "ongoing", label: "Ongoing / Retainer" },
@@ -92,7 +92,7 @@ export default function ContactPage() {
 
               {/* Subheadline */}
               <p className="text-lg text-text-secondary leading-relaxed mb-10 max-w-lg">
-                Whether you need forward-deployed engineers, a rapid AI sprint, or a full product build—tell us what you&apos;re working on and we&apos;ll match you with senior AI talent within 2-4 weeks.
+                Whether you need forward-deployed engineers, a rapid AI sprint, or a full product build—tell us what you&apos;re working on and we&apos;ll match you with senior AI talent within 2-5 days.
               </p>
 
               {/* Alternative Contact Methods */}
@@ -466,7 +466,7 @@ export default function ContactPage() {
               },
               {
                 q: "How do you determine pricing?",
-                a: "Pricing depends on engagement model, team composition, and project scope. AI Sprints typically range from $25K-$75K for 2-4 week engagements. Forward-deployed teams and full product builds are scoped based on duration and complexity. We provide transparent proposals with no hidden fees."
+                a: "Pricing depends on engagement model, team composition, and project scope. AI Sprints typically range from $15K-$50K for 3-5 day engagements. Forward-deployed teams and full product builds are scoped based on duration and complexity. We provide transparent proposals with no hidden fees."
               },
               {
                 q: "Can you work under NDA before the first call?",

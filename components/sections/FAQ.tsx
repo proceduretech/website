@@ -12,7 +12,7 @@ const faqs = [
   {
     question: "How quickly can you embed engineers with our team?",
     answer:
-      "Most engagements begin within 2-4 weeks. We match senior engineers based on your tech stack and AI requirements, then integrate them into your development workflow immediately.",
+      "Most engagements begin within 2-5 days. We match senior engineers based on your tech stack and AI requirements, then integrate them into your development workflow immediately.",
   },
   {
     question: "What types of AI systems do you build?",

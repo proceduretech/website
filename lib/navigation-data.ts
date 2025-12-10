@@ -12,7 +12,7 @@ export const navigationData = {
         {
           label: "AI Sprints",
           description:
-            "Rapid 2-4 week engagements to prototype, validate, or ship AI features.",
+            "Rapid 3-5 day engagements to prototype, validate, or ship AI features.",
           href: "/services/ai-sprints",
         },
         {
@@ -58,7 +58,7 @@ export const navigationData = {
       bullet: true,
       items: [
         { label: "Senior AI engineers, not generalists", href: "/why-us" },
-        { label: "Ship in weeks, not months", href: "/why-us" },
+        { label: "Ship in days, not weeks", href: "/why-us" },
         { label: "We build, not just consult", href: "/why-us" },
         { label: "Production-first mindset", href: "/why-us" },
         { label: "Your team, extended", href: "/why-us" },

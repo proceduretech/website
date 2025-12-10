@@ -425,15 +425,15 @@ className="... text-gray-900 ..."
 6. ~~Add contact information to footer~~ **DONE**
 7. ~~Update CLAUDE.md to reflect dark theme~~ **DONE**
 
-### Phase 2: Core Content (Week 3-4)
+### Phase 2: Core Content (Week 3-4) - IN PROGRESS
 **Goal:** Establish service offering depth
 
 1. Create service page template
 2. Build `/services/ai-engineering`
 3. Build `/services/product-engineering`
 4. Create `/case-studies` listing page
-5. Create `/careers` listing page
-6. Add "How We Work" section to homepage
+5. ~~Create `/careers` listing page~~ **DONE**
+6. ~~Add "How We Work" section to homepage~~ **DONE**
 7. Add featured case studies to homepage
 
 ### Phase 3: Trust & Credibility (Week 5-6)
@@ -499,3 +499,6 @@ className="... text-gray-900 ..."
 27. `CLAUDE.md` (UPDATED)
 28. `public/logos/*.svg` (NEW - 15 files)
 29. `public/testimonials/*.jpg` (NEW - 4 files)
+30. `components/sections/HowWeWork.tsx` (NEW)
+31. `app/careers/page.tsx` (NEW)
+32. `app/careers/layout.tsx` (NEW)

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const stats = [
   { value: "50+", label: "Production AI Systems Shipped" },
-  { value: "6", label: "Weeks to First Deployment" },
+  { value: "5", label: "Days to First Deployment" },
   { value: "98%", label: "Client Retention Rate" },
   { value: "3+", label: "Years Average Partnership" },
 ];

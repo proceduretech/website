@@ -28,7 +28,7 @@ export function CTA() {
         <p className="text-base sm:text-lg text-text-secondary mb-8 sm:mb-10 max-w-2xl mx-auto">
           Whether you&apos;re building your first LLM application or scaling
           existing AI systems, our engineers can be embedded with your team
-          within 2-4 weeks.
+          within 2-5 days.
         </p>
         <CalButton className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base font-semibold text-white bg-gradient-to-r from-accent-teal to-accent-blue rounded-lg hover:from-accent-teal-light hover:to-accent-blue-light transition-all duration-200 shadow-lg shadow-accent-teal/20 cursor-pointer">
           Schedule Your AI Strategy Call

@@ -2,6 +2,7 @@ import {
   Hero,
   ValueProposition,
   Services,
+  HowWeWork,
   Testimonials,
   Stats,
   Careers,
@@ -16,6 +17,7 @@ export default function Home() {
       <ValueProposition />
       <Testimonials />
       <Services />
+      <HowWeWork />
       <Stats />
       <Careers />
       <FAQ />

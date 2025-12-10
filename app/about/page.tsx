@@ -156,10 +156,10 @@ const milestones = [
 // Differentiators data
 const differentiators = [
   {
-    stat: "2-4",
-    unit: "weeks",
+    stat: "2-5",
+    unit: "days",
     label: "Average time to deploy engineers",
-    description: "Not months. We move fast because your timeline matters.",
+    description: "Not weeks. We move fast because your timeline matters.",
   },
   {
     stat: "98",
