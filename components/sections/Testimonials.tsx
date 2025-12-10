@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 const testimonials = [
   {
@@ -123,14 +124,20 @@ export function Testimonials() {
                 {testimonials[currentIndex].quote}
               </blockquote>
               <div className="flex items-center gap-3 sm:gap-4 pt-4 sm:pt-6 border-t border-border">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-accent-teal to-accent-blue flex items-center justify-center text-white font-semibold text-lg sm:text-xl flex-shrink-0">
-                  {testimonials[currentIndex].author.charAt(0)}
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden bg-gradient-to-br from-accent-teal to-accent-blue flex items-center justify-center flex-shrink-0">
+                  <Image
+                    src={testimonials[currentIndex].image}
+                    alt={testimonials[currentIndex].author}
+                    width={56}
+                    height={56}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div>
-                  <div className="font-semibold text-base sm:text-lg text-white">
+                  <div className="font-semibold text-base sm:text-lg text-text-primary">
                     {testimonials[currentIndex].author}
                   </div>
-                  <div className="text-sm text-gray-400">
+                  <div className="text-sm text-text-secondary">
                     {testimonials[currentIndex].role},{" "}
                     {testimonials[currentIndex].company}
                   </div>

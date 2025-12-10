@@ -1,53 +1,57 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Dark Theme Color Palette */
-  --color-base: #0F172A;
-  --color-surface: #0B1220;
-  --color-surface-elevated: #131B2E;
-  --color-accent-teal: #0F766E;
-  --color-accent-teal-light: #14B8A6;
-  --color-accent-blue: #2563EB;
-  --color-accent-blue-light: #3B82F6;
-  --color-border: #1E293B;
-  --color-border-light: #334155;
-  --color-text-primary: #E5E7EB;
-  --color-text-secondary: #9CA3AF;
-  --color-text-muted: #6B7280;
+    /* Dark Theme Color Palette */
+    --color-base: #0f172a;
+    --color-surface: #0b1220;
+    --color-surface-elevated: #131b2e;
+    --color-accent-teal: #0f766e;
+    --color-accent-teal-light: #14b8a6;
+    --color-accent-blue: #2563eb;
+    --color-accent-blue-light: #3b82f6;
+    --color-border: #1e293b;
+    --color-border-light: #334155;
+    --color-text-primary: #e5e7eb;
+    --color-text-secondary: #9ca3af;
+    --color-text-muted: #6b7280;
 
-  /* Legacy aliases for compatibility */
-  --color-background: #0F172A;
-  --color-foreground: #E5E7EB;
-  --color-muted: #6B7280;
-  --color-accent: #0F766E;
-  --color-accent-secondary: #2563EB;
-  --font-outfit: var(--font-outfit);
+    /* Legacy aliases for compatibility */
+    --color-background: #0f172a;
+    --color-foreground: #e5e7eb;
+    --color-muted: #6b7280;
+    --color-accent: #0f766e;
+    --color-accent-secondary: #2563eb;
+    --font-outfit: var(--font-outfit);
 }
 
 @layer base {
-  * {
-    @apply box-border;
-  }
+    * {
+        @apply box-border;
+    }
 
-  html {
-    @apply scroll-smooth;
-  }
+    html {
+        @apply scroll-smooth;
+    }
 
-  body {
-    @apply bg-base text-text-primary antialiased;
-    font-family: var(--font-outfit), system-ui, -apple-system, sans-serif;
-  }
+    body {
+        @apply bg-base text-text-primary antialiased;
+        font-family:
+            var(--font-outfit),
+            system-ui,
+            -apple-system,
+            sans-serif;
+    }
 
-  ::selection {
-    @apply bg-accent-teal/30 text-accent-teal-light;
-  }
+    ::selection {
+        @apply bg-accent-teal/30 text-accent-teal-light;
+    }
 
-  a,
-  button {
-    @apply transition-all duration-200 ease-out;
-  }
+    a,
+    button {
+        @apply transition-all duration-200 ease-out;
+    }
 
-  :focus-visible {
-    @apply outline-2 outline-accent-teal outline-offset-2;
-  }
+    :focus-visible {
+        @apply outline-2 outline-accent-teal outline-offset-2;
+    }
 }

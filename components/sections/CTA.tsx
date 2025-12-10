@@ -26,8 +26,9 @@ export function CTA() {
           Ready to secure your AI initiatives?
         </h2>
         <p className="text-base sm:text-lg text-text-secondary mb-8 sm:mb-10 max-w-2xl mx-auto">
-          Whether you&apos;re building your first LLM application or scaling existing
-          AI systems, our engineers can be embedded with your team within 2-4 weeks.
+          Whether you&apos;re building your first LLM application or scaling
+          existing AI systems, our engineers can be embedded with your team
+          within 2-4 weeks.
         </p>
         <Link
           href="/contact"

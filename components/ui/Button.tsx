@@ -27,7 +27,8 @@ export function Button({
       "bg-gradient-to-r from-accent-teal to-accent-blue text-white hover:from-accent-teal-light hover:to-accent-blue-light border border-transparent shadow-lg shadow-accent-teal/20",
     outline:
       "bg-transparent text-text-primary border border-border hover:border-accent-teal hover:text-accent-teal-light",
-    ghost: "bg-transparent text-text-secondary hover:bg-surface-elevated hover:text-text-primary",
+    ghost:
+      "bg-transparent text-text-secondary hover:bg-surface-elevated hover:text-text-primary",
   };
 
   const sizes = {

@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 40" fill="none">
+  <path d="M8 12h12c3 0 5 2 5 5s-2 5-5 5H8v-10zM8 22h14c3 0 5 2 5 5s-2 5-5 5H8v-10z" stroke="currentColor" stroke-width="2" fill="none"/>
+  <text x="34" y="25" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="currentColor">Bitespeed</text>
+</svg>

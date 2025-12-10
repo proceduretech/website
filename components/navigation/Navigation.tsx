@@ -11,7 +11,9 @@ export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [expandedMobileSection, setExpandedMobileSection] = useState<string | null>(null);
+  const [expandedMobileSection, setExpandedMobileSection] = useState<
+    string | null
+  >(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,7 +37,9 @@ export function Navigation() {
   }, [isMobileMenuOpen]);
 
   const toggleMobileSection = (section: string) => {
-    setExpandedMobileSection(expandedMobileSection === section ? null : section);
+    setExpandedMobileSection(
+      expandedMobileSection === section ? null : section,
+    );
   };
 
   return (
@@ -144,7 +148,9 @@ export function Navigation() {
           <div className="max-w-5xl mx-auto w-full lg:flex lg:justify-center">
             <MegaMenuContent
               sections={
-                navigationData[activeMenu as keyof typeof navigationData] as MenuSection[]
+                navigationData[
+                  activeMenu as keyof typeof navigationData
+                ] as MenuSection[]
               }
             />
           </div>
@@ -282,7 +288,10 @@ function MegaMenuContent({ sections }: { sections: MenuSection[] }) {
             {section.items && (
               <ul className={section.bullet ? "space-y-2" : "space-y-4"}>
                 {section.items.map((item, itemIdx) => (
-                  <li key={itemIdx} className={section.bullet ? "flex items-start gap-2" : ""}>
+                  <li
+                    key={itemIdx}
+                    className={section.bullet ? "flex items-start gap-2" : ""}
+                  >
                     {section.bullet ? (
                       <>
                         <span className="w-1.5 h-1.5 rounded-full bg-text-muted mt-1.5 flex-shrink-0" />
@@ -291,7 +300,10 @@ function MegaMenuContent({ sections }: { sections: MenuSection[] }) {
                         </span>
                       </>
                     ) : (
-                      <a href={item.href} className="group block cursor-pointer">
+                      <a
+                        href={item.href}
+                        className="group block cursor-pointer"
+                      >
                         <span className="text-base text-text-primary font-medium group-hover:text-accent-teal-light transition-colors duration-200">
                           {item.label}
                         </span>
@@ -390,7 +402,13 @@ interface MobileNavSectionProps {
   onClose: () => void;
 }
 
-function MobileNavSection({ title, isExpanded, onToggle, sections, onClose }: MobileNavSectionProps) {
+function MobileNavSection({
+  title,
+  isExpanded,
+  onToggle,
+  sections,
+  onClose,
+}: MobileNavSectionProps) {
   return (
     <div>
       <button
@@ -405,7 +423,11 @@ function MobileNavSection({ title, isExpanded, onToggle, sections, onClose }: Mo
           stroke="currentColor"
           strokeWidth={2}
         >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M19 9l-7 7-7-7"
+          />
         </svg>
       </button>
 
@@ -433,28 +455,29 @@ function MobileNavSection({ title, isExpanded, onToggle, sections, onClose }: Mo
                   ))}
                 </ul>
               )}
-              {section.sections && section.sections.map((subSection, subIdx) => (
-                <div key={subIdx} className="mt-3">
-                  {subSection.title && (
-                    <h5 className="px-4 text-sm font-semibold text-accent-teal-light mb-2">
-                      {subSection.title}
-                    </h5>
-                  )}
-                  <ul className="space-y-1">
-                    {subSection.items.map((item, itemIdx) => (
-                      <li key={itemIdx}>
-                        <a
-                          href={item.href}
-                          className="block py-2 px-4 text-text-secondary hover:bg-surface-elevated hover:text-text-primary rounded-lg"
-                          onClick={onClose}
-                        >
-                          {item.label}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+              {section.sections &&
+                section.sections.map((subSection, subIdx) => (
+                  <div key={subIdx} className="mt-3">
+                    {subSection.title && (
+                      <h5 className="px-4 text-sm font-semibold text-accent-teal-light mb-2">
+                        {subSection.title}
+                      </h5>
+                    )}
+                    <ul className="space-y-1">
+                      {subSection.items.map((item, itemIdx) => (
+                        <li key={itemIdx}>
+                          <a
+                            href={item.href}
+                            className="block py-2 px-4 text-text-secondary hover:bg-surface-elevated hover:text-text-primary rounded-lg"
+                            onClick={onClose}
+                          >
+                            {item.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
             </div>
           ))}
         </div>
