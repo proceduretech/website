@@ -335,12 +335,6 @@ export const navigationData = {
           icon: "pencil",
         },
         {
-          label: "Case Studies",
-          description: "How we've helped companies ship AI to production.",
-          href: "/case-studies",
-          icon: "folder",
-        },
-        {
           label: "AI Playbooks",
           description: "Practical guides for building production AI systems.",
           href: "/playbooks",

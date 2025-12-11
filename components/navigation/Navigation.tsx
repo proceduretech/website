@@ -77,8 +77,8 @@ export function Navigation() {
               onHover={() => setActiveMenu("industries")}
             />
             <NavItem
-              label="Success Stories"
-              href="/success-stories"
+              label="Case Studies"
+              href="/case-studies"
               onHover={() => setActiveMenu(null)}
             />
             <NavItem
@@ -202,13 +202,13 @@ export function Navigation() {
                 onClose={() => setIsMobileMenuOpen(false)}
               />
 
-              {/* Success Stories - Direct Link */}
+              {/* Case Studies - Direct Link */}
               <Link
-                href="/success-stories"
+                href="/case-studies"
                 className="block py-3 px-4 text-lg font-medium text-text-primary hover:bg-surface-elevated rounded-lg"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Success Stories
+                Case Studies
               </Link>
 
               {/* About */}
