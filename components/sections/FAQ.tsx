@@ -5,29 +5,29 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const faqs = [
   {
-    question: "What is forward-deployed AI engineering?",
+    question: "What AI systems do you build?",
     answer:
-      "Forward-deployed AI engineering means our senior engineers work directly within your team—using your tools, attending your standups, and shipping code alongside your developers. Unlike traditional consulting, we don't deliver recommendations; we build and deploy production systems.",
+      "We build production AI systems including LLM applications, AI agents, RAG systems, and AI-enhanced products. From conversational AI to document processing to intelligent automation—we handle the complete development lifecycle from architecture to secure production deployment.",
   },
   {
-    question: "How quickly can you embed engineers with our team?",
+    question: "How quickly can you start our AI project?",
     answer:
-      "Most engagements begin within 2-5 days. We match senior engineers based on your tech stack and AI requirements, then integrate them into your development workflow immediately.",
+      "Most AI engagements begin within 2-5 days. We match senior engineers based on your AI requirements and tech stack, then integrate them into your development workflow immediately. No months of discovery—we start building fast.",
   },
   {
-    question: "What types of AI systems do you build?",
+    question: "How do you handle AI security?",
     answer:
-      "We build production-grade AI systems including LLM-powered applications, RAG systems, AI agents, custom ML models, and AI-augmented development workflows. Our engineers handle everything from architecture to deployment and MLOps.",
+      "AI security is built into every system we deliver. We implement prompt injection defense, data leakage prevention, access controls, and AI-specific security measures from day one. Your AI systems pass enterprise security review.",
+  },
+  {
+    question: "What makes you different from AI consultancies?",
+    answer:
+      "Traditional AI consultants deliver slide decks and POCs that never ship. We deliver production AI. Our engineers embed with your team, write code daily, and ship AI systems that work. No handoffs, no knowledge silos—just AI that reaches production.",
   },
   {
     question: "Do you work with enterprise clients?",
     answer:
-      "Yes. We partner with companies ranging from funded startups to public enterprises. Our client retention rate is 98%, with many partnerships lasting 3+ years.",
-  },
-  {
-    question: "How is this different from traditional AI consulting?",
-    answer:
-      "Traditional consultants deliver slide decks and recommendations. We deliver production code. Our engineers embed with your team, write code daily, and own outcomes alongside your developers. No handoffs, no knowledge silos.",
+      "Yes. We partner with companies ranging from funded startups to public enterprises on AI initiatives. Our client retention rate is 98%, with many partnerships lasting 3+ years. We understand enterprise security, compliance, and procurement requirements.",
   },
 ];
 

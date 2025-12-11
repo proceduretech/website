@@ -14,14 +14,11 @@ export function AboutTeaser() {
           transition={{ duration: 0.6 }}
         >
           <p className="text-lg sm:text-xl md:text-2xl text-text-primary font-medium mb-2">
-            100+ senior engineers from{" "}
-            <span className="text-accent-teal-light">Google</span>,{" "}
-            <span className="text-accent-teal-light">Meta</span>,{" "}
-            <span className="text-accent-teal-light">Anthropic</span>, and{" "}
-            <span className="text-accent-teal-light">Stripe</span>.
+            Seasoned builders delivering software products—
+            <span className="text-accent-teal-light">with and without AI</span>.
           </p>
           <p className="text-text-secondary mb-8">
-            Production veterans who&apos;ve shipped AI at scale.
+            Production-tested engineering. Your partner for what&apos;s next.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">

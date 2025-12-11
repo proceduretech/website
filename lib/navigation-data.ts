@@ -4,9 +4,9 @@ export const navigationData = {
       title: "By Engagement Model",
       items: [
         {
-          label: "Forward-Deployed Teams",
+          label: "Forward-Deployed AI Teams",
           description:
-            "Senior AI engineers embedded with your team, working in your codebase.",
+            "Senior engineers embedded with your team, building AI-powered products.",
           href: "/services/forward-deployed",
           icon: "users",
         },
@@ -20,14 +20,14 @@ export const navigationData = {
         {
           label: "Full Product Build",
           description:
-            "End-to-end product development from concept to production launch.",
+            "End-to-end AI product development from concept to production launch.",
           href: "/services/product-build",
           icon: "cube",
         },
         {
           label: "Staff Augmentation",
           description:
-            "Scale your team with senior AI and engineering talent on demand.",
+            "Scale your AI and engineering team with senior talent on demand.",
           href: "/services/staff-augmentation",
           icon: "userPlus",
         },
@@ -39,7 +39,7 @@ export const navigationData = {
         {
           label: "Startups",
           description:
-            "Build your MVP or launch-ready AI product with velocity.",
+            "Ship your AI-powered MVP or launch-ready product with velocity.",
           href: "/services/startups",
           icon: "rocket",
         },
@@ -64,11 +64,11 @@ export const navigationData = {
       highlight: true,
       bullet: true,
       items: [
-        { label: "Senior AI engineers, not generalists", href: "/why-us" },
-        { label: "Ship in days, not weeks", href: "/why-us" },
+        { label: "AI engineering that ships", href: "/why-us" },
+        { label: "Security built into AI", href: "/why-us" },
         { label: "We build, not just consult", href: "/why-us" },
         { label: "Production-first mindset", href: "/why-us" },
-        { label: "Your team, extended", href: "/why-us" },
+        { label: "Proven delivery track record", href: "/why-us" },
       ],
     },
   ],
@@ -257,7 +257,7 @@ export const navigationData = {
         {
           label: "About Procedure",
           description:
-            "AI engineers building the future. Learn about our team and mission.",
+            "AI engineering and security with proven delivery excellence. Learn about our team.",
           href: "/about",
           icon: "info",
         },
@@ -271,13 +271,13 @@ export const navigationData = {
         {
           label: "Culture",
           description:
-            "Where elite engineers build what matters. Our values and team.",
+            "Where engineers build AI that matters. Our values and team.",
           href: "/culture",
           icon: "users",
         },
         {
           label: "Careers",
-          description: "Join our team of forward-deployed AI engineers.",
+          description: "Join our team of AI and product engineers.",
           href: "/careers",
           icon: "briefcase",
         },
@@ -317,10 +317,10 @@ export const navigationData = {
       highlight: true,
       bullet: true,
       items: [
-        { label: "Engineers, not consultants", href: "/why-us" },
-        { label: "Production code, not POCs", href: "/why-us" },
+        { label: "AI engineers, not consultants", href: "/why-us" },
+        { label: "Production AI, not POCs", href: "/why-us" },
         { label: "Embedded with your team", href: "/why-us" },
-        { label: "AI-native from day one", href: "/why-us" },
+        { label: "Security built into AI systems", href: "/why-us" },
       ],
     },
   ],

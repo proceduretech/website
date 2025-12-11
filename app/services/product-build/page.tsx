@@ -8,7 +8,7 @@ const benefits = [
   {
     title: "One Team, Complete Ownership",
     description:
-      "Traditional agencies fragment your product across multiple teams and vendors. Full product build assigns a dedicated squad of senior AI engineers who own your entire stack. Frontend, backend, AI/ML, infrastructure. No coordination overhead, no finger-pointing.",
+      "Traditional agencies fragment your product across multiple teams and vendors. Full product build assigns a dedicated squad of senior engineers who own your entire stack. Frontend, backend, AI/ML, infrastructure. No coordination overhead, no finger-pointing.",
     stat: "1",
     statLabel: "Accountable team",
   },

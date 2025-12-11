@@ -8,52 +8,52 @@ import { PageHero } from "@/components/ui";
 
 const differentiators = [
   {
-    id: "senior-engineers",
+    id: "ai-engineering",
     number: "01",
-    headline: "Specialists, Not Generalists",
-    title: "Senior AI Engineers Only",
+    headline: "AI Engineering Excellence",
+    title: "Production AI, Not POCs",
     description:
-      "Every Procedure engineer has shipped production AI systems at scale. We do not staff projects with junior developers learning on your dime. You get battle-tested AI specialists from companies like Google, Meta, and OpenAI who have solved problems like yours before.",
-    stats: { value: "8+", label: "Years average experience" },
+      "Every Procedure engineer ships production AI systems. We do not deliver proof-of-concepts that need to be rebuilt. From LLM applications to AI agents, your systems are enterprise-ready from day one—secure, scalable, and production-grade.",
+    stats: { value: "100+", label: "Products shipped to production" },
     accentColor: "teal" as const,
   },
   {
     id: "ship-fast",
     number: "02",
-    headline: "Days to Production",
-    title: "Ship in Days, Not Weeks",
+    headline: "AI Deployed Fast",
+    title: "Ship AI in Days, Not Months",
     description:
-      "Traditional consultancies measure timelines in quarters. We measure in days. Our engineers deploy within 2-5 days of kickoff, ready to write production code from day one. No lengthy onboarding. No months of discovery.",
+      "Traditional AI consultancies measure timelines in quarters. We measure in days. Our engineers deploy within 2-5 days of kickoff, ready to build your AI systems from day one. No lengthy discovery phases. No endless architecture debates.",
     stats: { value: "2-5", label: "Days to first deployment" },
     accentColor: "blue" as const,
   },
   {
-    id: "builders",
+    id: "security",
     number: "03",
-    headline: "Builders, Not Advisors",
-    title: "We Build, Not Just Consult",
+    headline: "Security Built In",
+    title: "AI Security From Day One",
     description:
-      "We did not start Procedure to write strategy documents. We started it to write code. Our engineers do not sit in meetings debating architecture for weeks. They build working systems, iterate based on real data, and ship features.",
-    stats: { value: "98%", label: "Engagements reach production" },
+      "Your AI systems are protected from the start. Prompt injection defense, data leakage prevention, and AI-specific security measures are built into every system we deliver. No security theater—real protection for production AI.",
+    stats: { value: "100%", label: "Security review pass rate" },
     accentColor: "teal" as const,
   },
   {
-    id: "production-first",
+    id: "builders",
     number: "04",
-    headline: "Production From Day One",
-    title: "Production-First Mindset",
+    headline: "Engineers, Not Consultants",
+    title: "We Build AI, Not Slide Decks",
     description:
-      "Every line of code we write is production-grade. We do not build prototypes that need to be rewritten. From authentication to error handling to observability, your AI system is enterprise-ready from the first commit.",
-    stats: { value: "99.9%", label: "Uptime SLA standard" },
+      "We did not start Procedure to write strategy documents. We started it to build AI systems. Our engineers do not sit in meetings debating architecture for weeks. They build working AI, iterate based on real data, and ship features.",
+    stats: { value: "98%", label: "Engagements reach production" },
     accentColor: "blue" as const,
   },
   {
     id: "team-extended",
     number: "05",
-    headline: "Same Tools. Same Standups.",
-    title: "Your Team, Extended",
+    headline: "Your AI Team, Extended",
+    title: "Embedded AI Engineering",
     description:
-      "Procedure engineers are not external vendors working in isolation. They attend your standups, use your tools, and care about your product as if it were their own. When the engagement ends, you keep the code and the knowledge.",
+      "Procedure engineers are not external vendors working in isolation. They embed with your team, use your tools, and own AI delivery alongside your developers. When the engagement ends, you keep the code and the knowledge.",
     stats: { value: "3+", label: "Years average partnership" },
     accentColor: "teal" as const,
   },
@@ -61,14 +61,14 @@ const differentiators = [
 
 const comparisonData = {
   traditional: {
-    title: "Traditional Consultancies",
+    title: "Traditional AI Consultancies",
     subtitle: "What you are used to",
     items: [
       "3-6 month discovery phases",
-      "Junior developers on your project",
-      "Strategy decks and recommendations",
-      "Separate teams working in silos",
-      "Prototypes that need rebuilding",
+      "Junior developers learning AI on your dime",
+      "Strategy decks and POCs that never ship",
+      "No AI security considerations",
+      "Prototypes that need complete rebuilds",
       "Ongoing dependency on vendor",
     ],
   },
@@ -76,10 +76,10 @@ const comparisonData = {
     title: "Procedure",
     subtitle: "What you get with us",
     items: [
-      "Engineers deployed in 2-5 days",
-      "Senior AI specialists only (8+ years)",
-      "Production code from week one",
-      "Engineers embedded in your standups",
+      "AI engineers deployed in 2-5 days",
+      "Senior engineers with deep experience",
+      "Production AI from week one",
+      "AI security built in from day one",
       "Production-grade from first commit",
       "Full knowledge transfer, no lock-in",
     ],
@@ -89,32 +89,32 @@ const comparisonData = {
 const processSteps = [
   {
     step: "01",
-    title: "Discovery Call",
+    title: "AI Discovery",
     duration: "30 min",
-    description: "Understand your objectives and constraints",
+    description: "Understand your AI objectives and requirements",
   },
   {
     step: "02",
     title: "Team Match",
     duration: "1-2 days",
-    description: "Curate senior engineers for your stack",
+    description: "Curate AI engineers for your stack",
   },
   {
     step: "03",
     title: "Integration",
     duration: "2-5 days",
-    description: "Engineers embed with your team",
+    description: "Engineers embed and start building",
   },
   {
     step: "04",
-    title: "Ship",
+    title: "Ship AI",
     duration: "Ongoing",
-    description: "Production code delivered continuously",
+    description: "Production AI delivered continuously",
   },
 ];
 
 const socialProofStats = [
-  { value: "50+", label: "Production AI Systems Shipped" },
+  { value: "100+", label: "Products Shipped to Production" },
   { value: "98%", label: "Client Retention Rate" },
   { value: "3+", label: "Years Average Partnership" },
   { value: "5", label: "Days to First Deployment" },
@@ -204,11 +204,11 @@ export default function WhyUsPage() {
       {/* Hero Section */}
       <PageHero
         badge="The Procedure Difference"
-        headline="We Build."
-        headlineAccent="They Talk."
-        description="Most AI consultancies deliver slide decks and proof-of-concepts that never see production. Procedure delivers senior engineers who embed with your team and ship production-grade AI systems in days, not months."
-        primaryCTA={{ text: "Book a Strategy Call", href: "/contact" }}
-        secondaryCTA={{ text: "See Our Work", href: "/case-studies" }}
+        headline="AI That Ships."
+        headlineAccent="Not Slide Decks."
+        description="Most AI consultancies deliver strategy documents and proof-of-concepts that never reach production. Procedure delivers senior engineers who embed with your team to ship production AI—LLM applications, AI agents, and secure AI systems—in days, not months."
+        primaryCTA={{ text: "Start Your AI Project", href: "/contact" }}
+        secondaryCTA={{ text: "See AI Case Studies", href: "/case-studies" }}
       />
 
       {/* Five Differentiators Section */}
@@ -233,12 +233,12 @@ export default function WhyUsPage() {
               Why Choose Procedure
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 tracking-tight">
-              Five reasons enterprise teams{" "}
-              <span className="text-highlight">choose Procedure</span>
+              Five reasons teams choose{" "}
+              <span className="text-highlight">Procedure for AI</span>
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto text-base sm:text-lg">
-              We built Procedure to solve the problems we experienced as
-              enterprise engineering leaders. Here is what makes us different.
+              We built Procedure to solve the AI delivery problems we
+              experienced as engineering leaders. Here is what makes us different.
             </p>
           </motion.div>
 
@@ -430,7 +430,7 @@ export default function WhyUsPage() {
                   <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-teal/10 border border-accent-teal/20">
                     <span className="w-2 h-2 rounded-full bg-accent-teal animate-pulse" />
                     <span className="text-xs font-medium text-accent-teal-light">
-                      Trusted by 50+ enterprise clients
+                      Trusted by enterprise and startup clients
                     </span>
                   </div>
                 </div>
@@ -462,10 +462,10 @@ export default function WhyUsPage() {
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
               From first call to{" "}
-              <span className="text-highlight">production code</span>
+              <span className="text-highlight">production AI</span>
             </h2>
             <p className="text-text-secondary max-w-xl mx-auto">
-              A proven engagement process designed for enterprise velocity.
+              A proven process designed to ship AI fast.
             </p>
           </motion.div>
 

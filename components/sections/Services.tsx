@@ -7,7 +7,7 @@ const services = [
   {
     name: "AI Engineering",
     description:
-      "Transform your products with production-grade AI systems. From LLM integrations to custom ML models, you get battle-tested solutions that scale with your business and deliver real value to your users.",
+      "Build AI-powered products that ship to production. From LLM integrations to AI agents and RAG systems, you get solutions built on proven engineering practices that scale with your business.",
     href: "/services/ai-engineering",
     icon: (
       <svg
@@ -30,33 +30,6 @@ const services = [
       "RAG Systems",
       "Fine-tuning",
       "MLOps",
-    ],
-  },
-  {
-    name: "Product Engineering",
-    description:
-      "Ship faster with a full-stack team that understands modern development. You get clean, maintainable code and AI-augmented workflows that accelerate your time to market without sacrificing quality.",
-    href: "/services/product-engineering",
-    icon: (
-      <svg
-        className="w-8 h-8"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={1.5}
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
-        />
-      </svg>
-    ),
-    tags: [
-      "React & Next.js",
-      "Node.js & Python",
-      "Mobile Apps",
-      "API Development",
     ],
   },
   {
@@ -87,9 +60,58 @@ const services = [
     ],
   },
   {
+    name: "Product Engineering",
+    description:
+      "Ship faster with a full-stack team that builds AI-integrated products. You get clean, maintainable code and modern development workflows that accelerate your time to market.",
+    href: "/services/product-engineering",
+    icon: (
+      <svg
+        className="w-8 h-8"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={1.5}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
+        />
+      </svg>
+    ),
+    tags: [
+      "React & Next.js",
+      "Node.js & Python",
+      "Mobile Apps",
+      "API Development",
+    ],
+  },
+  {
+    name: "Experience Design",
+    description:
+      "Design intuitive AI-powered products that users love. Your customers get seamless experiences that drive engagement, from conversational interfaces to intelligent dashboards.",
+    href: "/services/design",
+    icon: (
+      <svg
+        className="w-8 h-8"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={1.5}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"
+        />
+      </svg>
+    ),
+    tags: ["AI UX Design", "User Research", "Design Systems", "Prototyping"],
+  },
+  {
     name: "Cloud & DevOps",
     description:
-      "Scale your infrastructure to handle AI workloads. You get cloud architecture optimized for performance and cost, with CI/CD pipelines and Kubernetes deployments that just work.",
+      "Scale your infrastructure for AI workloads. You get cloud architecture optimized for ML models and LLM deployments, with CI/CD pipelines that handle AI-specific requirements.",
     href: "/services/cloud-devops",
     icon: (
       <svg
@@ -109,14 +131,14 @@ const services = [
     tags: [
       "AWS & GCP",
       "Kubernetes",
-      "CI/CD Automation",
-      "Infrastructure as Code",
+      "MLOps Infrastructure",
+      "GPU Optimization",
     ],
   },
   {
     name: "Web & Mobile Development",
     description:
-      "Build high-quality native and cross-platform apps with modern technologies. Your users get fast, intuitive experiences across web, iOS, and Android platforms.",
+      "Build AI-enhanced apps across every platform. Your users get fast, intelligent experiences with seamless AI integrations across web, iOS, and Android.",
     href: "/services/web-mobile",
     icon: (
       <svg
@@ -133,29 +155,7 @@ const services = [
         />
       </svg>
     ),
-    tags: ["React Native", "iOS & Android", "Progressive Web Apps"],
-  },
-  {
-    name: "Experience Design",
-    description:
-      "Create intuitive digital products with a user-centric design approach. Your customers get rich experiences that drive engagement, loyalty, and revenue.",
-    href: "/services/design",
-    icon: (
-      <svg
-        className="w-8 h-8"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={1.5}
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"
-        />
-      </svg>
-    ),
-    tags: ["UI/UX Design", "User Research", "Design Systems", "Prototyping"],
+    tags: ["React Native", "iOS & Android", "AI-Powered Apps"],
   },
 ];
 
@@ -181,7 +181,7 @@ export function Services() {
             What You Get
           </p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">
-            Full-spectrum AI and engineering services
+            AI engineering and product development services
           </h2>
         </motion.div>
 

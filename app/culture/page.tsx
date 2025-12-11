@@ -231,7 +231,7 @@ const lifeItems = [
 
 // Team stats
 const teamStats = [
-  { value: "8+", label: "Years Avg Experience" },
+  { value: "10+", label: "Years Avg Experience" },
   { value: "15+", label: "Countries" },
   { value: "100%", label: "Senior Engineers" },
   { value: "4", label: "Continents" },

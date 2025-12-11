@@ -15,15 +15,15 @@ const values = [
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth={2}
-          d="M13 10V3L4 14h7v7l9-11h-7z"
+          d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"
         />
       </svg>
     ),
     iconBg: "bg-accent-teal/10",
     hoverBorder: "hover:border-accent-teal/50",
-    title: "Your AI Products Built",
+    title: "AI That Ships to Production",
     description:
-      "From LLM applications to custom ML models, you get production-ready AI systems that solve real business problems and scale with you.",
+      "From LLM applications to AI agents, you get production-ready AI systems built on deep engineering excellence. No science projects—real products that scale.",
   },
   {
     icon: (
@@ -37,15 +37,15 @@ const values = [
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth={2}
-          d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+          d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
         />
       </svg>
     ),
     iconBg: "bg-accent-blue/10",
     hoverBorder: "hover:border-accent-blue/50",
-    title: "Ship Faster with AI",
+    title: "Security Built Into AI",
     description:
-      "Your development velocity increases with AI-augmented workflows. Copilot-powered development, automated testing, and intelligent code reviews accelerate your timeline.",
+      "Your AI systems are protected from day one. Prompt injection defense, data leakage prevention, and AI-specific security measures that enterprise teams require.",
   },
   {
     icon: (
@@ -65,9 +65,9 @@ const values = [
     ),
     iconBg: "bg-accent-teal/10",
     hoverBorder: "hover:border-accent-teal/50",
-    title: "Your Team, Extended",
+    title: "Your AI Team, Extended",
     description:
-      "Senior engineers embedded directly with your team—same tools, same standups, same commitment to shipping. You get capacity without the hiring overhead.",
+      "Senior AI engineers embedded directly with your team—same tools, same standups, same commitment to shipping. You get AI capacity without the hiring overhead.",
   },
 ];
 
@@ -102,7 +102,7 @@ export function ValueProposition() {
             Why teams choose us
           </p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">
-            AI engineering, not AI consulting
+            AI engineers who build, not consultants who advise
           </h2>
         </motion.div>
 

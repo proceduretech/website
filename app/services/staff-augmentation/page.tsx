@@ -8,14 +8,14 @@ const benefits = [
   {
     title: "Senior Engineers Only",
     description:
-      "Every contract AI developer in our network has a minimum of 8 years of production experience. They have shipped AI systems at scale, navigated enterprise complexity, and solved problems similar to yours.",
-    stat: "8+",
-    statLabel: "Years minimum experience",
+      "Every engineer in our network has deep production experience. They have shipped software at scale, navigated enterprise complexity, and are now applying that expertise to AI solutions.",
+    stat: "100+",
+    statLabel: "Products shipped",
   },
   {
     title: "Start in Days, Not Months",
     description:
-      "The average time to hire a senior AI engineer internally is 6-8 months. Our AI engineer staffing model delivers pre-vetted talent within 5 business days. Stop losing competitive advantage to hiring bottlenecks.",
+      "The average time to hire a senior engineer internally is 6-8 months. Our staffing model delivers pre-vetted talent within 5 business days. Stop losing competitive advantage to hiring bottlenecks.",
     stat: "5",
     statLabel: "Days to start",
   },
@@ -29,7 +29,7 @@ const benefits = [
   {
     title: "Flexible Engagement Terms",
     description:
-      "Scale your contract AI developers based on project needs. Start with one engineer and expand to a full team. Reduce capacity between major initiatives. No long-term commitments required.",
+      "Scale your contract engineers based on project needs. Start with one engineer and expand to a full team. Reduce capacity between major initiatives. No long-term commitments required.",
     stat: "100%",
     statLabel: "Flexibility",
   },
@@ -48,7 +48,7 @@ const process = [
     title: "Candidate Curation",
     duration: "1-2 days",
     description:
-      "We present a shortlist of senior AI engineers matched to your specific needs with detailed profiles.",
+      "We present a shortlist of senior engineers matched to your specific needs with detailed profiles.",
   },
   {
     step: "03",
@@ -67,30 +67,30 @@ const process = [
 ];
 
 const roles = [
-  "ML Engineers & Data Scientists",
-  "LLM Application Developers",
-  "MLOps & AI Infrastructure Engineers",
-  "AI Security Specialists",
-  "Computer Vision Engineers",
-  "NLP Engineers",
+  "Full-Stack Engineers",
+  "Backend & API Developers",
+  "Frontend & Mobile Engineers",
+  "DevOps & Infrastructure Engineers",
+  "AI & ML Engineers",
+  "Product Engineers",
 ];
 
 const idealFor = [
-  "Engineering managers facing urgent AI deadlines who cannot wait for traditional recruiting",
-  "Startups scaling AI capabilities who need senior expertise without full-time headcount commitments",
-  "Enterprise teams with specialized requirements who need niche AI skills unavailable internally",
-  "Organizations building AI centers of excellence who want to accelerate team formation",
+  "Engineering managers facing urgent deadlines who cannot wait for traditional recruiting",
+  "Startups scaling product capabilities who need senior expertise without full-time headcount commitments",
+  "Enterprise teams with specialized requirements who need skills unavailable internally",
+  "Organizations accelerating product development who want to expand team capacity quickly",
 ];
 
 export default function StaffAugmentationPage() {
   return (
     <main className="min-h-screen">
       <PageHero
-        badge="AI Engineer Staffing"
-        headline="Hire Senior AI Engineers"
+        badge="Staff Augmentation"
+        headline="Hire Senior Engineers"
         headlineAccent="Without the 6-Month Search"
-        description="AI engineer staffing solves the hardest problem in enterprise AI: finding senior talent that actually exists. While your competitors spend months searching for unicorn candidates, you can hire senior AI engineers and have them contributing within days."
-        primaryCTA={{ text: "Find Your AI Engineer", href: "/contact" }}
+        description="Staff augmentation solves the hardest problem in product development: finding senior talent that actually exists. While your competitors spend months searching for unicorn candidates, you can have senior engineers contributing within days."
+        primaryCTA={{ text: "Find Your Engineer", href: "/contact" }}
         secondaryCTA={{ text: "View Available Talent", href: "/case-studies" }}
       />
 
@@ -104,7 +104,7 @@ export default function StaffAugmentationPage() {
             className="text-center mb-16"
           >
             <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-4">
-              Why Procedure for AI Engineer Staffing
+              Why Procedure for Staff Augmentation
             </h2>
           </motion.div>
 
@@ -150,7 +150,7 @@ export default function StaffAugmentationPage() {
             className="text-center mb-16"
           >
             <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-4">
-              How AI Staff Augmentation Works
+              How Staff Augmentation Works
             </h2>
           </motion.div>
 
@@ -197,7 +197,7 @@ export default function StaffAugmentationPage() {
               Roles We Staff
             </h2>
             <p className="text-text-secondary">
-              Senior AI engineers across every specialization
+              Senior engineers across every specialization
             </p>
           </motion.div>
 
@@ -228,7 +228,7 @@ export default function StaffAugmentationPage() {
             className="text-center mb-12"
           >
             <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-4">
-              Who AI Staff Augmentation Is For
+              Who Staff Augmentation Is For
             </h2>
           </motion.div>
 
@@ -273,18 +273,18 @@ export default function StaffAugmentationPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
-              Your Senior AI Engineer Is{" "}
+              Your Senior Engineer Is{" "}
               <span className="text-highlight">Already Waiting</span>
             </h2>
             <p className="text-lg text-text-secondary mb-8 max-w-2xl mx-auto">
               Skip the 6-month recruiting cycle. Tell us what you need, and we
-              will present qualified senior AI engineers within 48 hours.
+              will present qualified senior engineers within 48 hours.
             </p>
             <Link
               href="/contact"
               className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-cta-text bg-cta rounded-xl hover:brightness-110 transition-all duration-300 shadow-lg shadow-cta/25"
             >
-              Find Your AI Engineer
+              Find Your Engineer
               <svg
                 className="w-5 h-5 ml-2"
                 fill="none"

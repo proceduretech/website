@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 const stats = [
-  { value: "50+", label: "Production AI Systems Shipped" },
+  { value: "100+", label: "Products Shipped to Production" },
   { value: "5", label: "Days to First Deployment" },
   { value: "98%", label: "Client Retention Rate" },
   { value: "3+", label: "Years Average Partnership" },
@@ -28,7 +28,7 @@ export function Stats() {
           className="text-center mb-10 sm:mb-12"
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">
-            Proven results from embedded AI engineering
+            Proven results from embedded engineering
           </h2>
         </motion.div>
 

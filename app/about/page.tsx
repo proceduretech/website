@@ -3,35 +3,21 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-// Leadership team data
+// Leadership team data - Replace with actual team members
 const leadership = [
   {
-    name: "Sarah Chen",
+    name: "Ulhas Mandrawadkar",
     role: "CEO & Co-Founder",
-    bio: "Former ML lead at Google Brain. Stanford CS PhD. Built AI systems serving 500M+ users.",
+    bio: "Founded Procedure with a vision to deliver exceptional product engineering. Leading delivery teams across enterprise and startup clients.",
     linkedin: "https://linkedin.com/in/",
-    image: "/team/sarah.jpg",
+    image: "/team/ulhas.jpg",
   },
   {
-    name: "Marcus Williams",
+    name: "Co-Founder",
     role: "CTO & Co-Founder",
-    bio: "Ex-Meta AI infrastructure. Led teams shipping production ML at scale for 8+ years.",
+    bio: "Engineering leader with deep expertise in product development and system architecture. Driving our expansion into AI-powered solutions.",
     linkedin: "https://linkedin.com/in/",
-    image: "/team/marcus.jpg",
-  },
-  {
-    name: "Elena Rodriguez",
-    role: "VP of Engineering",
-    bio: "Former engineering director at Stripe. Expert in building high-performance teams.",
-    linkedin: "https://linkedin.com/in/",
-    image: "/team/elena.jpg",
-  },
-  {
-    name: "David Park",
-    role: "Head of AI Research",
-    bio: "PhD in NLP from MIT. Published 30+ papers. Previously led research at OpenAI.",
-    linkedin: "https://linkedin.com/in/",
-    image: "/team/david.jpg",
+    image: "/team/cto.jpg",
   },
 ];
 
@@ -130,28 +116,23 @@ const milestones = [
     year: "2017",
     title: "Founded",
     description:
-      "Started with a mission to bring elite AI talent to enterprises.",
+      "Launched as a product engineering consultancy focused on quality delivery.",
   },
   {
-    year: "2019",
-    title: "Series A",
-    description: "Raised $12M to expand our AI engineering practice.",
-  },
-  {
-    year: "2021",
-    title: "50+ AI Systems",
-    description:
-      "Shipped our 50th production AI system for enterprise clients.",
+    year: "2020",
+    title: "Growth Phase",
+    description: "Expanded our team and client base across multiple industries.",
   },
   {
     year: "2023",
-    title: "Global Expansion",
-    description: "Opened offices in London, Singapore, and Sydney.",
+    title: "AI Evolution",
+    description:
+      "Began applying our engineering rigor to AI-powered solutions.",
   },
   {
     year: "2024",
-    title: "100+ Engineers",
-    description: "Grew to over 100 senior AI engineers across 4 continents.",
+    title: "AI Focus",
+    description: "Deepened investment in AI engineering capabilities and upskilling.",
   },
 ];
 
@@ -240,7 +221,7 @@ export default function AboutPage() {
             >
               <span className="w-2 h-2 rounded-full bg-accent-teal animate-pulse" />
               <span className="text-xs font-medium text-accent-teal-light">
-                Building the future of AI engineering
+                AI Engineering & Security
               </span>
             </motion.div>
 
@@ -263,11 +244,9 @@ export default function AboutPage() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-lg sm:text-xl text-text-secondary leading-relaxed mb-10 max-w-2xl mx-auto"
             >
-              We started Procedure because enterprise AI deserves more than
-              prototypes that never see production. Our team of forward-deployed
-              engineers works alongside yours to build, deploy, and scale AI
-              systems that drive real business outcomes—not impressive demos
-              that collect dust.
+              We help companies build and ship production software. Now we&apos;re
+              applying our deep engineering expertise to AI—building LLM applications,
+              AI agents, and secure AI systems that actually reach production.
             </motion.p>
 
             {/* Stats row */}
@@ -278,9 +257,9 @@ export default function AboutPage() {
               className="flex flex-wrap justify-center gap-8 sm:gap-12"
             >
               {[
-                { value: "50+", label: "AI Systems Shipped" },
-                { value: "100+", label: "Senior Engineers" },
+                { value: "100+", label: "Products Shipped" },
                 { value: "98%", label: "Client Retention" },
+                { value: "3+", label: "Years Avg Partnership" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
                   <div className="text-3xl sm:text-4xl font-bold text-highlight">
@@ -326,11 +305,10 @@ export default function AboutPage() {
               production reality.
             </h2>
             <p className="text-lg text-text-secondary max-w-3xl mx-auto leading-relaxed">
-              Every day, enterprises invest millions in AI initiatives that
-              stall at the proof-of-concept stage. We founded Procedure to
-              change that equation—bringing elite AI engineering talent directly
-              into your organization to build production systems that transform
-              how your business operates.
+              Every day, enterprises struggle to turn AI investments into
+              production value. We founded Procedure to change that—bringing
+              experienced engineers who understand how to ship AI systems,
+              with security built in, directly into your organization.
             </p>
           </motion.div>
 
@@ -389,11 +367,11 @@ export default function AboutPage() {
               Leadership
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
-              Built by engineers who&apos;ve shipped at scale
+              Built by engineers who ship AI
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto">
-              Our leadership team brings decades of experience from Google,
-              Meta, Stripe, and OpenAI.
+              Our leadership team brings years of experience building production
+              software—now focused on AI engineering and security.
             </p>
           </motion.div>
 
@@ -480,7 +458,7 @@ export default function AboutPage() {
               Our Journey
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">
-              From startup to global AI engineering partner
+              From startup to trusted engineering partner
             </h2>
           </motion.div>
 

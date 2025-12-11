@@ -17,59 +17,49 @@ interface TeamMember {
 
 const leadership: TeamMember[] = [
   {
-    name: "Arjun Mehta",
-    title: "Co-founder & Head of AI Engineering",
-    image: "/team/arjun-mehta.jpg",
-    bio: "Former Tech Lead at Google DeepMind, where he led the infrastructure team behind Gemini's production deployment. Arjun has shipped ML systems serving billions of requests daily and holds 12 patents in distributed model inference.",
-    credentials: ["Ex-Google DeepMind", "12 Patents"],
-    expertise: ["LLM Infrastructure", "Model Serving", "Technical Strategy"],
+    name: "Ulhas Mandrawadkar",
+    title: "Co-founder & CEO",
+    image: "/team/ulhas.jpg",
+    bio: "Founded Procedure with a mission to deliver exceptional product engineering. Leading teams to ship production software across diverse industries, now expanding into AI-powered solutions.",
+    credentials: ["Founder", "Product Engineering"],
+    expertise: ["Product Engineering", "Team Building", "Client Delivery"],
     notable:
-      "Led Google's first production deployment of multimodal LLMs at scale",
-    linkedin: "#",
-  },
-  {
-    name: "Sarah Chen",
-    title: "Co-founder & Head of Product Engineering",
-    image: "/team/sarah-chen.jpg",
-    bio: "Previously Principal Engineer at Stripe, where she architected the ML platform powering real-time fraud detection across 50+ countries. Sarah specializes in translating complex AI capabilities into products users love.",
-    credentials: ["Ex-Stripe", "Ex-Meta"],
-    expertise: ["ML Platforms", "Product Architecture", "Fraud Detection"],
-    notable: "Built fraud systems preventing $2B+ in annual losses at Stripe",
+      "Built Procedure from the ground up, serving clients across fintech, healthcare, and enterprise",
     linkedin: "#",
   },
 ];
 
 const team: TeamMember[] = [
   {
-    name: "Marcus Williams",
-    title: "Principal AI Engineer",
-    image: "/team/marcus-williams.jpg",
-    specialty: "LLM Applications",
-    notable: "Ex-Meta AI, shipped coding assistant to 50K+ engineers",
+    name: "Engineering Lead",
+    title: "Principal Engineer",
+    image: "/team/placeholder-1.jpg",
+    specialty: "Full-Stack Development",
+    notable: "10+ years shipping production systems",
     linkedin: "#",
   },
   {
-    name: "Elena Kowalski",
-    title: "Principal ML Infrastructure",
-    image: "/team/elena-kowalski.jpg",
-    specialty: "ML Infrastructure",
-    notable: "Ex-Anthropic, core contributor to Ray",
+    name: "Senior Engineer",
+    title: "Senior Software Engineer",
+    image: "/team/placeholder-2.jpg",
+    specialty: "Backend Systems",
+    notable: "Expert in scalable architecture",
     linkedin: "#",
   },
   {
-    name: "David Park",
-    title: "Senior AI Engineer",
-    image: "/team/david-park.jpg",
-    specialty: "AI Safety",
-    notable: "Ex-OpenAI, GPT-4 safety & deployment",
+    name: "AI Engineer",
+    title: "Software Engineer",
+    image: "/team/placeholder-3.jpg",
+    specialty: "AI Integration",
+    notable: "LLM integration and RAG systems",
     linkedin: "#",
   },
   {
-    name: "Priya Sharma",
-    title: "Senior AI Engineer",
-    image: "/team/priya-sharma.jpg",
-    specialty: "MLOps",
-    notable: "Ex-Amazon Alexa AI, reduced latency 40%",
+    name: "Product Engineer",
+    title: "Software Engineer",
+    image: "/team/placeholder-4.jpg",
+    specialty: "Product Development",
+    notable: "End-to-end product delivery",
     linkedin: "#",
   },
 ];
@@ -181,12 +171,12 @@ export function Team() {
             Our Team
           </p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
-            Senior Engineers. Production Veterans. Your AI Team.
+            Senior Engineers. Production Focus. Your Extended Team.
           </h2>
           <p className="text-text-secondary max-w-2xl mx-auto leading-relaxed">
-            Every engagement is staffed by senior engineers who have built and
-            scaled AI systems at the world&apos;s most demanding companies. No
-            junior handoffs. No learning on your dime.
+            Every engagement is staffed by experienced engineers who understand
+            what it takes to ship production software. No junior handoffs.
+            No learning on your dime.
           </p>
         </motion.div>
 

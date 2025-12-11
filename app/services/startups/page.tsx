@@ -23,8 +23,8 @@ const benefits = [
     title: "Founders Who Get It",
     description:
       "Our engineers have worked at startups, built startups, and understand the trade-offs you face daily. We optimize for learning speed, not engineering perfection. Build what matters, defer what does not.",
-    stat: "50+",
-    statLabel: "Startups shipped",
+    stat: "100+",
+    statLabel: "Products shipped",
   },
   {
     title: "Pricing That Works for Startups",

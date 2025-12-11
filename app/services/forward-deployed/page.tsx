@@ -22,7 +22,7 @@ const benefits = [
   {
     title: "Senior Expertise Without the Hiring Bottleneck",
     description:
-      "Finding senior AI engineers takes 6-8 months on average. Our forward-deployed model delivers engineers with 8+ years of production AI experience within 5 business days.",
+      "Finding senior engineers takes 6-8 months on average. Our forward-deployed model delivers engineers with deep production experience—now building AI solutions—within 5 business days.",
     stat: "5 days",
     statLabel: "Time to deploy",
   },
@@ -78,9 +78,9 @@ export default function ForwardDeployedPage() {
     <main className="min-h-screen">
       <PageHero
         badge="Forward-Deployed Engineering"
-        headline="Embedded AI Engineers That Ship Like They're"
+        headline="Embedded Engineers That Ship Like They're"
         headlineAccent="On Your Payroll"
-        description="Forward-deployed engineering puts senior AI engineers directly inside your organization. They attend your standups, use your tools, and ship production code alongside your team. Your team, without the 6-month hiring cycle."
+        description="Forward-deployed engineering puts senior engineers directly inside your organization. They attend your standups, use your tools, and ship production code alongside your team—including AI-powered features. Your team, without the 6-month hiring cycle."
         primaryCTA={{ text: "Schedule a Strategy Call", href: "/contact" }}
         secondaryCTA={{ text: "View Case Studies", href: "/case-studies" }}
       />

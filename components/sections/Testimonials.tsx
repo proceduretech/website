@@ -96,8 +96,8 @@ export function Testimonials() {
             Trusted by engineering leaders at scaling companies
           </h2>
           <p className="text-text-secondary max-w-xl mx-auto">
-            Join 50+ companies who&apos;ve shipped production AI with embedded
-            Procedure engineers
+            Join companies who&apos;ve accelerated their product development with
+            embedded Procedure engineers
           </p>
         </motion.div>
 

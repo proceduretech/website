@@ -19,8 +19,8 @@ const certificationBadges = [
 const footerLinks = {
   services: [
     { label: "AI Engineering", href: "/services/ai-engineering" },
-    { label: "Product Engineering", href: "/services/product-engineering" },
     { label: "AI Security", href: "/services/ai-security" },
+    { label: "Product Engineering", href: "/services/product-engineering" },
     { label: "Design", href: "/services/design" },
     { label: "Cloud & DevOps", href: "/services/cloud-devops" },
   ],
@@ -91,8 +91,8 @@ export function Footer() {
               />
             </Link>
             <p className="mt-4 text-sm text-text-secondary max-w-xs">
-              Forward-deployed AI engineers building production-grade systems
-              with security built in.
+              AI engineering and security for production systems. Proven
+              delivery excellence—now focused on AI.
             </p>
 
             {/* Contact Info */}

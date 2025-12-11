@@ -138,12 +138,12 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="flex flex-wrap gap-2 mb-6 justify-center"
           >
-            <span className="px-3 py-1.5 text-xs font-medium text-text-secondary bg-surface-elevated border border-border rounded-full">
-              Forward-deployed AI engineers
-            </span>
             <span className="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-accent-teal-light bg-accent-teal/10 border border-accent-teal/20 rounded-full">
               <span className="w-2 h-2 rounded-full bg-accent-teal animate-pulse" />
-              Secure by design
+              AI Engineering & Security
+            </span>
+            <span className="px-3 py-1.5 text-xs font-medium text-text-secondary bg-surface-elevated border border-border rounded-full">
+              Production-tested engineering
             </span>
           </motion.div>
 
@@ -154,9 +154,9 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-text-primary leading-[1.1] tracking-tight"
           >
-            Build AI. Build with AI.
+            AI Engineering
             <br />
-            <span className="text-highlight">We do both.</span>
+            <span className="text-highlight">That Ships to Production</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -166,9 +166,8 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mt-5 sm:mt-6 text-base sm:text-lg md:text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed"
           >
-            Elite AI engineers embedded with your team to ship production-grade
-            AI systems—from strategy to deployment. You get builders, not
-            consultants.
+            Senior engineers embedded with your team to build AI-powered products
+            and secure AI systems. Battle-tested delivery—now focused on AI.
           </motion.p>
 
           {/* CTA buttons */}
@@ -179,7 +178,7 @@ export function Hero() {
             className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center"
           >
             <CalButton className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-cta-text bg-cta rounded-lg hover:brightness-110 transition-all duration-200 shadow-lg shadow-cta/25 cursor-pointer">
-              Book a Strategy Call
+              Start Your AI Project
             </CalButton>
             <Link
               href="/case-studies"
@@ -263,12 +262,12 @@ export function Hero() {
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"
+                      d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
                     />
                   </svg>
                 </div>
                 <span className="text-sm font-medium text-text-primary">
-                  Design
+                  Product Engineering
                 </span>
               </motion.div>
 
@@ -287,12 +286,12 @@ export function Hero() {
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
+                      d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"
                     />
                   </svg>
                 </div>
                 <span className="text-sm font-medium text-text-primary">
-                  Full Product Build
+                  Design
                 </span>
               </motion.div>
             </div>
