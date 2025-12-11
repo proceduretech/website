@@ -51,9 +51,7 @@ export function Hero() {
             >
               Build AI. Build with AI.
               <br />
-              <span className="text-highlight">
-                We do both.
-              </span>
+              <span className="text-highlight">We do both.</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -71,7 +69,7 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start"
             >
-              <CalButton className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-cta-text bg-cta rounded-lg hover:brightness-110 transition-all duration-200 shadow-lg shadow-cta/25 cursor-pointer">
+              <CalButton className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-sm font-semibold text-cta-text bg-cta rounded-lg hover:brightness-110 transition-all duration-200 shadow-lg shadow-cta/25 cursor-pointer">
                 Book a Strategy Call
               </CalButton>
               <Link
