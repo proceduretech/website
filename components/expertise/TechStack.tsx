@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { cn } from '@/lib/utils';
+import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 interface Technology {
   name: string;
@@ -20,9 +20,9 @@ const containerVariants = {
     opacity: 1,
     transition: {
       staggerChildren: 0.05,
-      delayChildren: 0.1
-    }
-  }
+      delayChildren: 0.1,
+    },
+  },
 };
 
 const itemVariants = {
@@ -30,12 +30,12 @@ const itemVariants = {
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] as const }
-  }
+    transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] as const },
+  },
 };
 
 export function TechStack({
-  title = 'Technologies We Use',
+  title = "Technologies We Use",
   subtitle,
   technologies,
 }: TechStackProps) {
@@ -54,9 +54,7 @@ export function TechStack({
             {title}
           </h2>
           {subtitle && (
-            <p className="text-text-secondary max-w-2xl mx-auto">
-              {subtitle}
-            </p>
+            <p className="text-text-secondary max-w-2xl mx-auto">{subtitle}</p>
           )}
         </motion.div>
 
@@ -64,7 +62,7 @@ export function TechStack({
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-50px' }}
+          viewport={{ once: true, margin: "-50px" }}
           variants={containerVariants}
           className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4"
         >
@@ -73,10 +71,10 @@ export function TechStack({
               key={index}
               variants={itemVariants}
               className={cn(
-                'flex flex-col items-center gap-2 p-4 rounded-xl',
-                'bg-surface-elevated/30 border border-border',
-                'hover:border-accent-teal/30 hover:bg-surface-elevated/50',
-                'group transition-all duration-300'
+                "flex flex-col items-center gap-2 p-4 rounded-xl",
+                "bg-surface-elevated/30 border border-border",
+                "hover:border-accent-teal/30 hover:bg-surface-elevated/50",
+                "group transition-all duration-300",
               )}
             >
               {tech.icon ? (

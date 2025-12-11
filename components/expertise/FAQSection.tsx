@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { cn } from '@/lib/utils';
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 interface FAQ {
   question: string;
@@ -15,8 +15,8 @@ interface FAQSectionProps {
 }
 
 export function FAQSection({
-  title = 'Frequently Asked Questions',
-  faqs
+  title = "Frequently Asked Questions",
+  faqs,
 }: FAQSectionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
@@ -46,42 +46,52 @@ export function FAQSection({
             <div
               key={index}
               className={cn(
-                'rounded-xl border overflow-hidden transition-all duration-300',
-                'bg-surface-elevated/30',
+                "rounded-xl border overflow-hidden transition-all duration-300",
+                "bg-surface-elevated/30",
                 openIndex === index
-                  ? 'border-accent-teal/30 shadow-lg shadow-accent-teal/5'
-                  : 'border-border hover:border-border-light'
+                  ? "border-accent-teal/30 shadow-lg shadow-accent-teal/5"
+                  : "border-border hover:border-border-light",
               )}
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full px-6 py-5 flex items-center justify-between text-left"
               >
-                <span className={cn(
-                  'font-medium transition-colors duration-200',
-                  openIndex === index ? 'text-text-primary' : 'text-text-secondary'
-                )}>
+                <span
+                  className={cn(
+                    "font-medium transition-colors duration-200",
+                    openIndex === index
+                      ? "text-text-primary"
+                      : "text-text-secondary",
+                  )}
+                >
                   {faq.question}
                 </span>
-                <div className={cn(
-                  'flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center ml-4 transition-all duration-300',
-                  openIndex === index
-                    ? 'bg-accent-teal/20 border border-accent-teal/30'
-                    : 'bg-surface border border-border'
-                )}>
+                <div
+                  className={cn(
+                    "flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center ml-4 transition-all duration-300",
+                    openIndex === index
+                      ? "bg-accent-teal/20 border border-accent-teal/30"
+                      : "bg-surface border border-border",
+                  )}
+                >
                   <svg
                     className={cn(
-                      'w-4 h-4 transition-all duration-300',
+                      "w-4 h-4 transition-all duration-300",
                       openIndex === index
-                        ? 'text-accent-teal-light rotate-180'
-                        : 'text-text-muted'
+                        ? "text-accent-teal-light rotate-180"
+                        : "text-text-muted",
                     )}
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                     strokeWidth={2}
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M19 9l-7 7-7-7"
+                    />
                   </svg>
                 </div>
               </button>
@@ -90,7 +100,7 @@ export function FAQSection({
                 {openIndex === index && (
                   <motion.div
                     initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
+                    animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                     className="overflow-hidden"

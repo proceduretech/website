@@ -73,30 +73,37 @@ const values = [
 
 export function ValueProposition() {
   return (
-    <section className="relative py-16 sm:py-24 bg-surface overflow-hidden">
-      {/* Dot pattern */}
+    <section className="relative pt-0 pb-16 sm:pb-24 bg-base overflow-hidden">
+      {/* Gradient transition from Hero */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-base to-transparent" />
+
+      {/* Ambient glow - continuation from Hero */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-accent-teal/5 rounded-full blur-[120px]" />
+      <div className="absolute top-20 left-1/4 w-[400px] h-[300px] bg-accent-blue/4 rounded-full blur-[100px]" />
+
+      {/* Subtle grid pattern - matching Hero */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.015]"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3e%3ccircle cx='2' cy='2' r='1' fill='%23E5E7EB'/%3e%3c/svg%3e")`,
+          backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='%23E5E7EB'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e")`,
         }}
       />
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
+
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
+        {/* Compact header - feels like continuation */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-10 sm:mb-16"
+          className="text-center mb-10 sm:mb-12"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
+          <p className="text-xs sm:text-sm font-medium text-accent-teal-light uppercase tracking-wider mb-3">
+            Why teams choose us
+          </p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">
             AI engineering, not AI consulting
           </h2>
-          <p className="text-base sm:text-lg text-text-secondary max-w-2xl mx-auto">
-            You get senior engineers embedded directly into your team. No slide
-            decks. No endless discovery phases. Just production code shipped
-            fast.
-          </p>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">

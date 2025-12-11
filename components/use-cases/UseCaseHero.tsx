@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { PageHero } from '@/components/ui';
+import { PageHero } from "@/components/ui";
 
 interface UseCaseHeroProps {
   badge: string;
@@ -24,8 +24,8 @@ export function UseCaseHero({
   highlightedText,
   tagline,
   description,
-  primaryCTA = { text: 'Book a Call', href: '/contact' },
-  secondaryCTA = { text: 'See Demo', href: '/contact' },
+  primaryCTA = { text: "Book a Call", href: "/contact" },
+  secondaryCTA = { text: "See Demo", href: "/contact" },
 }: UseCaseHeroProps) {
   return (
     <PageHero

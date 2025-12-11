@@ -8,5 +8,6 @@ export { Testimonials } from "./Testimonials";
 export { Stats } from "./Stats";
 export { Team } from "./Team";
 export { Careers } from "./Careers";
+export { AboutTeaser } from "./AboutTeaser";
 export { FAQ } from "./FAQ";
 export { CTA } from "./CTA";

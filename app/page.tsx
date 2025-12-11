@@ -6,8 +6,7 @@ import {
   FeaturedCaseStudies,
   Testimonials,
   Stats,
-  Team,
-  Careers,
+  AboutTeaser,
   FAQ,
   CTA,
 } from "@/components/sections";
@@ -22,8 +21,7 @@ export default function Home() {
       <HowWeWork />
       <FeaturedCaseStudies />
       <Stats />
-      <Team />
-      <Careers />
+      <AboutTeaser />
       <FAQ />
       <CTA />
     </main>

@@ -50,7 +50,12 @@ const caseStudies = [
       { value: "180M", label: "Additional annual revenue" },
       { value: "2.3x", label: "Search-to-purchase rate" },
     ],
-    tags: ["Vector Search", "Elasticsearch", "Python", "Recommendation Systems"],
+    tags: [
+      "Vector Search",
+      "Elasticsearch",
+      "Python",
+      "Recommendation Systems",
+    ],
     image: "/case-studies/ecommerce.jpg",
   },
   {
@@ -121,7 +126,8 @@ export default function CaseStudiesPage() {
   // Filter case studies
   const filteredStudies = caseStudies.filter((study) => {
     const matchesService =
-      activeServiceFilter === "All" || study.serviceType === activeServiceFilter;
+      activeServiceFilter === "All" ||
+      study.serviceType === activeServiceFilter;
     const matchesIndustry =
       activeIndustryFilter === "All" || study.industry === activeIndustryFilter;
     return matchesService && matchesIndustry;
@@ -154,7 +160,9 @@ export default function CaseStudiesPage() {
           <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-between">
             {/* Service Type Filter */}
             <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
-              <span className="text-sm text-text-muted font-medium">Service:</span>
+              <span className="text-sm text-text-muted font-medium">
+                Service:
+              </span>
               <div className="flex flex-wrap gap-2">
                 {serviceFilters.map((filter) => (
                   <button
@@ -174,7 +182,9 @@ export default function CaseStudiesPage() {
 
             {/* Industry Filter */}
             <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
-              <span className="text-sm text-text-muted font-medium">Industry:</span>
+              <span className="text-sm text-text-muted font-medium">
+                Industry:
+              </span>
               <div className="flex flex-wrap gap-2">
                 {industryFilters.slice(0, 4).map((filter) => (
                   <button
@@ -482,15 +492,13 @@ export default function CaseStudiesPage() {
             <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-text-primary mb-6">
               Ready to Build Your
               <br />
-              <span className="text-highlight">
-                Success Story?
-              </span>
+              <span className="text-highlight">Success Story?</span>
             </h2>
             <p className="text-lg text-text-secondary mb-10 max-w-2xl mx-auto">
               Every case study started with a conversation. Tell us about your
               AI challenges, and our engineers will give you an honest
-              assessment of how we can help—even if that means pointing you in
-              a different direction.
+              assessment of how we can help—even if that means pointing you in a
+              different direction.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

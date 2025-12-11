@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { cn } from '@/lib/utils';
-import { ReactNode } from 'react';
+import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
+import { ReactNode } from "react";
 
 interface Step {
   icon: ReactNode;
@@ -22,9 +22,9 @@ const containerVariants = {
     opacity: 1,
     transition: {
       staggerChildren: 0.15,
-      delayChildren: 0.2
-    }
-  }
+      delayChildren: 0.2,
+    },
+  },
 };
 
 const stepVariants = {
@@ -32,12 +32,12 @@ const stepVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as const }
-  }
+    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as const },
+  },
 };
 
 export function ArchitectureDiagram({
-  title = 'How It Works',
+  title = "How It Works",
   subtitle,
   steps,
 }: ArchitectureDiagramProps) {
@@ -70,7 +70,7 @@ export function ArchitectureDiagram({
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: true, margin: "-100px" }}
             variants={containerVariants}
             className="grid grid-cols-4 gap-6"
           >
@@ -79,9 +79,9 @@ export function ArchitectureDiagram({
                 key={index}
                 variants={stepVariants}
                 className={cn(
-                  'relative p-6 rounded-2xl text-center',
-                  'bg-surface-elevated border border-border',
-                  'hover:border-accent-teal/30 transition-colors duration-300'
+                  "relative p-6 rounded-2xl text-center",
+                  "bg-surface-elevated border border-border",
+                  "hover:border-accent-teal/30 transition-colors duration-300",
                 )}
               >
                 {/* Step number */}

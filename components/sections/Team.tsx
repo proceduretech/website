@@ -23,7 +23,8 @@ const leadership: TeamMember[] = [
     bio: "Former Tech Lead at Google DeepMind, where he led the infrastructure team behind Gemini's production deployment. Arjun has shipped ML systems serving billions of requests daily and holds 12 patents in distributed model inference.",
     credentials: ["Ex-Google DeepMind", "12 Patents"],
     expertise: ["LLM Infrastructure", "Model Serving", "Technical Strategy"],
-    notable: "Led Google's first production deployment of multimodal LLMs at scale",
+    notable:
+      "Led Google's first production deployment of multimodal LLMs at scale",
     linkedin: "#",
   },
   {

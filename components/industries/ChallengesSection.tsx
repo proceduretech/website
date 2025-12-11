@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { cn } from '@/lib/utils';
-import { ReactNode } from 'react';
+import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
+import { ReactNode } from "react";
 
 interface Challenge {
   icon: ReactNode;
@@ -21,9 +21,9 @@ const containerVariants = {
     opacity: 1,
     transition: {
       staggerChildren: 0.1,
-      delayChildren: 0.2
-    }
-  }
+      delayChildren: 0.2,
+    },
+  },
 };
 
 const cardVariants = {
@@ -31,12 +31,12 @@ const cardVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as const }
-  }
+    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as const },
+  },
 };
 
 export function ChallengesSection({
-  title = 'The Challenge',
+  title = "The Challenge",
   challenges,
 }: ChallengesSectionProps) {
   return (
@@ -59,7 +59,7 @@ export function ChallengesSection({
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
           className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
@@ -68,21 +68,21 @@ export function ChallengesSection({
               key={index}
               variants={cardVariants}
               className={cn(
-                'p-6 rounded-2xl',
-                'bg-surface-elevated/30 border border-border',
-                'group hover:border-red-500/20 transition-all duration-300'
+                "p-6 rounded-2xl",
+                "bg-surface-elevated/30 border border-border",
+                "group hover:border-red-500/20 transition-all duration-300",
               )}
             >
               {/* Icon container */}
-              <div className={cn(
-                'w-12 h-12 rounded-xl mb-4',
-                'bg-red-500/10 border border-red-500/20',
-                'flex items-center justify-center',
-                'group-hover:border-red-500/30 transition-colors'
-              )}>
-                <div className="w-6 h-6 text-red-400">
-                  {challenge.icon}
-                </div>
+              <div
+                className={cn(
+                  "w-12 h-12 rounded-xl mb-4",
+                  "bg-red-500/10 border border-red-500/20",
+                  "flex items-center justify-center",
+                  "group-hover:border-red-500/30 transition-colors",
+                )}
+              >
+                <div className="w-6 h-6 text-red-400">{challenge.icon}</div>
               </div>
 
               {/* Content */}

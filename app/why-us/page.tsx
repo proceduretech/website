@@ -234,9 +234,7 @@ export default function WhyUsPage() {
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 tracking-tight">
               Five reasons enterprise teams{" "}
-              <span className="text-highlight">
-                choose Procedure
-              </span>
+              <span className="text-highlight">choose Procedure</span>
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto text-base sm:text-lg">
               We built Procedure to solve the problems we experienced as
@@ -464,9 +462,7 @@ export default function WhyUsPage() {
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
               From first call to{" "}
-              <span className="text-highlight">
-                production code
-              </span>
+              <span className="text-highlight">production code</span>
             </h2>
             <p className="text-text-secondary max-w-xl mx-auto">
               A proven engagement process designed for enterprise velocity.
@@ -506,7 +502,9 @@ export default function WhyUsPage() {
                   <h3 className="text-lg font-semibold text-text-primary mb-1">
                     {step.title}
                   </h3>
-                  <p className="text-sm text-text-muted mb-2">{step.duration}</p>
+                  <p className="text-sm text-text-muted mb-2">
+                    {step.duration}
+                  </p>
                   <p className="text-sm text-text-secondary">
                     {step.description}
                   </p>
@@ -661,9 +659,7 @@ export default function WhyUsPage() {
             <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-text-primary mb-6">
               Ready to Ship AI
               <br />
-              <span className="text-highlight">
-                That Actually Works?
-              </span>
+              <span className="text-highlight">That Actually Works?</span>
             </h2>
             <p className="text-lg text-text-secondary mb-10 max-w-2xl mx-auto">
               Get senior AI engineers embedded with your team within 5 days. No

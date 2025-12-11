@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { Button } from '@/components/ui';
-import { ReactNode } from 'react';
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { Button } from "@/components/ui";
+import { ReactNode } from "react";
 
 interface Stat {
   value: string;
@@ -12,7 +12,7 @@ interface Stat {
 
 interface PageHeroProps {
   badge: string;
-  badgeVariant?: 'teal' | 'blue';
+  badgeVariant?: "teal" | "blue";
   headline: string;
   headlineAccent?: string;
   tagline?: string;
@@ -31,23 +31,23 @@ interface PageHeroProps {
 
 export function PageHero({
   badge,
-  badgeVariant = 'teal',
+  badgeVariant = "teal",
   headline,
   headlineAccent,
   tagline,
   description,
   stats,
-  primaryCTA = { text: 'Book a Call', href: '/contact' },
-  secondaryCTA = { text: 'View Case Studies', href: '/case-studies' },
+  primaryCTA = { text: "Book a Call", href: "/contact" },
+  secondaryCTA = { text: "View Case Studies", href: "/case-studies" },
   children,
 }: PageHeroProps) {
-  const badgeColorClasses = badgeVariant === 'blue'
-    ? 'bg-accent-blue/10 border-accent-blue/20 text-accent-blue-light'
-    : 'bg-accent-teal/10 border-accent-teal/20 text-accent-teal-light';
+  const badgeColorClasses =
+    badgeVariant === "blue"
+      ? "bg-accent-blue/10 border-accent-blue/20 text-accent-blue-light"
+      : "bg-accent-teal/10 border-accent-teal/20 text-accent-teal-light";
 
-  const pulseColorClass = badgeVariant === 'blue'
-    ? 'bg-accent-blue-light'
-    : 'bg-accent-teal-light';
+  const pulseColorClass =
+    badgeVariant === "blue" ? "bg-accent-blue-light" : "bg-accent-teal-light";
 
   return (
     <section className="relative pt-32 pb-20 sm:pb-28 overflow-hidden">
@@ -85,7 +85,7 @@ export function PageHero({
           transition={{
             duration: 6,
             repeat: Infinity,
-            ease: 'easeInOut',
+            ease: "easeInOut",
           }}
           className="absolute top-[20%] left-[15%] w-3 h-3 bg-accent-teal/40 rounded-full blur-sm"
         />
@@ -97,7 +97,7 @@ export function PageHero({
           transition={{
             duration: 5,
             repeat: Infinity,
-            ease: 'easeInOut',
+            ease: "easeInOut",
             delay: 1,
           }}
           className="absolute top-[30%] right-[20%] w-2 h-2 bg-accent-blue/50 rounded-full blur-sm"
@@ -110,7 +110,7 @@ export function PageHero({
           transition={{
             duration: 7,
             repeat: Infinity,
-            ease: 'easeInOut',
+            ease: "easeInOut",
             delay: 2,
           }}
           className="absolute top-[40%] left-[10%] w-4 h-4 bg-accent-teal/30 rounded-full blur-sm"
@@ -123,7 +123,7 @@ export function PageHero({
           transition={{
             duration: 8,
             repeat: Infinity,
-            ease: 'easeInOut',
+            ease: "easeInOut",
             delay: 0.5,
           }}
           className="absolute top-[25%] right-[12%] w-5 h-5 bg-accent-blue/25 rounded-full blur-md"
@@ -157,7 +157,13 @@ export function PageHero({
             transition={{ duration: 2, delay: 1 }}
           />
           <defs>
-            <linearGradient id="page-line-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <linearGradient
+              id="page-line-gradient"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
               <stop offset="0%" stopColor="#14B8A6" stopOpacity="0.5" />
               <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.3" />
             </linearGradient>
@@ -175,10 +181,10 @@ export function PageHero({
             transition={{ duration: 0.5 }}
             className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full border mb-8 ${badgeColorClasses}`}
           >
-            <div className={`w-1.5 h-1.5 rounded-full animate-pulse ${pulseColorClass}`} />
-            <span className="text-sm font-medium">
-              {badge}
-            </span>
+            <div
+              className={`w-1.5 h-1.5 rounded-full animate-pulse ${pulseColorClass}`}
+            />
+            <span className="text-sm font-medium">{badge}</span>
           </motion.div>
 
           {/* Headline */}
@@ -191,10 +197,8 @@ export function PageHero({
             {headline}
             {headlineAccent && (
               <>
-                {' '}
-                <span className="text-highlight">
-                  {headlineAccent}
-                </span>
+                {" "}
+                <span className="text-highlight">{headlineAccent}</span>
               </>
             )}
           </motion.h1>
@@ -262,7 +266,11 @@ export function PageHero({
                   stroke="currentColor"
                   strokeWidth={2}
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                  />
                 </svg>
               </Button>
             </Link>

@@ -231,9 +231,7 @@ export default function ForwardDeployedPage() {
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
               Get Embedded AI Engineers Deployed{" "}
-              <span className="text-highlight">
-                This Week
-              </span>
+              <span className="text-highlight">This Week</span>
             </h2>
             <p className="text-lg text-text-secondary mb-8 max-w-2xl mx-auto">
               Stop waiting months for the perfect hire. Most teams have

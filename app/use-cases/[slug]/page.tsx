@@ -1,18 +1,15 @@
-import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import {
-  getAllUseCaseSlugs,
-  getUseCasePage,
-} from '@/lib/use-cases-data';
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { getAllUseCaseSlugs, getUseCasePage } from "@/lib/use-cases-data";
 import {
   UseCaseHero,
   ProblemSolutionSection,
   ArchitectureDiagram,
   FeaturesBreakdown,
   UseCaseCTA,
-} from '@/components/use-cases';
-import { SuccessMetrics } from '@/components/industries';
-import { WhyProcedure, FAQSection } from '@/components/expertise';
+} from "@/components/use-cases";
+import { SuccessMetrics } from "@/components/industries";
+import { WhyProcedure, FAQSection } from "@/components/expertise";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -22,13 +19,15 @@ export async function generateStaticParams() {
   return getAllUseCaseSlugs().map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const page = getUseCasePage(slug);
 
   if (!page) {
     return {
-      title: 'Use Case | Procedure',
+      title: "Use Case | Procedure",
     };
   }
 
@@ -38,7 +37,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: page.meta.title,
       description: page.meta.description,
-      type: 'website',
+      type: "website",
     },
   };
 }
@@ -58,13 +57,13 @@ export default async function UseCasePage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'FAQPage',
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
             mainEntity: pageData.faqs.map((faq) => ({
-              '@type': 'Question',
+              "@type": "Question",
               name: faq.question,
               acceptedAnswer: {
-                '@type': 'Answer',
+                "@type": "Answer",
                 text: faq.answer,
               },
             })),

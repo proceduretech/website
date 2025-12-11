@@ -104,8 +104,7 @@ export const navigationData = {
             },
             {
               label: "Data & Privacy",
-              description:
-                "Prevent data leakage and ensure compliance.",
+              description: "Prevent data leakage and ensure compliance.",
               href: "/expertise/ai-privacy",
               icon: "lock",
             },
@@ -118,15 +117,13 @@ export const navigationData = {
       items: [
         {
           label: "Frontend Development",
-          description:
-            "React, Next.js, Vue, and modern web applications.",
+          description: "React, Next.js, Vue, and modern web applications.",
           href: "/expertise/frontend",
           icon: "layout",
         },
         {
           label: "Backend Development",
-          description:
-            "Node.js, Python, Go, and cloud-native architectures.",
+          description: "Node.js, Python, Go, and cloud-native architectures.",
           href: "/expertise/backend",
           icon: "server",
         },
@@ -158,8 +155,7 @@ export const navigationData = {
         },
         {
           label: "Kubernetes",
-          description:
-            "Container orchestration and cloud-native deployments.",
+          description: "Container orchestration and cloud-native deployments.",
           href: "/expertise/kubernetes",
           icon: "boxes",
         },
@@ -170,15 +166,13 @@ export const navigationData = {
           items: [
             {
               label: "Product Design",
-              description:
-                "Human-centered UX for AI-powered products.",
+              description: "Human-centered UX for AI-powered products.",
               href: "/expertise/product-design",
               icon: "palette",
             },
             {
               label: "Design Systems",
-              description:
-                "Scalable component libraries and design tokens.",
+              description: "Scalable component libraries and design tokens.",
               href: "/expertise/design-systems",
               icon: "grid",
             },
@@ -214,8 +208,7 @@ export const navigationData = {
         },
         {
           label: "SaaS & Technology",
-          description:
-            "AI features and infrastructure for software companies.",
+          description: "AI features and infrastructure for software companies.",
           href: "/industries/saas",
           icon: "code",
         },
@@ -233,8 +226,7 @@ export const navigationData = {
         },
         {
           label: "Document Intelligence",
-          description:
-            "Extract, classify, and analyze documents at scale.",
+          description: "Extract, classify, and analyze documents at scale.",
           href: "/use-cases/document-ai",
           icon: "document",
         },
@@ -285,8 +277,7 @@ export const navigationData = {
         },
         {
           label: "Careers",
-          description:
-            "Join our team of forward-deployed AI engineers.",
+          description: "Join our team of forward-deployed AI engineers.",
           href: "/careers",
           icon: "briefcase",
         },
@@ -296,15 +287,13 @@ export const navigationData = {
       items: [
         {
           label: "AI Safety & Ethics",
-          description:
-            "Our commitment to responsible AI development.",
+          description: "Our commitment to responsible AI development.",
           href: "/about/ai-safety",
           icon: "scale",
         },
         {
           label: "Open Source",
-          description:
-            "Tools and libraries we've built and contributed to.",
+          description: "Tools and libraries we've built and contributed to.",
           href: "/about/open-source",
           icon: "github",
         },
@@ -317,8 +306,7 @@ export const navigationData = {
         },
         {
           label: "Contact",
-          description:
-            "Get in touch with our team.",
+          description: "Get in touch with our team.",
           href: "/contact",
           icon: "mail",
         },
@@ -348,15 +336,13 @@ export const navigationData = {
         },
         {
           label: "Case Studies",
-          description:
-            "How we've helped companies ship AI to production.",
+          description: "How we've helped companies ship AI to production.",
           href: "/case-studies",
           icon: "folder",
         },
         {
           label: "AI Playbooks",
-          description:
-            "Practical guides for building production AI systems.",
+          description: "Practical guides for building production AI systems.",
           href: "/playbooks",
           icon: "book",
         },
@@ -373,8 +359,7 @@ export const navigationData = {
         },
         {
           label: "Events",
-          description:
-            "Meetups, workshops, and conferences.",
+          description: "Meetups, workshops, and conferences.",
           href: "/events",
           icon: "calendar",
         },

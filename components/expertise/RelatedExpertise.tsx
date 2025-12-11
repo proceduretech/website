@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { cn } from '@/lib/utils';
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 interface RelatedPage {
   slug: string;
@@ -22,9 +22,9 @@ const containerVariants = {
     opacity: 1,
     transition: {
       staggerChildren: 0.1,
-      delayChildren: 0.2
-    }
-  }
+      delayChildren: 0.2,
+    },
+  },
 };
 
 const cardVariants = {
@@ -32,12 +32,12 @@ const cardVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as const }
-  }
+    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as const },
+  },
 };
 
 export function RelatedExpertise({
-  title = 'Related Expertise',
+  title = "Related Expertise",
   pages,
 }: RelatedExpertiseProps) {
   return (
@@ -58,7 +58,7 @@ export function RelatedExpertise({
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-50px' }}
+          viewport={{ once: true, margin: "-50px" }}
           variants={containerVariants}
           className="grid md:grid-cols-3 gap-6"
         >
@@ -67,11 +67,11 @@ export function RelatedExpertise({
               <Link
                 href={`/expertise/${page.slug}`}
                 className={cn(
-                  'block p-6 rounded-2xl h-full',
-                  'bg-surface-elevated/30 border border-border',
-                  'hover:border-accent-teal/30 hover:bg-surface-elevated/50',
-                  'group transition-all duration-300',
-                  'hover:-translate-y-1 hover:shadow-lg hover:shadow-accent-teal/5'
+                  "block p-6 rounded-2xl h-full",
+                  "bg-surface-elevated/30 border border-border",
+                  "hover:border-accent-teal/30 hover:bg-surface-elevated/50",
+                  "group transition-all duration-300",
+                  "hover:-translate-y-1 hover:shadow-lg hover:shadow-accent-teal/5",
                 )}
               >
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-teal/10 border border-accent-teal/20 mb-4">
@@ -97,7 +97,11 @@ export function RelatedExpertise({
                     stroke="currentColor"
                     strokeWidth={2}
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                    />
                   </svg>
                 </div>
               </Link>

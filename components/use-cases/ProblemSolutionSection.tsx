@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { cn } from '@/lib/utils';
+import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 interface ProblemSolutionSectionProps {
   before: string[];
@@ -14,9 +14,9 @@ const containerVariants = {
     opacity: 1,
     transition: {
       staggerChildren: 0.1,
-      delayChildren: 0.2
-    }
-  }
+      delayChildren: 0.2,
+    },
+  },
 };
 
 const itemVariants = {
@@ -24,8 +24,8 @@ const itemVariants = {
   visible: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.3 }
-  }
+    transition: { duration: 0.3 },
+  },
 };
 
 export function ProblemSolutionSection({
@@ -55,13 +55,23 @@ export function ProblemSolutionSection({
             viewport={{ once: true }}
             variants={containerVariants}
             className={cn(
-              'p-6 sm:p-8 rounded-2xl',
-              'bg-red-500/5 border border-red-500/20'
+              "p-6 sm:p-8 rounded-2xl",
+              "bg-red-500/5 border border-red-500/20",
             )}
           >
             <div className="flex items-center gap-2 text-sm font-medium text-red-400 mb-6">
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
               Before Procedure
             </div>
@@ -73,8 +83,18 @@ export function ProblemSolutionSection({
                   className="flex items-start gap-3"
                 >
                   <div className="flex-shrink-0 w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5">
-                    <svg className="w-3 h-3 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    <svg
+                      className="w-3 h-3 text-red-400"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2.5}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M6 18L18 6M6 6l12 12"
+                      />
                     </svg>
                   </div>
                   <span className="text-text-secondary">{item}</span>
@@ -90,13 +110,23 @@ export function ProblemSolutionSection({
             viewport={{ once: true }}
             variants={containerVariants}
             className={cn(
-              'p-6 sm:p-8 rounded-2xl',
-              'bg-accent-teal/5 border border-accent-teal/20'
+              "p-6 sm:p-8 rounded-2xl",
+              "bg-accent-teal/5 border border-accent-teal/20",
             )}
           >
             <div className="flex items-center gap-2 text-sm font-medium text-accent-teal-light mb-6">
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M5 13l4 4L19 7"
+                />
               </svg>
               After Procedure
             </div>
@@ -108,8 +138,18 @@ export function ProblemSolutionSection({
                   className="flex items-start gap-3"
                 >
                   <div className="flex-shrink-0 w-5 h-5 rounded-full bg-accent-teal/20 flex items-center justify-center mt-0.5">
-                    <svg className="w-3 h-3 text-accent-teal-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-3 h-3 text-accent-teal-light"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2.5}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                   </div>
                   <span className="text-text-primary">{item}</span>

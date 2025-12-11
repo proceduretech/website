@@ -93,7 +93,10 @@ export default function ScaleUpsPage() {
         headlineAccent="Without the Hiring Bottleneck"
         description="Growth-stage companies face a paradox: customer demand outpaces engineering capacity, but hiring takes months. Scale-up engagements add senior AI and engineering talent within days, not quarters. Ship the features your customers are waiting for."
         primaryCTA={{ text: "Scale Your Team Now", href: "/contact" }}
-        secondaryCTA={{ text: "View Scale-Up Case Studies", href: "/case-studies" }}
+        secondaryCTA={{
+          text: "View Scale-Up Case Studies",
+          href: "/case-studies",
+        }}
       />
 
       {/* Benefits */}
@@ -275,10 +278,7 @@ export default function ScaleUpsPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
-              Scale Your Team{" "}
-              <span className="text-highlight">
-                This Week
-              </span>
+              Scale Your Team <span className="text-highlight">This Week</span>
             </h2>
             <p className="text-lg text-text-secondary mb-8 max-w-2xl mx-auto">
               Your customers are waiting. Your competitors are shipping. Add

@@ -67,7 +67,7 @@ export function FeaturedCaseStudies() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10 sm:mb-12"
+          className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10 sm:mb-12"
         >
           <div>
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-3 sm:mb-4">
@@ -82,8 +82,18 @@ export function FeaturedCaseStudies() {
             className="inline-flex items-center gap-2 text-accent-teal-light font-semibold text-sm hover:gap-3 transition-all"
           >
             View all case studies
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+              />
             </svg>
           </Link>
         </motion.div>
@@ -107,10 +117,37 @@ export function FeaturedCaseStudies() {
                 <div className="relative h-40 bg-gradient-to-br from-accent-teal/20 to-accent-blue/20 overflow-hidden">
                   {/* Abstract pattern for visual interest */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-30">
-                    <svg className="w-32 h-32 text-accent-teal" viewBox="0 0 100 100">
-                      <circle cx="50" cy="50" r="30" stroke="currentColor" strokeWidth="2" fill="none" opacity="0.5" />
-                      <circle cx="50" cy="50" r="20" stroke="currentColor" strokeWidth="2" fill="none" opacity="0.3" />
-                      <circle cx="50" cy="50" r="40" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.2" />
+                    <svg
+                      className="w-32 h-32 text-accent-teal"
+                      viewBox="0 0 100 100"
+                    >
+                      <circle
+                        cx="50"
+                        cy="50"
+                        r="30"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        fill="none"
+                        opacity="0.5"
+                      />
+                      <circle
+                        cx="50"
+                        cy="50"
+                        r="20"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        fill="none"
+                        opacity="0.3"
+                      />
+                      <circle
+                        cx="50"
+                        cy="50"
+                        r="40"
+                        stroke="currentColor"
+                        strokeWidth="1"
+                        fill="none"
+                        opacity="0.2"
+                      />
                     </svg>
                   </div>
 
@@ -146,8 +183,8 @@ export function FeaturedCaseStudies() {
                             i === 0
                               ? "text-accent-teal-light"
                               : i === 1
-                              ? "text-accent-blue-light"
-                              : "text-text-primary"
+                                ? "text-accent-blue-light"
+                                : "text-text-primary"
                           }`}
                         >
                           {metric.value}
@@ -194,15 +231,29 @@ export function FeaturedCaseStudies() {
           className="mt-12 text-center"
         >
           <p className="text-text-secondary mb-4">
-            Over <span className="text-accent-teal-light font-semibold">$250M+ in client ROI</span> generated across 50+ production AI systems
+            Over{" "}
+            <span className="text-accent-teal-light font-semibold">
+              $250M+ in client ROI
+            </span>{" "}
+            generated across 50+ production AI systems
           </p>
           <Link
             href="/case-studies"
             className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-text-primary bg-surface-elevated border border-border rounded-lg hover:border-accent-teal/50 hover:bg-accent-teal/5 transition-all duration-200"
           >
             Explore All Success Stories
-            <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            <svg
+              className="w-4 h-4 ml-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+              />
             </svg>
           </Link>
         </motion.div>

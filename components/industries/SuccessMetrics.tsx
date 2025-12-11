@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { cn } from '@/lib/utils';
+import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 interface Metric {
   value: string;
@@ -21,9 +21,9 @@ const containerVariants = {
     opacity: 1,
     transition: {
       staggerChildren: 0.1,
-      delayChildren: 0.2
-    }
-  }
+      delayChildren: 0.2,
+    },
+  },
 };
 
 const cardVariants = {
@@ -31,12 +31,12 @@ const cardVariants = {
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as const }
-  }
+    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as const },
+  },
 };
 
 export function SuccessMetrics({
-  title = 'Success Metrics',
+  title = "Success Metrics",
   subtitle,
   metrics,
 }: SuccessMetricsProps) {
@@ -55,9 +55,7 @@ export function SuccessMetrics({
             {title}
           </h2>
           {subtitle && (
-            <p className="text-text-secondary max-w-2xl mx-auto">
-              {subtitle}
-            </p>
+            <p className="text-text-secondary max-w-2xl mx-auto">{subtitle}</p>
           )}
         </motion.div>
 
@@ -65,7 +63,7 @@ export function SuccessMetrics({
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-50px' }}
+          viewport={{ once: true, margin: "-50px" }}
           variants={containerVariants}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
@@ -74,10 +72,10 @@ export function SuccessMetrics({
               key={index}
               variants={cardVariants}
               className={cn(
-                'p-6 sm:p-8 rounded-2xl text-center',
-                'bg-gradient-to-br from-accent-teal/10 to-accent-blue/10',
-                'border border-accent-teal/20',
-                'hover:border-accent-teal/40 transition-colors duration-300'
+                "p-6 sm:p-8 rounded-2xl text-center",
+                "bg-gradient-to-br from-accent-teal/10 to-accent-blue/10",
+                "border border-accent-teal/20",
+                "hover:border-accent-teal/40 transition-colors duration-300",
               )}
             >
               <div className="text-4xl sm:text-5xl font-bold text-highlight">

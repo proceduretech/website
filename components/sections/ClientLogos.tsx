@@ -13,12 +13,16 @@ const clients = [
   { name: "Timely", logo: "/logos/client/timely.svg", width: 120 },
   { name: "Treebo", logo: "/logos/client/treebo.svg", width: 120 },
   { name: "Turtlemint", logo: "/logos/client/turtlemint.svg", width: 140 },
-  { name: "Workshop Ventures", logo: "/logos/client/workshopventure.svg", width: 160 },
+  {
+    name: "Workshop Ventures",
+    logo: "/logos/client/workshopventure.svg",
+    width: 160,
+  },
 ];
 
 export function ClientLogos() {
   return (
-    <div className="mt-16">
+    <div className="mt-10 sm:mt-12">
       <p className="text-sm text-text-muted mb-6 text-center">
         Trusted by innovative teams
       </p>

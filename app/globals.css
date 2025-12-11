@@ -1,103 +1,116 @@
 @import "tailwindcss";
 
 @theme inline {
-    /* Dark Theme Color Palette */
-    --color-base: #0f172a;
-    --color-surface: #0b1220;
-    --color-surface-elevated: #131b2e;
-    --color-accent-teal: #0f766e;
-    --color-accent-teal-light: #14b8a6;
-    --color-accent-blue: #2563eb;
-    --color-accent-blue-light: #3b82f6;
+  /* Dark Theme Color Palette */
+  --color-base: #0f172a;
+  --color-surface: #0b1220;
+  --color-surface-elevated: #131b2e;
+  --color-accent-teal: #0f766e;
+  --color-accent-teal-light: #14b8a6;
+  --color-accent-blue: #2563eb;
+  --color-accent-blue-light: #3b82f6;
 
-    /* Designer-approved solid colors */
-    --color-highlight: #00CCB8;
-    --color-cta: #007DE5;
-    --color-cta-text: #FCFCFC;
-    --color-border: #1e293b;
-    --color-border-light: #334155;
-    --color-text-primary: #e5e7eb;
-    --color-text-secondary: #9ca3af;
-    --color-text-muted: #7c8594;
+  /* Designer-approved solid colors */
+  --color-highlight: #00ccb8;
+  --color-cta: #007de5;
+  --color-cta-text: #fcfcfc;
+  --color-border: #1e293b;
+  --color-border-light: #334155;
+  --color-text-primary: #e5e7eb;
+  --color-text-secondary: #9ca3af;
+  --color-text-muted: #7c8594;
 
-    /* Legacy aliases for compatibility */
-    --color-background: #0f172a;
-    --color-foreground: #e5e7eb;
-    --color-muted: #7c8594;
-    --color-accent: #0f766e;
-    --color-accent-secondary: #2563eb;
+  /* Legacy aliases for compatibility */
+  --color-background: #0f172a;
+  --color-foreground: #e5e7eb;
+  --color-muted: #7c8594;
+  --color-accent: #0f766e;
+  --color-accent-secondary: #2563eb;
 
-    /* Font families */
-    --font-outfit: var(--font-outfit);
-    --font-inter: var(--font-inter);
+  /* Font families */
+  --font-outfit: var(--font-outfit);
+  --font-inter: var(--font-inter);
 }
 
 @layer base {
-    * {
-        @apply box-border;
-    }
+  * {
+    @apply box-border;
+  }
 
-    html {
-        @apply scroll-smooth bg-base;
-        background-color: #0f172a;
-        overscroll-behavior: none;
-    }
+  html {
+    @apply scroll-smooth bg-base;
+    background-color: #0f172a;
+    overscroll-behavior: none;
+  }
 
-    body {
-        @apply bg-base text-text-primary antialiased;
-        background-color: #0f172a;
-        overscroll-behavior: none;
-        font-family:
-            var(--font-inter),
-            system-ui,
-            -apple-system,
-            sans-serif;
-    }
+  body {
+    @apply bg-base text-text-primary antialiased;
+    background-color: #0f172a;
+    overscroll-behavior: none;
+    font-family:
+      var(--font-inter),
+      system-ui,
+      -apple-system,
+      sans-serif;
+  }
 
-    /* Keep Outfit for headings - better for display text */
-    h1, h2, h3, h4, h5, h6 {
-        font-family:
-            var(--font-outfit),
-            system-ui,
-            -apple-system,
-            sans-serif;
-    }
+  /* Keep Outfit for headings - better for display text */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family:
+      var(--font-outfit),
+      system-ui,
+      -apple-system,
+      sans-serif;
+  }
 
-    /* Keep Outfit for UI elements that need brand consistency */
-    button, [role="button"], nav, .font-display {
-        font-family:
-            var(--font-outfit),
-            system-ui,
-            -apple-system,
-            sans-serif;
-    }
+  /* Keep Outfit for UI elements that need brand consistency */
+  button,
+  [role="button"],
+  nav,
+  .font-display {
+    font-family:
+      var(--font-outfit),
+      system-ui,
+      -apple-system,
+      sans-serif;
+  }
 
-    /* Utility class for body font when needed */
-    .font-body {
-        font-family:
-            var(--font-inter),
-            system-ui,
-            -apple-system,
-            sans-serif;
-    }
+  /* Utility class for body font when needed */
+  .font-body {
+    font-family:
+      var(--font-inter),
+      system-ui,
+      -apple-system,
+      sans-serif;
+  }
 
-    ::selection {
-        @apply bg-accent-teal/30 text-accent-teal-light;
-    }
+  ::selection {
+    @apply bg-accent-teal/30 text-accent-teal-light;
+  }
 
-    a,
-    button {
-        @apply transition-all duration-200 ease-out;
-    }
+  a,
+  button {
+    @apply transition-all duration-200 ease-out;
+  }
 
-    :focus-visible {
-        @apply outline-2 outline-accent-teal outline-offset-2;
-    }
+  :focus-visible {
+    @apply outline-2 outline-accent-teal outline-offset-2;
+  }
 }
 
 @layer utilities {
-    @keyframes gradient {
-        0%, 100% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
+  @keyframes gradient {
+    0%,
+    100% {
+      background-position: 0% 50%;
     }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
 }

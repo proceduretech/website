@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { PageHero } from '@/components/ui';
+import { PageHero } from "@/components/ui";
 
 interface ExpertiseHeroProps {
   badge: string;
@@ -24,8 +24,8 @@ export function ExpertiseHero({
   headlineAccent,
   tagline,
   description,
-  primaryCTA = { text: 'Book a Call', href: '/contact' },
-  secondaryCTA = { text: 'View Case Studies', href: '/case-studies' },
+  primaryCTA = { text: "Book a Call", href: "/contact" },
+  secondaryCTA = { text: "View Case Studies", href: "/case-studies" },
 }: ExpertiseHeroProps) {
   return (
     <PageHero

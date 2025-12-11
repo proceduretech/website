@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { PageHero } from '@/components/ui';
+import { PageHero } from "@/components/ui";
 
 interface Stat {
   value: string;
@@ -31,8 +31,8 @@ export function IndustryHero({
   tagline,
   description,
   stats,
-  primaryCTA = { text: 'Book a Call', href: '/contact' },
-  secondaryCTA = { text: 'View Case Studies', href: '/case-studies' },
+  primaryCTA = { text: "Book a Call", href: "/contact" },
+  secondaryCTA = { text: "View Case Studies", href: "/case-studies" },
 }: IndustryHeroProps) {
   return (
     <PageHero

@@ -478,9 +478,7 @@ export default function CulturePage() {
             >
               Where Elite Engineers
               <br />
-              <span className="text-highlight">
-                Build What Matters
-              </span>
+              <span className="text-highlight">Build What Matters</span>
             </motion.h1>
 
             {/* Subheadline */}
@@ -574,9 +572,7 @@ export default function CulturePage() {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary mb-6">
               Principles That Guide
               <br />
-              <span className="text-highlight">
-                Every Decision
-              </span>
+              <span className="text-highlight">Every Decision</span>
             </h2>
             <p className="text-lg text-text-secondary max-w-2xl mx-auto">
               These aren&apos;t aspirational values on a wall. They&apos;re the
@@ -693,10 +689,7 @@ export default function CulturePage() {
             </p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary mb-6">
               Built for Deep Work
-              <span className="text-highlight">
-                {" "}
-                and Meaning
-              </span>
+              <span className="text-highlight"> and Meaning</span>
             </h2>
             <p className="text-lg text-text-secondary">
               Remote-first doesn&apos;t mean disconnected. Here&apos;s what
@@ -769,10 +762,7 @@ export default function CulturePage() {
             </p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary mb-6">
               Engineers Who
-              <span className="text-highlight">
-                {" "}
-                Ship
-              </span>
+              <span className="text-highlight"> Ship</span>
             </h2>
             <p className="text-lg text-text-secondary max-w-2xl mx-auto">
               100+ senior engineers across 4 continents, united by a shared
@@ -865,11 +855,7 @@ export default function CulturePage() {
               Benefits & Perks
             </p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary mb-6">
-              More Than a
-              <span className="text-highlight">
-                {" "}
-                Paycheck
-              </span>
+              More Than a<span className="text-highlight"> Paycheck</span>
             </h2>
             <p className="text-lg text-text-secondary">
               We&apos;ve designed a benefits package for senior engineers who
@@ -1042,9 +1028,7 @@ export default function CulturePage() {
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary leading-[1.1] tracking-tight mb-6">
               Ready to Build AI
               <br />
-              <span className="text-highlight">
-                That Actually Ships?
-              </span>
+              <span className="text-highlight">That Actually Ships?</span>
             </h2>
 
             {/* Subheadline */}

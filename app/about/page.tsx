@@ -129,7 +129,8 @@ const milestones = [
   {
     year: "2017",
     title: "Founded",
-    description: "Started with a mission to bring elite AI talent to enterprises.",
+    description:
+      "Started with a mission to bring elite AI talent to enterprises.",
   },
   {
     year: "2019",
@@ -139,7 +140,8 @@ const milestones = [
   {
     year: "2021",
     title: "50+ AI Systems",
-    description: "Shipped our 50th production AI system for enterprise clients.",
+    description:
+      "Shipped our 50th production AI system for enterprise clients.",
   },
   {
     year: "2023",
@@ -251,9 +253,7 @@ export default function AboutPage() {
             >
               AI Engineers
               <br />
-              <span className="text-highlight">
-                Who Ship
-              </span>
+              <span className="text-highlight">Who Ship</span>
             </motion.h1>
 
             {/* Subheadline */}
@@ -263,7 +263,11 @@ export default function AboutPage() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-lg sm:text-xl text-text-secondary leading-relaxed mb-10 max-w-2xl mx-auto"
             >
-              We started Procedure because enterprise AI deserves more than prototypes that never see production. Our team of forward-deployed engineers works alongside yours to build, deploy, and scale AI systems that drive real business outcomes—not impressive demos that collect dust.
+              We started Procedure because enterprise AI deserves more than
+              prototypes that never see production. Our team of forward-deployed
+              engineers works alongside yours to build, deploy, and scale AI
+              systems that drive real business outcomes—not impressive demos
+              that collect dust.
             </motion.p>
 
             {/* Stats row */}
@@ -282,7 +286,9 @@ export default function AboutPage() {
                   <div className="text-3xl sm:text-4xl font-bold text-highlight">
                     {stat.value}
                   </div>
-                  <div className="text-sm text-text-muted mt-1">{stat.label}</div>
+                  <div className="text-sm text-text-muted mt-1">
+                    {stat.label}
+                  </div>
                 </div>
               ))}
             </motion.div>
@@ -316,13 +322,15 @@ export default function AboutPage() {
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary max-w-4xl mx-auto leading-tight mb-6">
               We exist to close the gap between{" "}
-              <span className="text-highlight">
-                AI&apos;s promise
-              </span>{" "}
-              and production reality.
+              <span className="text-highlight">AI&apos;s promise</span> and
+              production reality.
             </h2>
             <p className="text-lg text-text-secondary max-w-3xl mx-auto leading-relaxed">
-              Every day, enterprises invest millions in AI initiatives that stall at the proof-of-concept stage. We founded Procedure to change that equation—bringing elite AI engineering talent directly into your organization to build production systems that transform how your business operates.
+              Every day, enterprises invest millions in AI initiatives that
+              stall at the proof-of-concept stage. We founded Procedure to
+              change that equation—bringing elite AI engineering talent directly
+              into your organization to build production systems that transform
+              how your business operates.
             </p>
           </motion.div>
 
@@ -384,8 +392,8 @@ export default function AboutPage() {
               Built by engineers who&apos;ve shipped at scale
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto">
-              Our leadership team brings decades of experience from Google, Meta,
-              Stripe, and OpenAI.
+              Our leadership team brings decades of experience from Google,
+              Meta, Stripe, and OpenAI.
             </p>
           </motion.div>
 
@@ -551,7 +559,8 @@ export default function AboutPage() {
               The numbers speak for themselves
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto">
-              We&apos;ve built our reputation on delivering results, not promises.
+              We&apos;ve built our reputation on delivering results, not
+              promises.
             </p>
           </motion.div>
 
@@ -581,7 +590,9 @@ export default function AboutPage() {
                   <h3 className="text-sm font-semibold text-text-primary mb-2">
                     {diff.label}
                   </h3>
-                  <p className="text-sm text-text-secondary">{diff.description}</p>
+                  <p className="text-sm text-text-secondary">
+                    {diff.description}
+                  </p>
                 </div>
               </motion.div>
             ))}
@@ -639,7 +650,9 @@ export default function AboutPage() {
                     <p className="text-sm font-semibold text-text-primary">
                       {cert.name}
                     </p>
-                    <p className="text-xs text-text-muted">{cert.description}</p>
+                    <p className="text-xs text-text-muted">
+                      {cert.description}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -670,7 +683,9 @@ export default function AboutPage() {
                   <span className="text-sm font-medium text-text-primary text-center">
                     {partner.name}
                   </span>
-                  <span className="text-xs text-text-muted">{partner.category}</span>
+                  <span className="text-xs text-text-muted">
+                    {partner.category}
+                  </span>
                 </div>
               ))}
             </div>
@@ -699,12 +714,13 @@ export default function AboutPage() {
             <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-text-primary mb-6">
               Ready to Ship AI
               <br />
-              <span className="text-highlight">
-                That Actually Works?
-              </span>
+              <span className="text-highlight">That Actually Works?</span>
             </h2>
             <p className="text-lg text-text-secondary mb-10 max-w-2xl mx-auto">
-              Whether you&apos;re starting your first AI initiative or trying to rescue a stalled project, we&apos;d love to learn about your challenges. Our team will give you an honest assessment—even if the answer is that you don&apos;t need us yet.
+              Whether you&apos;re starting your first AI initiative or trying to
+              rescue a stalled project, we&apos;d love to learn about your
+              challenges. Our team will give you an honest assessment—even if
+              the answer is that you don&apos;t need us yet.
             </p>
 
             {/* Dual CTAs */}

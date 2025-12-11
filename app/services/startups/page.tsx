@@ -92,7 +92,10 @@ export default function StartupsPage() {
         headlineAccent="Before Your Runway Burns"
         description="Startup AI development that matches your urgency. Senior engineers who have shipped at early-stage companies understand that every week matters. We build MVPs that win customers and raise capital, not science projects that impress no one."
         primaryCTA={{ text: "Talk to Us This Week", href: "/contact" }}
-        secondaryCTA={{ text: "See Startup Case Studies", href: "/case-studies" }}
+        secondaryCTA={{
+          text: "See Startup Case Studies",
+          href: "/case-studies",
+        }}
       />
 
       {/* Benefits */}
@@ -274,10 +277,7 @@ export default function StartupsPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
-              Your MVP Ships{" "}
-              <span className="text-highlight">
-                Next Month
-              </span>
+              Your MVP Ships <span className="text-highlight">Next Month</span>
             </h2>
             <p className="text-lg text-text-secondary mb-8 max-w-2xl mx-auto">
               Stop losing time to hiring and ramp-up. Most startup engagements

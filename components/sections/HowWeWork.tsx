@@ -150,9 +150,7 @@ export function HowWeWork() {
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary mb-4 sm:mb-6 tracking-tight">
             From first call to{" "}
-            <span className="text-highlight">
-              production-ready code
-            </span>
+            <span className="text-highlight">production-ready code</span>
           </h2>
           <p className="text-text-secondary max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
             A proven engagement process built for enterprise velocity. Your team
@@ -172,7 +170,11 @@ export function HowWeWork() {
               initial={{ scaleX: 0, opacity: 0 }}
               whileInView={{ scaleX: 1, opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 1.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              transition={{
+                duration: 1.5,
+                delay: 0.3,
+                ease: [0.16, 1, 0.3, 1],
+              }}
               style={{ transformOrigin: "left" }}
             />
           </div>
@@ -208,7 +210,9 @@ export function HowWeWork() {
                   <h3 className="text-lg font-semibold text-text-primary mb-1 group-hover:text-accent-teal-light transition-colors duration-300">
                     {step.title}
                   </h3>
-                  <p className="text-sm text-text-muted mb-2">{step.duration}</p>
+                  <p className="text-sm text-text-muted mb-2">
+                    {step.duration}
+                  </p>
                   <p className="text-sm text-text-secondary leading-relaxed">
                     {step.description}
                   </p>
@@ -246,7 +250,8 @@ export function HowWeWork() {
           </h3>
           <p className="text-text-secondary max-w-xl mx-auto leading-relaxed">
             Three proven engagement frameworks designed for different business
-            objectives. Scale up, scale down, or pivot—without renegotiating contracts.
+            objectives. Scale up, scale down, or pivot—without renegotiating
+            contracts.
           </p>
         </motion.div>
 

@@ -274,9 +274,7 @@ export default function StaffAugmentationPage() {
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
               Your Senior AI Engineer Is{" "}
-              <span className="text-highlight">
-                Already Waiting
-              </span>
+              <span className="text-highlight">Already Waiting</span>
             </h2>
             <p className="text-lg text-text-secondary mb-8 max-w-2xl mx-auto">
               Skip the 6-month recruiting cycle. Tell us what you need, and we

@@ -92,7 +92,10 @@ export default function AISprintsPage() {
         headlineAccent="in Weeks"
         description="AI sprint development compresses months of exploration into focused 2-4 week engagements. Instead of lengthy discovery phases and PowerPoint strategies, you get a working prototype that proves whether your AI concept delivers real business value."
         primaryCTA={{ text: "Start Your AI Sprint", href: "/contact" }}
-        secondaryCTA={{ text: "See Sprint Case Studies", href: "/case-studies" }}
+        secondaryCTA={{
+          text: "See Sprint Case Studies",
+          href: "/case-studies",
+        }}
       />
 
       {/* Benefits */}
@@ -275,9 +278,7 @@ export default function AISprintsPage() {
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
               Launch Your AI Sprint{" "}
-              <span className="text-highlight">
-                This Month
-              </span>
+              <span className="text-highlight">This Month</span>
             </h2>
             <p className="text-lg text-text-secondary mb-8 max-w-2xl mx-auto">
               Stop debating AI feasibility in conference rooms. Start a sprint

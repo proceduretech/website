@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ClientLogos } from "./ClientLogos";
 import { CalButton } from "@/components/CalButton";
@@ -137,7 +136,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="flex flex-wrap gap-2 mb-8 justify-center"
+            className="flex flex-wrap gap-2 mb-6 justify-center"
           >
             <span className="px-3 py-1.5 text-xs font-medium text-text-secondary bg-surface-elevated border border-border rounded-full">
               Forward-deployed AI engineers
@@ -165,7 +164,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed"
+            className="mt-5 sm:mt-6 text-base sm:text-lg md:text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed"
           >
             Elite AI engineers embedded with your team to ship production-grade
             AI systems—from strategy to deployment. You get builders, not
@@ -177,7 +176,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-10 sm:mt-12 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center"
+            className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center"
           >
             <CalButton className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-cta-text bg-cta rounded-lg hover:brightness-110 transition-all duration-200 shadow-lg shadow-cta/25 cursor-pointer">
               Book a Strategy Call
@@ -195,7 +194,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-16 sm:mt-20"
+            className="mt-12 sm:mt-14"
           >
             <p className="text-xs text-text-muted uppercase tracking-wider mb-4">
               What we build
@@ -240,12 +239,12 @@ export function Hero() {
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
+                      d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
                     />
                   </svg>
                 </div>
                 <span className="text-sm font-medium text-text-primary">
-                  ML Infrastructure
+                  AI Security
                 </span>
               </motion.div>
 
@@ -264,12 +263,12 @@ export function Hero() {
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125"
+                      d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"
                     />
                   </svg>
                 </div>
                 <span className="text-sm font-medium text-text-primary">
-                  Data Pipelines
+                  Design
                 </span>
               </motion.div>
 
@@ -297,22 +296,6 @@ export function Hero() {
                 </span>
               </motion.div>
             </div>
-          </motion.div>
-
-          {/* Chip mascot - positioned as a fun accent */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 1 }}
-            className="hidden lg:block absolute bottom-32 right-8 xl:right-16"
-          >
-            <Image
-              src="/mascots/characters/chip/chip-hero-holograms-transparent.png"
-              alt="Chip the Shiba Inu engineer looking at AI interfaces"
-              width={160}
-              height={160}
-              className="w-32 h-auto drop-shadow-lg opacity-90"
-            />
           </motion.div>
         </div>
 

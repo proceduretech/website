@@ -8,8 +8,10 @@ interface SelectOption {
   label: string;
 }
 
-interface SelectProps
-  extends Omit<SelectHTMLAttributes<HTMLSelectElement>, "children"> {
+interface SelectProps extends Omit<
+  SelectHTMLAttributes<HTMLSelectElement>,
+  "children"
+> {
   label: string;
   options: SelectOption[];
   placeholder?: string;

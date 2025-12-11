@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { Button } from '@/components/ui';
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { Button } from "@/components/ui";
 
 interface UseCaseCTAProps {
   headline: string;
@@ -20,8 +20,8 @@ interface UseCaseCTAProps {
 export function UseCaseCTA({
   headline,
   description,
-  primaryCTA = { text: 'Book a Call', href: '/contact' },
-  secondaryCTA = { text: 'See Demo', href: '/contact' },
+  primaryCTA = { text: "Book a Call", href: "/contact" },
+  secondaryCTA = { text: "See Demo", href: "/contact" },
 }: UseCaseCTAProps) {
   return (
     <section className="relative py-20 sm:py-28 overflow-hidden">
@@ -60,7 +60,11 @@ export function UseCaseCTA({
                   stroke="currentColor"
                   strokeWidth={2}
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                  />
                 </svg>
               </Button>
             </Link>

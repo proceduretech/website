@@ -1,11 +1,11 @@
-import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
 import {
   getAllExpertiseSlugs,
   getExpertisePage,
   getRelatedExpertisePages,
   Icons,
-} from '@/lib/expertise-data';
+} from "@/lib/expertise-data";
 import {
   ExpertiseHero,
   CapabilitiesGrid,
@@ -14,7 +14,7 @@ import {
   FAQSection,
   ExpertiseCTA,
   RelatedExpertise,
-} from '@/components/expertise';
+} from "@/components/expertise";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -24,13 +24,15 @@ export async function generateStaticParams() {
   return getAllExpertiseSlugs().map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const page = getExpertisePage(slug);
 
   if (!page) {
     return {
-      title: 'Expertise | Procedure',
+      title: "Expertise | Procedure",
     };
   }
 
@@ -40,7 +42,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: page.meta.title,
       description: page.meta.description,
-      type: 'website',
+      type: "website",
     },
   };
 }
@@ -72,13 +74,13 @@ export default async function ExpertisePage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'FAQPage',
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
             mainEntity: pageData.faqs.map((faq) => ({
-              '@type': 'Question',
+              "@type": "Question",
               name: faq.question,
               acceptedAnswer: {
-                '@type': 'Answer',
+                "@type": "Answer",
                 text: faq.answer,
               },
             })),

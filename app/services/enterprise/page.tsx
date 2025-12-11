@@ -93,8 +93,14 @@ export default function EnterprisePage() {
         headline="Enterprise AI That Passes Security Review"
         headlineAccent="on the First Try"
         description="Enterprise AI development built for your compliance requirements, security standards, and procurement processes. Senior engineers who have shipped in regulated industries and understand that enterprise-grade means audit-ready, not just functional."
-        primaryCTA={{ text: "Schedule Enterprise Consultation", href: "/contact" }}
-        secondaryCTA={{ text: "View Enterprise Case Studies", href: "/case-studies" }}
+        primaryCTA={{
+          text: "Schedule Enterprise Consultation",
+          href: "/contact",
+        }}
+        secondaryCTA={{
+          text: "View Enterprise Case Studies",
+          href: "/case-studies",
+        }}
       />
 
       {/* Benefits */}
@@ -290,9 +296,7 @@ export default function EnterprisePage() {
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
               Enterprise AI That Ships{" "}
-              <span className="text-highlight">
-                With Confidence
-              </span>
+              <span className="text-highlight">With Confidence</span>
             </h2>
             <p className="text-lg text-text-secondary mb-8 max-w-2xl mx-auto">
               Your stakeholders need AI that meets enterprise standards. Our

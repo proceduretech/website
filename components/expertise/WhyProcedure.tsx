@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { cn } from '@/lib/utils';
+import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 interface WhyProcedureProps {
   title?: string;
@@ -14,9 +14,9 @@ const containerVariants = {
     opacity: 1,
     transition: {
       staggerChildren: 0.1,
-      delayChildren: 0.2
-    }
-  }
+      delayChildren: 0.2,
+    },
+  },
 };
 
 const itemVariants = {
@@ -24,12 +24,12 @@ const itemVariants = {
   visible: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as const }
-  }
+    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as const },
+  },
 };
 
 export function WhyProcedure({
-  title = 'Why Procedure?',
+  title = "Why Procedure?",
   points,
 }: WhyProcedureProps) {
   return (
@@ -50,7 +50,9 @@ export function WhyProcedure({
               {title}
             </h2>
             <p className="text-lg text-text-secondary leading-relaxed">
-              We bring senior engineering expertise and production-tested patterns to every engagement. No junior developers learning on your project.
+              We bring senior engineering expertise and production-tested
+              patterns to every engagement. No junior developers learning on
+              your project.
             </p>
           </motion.div>
 
@@ -67,9 +69,9 @@ export function WhyProcedure({
                 key={index}
                 variants={itemVariants}
                 className={cn(
-                  'flex items-start gap-4 p-4 rounded-xl',
-                  'bg-surface-elevated/50 border border-border',
-                  'hover:border-accent-teal/30 transition-all duration-300'
+                  "flex items-start gap-4 p-4 rounded-xl",
+                  "bg-surface-elevated/50 border border-border",
+                  "hover:border-accent-teal/30 transition-all duration-300",
                 )}
               >
                 <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-accent-teal/10 border border-accent-teal/20 flex items-center justify-center">
@@ -80,7 +82,11 @@ export function WhyProcedure({
                     stroke="currentColor"
                     strokeWidth={2.5}
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M5 13l4 4L19 7"
+                    />
                   </svg>
                 </div>
                 <p className="text-text-primary leading-relaxed pt-1">
