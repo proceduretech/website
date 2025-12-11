@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { Input, Textarea, Select } from "@/components/ui";
 import { CalButton } from "@/components/CalButton";
 
@@ -199,6 +200,22 @@ export default function ContactPage() {
                 <div className="absolute -inset-1 bg-gradient-to-r from-accent-teal/20 to-accent-blue/20 rounded-3xl blur-xl opacity-50" />
 
                 <div className="relative bg-surface/80 backdrop-blur-xl border border-border rounded-2xl p-8 sm:p-10 shadow-2xl shadow-black/20">
+                  {/* Scout mascot - floating top right */}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: 0.5 }}
+                    className="absolute -top-10 -right-6 z-20 hidden lg:block"
+                  >
+                    <Image
+                      src="/mascots/characters/scout/scout-contact-welcome-transparent.png"
+                      alt="Scout the Corgi welcoming you to get in touch"
+                      width={120}
+                      height={120}
+                      className="w-24 h-auto drop-shadow-lg"
+                    />
+                  </motion.div>
+
                   {isSubmitted ? (
                     /* Success State */
                     <motion.div

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ClientLogos } from "./ClientLogos";
 import { CalButton } from "@/components/CalButton";
@@ -228,6 +229,22 @@ export function Hero() {
               {/* Decorative elements */}
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent-teal/10 rounded-full blur-2xl" />
               <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-accent-blue/10 rounded-full blur-2xl" />
+
+              {/* Chip mascot */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                className="absolute -bottom-8 -right-4 z-20"
+              >
+                <Image
+                  src="/mascots/characters/chip/chip-hero-holograms-transparent.png"
+                  alt="Chip the Shiba Inu engineer looking at AI interfaces"
+                  width={180}
+                  height={180}
+                  className="w-36 h-auto drop-shadow-lg"
+                />
+              </motion.div>
             </div>
           </motion.div>
         </div>

@@ -1,5 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 40" fill="none">
-  <circle cx="12" cy="20" r="6" fill="currentColor"/>
-  <circle cx="22" cy="20" r="6" fill="currentColor" opacity="0.6"/>
-  <text x="34" y="25" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="currentColor">Medley</text>
-</svg>

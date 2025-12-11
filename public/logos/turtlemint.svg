@@ -1,5 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 40" fill="none">
-  <circle cx="16" cy="20" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-  <circle cx="16" cy="20" r="5" fill="currentColor"/>
-  <text x="32" y="25" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="currentColor">Turtlemint</text>
-</svg>

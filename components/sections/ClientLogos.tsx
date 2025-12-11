@@ -4,30 +4,16 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const clients = [
-  { name: "Pine Labs", logo: "/logos/pinelabs.svg", width: 140 },
-  { name: "Timely", logo: "/logos/timely.svg", width: 120 },
-  { name: "Setu", logo: "/logos/setu.svg", width: 100 },
-  { name: "KredX", logo: "/logos/kredx.svg", width: 110 },
-  { name: "Treebo", logo: "/logos/treebo.svg", width: 120 },
-  { name: "Aster", logo: "/logos/aster.svg", width: 100 },
-  { name: "Disney ESPN", logo: "/logos/disney-espn.svg", width: 160 },
-  { name: "Last9", logo: "/logos/last9.svg", width: 100 },
-  { name: "Turtlemint", logo: "/logos/turtlemint.svg", width: 140 },
-  { name: "Monaire", logo: "/logos/monaire.svg", width: 120 },
-  { name: "Bitespeed", logo: "/logos/bitespeed.svg", width: 130 },
-  { name: "MC Labs", logo: "/logos/mclabs.svg", width: 120 },
-  { name: "Workshop Ventures", logo: "/logos/workshop.svg", width: 180 },
-  { name: "Medley", logo: "/logos/medley.svg", width: 110 },
-  { name: "Workhero", logo: "/logos/workhero.svg", width: 130 },
-];
-
-const industries = [
-  "Fintech",
-  "Healthcare",
-  "SaaS",
-  "E-commerce",
-  "Media & Entertainment",
-  "InsurTech",
+  { name: "Aster", logo: "/logos/client/aster.svg", width: 100 },
+  { name: "ESPN", logo: "/logos/client/espn.svg", width: 120 },
+  { name: "KredX", logo: "/logos/client/kredx.svg", width: 110 },
+  { name: "Pine Labs", logo: "/logos/client/pinelabs.svg", width: 140 },
+  { name: "Setu", logo: "/logos/client/setu.svg", width: 100 },
+  { name: "Tenmeya", logo: "/logos/client/tenmeya.svg", width: 120 },
+  { name: "Timely", logo: "/logos/client/timely.svg", width: 120 },
+  { name: "Treebo", logo: "/logos/client/treebo.svg", width: 120 },
+  { name: "Turtlemint", logo: "/logos/client/turtlemint.svg", width: 140 },
+  { name: "Workshop Ventures", logo: "/logos/client/workshopventure.svg", width: 160 },
 ];
 
 export function ClientLogos() {
@@ -44,11 +30,11 @@ export function ClientLogos() {
         <motion.div
           className="flex items-center gap-12 md:gap-16"
           animate={{
-            x: [0, -140 * clients.length],
+            x: [0, -150 * clients.length],
           }}
           transition={{
             x: {
-              duration: 40,
+              duration: 30,
               repeat: Infinity,
               ease: "linear",
             },
@@ -58,7 +44,7 @@ export function ClientLogos() {
           {[...clients, ...clients].map((client, idx) => (
             <div
               key={`${client.name}-${idx}`}
-              className="flex-shrink-0 h-10 flex items-center opacity-60 hover:opacity-100 transition-opacity duration-300"
+              className="flex-shrink-0 h-10 flex items-center opacity-80 hover:opacity-100 transition-opacity duration-300"
               style={{ width: client.width }}
             >
               <Image
@@ -66,23 +52,11 @@ export function ClientLogos() {
                 alt={`${client.name} logo`}
                 width={client.width}
                 height={40}
-                className="h-8 w-auto object-contain filter brightness-0 invert opacity-70"
+                className="h-8 w-auto object-contain filter brightness-0 invert"
               />
             </div>
           ))}
         </motion.div>
-      </div>
-
-      {/* Industry verticals */}
-      <div className="mt-8 flex flex-wrap justify-center gap-2 sm:gap-3">
-        {industries.map((industry) => (
-          <span
-            key={industry}
-            className="px-3 py-1.5 text-xs font-medium text-text-muted bg-surface-elevated border border-border rounded-full"
-          >
-            {industry}
-          </span>
-        ))}
       </div>
     </div>
   );
