@@ -1,53 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
-
-// Featured case studies - subset of data for homepage
-const featuredCaseStudies = [
-  {
-    id: "fintech-fraud-detection",
-    industry: "Financial Services",
-    serviceType: "AI Engineering",
-    title: "Real-Time Fraud Detection That Saved $47M in Year One",
-    description:
-      "Deployed a multi-model AI ensemble that analyzes transactions in under 50ms, catching fraud patterns their legacy rules-based system never could.",
-    metrics: [
-      { value: "94%", label: "Fraud detection" },
-      { value: "67%", label: "Fewer false positives" },
-      { value: "$47M", label: "Prevented losses" },
-    ],
-    tags: ["PyTorch", "Kafka", "AWS SageMaker"],
-  },
-  {
-    id: "healthcare-clinical-ai",
-    industry: "Healthcare",
-    serviceType: "AI Engineering",
-    title: "Clinical Documentation AI That Gives Physicians 2 Hours Back Daily",
-    description:
-      "Built a HIPAA-compliant AI assistant that listens to patient encounters and generates structured clinical notes, reducing documentation time by 75%.",
-    metrics: [
-      { value: "2hrs", label: "Saved daily" },
-      { value: "98.7%", label: "Accuracy" },
-      { value: "4.8/5", label: "Satisfaction" },
-    ],
-    tags: ["LLMs", "Speech-to-Text", "HIPAA"],
-  },
-  {
-    id: "ecommerce-personalization",
-    industry: "E-Commerce",
-    serviceType: "AI Engineering",
-    title: "AI-Powered Search That Increased Revenue by $180M Annually",
-    description:
-      "Rebuilt search infrastructure with semantic understanding and real-time personalization, transforming their highest-traffic feature into their highest-converting one.",
-    metrics: [
-      { value: "34%", label: "Higher conversion" },
-      { value: "$180M", label: "Revenue lift" },
-      { value: "2.3x", label: "Search-to-purchase" },
-    ],
-    tags: ["Vector Search", "Python", "ML"],
-  },
-];
+import { featuredCaseStudies } from "@/lib/case-studies-data";
 
 export function FeaturedCaseStudies() {
   return (
@@ -113,51 +69,29 @@ export function FeaturedCaseStudies() {
               <div className="absolute -inset-0.5 bg-gradient-to-r from-accent-teal/20 to-accent-blue/20 rounded-2xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
 
               <div className="relative h-full flex flex-col bg-surface-elevated border border-border rounded-2xl overflow-hidden group-hover:border-accent-teal/30 transition-all duration-300">
-                {/* Image placeholder with gradient */}
-                <div className="relative h-40 bg-gradient-to-br from-accent-teal/20 to-accent-blue/20 overflow-hidden">
-                  {/* Abstract pattern for visual interest */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-30">
-                    <svg
-                      className="w-32 h-32 text-accent-teal"
-                      viewBox="0 0 100 100"
-                    >
-                      <circle
-                        cx="50"
-                        cy="50"
-                        r="30"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        fill="none"
-                        opacity="0.5"
-                      />
-                      <circle
-                        cx="50"
-                        cy="50"
-                        r="20"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        fill="none"
-                        opacity="0.3"
-                      />
-                      <circle
-                        cx="50"
-                        cy="50"
-                        r="40"
-                        stroke="currentColor"
-                        strokeWidth="1"
-                        fill="none"
-                        opacity="0.2"
-                      />
-                    </svg>
-                  </div>
+                {/* Case study image */}
+                <div className="relative h-40 overflow-hidden">
+                  <Image
+                    src={study.image}
+                    alt={study.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
 
                   {/* Industry badge */}
-                  <span className="absolute top-4 left-4 px-2.5 py-1 text-xs font-medium text-accent-teal-light bg-surface/90 backdrop-blur rounded-full border border-accent-teal/20">
+                  <span className="absolute top-4 left-4 px-2.5 py-1 text-xs font-medium text-white bg-black/50 backdrop-blur rounded-full border border-white/20">
                     {study.industry}
                   </span>
 
                   {/* Service type badge */}
-                  <span className="absolute top-4 right-4 px-2.5 py-1 text-xs font-medium text-accent-teal-light bg-accent-teal/20 backdrop-blur rounded-full border border-accent-teal/30">
+                  <span
+                    className={`absolute top-4 right-4 px-2.5 py-1 text-xs font-medium rounded-full border backdrop-blur ${
+                      study.serviceType === "AI Engineering"
+                        ? "text-white bg-accent-teal/60 border-accent-teal/50"
+                        : "text-white bg-accent-blue/60 border-accent-blue/50"
+                    }`}
+                  >
                     {study.serviceType}
                   </span>
                 </div>
