@@ -11,6 +11,7 @@ const testimonials = [
     author: "Shrivatsa Swadi",
     role: "Director of Engineering",
     company: "Setu",
+    logo: "/logos/client/setu.svg",
     image: "/testimonials/shrivatsa.jpg",
     highlight: "5 engineers embedded, 3-year partnership",
   },
@@ -20,6 +21,7 @@ const testimonials = [
     author: "Chad Laurans",
     role: "Managing Partner",
     company: "Workshop Ventures",
+    logo: "/logos/client/workshopventure.svg",
     image: "/testimonials/chad.jpg",
     highlight: "Portfolio-wide development partner",
   },
@@ -29,6 +31,7 @@ const testimonials = [
     author: "Faisal Anwar",
     role: "CTO",
     company: "Timely",
+    logo: "/logos/client/timely.svg",
     image: "/testimonials/faisal.jpg",
     highlight: "Partner from inception through rapid growth",
   },
@@ -38,6 +41,7 @@ const testimonials = [
     author: "Eid AlMujaibel",
     role: "CEO",
     company: "Tenmeya",
+    logo: "/logos/client/tenmeya.svg",
     image: "/testimonials/eid.jpg",
     highlight: "App launched in 12 weeks, 1000+ users in 6 months",
   },
@@ -123,24 +127,34 @@ export function Testimonials() {
               <blockquote className="text-base sm:text-lg md:text-xl text-text-secondary leading-relaxed mb-6 sm:mb-8">
                 {testimonials[currentIndex].quote}
               </blockquote>
-              <div className="flex items-center gap-3 sm:gap-4 pt-4 sm:pt-6 border-t border-border">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden bg-gradient-to-br from-accent-teal to-accent-blue flex items-center justify-center flex-shrink-0">
-                  <Image
-                    src={testimonials[currentIndex].image}
-                    alt={testimonials[currentIndex].author}
-                    width={56}
-                    height={56}
-                    className="w-full h-full object-cover"
-                  />
+              <div className="flex items-center justify-between pt-4 sm:pt-6 border-t border-border">
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden bg-gradient-to-br from-accent-teal to-accent-blue flex items-center justify-center flex-shrink-0">
+                    <Image
+                      src={testimonials[currentIndex].image}
+                      alt={testimonials[currentIndex].author}
+                      width={56}
+                      height={56}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <div className="font-semibold text-base sm:text-lg text-text-primary">
+                      {testimonials[currentIndex].author}
+                    </div>
+                    <div className="text-sm text-text-secondary">
+                      {testimonials[currentIndex].role}
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <div className="font-semibold text-base sm:text-lg text-text-primary">
-                    {testimonials[currentIndex].author}
-                  </div>
-                  <div className="text-sm text-text-secondary">
-                    {testimonials[currentIndex].role},{" "}
-                    {testimonials[currentIndex].company}
-                  </div>
+                <div className="hidden sm:block">
+                  <Image
+                    src={testimonials[currentIndex].logo}
+                    alt={testimonials[currentIndex].company}
+                    width={100}
+                    height={32}
+                    className="h-6 md:h-8 w-auto object-contain filter brightness-0 invert opacity-70"
+                  />
                 </div>
               </div>
             </motion.div>
