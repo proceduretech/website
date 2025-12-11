@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
+import { PageHero } from "@/components/ui";
 
 // Core values data
 const values = [

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { PageHero } from "@/components/ui";
 
 const benefits = [
   {
@@ -85,55 +86,15 @@ const idealFor = [
 export default function ProductBuildPage() {
   return (
     <main className="min-h-screen">
-      {/* Hero */}
-      <section className="relative pt-32 pb-20 sm:pb-24 overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-surface via-base to-base" />
-          <div className="absolute top-20 right-1/4 w-[500px] h-[500px] bg-accent-blue/8 rounded-full blur-[100px]" />
-          <div className="absolute top-40 left-1/3 w-[400px] h-[400px] bg-accent-teal/8 rounded-full blur-[80px]" />
-        </div>
-
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-3xl"
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent-blue/10 border border-accent-blue/20 mb-6">
-              <span className="text-xs font-medium text-accent-blue-light">
-                End-to-End Product Development
-              </span>
-            </div>
-
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary leading-tight tracking-tight mb-6">
-              Ship Your Complete AI Product in Weeks, Not Quarters
-            </h1>
-
-            <p className="text-lg text-text-secondary leading-relaxed mb-8 max-w-2xl">
-              Full product build delivers your entire application from first
-              commit to production launch. One team, one timeline, zero
-              handoffs. We own the architecture, engineering, and deployment so
-              you can focus on your business.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-cta-text bg-cta rounded-xl hover:brightness-110 transition-all duration-300 shadow-lg shadow-cta/25"
-              >
-                Start Your Product Build
-              </Link>
-              <Link
-                href="/case-studies"
-                className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-text-primary border border-border rounded-xl hover:border-accent-blue hover:text-accent-blue-light transition-all duration-300"
-              >
-                View Our Work
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        badge="End-to-End Product Development"
+        badgeVariant="blue"
+        headline="Ship Your Complete AI Product in Weeks,"
+        headlineAccent="Not Quarters"
+        description="Full product build delivers your entire application from first commit to production launch. One team, one timeline, zero handoffs. We own the architecture, engineering, and deployment so you can focus on your business."
+        primaryCTA={{ text: "Start Your Product Build", href: "/contact" }}
+        secondaryCTA={{ text: "View Our Work", href: "/case-studies" }}
+      />
 
       {/* Benefits */}
       <section className="py-20 sm:py-24 bg-surface">

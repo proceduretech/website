@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { CalButton } from "@/components/CalButton";
+import { PageHero } from "@/components/ui";
 
 // Case studies data
 const caseStudies = [
@@ -131,85 +132,19 @@ export default function CaseStudiesPage() {
       {/* ============================================
           HERO SECTION
           ============================================ */}
-      <section className="relative pt-32 pb-20 sm:pb-24 overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-surface via-base to-base" />
-          <div className="absolute top-20 right-1/4 w-[600px] h-[600px] bg-accent-teal/8 rounded-full blur-[120px] animate-pulse" />
-          <div className="absolute top-40 left-1/4 w-[500px] h-[500px] bg-accent-blue/8 rounded-full blur-[100px]" />
-          <div
-            className="absolute inset-0 opacity-[0.015]"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='%23E5E7EB'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e")`,
-            }}
-          />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-accent-teal/5 via-transparent to-transparent" />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            {/* Eyebrow */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent-teal/10 border border-accent-teal/20 mb-6"
-            >
-              <span className="w-2 h-2 rounded-full bg-accent-teal animate-pulse" />
-              <span className="text-xs font-medium text-accent-teal-light">
-                Proven results across industries
-              </span>
-            </motion.div>
-
-            {/* Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary leading-[1.1] tracking-tight mb-6"
-            >
-              AI That Ships.
-              <br />
-              <span className="text-highlight">
-                Results That Matter.
-              </span>
-            </motion.h1>
-
-            {/* Subheadline */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-lg sm:text-xl text-text-secondary leading-relaxed mb-10 max-w-2xl mx-auto"
-            >
-              From Fortune 500 enterprises to high-growth startups, we help
-              organizations turn AI ambitions into production systems that drive
-              measurable business outcomes.
-            </motion.p>
-
-            {/* Stats row */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-wrap justify-center gap-8 sm:gap-12"
-            >
-              {[
-                { value: "$250M+", label: "Client ROI Generated" },
-                { value: "50+", label: "Production AI Systems" },
-                { value: "98%", label: "Client Retention" },
-              ].map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <div className="text-3xl sm:text-4xl font-bold text-highlight">
-                    {stat.value}
-                  </div>
-                  <div className="text-sm text-text-muted mt-1">{stat.label}</div>
-                </div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        badge="Proven results across industries"
+        headline="AI That Ships."
+        headlineAccent="Results That Matter."
+        description="From Fortune 500 enterprises to high-growth startups, we help organizations turn AI ambitions into production systems that drive measurable business outcomes."
+        stats={[
+          { value: "$250M+", label: "Client ROI Generated" },
+          { value: "50+", label: "Production AI Systems" },
+          { value: "98%", label: "Client Retention" },
+        ]}
+        primaryCTA={{ text: "Book a Call", href: "/contact" }}
+        secondaryCTA={{ text: "Contact Us", href: "/contact" }}
+      />
 
       {/* ============================================
           FILTERS SECTION

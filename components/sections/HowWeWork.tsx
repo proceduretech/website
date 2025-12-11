@@ -9,21 +9,6 @@ const processSteps = [
     description:
       "A focused conversation with our technical leadership to understand your objectives, architecture constraints, and success criteria. You receive an honest assessment—not a sales pitch.",
     duration: "30 min",
-    icon: (
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={1.5}
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"
-        />
-      </svg>
-    ),
   },
   {
     step: "02",
@@ -31,21 +16,6 @@ const processSteps = [
     description:
       "Our principal engineers analyze your architecture, codebase, and technical requirements. You receive a detailed engagement proposal with talent recommendations and a clear execution roadmap.",
     duration: "1-2 days",
-    icon: (
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={1.5}
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m5.231 13.481L15 17.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v16.5c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9zm3.75 11.625a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"
-        />
-      </svg>
-    ),
   },
   {
     step: "03",
@@ -53,21 +23,6 @@ const processSteps = [
     description:
       "We curate a team of senior engineers matched to your technology stack and domain requirements. You interview and approve every team member before engagement begins.",
     duration: "2-3 days",
-    icon: (
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={1.5}
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"
-        />
-      </svg>
-    ),
   },
   {
     step: "04",
@@ -75,21 +30,6 @@ const processSteps = [
     description:
       "Your dedicated engineers integrate directly with your team—participating in standups, adopting your tools, and aligning with your workflows. They operate as true extensions of your engineering organization.",
     duration: "Ongoing",
-    icon: (
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={1.5}
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"
-        />
-      </svg>
-    ),
   },
   {
     step: "05",
@@ -97,21 +37,6 @@ const processSteps = [
     description:
       "Your team ships production-ready code with comprehensive documentation and knowledge transfer. As your requirements evolve, we scale capacity up or down—no long-term lock-ins.",
     duration: "Continuous",
-    icon: (
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={1.5}
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"
-        />
-      </svg>
-    ),
   },
 ];
 
@@ -126,7 +51,21 @@ const engagementModels = [
       "Direct reporting to your engineering leadership",
     ],
     bestFor: "Engineering teams scaling for growth or critical initiatives",
-    accentClass: "teal",
+    icon: (
+      <svg
+        className="w-5 h-5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={1.5}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"
+        />
+      </svg>
+    ),
   },
   {
     title: "Managed Delivery",
@@ -138,7 +77,21 @@ const engagementModels = [
       "Weekly demos and transparent progress reporting",
     ],
     bestFor: "New product launches or strategic feature development",
-    accentClass: "blue",
+    icon: (
+      <svg
+        className="w-5 h-5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={1.5}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"
+        />
+      </svg>
+    ),
   },
   {
     title: "AI Transformation",
@@ -150,7 +103,21 @@ const engagementModels = [
       "Implementation, integration, and team enablement",
     ],
     bestFor: "Organizations pursuing enterprise-wide AI capabilities",
-    accentClass: "purple",
+    icon: (
+      <svg
+        className="w-5 h-5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={1.5}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z"
+        />
+      </svg>
+    ),
   },
 ];
 
@@ -196,12 +163,12 @@ export function HowWeWork() {
         {/* Process Timeline - Enhanced */}
         <div className="relative mb-24 sm:mb-32">
           {/* Animated connection line - desktop */}
-          <div className="hidden lg:block absolute top-[40px] left-[10%] right-[10%] h-[2px]">
+          <div className="hidden lg:block absolute top-[32px] left-[10%] right-[10%] h-[2px]">
             {/* Base line */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-border to-transparent" />
-            {/* Animated glow line */}
+            <div className="absolute inset-0 bg-border/50" />
+            {/* Animated solid line */}
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-accent-teal via-accent-blue to-accent-teal"
+              className="absolute inset-0 bg-cta"
               initial={{ scaleX: 0, opacity: 0 }}
               whileInView={{ scaleX: 1, opacity: 1 }}
               viewport={{ once: true }}
@@ -228,51 +195,23 @@ export function HowWeWork() {
                 <div className="absolute -inset-px bg-gradient-to-b from-accent-teal/0 to-accent-blue/0 group-hover:from-accent-teal/20 group-hover:to-accent-blue/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700" />
 
                 <div className="relative p-6 rounded-2xl bg-surface-elevated/80 backdrop-blur-sm border border-border group-hover:border-accent-teal/40 transition-all duration-500 h-full group-hover:shadow-xl group-hover:shadow-accent-teal/[0.08] group-hover:-translate-y-1">
-                  {/* Step number with animated ring */}
+                  {/* Step number - solid blue background */}
                   <div className="relative mb-6">
-                    <div className="relative w-16 h-16 mx-auto lg:mx-0">
-                      {/* Outer ring - animated on hover */}
-                      <div className="absolute inset-0 rounded-full border-2 border-dashed border-accent-teal/20 group-hover:border-accent-teal/40 group-hover:rotate-180 transition-all duration-1000 ease-out" />
-                      {/* Main circle */}
-                      <div className="absolute inset-1.5 rounded-full bg-gradient-to-br from-accent-teal to-accent-blue flex items-center justify-center shadow-lg shadow-accent-teal/25">
-                        <span className="text-xl font-bold text-white">
-                          {step.step}
-                        </span>
-                      </div>
+                    <div className="w-16 h-16 mx-auto lg:mx-0 rounded-full bg-cta flex items-center justify-center shadow-lg shadow-cta/25">
+                      <span className="text-xl font-bold text-white">
+                        {step.step}
+                      </span>
                     </div>
                   </div>
 
-                  {/* Icon with subtle background animation */}
-                  <div className="relative w-12 h-12 rounded-xl bg-accent-teal/10 border border-accent-teal/20 flex items-center justify-center text-accent-teal-light mb-4 overflow-hidden group-hover:border-accent-teal/40 transition-colors duration-300">
-                    <div className="absolute inset-0 bg-gradient-to-br from-accent-teal/0 to-accent-blue/0 group-hover:from-accent-teal/10 group-hover:to-accent-blue/10 transition-all duration-500" />
-                    <span className="relative">{step.icon}</span>
-                  </div>
-
                   {/* Content */}
-                  <h3 className="text-lg font-semibold text-text-primary mb-2 group-hover:text-accent-teal-light transition-colors duration-300">
+                  <h3 className="text-lg font-semibold text-text-primary mb-1 group-hover:text-accent-teal-light transition-colors duration-300">
                     {step.title}
                   </h3>
-                  <p className="text-sm text-text-secondary leading-relaxed mb-5">
+                  <p className="text-sm text-text-muted mb-2">{step.duration}</p>
+                  <p className="text-sm text-text-secondary leading-relaxed">
                     {step.description}
                   </p>
-
-                  {/* Duration badge - enhanced */}
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-accent-teal-light bg-gradient-to-r from-accent-teal/10 to-accent-blue/5 border border-accent-teal/20 rounded-full group-hover:border-accent-teal/40 transition-colors duration-300">
-                    <svg
-                      className="w-3.5 h-3.5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                    {step.duration}
-                  </span>
                 </div>
               </motion.div>
             ))}
@@ -332,9 +271,9 @@ export function HowWeWork() {
                 {/* Top accent line */}
                 <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-accent-teal/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                {/* Model number indicator */}
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-accent-teal/10 to-accent-blue/10 border border-accent-teal/20 flex items-center justify-center text-sm font-bold text-text-muted mb-5 group-hover:border-accent-teal/40 transition-colors duration-300">
-                  0{idx + 1}
+                {/* Model icon */}
+                <div className="w-12 h-12 rounded-xl bg-accent-teal/10 border border-accent-teal/20 flex items-center justify-center text-accent-teal-light mb-5 group-hover:border-accent-teal/40 group-hover:bg-accent-teal/15 transition-all duration-300">
+                  {model.icon}
                 </div>
 
                 {/* Title */}

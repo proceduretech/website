@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { PageHero } from "@/components/ui";
 
 const benefits = [
   {
@@ -75,55 +76,14 @@ const idealFor = [
 export default function ForwardDeployedPage() {
   return (
     <main className="min-h-screen">
-      {/* Hero */}
-      <section className="relative pt-32 pb-20 sm:pb-24 overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-surface via-base to-base" />
-          <div className="absolute top-20 right-1/4 w-[500px] h-[500px] bg-accent-teal/8 rounded-full blur-[100px]" />
-          <div className="absolute top-40 left-1/3 w-[400px] h-[400px] bg-accent-blue/8 rounded-full blur-[80px]" />
-        </div>
-
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-3xl"
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent-teal/10 border border-accent-teal/20 mb-6">
-              <span className="text-xs font-medium text-accent-teal-light">
-                Forward-Deployed Engineering
-              </span>
-            </div>
-
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary leading-tight tracking-tight mb-6">
-              Embedded AI Engineers That Ship Like They&apos;re On Your Payroll
-            </h1>
-
-            <p className="text-lg text-text-secondary leading-relaxed mb-8 max-w-2xl">
-              Forward-deployed engineering puts senior AI engineers directly
-              inside your organization. They attend your standups, use your
-              tools, and ship production code alongside your team. Your team,
-              without the 6-month hiring cycle.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-cta-text bg-cta rounded-xl hover:brightness-110 transition-all duration-300 shadow-lg shadow-cta/25"
-              >
-                Schedule a Strategy Call
-              </Link>
-              <Link
-                href="/case-studies"
-                className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-text-primary border border-border rounded-xl hover:border-accent-teal hover:text-accent-teal-light transition-all duration-300"
-              >
-                View Case Studies
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        badge="Forward-Deployed Engineering"
+        headline="Embedded AI Engineers That Ship Like They're"
+        headlineAccent="On Your Payroll"
+        description="Forward-deployed engineering puts senior AI engineers directly inside your organization. They attend your standups, use your tools, and ship production code alongside your team. Your team, without the 6-month hiring cycle."
+        primaryCTA={{ text: "Schedule a Strategy Call", href: "/contact" }}
+        secondaryCTA={{ text: "View Case Studies", href: "/case-studies" }}
+      />
 
       {/* Benefits */}
       <section className="py-20 sm:py-24 bg-surface">

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { ClientLogos } from "@/components/sections";
+import { PageHero } from "@/components/ui";
 
 const differentiators = [
   {
@@ -201,95 +202,14 @@ export default function WhyUsPage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 sm:pb-28 overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-surface via-base to-base" />
-          <div className="absolute top-20 right-1/4 w-[600px] h-[600px] bg-accent-teal/8 rounded-full blur-[120px]" />
-          <div className="absolute top-40 left-1/3 w-[500px] h-[500px] bg-accent-blue/8 rounded-full blur-[100px]" />
-          <div
-            className="absolute inset-0 opacity-[0.015]"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='%23E5E7EB'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e")`,
-            }}
-          />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-accent-teal/5 via-transparent to-transparent" />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            {/* Eyebrow Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent-teal/10 border border-accent-teal/20 mb-6"
-            >
-              <span className="w-2 h-2 rounded-full bg-accent-teal animate-pulse" />
-              <span className="text-xs font-medium text-accent-teal-light">
-                The Procedure Difference
-              </span>
-            </motion.div>
-
-            {/* Main Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary leading-[1.1] tracking-tight mb-6"
-            >
-              We Build. They Talk.
-            </motion.h1>
-
-            {/* Subheadline */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-lg sm:text-xl text-text-secondary leading-relaxed mb-10 max-w-2xl mx-auto"
-            >
-              Most AI consultancies deliver slide decks and proof-of-concepts
-              that never see production. Procedure delivers senior engineers who
-              embed with your team and ship production-grade AI systems in days,
-              not months.
-            </motion.p>
-
-            {/* Dual CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-            >
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-cta-text bg-cta rounded-xl hover:brightness-110 transition-all duration-300 shadow-lg shadow-cta/25"
-              >
-                Book a Strategy Call
-                <svg
-                  className="w-5 h-5 ml-2"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                  />
-                </svg>
-              </Link>
-              <Link
-                href="/case-studies"
-                className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-text-primary bg-transparent border border-border rounded-xl hover:border-accent-teal hover:text-accent-teal-light transition-all duration-300"
-              >
-                See Our Work
-              </Link>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        badge="The Procedure Difference"
+        headline="We Build."
+        headlineAccent="They Talk."
+        description="Most AI consultancies deliver slide decks and proof-of-concepts that never see production. Procedure delivers senior engineers who embed with your team and ship production-grade AI systems in days, not months."
+        primaryCTA={{ text: "Book a Strategy Call", href: "/contact" }}
+        secondaryCTA={{ text: "See Our Work", href: "/case-studies" }}
+      />
 
       {/* Five Differentiators Section */}
       <section className="relative py-20 sm:py-28 bg-surface overflow-hidden">
@@ -555,10 +475,10 @@ export default function WhyUsPage() {
 
           <div className="relative">
             {/* Connection Line - Desktop */}
-            <div className="hidden lg:block absolute top-[60px] left-[12%] right-[12%] h-[2px]">
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-border to-transparent" />
+            <div className="hidden lg:block absolute top-[32px] left-[12%] right-[12%] h-[2px]">
+              <div className="absolute inset-0 bg-border/50" />
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-accent-teal via-accent-blue to-accent-teal"
+                className="absolute inset-0 bg-cta"
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
@@ -577,7 +497,7 @@ export default function WhyUsPage() {
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
                   className="relative text-center lg:text-left"
                 >
-                  <div className="w-16 h-16 mx-auto lg:mx-0 rounded-full bg-gradient-to-br from-accent-teal to-accent-blue flex items-center justify-center mb-4 shadow-lg shadow-accent-teal/25">
+                  <div className="w-16 h-16 mx-auto lg:mx-0 rounded-full bg-cta flex items-center justify-center mb-4 shadow-lg shadow-cta/25">
                     <span className="text-xl font-bold text-white">
                       {step.step}
                     </span>
@@ -586,25 +506,10 @@ export default function WhyUsPage() {
                   <h3 className="text-lg font-semibold text-text-primary mb-1">
                     {step.title}
                   </h3>
-                  <p className="text-sm text-text-secondary mb-2">
+                  <p className="text-sm text-text-muted mb-2">{step.duration}</p>
+                  <p className="text-sm text-text-secondary">
                     {step.description}
                   </p>
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium text-accent-teal-light bg-accent-teal/10 border border-accent-teal/20 rounded-full">
-                    <svg
-                      className="w-3 h-3"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                    {step.duration}
-                  </span>
                 </motion.div>
               ))}
             </div>
