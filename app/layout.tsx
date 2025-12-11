@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Outfit, Inter } from "next/font/google";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { CookieBanner } from "@/components/CookieBanner";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -47,6 +48,7 @@ export default function RootLayout({
         <Navigation />
         {children}
         <Footer />
+        <CookieBanner />
       </body>
     </html>
   );
