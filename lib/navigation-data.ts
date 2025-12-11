@@ -251,8 +251,8 @@ export const navigationData = {
         {
           label: "Culture",
           description:
-            "How we work and what we value.",
-          href: "/about/culture",
+            "Where elite engineers build what matters. Our values and team.",
+          href: "/culture",
         },
         {
           label: "Careers",
