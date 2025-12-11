@@ -44,7 +44,7 @@ export function ClientLogos() {
           {[...clients, ...clients].map((client, idx) => (
             <div
               key={`${client.name}-${idx}`}
-              className="flex-shrink-0 h-10 flex items-center opacity-80 hover:opacity-100 transition-opacity duration-300"
+              className="flex-shrink-0 h-10 flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity duration-300"
               style={{ width: client.width }}
             >
               <Image
@@ -52,7 +52,7 @@ export function ClientLogos() {
                 alt={`${client.name} logo`}
                 width={client.width}
                 height={40}
-                className="h-8 w-auto object-contain filter brightness-0 invert"
+                className="max-h-8 w-auto object-contain filter brightness-0 invert"
               />
             </div>
           ))}
