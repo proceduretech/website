@@ -35,11 +35,15 @@
     }
 
     html {
-        @apply scroll-smooth;
+        @apply scroll-smooth bg-base;
+        background-color: #0f172a;
+        overscroll-behavior: none;
     }
 
     body {
         @apply bg-base text-text-primary antialiased;
+        background-color: #0f172a;
+        overscroll-behavior: none;
         font-family:
             var(--font-outfit),
             system-ui,
