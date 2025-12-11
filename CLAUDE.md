@@ -13,7 +13,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a Next.js 16 project using the App Router, building a premium enterprise AI engineering services website.
 
-**Stack:** React 19, TypeScript, Tailwind CSS v4, Outfit font, Framer Motion
+**Stack:** React 19, TypeScript, Tailwind CSS v4, Inter + Outfit fonts, Framer Motion
 
 ### Project Structure
 
@@ -67,7 +67,7 @@ public/
 - **Highlight text:** Solid #00CCB8 (`text-highlight`) - no gradient text
 - **CTA buttons:** Solid #007DE5 (`bg-cta`) with #FCFCFC text (`text-cta-text`)
 - **Text colors:** #E5E7EB (primary), #9CA3AF (secondary), #6B7280 (muted)
-- **Typography:** Outfit for body, tight tracking for headings
+- **Typography:** Inter for body copy (better readability), Outfit for headings/buttons/nav (brand display font)
 - **Animations:** Framer Motion for scroll-triggered animations and micro-interactions
 
 ### Key Components

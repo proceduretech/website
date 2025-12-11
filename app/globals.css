@@ -26,7 +26,10 @@
     --color-muted: #7c8594;
     --color-accent: #0f766e;
     --color-accent-secondary: #2563eb;
+
+    /* Font families */
     --font-outfit: var(--font-outfit);
+    --font-inter: var(--font-inter);
 }
 
 @layer base {
@@ -45,7 +48,34 @@
         background-color: #0f172a;
         overscroll-behavior: none;
         font-family:
+            var(--font-inter),
+            system-ui,
+            -apple-system,
+            sans-serif;
+    }
+
+    /* Keep Outfit for headings - better for display text */
+    h1, h2, h3, h4, h5, h6 {
+        font-family:
             var(--font-outfit),
+            system-ui,
+            -apple-system,
+            sans-serif;
+    }
+
+    /* Keep Outfit for UI elements that need brand consistency */
+    button, [role="button"], nav, .font-display {
+        font-family:
+            var(--font-outfit),
+            system-ui,
+            -apple-system,
+            sans-serif;
+    }
+
+    /* Utility class for body font when needed */
+    .font-body {
+        font-family:
+            var(--font-inter),
             system-ui,
             -apple-system,
             sans-serif;
