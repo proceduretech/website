@@ -2,10 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { CalButton } from "@/components/CalButton";
-import { PageHero } from "@/components/ui";
+import { PageHero, CaseStudyCard } from "@/components/ui";
 import {
   caseStudies,
   serviceFilters,
@@ -139,85 +138,12 @@ export default function CaseStudiesPage() {
               className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
             >
               {filteredStudies.map((study, idx) => (
-                <motion.article
+                <CaseStudyCard
                   key={study.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className="group relative"
-                >
-                  {/* Card glow effect */}
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-accent-teal/20 to-accent-blue/20 rounded-2xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
-
-                  <div className="relative h-full flex flex-col bg-surface-elevated border border-border rounded-2xl overflow-hidden group-hover:border-accent-teal/30 transition-all duration-300">
-                    {/* Case study image */}
-                    <div className="relative h-48 overflow-hidden">
-                      <Image
-                        src={study.image}
-                        alt={study.title}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                      {/* Industry & Service badges */}
-                      <div className="absolute top-4 left-4 flex gap-2">
-                        <span className="px-2.5 py-1 text-xs font-medium text-white bg-black/50 backdrop-blur rounded-full border border-white/20">
-                          {study.industry}
-                        </span>
-                      </div>
-                      <div className="absolute top-4 right-4">
-                        <span
-                          className={`px-2.5 py-1 text-xs font-medium rounded-full border backdrop-blur ${
-                            study.serviceType === "AI Engineering"
-                              ? "text-white bg-accent-teal/60 border-accent-teal/50"
-                              : "text-white bg-accent-blue/60 border-accent-blue/50"
-                          }`}
-                        >
-                          {study.serviceType}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="flex-1 p-6 flex flex-col">
-                      <h3 className="text-lg font-semibold text-text-primary mb-3 leading-snug group-hover:text-accent-teal-light transition-colors">
-                        {study.title}
-                      </h3>
-                      <p className="text-sm text-text-secondary leading-relaxed mb-6 flex-1">
-                        {study.description}
-                      </p>
-
-                      {/* Metrics */}
-                      <div className="grid grid-cols-3 gap-3 mb-6">
-                        {study.metrics.map((metric) => (
-                          <div
-                            key={metric.label}
-                            className="text-center p-3 rounded-lg bg-surface border border-border"
-                          >
-                            <div className="text-lg font-bold text-accent-teal-light">
-                              {metric.value}
-                            </div>
-                            <div className="text-xs text-text-muted mt-0.5 leading-tight">
-                              {metric.label}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Tags */}
-                      <div className="flex flex-wrap gap-2">
-                        {study.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="px-2.5 py-1 text-xs font-medium text-text-muted bg-surface border border-border rounded-md"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </motion.article>
+                  study={study}
+                  index={idx}
+                  variant="default"
+                />
               ))}
             </motion.div>
           </AnimatePresence>
