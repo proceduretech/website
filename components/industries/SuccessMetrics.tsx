@@ -80,7 +80,7 @@ export function SuccessMetrics({
                 'hover:border-accent-teal/40 transition-colors duration-300'
               )}
             >
-              <div className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-accent-teal-light to-accent-blue-light bg-clip-text text-transparent">
+              <div className="text-4xl sm:text-5xl font-bold text-highlight">
                 {metric.value}
               </div>
               <div className="text-text-primary font-medium mt-3">

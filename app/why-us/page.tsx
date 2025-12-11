@@ -263,7 +263,7 @@ export default function WhyUsPage() {
             >
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-white bg-gradient-to-r from-accent-teal to-accent-blue rounded-xl hover:from-accent-teal-light hover:to-accent-blue-light transition-all duration-300 shadow-lg shadow-accent-teal/20"
+                className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-cta-text bg-cta rounded-xl hover:brightness-110 transition-all duration-300 shadow-lg shadow-cta/25"
               >
                 Book a Strategy Call
                 <svg
@@ -314,7 +314,7 @@ export default function WhyUsPage() {
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 tracking-tight">
               Five reasons enterprise teams{" "}
-              <span className="bg-gradient-to-r from-accent-teal-light to-accent-blue-light bg-clip-text text-transparent">
+              <span className="text-highlight">
                 choose Procedure
               </span>
             </h2>
@@ -544,7 +544,7 @@ export default function WhyUsPage() {
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
               From first call to{" "}
-              <span className="bg-gradient-to-r from-accent-teal-light to-accent-blue-light bg-clip-text text-transparent">
+              <span className="text-highlight">
                 production code
               </span>
             </h2>
@@ -639,7 +639,7 @@ export default function WhyUsPage() {
                 transition={{ delay: idx * 0.1, duration: 0.5 }}
                 className="text-center"
               >
-                <div className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-accent-teal-light to-accent-blue-light bg-clip-text text-transparent mb-2">
+                <div className="text-4xl sm:text-5xl font-bold text-highlight mb-2">
                   {stat.value}
                 </div>
                 <div className="text-sm text-text-secondary">{stat.label}</div>
@@ -756,7 +756,7 @@ export default function WhyUsPage() {
             <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-text-primary mb-6">
               Ready to Ship AI
               <br />
-              <span className="bg-gradient-to-r from-accent-teal-light to-accent-blue-light bg-clip-text text-transparent">
+              <span className="text-highlight">
                 That Actually Works?
               </span>
             </h2>
@@ -769,7 +769,7 @@ export default function WhyUsPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-white bg-gradient-to-r from-accent-teal to-accent-blue rounded-xl hover:from-accent-teal-light hover:to-accent-blue-light transition-all duration-300 shadow-lg shadow-accent-teal/20"
+                className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-cta-text bg-cta rounded-xl hover:brightness-110 transition-all duration-300 shadow-lg shadow-cta/25"
               >
                 Schedule Your Strategy Call
                 <svg

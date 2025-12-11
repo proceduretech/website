@@ -42,7 +42,7 @@ export function Stats() {
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               className="text-center"
             >
-              <div className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent-teal-light to-accent-blue-light bg-clip-text text-transparent mb-1 sm:mb-2">
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-highlight mb-1 sm:mb-2">
                 {stat.value}
               </div>
               <div className="text-text-secondary text-xs sm:text-sm">

@@ -170,7 +170,7 @@ export default function CaseStudiesPage() {
             >
               AI That Ships.
               <br />
-              <span className="bg-gradient-to-r from-accent-teal-light to-accent-blue-light bg-clip-text text-transparent">
+              <span className="text-highlight">
                 Results That Matter.
               </span>
             </motion.h1>
@@ -200,7 +200,7 @@ export default function CaseStudiesPage() {
                 { value: "98%", label: "Client Retention" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
-                  <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-accent-teal-light to-accent-blue-light bg-clip-text text-transparent">
+                  <div className="text-3xl sm:text-4xl font-bold text-highlight">
                     {stat.value}
                   </div>
                   <div className="text-sm text-text-muted mt-1">{stat.label}</div>
@@ -547,7 +547,7 @@ export default function CaseStudiesPage() {
             <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-text-primary mb-6">
               Ready to Build Your
               <br />
-              <span className="bg-gradient-to-r from-accent-teal-light to-accent-blue-light bg-clip-text text-transparent">
+              <span className="text-highlight">
                 Success Story?
               </span>
             </h2>
@@ -559,7 +559,7 @@ export default function CaseStudiesPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <CalButton className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-accent-teal to-accent-blue rounded-xl hover:from-accent-teal-light hover:to-accent-blue-light transition-all duration-200 shadow-lg shadow-accent-teal/20 cursor-pointer">
+              <CalButton className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-cta-text bg-cta rounded-xl hover:brightness-110 transition-all duration-200 shadow-lg shadow-cta/25 cursor-pointer">
                 Book a Strategy Call
                 <svg
                   className="w-5 h-5 ml-2"

@@ -71,7 +71,7 @@ export function ExpertiseHero({
           className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.1] text-text-primary mb-6"
         >
           {headline}{' '}
-          <span className="bg-gradient-to-r from-accent-teal-light to-accent-blue-light bg-clip-text text-transparent">
+          <span className="text-highlight">
             {headlineAccent}
           </span>
         </motion.h1>

@@ -183,7 +183,7 @@ export function HowWeWork() {
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary mb-4 sm:mb-6 tracking-tight">
             From first call to{" "}
-            <span className="bg-gradient-to-r from-accent-teal-light to-accent-blue-light bg-clip-text text-transparent">
+            <span className="text-highlight">
               production-ready code
             </span>
           </h2>

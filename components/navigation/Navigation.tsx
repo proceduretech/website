@@ -234,7 +234,7 @@ export function Navigation() {
             <div className="mt-8 px-4">
               <Link
                 href="/contact"
-                className="block w-full py-3 text-center font-semibold text-white bg-gradient-to-r from-accent-teal to-accent-blue rounded-lg"
+                className="block w-full py-3 text-center font-semibold text-cta-text bg-cta rounded-lg hover:brightness-110"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Contact Us

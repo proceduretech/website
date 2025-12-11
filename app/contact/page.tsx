@@ -86,7 +86,7 @@ export default function ContactPage() {
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary leading-[1.1] tracking-tight mb-6">
                 Start Building with
                 <br />
-                <span className="bg-gradient-to-r from-accent-teal-light to-accent-blue-light bg-clip-text text-transparent">
+                <span className="text-highlight">
                   Elite AI Engineers
                 </span>
               </h1>
@@ -323,7 +323,7 @@ export default function ContactPage() {
                           transition-all duration-300
                           ${isSubmitting
                             ? "bg-surface-elevated text-text-muted cursor-not-allowed"
-                            : "bg-gradient-to-r from-accent-teal to-accent-blue text-white shadow-lg shadow-accent-teal/25 hover:shadow-xl hover:shadow-accent-teal/30 hover:from-accent-teal-light hover:to-accent-blue-light"
+                            : "bg-cta text-cta-text shadow-lg shadow-cta/25 hover:shadow-xl hover:shadow-cta/30 hover:brightness-110"
                           }
                         `}
                       >

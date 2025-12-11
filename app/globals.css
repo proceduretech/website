@@ -9,6 +9,11 @@
     --color-accent-teal-light: #14b8a6;
     --color-accent-blue: #2563eb;
     --color-accent-blue-light: #3b82f6;
+
+    /* Designer-approved solid colors */
+    --color-highlight: #00CCB8;
+    --color-cta: #007DE5;
+    --color-cta-text: #FCFCFC;
     --color-border: #1e293b;
     --color-border-light: #334155;
     --color-text-primary: #e5e7eb;

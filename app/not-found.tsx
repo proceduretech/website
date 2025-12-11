@@ -75,7 +75,7 @@ export default function NotFound() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-2 text-xl sm:text-2xl font-medium bg-gradient-to-r from-accent-teal-light to-accent-blue-light bg-clip-text text-transparent"
+            className="mt-2 text-xl sm:text-2xl font-medium text-highlight"
           >
             But this page definitely is.
           </motion.p>
@@ -101,7 +101,7 @@ export default function NotFound() {
           >
             <Link
               href="/"
-              className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-gray-900 bg-gradient-to-r from-accent-teal to-accent-blue rounded-xl hover:from-accent-teal-light hover:to-accent-blue-light transition-all duration-200 shadow-lg shadow-accent-teal/20"
+              className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-cta-text bg-cta rounded-xl hover:brightness-110 transition-all duration-200 shadow-lg shadow-cta/25"
             >
               <svg
                 className="w-5 h-5 mr-2"

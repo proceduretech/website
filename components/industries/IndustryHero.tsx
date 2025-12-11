@@ -78,7 +78,7 @@ export function IndustryHero({
           className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.1] text-text-primary mb-6"
         >
           {headline}{' '}
-          <span className="bg-gradient-to-r from-accent-teal-light to-accent-blue-light bg-clip-text text-transparent">
+          <span className="text-highlight">
             {headlineAccent}
           </span>
         </motion.h1>
@@ -115,7 +115,7 @@ export function IndustryHero({
               key={index}
               className="p-4 sm:p-6 rounded-xl text-center bg-surface-elevated/50 backdrop-blur-sm border border-border"
             >
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-accent-teal-light to-accent-blue-light bg-clip-text text-transparent">
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-highlight">
                 {stat.value}
               </div>
               <div className="text-xs sm:text-sm text-text-secondary mt-1 sm:mt-2">

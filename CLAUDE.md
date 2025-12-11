@@ -63,7 +63,9 @@ public/
 - **Theme:** Dark theme with premium enterprise aesthetic
 - **Base color:** #0F172A (dark navy)
 - **Surface colors:** #1E293B (elevated), #0F172A (base)
-- **Accent colors:** Teal (#14B8A6) to Blue (#3B82F6) gradients
+- **Accent colors:** Teal (#14B8A6) to Blue (#3B82F6) for backgrounds only
+- **Highlight text:** Solid #00CCB8 (`text-highlight`) - no gradient text
+- **CTA buttons:** Solid #007DE5 (`bg-cta`) with #FCFCFC text (`text-cta-text`)
 - **Text colors:** #E5E7EB (primary), #9CA3AF (secondary), #6B7280 (muted)
 - **Typography:** Outfit for body, tight tracking for headings
 - **Animations:** Framer Motion for scroll-triggered animations and micro-interactions
@@ -72,7 +74,7 @@ public/
 
 - **Glassmorphic cards:** `bg-surface/80 backdrop-blur-xl border border-border` with gradient glow effects
 - **Floating label inputs:** Animated labels that move on focus/fill
-- **Gradient CTAs:** `bg-gradient-to-r from-accent-teal to-accent-blue` with hover effects
+- **Primary CTAs:** `bg-cta text-cta-text hover:brightness-110` with solid color (no gradients)
 
 ### Path Aliases
 

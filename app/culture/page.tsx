@@ -477,7 +477,7 @@ export default function CulturePage() {
             >
               Where Elite Engineers
               <br />
-              <span className="bg-gradient-to-r from-accent-teal-light via-accent-blue-light to-accent-teal-light bg-clip-text text-transparent bg-[length:200%_auto] animate-[gradient_8s_linear_infinite]">
+              <span className="text-highlight">
                 Build What Matters
               </span>
             </motion.h1>
@@ -504,7 +504,7 @@ export default function CulturePage() {
             >
               <Link
                 href="/careers"
-                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-accent-teal to-accent-blue rounded-xl hover:from-accent-teal-light hover:to-accent-blue-light transition-all duration-200 shadow-lg shadow-accent-teal/20"
+                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-cta-text bg-cta rounded-xl hover:brightness-110 transition-all duration-200 shadow-lg shadow-cta/25"
               >
                 View Open Roles
                 <svg
@@ -573,7 +573,7 @@ export default function CulturePage() {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary mb-6">
               Principles That Guide
               <br />
-              <span className="bg-gradient-to-r from-accent-teal-light to-accent-blue-light bg-clip-text text-transparent">
+              <span className="text-highlight">
                 Every Decision
               </span>
             </h2>
@@ -692,7 +692,7 @@ export default function CulturePage() {
             </p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary mb-6">
               Built for Deep Work
-              <span className="bg-gradient-to-r from-accent-teal-light to-accent-blue-light bg-clip-text text-transparent">
+              <span className="text-highlight">
                 {" "}
                 and Meaning
               </span>
@@ -768,7 +768,7 @@ export default function CulturePage() {
             </p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary mb-6">
               Engineers Who
-              <span className="bg-gradient-to-r from-accent-teal-light to-accent-blue-light bg-clip-text text-transparent">
+              <span className="text-highlight">
                 {" "}
                 Ship
               </span>
@@ -789,7 +789,7 @@ export default function CulturePage() {
           >
             {teamStats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <div className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-accent-teal-light to-accent-blue-light bg-clip-text text-transparent">
+                <div className="text-4xl sm:text-5xl font-bold text-highlight">
                   {stat.value}
                 </div>
                 <div className="text-sm text-text-muted mt-1">{stat.label}</div>
@@ -865,7 +865,7 @@ export default function CulturePage() {
             </p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary mb-6">
               More Than a
-              <span className="bg-gradient-to-r from-accent-teal-light to-accent-blue-light bg-clip-text text-transparent">
+              <span className="text-highlight">
                 {" "}
                 Paycheck
               </span>
@@ -1041,7 +1041,7 @@ export default function CulturePage() {
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary leading-[1.1] tracking-tight mb-6">
               Ready to Build AI
               <br />
-              <span className="bg-gradient-to-r from-accent-teal-light to-accent-blue-light bg-clip-text text-transparent">
+              <span className="text-highlight">
                 That Actually Ships?
               </span>
             </h2>
@@ -1057,7 +1057,7 @@ export default function CulturePage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Link
                 href="/careers"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-accent-teal to-accent-blue rounded-xl hover:from-accent-teal-light hover:to-accent-blue-light transition-all duration-300 shadow-lg shadow-accent-teal/25 hover:shadow-xl hover:shadow-accent-teal/30 hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-cta-text bg-cta rounded-xl hover:brightness-110 transition-all duration-300 shadow-lg shadow-cta/25 hover:shadow-xl hover:shadow-cta/30 hover:-translate-y-0.5"
               >
                 Explore Open Positions
                 <svg

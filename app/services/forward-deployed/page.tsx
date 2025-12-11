@@ -110,7 +110,7 @@ export default function ForwardDeployedPage() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-white bg-gradient-to-r from-accent-teal to-accent-blue rounded-xl hover:from-accent-teal-light hover:to-accent-blue-light transition-all duration-300 shadow-lg shadow-accent-teal/20"
+                className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-cta-text bg-cta rounded-xl hover:brightness-110 transition-all duration-300 shadow-lg shadow-cta/25"
               >
                 Schedule a Strategy Call
               </Link>
@@ -271,7 +271,7 @@ export default function ForwardDeployedPage() {
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
               Get Embedded AI Engineers Deployed{" "}
-              <span className="bg-gradient-to-r from-accent-teal-light to-accent-blue-light bg-clip-text text-transparent">
+              <span className="text-highlight">
                 This Week
               </span>
             </h2>
@@ -281,7 +281,7 @@ export default function ForwardDeployedPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-accent-teal to-accent-blue rounded-xl hover:from-accent-teal-light hover:to-accent-blue-light transition-all duration-300 shadow-lg shadow-accent-teal/20"
+              className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-cta-text bg-cta rounded-xl hover:brightness-110 transition-all duration-300 shadow-lg shadow-cta/25"
             >
               Schedule Your Strategy Call
               <svg
