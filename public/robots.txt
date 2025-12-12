@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://procedure.tech/sitemap.xml
