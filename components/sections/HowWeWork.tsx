@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Timeline } from "@/components/ui/timeline";
 
 const processSteps = [
   {
@@ -158,68 +159,26 @@ export function HowWeWork() {
           </p>
         </motion.div>
 
-        {/* Process Timeline - Enhanced */}
+        {/* Process Timeline - Aceternity UI */}
         <div className="relative mb-24 sm:mb-32">
-          {/* Animated connection line - desktop */}
-          <div className="hidden lg:block absolute top-[32px] left-[10%] right-[10%] h-[2px]">
-            {/* Base line */}
-            <div className="absolute inset-0 bg-border/50" />
-            {/* Animated solid line */}
-            <motion.div
-              className="absolute inset-0 bg-cta"
-              initial={{ scaleX: 0, opacity: 0 }}
-              whileInView={{ scaleX: 1, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 1.5,
-                delay: 0.3,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              style={{ transformOrigin: "left" }}
-            />
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-5">
-            {processSteps.map((step, idx) => (
-              <motion.div
-                key={step.step}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{
-                  duration: 0.5,
-                  delay: idx * 0.12,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                className="relative group"
-              >
-                {/* Card glow effect */}
-                <div className="absolute -inset-px bg-gradient-to-b from-accent-teal/0 to-accent-blue/0 group-hover:from-accent-teal/20 group-hover:to-accent-blue/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700" />
-
-                <div className="relative p-6 rounded-2xl bg-surface-elevated/80 backdrop-blur-sm border border-border group-hover:border-accent-teal/40 transition-all duration-500 h-full group-hover:shadow-xl group-hover:shadow-accent-teal/[0.08] group-hover:-translate-y-1">
-                  {/* Step number - solid blue background */}
-                  <div className="relative mb-6">
-                    <div className="w-16 h-16 mx-auto lg:mx-0 rounded-full bg-cta flex items-center justify-center shadow-lg shadow-cta/25">
-                      <span className="text-xl font-bold text-white">
-                        {step.step}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <h3 className="text-lg font-semibold text-text-primary mb-1 group-hover:text-accent-teal-light transition-colors duration-300">
+          <Timeline
+            data={processSteps.map((step) => ({
+              title: step.step,
+              content: (
+                <div className="bg-surface-elevated/80 backdrop-blur-sm rounded-2xl p-6 border border-border hover:border-accent-teal/40 transition-all duration-300">
+                  <h3 className="text-xl font-semibold text-text-primary mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-sm text-text-muted mb-2">
+                  <span className="inline-block px-3 py-1 text-xs font-medium text-accent-teal-light bg-accent-teal/10 border border-accent-teal/20 rounded-full mb-3">
                     {step.duration}
-                  </p>
-                  <p className="text-sm text-text-secondary leading-relaxed">
+                  </span>
+                  <p className="text-text-secondary leading-relaxed">
                     {step.description}
                   </p>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+              ),
+            }))}
+          />
         </div>
 
         {/* Section Divider */}

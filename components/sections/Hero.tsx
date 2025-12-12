@@ -4,6 +4,10 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ClientLogos } from "./ClientLogos";
 import { CalButton } from "@/components/CalButton";
+import {
+  TextGenerateEffect,
+  TextGenerateEffectHighlight,
+} from "@/components/ui/text-generate-effect";
 
 export function Hero() {
   return (
@@ -148,16 +152,21 @@ export function Hero() {
           </motion.div>
 
           {/* Main headline - larger, bolder for center layout */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-text-primary leading-[1.1] tracking-tight"
-          >
-            AI Engineering
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-text-primary leading-[1.1] tracking-tight">
+            <TextGenerateEffect
+              words="AI Engineering"
+              duration={0.4}
+              staggerDelay={0.15}
+            />
             <br />
-            <span className="text-highlight">That Ships to Production</span>
-          </motion.h1>
+            <TextGenerateEffectHighlight
+              words="That Ships to Production"
+              className="text-highlight"
+              duration={0.4}
+              staggerDelay={0.12}
+              initialDelay={0.5}
+            />
+          </h1>
 
           {/* Subheadline */}
           <motion.p

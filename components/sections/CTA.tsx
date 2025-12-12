@@ -2,10 +2,17 @@
 
 import { motion } from "framer-motion";
 import { CalButton } from "@/components/CalButton";
+import { Spotlight } from "@/components/ui/spotlight";
 
 export function CTA() {
   return (
     <section className="relative py-16 sm:py-24 bg-surface overflow-hidden">
+      {/* Spotlight effect */}
+      <Spotlight
+        className="-top-40 left-0 md:left-60 md:-top-20"
+        fill="rgba(20, 184, 166, 0.4)"
+      />
+
       <div className="absolute inset-0 bg-gradient-to-r from-accent-teal/5 to-accent-blue/5" />
       {/* Diamond/rhombus pattern */}
       <div
