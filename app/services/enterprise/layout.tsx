@@ -12,11 +12,9 @@ export const metadata: Metadata = {
     description:
       "Enterprise-grade AI solutions with security and compliance built in. SOC 2, HIPAA, GDPR compliant teams delivering production AI at enterprise scale.",
     type: "website",
-    images: ["/og-image.png"],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/og-image.png"],
   },
 };
 

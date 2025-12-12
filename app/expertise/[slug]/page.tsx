@@ -46,11 +46,9 @@ export async function generateMetadata({
       title: page.meta.title,
       description: page.meta.description,
       type: "website",
-      images: ["/og-image.png"],
     },
     twitter: {
       card: "summary_large_image",
-      images: ["/og-image.png"],
     },
   };
 }
