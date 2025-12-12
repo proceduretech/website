@@ -14,7 +14,7 @@
   --color-accent-blue-light: #3b82f6;
 
   /* Designer-approved solid colors */
-  --color-highlight: #00ccb8;
+  --color-highlight: #0db5a5;
   --color-cta: #007de5;
   --color-cta-text: #fcfcfc;
   --color-border: #1e293b;
@@ -137,6 +137,19 @@
 }
 
 @layer utilities {
+  /* Section background utilities for visual rhythm */
+  .section-base {
+    background-color: #0f172a;
+  }
+
+  .section-alt {
+    background-color: #080c14;
+  }
+
+  .section-elevated {
+    background-color: #131b2e;
+  }
+
   @keyframes gradient {
     0%,
     100% {
@@ -229,7 +242,7 @@
 }
 
 .mdx-content .anchor:hover {
-  color: #00ccb8;
+  color: #0db5a5;
 }
 
 /* Paragraphs */

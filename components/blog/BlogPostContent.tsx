@@ -15,7 +15,7 @@ export function BlogPostContent({ content }: BlogPostContentProps) {
           --tw-prose-body: #9ca3af;
           --tw-prose-headings: #e5e7eb;
           --tw-prose-lead: #9ca3af;
-          --tw-prose-links: #00ccb8;
+          --tw-prose-links: #0db5a5;
           --tw-prose-bold: #e5e7eb;
           --tw-prose-counters: #7c8594;
           --tw-prose-bullets: #14b8a6;
@@ -23,7 +23,7 @@ export function BlogPostContent({ content }: BlogPostContentProps) {
           --tw-prose-quotes: #9ca3af;
           --tw-prose-quote-borders: #14b8a6;
           --tw-prose-captions: #7c8594;
-          --tw-prose-code: #00ccb8;
+          --tw-prose-code: #0db5a5;
           --tw-prose-pre-code: #e5e7eb;
           --tw-prose-pre-bg: #131b2e;
           --tw-prose-th-borders: #1e293b;
@@ -58,11 +58,11 @@ export function BlogPostContent({ content }: BlogPostContentProps) {
           color: var(--tw-prose-links);
           text-decoration: underline;
           text-underline-offset: 4px;
-          text-decoration-color: rgba(0, 204, 184, 0.5);
+          text-decoration-color: rgba(13, 181, 165, 0.5);
         }
 
         .prose a:hover {
-          text-decoration-color: rgba(0, 204, 184, 1);
+          text-decoration-color: rgba(13, 181, 165, 1);
         }
 
         .prose strong {

@@ -64,7 +64,7 @@ public/
 - **Base color:** #0F172A (dark navy)
 - **Surface colors:** #1E293B (elevated), #0F172A (base)
 - **Accent colors:** Teal (#14B8A6) to Blue (#3B82F6) for backgrounds only
-- **Highlight text:** Solid #00CCB8 (`text-highlight`) - no gradient text
+- **Highlight text:** Solid #0DB5A5 (`text-highlight`) - no gradient text
 - **CTA buttons:** Solid #007DE5 (`bg-cta`) with #FCFCFC text (`text-cta-text`)
 - **Text colors:** #E5E7EB (primary), #9CA3AF (secondary), #6B7280 (muted)
 - **Typography:** Inter for body copy (better readability), Outfit for headings/buttons/nav (brand display font)

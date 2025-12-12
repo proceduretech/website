@@ -164,7 +164,7 @@ export function Services() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section className="relative py-16 sm:py-24 overflow-hidden bg-base">
+    <section className="relative py-16 sm:py-24 overflow-hidden section-alt">
       {/* Diagonal lines pattern */}
       <div
         className="absolute inset-0 opacity-[0.02]"
