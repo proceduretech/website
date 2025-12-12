@@ -1,0 +1,138 @@
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+
+const BLOG_DIR = path.join(process.cwd(), "content/blog");
+
+export interface MDXFrontmatter {
+  title: string;
+  excerpt: string;
+  publishedAt: string;
+  updatedAt?: string;
+  author: {
+    name: string;
+    role: string;
+    avatar?: string;
+    twitter?: string;
+    linkedin?: string;
+  };
+  category: {
+    name: string;
+    slug: string;
+    color: "teal" | "blue" | "default" | "highlight";
+  };
+  tags?: string[];
+  featuredImage?: string;
+  featured?: boolean;
+  readTime?: number;
+}
+
+export interface MDXPost {
+  slug: string;
+  frontmatter: MDXFrontmatter;
+  content: string;
+}
+
+// Get all MDX files from the blog directory
+export function getAllMDXPosts(): MDXPost[] {
+  if (!fs.existsSync(BLOG_DIR)) {
+    return [];
+  }
+
+  const files = fs.readdirSync(BLOG_DIR).filter((file) => file.endsWith(".mdx"));
+
+  const posts = files.map((file) => {
+    const slug = file.replace(".mdx", "");
+    const filePath = path.join(BLOG_DIR, file);
+    const fileContent = fs.readFileSync(filePath, "utf-8");
+    const { data, content } = matter(fileContent);
+
+    return {
+      slug,
+      frontmatter: data as MDXFrontmatter,
+      content,
+    };
+  });
+
+  // Sort by publish date (newest first)
+  return posts.sort(
+    (a, b) =>
+      new Date(b.frontmatter.publishedAt).getTime() -
+      new Date(a.frontmatter.publishedAt).getTime()
+  );
+}
+
+// Get a single MDX post by slug
+export function getMDXPostBySlug(slug: string): MDXPost | null {
+  const filePath = path.join(BLOG_DIR, `${slug}.mdx`);
+
+  if (!fs.existsSync(filePath)) {
+    return null;
+  }
+
+  const fileContent = fs.readFileSync(filePath, "utf-8");
+  const { data, content } = matter(fileContent);
+
+  return {
+    slug,
+    frontmatter: data as MDXFrontmatter,
+    content,
+  };
+}
+
+// Get all MDX post slugs for static generation
+export function getAllMDXSlugs(): string[] {
+  if (!fs.existsSync(BLOG_DIR)) {
+    return [];
+  }
+
+  return fs
+    .readdirSync(BLOG_DIR)
+    .filter((file) => file.endsWith(".mdx"))
+    .map((file) => file.replace(".mdx", ""));
+}
+
+// Calculate read time based on content
+export function calculateReadTime(content: string): number {
+  const wordsPerMinute = 200;
+  const words = content.trim().split(/\s+/).length;
+  return Math.ceil(words / wordsPerMinute);
+}
+
+// Get featured MDX posts
+export function getFeaturedMDXPosts(): MDXPost[] {
+  return getAllMDXPosts().filter((post) => post.frontmatter.featured);
+}
+
+// Get related posts based on category and tags
+export function getRelatedMDXPosts(
+  currentPost: MDXPost,
+  limit: number = 3
+): MDXPost[] {
+  const allPosts = getAllMDXPosts();
+
+  return allPosts
+    .filter((post) => post.slug !== currentPost.slug)
+    .map((post) => {
+      let score = 0;
+
+      // Same category = 3 points
+      if (
+        post.frontmatter.category.slug ===
+        currentPost.frontmatter.category.slug
+      ) {
+        score += 3;
+      }
+
+      // Matching tags = 1 point each
+      const currentTags = currentPost.frontmatter.tags || [];
+      const postTags = post.frontmatter.tags || [];
+      const matchingTags = postTags.filter((tag) => currentTags.includes(tag));
+      score += matchingTags.length;
+
+      return { post, score };
+    })
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limit)
+    .map(({ post }) => post);
+}

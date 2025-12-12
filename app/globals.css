@@ -114,3 +114,240 @@
     }
   }
 }
+
+/* MDX Content Typography - using direct CSS for reliability */
+.mdx-content {
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  color: #9ca3af;
+  line-height: 1.75;
+}
+
+/* Headings */
+.mdx-content h1,
+.mdx-content h2,
+.mdx-content h3,
+.mdx-content h4,
+.mdx-content h5,
+.mdx-content h6 {
+  font-family: var(--font-outfit), system-ui, -apple-system, sans-serif;
+  color: #e5e7eb;
+  scroll-margin-top: 6rem;
+}
+
+.mdx-content h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.mdx-content h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.mdx-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.mdx-content h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Anchor links on headings */
+.mdx-content .anchor {
+  color: #e5e7eb;
+  text-decoration: none;
+}
+
+.mdx-content .anchor:hover {
+  color: #00ccb8;
+}
+
+/* Paragraphs */
+.mdx-content p {
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: #9ca3af;
+}
+
+/* Lists */
+.mdx-content ul,
+.mdx-content ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+  color: #9ca3af;
+}
+
+.mdx-content ul {
+  list-style-type: disc;
+}
+
+.mdx-content ol {
+  list-style-type: decimal;
+}
+
+.mdx-content li {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  margin-bottom: 0.5rem;
+  color: #9ca3af;
+}
+
+.mdx-content li::marker {
+  color: #14b8a6;
+}
+
+/* Nested lists */
+.mdx-content ul ul,
+.mdx-content ol ol,
+.mdx-content ul ol,
+.mdx-content ol ul {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+/* Strong and emphasis */
+.mdx-content strong {
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+.mdx-content em {
+  font-style: italic;
+}
+
+/* First paragraph after heading - no extra margin */
+.mdx-content h1 + p,
+.mdx-content h2 + p,
+.mdx-content h3 + p,
+.mdx-content h4 + p {
+  margin-top: 0;
+}
+
+/* Horizontal rule */
+.mdx-content hr {
+  margin: 3rem 0;
+  border-color: #1e293b;
+}
+
+/* Strikethrough (GFM) */
+.mdx-content del {
+  text-decoration: line-through;
+  color: #7c8594;
+}
+
+/* Task lists (GFM) */
+.mdx-content input[type="checkbox"] {
+  margin-right: 0.5rem;
+  accent-color: #14b8a6;
+}
+
+/* Footnotes (GFM) */
+.mdx-content .footnotes {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #1e293b;
+  font-size: 0.875rem;
+}
+
+.mdx-content .footnotes ol {
+  padding-left: 1rem;
+}
+
+/* Code blocks from rehype-pretty-code */
+.mdx-content pre {
+  margin: 2rem 0;
+  border-radius: 0.75rem;
+  overflow-x: auto;
+}
+
+.mdx-content pre > code {
+  display: grid;
+  font-size: 0.875rem;
+  line-height: 1.75;
+}
+
+.mdx-content pre code [data-line] {
+  padding: 0.125rem 1rem;
+  border-left: 2px solid transparent;
+}
+
+.mdx-content pre code [data-line].highlighted {
+  background-color: rgba(20, 184, 166, 0.1);
+  border-left-color: #14b8a6;
+}
+
+.mdx-content pre code .word {
+  background-color: rgba(20, 184, 166, 0.2);
+  border-radius: 0.25rem;
+  padding: 0.125rem 0.25rem;
+}
+
+/* Line numbers */
+.mdx-content pre code[data-line-numbers] {
+  counter-reset: line;
+}
+
+.mdx-content pre code[data-line-numbers] > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+  margin-right: 1rem;
+  text-align: right;
+  display: inline-block;
+  width: 1rem;
+  color: #7c8594;
+}
+
+/* Language label */
+.mdx-content [data-rehype-pretty-code-title] {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-family: ui-monospace, monospace;
+  color: #7c8594;
+  background-color: #131b2e;
+  border: 1px solid #1e293b;
+  border-bottom: none;
+  border-radius: 0.75rem 0.75rem 0 0;
+}
+
+.mdx-content [data-rehype-pretty-code-title] + pre {
+  margin-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* Figcaption for code blocks */
+.mdx-content [data-rehype-pretty-code-caption] {
+  margin-top: 0.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #7c8594;
+}
+
+/* Prose container class for the article wrapper */
+.prose-container {
+  color: #9ca3af;
+}
+
+/* Steps component - CSS counter for numbering */
+.steps-container {
+  counter-reset: step-counter;
+}
+
+.step-item {
+  counter-increment: step-counter;
+}
+
+.step-number::before {
+  content: counter(step-counter);
+}
