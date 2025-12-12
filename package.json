@@ -5,9 +5,6 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:worker": "opennextjs-cloudflare build",
-    "preview": "opennextjs-cloudflare build && wrangler dev",
-    "deploy": "opennextjs-cloudflare build && wrangler deploy",
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
@@ -18,7 +15,6 @@
   },
   "dependencies": {
     "@calcom/embed-react": "^1.5.3",
-    "@opennextjs/cloudflare": "^1.14.5",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.25",
     "next": "^16.0.10",
@@ -37,7 +33,6 @@
     "eslint-config-next": "16.0.7",
     "tailwindcss": "^4",
     "typescript": "^5",
-    "wait-on": "^9.0.3",
-    "wrangler": "^4.54.0"
+    "wait-on": "^9.0.3"
   }
 }
