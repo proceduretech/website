@@ -31,17 +31,25 @@ export async function generateMetadata({
 
   if (!page) {
     return {
-      title: "Industries | Procedure",
+      title: "AI Solutions by Industry | Enterprise AI | Procedure",
     };
   }
 
   return {
     title: page.meta.title,
     description: page.meta.description,
+    alternates: {
+      canonical: `/industries/${slug}`,
+    },
     openGraph: {
       title: page.meta.title,
       description: page.meta.description,
       type: "website",
+      images: ["/og-image.png"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: ["/og-image.png"],
     },
   };
 }

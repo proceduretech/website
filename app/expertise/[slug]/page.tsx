@@ -32,17 +32,25 @@ export async function generateMetadata({
 
   if (!page) {
     return {
-      title: "Expertise | Procedure",
+      title: "AI Expertise | Enterprise Solutions | Procedure",
     };
   }
 
   return {
     title: page.meta.title,
     description: page.meta.description,
+    alternates: {
+      canonical: `/expertise/${slug}`,
+    },
     openGraph: {
       title: page.meta.title,
       description: page.meta.description,
       type: "website",
+      images: ["/og-image.png"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: ["/og-image.png"],
     },
   };
 }

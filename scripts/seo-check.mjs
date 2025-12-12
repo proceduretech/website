@@ -7,7 +7,7 @@ const PAGES = [
   '/services/enterprise',
   '/services/startups',
   '/case-studies',
-  '/expertise/ai-engineering',
+  '/expertise/llm-applications',
   '/industries/healthcare',
 ];
 
@@ -19,7 +19,10 @@ async function checkPage(page, url) {
   const fullUrl = `${BASE_URL}${url}`;
 
   try {
-    await page.goto(fullUrl, { waitUntil: 'networkidle', timeout: 30000 });
+    // Use domcontentloaded instead of networkidle to avoid timeouts on pages with external embeds
+    await page.goto(fullUrl, { waitUntil: 'domcontentloaded', timeout: 30000 });
+    // Wait a bit for any client-side rendering
+    await page.waitForTimeout(1000);
   } catch (err) {
     errors.push(`[${url}] Failed to load page: ${err.message}`);
     return { errors, warnings };

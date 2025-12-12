@@ -15,7 +15,10 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+const BASE_URL = "https://procedure.tech";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(BASE_URL),
   title: "AI Engineering Services | Enterprise AI Development | Procedure",
   description:
     "Forward-deployed AI engineers embedded with your team. We build production-grade AI systems, LLM applications, and custom ML models. Get builders, not consultants.",
@@ -29,11 +32,31 @@ export const metadata: Metadata = {
     "AI integration services",
     "production AI systems",
   ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "AI Engineering Services | Enterprise AI Development | Procedure",
     description:
       "Forward-deployed AI engineers embedded with your team. We build production-grade AI systems, LLM applications, and custom ML models.",
     type: "website",
+    url: BASE_URL,
+    siteName: "Procedure",
+    images: [
+      {
+        url: `${BASE_URL}/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: "Procedure - AI Engineering Services",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Engineering Services | Enterprise AI Development | Procedure",
+    description:
+      "Forward-deployed AI engineers embedded with your team. We build production-grade AI systems, LLM applications, and custom ML models.",
+    images: [`${BASE_URL}/og-image.png`],
   },
 };
 

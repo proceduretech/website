@@ -4,17 +4,22 @@ export const metadata: Metadata = {
   title: "About Procedure | Enterprise AI Engineering Services",
   description:
     "Procedure is an AI engineering company that builds production-ready systems for enterprises. Forward-deployed engineers. Real code. Actual results.",
+  alternates: {
+    canonical: "/about",
+  },
   openGraph: {
     title: "About Procedure | Enterprise AI Engineering Services",
     description:
       "Procedure is an AI engineering company that builds production-ready systems for enterprises. Forward-deployed engineers. Real code. Actual results.",
     type: "website",
+    images: ["/og-image.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: "About Procedure | Enterprise AI Engineering Services",
     description:
       "Procedure is an AI engineering company that builds production-ready systems for enterprises. Forward-deployed engineers. Real code. Actual results.",
+    images: ["/og-image.png"],
   },
 };
 
