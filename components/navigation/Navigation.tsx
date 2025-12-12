@@ -43,6 +43,7 @@ export function Navigation() {
   };
 
   return (
+    <>
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled || isMobileMenuOpen
@@ -169,7 +170,9 @@ export function Navigation() {
         </div>
       )}
 
-      {/* Mobile Menu */}
+    </header>
+
+      {/* Mobile Menu - Rendered outside header to avoid backdrop-filter containing block issue */}
       {isMobileMenuOpen && (
         <div className="lg:hidden fixed top-20 left-0 right-0 bottom-0 bg-surface z-40 overflow-y-auto">
           <div className="px-6 py-6">
@@ -243,7 +246,7 @@ export function Navigation() {
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 }
 
