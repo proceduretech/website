@@ -55,7 +55,7 @@ const services = [
     ),
     tags: [
       "Threat Protection",
-      "Prompt Injection Defense",
+      "Prompt Defense",
       "Data Privacy",
       "Compliance",
     ],
