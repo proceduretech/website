@@ -226,6 +226,7 @@ export function Services() {
                   <CardItem translateZ={40} className="mb-6">
                     <Link
                       href={service.href}
+                      scroll={true}
                       className="inline-flex items-center gap-2 text-accent-teal-light font-medium text-sm hover:text-accent-teal transition-colors"
                     >
                       Read More

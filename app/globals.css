@@ -71,7 +71,7 @@
   }
 
   html {
-    @apply scroll-smooth bg-base;
+    @apply bg-base;
     background-color: #0f172a;
     overscroll-behavior: none;
   }
