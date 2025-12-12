@@ -9,7 +9,7 @@ const services = [
     name: "AI Engineering",
     description:
       "Build AI-powered products that ship to production. From LLM integrations to AI agents and RAG systems, you get solutions built on proven engineering practices that scale with your business.",
-    href: "/services/ai-engineering",
+    href: "/expertise/llm-applications",
     icon: (
       <svg
         className="w-8 h-8"
@@ -37,7 +37,7 @@ const services = [
     name: "AI Security",
     description:
       "Protect your AI systems from emerging threats. Your models stay safe from prompt injection, jailbreaks, and data leakage with security measures designed specifically for AI workloads.",
-    href: "/services/ai-security",
+    href: "/expertise/ai-security",
     icon: (
       <svg
         className="w-8 h-8"
@@ -64,7 +64,7 @@ const services = [
     name: "Product Engineering",
     description:
       "Ship faster with a full-stack team that builds AI-integrated products. You get clean, maintainable code and modern development workflows that accelerate your time to market.",
-    href: "/services/product-engineering",
+    href: "/services/product-build",
     icon: (
       <svg
         className="w-8 h-8"
@@ -91,7 +91,7 @@ const services = [
     name: "Experience Design",
     description:
       "Design intuitive AI-powered products that users love. Your customers get seamless experiences that drive engagement, from conversational interfaces to intelligent dashboards.",
-    href: "/services/design",
+    href: "/expertise/product-design",
     icon: (
       <svg
         className="w-8 h-8"
@@ -113,7 +113,7 @@ const services = [
     name: "Cloud & DevOps",
     description:
       "Scale your infrastructure for AI workloads. You get cloud architecture optimized for ML models and LLM deployments, with CI/CD pipelines that handle AI-specific requirements.",
-    href: "/services/cloud-devops",
+    href: "/services/enterprise",
     icon: (
       <svg
         className="w-8 h-8"
@@ -140,7 +140,7 @@ const services = [
     name: "Web & Mobile Development",
     description:
       "Build AI-enhanced apps across every platform. Your users get fast, intelligent experiences with seamless AI integrations across web, iOS, and Android.",
-    href: "/services/web-mobile",
+    href: "/services/product-build",
     icon: (
       <svg
         className="w-8 h-8"
