@@ -1,7 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const services = [
   {
@@ -160,6 +161,8 @@ const services = [
 ];
 
 export function Services() {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   return (
     <section className="relative py-16 sm:py-24 overflow-hidden bg-base">
       {/* Diagonal lines pattern */}
@@ -185,52 +188,77 @@ export function Services() {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
           {services.map((service, idx) => (
-            <motion.div
+            <div
               key={service.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: idx * 0.1 }}
-              className="group bg-surface-elevated rounded-2xl p-6 sm:p-8 border border-border hover:border-accent-teal/50 transition-all duration-300"
+              className="relative group block p-2"
+              onMouseEnter={() => setHoveredIndex(idx)}
+              onMouseLeave={() => setHoveredIndex(null)}
             >
-              {/* Icon */}
-              <div className="w-14 h-14 rounded-xl bg-accent-teal/10 border border-accent-teal/20 flex items-center justify-center text-accent-teal-light mb-5">
-                {service.icon}
-              </div>
+              {/* Hover background effect */}
+              <AnimatePresence>
+                {hoveredIndex === idx && (
+                  <motion.span
+                    className="absolute inset-0 h-full w-full bg-accent-teal/10 block rounded-2xl"
+                    layoutId="hoverBackground"
+                    initial={{ opacity: 0 }}
+                    animate={{
+                      opacity: 1,
+                      transition: { duration: 0.15 },
+                    }}
+                    exit={{
+                      opacity: 0,
+                      transition: { duration: 0.15, delay: 0.1 },
+                    }}
+                  />
+                )}
+              </AnimatePresence>
 
-              {/* Title */}
-              <h3 className="text-xl font-semibold text-text-primary mb-3">
-                {service.name}
-              </h3>
-
-              {/* Description */}
-              <p className="text-text-secondary text-sm leading-relaxed mb-5">
-                {service.description}
-              </p>
-
-              {/* Read More Link */}
-              <Link
-                href={service.href}
-                className="inline-flex items-center gap-2 text-accent-teal-light font-medium text-sm group-hover:text-accent-teal transition-colors mb-6"
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                className="relative z-10 bg-surface-elevated rounded-2xl p-6 sm:p-8 border border-border group-hover:border-accent-teal/50 transition-all duration-300 h-full"
               >
-                Read More
-                <span className="w-6 h-px bg-accent-teal-light group-hover:w-8 transition-all" />
-              </Link>
+                {/* Icon */}
+                <div className="w-14 h-14 rounded-xl bg-accent-teal/10 border border-accent-teal/20 flex items-center justify-center text-accent-teal-light mb-5">
+                  {service.icon}
+                </div>
 
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 pt-5 border-t border-border">
-                {service.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 text-xs font-medium text-text-muted bg-surface border border-border rounded-full"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
+                {/* Title */}
+                <h3 className="text-xl font-semibold text-text-primary mb-3">
+                  {service.name}
+                </h3>
+
+                {/* Description */}
+                <p className="text-text-secondary text-sm leading-relaxed mb-5">
+                  {service.description}
+                </p>
+
+                {/* Read More Link */}
+                <Link
+                  href={service.href}
+                  className="inline-flex items-center gap-2 text-accent-teal-light font-medium text-sm group-hover:text-accent-teal transition-colors mb-6"
+                >
+                  Read More
+                  <span className="w-6 h-px bg-accent-teal-light group-hover:w-8 transition-all" />
+                </Link>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 pt-5 border-t border-border">
+                  {service.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-3 py-1 text-xs font-medium text-text-muted bg-surface border border-border rounded-full"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
           ))}
         </div>
       </div>

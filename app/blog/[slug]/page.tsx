@@ -14,6 +14,7 @@ import {
   BlogCTA,
 } from "@/components/blog";
 import { MDXContent } from "@/components/mdx";
+import { TracingBeam } from "@/components/ui/tracing-beam";
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -283,8 +284,45 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <BlogTableOfContents content={content} />
               </div>
 
-              {/* Article Content */}
-              <article className="max-w-3xl prose-container">
+              {/* Article Content with Tracing Beam */}
+              <TracingBeam className="hidden lg:block">
+                <article className="max-w-3xl prose-container pl-8">
+                  <Suspense fallback={<MDXContentLoading />}>
+                    <MDXContent source={content} />
+                  </Suspense>
+
+                  {/* Tags */}
+                  {frontmatter.tags && frontmatter.tags.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mt-12 pt-8 border-t border-border">
+                      <span className="text-sm text-text-muted mr-2">Tags:</span>
+                      {frontmatter.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-3 py-1 text-xs font-medium text-text-secondary bg-surface-elevated border border-border rounded-full"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Author Bio */}
+                  <BlogAuthorBio
+                    author={{
+                      id: frontmatter.author.name.toLowerCase().replace(/\s+/g, "-"),
+                      name: frontmatter.author.name,
+                      avatar: frontmatter.author.avatar || "/team/default.jpg",
+                      role: frontmatter.author.role,
+                      bio: "",
+                      twitter: frontmatter.author.twitter,
+                      linkedin: frontmatter.author.linkedin,
+                    }}
+                  />
+                </article>
+              </TracingBeam>
+
+              {/* Article Content - Mobile (no tracing beam) */}
+              <article className="max-w-3xl prose-container lg:hidden">
                 <Suspense fallback={<MDXContentLoading />}>
                   <MDXContent source={content} />
                 </Suspense>
@@ -471,8 +509,33 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               <BlogTableOfContents content={post.content} />
             </div>
 
-            {/* Article Content */}
-            <article className="max-w-3xl">
+            {/* Article Content with Tracing Beam */}
+            <TracingBeam className="hidden lg:block">
+              <article className="max-w-3xl pl-8">
+                <BlogPostContent content={post.content} />
+
+                {/* Tags */}
+                {post.tags && post.tags.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mt-12 pt-8 border-t border-border">
+                    <span className="text-sm text-text-muted mr-2">Tags:</span>
+                    {post.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1 text-xs font-medium text-text-secondary bg-surface-elevated border border-border rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                {/* Author Bio */}
+                <BlogAuthorBio author={post.author} />
+              </article>
+            </TracingBeam>
+
+            {/* Article Content - Mobile (no tracing beam) */}
+            <article className="max-w-3xl lg:hidden">
               <BlogPostContent content={post.content} />
 
               {/* Tags */}
