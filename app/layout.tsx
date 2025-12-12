@@ -19,6 +19,10 @@ const BASE_URL = "https://procedure.tech";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png",
+  },
   title: "AI Engineering Services | Enterprise AI Development | Procedure",
   description:
     "Forward-deployed AI engineers embedded with your team. We build production-grade AI systems, LLM applications, and custom ML models. Get builders, not consultants.",
@@ -42,14 +46,21 @@ export const metadata: Metadata = {
     type: "website",
     url: BASE_URL,
     siteName: "Procedure",
-    // Images auto-generated from app/opengraph-image.png
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Procedure - AI Engineering Services",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "AI Engineering Services | Enterprise AI Development | Procedure",
     description:
       "Forward-deployed AI engineers embedded with your team. We build production-grade AI systems, LLM applications, and custom ML models.",
-    // Images auto-generated from app/twitter-image.png
+    images: ["/og-image.png"],
   },
 };
 
