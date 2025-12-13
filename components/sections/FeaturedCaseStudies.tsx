@@ -2,10 +2,14 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { featuredCaseStudies } from "@/lib/case-studies-data";
 import { CaseStudyCard } from "@/components/ui";
+import type { CaseStudy } from "@/lib/case-studies-data";
 
-export function FeaturedCaseStudies() {
+interface FeaturedCaseStudiesProps {
+  caseStudies: CaseStudy[];
+}
+
+export function FeaturedCaseStudies({ caseStudies }: FeaturedCaseStudiesProps) {
   return (
     <section className="relative py-24 sm:py-36 bg-surface overflow-hidden">
       {/* Background pattern */}
@@ -56,7 +60,7 @@ export function FeaturedCaseStudies() {
 
         {/* Case Studies Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {featuredCaseStudies.map((study, idx) => (
+          {caseStudies.map((study, idx) => (
             <CaseStudyCard
               key={study.id}
               study={study}

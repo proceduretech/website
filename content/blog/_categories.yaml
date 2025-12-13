@@ -1,0 +1,38 @@
+# Blog Categories
+# Reference categories by their key in frontmatter: category: "llm-engineering"
+
+llm-engineering:
+  name: "LLM Engineering"
+  slug: "llm-engineering"
+  description: "Building reliable LLM applications at scale—prompting strategies, fine-tuning approaches, and inference optimization for production workloads."
+  color: "teal"
+
+ai-security:
+  name: "AI Security"
+  slug: "ai-security"
+  description: "Securing AI systems against adversarial attacks, prompt injection, model theft, and emerging threat vectors in production environments."
+  color: "blue"
+
+production-systems:
+  name: "Production Systems"
+  slug: "production-systems"
+  description: "Architecture patterns, reliability engineering, and operational excellence for AI systems serving millions of requests."
+  color: "default"
+
+ai-agents:
+  name: "AI Agents"
+  slug: "ai-agents"
+  description: "Designing, building, and deploying autonomous AI agents—from architecture decisions to production guardrails and observability."
+  color: "highlight"
+
+mlops:
+  name: "MLOps & Infrastructure"
+  slug: "mlops"
+  description: "CI/CD for ML, model deployment pipelines, feature stores, and the infrastructure that makes AI systems maintainable."
+  color: "teal"
+
+engineering-leadership:
+  name: "Engineering Leadership"
+  slug: "engineering-leadership"
+  description: "Building AI teams, technical decision-making frameworks, and organizational patterns for successful AI adoption."
+  color: "blue"

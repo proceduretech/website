@@ -1,6 +1,8 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import { getAuthor, getCategory } from "./content";
+import type { Author, BlogCategory } from "./content-types";
 
 const BLOG_DIR = path.join(process.cwd(), "content/blog");
 
@@ -9,18 +11,22 @@ export interface MDXFrontmatter {
   excerpt: string;
   publishedAt: string;
   updatedAt?: string;
-  author: {
-    name: string;
-    role: string;
-    avatar?: string;
-    twitter?: string;
-    linkedin?: string;
-  };
-  category: {
-    name: string;
-    slug: string;
-    color: "teal" | "blue" | "default" | "highlight";
-  };
+  author: Author;
+  category: BlogCategory;
+  tags?: string[];
+  featuredImage?: string;
+  featured?: boolean;
+  readTime?: number;
+}
+
+// Raw frontmatter before resolution
+interface RawMDXFrontmatter {
+  title: string;
+  excerpt: string;
+  publishedAt: string;
+  updatedAt?: string;
+  author: string; // Reference key
+  category: string; // Reference key
   tags?: string[];
   featuredImage?: string;
   featured?: boolean;
@@ -33,13 +39,41 @@ export interface MDXPost {
   content: string;
 }
 
+// Default author/category for fallback
+const defaultAuthor: Author = {
+  name: "Procedure Team",
+  role: "Engineering",
+  avatar: "/team/default.jpg",
+};
+
+const defaultCategory: BlogCategory = {
+  name: "Engineering",
+  slug: "engineering",
+  description: "Engineering insights",
+  color: "default",
+};
+
+// Resolve author and category references
+function resolveFrontmatter(raw: RawMDXFrontmatter): MDXFrontmatter {
+  const author = getAuthor(raw.author) || defaultAuthor;
+  const category = getCategory(raw.category) || defaultCategory;
+
+  return {
+    ...raw,
+    author,
+    category,
+  };
+}
+
 // Get all MDX files from the blog directory
 export function getAllMDXPosts(): MDXPost[] {
   if (!fs.existsSync(BLOG_DIR)) {
     return [];
   }
 
-  const files = fs.readdirSync(BLOG_DIR).filter((file) => file.endsWith(".mdx"));
+  const files = fs
+    .readdirSync(BLOG_DIR)
+    .filter((file) => file.endsWith(".mdx") && !file.startsWith("_"));
 
   const posts = files.map((file) => {
     const slug = file.replace(".mdx", "");
@@ -49,7 +83,7 @@ export function getAllMDXPosts(): MDXPost[] {
 
     return {
       slug,
-      frontmatter: data as MDXFrontmatter,
+      frontmatter: resolveFrontmatter(data as RawMDXFrontmatter),
       content,
     };
   });
@@ -75,7 +109,7 @@ export function getMDXPostBySlug(slug: string): MDXPost | null {
 
   return {
     slug,
-    frontmatter: data as MDXFrontmatter,
+    frontmatter: resolveFrontmatter(data as RawMDXFrontmatter),
     content,
   };
 }
@@ -88,7 +122,7 @@ export function getAllMDXSlugs(): string[] {
 
   return fs
     .readdirSync(BLOG_DIR)
-    .filter((file) => file.endsWith(".mdx"))
+    .filter((file) => file.endsWith(".mdx") && !file.startsWith("_"))
     .map((file) => file.replace(".mdx", ""));
 }
 

@@ -1,0 +1,34 @@
+# Industries
+# Canonical list of industries referenced across content
+
+financial-services:
+  name: "Financial Services"
+  slug: "financial-services"
+
+healthcare:
+  name: "Healthcare"
+  slug: "healthcare"
+
+ecommerce:
+  name: "E-Commerce"
+  slug: "ecommerce"
+
+saas:
+  name: "SaaS"
+  slug: "saas"
+
+manufacturing:
+  name: "Manufacturing"
+  slug: "manufacturing"
+
+technology:
+  name: "Technology"
+  slug: "technology"
+
+retail:
+  name: "Retail"
+  slug: "retail"
+
+edtech:
+  name: "EdTech"
+  slug: "edtech"

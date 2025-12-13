@@ -1,10 +1,10 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { IndustryIcons } from "@/lib/industries-data";
 import {
-  getAllIndustrySlugs,
-  getIndustryPage,
-  IndustryIcons,
-} from "@/lib/industries-data";
+  getAllIndustrySlugsFromContent,
+  getIndustryForListing,
+} from "@/lib/content";
 import {
   IndustryHero,
   ChallengesSection,
@@ -20,14 +20,14 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  return getAllIndustrySlugs().map((slug) => ({ slug }));
+  return getAllIndustrySlugsFromContent().map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const page = getIndustryPage(slug);
+  const page = getIndustryForListing(slug);
 
   if (!page) {
     return {
@@ -65,7 +65,7 @@ const ShieldCheckIcon = (
 
 export default async function IndustryPage({ params }: PageProps) {
   const { slug } = await params;
-  const pageData = getIndustryPage(slug);
+  const pageData = getIndustryForListing(slug);
 
   if (!pageData) {
     notFound();
@@ -74,13 +74,13 @@ export default async function IndustryPage({ params }: PageProps) {
   // Map challenges with their icons
   const challenges = pageData.challenges.map((challenge) => ({
     ...challenge,
-    icon: IndustryIcons[challenge.icon],
+    icon: IndustryIcons[challenge.icon as keyof typeof IndustryIcons] || IndustryIcons.alert,
   }));
 
   // Map solutions with their icons
   const solutions = pageData.solutions.map((solution) => ({
     ...solution,
-    icon: IndustryIcons[solution.icon],
+    icon: IndustryIcons[solution.icon as keyof typeof IndustryIcons] || IndustryIcons.sparkles,
   }));
 
   // Map compliance badges with icon
@@ -92,23 +92,25 @@ export default async function IndustryPage({ params }: PageProps) {
   return (
     <main className="min-h-screen">
       {/* JSON-LD Structured Data for FAQs */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: pageData.faqs.map((faq) => ({
-              "@type": "Question",
-              name: faq.question,
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: faq.answer,
-              },
-            })),
-          }),
-        }}
-      />
+      {pageData.faqs.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: pageData.faqs.map((faq) => ({
+                "@type": "Question",
+                name: faq.question,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: faq.answer,
+                },
+              })),
+            }),
+          }}
+        />
+      )}
 
       <IndustryHero
         badge={pageData.hero.badge}
@@ -119,26 +121,34 @@ export default async function IndustryPage({ params }: PageProps) {
         stats={pageData.hero.stats}
       />
 
-      <ChallengesSection
-        title={`The ${pageData.hero.badge} AI Challenge`}
-        challenges={challenges}
-      />
+      {challenges.length > 0 && (
+        <ChallengesSection
+          title={`The ${pageData.hero.badge} AI Challenge`}
+          challenges={challenges}
+        />
+      )}
 
-      <SolutionsGrid
-        title="How We Solve It"
-        subtitle="Production-ready solutions for your industry's unique challenges"
-        solutions={solutions}
-      />
+      {solutions.length > 0 && (
+        <SolutionsGrid
+          title="How We Solve It"
+          subtitle="Production-ready solutions for your industry's unique challenges"
+          solutions={solutions}
+        />
+      )}
 
-      <SuccessMetrics
-        title="Success Metrics"
-        subtitle="Real results from our industry engagements"
-        metrics={pageData.metrics}
-      />
+      {pageData.metrics.length > 0 && (
+        <SuccessMetrics
+          title="Success Metrics"
+          subtitle="Real results from our industry engagements"
+          metrics={pageData.metrics}
+        />
+      )}
 
-      <ComplianceBadges title="Compliance & Trust" badges={complianceBadges} />
+      {complianceBadges.length > 0 && (
+        <ComplianceBadges title="Compliance & Trust" badges={complianceBadges} />
+      )}
 
-      <FAQSection faqs={pageData.faqs} />
+      {pageData.faqs.length > 0 && <FAQSection faqs={pageData.faqs} />}
 
       <IndustryCTA
         headline={pageData.cta.headline}

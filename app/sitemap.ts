@@ -1,7 +1,9 @@
 import type { MetadataRoute } from 'next';
-import { getAllExpertiseSlugs } from '@/lib/expertise-data';
-import { getAllIndustrySlugs } from '@/lib/industries-data';
-import { getAllUseCaseSlugs } from '@/lib/use-cases-data';
+import {
+  getAllExpertiseSlugsFromContent,
+  getAllIndustrySlugsFromContent,
+  getAllUseCaseSlugsFromContent,
+} from '@/lib/content';
 
 const BASE_URL = 'https://procedure.tech';
 
@@ -49,7 +51,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   // Expertise pages (dynamic)
-  const expertiseSlugs = getAllExpertiseSlugs();
+  const expertiseSlugs = getAllExpertiseSlugsFromContent();
   for (const slug of expertiseSlugs) {
     entries.push({
       url: `${BASE_URL}/expertise/${slug}`,
@@ -60,7 +62,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   // Industry pages (dynamic)
-  const industrySlugs = getAllIndustrySlugs();
+  const industrySlugs = getAllIndustrySlugsFromContent();
   for (const slug of industrySlugs) {
     entries.push({
       url: `${BASE_URL}/industries/${slug}`,
@@ -71,7 +73,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   // Use case pages (dynamic)
-  const useCaseSlugs = getAllUseCaseSlugs();
+  const useCaseSlugs = getAllUseCaseSlugsFromContent();
   for (const slug of useCaseSlugs) {
     entries.push({
       url: `${BASE_URL}/use-cases/${slug}`,

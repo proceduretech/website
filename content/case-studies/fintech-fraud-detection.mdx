@@ -1,0 +1,73 @@
+---
+title: "Real-Time Fraud Detection That Saved $47M in Year One"
+client: "Fortune 500 Bank"
+industry: "financial-services"
+serviceType: "ai-engineering"
+challenge: |
+  A Fortune 500 bank needed to replace their rules-based fraud system that was missing sophisticated attacks while flagging legitimate transactions.
+solution: |
+  We deployed a multi-model AI ensemble that analyzes transactions in under 50ms, catching fraud patterns their legacy system never could.
+results:
+  - value: "94%"
+    label: "Fraud detection rate"
+  - value: "67%"
+    label: "Fewer false positives"
+  - value: "$47M"
+    label: "Prevented losses"
+technologies:
+  - PyTorch
+  - Kafka
+  - AWS SageMaker
+  - Real-time ML
+featured: true
+publishedAt: "2024-06-15"
+featuredImage: "/case-studies/fintech.jpg"
+seo:
+  title: "Fraud Detection AI Case Study | Procedure"
+  description: "How we helped a Fortune 500 bank save $47M with real-time AI fraud detection achieving 94% detection rate."
+---
+
+## The Challenge
+
+The bank's existing rules-based fraud detection system was falling behind. Sophisticated fraud patterns were slipping through while legitimate transactions were being flagged at an unacceptable rate, frustrating customers and costing the business.
+
+The legacy system relied on static rules that couldn't adapt to evolving fraud tactics. False positive rates were climbing, leading to declined transactions and customer churn.
+
+## Our Approach
+
+We designed and deployed a multi-model AI ensemble that combines:
+
+- **Real-time feature engineering** from transaction streams
+- **Gradient boosted models** for known fraud patterns
+- **Neural networks** for anomaly detection
+- **Graph analysis** for detecting coordinated fraud rings
+
+The system processes each transaction in under 50ms, making decisions before the payment completes.
+
+## Technical Implementation
+
+### Architecture Highlights
+
+- Event-driven architecture using Kafka for real-time transaction streaming
+- Feature store for consistent feature computation across training and inference
+- A/B testing framework for safe model deployment
+- Explainability layer for regulatory compliance
+
+### Model Pipeline
+
+The ensemble approach allows us to combine the interpretability of tree-based models with the pattern recognition capabilities of deep learning, while maintaining the sub-100ms latency requirements.
+
+## Results
+
+Within the first year of deployment:
+
+- **94% fraud detection rate** — up from 67% with the legacy system
+- **67% reduction in false positives** — improving customer experience
+- **$47M in prevented losses** — direct, measurable ROI
+- **Sub-50ms latency** — no impact on transaction processing time
+
+## Key Learnings
+
+1. **Ensemble approaches outperform single models** for fraud detection
+2. **Real-time feature engineering** is as important as model architecture
+3. **Explainability requirements** should be built in from the start, not retrofitted

@@ -1,0 +1,106 @@
+---
+title: "Platform Modernization That Enabled 10x Scale"
+client: "Fast-Growing Tech Company"
+industry: "technology"
+serviceType: "product-engineering"
+challenge: |
+  A fast-growing tech company hit a wall—their monolithic architecture could not handle increasing load and slowed development to a crawl.
+solution: |
+  Our engineers led a strategic microservices transformation that unlocked both technical scalability and team velocity.
+results:
+  - value: "10x"
+    label: "Traffic capacity increase"
+  - value: "3x"
+    label: "Faster deployment cycles"
+  - value: "99.99%"
+    label: "Uptime achieved"
+technologies:
+  - Kubernetes
+  - Go
+  - gRPC
+  - Terraform
+featured: false
+publishedAt: "2024-01-10"
+featuredImage: "/case-studies/technology.jpg"
+seo:
+  title: "Platform Modernization Case Study | Procedure"
+  description: "How we helped a fast-growing tech company achieve 10x scale and 99.99% uptime through strategic microservices transformation."
+---
+
+## The Challenge
+
+Success was becoming the company's biggest problem:
+
+- **Monolithic codebase** that took 45 minutes to deploy
+- **Database bottlenecks** limiting throughput
+- **Team conflicts** as 50+ engineers worked in the same codebase
+- **Reliability issues** where one bug could take down the entire platform
+- **Scaling ceiling** that would block growth within 6 months
+
+## Our Approach
+
+We led a strategic decomposition while keeping the platform running:
+
+### Assessment (Month 1)
+
+- Mapped service boundaries using domain-driven design
+- Identified highest-risk components and quick wins
+- Established migration patterns and standards
+- Built the platform foundation (Kubernetes, CI/CD, observability)
+
+### Incremental Migration (Months 2-6)
+
+Strangler fig pattern — extracting services one at a time:
+
+1. **Month 2**: Authentication service (highest risk, clear boundaries)
+2. **Month 3**: User service and API gateway
+3. **Month 4**: Payment processing (critical path)
+4. **Month 5**: Content delivery and search
+5. **Month 6**: Remaining services and monolith retirement
+
+### Optimization (Month 7+)
+
+- Performance tuning based on production metrics
+- Cost optimization of cloud resources
+- Team training and documentation
+- Runbook development for operations
+
+## Technical Implementation
+
+### Platform Stack
+
+- **Kubernetes** on AWS EKS for container orchestration
+- **Go** for new services (performance-critical paths)
+- **gRPC** for inter-service communication
+- **Terraform** for infrastructure as code
+- **ArgoCD** for GitOps deployments
+
+### Data Strategy
+
+- **Event sourcing** for audit and replay capabilities
+- **CQRS** for read/write optimization
+- **Database per service** pattern for independence
+- **Change data capture** for cross-service data needs
+
+### Observability
+
+- Distributed tracing with Jaeger
+- Metrics with Prometheus and Grafana
+- Centralized logging with structured events
+- SLO-based alerting
+
+## Results
+
+The transformation delivered on all objectives:
+
+- **10x traffic capacity** with horizontal scaling
+- **3x faster deployments** — from 45 minutes to 15 minutes
+- **99.99% uptime** — up from 99.5%
+- **Independent team velocity** — services can deploy without coordination
+- **50% infrastructure cost reduction** through right-sizing
+
+## Key Learnings
+
+1. **Migrate incrementally** — big bang rewrites fail
+2. **Invest in platform first** — CI/CD and observability enable everything else
+3. **Organizational change is as important as technical change** — team structure should match architecture

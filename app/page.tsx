@@ -10,8 +10,11 @@ import {
   FAQ,
   CTA,
 } from "@/components/sections";
+import { getFeaturedCaseStudiesForListing } from "@/lib/content";
 
 export default function Home() {
+  const featuredCaseStudies = getFeaturedCaseStudiesForListing();
+
   return (
     <main className="min-h-screen">
       <Hero />
@@ -19,7 +22,7 @@ export default function Home() {
       <Testimonials />
       <Services />
       <HowWeWork />
-      <FeaturedCaseStudies />
+      <FeaturedCaseStudies caseStudies={featuredCaseStudies} />
       <Stats />
       <AboutTeaser />
       <FAQ />

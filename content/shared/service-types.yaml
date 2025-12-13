@@ -1,0 +1,10 @@
+# Service Types
+# Used in case studies and across the site
+
+ai-engineering:
+  name: "AI Engineering"
+  description: "End-to-end AI system development, from prototypes to production-scale deployments."
+
+product-engineering:
+  name: "Product Engineering"
+  description: "Full-stack product development with modern technologies and best practices."

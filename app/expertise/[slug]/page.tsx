@@ -1,11 +1,11 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Icons } from "@/lib/expertise-data";
 import {
-  getAllExpertiseSlugs,
-  getExpertisePage,
-  getRelatedExpertisePages,
-  Icons,
-} from "@/lib/expertise-data";
+  getAllExpertiseSlugsFromContent,
+  getExpertiseForListing,
+  getRelatedExpertiseForListing,
+} from "@/lib/content";
 import {
   ExpertiseHero,
   CapabilitiesGrid,
@@ -21,14 +21,14 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  return getAllExpertiseSlugs().map((slug) => ({ slug }));
+  return getAllExpertiseSlugsFromContent().map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const page = getExpertisePage(slug);
+  const page = getExpertiseForListing(slug);
 
   if (!page) {
     return {
@@ -55,7 +55,7 @@ export async function generateMetadata({
 
 export default async function ExpertisePage({ params }: PageProps) {
   const { slug } = await params;
-  const pageData = getExpertisePage(slug);
+  const pageData = getExpertiseForListing(slug);
 
   if (!pageData) {
     notFound();
@@ -64,11 +64,11 @@ export default async function ExpertisePage({ params }: PageProps) {
   // Map capabilities with their icons
   const capabilities = pageData.capabilities.map((cap) => ({
     ...cap,
-    icon: Icons[cap.icon],
+    icon: Icons[cap.icon as keyof typeof Icons] || Icons.brain,
   }));
 
   // Get related expertise pages
-  const relatedPages = getRelatedExpertisePages(pageData.relatedExpertise);
+  const relatedPages = getRelatedExpertiseForListing(pageData.relatedExpertise);
 
   // Map technologies to objects
   const technologies = pageData.technologies.map((name) => ({ name }));
@@ -76,23 +76,25 @@ export default async function ExpertisePage({ params }: PageProps) {
   return (
     <main className="min-h-screen">
       {/* JSON-LD Structured Data for FAQs */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: pageData.faqs.map((faq) => ({
-              "@type": "Question",
-              name: faq.question,
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: faq.answer,
-              },
-            })),
-          }),
-        }}
-      />
+      {pageData.faqs.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: pageData.faqs.map((faq) => ({
+                "@type": "Question",
+                name: faq.question,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: faq.answer,
+                },
+              })),
+            }),
+          }}
+        />
+      )}
 
       <ExpertiseHero
         badge={pageData.hero.badge}
@@ -108,10 +110,12 @@ export default async function ExpertisePage({ params }: PageProps) {
         capabilities={capabilities}
       />
 
-      <WhyProcedure
-        title={`Why Procedure for ${pageData.hero.badge}?`}
-        points={pageData.whyProcedure}
-      />
+      {pageData.whyProcedure.length > 0 && (
+        <WhyProcedure
+          title={`Why Procedure for ${pageData.hero.badge}?`}
+          points={pageData.whyProcedure}
+        />
+      )}
 
       <TechStack
         title="Technologies We Use"
@@ -119,7 +123,7 @@ export default async function ExpertisePage({ params }: PageProps) {
         technologies={technologies}
       />
 
-      <FAQSection faqs={pageData.faqs} />
+      {pageData.faqs.length > 0 && <FAQSection faqs={pageData.faqs} />}
 
       {relatedPages.length > 0 && <RelatedExpertise pages={relatedPages} />}
 

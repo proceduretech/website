@@ -258,7 +258,7 @@ Cursor.com achieves a premium, clean aesthetic through **restraint and breathing
 2. [x] Remove gradient borders from service cards ✅ *Done*
 3. [x] Reduce hero content (remove feature pills) ✅ *Done*
 4. [x] Use solid teal color instead of gradients for text highlights ✅ *Already using text-highlight*
-5. [ ] Increase headline sizes by 20%
+5. [ ] ~Increase headline sizes by 20%~ *Don't do it*
 
 ### High Impact, Medium Effort
 1. [x] Redesign testimonials - one large quote at a time ✅ *Done*
