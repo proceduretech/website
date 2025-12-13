@@ -265,7 +265,7 @@ export const navigationData = {
           label: "Our Approach",
           description:
             "Forward-deployed, production-first. How we work differently.",
-          href: "/about/approach",
+          href: "/approach",
           icon: "lightbulb",
         },
         {
