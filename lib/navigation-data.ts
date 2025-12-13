@@ -288,7 +288,7 @@ export const navigationData = {
         {
           label: "AI Safety & Ethics",
           description: "Our commitment to responsible AI development.",
-          href: "/about/ai-safety",
+          href: "/ai-safety",
           icon: "scale",
         },
         {
