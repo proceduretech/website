@@ -3,21 +3,21 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-// Leadership team data - Replace with actual team members
+// Leadership team data
 const leadership = [
   {
     name: "Ulhas Mandrawadkar",
-    role: "CEO & Co-Founder",
-    bio: "Founded Procedure with a vision to deliver exceptional product engineering. Leading delivery teams across enterprise and startup clients.",
-    linkedin: "https://linkedin.com/in/",
+    role: "CTO & Co-Founder",
+    bio: "Engineering leader with deep expertise in product development and system architecture. Mentoring engineers and driving technical excellence across enterprise clients.",
+    linkedin: "https://linkedin.com/in/ulhasm",
     image: "/team/ulhas.jpg",
   },
   {
-    name: "Co-Founder",
-    role: "CTO & Co-Founder",
-    bio: "Engineering leader with deep expertise in product development and system architecture. Driving our expansion into AI-powered solutions.",
-    linkedin: "https://linkedin.com/in/",
-    image: "/team/cto.jpg",
+    name: "Braj Baheti",
+    role: "CEO & Co-Founder",
+    bio: "Founded Procedure with a vision to deliver exceptional product engineering. Leading strategy, partnerships, and domain expertise across diverse industries.",
+    linkedin: "https://linkedin.com/in/brajkishorb",
+    image: "/team/braj.jpg",
   },
 ];
 
@@ -39,9 +39,49 @@ const values = [
         />
       </svg>
     ),
-    title: "Engineering Excellence",
+    title: "Intentional Craft",
     description:
-      "We hold ourselves to the same standards as the world's best engineering organizations. Every system we build is production-grade from day one—scalable, maintainable, and thoroughly tested.",
+      "Every system we build reflects care, context, and the people behind it. We don't rush the details or cut corners on architecture. Production-grade from day one means code that scales, maintains, and stands up to real-world pressure.",
+  },
+  {
+    icon: (
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={1.5}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"
+        />
+      </svg>
+    ),
+    title: "Embedded Partnership",
+    description:
+      "We don't believe in the agency model where contractors disappear after handoff. Our engineers become true extensions of your team—attending your standups, understanding your codebase, and caring about your outcomes.",
+  },
+  {
+    icon: (
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={1.5}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
+        />
+      </svg>
+    ),
+    title: "Action Over Perfection",
+    description:
+      "We'd rather ship and improve than wait for perfect. Progress comes from trying, testing, and refining. We move fast by making smart architectural decisions upfront and staying focused on problems that actually matter.",
   },
   {
     icon: (
@@ -64,49 +104,9 @@ const values = [
         />
       </svg>
     ),
-    title: "Radical Transparency",
+    title: "Honest Conversations",
     description:
-      "No black boxes. No vague timelines. No surprise invoices. We believe enterprise partnerships thrive on honest communication, even when the news is not what you want to hear.",
-  },
-  {
-    icon: (
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={1.5}
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"
-        />
-      </svg>
-    ),
-    title: "Embedded Partnership",
-    description:
-      "We do not believe in the agency model where contractors disappear after handoff. Our engineers become true extensions of your team—attending your standups, understanding your codebase, and caring about your outcomes.",
-  },
-  {
-    icon: (
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={1.5}
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
-        />
-      </svg>
-    ),
-    title: "Velocity With Purpose",
-    description:
-      "Speed matters in AI, but reckless speed creates technical debt that slows you down later. We move fast by making smart architectural decisions upfront and staying laser-focused on problems that actually matter.",
+      "No black boxes. No vague timelines. No surprise invoices. We keep it real because feedback isn't about being right—it's about making things better together. Respect and candor travel in both directions.",
   },
 ];
 
@@ -116,23 +116,25 @@ const milestones = [
     year: "2017",
     title: "Founded",
     description:
-      "Launched as a product engineering consultancy focused on quality delivery.",
+      "Started as a small crew that just loved making things work better. Focused on building software that ships.",
   },
   {
     year: "2020",
-    title: "Growth Phase",
-    description: "Expanded our team and client base across multiple industries.",
+    title: "Scaled Delivery",
+    description:
+      "Expanded across fintech, healthcare, and enterprise SaaS. Established our embedded partnership model.",
   },
   {
     year: "2023",
-    title: "AI Evolution",
+    title: "AI Integration",
     description:
-      "Began applying our engineering rigor to AI-powered solutions.",
+      "Applied our production engineering expertise to AI-powered solutions. Built our first LLM applications.",
   },
   {
     year: "2024",
-    title: "AI Focus",
-    description: "Deepened investment in AI engineering capabilities and upskilling.",
+    title: "AI Engineering Focus",
+    description:
+      "Deepened investment in AI engineering, AI security, and MLOps. Now shipping AI systems that reach production.",
   },
 ];
 
@@ -190,7 +192,7 @@ export default function AboutPage() {
             >
               <span className="w-2 h-2 rounded-full bg-accent-teal animate-pulse" />
               <span className="text-xs font-medium text-accent-teal-light">
-                AI Engineering & Security
+                Product Engineering Since 2017
               </span>
             </motion.div>
 
@@ -201,9 +203,9 @@ export default function AboutPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary leading-[1.1] tracking-tight mb-6"
             >
-              AI Engineers
+              Engineers Who Ship.
               <br />
-              <span className="text-highlight">Who Ship</span>
+              <span className="text-highlight">Problems That Matter.</span>
             </motion.h1>
 
             {/* Subheadline */}
@@ -213,9 +215,10 @@ export default function AboutPage() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-lg sm:text-xl text-text-secondary leading-relaxed mb-10 max-w-2xl mx-auto"
             >
-              We help companies build and ship production software. Now we&apos;re
-              applying our deep engineering expertise to AI—building LLM applications,
-              AI agents, and secure AI systems that actually reach production.
+              We are forward-deployed engineers, designers, and thinkers who stay
+              close to the problem—not tucked behind layers of process. From idea
+              to deploy, we move with intent, learn in the open, and keep the
+              &quot;why&quot; visible.
             </motion.p>
 
             {/* Stats row */}
@@ -226,9 +229,9 @@ export default function AboutPage() {
               className="flex flex-wrap justify-center gap-8 sm:gap-12"
             >
               {[
-                { value: "100+", label: "Products Shipped" },
-                { value: "98%", label: "Client Retention" },
-                { value: "3+", label: "Years Avg Partnership" },
+                { value: "Since 2017", label: "Building Software" },
+                { value: "75+", label: "Clients Trusted Us" },
+                { value: "150+", label: "Projects Shipped" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
                   <div className="text-3xl sm:text-4xl font-bold text-highlight">
@@ -261,15 +264,15 @@ export default function AboutPage() {
               Our Mission
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary max-w-4xl mx-auto leading-tight mb-6">
-              We exist to close the gap between{" "}
-              <span className="text-highlight">AI&apos;s promise</span> and
-              production reality.
+              Built for real problems.{" "}
+              <span className="text-highlight">Shipped by real teams.</span>
             </h2>
             <p className="text-lg text-text-secondary max-w-3xl mx-auto leading-relaxed">
-              Every day, enterprises struggle to turn AI investments into
-              production value. We founded Procedure to change that—bringing
-              experienced engineers who understand how to ship AI systems,
-              with security built in, directly into your organization.
+              Procedure started as a small crew that just loved making things work
+              better, and that hasn&apos;t changed. Today, we&apos;re applying our
+              engineering rigor to AI-powered systems, enterprise applications, and
+              complex technical challenges. We still experiment, break, fix, and
+              ship together—because that&apos;s how real products and real teams grow.
             </p>
           </motion.div>
 
@@ -316,11 +319,12 @@ export default function AboutPage() {
               Leadership
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
-              Built by engineers who ship AI
+              Choosing a mentor is more important than choosing a company
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto">
-              Our leadership team brings years of experience building production
-              software—now focused on AI engineering and security.
+              Our founders have more than a decade of experience in their
+              respective fields. They lead by mentoring, not managing—helping
+              engineers and clients alike grow through real collaboration.
             </p>
           </motion.div>
 
@@ -397,7 +401,7 @@ export default function AboutPage() {
               Our Journey
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">
-              From startup to trusted engineering partner
+              From product engineering to AI-powered solutions
             </h2>
           </motion.div>
 
@@ -571,15 +575,15 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-text-primary mb-6">
-              Ready to Ship AI
+              Ready to Ship Software
               <br />
               <span className="text-highlight">That Actually Works?</span>
             </h2>
             <p className="text-lg text-text-secondary mb-10 max-w-2xl mx-auto">
-              Whether you&apos;re starting your first AI initiative or trying to
-              rescue a stalled project, we&apos;d love to learn about your
-              challenges. Our team will give you an honest assessment—even if
-              the answer is that you don&apos;t need us yet.
+              Whether you&apos;re launching your first AI initiative, scaling an
+              existing product, or trying to rescue a stalled project, we&apos;d
+              love to hear about your challenges. Our team will give you an honest
+              assessment—even if the answer is that you don&apos;t need us yet.
             </p>
 
             {/* Dual CTAs */}
