@@ -50,3 +50,6 @@ __pycache__/
 *.pyc
 pyproject.toml
 uv.lock
+
+# playwright-mcp
+.playwright-mcp/
