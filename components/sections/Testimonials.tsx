@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
+import { MobileTestimonialCarousel } from "./MobileTestimonialCarousel";
 
 const testimonials = [
   {
@@ -140,11 +141,13 @@ export function Testimonials() {
           </p>
         </motion.div>
 
+        {/* Desktop: Infinite scrolling carousel */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
+          className="hidden sm:block"
         >
           <InfiniteMovingCards
             items={testimonials}
@@ -155,6 +158,17 @@ export function Testimonials() {
               <TestimonialCard testimonial={testimonial} />
             )}
           />
+        </motion.div>
+
+        {/* Mobile: Swipeable carousel with pagination dots */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="sm:hidden"
+        >
+          <MobileTestimonialCarousel testimonials={testimonials} />
         </motion.div>
       </div>
     </section>
