@@ -50,127 +50,7 @@ export function PageHero({
     badgeVariant === "blue" ? "bg-accent-blue-light" : "bg-accent-teal-light";
 
   return (
-    <section className="relative pt-32 pb-20 sm:pb-28 overflow-hidden">
-      {/* Animated gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-surface via-base to-surface" />
-
-      {/* Large ambient glow - creates depth */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
-        className="absolute inset-0"
-      >
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-accent-teal/8 rounded-full blur-[120px]" />
-        <div className="absolute top-1/3 left-1/4 w-[600px] h-[400px] bg-accent-blue/6 rounded-full blur-[100px]" />
-        <div className="absolute top-1/3 right-1/4 w-[500px] h-[350px] bg-accent-teal/5 rounded-full blur-[100px]" />
-      </motion.div>
-
-      {/* Subtle grid pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.015]"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='%23E5E7EB'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e")`,
-        }}
-      />
-
-      {/* Floating abstract elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Floating orbs */}
-        <motion.div
-          animate={{
-            y: [0, -20, 0],
-            opacity: [0.4, 0.6, 0.4],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute top-[20%] left-[15%] w-3 h-3 bg-accent-teal/40 rounded-full blur-sm"
-        />
-        <motion.div
-          animate={{
-            y: [0, 15, 0],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1,
-          }}
-          className="absolute top-[30%] right-[20%] w-2 h-2 bg-accent-blue/50 rounded-full blur-sm"
-        />
-        <motion.div
-          animate={{
-            y: [0, -15, 0],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 7,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2,
-          }}
-          className="absolute top-[40%] left-[10%] w-4 h-4 bg-accent-teal/30 rounded-full blur-sm"
-        />
-        <motion.div
-          animate={{
-            y: [0, 20, 0],
-            opacity: [0.2, 0.4, 0.2],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 0.5,
-          }}
-          className="absolute top-[25%] right-[12%] w-5 h-5 bg-accent-blue/25 rounded-full blur-md"
-        />
-
-        {/* Connecting lines - subtle tech feel */}
-        <svg
-          className="absolute inset-0 w-full h-full"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <motion.line
-            x1="10%"
-            y1="30%"
-            x2="25%"
-            y2="45%"
-            stroke="url(#page-line-gradient)"
-            strokeWidth="1"
-            initial={{ pathLength: 0, opacity: 0 }}
-            animate={{ pathLength: 1, opacity: 0.2 }}
-            transition={{ duration: 2, delay: 0.5 }}
-          />
-          <motion.line
-            x1="75%"
-            y1="25%"
-            x2="90%"
-            y2="40%"
-            stroke="url(#page-line-gradient)"
-            strokeWidth="1"
-            initial={{ pathLength: 0, opacity: 0 }}
-            animate={{ pathLength: 1, opacity: 0.15 }}
-            transition={{ duration: 2, delay: 1 }}
-          />
-          <defs>
-            <linearGradient
-              id="page-line-gradient"
-              x1="0%"
-              y1="0%"
-              x2="100%"
-              y2="100%"
-            >
-              <stop offset="0%" stopColor="#14B8A6" stopOpacity="0.5" />
-              <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.3" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-
+    <section className="relative pt-32 pb-24 sm:pb-36 bg-base">
       {/* Main content - CENTERED */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
@@ -236,7 +116,7 @@ export function PageHero({
               {stats.map((stat, index) => (
                 <div
                   key={index}
-                  className="p-4 sm:p-6 rounded-xl text-center bg-surface/80 backdrop-blur-sm border border-border"
+                  className="p-4 sm:p-6 rounded-xl text-center bg-surface-elevated border border-border"
                 >
                   <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-highlight">
                     {stat.value}

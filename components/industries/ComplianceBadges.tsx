@@ -77,7 +77,7 @@ export function ComplianceBadges({
                 <div className="w-5 h-5 text-green-400">{badge.icon}</div>
               </div>
               <div>
-                <div className="font-medium text-text-primary text-sm sm:text-base">
+                <div className="font-medium text-text-primary text-sm">
                   {badge.name}
                 </div>
                 {badge.description && (

@@ -184,126 +184,17 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center"
+            className="mt-10 sm:mt-12 flex flex-col sm:flex-row gap-4 justify-center"
           >
             <CalButton className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-cta-text bg-cta rounded-lg hover:brightness-110 transition-all duration-200 shadow-lg shadow-cta/25 cursor-pointer">
               Start Your AI Project
             </CalButton>
             <Link
               href="/case-studies"
-              className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-surface-elevated border border-border rounded-lg hover:border-accent-teal hover:bg-accent-teal/10 transition-all duration-200"
+              className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-surface-elevated border border-border rounded-lg hover:border-slate-600 transition-all duration-200"
             >
               View Our Work
             </Link>
-          </motion.div>
-
-          {/* Visual element - What We Build pills */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-12 sm:mt-14"
-          >
-            <p className="text-xs text-text-muted uppercase tracking-wider mb-4">
-              What we build
-            </p>
-            <div className="flex flex-wrap gap-3 justify-center max-w-3xl mx-auto">
-              <motion.div
-                whileHover={{ scale: 1.05, y: -2 }}
-                className="flex items-center gap-2 px-4 py-2.5 bg-surface/80 backdrop-blur-sm border border-border rounded-xl hover:border-accent-teal/30 transition-colors cursor-default"
-              >
-                <div className="w-6 h-6 rounded-md bg-accent-teal/10 flex items-center justify-center flex-shrink-0">
-                  <svg
-                    className="w-3.5 h-3.5 text-accent-teal-light"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z"
-                    />
-                  </svg>
-                </div>
-                <span className="text-sm font-medium text-text-primary">
-                  LLM Applications
-                </span>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ scale: 1.05, y: -2 }}
-                className="flex items-center gap-2 px-4 py-2.5 bg-surface/80 backdrop-blur-sm border border-border rounded-xl hover:border-accent-blue/30 transition-colors cursor-default"
-              >
-                <div className="w-6 h-6 rounded-md bg-accent-blue/10 flex items-center justify-center flex-shrink-0">
-                  <svg
-                    className="w-3.5 h-3.5 text-accent-blue-light"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
-                    />
-                  </svg>
-                </div>
-                <span className="text-sm font-medium text-text-primary">
-                  AI Security
-                </span>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ scale: 1.05, y: -2 }}
-                className="flex items-center gap-2 px-4 py-2.5 bg-surface/80 backdrop-blur-sm border border-border rounded-xl hover:border-accent-teal/30 transition-colors cursor-default"
-              >
-                <div className="w-6 h-6 rounded-md bg-accent-teal/10 flex items-center justify-center flex-shrink-0">
-                  <svg
-                    className="w-3.5 h-3.5 text-accent-teal-light"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
-                    />
-                  </svg>
-                </div>
-                <span className="text-sm font-medium text-text-primary">
-                  Product Engineering
-                </span>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ scale: 1.05, y: -2 }}
-                className="flex items-center gap-2 px-4 py-2.5 bg-surface/80 backdrop-blur-sm border border-border rounded-xl hover:border-accent-teal/30 transition-colors cursor-default"
-              >
-                <div className="w-6 h-6 rounded-md bg-accent-teal/10 flex items-center justify-center flex-shrink-0">
-                  <svg
-                    className="w-3.5 h-3.5 text-accent-teal-light"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"
-                    />
-                  </svg>
-                </div>
-                <span className="text-sm font-medium text-text-primary">
-                  Design
-                </span>
-              </motion.div>
-            </div>
           </motion.div>
         </div>
 

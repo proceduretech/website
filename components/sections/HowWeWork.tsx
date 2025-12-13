@@ -124,7 +124,7 @@ const engagementModels = [
 
 export function HowWeWork() {
   return (
-    <section className="relative py-24 sm:py-32 overflow-hidden bg-surface">
+    <section className="relative py-32 sm:py-44 overflow-hidden bg-surface">
       {/* Gradient orbs for depth */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-accent-teal/[0.07] rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-accent-blue/[0.07] rounded-full blur-[120px] pointer-events-none" />
@@ -218,98 +218,75 @@ export function HowWeWork() {
           {engagementModels.map((model, idx) => (
             <motion.div
               key={model.title}
-              initial={{ opacity: 0, y: 30, scale: 0.98 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{
-                duration: 0.5,
-                delay: idx * 0.12,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="group relative"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: idx * 0.1 }}
+              className="group p-8 rounded-xl bg-surface-elevated border border-border hover:border-slate-600 transition-colors h-full flex flex-col"
             >
-              {/* Multi-layer glow effect */}
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-accent-teal/20 to-accent-blue/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-60 transition-all duration-700" />
+              {/* Model icon */}
+              <div className="w-12 h-12 rounded-lg bg-accent-teal/10 flex items-center justify-center text-accent-teal-light mb-5">
+                {model.icon}
+              </div>
 
-              <div className="relative p-8 rounded-2xl bg-surface-elevated/90 backdrop-blur-sm border border-border group-hover:border-accent-teal/40 transition-all duration-500 h-full flex flex-col group-hover:shadow-xl group-hover:shadow-black/20 group-hover:-translate-y-1">
-                {/* Top accent line */}
-                <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-accent-teal/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              {/* Title */}
+              <h4 className="text-xl font-semibold text-text-primary mb-3">
+                {model.title}
+              </h4>
 
-                {/* Model icon */}
-                <div className="w-12 h-12 rounded-xl bg-accent-teal/10 border border-accent-teal/20 flex items-center justify-center text-accent-teal-light mb-5 group-hover:border-accent-teal/40 group-hover:bg-accent-teal/15 transition-all duration-300">
-                  {model.icon}
-                </div>
+              {/* Description */}
+              <p className="text-text-secondary text-sm leading-relaxed mb-6">
+                {model.description}
+              </p>
 
-                {/* Title */}
-                <h4 className="text-xl font-semibold text-text-primary mb-3 group-hover:text-accent-teal-light transition-colors duration-300">
-                  {model.title}
-                </h4>
-
-                {/* Description */}
-                <p className="text-text-secondary text-sm leading-relaxed mb-6">
-                  {model.description}
-                </p>
-
-                {/* Features list - enhanced checkmarks */}
-                <ul className="space-y-3 mb-6 flex-grow">
-                  {model.features.map((feature, featureIdx) => (
-                    <motion.li
-                      key={feature}
-                      initial={{ opacity: 0, x: -10 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{
-                        delay: idx * 0.1 + featureIdx * 0.05 + 0.3,
-                        duration: 0.4,
-                      }}
-                      className="flex items-start gap-3 text-sm text-text-secondary"
+              {/* Features list */}
+              <ul className="space-y-3 mb-6 flex-grow">
+                {model.features.map((feature) => (
+                  <li
+                    key={feature}
+                    className="flex items-start gap-3 text-sm text-text-secondary"
+                  >
+                    <svg
+                      className="w-4 h-4 text-accent-teal-light shrink-0 mt-0.5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
                     >
-                      <span className="w-5 h-5 rounded-full bg-gradient-to-br from-accent-teal/20 to-accent-blue/20 flex items-center justify-center shrink-0 mt-0.5">
-                        <svg
-                          className="w-3 h-3 text-accent-teal-light"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={3}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M5 13l4 4L19 7"
-                          />
-                        </svg>
-                      </span>
-                      {feature}
-                    </motion.li>
-                  ))}
-                </ul>
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
 
-                {/* Best for badge - elevated treatment */}
-                <div className="pt-5 border-t border-border group-hover:border-accent-teal/20 transition-colors duration-300">
-                  <div className="inline-flex items-center gap-3 px-4 py-2.5 rounded-xl bg-gradient-to-r from-accent-teal/5 to-accent-blue/5 border border-accent-teal/10 group-hover:border-accent-teal/20 transition-colors duration-300">
-                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-teal/20 to-accent-blue/20 flex items-center justify-center">
-                      <svg
-                        className="w-4 h-4 text-accent-teal-light"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M13 10V3L4 14h7v7l9-11h-7z"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="text-[10px] text-text-muted uppercase tracking-wider font-medium">
-                        Best for
-                      </p>
-                      <p className="text-sm font-medium text-text-primary">
-                        {model.bestFor}
-                      </p>
-                    </div>
+              {/* Best for badge */}
+              <div className="pt-5 border-t border-border">
+                <div className="flex items-center gap-3">
+                  <svg
+                    className="w-4 h-4 text-accent-teal-light"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M13 10V3L4 14h7v7l9-11h-7z"
+                    />
+                  </svg>
+                  <div>
+                    <p className="text-[10px] text-text-muted uppercase tracking-wider font-medium">
+                      Best for
+                    </p>
+                    <p className="text-sm font-medium text-text-primary">
+                      {model.bestFor}
+                    </p>
                   </div>
                 </div>
               </div>

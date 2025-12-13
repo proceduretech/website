@@ -86,7 +86,7 @@ export default function ForwardDeployedPage() {
       />
 
       {/* Benefits */}
-      <section className="py-20 sm:py-24 bg-surface">
+      <section className="py-24 sm:py-36 bg-surface">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -107,7 +107,7 @@ export default function ForwardDeployedPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="p-6 rounded-2xl bg-surface-elevated border border-border hover:border-accent-teal/40 transition-all duration-300"
+                className="p-6 rounded-xl bg-surface-elevated border border-border hover:border-slate-600 transition-colors"
               >
                 <div className="flex items-start gap-4 mb-4">
                   <div className="px-3 py-1.5 rounded-lg bg-accent-teal/10 border border-accent-teal/20">
@@ -132,7 +132,7 @@ export default function ForwardDeployedPage() {
       </section>
 
       {/* Process */}
-      <section className="py-20 sm:py-24 bg-base">
+      <section className="py-24 sm:py-36 bg-base">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -155,8 +155,8 @@ export default function ForwardDeployedPage() {
                 transition={{ delay: idx * 0.1 }}
                 className="text-center"
               >
-                <div className="w-14 h-14 mx-auto rounded-full bg-gradient-to-br from-accent-teal to-accent-blue flex items-center justify-center mb-4 shadow-lg shadow-accent-teal/25">
-                  <span className="text-lg font-bold text-white">
+                <div className="w-14 h-14 mx-auto rounded-full bg-accent-teal/10 border border-border flex items-center justify-center mb-4">
+                  <span className="text-lg font-bold text-accent-teal-light">
                     {step.step}
                   </span>
                 </div>
@@ -176,7 +176,7 @@ export default function ForwardDeployedPage() {
       </section>
 
       {/* Ideal For */}
-      <section className="py-20 sm:py-24 bg-surface">
+      <section className="py-24 sm:py-36 bg-surface">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -222,7 +222,7 @@ export default function ForwardDeployedPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 sm:py-24 bg-base">
+      <section className="py-24 sm:py-36 bg-base">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

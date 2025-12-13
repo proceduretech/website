@@ -7,7 +7,7 @@ import { CaseStudyCard } from "@/components/ui";
 
 export function FeaturedCaseStudies() {
   return (
-    <section className="relative py-16 sm:py-24 bg-surface overflow-hidden">
+    <section className="relative py-24 sm:py-36 bg-surface overflow-hidden">
       {/* Background pattern */}
       <div
         className="absolute inset-0 opacity-[0.03]"

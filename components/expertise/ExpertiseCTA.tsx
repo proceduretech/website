@@ -24,17 +24,11 @@ export function ExpertiseCTA({
   secondaryCTA = { text: "View Case Studies", href: "/case-studies" },
 }: ExpertiseCTAProps) {
   return (
-    <section className="relative py-20 sm:py-28 overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-surface via-base to-base" />
+    <section className="relative py-24 sm:py-36 bg-base">
+      {/* Top border */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-border" />
 
-      {/* Accent glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-radial from-accent-teal/10 to-transparent blur-3xl" />
-
-      {/* Top border gradient */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent-teal/30 to-transparent" />
-
-      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

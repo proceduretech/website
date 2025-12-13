@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 
 interface Capability {
@@ -42,7 +41,7 @@ export function CapabilitiesGrid({
   capabilities,
 }: CapabilitiesGridProps) {
   return (
-    <section className="py-20 sm:py-28 bg-surface">
+    <section className="py-24 sm:py-36 bg-surface">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <motion.div
@@ -74,26 +73,10 @@ export function CapabilitiesGrid({
             <motion.div
               key={index}
               variants={cardVariants}
-              className={cn(
-                "group relative p-6 rounded-2xl",
-                "bg-surface-elevated/50 backdrop-blur-sm",
-                "border border-border hover:border-accent-teal/30",
-                "transition-all duration-300",
-                "hover:shadow-lg hover:shadow-accent-teal/5",
-                "hover:-translate-y-1",
-              )}
+              className="group p-6 rounded-xl bg-surface-elevated border border-border hover:border-slate-600 transition-colors"
             >
               {/* Icon container */}
-              <div
-                className={cn(
-                  "w-12 h-12 rounded-xl mb-4",
-                  "bg-gradient-to-br from-accent-teal/20 to-accent-blue/20",
-                  "border border-accent-teal/20",
-                  "flex items-center justify-center",
-                  "group-hover:border-accent-teal/40 group-hover:scale-105",
-                  "transition-all duration-300",
-                )}
-              >
+              <div className="w-12 h-12 rounded-lg bg-accent-teal/10 flex items-center justify-center mb-4">
                 <div className="w-6 h-6 text-accent-teal-light">
                   {capability.icon}
                 </div>
@@ -106,16 +89,6 @@ export function CapabilitiesGrid({
               <p className="text-text-secondary leading-relaxed">
                 {capability.description}
               </p>
-
-              {/* Hover glow effect */}
-              <div
-                className={cn(
-                  "absolute inset-0 rounded-2xl opacity-0",
-                  "bg-gradient-to-br from-accent-teal/5 to-transparent",
-                  "group-hover:opacity-100 transition-opacity duration-300",
-                  "pointer-events-none",
-                )}
-              />
             </motion.div>
           ))}
         </motion.div>

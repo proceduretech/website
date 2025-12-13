@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 
 const services = [
   {
@@ -162,7 +161,7 @@ const services = [
 
 export function Services() {
   return (
-    <section className="relative py-16 sm:py-24 overflow-hidden section-alt">
+    <section className="relative py-24 sm:py-36 overflow-hidden section-alt">
       {/* Diagonal lines pattern */}
       <div
         className="absolute inset-0 opacity-[0.02]"
@@ -186,7 +185,7 @@ export function Services() {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service, idx) => (
             <motion.div
               key={service.name}
@@ -194,61 +193,44 @@ export function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
+              className="group bg-surface-elevated rounded-xl p-8 border border-border hover:border-slate-600 transition-colors"
             >
-              <CardContainer containerClassName="py-0">
-                <CardBody className="bg-surface-elevated relative group/card hover:shadow-2xl hover:shadow-accent-teal/[0.1] border-border w-full h-full rounded-2xl p-6 sm:p-8 border group-hover/card:border-accent-teal/50 transition-colors">
-                  {/* Icon */}
-                  <CardItem
-                    translateZ={50}
-                    className="w-14 h-14 rounded-xl bg-accent-teal/10 border border-accent-teal/20 flex items-center justify-center text-accent-teal-light mb-5"
+              {/* Icon */}
+              <div className="w-12 h-12 rounded-lg bg-accent-teal/10 flex items-center justify-center text-accent-teal-light mb-5">
+                {service.icon}
+              </div>
+
+              {/* Title */}
+              <h3 className="text-xl font-semibold text-text-primary mb-3">
+                {service.name}
+              </h3>
+
+              {/* Description */}
+              <p className="text-text-secondary text-sm leading-relaxed mb-5">
+                {service.description}
+              </p>
+
+              {/* Read More Link */}
+              <Link
+                href={service.href}
+                scroll={true}
+                className="inline-flex items-center gap-2 text-accent-teal-light font-medium text-sm hover:text-white transition-colors mb-6"
+              >
+                Read More
+                <span className="w-5 h-px bg-current group-hover:w-7 transition-all" />
+              </Link>
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2 pt-5 border-t border-border">
+                {service.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-2.5 py-1 text-xs font-medium text-text-muted bg-surface rounded-md"
                   >
-                    {service.icon}
-                  </CardItem>
-
-                  {/* Title */}
-                  <CardItem
-                    translateZ={40}
-                    className="text-xl font-semibold text-text-primary mb-3"
-                  >
-                    {service.name}
-                  </CardItem>
-
-                  {/* Description */}
-                  <CardItem
-                    as="p"
-                    translateZ={30}
-                    className="text-text-secondary text-sm leading-relaxed mb-5"
-                  >
-                    {service.description}
-                  </CardItem>
-
-                  {/* Read More Link */}
-                  <CardItem translateZ={40} className="mb-6">
-                    <Link
-                      href={service.href}
-                      scroll={true}
-                      className="inline-flex items-center gap-2 text-accent-teal-light font-medium text-sm hover:text-accent-teal transition-colors"
-                    >
-                      Read More
-                      <span className="w-6 h-px bg-accent-teal-light group-hover/card:w-8 transition-all" />
-                    </Link>
-                  </CardItem>
-
-                  {/* Tags */}
-                  <CardItem translateZ={20} className="w-full">
-                    <div className="flex flex-wrap gap-2 pt-5 border-t border-border">
-                      {service.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-3 py-1 text-xs font-medium text-text-muted bg-surface border border-border rounded-full"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </CardItem>
-                </CardBody>
-              </CardContainer>
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </motion.div>
           ))}
         </div>

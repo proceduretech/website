@@ -119,15 +119,8 @@ export default function CaseStudiesPage() {
       {/* ============================================
           CASE STUDIES GRID
           ============================================ */}
-      <section className="relative py-16 sm:py-24 bg-base">
-        <div
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32'%3e%3cpath d='M16 8v16M8 16h16' stroke='%23E5E7EB' stroke-width='1' fill='none'/%3e%3c/svg%3e")`,
-          }}
-        />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+      <section className="relative py-24 sm:py-36 bg-base">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <AnimatePresence mode="wait">
             <motion.div
               key={`${activeServiceFilter}-${activeIndustryFilter}`}
@@ -193,15 +186,8 @@ export default function CaseStudiesPage() {
       {/* ============================================
           SOCIAL PROOF SECTION
           ============================================ */}
-      <section className="relative py-16 sm:py-20 bg-surface">
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3e%3ccircle cx='2' cy='2' r='1' fill='%23E5E7EB'/%3e%3c/svg%3e")`,
-          }}
-        />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+      <section className="relative py-24 sm:py-36 bg-surface">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -235,8 +221,8 @@ export default function CaseStudiesPage() {
                 was immediate and substantial.
               </p>
               <footer className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent-teal to-accent-blue flex items-center justify-center">
-                  <span className="text-lg font-bold text-white">JR</span>
+                <div className="w-12 h-12 rounded-full bg-accent-teal/20 border border-accent-teal/30 flex items-center justify-center">
+                  <span className="text-lg font-bold text-accent-teal-light">JR</span>
                 </div>
                 <div>
                   <div className="font-semibold text-text-primary">
@@ -266,8 +252,8 @@ export default function CaseStudiesPage() {
                 extension of our engineering org.
               </p>
               <footer className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent-blue to-accent-teal flex items-center justify-center">
-                  <span className="text-lg font-bold text-white">SK</span>
+                <div className="w-12 h-12 rounded-full bg-accent-blue/20 border border-accent-blue/30 flex items-center justify-center">
+                  <span className="text-lg font-bold text-accent-blue-light">SK</span>
                 </div>
                 <div>
                   <div className="font-semibold text-text-primary">
@@ -286,12 +272,8 @@ export default function CaseStudiesPage() {
       {/* ============================================
           CTA SECTION
           ============================================ */}
-      <section className="relative py-20 sm:py-28 bg-base overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-accent-teal/5 to-accent-blue/5" />
-        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-accent-teal/10 rounded-full blur-[100px]" />
-        <div className="absolute top-0 right-1/4 w-[300px] h-[300px] bg-accent-blue/10 rounded-full blur-[80px]" />
-
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <section className="relative py-24 sm:py-36 bg-base">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

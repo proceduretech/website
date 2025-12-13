@@ -26,12 +26,9 @@ export function CaseStudyCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group relative"
+      className="group"
     >
-      {/* Card glow effect */}
-      <div className="absolute -inset-0.5 bg-gradient-to-r from-accent-teal/20 to-accent-blue/20 rounded-2xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
-
-      <div className="relative h-full flex flex-col bg-surface-elevated border border-border rounded-2xl overflow-hidden group-hover:border-accent-teal/30 transition-all duration-300">
+      <div className="h-full flex flex-col bg-surface-elevated border border-border rounded-2xl overflow-hidden hover:border-slate-600 transition-colors">
         {/* Case study image */}
         <div className={`relative overflow-hidden ${isCompact ? "h-40" : "h-48"}`}>
           <Image

@@ -1,8 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 import { TechIcon, hasTechIcon } from "@/lib/tech-icons";
 
 interface Technology {
@@ -42,10 +40,8 @@ export function TechStack({
   subtitle,
   technologies,
 }: TechStackProps) {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
   return (
-    <section className="py-16 sm:py-20 bg-surface">
+    <section className="py-24 sm:py-36 bg-surface">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <motion.div
@@ -63,7 +59,7 @@ export function TechStack({
           )}
         </motion.div>
 
-        {/* Tech grid with hover effect */}
+        {/* Tech grid */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -75,103 +71,29 @@ export function TechStack({
             <motion.div
               key={index}
               variants={itemVariants}
-              className="relative group"
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
+              className="flex flex-col items-center gap-2 p-4 rounded-xl bg-surface-elevated border border-border hover:border-slate-600 transition-colors"
             >
-              {/* Animated hover background */}
-              <AnimatePresence>
-                {hoveredIndex === index && (
-                  <motion.span
-                    className="absolute inset-0 h-full w-full bg-gradient-to-br from-accent-teal/20 via-accent-blue/15 to-accent-teal/20 block rounded-xl"
-                    layoutId="techHoverBackground"
-                    initial={{ opacity: 0 }}
-                    animate={{
-                      opacity: 1,
-                      transition: { duration: 0.2 },
-                    }}
-                    exit={{
-                      opacity: 0,
-                      transition: { duration: 0.15, delay: 0.1 },
-                    }}
-                  />
-                )}
-              </AnimatePresence>
-
-              {/* Card content */}
-              <div
-                className={cn(
-                  "relative z-10 flex flex-col items-center gap-2 p-4 rounded-xl",
-                  "bg-surface-elevated/40 backdrop-blur-sm",
-                  "border border-border/50",
-                  "group-hover:border-accent-teal/40",
-                  "transition-all duration-300",
-                )}
-              >
-                {/* Icon container with glow effect */}
-                <div className="relative">
-                  {/* Glow effect on hover */}
-                  <div
-                    className={cn(
-                      "absolute inset-0 rounded-full blur-xl transition-opacity duration-500",
-                      "bg-gradient-to-br from-accent-teal/30 to-accent-blue/30",
-                      hoveredIndex === index ? "opacity-100" : "opacity-0",
-                    )}
-                  />
-
-                  {/* Icon */}
-                  {tech.icon ? (
-                    <div
-                      className={cn(
-                        "relative h-10 w-10 flex items-center justify-center",
-                        "text-text-muted transition-all duration-300",
-                        hoveredIndex === index
-                          ? "text-accent-teal-light scale-110"
-                          : "group-hover:text-text-secondary",
-                      )}
-                    >
-                      {tech.icon}
-                    </div>
-                  ) : hasTechIcon(tech.name) ? (
-                    <div
-                      className={cn(
-                        "relative h-10 w-10 flex items-center justify-center",
-                        "text-text-muted transition-all duration-300",
-                        hoveredIndex === index
-                          ? "text-accent-teal-light scale-110"
-                          : "group-hover:text-text-secondary",
-                      )}
-                    >
-                      <TechIcon name={tech.name} size={28} />
-                    </div>
-                  ) : (
-                    <div
-                      className={cn(
-                        "relative h-10 w-10 rounded-lg flex items-center justify-center",
-                        "bg-gradient-to-br from-accent-teal/20 to-accent-blue/20",
-                        "transition-all duration-300",
-                        hoveredIndex === index && "scale-110",
-                      )}
-                    >
-                      <span className="text-lg font-semibold text-accent-teal-light">
-                        {tech.name.charAt(0)}
-                      </span>
-                    </div>
-                  )}
+              {/* Icon */}
+              {tech.icon ? (
+                <div className="h-10 w-10 flex items-center justify-center text-text-secondary">
+                  {tech.icon}
                 </div>
+              ) : hasTechIcon(tech.name) ? (
+                <div className="h-10 w-10 flex items-center justify-center text-text-secondary">
+                  <TechIcon name={tech.name} size={28} />
+                </div>
+              ) : (
+                <div className="h-10 w-10 rounded-lg bg-accent-teal/10 flex items-center justify-center">
+                  <span className="text-lg font-semibold text-accent-teal-light">
+                    {tech.name.charAt(0)}
+                  </span>
+                </div>
+              )}
 
-                {/* Tech name */}
-                <span
-                  className={cn(
-                    "text-xs text-center font-medium transition-colors duration-300",
-                    hoveredIndex === index
-                      ? "text-text-primary"
-                      : "text-text-muted group-hover:text-text-secondary",
-                  )}
-                >
-                  {tech.name}
-                </span>
-              </div>
+              {/* Tech name */}
+              <span className="text-xs text-center font-medium text-text-muted">
+                {tech.name}
+              </span>
             </motion.div>
           ))}
         </motion.div>

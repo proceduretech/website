@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
 
 interface WhyProcedureProps {
   title?: string;
@@ -33,11 +32,8 @@ export function WhyProcedure({
   points,
 }: WhyProcedureProps) {
   return (
-    <section className="py-20 sm:py-28 bg-base relative overflow-hidden">
-      {/* Background accent */}
-      <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-gradient-radial from-accent-teal/5 to-transparent blur-3xl -translate-y-1/2" />
-
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 sm:py-36 bg-base">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left side - Title */}
           <motion.div
@@ -68,11 +64,7 @@ export function WhyProcedure({
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className={cn(
-                  "flex items-start gap-4 p-4 rounded-xl",
-                  "bg-surface-elevated/50 border border-border",
-                  "hover:border-accent-teal/30 transition-all duration-300",
-                )}
+                className="flex items-start gap-4 p-4 rounded-xl bg-surface-elevated border border-border"
               >
                 <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-accent-teal/10 border border-accent-teal/20 flex items-center justify-center">
                   <svg

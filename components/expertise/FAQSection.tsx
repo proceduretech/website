@@ -21,7 +21,7 @@ export function FAQSection({
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-20 sm:py-28 bg-surface">
+    <section className="py-24 sm:py-36 bg-surface">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -46,11 +46,11 @@ export function FAQSection({
             <div
               key={index}
               className={cn(
-                "rounded-xl border overflow-hidden transition-all duration-300",
-                "bg-surface-elevated/30",
+                "rounded-xl border overflow-hidden transition-colors",
+                "bg-surface-elevated",
                 openIndex === index
-                  ? "border-accent-teal/30 shadow-lg shadow-accent-teal/5"
-                  : "border-border hover:border-border-light",
+                  ? "border-slate-600"
+                  : "border-border",
               )}
             >
               <button
@@ -67,19 +67,12 @@ export function FAQSection({
                 >
                   {faq.question}
                 </span>
-                <div
-                  className={cn(
-                    "flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center ml-4 transition-all duration-300",
-                    openIndex === index
-                      ? "bg-accent-teal/20 border border-accent-teal/30"
-                      : "bg-surface border border-border",
-                  )}
-                >
+                <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-surface border border-border flex items-center justify-center ml-4">
                   <svg
                     className={cn(
-                      "w-4 h-4 transition-all duration-300",
+                      "w-4 h-4 transition-transform duration-300",
                       openIndex === index
-                        ? "text-accent-teal-light rotate-180"
+                        ? "text-text-primary rotate-180"
                         : "text-text-muted",
                     )}
                     fill="none"
@@ -106,7 +99,7 @@ export function FAQSection({
                     className="overflow-hidden"
                   >
                     <div className="px-6 pb-5">
-                      <div className="h-px bg-gradient-to-r from-accent-teal/20 via-border to-transparent mb-4" />
+                      <div className="h-px bg-border mb-4" />
                       <p className="text-text-secondary leading-relaxed">
                         {faq.answer}
                       </p>

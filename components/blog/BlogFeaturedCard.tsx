@@ -18,26 +18,16 @@ export function BlogFeaturedCard({ post }: BlogFeaturedCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="group relative"
+      className="group"
     >
-      {/* Hover glow effect */}
-      <div className="absolute -inset-0.5 bg-gradient-to-r from-accent-teal/20 to-accent-blue/20 rounded-2xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
-
       <Link
         href={`/blog/${post.slug}`}
-        className="relative flex flex-col lg:flex-row bg-surface-elevated border border-border rounded-2xl overflow-hidden hover:border-accent-teal/30 transition-all duration-300"
+        className="flex flex-col lg:flex-row bg-surface-elevated border border-border rounded-2xl overflow-hidden hover:border-slate-600 transition-colors"
       >
         {/* Image Container */}
         <div className="relative w-full lg:w-[60%] aspect-[16/10] lg:aspect-auto overflow-hidden">
-          {/* Placeholder gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-accent-teal/30 to-accent-blue/30" />
-
-          {/* Decorative elements */}
-          <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-accent-teal/20 rounded-full blur-[60px]" />
-          <div className="absolute bottom-1/4 right-1/4 w-24 h-24 bg-accent-blue/20 rounded-full blur-[40px]" />
-
-          {/* Image scale on hover */}
-          <div className="absolute inset-0 group-hover:scale-105 transition-transform duration-700" />
+          {/* Placeholder background */}
+          <div className="absolute inset-0 bg-accent-teal/10" />
 
           {/* Gradient overlay for content fade */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-surface-elevated/90 hidden lg:block" />
@@ -78,8 +68,8 @@ export function BlogFeaturedCard({ post }: BlogFeaturedCardProps) {
           {/* Meta Row */}
           <div className="flex items-center gap-4 text-sm text-text-muted mb-6">
             {/* Author Avatar */}
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-accent-teal to-accent-blue flex items-center justify-center flex-shrink-0">
-              <span className="text-xs font-bold text-white">
+            <div className="w-8 h-8 rounded-full bg-accent-teal/20 border border-accent-teal/30 flex items-center justify-center flex-shrink-0">
+              <span className="text-xs font-bold text-accent-teal-light">
                 {post.author.name.charAt(0)}
               </span>
             </div>

@@ -188,29 +188,8 @@ export default function AboutPage() {
       {/* ============================================
           HERO SECTION
           ============================================ */}
-      <section className="relative pt-32 pb-20 sm:pb-28 overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0">
-          {/* Gradient mesh background */}
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-surface via-base to-base" />
-
-          {/* Animated gradient orbs */}
-          <div className="absolute top-20 right-1/4 w-[600px] h-[600px] bg-accent-teal/8 rounded-full blur-[120px] animate-pulse" />
-          <div className="absolute top-40 left-1/4 w-[500px] h-[500px] bg-accent-blue/8 rounded-full blur-[100px]" />
-
-          {/* Subtle grid pattern */}
-          <div
-            className="absolute inset-0 opacity-[0.015]"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='%23E5E7EB'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e")`,
-            }}
-          />
-
-          {/* Radial gradient overlay */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-accent-teal/5 via-transparent to-transparent" />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+      <section className="relative pt-32 pb-24 sm:pb-36 bg-base">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
             {/* Eyebrow */}
             <motion.div
@@ -278,16 +257,8 @@ export default function AboutPage() {
       {/* ============================================
           MISSION SECTION
           ============================================ */}
-      <section className="relative py-20 sm:py-28 bg-surface">
-        {/* Dot pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3e%3ccircle cx='2' cy='2' r='1' fill='%23E5E7EB'/%3e%3c/svg%3e")`,
-          }}
-        />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+      <section className="relative py-24 sm:py-36 bg-surface">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* Mission Statement */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -321,12 +292,8 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="group relative"
               >
-                {/* Card glow effect on hover */}
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-accent-teal/20 to-accent-blue/20 rounded-2xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
-
-                <div className="relative p-8 rounded-2xl bg-surface-elevated border border-border group-hover:border-accent-teal/30 transition-all duration-300">
+                <div className="p-8 rounded-2xl bg-surface-elevated border border-border hover:border-slate-600 transition-colors">
                   <div className="w-12 h-12 rounded-xl bg-accent-teal/10 border border-accent-teal/20 flex items-center justify-center text-accent-teal-light mb-5">
                     {value.icon}
                   </div>
@@ -346,16 +313,8 @@ export default function AboutPage() {
       {/* ============================================
           LEADERSHIP TEAM SECTION
           ============================================ */}
-      <section className="relative py-20 sm:py-28 bg-base">
-        {/* Plus/cross pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32'%3e%3cpath d='M16 8v16M8 16h16' stroke='%23E5E7EB' stroke-width='1' fill='none'/%3e%3c/svg%3e")`,
-          }}
-        />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+      <section className="relative py-24 sm:py-36 bg-base">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -386,16 +345,14 @@ export default function AboutPage() {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="group"
               >
-                <div className="relative p-6 rounded-2xl bg-surface-elevated border border-border group-hover:border-accent-teal/30 transition-all duration-300">
+                <div className="p-6 rounded-2xl bg-surface-elevated border border-border hover:border-slate-600 transition-colors">
                   {/* Photo placeholder */}
                   <div className="relative w-24 h-24 mx-auto mb-5">
-                    <div className="w-full h-full rounded-full bg-gradient-to-br from-accent-teal to-accent-blue flex items-center justify-center">
-                      <span className="text-3xl font-bold text-white">
+                    <div className="w-full h-full rounded-full bg-accent-teal/20 border border-accent-teal/30 flex items-center justify-center">
+                      <span className="text-3xl font-bold text-accent-teal-light">
                         {member.name.charAt(0)}
                       </span>
                     </div>
-                    {/* Status indicator */}
-                    <div className="absolute bottom-1 right-1 w-4 h-4 rounded-full bg-accent-teal border-2 border-surface-elevated" />
                   </div>
 
                   {/* Info */}
@@ -437,16 +394,8 @@ export default function AboutPage() {
       {/* ============================================
           COMPANY TIMELINE SECTION
           ============================================ */}
-      <section className="relative py-20 sm:py-28 bg-surface">
-        {/* Circle pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' width='48' height='48'%3e%3ccircle cx='24' cy='24' r='8' stroke='%23E5E7EB' stroke-width='1' fill='none'/%3e%3c/svg%3e")`,
-          }}
-        />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+      <section className="relative py-24 sm:py-36 bg-surface">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -465,7 +414,7 @@ export default function AboutPage() {
           {/* Timeline */}
           <div className="relative">
             {/* Timeline line - hidden on mobile */}
-            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-accent-teal/50 via-accent-blue/50 to-transparent" />
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-border" />
 
             <div className="space-y-8 md:space-y-0">
               {milestones.map((milestone, idx) => (
@@ -513,16 +462,8 @@ export default function AboutPage() {
       {/* ============================================
           WHY PROCEDURE / DIFFERENTIATORS SECTION
           ============================================ */}
-      <section className="relative py-20 sm:py-28 bg-base">
-        {/* Diagonal lines pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40' width='40' height='40'%3e%3cpath d='M0 40L40 0' stroke='%23E5E7EB' stroke-width='1' fill='none'/%3e%3c/svg%3e")`,
-          }}
-        />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+      <section className="relative py-24 sm:py-36 bg-base">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -551,12 +492,8 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="relative group"
               >
-                {/* Card glow effect */}
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-accent-teal/20 to-accent-blue/20 rounded-2xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
-
-                <div className="relative p-6 rounded-2xl bg-surface-elevated border border-border group-hover:border-accent-teal/30 transition-all duration-300 h-full">
+                <div className="p-6 rounded-2xl bg-surface-elevated border border-border hover:border-slate-600 transition-colors h-full">
                   <div className="flex items-baseline gap-1 mb-3">
                     <span className="text-4xl sm:text-5xl font-bold text-highlight">
                       {diff.stat}
@@ -581,16 +518,8 @@ export default function AboutPage() {
       {/* ============================================
           CERTIFICATIONS & PARTNERS SECTION
           ============================================ */}
-      <section className="relative py-20 sm:py-28 bg-surface">
-        {/* Diamond pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36' width='36' height='36'%3e%3cpath d='M18 4L32 18L18 32L4 18Z' stroke='%23E5E7EB' stroke-width='1' fill='none'/%3e%3c/svg%3e")`,
-          }}
-        />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+      <section className="relative py-24 sm:py-36 bg-surface">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* Certifications */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -651,10 +580,10 @@ export default function AboutPage() {
               {partners.map((partner) => (
                 <div
                   key={partner.name}
-                  className="flex flex-col items-center justify-center p-6 rounded-xl bg-surface-elevated border border-border hover:border-accent-teal/30 transition-colors"
+                  className="flex flex-col items-center justify-center p-6 rounded-xl bg-surface-elevated border border-border hover:border-slate-600 transition-colors"
                 >
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-accent-teal/20 to-accent-blue/20 flex items-center justify-center mb-3">
-                    <span className="text-sm font-bold text-text-primary">
+                  <div className="w-12 h-12 rounded-lg bg-accent-teal/10 border border-accent-teal/20 flex items-center justify-center mb-3">
+                    <span className="text-sm font-bold text-accent-teal-light">
                       {partner.name.charAt(0)}
                     </span>
                   </div>
@@ -674,15 +603,8 @@ export default function AboutPage() {
       {/* ============================================
           CTA SECTION
           ============================================ */}
-      <section className="relative py-20 sm:py-28 bg-base overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-accent-teal/5 to-accent-blue/5" />
-
-        {/* Accent orbs */}
-        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-accent-teal/10 rounded-full blur-[100px]" />
-        <div className="absolute top-0 right-1/4 w-[300px] h-[300px] bg-accent-blue/10 rounded-full blur-[80px]" />
-
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <section className="relative py-24 sm:py-36 bg-base">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

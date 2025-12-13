@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
 
 interface RelatedPage {
   slug: string;
@@ -41,7 +40,7 @@ export function RelatedExpertise({
   pages,
 }: RelatedExpertiseProps) {
   return (
-    <section className="py-16 sm:py-20 bg-base">
+    <section className="py-24 sm:py-36 bg-base">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -66,13 +65,7 @@ export function RelatedExpertise({
             <motion.div key={page.slug} variants={cardVariants}>
               <Link
                 href={`/expertise/${page.slug}`}
-                className={cn(
-                  "block p-6 rounded-2xl h-full",
-                  "bg-surface-elevated/30 border border-border",
-                  "hover:border-accent-teal/30 hover:bg-surface-elevated/50",
-                  "group transition-all duration-300",
-                  "hover:-translate-y-1 hover:shadow-lg hover:shadow-accent-teal/5",
-                )}
+                className="block p-6 rounded-xl h-full bg-surface-elevated border border-border hover:border-slate-600 group transition-colors"
               >
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-teal/10 border border-accent-teal/20 mb-4">
                   <span className="text-xs font-medium text-accent-teal-light">
