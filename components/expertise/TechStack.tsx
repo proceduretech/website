@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { TechIcon, hasTechIcon } from "@/lib/tech-icons";
 
 interface Technology {
   name: string;
@@ -80,6 +81,10 @@ export function TechStack({
               {tech.icon ? (
                 <div className="h-10 w-10 flex items-center justify-center text-text-muted group-hover:text-accent-teal-light transition-colors">
                   {tech.icon}
+                </div>
+              ) : hasTechIcon(tech.name) ? (
+                <div className="h-10 w-10 flex items-center justify-center text-text-muted group-hover:text-accent-teal-light transition-colors">
+                  <TechIcon name={tech.name} size={28} />
                 </div>
               ) : (
                 <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-accent-teal/20 to-accent-blue/20 flex items-center justify-center">

@@ -1067,13 +1067,13 @@ export const expertisePages: Record<string, ExpertisePageData> = {
         icon: "device",
         title: "Native iOS Development",
         description:
-          "Swift and SwiftUI for applications that leverage the full power of Apple's platform. Native performance, native UX patterns, native integration.",
+          "Swift for applications that leverage the full power of Apple's platform. Native performance, native UX patterns, native integration with the iOS ecosystem.",
       },
       {
         icon: "device",
         title: "Native Android Development",
         description:
-          "Kotlin and Jetpack Compose for modern Android development. Material Design done right, with attention to the Android ecosystem's nuances.",
+          "Kotlin for modern Android development. Material Design done right, with attention to the Android ecosystem's nuances and device diversity.",
       },
       {
         icon: "code",
@@ -1102,13 +1102,13 @@ export const expertisePages: Record<string, ExpertisePageData> = {
     ],
     technologies: [
       "Swift",
-      "SwiftUI",
+      "iOS",
       "Kotlin",
-      "Jetpack Compose",
+      "Android",
       "React Native",
-      "Expo",
+      "Flutter",
       "Firebase",
-      "Fastlane",
+      "Expo",
     ],
     whyProcedure: [
       "Platform depth: Engineers who understand iOS and Android at the system level",
