@@ -164,16 +164,6 @@ const differentiators = [
   },
 ];
 
-// Partner logos data
-const partners = [
-  { name: "AWS", category: "Cloud Partner" },
-  { name: "Google Cloud", category: "Cloud Partner" },
-  { name: "Microsoft Azure", category: "Cloud Partner" },
-  { name: "OpenAI", category: "AI Partner" },
-  { name: "Anthropic", category: "AI Partner" },
-  { name: "NVIDIA", category: "Technology Partner" },
-];
-
 // Certifications data
 const certifications = [
   { name: "SOC 2 Type II", description: "Certified" },
@@ -566,37 +556,6 @@ export default function AboutPage() {
             </div>
           </motion.div>
 
-          {/* Technology Partners */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <p className="text-center text-sm text-text-muted uppercase tracking-wider mb-8">
-              Technology Partners
-            </p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-              {partners.map((partner) => (
-                <div
-                  key={partner.name}
-                  className="flex flex-col items-center justify-center p-6 rounded-xl bg-surface-elevated border border-border hover:border-slate-600 transition-colors"
-                >
-                  <div className="w-12 h-12 rounded-lg bg-accent-teal/10 border border-accent-teal/20 flex items-center justify-center mb-3">
-                    <span className="text-sm font-bold text-accent-teal-light">
-                      {partner.name.charAt(0)}
-                    </span>
-                  </div>
-                  <span className="text-sm font-medium text-text-primary text-center">
-                    {partner.name}
-                  </span>
-                  <span className="text-xs text-text-muted">
-                    {partner.category}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
         </div>
       </section>
 
