@@ -80,6 +80,7 @@
     @apply bg-base text-text-primary antialiased;
     background-color: #0f172a;
     overscroll-behavior: none;
+    line-height: 1.7;
     font-family:
       var(--font-inter),
       system-ui,
@@ -99,6 +100,7 @@
       system-ui,
       -apple-system,
       sans-serif;
+    letter-spacing: -0.02em;
   }
 
   /* Keep Outfit for UI elements that need brand consistency */

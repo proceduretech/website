@@ -152,7 +152,7 @@ export function Hero() {
           </motion.div>
 
           {/* Main headline - larger, bolder for center layout */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-text-primary leading-[1.1] tracking-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-text-primary leading-[1.1]">
             <TextGenerateEffect
               words="AI Engineering"
               duration={0.4}

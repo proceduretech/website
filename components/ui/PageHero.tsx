@@ -58,7 +58,7 @@ export function PageHero({
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.3 }}
             className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full border mb-8 ${badgeColorClasses}`}
           >
             <div
@@ -69,10 +69,10 @@ export function PageHero({
 
           {/* Headline */}
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] text-text-primary mb-6"
+            transition={{ duration: 0.3, delay: 0.1 }}
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] text-text-primary mb-6"
           >
             {headline}
             {headlineAccent && (
