@@ -30,7 +30,7 @@ export function UseCaseHero({
   return (
     <PageHero
       badge={badge}
-      badgeVariant="blue"
+      badgeVariant="teal"
       headline={headline}
       headlineAccent={highlightedText}
       tagline={tagline}
