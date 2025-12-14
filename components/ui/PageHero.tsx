@@ -29,6 +29,9 @@ interface PageHeroProps {
   children?: ReactNode;
 }
 
+// Smooth easing curve for premium feel
+const smoothEasing = [0.16, 1, 0.3, 1] as const;
+
 export function PageHero({
   badge,
   badgeVariant = "teal",
@@ -49,8 +52,23 @@ export function PageHero({
   const pulseColorClass =
     badgeVariant === "blue" ? "bg-accent-blue-light" : "bg-accent-teal-light";
 
+  const glowColor =
+    badgeVariant === "blue" ? "bg-accent-blue/8" : "bg-accent-teal/8";
+
   return (
-    <section className="relative pt-32 pb-24 sm:pb-36 bg-base">
+    <section className="relative pt-32 pb-24 sm:pb-36 bg-base overflow-hidden">
+      {/* Animated background glow */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2 }}
+        className="absolute inset-0 pointer-events-none"
+      >
+        <div
+          className={`absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] ${glowColor} rounded-full blur-[120px]`}
+        />
+      </motion.div>
+
       {/* Main content - CENTERED */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
@@ -58,7 +76,7 @@ export function PageHero({
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.5, ease: smoothEasing }}
             className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full border mb-8 ${badgeColorClasses}`}
           >
             <div
@@ -69,17 +87,22 @@ export function PageHero({
 
           {/* Headline */}
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: 0.1 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: smoothEasing }}
             className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] text-text-primary mb-6"
           >
             {headline}
             {headlineAccent && (
-              <>
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="text-highlight"
+              >
                 {" "}
-                <span className="text-highlight">{headlineAccent}</span>
-              </>
+                {headlineAccent}
+              </motion.span>
             )}
           </motion.h1>
 
@@ -88,7 +111,7 @@ export function PageHero({
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.2, ease: smoothEasing }}
               className="text-xl sm:text-2xl text-text-secondary font-medium mb-4"
             >
               {tagline}
@@ -99,7 +122,7 @@ export function PageHero({
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.25 }}
+            transition={{ duration: 0.5, delay: 0.3, ease: smoothEasing }}
             className="text-lg text-text-secondary max-w-3xl mx-auto mb-10 leading-relaxed"
           >
             {description}
@@ -110,12 +133,19 @@ export function PageHero({
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.35, ease: smoothEasing }}
               className="grid grid-cols-3 gap-4 sm:gap-6 mb-10 max-w-2xl mx-auto"
             >
               {stats.map((stat, index) => (
-                <div
+                <motion.div
                   key={index}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{
+                    duration: 0.4,
+                    delay: 0.4 + index * 0.1,
+                    ease: smoothEasing,
+                  }}
                   className="p-4 sm:p-6 rounded-xl text-center bg-surface-elevated border border-border"
                 >
                   <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-highlight">
@@ -124,7 +154,7 @@ export function PageHero({
                   <div className="text-xs sm:text-sm text-text-secondary mt-1 sm:mt-2">
                     {stat.label}
                   </div>
-                </div>
+                </motion.div>
               ))}
             </motion.div>
           )}
@@ -133,7 +163,11 @@ export function PageHero({
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: stats ? 0.35 : 0.3 }}
+            transition={{
+              duration: 0.5,
+              delay: stats ? 0.5 : 0.4,
+              ease: smoothEasing,
+            }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Link href={primaryCTA.href}>

@@ -191,7 +191,7 @@ export function Hero() {
             </CalButton>
             <Link
               href="/case-studies"
-              className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-surface-elevated border border-border rounded-lg hover:border-slate-600 transition-all duration-200"
+              className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-surface-elevated border border-border rounded-lg hover:border-accent-teal/30 transition-all duration-200"
             >
               View Our Work
             </Link>

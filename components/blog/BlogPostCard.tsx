@@ -23,7 +23,7 @@ export function BlogPostCard({ post, index = 0 }: BlogPostCardProps) {
     >
       <Link
         href={`/blog/${post.slug}`}
-        className="flex flex-col h-full bg-surface-elevated border border-border rounded-2xl overflow-hidden hover:border-slate-600 transition-colors"
+        className="flex flex-col h-full bg-surface-elevated border border-border rounded-2xl overflow-hidden hover:border-accent-teal/30 transition-colors"
       >
         {/* Image Container */}
         <div className="relative overflow-hidden aspect-[16/10]">

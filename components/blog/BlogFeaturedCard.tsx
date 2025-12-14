@@ -22,7 +22,7 @@ export function BlogFeaturedCard({ post }: BlogFeaturedCardProps) {
     >
       <Link
         href={`/blog/${post.slug}`}
-        className="flex flex-col lg:flex-row bg-surface-elevated border border-border rounded-2xl overflow-hidden hover:border-slate-600 transition-colors"
+        className="flex flex-col lg:flex-row bg-surface-elevated border border-border rounded-2xl overflow-hidden hover:border-accent-teal/30 transition-colors"
       >
         {/* Image Container */}
         <div className="relative w-full lg:w-[60%] aspect-[16/10] lg:aspect-auto overflow-hidden">
