@@ -292,10 +292,11 @@ export const navigationData = {
           icon: "scale",
         },
         {
-          label: "Open Source",
-          description: "Tools and libraries we've built and contributed to.",
-          href: "/about/open-source",
-          icon: "github",
+          label: "AI Upskill",
+          description:
+            "Our 12-week AI engineering bootcamp transforming developers into AI engineers.",
+          href: "/ai-upskill",
+          icon: "sparkles",
         },
         {
           label: "Rubber Duck",
