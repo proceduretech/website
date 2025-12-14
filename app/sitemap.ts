@@ -3,6 +3,8 @@ import {
   getAllExpertiseSlugsFromContent,
   getAllIndustrySlugsFromContent,
   getAllUseCaseSlugsFromContent,
+  getAllServiceSlugsFromContent,
+  getAllSlugs,
 } from '@/lib/content';
 
 const BASE_URL = 'https://procedure.tech';
@@ -19,6 +21,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/case-studies', priority: 0.9, changeFrequency: 'weekly' as const },
     { path: '/culture', priority: 0.6, changeFrequency: 'monthly' as const },
     { path: '/why-us', priority: 0.7, changeFrequency: 'monthly' as const },
+    { path: '/approach', priority: 0.7, changeFrequency: 'monthly' as const },
+    { path: '/blog', priority: 0.8, changeFrequency: 'weekly' as const },
+    { path: '/ai-safety', priority: 0.7, changeFrequency: 'monthly' as const },
+    { path: '/ai-upskill', priority: 0.7, changeFrequency: 'monthly' as const },
+    { path: '/events', priority: 0.7, changeFrequency: 'weekly' as const },
+    { path: '/rubber-duck', priority: 0.5, changeFrequency: 'monthly' as const },
   ];
 
   for (const page of staticPages) {
@@ -30,20 +38,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  // Service pages
-  const servicePages = [
-    'enterprise',
-    'startups',
-    'scale-ups',
-    'forward-deployed',
-    'staff-augmentation',
-    'ai-sprints',
-    'product-build',
-  ];
-
-  for (const service of servicePages) {
+  // Service pages (dynamic)
+  const serviceSlugs = getAllServiceSlugsFromContent();
+  for (const slug of serviceSlugs) {
     entries.push({
-      url: `${BASE_URL}/services/${service}`,
+      url: `${BASE_URL}/services/${slug}`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
@@ -80,6 +79,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,
+    });
+  }
+
+  // Blog posts (dynamic)
+  const blogSlugs = getAllSlugs('blog');
+  for (const slug of blogSlugs) {
+    entries.push({
+      url: `${BASE_URL}/blog/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.7,
     });
   }
 
