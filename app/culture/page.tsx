@@ -335,7 +335,7 @@ export default function CulturePage() {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-32 pb-20">
-          <div className="max-w-4xl">
+          <div className="max-w-4xl mx-auto text-center">
             {/* Eyebrow badge */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
@@ -366,7 +366,7 @@ export default function CulturePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-lg sm:text-xl text-text-secondary leading-relaxed mb-10 max-w-3xl"
+              className="text-lg sm:text-xl text-text-secondary leading-relaxed mb-10 max-w-3xl mx-auto"
             >
               We&apos;re forward-deployed engineers, designers, and thinkers who
               stay close to the problem, not tucked behind layers of process.
@@ -379,7 +379,7 @@ export default function CulturePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-wrap gap-8 sm:gap-12 mb-12"
+              className="flex flex-wrap gap-8 sm:gap-12 mb-12 justify-center"
             >
               {stats.map((stat) => (
                 <div key={stat.label}>
@@ -398,7 +398,7 @@ export default function CulturePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <Link
                 href="/careers"

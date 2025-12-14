@@ -71,7 +71,7 @@ export function TechStack({
             <motion.div
               key={index}
               variants={itemVariants}
-              className="flex flex-col items-center gap-2 p-4 rounded-xl bg-surface-elevated border border-border hover:border-slate-600 transition-colors"
+              className="flex flex-col items-center gap-2 p-4 rounded-xl bg-surface-elevated border border-border hover:border-accent-teal/30 transition-colors"
             >
               {/* Icon */}
               {tech.icon ? (

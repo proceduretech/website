@@ -222,7 +222,7 @@ export function HowWeWork() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
-              className="group p-8 rounded-xl bg-surface-elevated border border-border hover:border-slate-600 transition-colors h-full flex flex-col"
+              className="group p-8 rounded-xl bg-surface-elevated border border-border hover:border-accent-teal/30 transition-colors h-full flex flex-col"
             >
               {/* Model icon */}
               <div className="w-12 h-12 rounded-lg bg-accent-teal/10 flex items-center justify-center text-accent-teal-light mb-5">

@@ -28,7 +28,7 @@ export function CaseStudyCard({
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="group"
     >
-      <div className="h-full flex flex-col bg-surface-elevated border border-border rounded-2xl overflow-hidden hover:border-slate-600 transition-colors">
+      <div className="h-full flex flex-col bg-surface-elevated border border-border rounded-2xl overflow-hidden hover:border-accent-teal/30 transition-colors">
         {/* Case study image */}
         <div className={`relative overflow-hidden ${isCompact ? "h-40" : "h-48"}`}>
           <Image

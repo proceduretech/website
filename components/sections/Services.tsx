@@ -193,7 +193,7 @@ export function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
-              className="group bg-surface-elevated rounded-xl p-8 border border-border hover:border-slate-600 transition-colors"
+              className="group bg-surface-elevated rounded-xl p-8 border border-border hover:border-accent-teal/30 transition-colors"
             >
               {/* Icon */}
               <div className="w-12 h-12 rounded-lg bg-accent-teal/10 flex items-center justify-center text-accent-teal-light mb-5">

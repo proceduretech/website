@@ -286,7 +286,7 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
               >
-                <div className="p-8 rounded-2xl bg-surface-elevated border border-border hover:border-slate-600 transition-colors">
+                <div className="p-8 rounded-2xl bg-surface-elevated border border-border hover:border-accent-teal/30 transition-colors">
                   <div className="w-12 h-12 rounded-xl bg-accent-teal/10 border border-accent-teal/20 flex items-center justify-center text-accent-teal-light mb-5">
                     {value.icon}
                   </div>
@@ -339,7 +339,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="group"
               >
-                <div className="p-6 rounded-2xl bg-surface-elevated border border-border hover:border-slate-600 transition-colors">
+                <div className="p-6 rounded-2xl bg-surface-elevated border border-border hover:border-accent-teal/30 transition-colors">
                   {/* Photo placeholder */}
                   <div className="relative w-24 h-24 mx-auto mb-5">
                     <div className="w-full h-full rounded-full bg-accent-teal/20 border border-accent-teal/30 flex items-center justify-center">
@@ -487,7 +487,7 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
               >
-                <div className="p-6 rounded-2xl bg-surface-elevated border border-border hover:border-slate-600 transition-colors h-full">
+                <div className="p-6 rounded-2xl bg-surface-elevated border border-border hover:border-accent-teal/30 transition-colors h-full">
                   <div className="flex items-baseline gap-1 mb-3">
                     <span className="text-4xl sm:text-5xl font-bold text-highlight">
                       {diff.stat}

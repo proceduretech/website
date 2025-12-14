@@ -11,6 +11,7 @@ import type {
   ExpertiseFrontmatter,
   IndustryFrontmatter,
   UseCaseFrontmatter,
+  ServiceFrontmatter,
   Author,
   BlogCategory,
   ResolvedBlogPost,
@@ -570,8 +571,10 @@ export function getExpertiseForListing(slug: string): ExpertisePageForListing | 
   const { frontmatter, content } = expertise;
   const whyProcedure = parseWhyProcedureFromContent(content);
 
-  // Parse headline from title or use defaults
-  const headlineParts = parseExpertiseHeadline(frontmatter.title);
+  // Use explicit headline/headlineAccent if provided, otherwise parse from title
+  const headlineParts = frontmatter.headline
+    ? { headline: frontmatter.headline, headlineAccent: frontmatter.headlineAccent || "" }
+    : parseExpertiseHeadline(frontmatter.title);
 
   return {
     slug,
@@ -924,6 +927,117 @@ export function getUseCaseForListing(slug: string): UseCasePageForListing | null
  */
 export function getAllUseCaseSlugsFromContent(): string[] {
   return getAllSlugs("use-cases");
+}
+
+// =============================================================================
+// Service Page Helpers (for legacy component compatibility)
+// =============================================================================
+
+export interface ServicePageForListing {
+  slug: string;
+  meta: {
+    title: string;
+    description: string;
+  };
+  hero: {
+    badge: string;
+    badgeVariant?: "teal" | "blue";
+    headline: string;
+    headlineAccent: string;
+    description: string;
+    primaryCTA: { text: string; href: string };
+    secondaryCTA?: { text: string; href: string };
+  };
+  benefits: Array<{
+    title: string;
+    description: string;
+    stat: string;
+    statLabel: string;
+  }>;
+  benefitsTitle: string;
+  process: Array<{
+    step: string;
+    title: string;
+    duration: string;
+    description: string;
+  }>;
+  processTitle: string;
+  services?: string[];
+  productTypes?: string[];
+  roles?: string[];
+  sprintExamples?: string[];
+  compliance?: string[];
+  idealFor: string[];
+  idealForTitle: string;
+  cta: {
+    headline: string;
+    headlineAccent?: string;
+    description: string;
+    buttonText: string;
+    buttonLink: string;
+  };
+}
+
+/**
+ * Get all service pages
+ */
+export const getAllServices = cache(
+  (): ContentItem<ServiceFrontmatter>[] => {
+    return getAllContent<ServiceFrontmatter>("services");
+  }
+);
+
+/**
+ * Get a single service page
+ */
+export function getService(slug: string): ContentItem<ServiceFrontmatter> | null {
+  return getContentBySlug<ServiceFrontmatter>("services", slug);
+}
+
+/**
+ * Convert MDX service to format for components
+ */
+export function getServiceForListing(slug: string): ServicePageForListing | null {
+  const service = getService(slug);
+  if (!service) return null;
+
+  const { frontmatter } = service;
+
+  return {
+    slug,
+    meta: {
+      title: frontmatter.seo?.title || `${frontmatter.title} | Procedure`,
+      description: frontmatter.seo?.description || frontmatter.description,
+    },
+    hero: {
+      badge: frontmatter.badge || frontmatter.title,
+      badgeVariant: frontmatter.badgeVariant,
+      headline: frontmatter.headline,
+      headlineAccent: frontmatter.headlineAccent || "",
+      description: frontmatter.description,
+      primaryCTA: frontmatter.primaryCTA,
+      secondaryCTA: frontmatter.secondaryCTA,
+    },
+    benefits: frontmatter.benefits,
+    benefitsTitle: frontmatter.benefitsTitle || `Why ${frontmatter.title}`,
+    process: frontmatter.process,
+    processTitle: frontmatter.processTitle || `How ${frontmatter.title} Works`,
+    services: frontmatter.services,
+    productTypes: frontmatter.productTypes,
+    roles: frontmatter.roles,
+    sprintExamples: frontmatter.sprintExamples,
+    compliance: frontmatter.compliance,
+    idealFor: frontmatter.idealFor,
+    idealForTitle: frontmatter.idealForTitle || `Who ${frontmatter.title} Is For`,
+    cta: frontmatter.cta,
+  };
+}
+
+/**
+ * Get all service slugs for static generation
+ */
+export function getAllServiceSlugsFromContent(): string[] {
+  return getAllSlugs("services");
 }
 
 export function generateContentMetadata<T extends BaseFrontmatter>(

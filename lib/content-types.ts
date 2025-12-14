@@ -119,6 +119,8 @@ export interface CapabilityItem {
 }
 
 export interface ExpertiseFrontmatter extends BaseFrontmatter {
+  headline?: string; // Explicit headline (if provided)
+  headlineAccent?: string; // Accent portion of headline (if provided)
   tagline: string;
   description: string;
   heroStats?: MetricItem[];
@@ -163,6 +165,54 @@ export interface IndustryFrontmatter extends BaseFrontmatter {
   relatedIndustries?: string[];
   faqs?: FAQItem[];
   cta?: CTABlock;
+}
+
+// =============================================================================
+// Service Page
+// =============================================================================
+
+export interface ServiceBenefit {
+  title: string;
+  description: string;
+  stat: string;
+  statLabel: string;
+}
+
+export interface ServiceProcessStep {
+  step: string;
+  title: string;
+  duration: string;
+  description: string;
+}
+
+export interface ServiceCTA {
+  headline: string;
+  headlineAccent?: string;
+  description: string;
+  buttonText: string;
+  buttonLink: string;
+}
+
+export interface ServiceFrontmatter extends BaseFrontmatter {
+  headline: string;
+  headlineAccent?: string;
+  badge?: string;
+  badgeVariant?: "teal" | "blue";
+  description: string;
+  primaryCTA: { text: string; href: string };
+  secondaryCTA?: { text: string; href: string };
+  benefits: ServiceBenefit[];
+  benefitsTitle?: string;
+  process: ServiceProcessStep[];
+  processTitle?: string;
+  services?: string[]; // List of services offered
+  productTypes?: string[]; // Types of products built (for product-build)
+  roles?: string[]; // Roles staffed (for staff-augmentation)
+  sprintExamples?: string[]; // Sprint examples (for ai-sprints)
+  compliance?: string[]; // Compliance certifications (for enterprise)
+  idealFor: string[];
+  idealForTitle?: string;
+  cta: ServiceCTA;
 }
 
 // =============================================================================
@@ -236,6 +286,7 @@ export type ContentType =
   | "expertise"
   | "industries"
   | "use-cases"
+  | "services"
   | "pages";
 
 // Map content types to their frontmatter interfaces
@@ -245,5 +296,6 @@ export type ContentTypeMap = {
   expertise: ExpertiseFrontmatter;
   industries: IndustryFrontmatter;
   "use-cases": UseCaseFrontmatter;
+  services: ServiceFrontmatter;
   pages: BaseFrontmatter;
 };

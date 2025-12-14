@@ -80,7 +80,7 @@ export function BlogListingClient({
       )}
 
       {/* Blog Grid Section */}
-      <section className="relative py-12 sm:py-16 bg-base">
+      <section className="relative py-12 sm:py-16 bg-surface">
         {/* Background pattern */}
         <div
           className="absolute inset-0 opacity-[0.02]"
