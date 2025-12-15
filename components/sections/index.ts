@@ -3,6 +3,7 @@ export { ClientLogos } from "./ClientLogos";
 export { ValueProposition } from "./ValueProposition";
 export { Services } from "./Services";
 export { HowWeWork } from "./HowWeWork";
+export { EngagementModels } from "./EngagementModels";
 export { FeaturedCaseStudies } from "./FeaturedCaseStudies";
 export { Testimonials } from "./Testimonials";
 export { Stats } from "./Stats";

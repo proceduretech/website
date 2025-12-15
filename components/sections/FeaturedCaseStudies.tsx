@@ -11,7 +11,7 @@ interface FeaturedCaseStudiesProps {
 
 export function FeaturedCaseStudies({ caseStudies }: FeaturedCaseStudiesProps) {
   return (
-    <section className="relative py-16 sm:py-24 bg-surface overflow-hidden">
+    <section className="relative py-16 sm:py-24 bg-base overflow-hidden">
       {/* Background pattern */}
       <div
         className="absolute inset-0 opacity-[0.03]"

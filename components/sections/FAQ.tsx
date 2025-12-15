@@ -35,7 +35,7 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="relative py-16 sm:py-24 overflow-hidden bg-base">
+    <section className="relative py-16 sm:py-24 overflow-hidden bg-surface">
       {/* Dot pattern */}
       <div
         className="absolute inset-0 opacity-[0.02]"

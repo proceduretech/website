@@ -6,7 +6,7 @@ import { Spotlight } from "@/components/ui/spotlight";
 
 export function CTA() {
   return (
-    <section className="relative py-16 sm:py-24 bg-surface overflow-hidden">
+    <section className="relative py-16 sm:py-24 bg-base overflow-hidden">
       {/* Spotlight effect */}
       <Spotlight
         className="-top-40 left-0 md:left-60 md:-top-20"

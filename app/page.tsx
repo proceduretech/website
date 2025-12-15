@@ -3,6 +3,7 @@ import {
   ValueProposition,
   Services,
   HowWeWork,
+  EngagementModels,
   FeaturedCaseStudies,
   Testimonials,
   Stats,
@@ -22,6 +23,7 @@ export default function Home() {
       <Testimonials />
       <Services />
       <HowWeWork />
+      <EngagementModels />
       <FeaturedCaseStudies caseStudies={featuredCaseStudies} />
       <Stats />
       <AboutTeaser />
