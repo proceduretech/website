@@ -10,7 +10,7 @@ export function FooterReveal() {
         {/* Large logo reveal */}
         <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
           <Image
-            src="/logos/procedure/white-logo.svg"
+            src="/logos/procedure/teal-logo.svg"
             alt="Procedure"
             width={1600}
             height={350}
