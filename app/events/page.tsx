@@ -397,9 +397,9 @@ export default function EventsPage() {
 
                   {/* Date and time */}
                   <div className="flex items-start gap-4 mb-5">
-                    <div className="w-16 h-16 rounded-xl bg-cta flex flex-col items-center justify-center text-cta-text flex-shrink-0">
-                      <span className="text-xs font-bold uppercase">FEB</span>
-                      <span className="text-2xl font-bold leading-none">
+                    <div className="w-20 h-20 rounded-xl bg-cta flex flex-col items-center justify-center text-cta-text flex-shrink-0">
+                      <span className="text-xs font-bold uppercase tracking-wide">FEB</span>
+                      <span className="text-2xl font-bold leading-none mt-1">
                         2026
                       </span>
                     </div>
