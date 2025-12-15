@@ -19,14 +19,15 @@
   --color-cta-text: #fcfcfc;
   --color-border: #1e293b;
   --color-border-light: #334155;
-  --color-text-primary: #e5e7eb;
-  --color-text-secondary: #9ca3af;
-  --color-text-muted: #7c8594;
+  /* Text colors - white with opacity for better blending with backgrounds */
+  --color-text-primary: rgba(255, 255, 255, 0.9);
+  --color-text-secondary: rgba(255, 255, 255, 0.65);
+  --color-text-muted: rgba(255, 255, 255, 0.5);
 
   /* Legacy aliases for compatibility */
   --color-background: #0b1220;
-  --color-foreground: #e5e7eb;
-  --color-muted: #7c8594;
+  --color-foreground: rgba(255, 255, 255, 0.9);
+  --color-muted: rgba(255, 255, 255, 0.5);
   --color-accent: #0f766e;
   --color-accent-secondary: #2563eb;
 
@@ -193,7 +194,7 @@
 /* MDX Content Typography - using direct CSS for reliability */
 .mdx-content {
   font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
-  color: #9ca3af;
+  color: rgba(255, 255, 255, 0.65);
   line-height: 1.75;
 }
 
@@ -205,7 +206,7 @@
 .mdx-content h5,
 .mdx-content h6 {
   font-family: var(--font-outfit), system-ui, -apple-system, sans-serif;
-  color: #e5e7eb;
+  color: rgba(255, 255, 255, 0.9);
   scroll-margin-top: 6rem;
 }
 
@@ -239,7 +240,7 @@
 
 /* Anchor links on headings */
 .mdx-content .anchor {
-  color: #e5e7eb;
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
 }
 
@@ -252,7 +253,7 @@
   margin-bottom: 1.5rem;
   font-size: 1.125rem;
   line-height: 1.75;
-  color: #9ca3af;
+  color: rgba(255, 255, 255, 0.65);
 }
 
 /* Lists */
@@ -260,7 +261,7 @@
 .mdx-content ol {
   margin-bottom: 1.5rem;
   padding-left: 1.5rem;
-  color: #9ca3af;
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .mdx-content ul {
@@ -275,7 +276,7 @@
   font-size: 1.125rem;
   line-height: 1.75;
   margin-bottom: 0.5rem;
-  color: #9ca3af;
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .mdx-content li::marker {
@@ -294,7 +295,7 @@
 /* Strong and emphasis */
 .mdx-content strong {
   font-weight: 600;
-  color: #e5e7eb;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .mdx-content em {
@@ -318,7 +319,7 @@
 /* Strikethrough (GFM) */
 .mdx-content del {
   text-decoration: line-through;
-  color: #7c8594;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 /* Task lists (GFM) */
@@ -380,7 +381,7 @@
   text-align: right;
   display: inline-block;
   width: 1rem;
-  color: #7c8594;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 /* Language label */
@@ -388,7 +389,7 @@
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
   font-family: ui-monospace, monospace;
-  color: #7c8594;
+  color: rgba(255, 255, 255, 0.5);
   background-color: #131b2e;
   border: 1px solid #1e293b;
   border-bottom: none;
@@ -406,12 +407,12 @@
   margin-top: 0.5rem;
   text-align: center;
   font-size: 0.875rem;
-  color: #7c8594;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 /* Prose container class for the article wrapper */
 .prose-container {
-  color: #9ca3af;
+  color: rgba(255, 255, 255, 0.65);
 }
 
 /* Steps component - CSS counter for numbering */

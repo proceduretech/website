@@ -183,7 +183,7 @@ export default function AIUpskillPage() {
               className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-amber-500/15 border border-amber-400/30 mb-10"
             >
               <span className="text-amber-400 text-xl">i</span>
-              <span className="text-sm text-gray-100">
+              <span className="text-sm text-white/90">
                 This is an{" "}
                 <strong className="text-amber-400">internal program</strong> for
                 Procedure team members. All API costs covered by Procedure.

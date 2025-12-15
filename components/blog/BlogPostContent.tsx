@@ -12,19 +12,19 @@ export function BlogPostContent({ content }: BlogPostContentProps) {
       {/* Prose styles */}
       <style jsx global>{`
         .prose {
-          --tw-prose-body: #9ca3af;
-          --tw-prose-headings: #e5e7eb;
-          --tw-prose-lead: #9ca3af;
+          --tw-prose-body: rgba(255, 255, 255, 0.65);
+          --tw-prose-headings: rgba(255, 255, 255, 0.9);
+          --tw-prose-lead: rgba(255, 255, 255, 0.65);
           --tw-prose-links: #0db5a5;
-          --tw-prose-bold: #e5e7eb;
-          --tw-prose-counters: #7c8594;
+          --tw-prose-bold: rgba(255, 255, 255, 0.9);
+          --tw-prose-counters: rgba(255, 255, 255, 0.5);
           --tw-prose-bullets: #14b8a6;
           --tw-prose-hr: #1e293b;
-          --tw-prose-quotes: #9ca3af;
+          --tw-prose-quotes: rgba(255, 255, 255, 0.65);
           --tw-prose-quote-borders: #14b8a6;
-          --tw-prose-captions: #7c8594;
+          --tw-prose-captions: rgba(255, 255, 255, 0.5);
           --tw-prose-code: #0db5a5;
-          --tw-prose-pre-code: #e5e7eb;
+          --tw-prose-pre-code: rgba(255, 255, 255, 0.9);
           --tw-prose-pre-bg: #131b2e;
           --tw-prose-th-borders: #1e293b;
           --tw-prose-td-borders: #1e293b;

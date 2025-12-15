@@ -180,7 +180,7 @@ export default function RubberDuckPage() {
               className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-amber-500/15 border border-amber-400/30 mb-10"
             >
               <span className="text-amber-400 text-xl">⚠️</span>
-              <span className="text-sm text-gray-100">
+              <span className="text-sm text-white/90">
                 We will be <strong className="text-amber-400">hiring</strong>{" "}
                 you. You will be paid for this. This is how we onboard and
                 induct new folks into our team.
