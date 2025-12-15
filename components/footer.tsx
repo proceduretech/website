@@ -246,7 +246,7 @@ export function Footer() {
                 alt={badge.alt}
                 width={120}
                 height={48}
-                className="opacity-25 hover:opacity-50 transition-opacity"
+                className="opacity-80 hover:opacity-100 transition-opacity"
               />
             ))}
           </div>
