@@ -44,6 +44,13 @@ export function Navigation() {
 
   return (
     <>
+      {/* Backdrop blur overlay when mega menu is open */}
+      {activeMenu && (
+        <div
+          className="fixed inset-0 z-40 bg-base/60 backdrop-blur-sm transition-all duration-300 hidden lg:block"
+          onClick={() => setActiveMenu(null)}
+        />
+      )}
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled || isMobileMenuOpen
