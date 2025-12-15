@@ -41,7 +41,7 @@ export function SuccessMetrics({
   metrics,
 }: SuccessMetricsProps) {
   return (
-    <section className="py-16 sm:py-20 bg-base">
+    <section className="py-16 sm:py-20 bg-surface">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <motion.div

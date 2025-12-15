@@ -11,7 +11,7 @@ const stats = [
 
 export function Stats() {
   return (
-    <section className="relative py-16 sm:py-24 overflow-hidden section-alt">
+    <section className="relative py-16 sm:py-24 overflow-hidden bg-base">
       {/* Plus/cross pattern */}
       <div
         className="absolute inset-0 opacity-[0.02]"

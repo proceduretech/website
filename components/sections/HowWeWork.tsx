@@ -124,7 +124,7 @@ const engagementModels = [
 
 export function HowWeWork() {
   return (
-    <section className="relative py-16 sm:py-24 overflow-hidden bg-surface">
+    <section className="relative py-16 sm:py-24 overflow-hidden bg-base">
       {/* Gradient orbs for depth */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-accent-teal/[0.07] rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-accent-blue/[0.07] rounded-full blur-[120px] pointer-events-none" />
@@ -187,7 +187,7 @@ export function HowWeWork() {
             <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
           </div>
           <div className="relative flex justify-center">
-            <div className="px-6 bg-surface">
+            <div className="px-6 bg-base">
               <div className="w-2 h-2 rounded-full bg-accent-teal/50" />
             </div>
           </div>
