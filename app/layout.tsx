@@ -74,10 +74,21 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${outfit.variable} ${inter.variable} antialiased`}>
         {/* Main content wrapper - sits above the fixed footer reveal */}
-        <div className="relative z-10 bg-base">
-          <Navigation />
-          {children}
-          <Footer />
+        {/* Outer wrapper for the glow effect (not clipped) */}
+        <div
+          className="relative z-10"
+          style={{
+            boxShadow:
+              "0 20px 80px 20px rgba(13, 181, 165, 0.12), 0 8px 30px 5px rgba(13, 181, 165, 0.08)",
+            borderRadius: "0 0 2.5rem 2.5rem",
+          }}
+        >
+          {/* Inner wrapper for rounded corners with clipping */}
+          <div className="bg-base rounded-b-[2.5rem] overflow-hidden">
+            <Navigation />
+            {children}
+            <Footer />
+          </div>
         </div>
         {/* Footer reveal - fixed at bottom, revealed when scrolling */}
         <FooterReveal />
