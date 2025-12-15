@@ -5,9 +5,9 @@
 
 @theme inline {
   /* Dark Theme Color Palette */
-  --color-base: #0f172a;
-  --color-surface: #0b1220;
-  --color-surface-elevated: #131b2e;
+  --color-base: #0b1220;
+  --color-surface: #050a15;
+  --color-surface-elevated: #0f172a;
   --color-accent-teal: #0f766e;
   --color-accent-teal-light: #14b8a6;
   --color-accent-blue: #2563eb;
@@ -24,7 +24,7 @@
   --color-text-muted: #7c8594;
 
   /* Legacy aliases for compatibility */
-  --color-background: #0f172a;
+  --color-background: #0b1220;
   --color-foreground: #e5e7eb;
   --color-muted: #7c8594;
   --color-accent: #0f766e;
@@ -72,13 +72,13 @@
 
   html {
     @apply bg-base;
-    background-color: #0f172a;
+    background-color: #0b1220;
     overscroll-behavior: none;
   }
 
   body {
     @apply bg-base text-text-primary antialiased;
-    background-color: #0f172a;
+    background-color: #0b1220;
     overscroll-behavior: none;
     line-height: 1.7;
     font-family:
@@ -141,15 +141,15 @@
 @layer utilities {
   /* Section background utilities for visual rhythm */
   .section-base {
-    background-color: #0f172a;
+    background-color: #0b1220;
   }
 
   .section-alt {
-    background-color: #080c14;
+    background-color: #050a15;
   }
 
   .section-elevated {
-    background-color: #131b2e;
+    background-color: #0f172a;
   }
 
   @keyframes gradient {

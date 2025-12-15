@@ -6,7 +6,7 @@ import { CalButton } from "@/components/CalButton";
 
 export function BlogCTA() {
   return (
-    <section className="relative py-24 sm:py-36 bg-base">
+    <section className="relative py-16 sm:py-24 bg-base">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

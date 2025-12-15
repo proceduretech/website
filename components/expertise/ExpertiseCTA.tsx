@@ -24,7 +24,7 @@ export function ExpertiseCTA({
   secondaryCTA = { text: "View Case Studies", href: "/case-studies" },
 }: ExpertiseCTAProps) {
   return (
-    <section className="relative py-24 sm:py-36 bg-base">
+    <section className="relative py-16 sm:py-24 bg-base">
       {/* Top border */}
       <div className="absolute top-0 left-0 right-0 h-px bg-border" />
 

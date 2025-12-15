@@ -49,7 +49,7 @@ export function Testimonials() {
 
   return (
     <section
-      className="relative py-24 sm:py-36 bg-surface overflow-hidden"
+      className="relative py-16 sm:py-24 bg-surface overflow-hidden"
       aria-label="Customer testimonials"
     >
       <div className="relative max-w-4xl mx-auto px-6 sm:px-8">

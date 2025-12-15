@@ -326,7 +326,7 @@ export default function CareersPage() {
       {/* ============================================
           WHY JOIN US SECTION
           ============================================ */}
-      <section className="relative py-20 sm:py-28 bg-surface">
+      <section className="relative py-16 sm:py-24 bg-surface">
         {/* Dot pattern */}
         <div
           className="absolute inset-0 opacity-[0.03]"
@@ -390,7 +390,7 @@ export default function CareersPage() {
       {/* ============================================
           OUR VALUES SECTION
           ============================================ */}
-      <section className="relative py-20 sm:py-28 bg-base">
+      <section className="relative py-16 sm:py-24 bg-base">
         {/* Plus/cross pattern */}
         <div
           className="absolute inset-0 opacity-[0.02]"
@@ -460,7 +460,7 @@ export default function CareersPage() {
           ============================================ */}
       <section
         id="openings"
-        className="relative py-20 sm:py-28 bg-surface scroll-mt-24"
+        className="relative py-16 sm:py-24 bg-surface scroll-mt-24"
       >
         {/* Hexagon pattern */}
         <div
@@ -778,7 +778,7 @@ export default function CareersPage() {
       {/* ============================================
           CTA SECTION
           ============================================ */}
-      <section className="relative py-20 sm:py-28 bg-base overflow-hidden">
+      <section className="relative py-16 sm:py-24 bg-base overflow-hidden">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-to-r from-accent-teal/5 to-accent-blue/5" />
 

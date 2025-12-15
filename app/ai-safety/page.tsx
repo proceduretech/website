@@ -754,7 +754,7 @@ export default function AISafetyPage() {
       {/* ============================================
           WHY IT MATTERS SECTION
           ============================================ */}
-      <section className="relative py-24 sm:py-32 bg-surface overflow-hidden">
+      <section className="relative py-16 sm:py-24 bg-surface overflow-hidden">
         {/* Subtle pattern */}
         <div
           className="absolute inset-0 opacity-[0.02]"
@@ -799,7 +799,7 @@ export default function AISafetyPage() {
       {/* ============================================
           PRINCIPLES SECTION
           ============================================ */}
-      <section className="relative py-24 sm:py-32 bg-base overflow-hidden">
+      <section className="relative py-16 sm:py-24 bg-base overflow-hidden">
         {/* Diamond pattern */}
         <div
           className="absolute inset-0 opacity-[0.02]"
@@ -843,7 +843,7 @@ export default function AISafetyPage() {
       {/* ============================================
           IMPLEMENTATION PROCESS SECTION
           ============================================ */}
-      <section className="relative py-24 sm:py-32 bg-surface overflow-hidden">
+      <section className="relative py-16 sm:py-24 bg-surface overflow-hidden">
         {/* Dot pattern */}
         <div
           className="absolute inset-0 opacity-[0.03]"
@@ -890,7 +890,7 @@ export default function AISafetyPage() {
       {/* ============================================
           FRAMEWORKS & COMPLIANCE SECTION
           ============================================ */}
-      <section className="relative py-24 sm:py-32 bg-base overflow-hidden">
+      <section className="relative py-16 sm:py-24 bg-base overflow-hidden">
         {/* Ambient glows */}
         <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-accent-teal/5 rounded-full blur-[150px]" />
         <div className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-accent-blue/5 rounded-full blur-[120px]" />
@@ -1023,7 +1023,7 @@ export default function AISafetyPage() {
       {/* ============================================
           INDUSTRY APPLICATIONS SECTION
           ============================================ */}
-      <section className="relative py-24 sm:py-32 bg-surface overflow-hidden">
+      <section className="relative py-16 sm:py-24 bg-surface overflow-hidden">
         {/* Pattern */}
         <div
           className="absolute inset-0 opacity-[0.02]"
@@ -1066,7 +1066,7 @@ export default function AISafetyPage() {
       {/* ============================================
           CTA SECTION
           ============================================ */}
-      <section className="relative py-24 sm:py-32 bg-base overflow-hidden">
+      <section className="relative py-16 sm:py-24 bg-base overflow-hidden">
         {/* Gradient background */}
         <div className="absolute inset-0 bg-gradient-to-r from-accent-teal/5 to-accent-blue/5" />
 

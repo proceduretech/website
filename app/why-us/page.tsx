@@ -212,7 +212,7 @@ export default function WhyUsPage() {
       />
 
       {/* Five Differentiators Section */}
-      <section className="relative py-20 sm:py-28 bg-surface overflow-hidden">
+      <section className="relative py-16 sm:py-24 bg-surface overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -259,7 +259,7 @@ export default function WhyUsPage() {
       </section>
 
       {/* Comparison Section */}
-      <section className="relative py-20 sm:py-28 bg-base overflow-hidden">
+      <section className="relative py-16 sm:py-24 bg-base overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.02]"
           style={{
@@ -441,7 +441,7 @@ export default function WhyUsPage() {
       </section>
 
       {/* Process Overview Section */}
-      <section className="relative py-20 sm:py-28 bg-surface overflow-hidden">
+      <section className="relative py-16 sm:py-24 bg-surface overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -516,7 +516,7 @@ export default function WhyUsPage() {
       </section>
 
       {/* Social Proof Section */}
-      <section className="relative py-20 sm:py-28 bg-base overflow-hidden">
+      <section className="relative py-16 sm:py-24 bg-base overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.02]"
           style={{
@@ -638,7 +638,7 @@ export default function WhyUsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-20 sm:py-28 bg-surface overflow-hidden">
+      <section className="relative py-16 sm:py-24 bg-surface overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-accent-teal/5 to-accent-blue/5" />
         <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-accent-teal/10 rounded-full blur-[100px]" />
         <div className="absolute top-0 right-1/4 w-[300px] h-[300px] bg-accent-blue/10 rounded-full blur-[80px]" />

@@ -161,7 +161,7 @@ const services = [
 
 export function Services() {
   return (
-    <section className="relative py-24 sm:py-36 overflow-hidden section-alt">
+    <section className="relative py-16 sm:py-24 overflow-hidden section-alt">
       {/* Diagonal lines pattern */}
       <div
         className="absolute inset-0 opacity-[0.02]"

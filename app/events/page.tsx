@@ -317,7 +317,7 @@ export default function EventsPage() {
       {/* ============================================
           UPCOMING EVENTS SECTION
           ============================================ */}
-      <section id="upcoming" className="relative py-20 sm:py-28 bg-surface">
+      <section id="upcoming" className="relative py-16 sm:py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -529,7 +529,7 @@ export default function EventsPage() {
       {/* ============================================
           PAST EVENTS SECTION
           ============================================ */}
-      <section className="relative py-20 sm:py-28 bg-base">
+      <section className="relative py-16 sm:py-24 bg-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -822,7 +822,7 @@ export default function EventsPage() {
       {/* ============================================
           WHY WE DO THIS SECTION
           ============================================ */}
-      <section className="relative py-20 sm:py-28 bg-base">
+      <section className="relative py-16 sm:py-24 bg-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -892,7 +892,7 @@ export default function EventsPage() {
       {/* ============================================
           NEWSLETTER SIGNUP SECTION
           ============================================ */}
-      <section id="notify" className="relative py-20 sm:py-28 bg-surface">
+      <section id="notify" className="relative py-16 sm:py-24 bg-surface">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -991,7 +991,7 @@ export default function EventsPage() {
       {/* ============================================
           GET INVOLVED SECTION
           ============================================ */}
-      <section className="relative py-20 sm:py-28 bg-base">
+      <section className="relative py-16 sm:py-24 bg-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -1051,7 +1051,7 @@ export default function EventsPage() {
       {/* ============================================
           FINAL CTA SECTION
           ============================================ */}
-      <section className="relative py-20 sm:py-28 bg-surface overflow-hidden">
+      <section className="relative py-16 sm:py-24 bg-surface overflow-hidden">
         {/* Background elements */}
         <div className="absolute inset-0">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent-teal/5 rounded-full blur-3xl" />

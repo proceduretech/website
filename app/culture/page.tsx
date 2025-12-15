@@ -444,7 +444,7 @@ export default function CulturePage() {
       {/* ============================================
           ORIGIN STORY SECTION
           ============================================ */}
-      <section className="relative py-24 sm:py-32 bg-surface overflow-hidden">
+      <section className="relative py-16 sm:py-24 bg-surface overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -478,7 +478,7 @@ export default function CulturePage() {
           ============================================ */}
       <section
         id="beliefs"
-        className="relative py-24 sm:py-32 bg-base overflow-hidden scroll-mt-24"
+        className="relative py-16 sm:py-24 bg-base overflow-hidden scroll-mt-24"
       >
         {/* Dot pattern */}
         <div
@@ -552,7 +552,7 @@ export default function CulturePage() {
       {/* ============================================
           PRINCIPLES SECTION
           ============================================ */}
-      <section className="relative py-24 sm:py-32 bg-surface overflow-hidden">
+      <section className="relative py-16 sm:py-24 bg-surface overflow-hidden">
         {/* Hexagon pattern background */}
         <div
           className="absolute inset-0 opacity-[0.02]"
@@ -618,7 +618,7 @@ export default function CulturePage() {
       {/* ============================================
           GROWTH & LEARNING SECTION
           ============================================ */}
-      <section className="relative py-24 sm:py-32 bg-base overflow-hidden">
+      <section className="relative py-16 sm:py-24 bg-base overflow-hidden">
         {/* Plus pattern */}
         <div
           className="absolute inset-0 opacity-[0.02]"
@@ -693,7 +693,7 @@ export default function CulturePage() {
       {/* ============================================
           WHAT IT'S LIKE SECTION
           ============================================ */}
-      <section className="relative py-24 sm:py-32 bg-surface overflow-hidden">
+      <section className="relative py-16 sm:py-24 bg-surface overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left content */}
@@ -777,7 +777,7 @@ export default function CulturePage() {
       {/* ============================================
           CTA SECTION
           ============================================ */}
-      <section className="relative py-24 sm:py-32 overflow-hidden">
+      <section className="relative py-16 sm:py-24 overflow-hidden">
         {/* Gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-accent-teal/10 via-base to-accent-blue/10" />
 

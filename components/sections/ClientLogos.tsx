@@ -27,9 +27,13 @@ export function ClientLogos() {
         Trusted by innovative teams
       </p>
       <div className="relative overflow-hidden py-4">
-        {/* Fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-base to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-base to-transparent z-10" />
+        {/* Gradient mask overlay - white from center fading to transparent at edges */}
+        <div
+          className="absolute inset-0 z-10 pointer-events-none"
+          style={{
+            background: 'linear-gradient(to right, #0b1220 0%, transparent 15%, transparent 85%, #0b1220 100%)'
+          }}
+        />
 
         <motion.div
           className="flex items-center gap-12 md:gap-16"
@@ -48,7 +52,7 @@ export function ClientLogos() {
           {[...clients, ...clients].map((client, idx) => (
             <div
               key={`${client.name}-${idx}`}
-              className="flex-shrink-0 h-10 flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity duration-300"
+              className="flex-shrink-0 h-10 flex items-center justify-center opacity-60 hover:opacity-90 transition-opacity duration-300"
               style={{ width: client.width }}
             >
               <Image

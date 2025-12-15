@@ -49,7 +49,7 @@ export default function ServicePageClient({ service }: Props) {
       />
 
       {/* Benefits */}
-      <section className="py-24 sm:py-36 bg-surface">
+      <section className="py-16 sm:py-24 bg-surface">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -95,7 +95,7 @@ export default function ServicePageClient({ service }: Props) {
       </section>
 
       {/* Process */}
-      <section className="py-24 sm:py-36 bg-base">
+      <section className="py-16 sm:py-24 bg-base">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -140,7 +140,7 @@ export default function ServicePageClient({ service }: Props) {
 
       {/* Additional Items (Services, Product Types, Roles, Sprint Examples) */}
       {additionalItems && additionalItemsTitle && (
-        <section className="py-24 sm:py-36 bg-surface">
+        <section className="py-16 sm:py-24 bg-surface">
           <div className="max-w-4xl mx-auto px-4 sm:px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -173,7 +173,7 @@ export default function ServicePageClient({ service }: Props) {
 
       {/* Compliance (for Enterprise) */}
       {service.compliance && service.compliance.length > 0 && (
-        <section className="py-24 sm:py-36 bg-surface">
+        <section className="py-16 sm:py-24 bg-surface">
           <div className="max-w-4xl mx-auto px-4 sm:px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -205,7 +205,7 @@ export default function ServicePageClient({ service }: Props) {
       )}
 
       {/* Ideal For */}
-      <section className="py-24 sm:py-36 bg-base">
+      <section className="py-16 sm:py-24 bg-base">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -251,7 +251,7 @@ export default function ServicePageClient({ service }: Props) {
       </section>
 
       {/* CTA */}
-      <section className="py-24 sm:py-36 bg-surface">
+      <section className="py-16 sm:py-24 bg-surface">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

@@ -180,7 +180,7 @@ export default function AboutPage() {
       {/* ============================================
           HERO SECTION
           ============================================ */}
-      <section className="relative pt-32 pb-24 sm:pb-36 bg-base">
+      <section className="relative pt-32 pb-16 sm:pb-24 bg-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
             {/* Eyebrow */}
@@ -250,7 +250,7 @@ export default function AboutPage() {
       {/* ============================================
           MISSION SECTION
           ============================================ */}
-      <section className="relative py-24 sm:py-36 bg-surface">
+      <section className="relative py-16 sm:py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* Mission Statement */}
           <motion.div
@@ -306,7 +306,7 @@ export default function AboutPage() {
       {/* ============================================
           LEADERSHIP TEAM SECTION
           ============================================ */}
-      <section className="relative py-24 sm:py-36 bg-base">
+      <section className="relative py-16 sm:py-24 bg-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -388,7 +388,7 @@ export default function AboutPage() {
       {/* ============================================
           COMPANY TIMELINE SECTION
           ============================================ */}
-      <section className="relative py-24 sm:py-36 bg-surface">
+      <section className="relative py-16 sm:py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -456,7 +456,7 @@ export default function AboutPage() {
       {/* ============================================
           WHY PROCEDURE / DIFFERENTIATORS SECTION
           ============================================ */}
-      <section className="relative py-24 sm:py-36 bg-base">
+      <section className="relative py-16 sm:py-24 bg-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -512,7 +512,7 @@ export default function AboutPage() {
       {/* ============================================
           CERTIFICATIONS & PARTNERS SECTION
           ============================================ */}
-      <section className="relative py-24 sm:py-36 bg-surface">
+      <section className="relative py-16 sm:py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* Certifications */}
           <motion.div
@@ -566,7 +566,7 @@ export default function AboutPage() {
       {/* ============================================
           CTA SECTION
           ============================================ */}
-      <section className="relative py-24 sm:py-36 bg-base">
+      <section className="relative py-16 sm:py-24 bg-base">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

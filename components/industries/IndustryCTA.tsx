@@ -24,7 +24,7 @@ export function IndustryCTA({
   secondaryCTA = { text: "View Case Studies", href: "/case-studies" },
 }: IndustryCTAProps) {
   return (
-    <section className="relative py-20 sm:py-28 overflow-hidden">
+    <section className="relative py-16 sm:py-24 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-surface via-base to-base" />
 

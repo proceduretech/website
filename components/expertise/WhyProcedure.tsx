@@ -32,7 +32,7 @@ export function WhyProcedure({
   points,
 }: WhyProcedureProps) {
   return (
-    <section className="py-24 sm:py-36 bg-base">
+    <section className="py-16 sm:py-24 bg-base">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left side - Title */}

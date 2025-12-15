@@ -745,7 +745,7 @@ export default function ApproachPage() {
       {/* ============================================
           PHILOSOPHY SECTION
           ============================================ */}
-      <section className="relative py-24 sm:py-32 bg-surface overflow-hidden">
+      <section className="relative py-16 sm:py-24 bg-surface overflow-hidden">
         {/* Subtle pattern */}
         <div
           className="absolute inset-0 opacity-[0.02]"
@@ -791,7 +791,7 @@ export default function ApproachPage() {
       {/* ============================================
           PROCESS SECTION
           ============================================ */}
-      <section className="relative py-24 sm:py-32 bg-base overflow-hidden">
+      <section className="relative py-16 sm:py-24 bg-base overflow-hidden">
         {/* Dot pattern */}
         <div
           className="absolute inset-0 opacity-[0.03]"
@@ -894,7 +894,7 @@ export default function ApproachPage() {
       {/* ============================================
           DIFFERENTIATORS SECTION
           ============================================ */}
-      <section className="relative py-24 sm:py-32 bg-surface overflow-hidden">
+      <section className="relative py-16 sm:py-24 bg-surface overflow-hidden">
         {/* Diagonal lines pattern */}
         <div
           className="absolute inset-0 opacity-[0.02]"
@@ -941,7 +941,7 @@ export default function ApproachPage() {
       {/* ============================================
           PRINCIPLES SECTION
           ============================================ */}
-      <section className="relative py-24 sm:py-32 bg-base overflow-hidden">
+      <section className="relative py-16 sm:py-24 bg-base overflow-hidden">
         {/* Cross pattern */}
         <div
           className="absolute inset-0 opacity-[0.02]"
@@ -984,7 +984,7 @@ export default function ApproachPage() {
       {/* ============================================
           OUTCOMES SECTION
           ============================================ */}
-      <section className="relative py-24 sm:py-32 bg-surface overflow-hidden">
+      <section className="relative py-16 sm:py-24 bg-surface overflow-hidden">
         {/* Diamond pattern */}
         <div
           className="absolute inset-0 opacity-[0.02]"
@@ -1093,7 +1093,7 @@ export default function ApproachPage() {
       {/* ============================================
           CTA SECTION
           ============================================ */}
-      <section className="relative py-24 sm:py-32 bg-base overflow-hidden">
+      <section className="relative py-16 sm:py-24 bg-base overflow-hidden">
         {/* Gradient background */}
         <div className="absolute inset-0 bg-gradient-to-r from-accent-teal/5 to-accent-blue/5" />
 

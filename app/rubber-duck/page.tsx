@@ -249,7 +249,7 @@ export default function RubberDuckPage() {
       </section>
 
       {/* What You'll Get Section */}
-      <section className="relative py-20 sm:py-24 bg-surface">
+      <section className="relative py-16 sm:py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div
             initial="hidden"
@@ -326,7 +326,7 @@ export default function RubberDuckPage() {
       </section>
 
       {/* Why Section */}
-      <section className="relative py-20 sm:py-24 bg-base">
+      <section className="relative py-16 sm:py-24 bg-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <motion.div
@@ -414,7 +414,7 @@ export default function RubberDuckPage() {
       </section>
 
       {/* Curriculum Section */}
-      <section id="curriculum" className="relative py-20 sm:py-24 bg-surface">
+      <section id="curriculum" className="relative py-16 sm:py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div
             initial="hidden"
@@ -715,7 +715,7 @@ export default function RubberDuckPage() {
       </section>
 
       {/* This is for you Section */}
-      <section className="relative py-20 sm:py-24 bg-base">
+      <section className="relative py-16 sm:py-24 bg-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <motion.div
@@ -799,7 +799,7 @@ export default function RubberDuckPage() {
       </section>
 
       {/* Instructors Section */}
-      <section className="relative py-20 sm:py-24 bg-surface">
+      <section className="relative py-16 sm:py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div
             initial="hidden"
@@ -924,7 +924,7 @@ export default function RubberDuckPage() {
       </section>
 
       {/* Application Process Section */}
-      <section className="relative py-20 sm:py-24 bg-base">
+      <section className="relative py-16 sm:py-24 bg-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div
             initial="hidden"
@@ -1032,7 +1032,7 @@ export default function RubberDuckPage() {
       </section>
 
       {/* FAQs Section */}
-      <section className="relative py-20 sm:py-24 bg-surface">
+      <section className="relative py-16 sm:py-24 bg-surface">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <motion.div
             initial="hidden"
@@ -1103,7 +1103,7 @@ export default function RubberDuckPage() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="relative py-20 sm:py-24 bg-base overflow-hidden">
+      <section className="relative py-16 sm:py-24 bg-base overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent-teal/5 rounded-full blur-[150px]" />
         </div>
