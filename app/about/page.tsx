@@ -215,10 +215,10 @@ export default function AboutPage() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-lg sm:text-xl text-text-secondary leading-relaxed mb-10 max-w-2xl mx-auto"
             >
-              We are forward-deployed engineers, designers, and thinkers who stay
-              close to the problem—not tucked behind layers of process. From idea
-              to deploy, we move with intent, learn in the open, and keep the
-              &quot;why&quot; visible.
+              We are forward-deployed engineers, designers, and thinkers who
+              stay close to the problem—not tucked behind layers of process.
+              From idea to deploy, we move with intent, learn in the open, and
+              keep the &quot;why&quot; visible.
             </motion.p>
 
             {/* Stats row */}
@@ -268,11 +268,12 @@ export default function AboutPage() {
               <span className="text-highlight">Shipped by real teams.</span>
             </h2>
             <p className="text-lg text-text-secondary max-w-3xl mx-auto leading-relaxed">
-              Procedure started as a small crew that just loved making things work
-              better, and that hasn&apos;t changed. Today, we&apos;re applying our
-              engineering rigor to AI-powered systems, enterprise applications, and
-              complex technical challenges. We still experiment, break, fix, and
-              ship together—because that&apos;s how real products and real teams grow.
+              Procedure started as a small crew that just loved making things
+              work better, and that hasn&apos;t changed. Today, we&apos;re
+              applying our engineering rigor to AI-powered systems, enterprise
+              applications, and complex technical challenges. We still
+              experiment, break, fix, and ship together—because that&apos;s how
+              real products and real teams grow.
             </p>
           </motion.div>
 
@@ -559,7 +560,6 @@ export default function AboutPage() {
               ))}
             </div>
           </motion.div>
-
         </div>
       </section>
 
@@ -582,8 +582,9 @@ export default function AboutPage() {
             <p className="text-lg text-text-secondary mb-10 max-w-2xl mx-auto">
               Whether you&apos;re launching your first AI initiative, scaling an
               existing product, or trying to rescue a stalled project, we&apos;d
-              love to hear about your challenges. Our team will give you an honest
-              assessment—even if the answer is that you don&apos;t need us yet.
+              love to hear about your challenges. Our team will give you an
+              honest assessment—even if the answer is that you don&apos;t need
+              us yet.
             </p>
 
             {/* Dual CTAs */}

@@ -748,7 +748,6 @@ export default function AISafetyPage() {
             </motion.div>
           </div>
         </motion.div>
-
       </section>
 
       {/* ============================================
@@ -834,7 +833,11 @@ export default function AISafetyPage() {
           {/* Principles Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {principles.map((principle, idx) => (
-              <PrincipleCard key={principle.number} principle={principle} index={idx} />
+              <PrincipleCard
+                key={principle.number}
+                principle={principle}
+                index={idx}
+              />
             ))}
           </div>
         </div>
@@ -877,11 +880,7 @@ export default function AISafetyPage() {
           {/* Phase Cards Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {safetyPhases.map((phase, idx) => (
-              <ProcessPhaseCard
-                key={phase.id}
-                phase={phase}
-                index={idx}
-              />
+              <ProcessPhaseCard key={phase.id} phase={phase} index={idx} />
             ))}
           </div>
         </div>
@@ -1045,8 +1044,7 @@ export default function AISafetyPage() {
               Industry-Specific Safety
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 tracking-tight">
-              Tailored for{" "}
-              <span className="text-highlight">Your Domain.</span>
+              Tailored for <span className="text-highlight">Your Domain.</span>
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto text-base sm:text-lg">
               Different industries face different AI risks. We bring specialized
@@ -1057,7 +1055,11 @@ export default function AISafetyPage() {
           {/* Industries Grid */}
           <div className="grid md:grid-cols-3 gap-6">
             {industries.map((industry, idx) => (
-              <IndustryCard key={industry.name} industry={industry} index={idx} />
+              <IndustryCard
+                key={industry.name}
+                industry={industry}
+                index={idx}
+              />
             ))}
           </div>
         </div>

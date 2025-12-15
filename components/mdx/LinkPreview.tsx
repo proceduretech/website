@@ -39,9 +39,7 @@ export function LinkPreview({
               />
             </svg>
           </div>
-          <span className="text-sm text-text-muted">
-            {siteName || domain}
-          </span>
+          <span className="text-sm text-text-muted">{siteName || domain}</span>
         </div>
         <h4 className="text-base font-semibold text-text-primary group-hover:text-highlight transition-colors mb-2">
           {title}

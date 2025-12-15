@@ -31,7 +31,8 @@ export function ClientLogos() {
         <div
           className="absolute inset-0 z-10 pointer-events-none"
           style={{
-            background: 'linear-gradient(to right, #0b1220 0%, transparent 15%, transparent 85%, #0b1220 100%)'
+            background:
+              "linear-gradient(to right, #0b1220 0%, transparent 15%, transparent 85%, #0b1220 100%)",
           }}
         />
 

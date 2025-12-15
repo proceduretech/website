@@ -65,7 +65,7 @@ export function getCategory(key: string): BlogCategory | null {
 export const getContentBySlug = cache(
   <T extends BaseFrontmatter>(
     type: ContentType,
-    slug: string
+    slug: string,
   ): ContentItem<T> | null => {
     const filePath = path.join(CONTENT_DIR, type, `${slug}.mdx`);
 
@@ -81,7 +81,7 @@ export const getContentBySlug = cache(
       frontmatter: data as T,
       content,
     };
-  }
+  },
 );
 
 /**
@@ -90,7 +90,7 @@ export const getContentBySlug = cache(
 export const getAllContent = cache(
   <T extends BaseFrontmatter>(
     type: ContentType,
-    options?: { includeDrafts?: boolean }
+    options?: { includeDrafts?: boolean },
   ): ContentItem<T>[] => {
     const dir = path.join(CONTENT_DIR, type);
 
@@ -109,14 +109,17 @@ export const getAllContent = cache(
       })
       .filter((item): item is ContentItem<T> => {
         if (!item) return false;
-        if (!options?.includeDrafts && (item.frontmatter as BaseFrontmatter).draft) {
+        if (
+          !options?.includeDrafts &&
+          (item.frontmatter as BaseFrontmatter).draft
+        ) {
           return false;
         }
         return true;
       });
 
     return items;
-  }
+  },
 );
 
 /**
@@ -159,7 +162,9 @@ export function getBlogPost(slug: string): ResolvedBlogPost | null {
   const category = getCategory(post.frontmatter.category);
 
   if (!author || !category) {
-    console.warn(`Blog post "${slug}" has invalid author or category reference`);
+    console.warn(
+      `Blog post "${slug}" has invalid author or category reference`,
+    );
     return null;
   }
 
@@ -190,9 +195,9 @@ export const getAllBlogPosts = cache(
       .sort(
         (a, b) =>
           new Date(b.frontmatter.publishedAt).getTime() -
-          new Date(a.frontmatter.publishedAt).getTime()
+          new Date(a.frontmatter.publishedAt).getTime(),
       );
-  }
+  },
 );
 
 /**
@@ -207,7 +212,7 @@ export function getFeaturedBlogPosts(): ResolvedBlogPost[] {
  */
 export function getRelatedBlogPosts(
   currentSlug: string,
-  limit: number = 3
+  limit: number = 3,
 ): ResolvedBlogPost[] {
   const currentPost = getBlogPost(currentSlug);
   if (!currentPost) return [];
@@ -220,7 +225,9 @@ export function getRelatedBlogPosts(
       let score = 0;
 
       // Same category = 3 points
-      if (post.frontmatter.category.slug === currentPost.frontmatter.category.slug) {
+      if (
+        post.frontmatter.category.slug === currentPost.frontmatter.category.slug
+      ) {
         score += 3;
       }
 
@@ -240,9 +247,11 @@ export function getRelatedBlogPosts(
 /**
  * Get blog posts by category
  */
-export function getBlogPostsByCategory(categorySlug: string): ResolvedBlogPost[] {
+export function getBlogPostsByCategory(
+  categorySlug: string,
+): ResolvedBlogPost[] {
   return getAllBlogPosts().filter(
-    (post) => post.frontmatter.category.slug === categorySlug
+    (post) => post.frontmatter.category.slug === categorySlug,
   );
 }
 
@@ -251,7 +260,7 @@ export function getBlogPostsByCategory(categorySlug: string): ResolvedBlogPost[]
  */
 export function getBlogPostsByTag(tag: string): ResolvedBlogPost[] {
   return getAllBlogPosts().filter((post) =>
-    post.frontmatter.tags?.includes(tag)
+    post.frontmatter.tags?.includes(tag),
   );
 }
 
@@ -260,16 +269,20 @@ export function getBlogPostsByTag(tag: string): ResolvedBlogPost[] {
 // =============================================================================
 
 export const getAllCaseStudies = cache(
-  (options?: { includeDrafts?: boolean }): ContentItem<CaseStudyFrontmatter>[] => {
+  (options?: {
+    includeDrafts?: boolean;
+  }): ContentItem<CaseStudyFrontmatter>[] => {
     return getAllContent<CaseStudyFrontmatter>("case-studies", options).sort(
       (a, b) =>
         new Date(b.frontmatter.publishedAt).getTime() -
-        new Date(a.frontmatter.publishedAt).getTime()
+        new Date(a.frontmatter.publishedAt).getTime(),
     );
-  }
+  },
 );
 
-export function getCaseStudy(slug: string): ContentItem<CaseStudyFrontmatter> | null {
+export function getCaseStudy(
+  slug: string,
+): ContentItem<CaseStudyFrontmatter> | null {
   return getContentBySlug<CaseStudyFrontmatter>("case-studies", slug);
 }
 
@@ -278,18 +291,18 @@ export function getFeaturedCaseStudies(): ContentItem<CaseStudyFrontmatter>[] {
 }
 
 export function getCaseStudiesByIndustry(
-  industry: string
+  industry: string,
 ): ContentItem<CaseStudyFrontmatter>[] {
   return getAllCaseStudies().filter(
-    (cs) => cs.frontmatter.industry === industry
+    (cs) => cs.frontmatter.industry === industry,
   );
 }
 
 export function getCaseStudiesByServiceType(
-  serviceType: "ai-engineering" | "product-engineering"
+  serviceType: "ai-engineering" | "product-engineering",
 ): ContentItem<CaseStudyFrontmatter>[] {
   return getAllCaseStudies().filter(
-    (cs) => cs.frontmatter.serviceType === serviceType
+    (cs) => cs.frontmatter.serviceType === serviceType,
   );
 }
 
@@ -300,15 +313,17 @@ export function getCaseStudiesByServiceType(
 export const getAllExpertise = cache(
   (): ContentItem<ExpertiseFrontmatter>[] => {
     return getAllContent<ExpertiseFrontmatter>("expertise");
-  }
+  },
 );
 
-export function getExpertise(slug: string): ContentItem<ExpertiseFrontmatter> | null {
+export function getExpertise(
+  slug: string,
+): ContentItem<ExpertiseFrontmatter> | null {
   return getContentBySlug<ExpertiseFrontmatter>("expertise", slug);
 }
 
 export function getRelatedExpertise(
-  slugs: string[]
+  slugs: string[],
 ): ContentItem<ExpertiseFrontmatter>[] {
   return slugs
     .map((slug) => getExpertise(slug))
@@ -322,10 +337,12 @@ export function getRelatedExpertise(
 export const getAllIndustries = cache(
   (): ContentItem<IndustryFrontmatter>[] => {
     return getAllContent<IndustryFrontmatter>("industries");
-  }
+  },
 );
 
-export function getIndustry(slug: string): ContentItem<IndustryFrontmatter> | null {
+export function getIndustry(
+  slug: string,
+): ContentItem<IndustryFrontmatter> | null {
   return getContentBySlug<IndustryFrontmatter>("industries", slug);
 }
 
@@ -333,13 +350,13 @@ export function getIndustry(slug: string): ContentItem<IndustryFrontmatter> | nu
 // Use Case Functions
 // =============================================================================
 
-export const getAllUseCases = cache(
-  (): ContentItem<UseCaseFrontmatter>[] => {
-    return getAllContent<UseCaseFrontmatter>("use-cases");
-  }
-);
+export const getAllUseCases = cache((): ContentItem<UseCaseFrontmatter>[] => {
+  return getAllContent<UseCaseFrontmatter>("use-cases");
+});
 
-export function getUseCase(slug: string): ContentItem<UseCaseFrontmatter> | null {
+export function getUseCase(
+  slug: string,
+): ContentItem<UseCaseFrontmatter> | null {
   return getContentBySlug<UseCaseFrontmatter>("use-cases", slug);
 }
 
@@ -348,7 +365,10 @@ export function getUseCase(slug: string): ContentItem<UseCaseFrontmatter> | null
 // =============================================================================
 
 import type { Metadata } from "next";
-import type { BlogPost, BlogCategory as LegacyBlogCategory } from "./blog-types";
+import type {
+  BlogPost,
+  BlogCategory as LegacyBlogCategory,
+} from "./blog-types";
 import type {
   CaseStudy as LegacyCaseStudy,
   CaseStudyMetric,
@@ -425,9 +445,11 @@ export function getFeaturedBlogPostsForListing(): BlogPost[] {
  * Map service type from MDX format to display format
  */
 function mapServiceType(
-  serviceType: "ai-engineering" | "product-engineering"
+  serviceType: "ai-engineering" | "product-engineering",
 ): "AI Engineering" | "Product Engineering" {
-  return serviceType === "ai-engineering" ? "AI Engineering" : "Product Engineering";
+  return serviceType === "ai-engineering"
+    ? "AI Engineering"
+    : "Product Engineering";
 }
 
 /**
@@ -542,13 +564,12 @@ function parseWhyProcedureFromContent(content: string): string[] {
 /**
  * Parse headline and accent from title
  */
-function parseExpertiseHeadline(title: string): { headline: string; headlineAccent: string } {
+function parseExpertiseHeadline(title: string): {
+  headline: string;
+  headlineAccent: string;
+} {
   // Default split at common patterns
-  const patterns = [
-    /^(.+) That (.+)$/,
-    /^(.+),\s*(.+)$/,
-    /^(.+) For (.+)$/,
-  ];
+  const patterns = [/^(.+) That (.+)$/, /^(.+),\s*(.+)$/, /^(.+) For (.+)$/];
 
   for (const pattern of patterns) {
     const match = title.match(pattern);
@@ -564,7 +585,9 @@ function parseExpertiseHeadline(title: string): { headline: string; headlineAcce
 /**
  * Convert MDX expertise to legacy format for components
  */
-export function getExpertiseForListing(slug: string): ExpertisePageForListing | null {
+export function getExpertiseForListing(
+  slug: string,
+): ExpertisePageForListing | null {
   const expertise = getExpertise(slug);
   if (!expertise) return null;
 
@@ -573,7 +596,10 @@ export function getExpertiseForListing(slug: string): ExpertisePageForListing | 
 
   // Use explicit headline/headlineAccent if provided, otherwise parse from title
   const headlineParts = frontmatter.headline
-    ? { headline: frontmatter.headline, headlineAccent: frontmatter.headlineAccent || "" }
+    ? {
+        headline: frontmatter.headline,
+        headlineAccent: frontmatter.headlineAccent || "",
+      }
     : parseExpertiseHeadline(frontmatter.title);
 
   return {
@@ -597,8 +623,12 @@ export function getExpertiseForListing(slug: string): ExpertisePageForListing | 
     technologies: frontmatter.technologies,
     whyProcedure,
     cta: {
-      headline: frontmatter.cta?.title || `Ready to Get Started with ${frontmatter.title}?`,
-      description: frontmatter.cta?.description || "Talk to our engineers about your project.",
+      headline:
+        frontmatter.cta?.title ||
+        `Ready to Get Started with ${frontmatter.title}?`,
+      description:
+        frontmatter.cta?.description ||
+        "Talk to our engineers about your project.",
     },
     faqs: frontmatter.faqs || [],
     relatedExpertise: frontmatter.relatedExpertise || [],
@@ -687,21 +717,44 @@ export interface IndustryPageForListing {
 /**
  * Parse headline and accent from industry title
  */
-function parseIndustryHeadline(title: string): { headline: string; headlineAccent: string } {
+function parseIndustryHeadline(title: string): {
+  headline: string;
+  headlineAccent: string;
+} {
   // Industry names don't split well, generate default patterns
-  const patterns: Record<string, { headline: string; headlineAccent: string }> = {
-    "Financial Services": { headline: "AI That Moves at the", headlineAccent: "Speed of Markets" },
-    Healthcare: { headline: "AI That", headlineAccent: "Puts Patients First" },
-    Education: { headline: "AI That", headlineAccent: "Transforms How We Learn" },
-    SaaS: { headline: "Ship AI Features Your", headlineAccent: "Customers Actually Want" },
-  };
-  return patterns[title] || { headline: `AI for ${title}`, headlineAccent: "That Delivers Results" };
+  const patterns: Record<string, { headline: string; headlineAccent: string }> =
+    {
+      "Financial Services": {
+        headline: "AI That Moves at the",
+        headlineAccent: "Speed of Markets",
+      },
+      Healthcare: {
+        headline: "AI That",
+        headlineAccent: "Puts Patients First",
+      },
+      Education: {
+        headline: "AI That",
+        headlineAccent: "Transforms How We Learn",
+      },
+      SaaS: {
+        headline: "Ship AI Features Your",
+        headlineAccent: "Customers Actually Want",
+      },
+    };
+  return (
+    patterns[title] || {
+      headline: `AI for ${title}`,
+      headlineAccent: "That Delivers Results",
+    }
+  );
 }
 
 /**
  * Parse metrics from MDX content (## Results section)
  */
-function parseMetricsFromContent(content: string): Array<{ value: string; label: string; context?: string }> {
+function parseMetricsFromContent(
+  content: string,
+): Array<{ value: string; label: string; context?: string }> {
   // Look for "## Results" section and extract bullet points with values
   const resultsMatch = content.match(/## Results[^\n]*\n+((?:- [^\n]+\n?)+)/);
   if (resultsMatch) {
@@ -715,7 +768,9 @@ function parseMetricsFromContent(content: string): Array<{ value: string; label:
         if (match) {
           const [, boldPart, context] = match;
           // Try to split bold part into value and label
-          const valueLabelMatch = boldPart.match(/^([\d\.\-<>%\+]+\s*[\w]*)\s+(.+)$/);
+          const valueLabelMatch = boldPart.match(
+            /^([\d\.\-<>%\+]+\s*[\w]*)\s+(.+)$/,
+          );
           if (valueLabelMatch) {
             return {
               value: valueLabelMatch[1].trim(),
@@ -723,7 +778,11 @@ function parseMetricsFromContent(content: string): Array<{ value: string; label:
               context: context?.trim() || undefined,
             };
           }
-          return { value: boldPart.trim(), label: "", context: context?.trim() || undefined };
+          return {
+            value: boldPart.trim(),
+            label: "",
+            context: context?.trim() || undefined,
+          };
         }
         return null;
       })
@@ -751,7 +810,9 @@ function parseWhyProcedureForIndustry(content: string): string[] {
 /**
  * Convert MDX industry to legacy format for components
  */
-export function getIndustryForListing(slug: string): IndustryPageForListing | null {
+export function getIndustryForListing(
+  slug: string,
+): IndustryPageForListing | null {
   const industry = getIndustry(slug);
   if (!industry) return null;
 
@@ -763,7 +824,8 @@ export function getIndustryForListing(slug: string): IndustryPageForListing | nu
   return {
     slug,
     meta: {
-      title: frontmatter.seo?.title || `AI for ${frontmatter.title} | Procedure`,
+      title:
+        frontmatter.seo?.title || `AI for ${frontmatter.title} | Procedure`,
       description: frontmatter.seo?.description || frontmatter.description,
     },
     hero: {
@@ -790,7 +852,9 @@ export function getIndustryForListing(slug: string): IndustryPageForListing | nu
     whyProcedure,
     cta: {
       headline: frontmatter.cta?.title || `Build AI for ${frontmatter.title}`,
-      description: frontmatter.cta?.description || "Talk to our engineers about your project.",
+      description:
+        frontmatter.cta?.description ||
+        "Talk to our engineers about your project.",
     },
     faqs: frontmatter.faqs || [],
   };
@@ -867,7 +931,9 @@ export interface UseCasePageForListing {
 /**
  * Convert MDX use case to legacy format for components
  */
-export function getUseCaseForListing(slug: string): UseCasePageForListing | null {
+export function getUseCaseForListing(
+  slug: string,
+): UseCasePageForListing | null {
   const useCase = getUseCase(slug);
   if (!useCase) return null;
 
@@ -876,7 +942,9 @@ export function getUseCaseForListing(slug: string): UseCasePageForListing | null
   return {
     slug,
     meta: {
-      title: frontmatter.seo?.title || `${frontmatter.title} ${frontmatter.heroHighlight || ""} | Procedure`,
+      title:
+        frontmatter.seo?.title ||
+        `${frontmatter.title} ${frontmatter.heroHighlight || ""} | Procedure`,
       description: frontmatter.seo?.description || frontmatter.description,
     },
     hero: {
@@ -913,9 +981,17 @@ export function getUseCaseForListing(slug: string): UseCasePageForListing | null
     whyProcedure: frontmatter.whyProcedure || { title: "", points: [] },
     cta: {
       headline: frontmatter.cta?.title || "Get Started",
-      description: frontmatter.cta?.description || "Talk to our engineers about your project.",
-      primaryCTA: frontmatter.cta?.primaryCTA || { text: "Book a Call", href: "/contact" },
-      secondaryCTA: frontmatter.cta?.secondaryCTA || { text: "Learn More", href: "/contact" },
+      description:
+        frontmatter.cta?.description ||
+        "Talk to our engineers about your project.",
+      primaryCTA: frontmatter.cta?.primaryCTA || {
+        text: "Book a Call",
+        href: "/contact",
+      },
+      secondaryCTA: frontmatter.cta?.secondaryCTA || {
+        text: "Learn More",
+        href: "/contact",
+      },
     },
     faqs: frontmatter.faqs || [],
     relatedIndustries: frontmatter.industries || [],
@@ -981,23 +1057,25 @@ export interface ServicePageForListing {
 /**
  * Get all service pages
  */
-export const getAllServices = cache(
-  (): ContentItem<ServiceFrontmatter>[] => {
-    return getAllContent<ServiceFrontmatter>("services");
-  }
-);
+export const getAllServices = cache((): ContentItem<ServiceFrontmatter>[] => {
+  return getAllContent<ServiceFrontmatter>("services");
+});
 
 /**
  * Get a single service page
  */
-export function getService(slug: string): ContentItem<ServiceFrontmatter> | null {
+export function getService(
+  slug: string,
+): ContentItem<ServiceFrontmatter> | null {
   return getContentBySlug<ServiceFrontmatter>("services", slug);
 }
 
 /**
  * Convert MDX service to format for components
  */
-export function getServiceForListing(slug: string): ServicePageForListing | null {
+export function getServiceForListing(
+  slug: string,
+): ServicePageForListing | null {
   const service = getService(slug);
   if (!service) return null;
 
@@ -1028,7 +1106,8 @@ export function getServiceForListing(slug: string): ServicePageForListing | null
     sprintExamples: frontmatter.sprintExamples,
     compliance: frontmatter.compliance,
     idealFor: frontmatter.idealFor,
-    idealForTitle: frontmatter.idealForTitle || `Who ${frontmatter.title} Is For`,
+    idealForTitle:
+      frontmatter.idealForTitle || `Who ${frontmatter.title} Is For`,
     cta: frontmatter.cta,
   };
 }
@@ -1043,14 +1122,16 @@ export function getAllServiceSlugsFromContent(): string[] {
 export function generateContentMetadata<T extends BaseFrontmatter>(
   content: ContentItem<T>,
   type: ContentType,
-  additionalMeta?: Partial<Metadata>
+  additionalMeta?: Partial<Metadata>,
 ): Metadata {
   const { frontmatter, slug } = content;
   const seo = frontmatter.seo || {};
 
   const title = seo.title || frontmatter.title;
   const description =
-    seo.description || (frontmatter as Record<string, unknown>).excerpt || (frontmatter as Record<string, unknown>).tagline;
+    seo.description ||
+    (frontmatter as Record<string, unknown>).excerpt ||
+    (frontmatter as Record<string, unknown>).tagline;
 
   return {
     title,

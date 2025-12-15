@@ -74,13 +74,17 @@ export default async function IndustryPage({ params }: PageProps) {
   // Map challenges with their icons
   const challenges = pageData.challenges.map((challenge) => ({
     ...challenge,
-    icon: IndustryIcons[challenge.icon as keyof typeof IndustryIcons] || IndustryIcons.alert,
+    icon:
+      IndustryIcons[challenge.icon as keyof typeof IndustryIcons] ||
+      IndustryIcons.alert,
   }));
 
   // Map solutions with their icons
   const solutions = pageData.solutions.map((solution) => ({
     ...solution,
-    icon: IndustryIcons[solution.icon as keyof typeof IndustryIcons] || IndustryIcons.sparkles,
+    icon:
+      IndustryIcons[solution.icon as keyof typeof IndustryIcons] ||
+      IndustryIcons.sparkles,
   }));
 
   // Map compliance badges with icon
@@ -145,7 +149,10 @@ export default async function IndustryPage({ params }: PageProps) {
       )}
 
       {complianceBadges.length > 0 && (
-        <ComplianceBadges title="Compliance & Trust" badges={complianceBadges} />
+        <ComplianceBadges
+          title="Compliance & Trust"
+          badges={complianceBadges}
+        />
       )}
 
       {pageData.faqs.length > 0 && <FAQSection faqs={pageData.faqs} />}

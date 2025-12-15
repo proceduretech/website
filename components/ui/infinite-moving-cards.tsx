@@ -27,12 +27,12 @@ export const InfiniteMovingCards = <T,>({
       if (direction === "left") {
         containerRef.current.style.setProperty(
           "--animation-direction",
-          "forwards"
+          "forwards",
         );
       } else {
         containerRef.current.style.setProperty(
           "--animation-direction",
-          "reverse"
+          "reverse",
         );
       }
     }
@@ -72,7 +72,7 @@ export const InfiniteMovingCards = <T,>({
       ref={containerRef}
       className={cn(
         "scroller relative z-20 w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]",
-        className
+        className,
       )}
     >
       <ul
@@ -80,14 +80,11 @@ export const InfiniteMovingCards = <T,>({
         className={cn(
           "flex w-max min-w-full shrink-0 flex-nowrap gap-6 py-4",
           start && "animate-scroll",
-          pauseOnHover && "hover:[animation-play-state:paused]"
+          pauseOnHover && "hover:[animation-play-state:paused]",
         )}
       >
         {items.map((item, idx) => (
-          <li
-            className="w-[350px] max-w-full shrink-0 md:w-[400px]"
-            key={idx}
-          >
+          <li className="w-[350px] max-w-full shrink-0 md:w-[400px]" key={idx}>
             {renderItem(item, idx)}
           </li>
         ))}

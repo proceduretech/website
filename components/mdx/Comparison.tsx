@@ -27,11 +27,7 @@ const typeStyles = {
         stroke="currentColor"
         strokeWidth={2}
       >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M5 13l4 4L19 7"
-        />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
       </svg>
     ),
     border: "border-green-500/30",
@@ -77,14 +73,14 @@ export function Comparison({ left, right, children }: ComparisonProps) {
       child &&
       typeof child === "object" &&
       "props" in child &&
-      child.props.side === "left"
+      child.props.side === "left",
   );
   const rightContent = childArray.find(
     (child) =>
       child &&
       typeof child === "object" &&
       "props" in child &&
-      child.props.side === "right"
+      child.props.side === "right",
   );
 
   return (

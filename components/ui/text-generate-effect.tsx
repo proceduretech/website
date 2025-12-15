@@ -29,7 +29,7 @@ export const TextGenerateEffect = ({
       {
         duration: duration,
         delay: stagger(staggerDelay),
-      }
+      },
     );
   }, [animate, filter, duration, staggerDelay]);
 
@@ -86,7 +86,7 @@ export const TextGenerateEffectHighlight = ({
         {
           duration: duration,
           delay: stagger(staggerDelay),
-        }
+        },
       );
     }, initialDelay * 1000);
 

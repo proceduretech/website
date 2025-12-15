@@ -48,9 +48,7 @@ export function FAQSection({
               className={cn(
                 "rounded-xl border overflow-hidden transition-colors",
                 "bg-surface-elevated",
-                openIndex === index
-                  ? "border-slate-600"
-                  : "border-border",
+                openIndex === index ? "border-slate-600" : "border-border",
               )}
             >
               <button

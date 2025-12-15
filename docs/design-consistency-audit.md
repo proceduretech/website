@@ -18,21 +18,21 @@ This audit identifies design inconsistencies across the Procedure website that c
 
 **Finding:** Hero text alignment varies unpredictably across pages.
 
-| Page | Alignment | Tagline Position | Stats in Hero |
-|------|-----------|------------------|---------------|
-| Home (`/`) | Center | Above title | No (separate section below) |
-| About (`/about`) | Center | Above title | Yes (inline) |
-| Approach (`/approach`) | Center | Above title | Yes (inline) |
-| Why Us (`/why-us`) | Center | Above title | No |
-| Culture (`/culture`) | Center | Above title | Yes (inline) |
-| AI Safety (`/ai-safety`) | Center | Above title | No (badges above instead) |
-| Careers (`/careers`) | Center | Above title | No |
-| Contact (`/contact`) | **Left-aligned** | Above title | No |
-| Blog (`/blog`) | Center | Above title | Yes (inline) |
-| Case Studies (`/case-studies`) | Center | Above title | Yes (inline) |
-| Expertise pages | **Left-aligned** | Above title | No |
-| Industries pages | Center | Above title | Yes (inline) |
-| Services pages | Center | Above title | No |
+| Page                           | Alignment        | Tagline Position | Stats in Hero               |
+| ------------------------------ | ---------------- | ---------------- | --------------------------- |
+| Home (`/`)                     | Center           | Above title      | No (separate section below) |
+| About (`/about`)               | Center           | Above title      | Yes (inline)                |
+| Approach (`/approach`)         | Center           | Above title      | Yes (inline)                |
+| Why Us (`/why-us`)             | Center           | Above title      | No                          |
+| Culture (`/culture`)           | Center           | Above title      | Yes (inline)                |
+| AI Safety (`/ai-safety`)       | Center           | Above title      | No (badges above instead)   |
+| Careers (`/careers`)           | Center           | Above title      | No                          |
+| Contact (`/contact`)           | **Left-aligned** | Above title      | No                          |
+| Blog (`/blog`)                 | Center           | Above title      | Yes (inline)                |
+| Case Studies (`/case-studies`) | Center           | Above title      | Yes (inline)                |
+| Expertise pages                | **Left-aligned** | Above title      | No                          |
+| Industries pages               | Center           | Above title      | Yes (inline)                |
+| Services pages                 | Center           | Above title      | No                          |
 
 **Issue:** The Contact page and Expertise pages use left-aligned heroes while everything else is centered. This creates visual inconsistency when navigating the site.
 
@@ -49,6 +49,7 @@ This audit identifies design inconsistencies across the Procedure website that c
 **Issue:** The home page feels premium and polished with its animations. Interior pages feel static and less refined by comparison.
 
 **Recommendation:** Apply consistent (but subtle) entrance animations to all hero sections. Consider:
+
 - Fade-up animation for tagline
 - Staggered fade for headline words
 - Fade-in for description and CTAs
@@ -59,11 +60,11 @@ This audit identifies design inconsistencies across the Procedure website that c
 
 **Finding:** The small tagline text above hero headlines varies in styling:
 
-| Style | Pages Using It |
-|-------|----------------|
-| Pill/badge with background | Home, Services pages |
+| Style                        | Pages Using It         |
+| ---------------------------- | ---------------------- |
+| Pill/badge with background   | Home, Services pages   |
 | Plain text with accent color | About, Culture, Why Us |
-| Plain text only | Some expertise pages |
+| Plain text only              | Some expertise pages   |
 
 **Recommendation:** Standardize to pill/badge style with consistent padding, border-radius, and background color across all pages.
 
@@ -87,17 +88,18 @@ This audit identifies design inconsistencies across the Procedure website that c
 
 **Finding:** Some pages alternate between `bg-base` and `bg-surface` for visual hierarchy, while others use the same background throughout.
 
-| Page | Background Pattern |
-|------|-------------------|
-| Home | Alternating (base → surface → base) |
-| About | Mostly uniform |
-| Approach | Mixed with quote sections |
-| Services pages | Mostly uniform with subtle variations |
-| Expertise pages | Uniform |
+| Page            | Background Pattern                    |
+| --------------- | ------------------------------------- |
+| Home            | Alternating (base → surface → base)   |
+| About           | Mostly uniform                        |
+| Approach        | Mixed with quote sections             |
+| Services pages  | Mostly uniform with subtle variations |
+| Expertise pages | Uniform                               |
 
 **Issue:** Lack of consistent rhythm makes some pages feel flat while others have depth.
 
 **Recommendation:** Establish a standard pattern:
+
 - Hero: `bg-base` with gradient/radial effect
 - Section 1: `bg-surface`
 - Section 2: `bg-base`
@@ -109,11 +111,13 @@ This audit identifies design inconsistencies across the Procedure website that c
 ### 2.2 Gradient Usage Inconsistent [MEDIUM]
 
 **Finding:**
+
 - Home page uses prominent radial gradients behind hero and CTA
 - Some pages have no gradient effects at all
 - Gradient colors and opacity vary where used
 
 **Recommendation:** Create a standardized gradient system:
+
 - Hero gradient (subtle radial from top)
 - CTA section gradient (more prominent)
 - Card hover gradients (consistent across all cards)
@@ -126,16 +130,17 @@ This audit identifies design inconsistencies across the Procedure website that c
 
 **Finding:** H1 headlines have inconsistent structures:
 
-| Pattern | Example | Pages |
-|---------|---------|-------|
-| Two-line with highlight | "AI Engineering / That Ships to Production" | Home |
-| Single line | "LLM Applications" | Expertise pages |
-| Question format | "Ready to Ship?" | CTA sections |
-| Statement format | "Engineers Who Ship. Problems That Matter." | About |
+| Pattern                 | Example                                     | Pages           |
+| ----------------------- | ------------------------------------------- | --------------- |
+| Two-line with highlight | "AI Engineering / That Ships to Production" | Home            |
+| Single line             | "LLM Applications"                          | Expertise pages |
+| Question format         | "Ready to Ship?"                            | CTA sections    |
+| Statement format        | "Engineers Who Ship. Problems That Matter." | About           |
 
 **Issue:** No consistent headline formula across page types.
 
 **Recommendation:** Establish headline patterns by page type:
+
 - Service pages: "[Service Name] That [Benefit]"
 - Expertise pages: "[Technology] for [Outcome]"
 - Industry pages: "AI for [Industry]"
@@ -146,6 +151,7 @@ This audit identifies design inconsistencies across the Procedure website that c
 ### 3.2 Subtitle Styling Inconsistent [LOW]
 
 **Finding:** Subtitles under H1 use different text sizes and colors:
+
 - Some use `text-lg text-secondary`
 - Some use `text-xl text-secondary`
 - Expertise pages have a separate "tagline" paragraph before the description
@@ -160,15 +166,16 @@ This audit identifies design inconsistencies across the Procedure website that c
 
 **Finding:** Primary call-to-action buttons vary in:
 
-| Aspect | Variations Found |
-|--------|-----------------|
-| Text | "Book a Call", "Start Your Project", "Schedule Consultation", "Start Your AI Sprint", etc. |
-| Icon | Arrow right (→), chevron right, or no icon |
-| Style | Solid bg-cta, gradient background |
+| Aspect | Variations Found                                                                           |
+| ------ | ------------------------------------------------------------------------------------------ |
+| Text   | "Book a Call", "Start Your Project", "Schedule Consultation", "Start Your AI Sprint", etc. |
+| Icon   | Arrow right (→), chevron right, or no icon                                                 |
+| Style  | Solid bg-cta, gradient background                                                          |
 
 **Issue:** Inconsistent CTA text creates confusion about what action the user is taking.
 
 **Recommendation:**
+
 - Primary CTA: "Book a Call" or "Start Your Project" (pick one)
 - Secondary CTA: "View Case Studies" or page-specific action
 - Always include arrow icon on primary CTA
@@ -179,6 +186,7 @@ This audit identifies design inconsistencies across the Procedure website that c
 ### 4.2 Secondary CTA Inconsistency [MEDIUM]
 
 **Finding:** Secondary CTAs vary between:
+
 - Outline button style
 - Ghost/text link style
 - Link with underline
@@ -193,15 +201,16 @@ This audit identifies design inconsistencies across the Procedure website that c
 
 **Finding:** Cards across the site use different patterns:
 
-| Element | Variations |
-|---------|-----------|
-| Border | None, `border-border`, `border-border/50` |
-| Background | `bg-surface`, `bg-surface/50`, `bg-surface/80` |
-| Border radius | `rounded-xl`, `rounded-2xl`, `rounded-3xl` |
-| Padding | `p-6`, `p-8`, various responsive padding |
+| Element        | Variations                                             |
+| -------------- | ------------------------------------------------------ |
+| Border         | None, `border-border`, `border-border/50`              |
+| Background     | `bg-surface`, `bg-surface/50`, `bg-surface/80`         |
+| Border radius  | `rounded-xl`, `rounded-2xl`, `rounded-3xl`             |
+| Padding        | `p-6`, `p-8`, various responsive padding               |
 | Icon treatment | Colored background, no background, gradient background |
 
 **Recommendation:** Create 2-3 standardized card variants:
+
 1. **Feature Card:** Icon top, title, description
 2. **Service Card:** Icon left, title, description, link
 3. **Stat Card:** Large number, label
@@ -211,12 +220,14 @@ This audit identifies design inconsistencies across the Procedure website that c
 ### 5.2 Icon Container Inconsistency [MEDIUM]
 
 **Finding:** Icons in cards have inconsistent containers:
+
 - Some have rounded colored backgrounds
 - Some have gradient backgrounds
 - Some are bare icons
 - Sizes vary (40px, 48px, 56px)
 
 **Recommendation:** Standardize icon containers:
+
 - Size: 48px × 48px
 - Background: `bg-highlight/10`
 - Border radius: `rounded-xl`
@@ -230,13 +241,14 @@ This audit identifies design inconsistencies across the Procedure website that c
 
 **Finding:** Section headers follow different patterns:
 
-| Pattern | Example |
-|---------|---------|
-| Tagline + H2 + Description | Most sections |
-| H2 only | Some sections |
-| H2 + Description (no tagline) | Mixed usage |
+| Pattern                       | Example       |
+| ----------------------------- | ------------- |
+| Tagline + H2 + Description    | Most sections |
+| H2 only                       | Some sections |
+| H2 + Description (no tagline) | Mixed usage   |
 
 **Recommendation:** Standardize all major sections to:
+
 ```
 <p class="tagline">Section Label</p>
 <h2>Section Headline</h2>
@@ -248,11 +260,13 @@ This audit identifies design inconsistencies across the Procedure website that c
 ### 6.2 Section Spacing Variations [MEDIUM]
 
 **Finding:** Vertical spacing between sections varies:
+
 - Some use `py-16 md:py-24`
 - Some use `py-20 md:py-32`
 - Some use `py-12 md:py-20`
 
 **Recommendation:** Standardize to:
+
 - Regular sections: `py-16 md:py-24 lg:py-32`
 - Compact sections: `py-12 md:py-16 lg:py-20`
 
@@ -264,12 +278,12 @@ This audit identifies design inconsistencies across the Procedure website that c
 
 **Finding:** Process steps are displayed differently:
 
-| Page | Step Style |
-|------|-----------|
-| Home | Large "01" numbers with connecting lines |
-| Approach | Interactive tabs with number pills |
-| Why Us | Numbered cards without connection |
-| Services | Horizontal timeline |
+| Page     | Step Style                               |
+| -------- | ---------------------------------------- |
+| Home     | Large "01" numbers with connecting lines |
+| Approach | Interactive tabs with number pills       |
+| Why Us   | Numbered cards without connection        |
+| Services | Horizontal timeline                      |
 
 **Recommendation:** Choose one primary process visualization pattern and use it consistently. The Approach page's interactive tabs or Home page's numbered cards are both good options.
 
@@ -292,6 +306,7 @@ This audit identifies design inconsistencies across the Procedure website that c
 ### 10.1 Mobile Hero Height Variations [MEDIUM]
 
 **Finding:** Hero sections have inconsistent minimum heights on mobile:
+
 - Some heroes feel cramped
 - Some have excessive whitespace
 - Stats break to multiple lines unpredictably
@@ -305,6 +320,7 @@ This audit identifies design inconsistencies across the Procedure website that c
 ### 11.1 Voice Variations [MEDIUM]
 
 **Finding:** Copy alternates between:
+
 - Second person ("You get...") - preferred enterprise tone
 - First person plural ("We build...") - more casual
 - Third person ("Procedure delivers...") - formal
@@ -314,6 +330,7 @@ This audit identifies design inconsistencies across the Procedure website that c
 ### 11.2 "AI" Placement in Headlines [LOW]
 
 **Finding:** Some headlines lead with "AI" while others bury it:
+
 - "AI Engineering That Ships" vs "Engineers Who Ship"
 - "AI Sprints" vs "Rapid Prototyping"
 
@@ -332,6 +349,7 @@ This audit identifies design inconsistencies across the Procedure website that c
 ### 12.2 Social Proof Placement Inconsistent [MEDIUM]
 
 **Finding:**
+
 - Home has client logos in hero
 - Some pages have testimonial sections
 - Many pages have no social proof
@@ -343,22 +361,26 @@ This audit identifies design inconsistencies across the Procedure website that c
 ## Priority Action Items
 
 ### Critical (Fix First)
+
 1. Standardize hero text alignment (choose center or create clear pattern)
 2. Add entrance animations to all hero sections
 3. Standardize primary CTA button text and styling
 
 ### High Priority
+
 1. Create consistent alternating section backgrounds
 2. Standardize card designs across all pages
 3. Fix process/timeline component variations
 
 ### Medium Priority
+
 1. Standardize section headers (tagline + title + description)
 2. Unify icon container styling
 3. Fix typography sizing inconsistencies
 4. Standardize section spacing
 
 ### Low Priority
+
 1. Add breadcrumbs to interior pages
 2. Unify copy voice/tone
 3. Consider mobile hero height standardization
@@ -385,6 +407,7 @@ To prevent future inconsistencies, create documentation for:
 The Procedure website has strong foundational design but suffers from organic inconsistencies that developed as pages were added independently. Addressing the high-priority items will create a significantly more cohesive, premium experience that matches the quality of the company's services.
 
 The most impactful changes are:
+
 1. **Hero animation consistency** - Makes every page feel polished
 2. **CTA standardization** - Reduces cognitive load
 3. **Background alternation** - Creates visual rhythm

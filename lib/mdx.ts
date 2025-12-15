@@ -92,7 +92,7 @@ export function getAllMDXPosts(): MDXPost[] {
   return posts.sort(
     (a, b) =>
       new Date(b.frontmatter.publishedAt).getTime() -
-      new Date(a.frontmatter.publishedAt).getTime()
+      new Date(a.frontmatter.publishedAt).getTime(),
   );
 }
 
@@ -141,7 +141,7 @@ export function getFeaturedMDXPosts(): MDXPost[] {
 // Get related posts based on category and tags
 export function getRelatedMDXPosts(
   currentPost: MDXPost,
-  limit: number = 3
+  limit: number = 3,
 ): MDXPost[] {
   const allPosts = getAllMDXPosts();
 
@@ -152,8 +152,7 @@ export function getRelatedMDXPosts(
 
       // Same category = 3 points
       if (
-        post.frontmatter.category.slug ===
-        currentPost.frontmatter.category.slug
+        post.frontmatter.category.slug === currentPost.frontmatter.category.slug
       ) {
         score += 3;
       }

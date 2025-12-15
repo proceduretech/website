@@ -23,7 +23,7 @@ Headings from H2 to H4 are supported. H1 is reserved for the post title. Each he
 
 ### Text Formatting
 
-You can use **bold text** for emphasis, *italic text* for subtle emphasis, and ~~strikethrough~~ for deleted content. You can also combine them: ***bold and italic***.
+You can use **bold text** for emphasis, _italic text_ for subtle emphasis, and ~~strikethrough~~ for deleted content. You can also combine them: **_bold and italic_**.
 
 Here's a paragraph with some `inline code` to demonstrate how code snippets appear within regular text. This is useful for mentioning function names like `useEffect()` or variable names like `apiEndpoint`.
 
@@ -83,7 +83,7 @@ interface User {
   id: string;
   name: string;
   email: string;
-  role: 'admin' | 'user';
+  role: "admin" | "user";
 }
 
 async function fetchUser(id: string): Promise<User> {
@@ -152,7 +152,7 @@ You can highlight specific lines to draw attention to important code:
 function processRequest(request: Request) {
   // Validate the request
   if (!request.body) {
-    throw new ValidationError('Request body is required');
+    throw new ValidationError("Request body is required");
   }
 
   // Process the validated request
@@ -165,40 +165,46 @@ function processRequest(request: Request) {
 Use callouts to highlight important information:
 
 <Callout type="info" title="Good to Know">
-Callouts are perfect for providing additional context or helpful tips that don't fit in the main flow of content.
+  Callouts are perfect for providing additional context or helpful tips that
+  don't fit in the main flow of content.
 </Callout>
 
 <Callout type="warning" title="Be Careful">
-This approach may have performance implications at scale. Consider caching strategies for high-traffic applications.
+  This approach may have performance implications at scale. Consider caching
+  strategies for high-traffic applications.
 </Callout>
 
 <Callout type="error" title="Common Mistake">
-Never store API keys in your frontend code or commit them to version control. Use environment variables instead.
+  Never store API keys in your frontend code or commit them to version control.
+  Use environment variables instead.
 </Callout>
 
 <Callout type="success" title="Best Practice">
-Always implement rate limiting and input validation when exposing AI endpoints to protect against abuse.
+  Always implement rate limiting and input validation when exposing AI endpoints
+  to protect against abuse.
 </Callout>
 
 <Callout type="tip">
-Pro tip: Use streaming responses for better user experience when generating long-form content with LLMs.
+  Pro tip: Use streaming responses for better user experience when generating
+  long-form content with LLMs.
 </Callout>
 
 <Callout type="note">
-This feature requires Node.js 18 or later and is not compatible with older versions.
+  This feature requires Node.js 18 or later and is not compatible with older
+  versions.
 </Callout>
 
 ## Tables
 
 Tables are great for comparing options or presenting structured data:
 
-| Feature | GPT-4 | Claude 3 Opus | Gemini Pro |
-|---------|-------|---------------|------------|
-| Context Window | 128K | 200K | 1M |
-| Vision | Yes | Yes | Yes |
-| Code Generation | Excellent | Excellent | Good |
-| Reasoning | Strong | Strong | Good |
-| API Pricing | $$$ | $$$ | $$ |
+| Feature         | GPT-4     | Claude 3 Opus | Gemini Pro |
+| --------------- | --------- | ------------- | ---------- |
+| Context Window  | 128K      | 200K          | 1M         |
+| Vision          | Yes       | Yes           | Yes        |
+| Code Generation | Excellent | Excellent     | Good       |
+| Reasoning       | Strong    | Strong        | Good       |
+| API Pricing     | $$$       | $$$           | $$         |
 
 ## Media Embeds
 
@@ -224,16 +230,20 @@ Embed tweets to reference discussions or announcements:
 
 <Steps>
   <Step title="Set Up Your Environment">
-    Install the required dependencies and configure your API keys. Make sure you have Node.js 18+ installed.
+    Install the required dependencies and configure your API keys. Make sure you
+    have Node.js 18+ installed.
   </Step>
   <Step title="Create Your First Agent">
-    Define your agent's capabilities, tools, and system prompt. Start with a simple task and iterate.
+    Define your agent's capabilities, tools, and system prompt. Start with a
+    simple task and iterate.
   </Step>
   <Step title="Add Error Handling">
-    Implement robust error handling and retry logic. AI systems can fail in unexpected ways.
+    Implement robust error handling and retry logic. AI systems can fail in
+    unexpected ways.
   </Step>
   <Step title="Deploy and Monitor">
-    Deploy your agent to production and set up comprehensive monitoring and alerting.
+    Deploy your agent to production and set up comprehensive monitoring and
+    alerting.
   </Step>
 </Steps>
 
@@ -241,40 +251,44 @@ Embed tweets to reference discussions or announcements:
 
 <Tabs defaultValue="npm">
   <Tab value="npm" label="npm">
-    ```bash
-    npm install @anthropic-ai/sdk
-    ```
+    ```bash npm install @anthropic-ai/sdk ```
   </Tab>
   <Tab value="yarn" label="yarn">
-    ```bash
-    yarn add @anthropic-ai/sdk
-    ```
+    ```bash yarn add @anthropic-ai/sdk ```
   </Tab>
   <Tab value="pnpm" label="pnpm">
-    ```bash
-    pnpm add @anthropic-ai/sdk
-    ```
+    ```bash pnpm add @anthropic-ai/sdk ```
   </Tab>
 </Tabs>
 
 ### Accordion / FAQ
 
 <Accordion>
-  <AccordionItem title="What is the difference between RAG and fine-tuning?" defaultOpen>
-    RAG (Retrieval-Augmented Generation) retrieves relevant context at query time, while fine-tuning permanently adjusts model weights. RAG is better for frequently changing data; fine-tuning is better for consistent behavioral changes.
+  <AccordionItem
+    title="What is the difference between RAG and fine-tuning?"
+    defaultOpen
+  >
+    RAG (Retrieval-Augmented Generation) retrieves relevant context at query
+    time, while fine-tuning permanently adjusts model weights. RAG is better for
+    frequently changing data; fine-tuning is better for consistent behavioral
+    changes.
   </AccordionItem>
   <AccordionItem title="How do I handle rate limits?">
-    Implement exponential backoff with jitter, use request queuing, and consider caching responses for repeated queries. Most APIs provide rate limit headers you can use to proactively throttle.
+    Implement exponential backoff with jitter, use request queuing, and consider
+    caching responses for repeated queries. Most APIs provide rate limit headers
+    you can use to proactively throttle.
   </AccordionItem>
   <AccordionItem title="What's the best way to evaluate LLM outputs?">
-    Combine automated metrics (BLEU, ROUGE, perplexity) with human evaluation. For production systems, implement A/B testing and collect user feedback systematically.
+    Combine automated metrics (BLEU, ROUGE, perplexity) with human evaluation.
+    For production systems, implement A/B testing and collect user feedback
+    systematically.
   </AccordionItem>
 </Accordion>
 
 ## File Structure Visualization
 
 <FileTree>
-{`
+  {`
 src/
   components/
     ui/
@@ -299,16 +313,11 @@ src/
   right={{ title: "Do This Instead", type: "good" }}
 >
   <ComparisonSide side="left">
-    ```typescript
-    // Storing API key in code
-    const apiKey = "sk-abc123...";
-    ```
+    ```typescript // Storing API key in code const apiKey = "sk-abc123..."; ```
   </ComparisonSide>
   <ComparisonSide side="right">
-    ```typescript
-    // Using environment variable
-    const apiKey = process.env.API_KEY;
-    ```
+    ```typescript // Using environment variable const apiKey =
+    process.env.API_KEY; ```
   </ComparisonSide>
 </Comparison>
 
@@ -343,6 +352,7 @@ Use horizontal rules to separate major sections:
 ### Autolinked References
 
 GitHub-style references are automatically linked:
+
 - Issue references: #123
 - URLs are auto-linked: https://procedure.tech
 
@@ -351,6 +361,7 @@ GitHub-style references are automatically linked:
 Here's a sentence with a footnote[^1] and another one[^2].
 
 [^1]: This is the first footnote with additional context.
+
 [^2]: And here's another footnote explaining something else.
 
 ## Conclusion

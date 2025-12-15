@@ -8,7 +8,11 @@ interface PreProps {
   "data-theme"?: string;
 }
 
-export function Pre({ children, "data-language": language, ...props }: PreProps) {
+export function Pre({
+  children,
+  "data-language": language,
+  ...props
+}: PreProps) {
   const [copied, setCopied] = useState(false);
   const preRef = useRef<HTMLPreElement>(null);
 

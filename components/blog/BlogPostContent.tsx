@@ -160,7 +160,7 @@ function formatContent(content: string): string {
     // Headers
     .replace(/^### (.*$)/gim, '<h3 id="$1">$1</h3>')
     .replace(/^## (.*$)/gim, '<h2 id="$1">$1</h2>')
-    .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+    .replace(/^# (.*$)/gim, "<h1>$1</h1>")
     // Bold
     .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
     // Italic

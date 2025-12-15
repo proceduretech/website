@@ -76,7 +76,8 @@ export function Footer() {
     <footer
       className="border-t border-border bg-surface rounded-b-[2.5rem] overflow-hidden"
       style={{
-        boxShadow: '0 20px 80px 20px rgba(13, 181, 165, 0.12), 0 8px 30px 5px rgba(13, 181, 165, 0.08)'
+        boxShadow:
+          "0 20px 80px 20px rgba(13, 181, 165, 0.12), 0 8px 30px 5px rgba(13, 181, 165, 0.08)",
       }}
     >
       <div className="max-w-7xl mx-auto px-6 py-16">

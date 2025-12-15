@@ -496,7 +496,9 @@ function DifferentiatorCard({
         </h3>
 
         {/* Description */}
-        <p className="text-text-secondary leading-relaxed">{data.description}</p>
+        <p className="text-text-secondary leading-relaxed">
+          {data.description}
+        </p>
       </div>
     </motion.div>
   );
@@ -661,10 +663,10 @@ export default function ApproachPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-lg sm:text-xl text-text-secondary max-w-3xl mx-auto mb-10 leading-relaxed"
             >
-              We&apos;re not process consultants who disappear into discovery for
-              months. We&apos;re forward-deployed engineers who embed with your team,
-              understand your constraints, and ship production code from week one.
-              No layers. No handoffs. Just focused engineering.
+              We&apos;re not process consultants who disappear into discovery
+              for months. We&apos;re forward-deployed engineers who embed with
+              your team, understand your constraints, and ship production code
+              from week one. No layers. No handoffs. Just focused engineering.
             </motion.p>
 
             {/* CTAs */}
@@ -779,10 +781,11 @@ export default function ApproachPage() {
 
             {/* Attribution */}
             <p className="text-text-secondary text-lg max-w-3xl mx-auto">
-              Procedure engineers are forward-deployed. We sit inside your systems,
-              your Slack channels, your codebase. We understand not just what
-              you&apos;re building, but why it matters and who it&apos;s for. When
-              engineers understand the problem firsthand, they build better solutions.
+              Procedure engineers are forward-deployed. We sit inside your
+              systems, your Slack channels, your codebase. We understand not
+              just what you&apos;re building, but why it matters and who
+              it&apos;s for. When engineers understand the problem firsthand,
+              they build better solutions.
             </p>
           </motion.div>
         </div>
@@ -920,8 +923,7 @@ export default function ApproachPage() {
               What Makes Us Different
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 tracking-tight">
-              Not Your Typical{" "}
-              <span className="text-highlight">Dev Shop.</span>
+              Not Your Typical <span className="text-highlight">Dev Shop.</span>
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto text-base sm:text-lg">
               We built Procedure because we were tired of how agencies work.
@@ -975,7 +977,11 @@ export default function ApproachPage() {
           {/* Principles Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {principles.map((principle, idx) => (
-              <PrincipleCard key={principle.number} principle={principle} index={idx} />
+              <PrincipleCard
+                key={principle.number}
+                principle={principle}
+                index={idx}
+              />
             ))}
           </div>
         </div>
@@ -1067,7 +1073,8 @@ export default function ApproachPage() {
                 &quot;Their approach is refreshingly different. No lengthy
                 discovery phases, no endless meetings about meetings. Within a
                 week, their engineers were embedded with our team and shipping
-                production code. The speed and quality exceeded our expectations.&quot;
+                production code. The speed and quality exceeded our
+                expectations.&quot;
               </blockquote>
 
               <div className="flex items-center gap-4 pl-0 sm:pl-8">
@@ -1136,9 +1143,10 @@ export default function ApproachPage() {
               <span className="text-highlight">Something Real?</span>
             </h2>
             <p className="text-lg text-text-secondary mb-10 max-w-2xl mx-auto">
-              Skip the months of discovery and the endless proposal cycles. Let&apos;s
-              have an honest conversation about what you&apos;re building and how we
-              can help. If we&apos;re not the right fit, we&apos;ll tell you.
+              Skip the months of discovery and the endless proposal cycles.
+              Let&apos;s have an honest conversation about what you&apos;re
+              building and how we can help. If we&apos;re not the right fit,
+              we&apos;ll tell you.
             </p>
 
             {/* Dual CTAs */}

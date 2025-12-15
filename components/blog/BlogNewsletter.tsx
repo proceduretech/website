@@ -9,7 +9,9 @@ interface BlogNewsletterProps {
 
 export function BlogNewsletter({ variant = "card" }: BlogNewsletterProps) {
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -62,10 +64,15 @@ export function BlogNewsletter({ variant = "card" }: BlogNewsletterProps) {
               Engineering insights. No spam. No fluff.
             </h2>
             <p className="text-text-secondary mb-8">
-              Get weekly insights from our engineering team. Deep technical analysis on emerging AI patterns, production incidents, and lessons learned.
+              Get weekly insights from our engineering team. Deep technical
+              analysis on emerging AI patterns, production incidents, and
+              lessons learned.
             </p>
 
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto"
+            >
               <input
                 type="email"
                 value={email}
@@ -79,12 +86,17 @@ export function BlogNewsletter({ variant = "card" }: BlogNewsletterProps) {
                 disabled={status === "loading" || status === "success"}
                 className="px-6 py-3 bg-cta text-cta-text font-semibold rounded-xl hover:brightness-110 transition-all shadow-lg shadow-cta/25 flex-shrink-0 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {status === "loading" ? "Subscribing..." : status === "success" ? "Subscribed!" : "Subscribe"}
+                {status === "loading"
+                  ? "Subscribing..."
+                  : status === "success"
+                    ? "Subscribed!"
+                    : "Subscribe"}
               </button>
             </form>
 
             <p className="text-xs text-text-muted mt-4">
-              We respect your inbox. Unsubscribe anytime. No third-party sharing.
+              We respect your inbox. Unsubscribe anytime. No third-party
+              sharing.
             </p>
           </motion.div>
         </div>
@@ -126,7 +138,8 @@ export function BlogNewsletter({ variant = "card" }: BlogNewsletterProps) {
           Stay ahead of AI trends
         </h3>
         <p className="text-sm text-text-secondary mb-6">
-          Get weekly insights from our engineering team. No spam, unsubscribe anytime.
+          Get weekly insights from our engineering team. No spam, unsubscribe
+          anytime.
         </p>
 
         <form onSubmit={handleSubmit} className="flex gap-3">
@@ -143,13 +156,15 @@ export function BlogNewsletter({ variant = "card" }: BlogNewsletterProps) {
             disabled={status === "loading" || status === "success"}
             className="px-4 py-3 bg-cta text-cta-text font-semibold rounded-xl hover:brightness-110 transition-all shadow-lg shadow-cta/25 flex-shrink-0 disabled:opacity-50 text-sm"
           >
-            {status === "loading" ? "..." : status === "success" ? "Done!" : "Subscribe"}
+            {status === "loading"
+              ? "..."
+              : status === "success"
+                ? "Done!"
+                : "Subscribe"}
           </button>
         </form>
 
-        <p className="text-xs text-text-muted mt-4">
-          We respect your privacy.
-        </p>
+        <p className="text-xs text-text-muted mt-4">We respect your privacy.</p>
       </div>
     </motion.div>
   );

@@ -13,7 +13,7 @@ declare global {
         createTweet: (
           id: string,
           container: HTMLElement,
-          options?: Record<string, unknown>
+          options?: Record<string, unknown>,
         ) => Promise<HTMLElement>;
       };
     };
@@ -36,7 +36,8 @@ export function Tweet({ id }: TweetProps) {
 
         await new Promise<void>((resolve, reject) => {
           script.onload = () => resolve();
-          script.onerror = () => reject(new Error("Failed to load Twitter widget"));
+          script.onerror = () =>
+            reject(new Error("Failed to load Twitter widget"));
         });
       }
 

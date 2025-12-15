@@ -31,25 +31,31 @@ export function BlogGrid({
 
     posts.forEach((post, idx) => {
       // Insert newsletter before the specified position
-      if (showNewsletter && idx === newsletterPosition && posts.length > newsletterPosition) {
+      if (
+        showNewsletter &&
+        idx === newsletterPosition &&
+        posts.length > newsletterPosition
+      ) {
         items.push(
           <div key="newsletter" className="md:col-span-1">
             <BlogNewsletter variant="card" />
-          </div>
+          </div>,
         );
       }
 
-      items.push(
-        <BlogPostCard key={post.id} post={post} index={idx} />
-      );
+      items.push(<BlogPostCard key={post.id} post={post} index={idx} />);
     });
 
     // If we have fewer posts than newsletter position, add it at the end
-    if (showNewsletter && posts.length <= newsletterPosition && posts.length >= 3) {
+    if (
+      showNewsletter &&
+      posts.length <= newsletterPosition &&
+      posts.length >= 3
+    ) {
       items.push(
         <div key="newsletter" className="md:col-span-1">
           <BlogNewsletter variant="card" />
-        </div>
+        </div>,
       );
     }
 

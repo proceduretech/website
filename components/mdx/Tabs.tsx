@@ -27,10 +27,12 @@ export function Tabs({ children, defaultValue }: TabsProps) {
   });
 
   const [activeTab, setActiveTab] = useState(
-    defaultValue || tabs[0]?.value || ""
+    defaultValue || tabs[0]?.value || "",
   );
 
-  const activeTabContent = tabs.find((tab) => tab.value === activeTab)?.children;
+  const activeTabContent = tabs.find(
+    (tab) => tab.value === activeTab,
+  )?.children;
 
   return (
     <div className="my-8">

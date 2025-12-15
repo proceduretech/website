@@ -30,7 +30,9 @@ export function CaseStudyCard({
     >
       <div className="h-full flex flex-col bg-surface-elevated border border-border rounded-2xl overflow-hidden hover:border-accent-teal/30 transition-colors">
         {/* Case study image */}
-        <div className={`relative overflow-hidden ${isCompact ? "h-40" : "h-48"}`}>
+        <div
+          className={`relative overflow-hidden ${isCompact ? "h-40" : "h-48"}`}
+        >
           <Image
             src={study.image}
             alt={study.title}
@@ -57,7 +59,9 @@ export function CaseStudyCard({
         </div>
 
         {/* Content */}
-        <div className={`flex-1 flex flex-col ${isCompact ? "p-5 sm:p-6" : "p-6"}`}>
+        <div
+          className={`flex-1 flex flex-col ${isCompact ? "p-5 sm:p-6" : "p-6"}`}
+        >
           <h3
             className={`font-semibold text-text-primary leading-snug group-hover:text-accent-teal-light transition-colors ${
               isCompact
@@ -76,7 +80,9 @@ export function CaseStudyCard({
           </p>
 
           {/* Metrics */}
-          <div className={`grid grid-cols-3 ${isCompact ? "gap-2 mb-4" : "gap-3 mb-6"}`}>
+          <div
+            className={`grid grid-cols-3 ${isCompact ? "gap-2 mb-4" : "gap-3 mb-6"}`}
+          >
             {study.metrics.map((metric, i) => (
               <div
                 key={metric.label}

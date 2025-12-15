@@ -2,7 +2,7 @@ name: Weekly SEO Audit
 
 on:
   schedule:
-    - cron: '0 9 * * 1' # Every Monday at 9am UTC
+    - cron: "0 9 * * 1" # Every Monday at 9am UTC
   workflow_dispatch:
 
 jobs:
@@ -15,7 +15,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          cache: "npm"
 
       - name: Install dependencies
         run: npm ci

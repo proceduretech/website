@@ -652,16 +652,15 @@ export default function AIUpskillPage() {
                 variants={fadeInUp}
                 className="text-3xl sm:text-4xl font-bold text-text-primary mb-6"
               >
-                This bootcamp is for{" "}
-                <span className="text-highlight">you</span> if you...
+                This bootcamp is for <span className="text-highlight">you</span>{" "}
+                if you...
               </motion.h2>
               <motion.p
                 variants={fadeInUp}
                 className="text-text-secondary mb-6"
               >
                 AI Upskill is for Procedure team members who want to specialize
-                in AI engineering and lead AI initiatives on client
-                engagements.
+                in AI engineering and lead AI initiatives on client engagements.
               </motion.p>
               <motion.div
                 variants={fadeInUp}
@@ -979,7 +978,9 @@ export default function AIUpskillPage() {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary mb-6">
               The future is AI-driven.
               <br />
-              <span className="text-highlight">Build the skills to lead it.</span>
+              <span className="text-highlight">
+                Build the skills to lead it.
+              </span>
             </h2>
             <p className="text-lg text-text-secondary mb-10 max-w-2xl mx-auto">
               Join Procedure&apos;s AI Upskill bootcamp and transform from a

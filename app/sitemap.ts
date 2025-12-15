@@ -1,32 +1,40 @@
-import type { MetadataRoute } from 'next';
+import type { MetadataRoute } from "next";
 import {
   getAllExpertiseSlugsFromContent,
   getAllIndustrySlugsFromContent,
   getAllUseCaseSlugsFromContent,
   getAllServiceSlugsFromContent,
   getAllSlugs,
-} from '@/lib/content';
+} from "@/lib/content";
 
-const BASE_URL = 'https://procedure.tech';
+const BASE_URL = "https://procedure.tech";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
 
   // Static pages
   const staticPages = [
-    { path: '', priority: 1, changeFrequency: 'weekly' as const },
-    { path: '/about', priority: 0.8, changeFrequency: 'monthly' as const },
-    { path: '/contact', priority: 0.8, changeFrequency: 'monthly' as const },
-    { path: '/careers', priority: 0.7, changeFrequency: 'weekly' as const },
-    { path: '/case-studies', priority: 0.9, changeFrequency: 'weekly' as const },
-    { path: '/culture', priority: 0.6, changeFrequency: 'monthly' as const },
-    { path: '/why-us', priority: 0.7, changeFrequency: 'monthly' as const },
-    { path: '/approach', priority: 0.7, changeFrequency: 'monthly' as const },
-    { path: '/blog', priority: 0.8, changeFrequency: 'weekly' as const },
-    { path: '/ai-safety', priority: 0.7, changeFrequency: 'monthly' as const },
-    { path: '/ai-upskill', priority: 0.7, changeFrequency: 'monthly' as const },
-    { path: '/events', priority: 0.7, changeFrequency: 'weekly' as const },
-    { path: '/rubber-duck', priority: 0.5, changeFrequency: 'monthly' as const },
+    { path: "", priority: 1, changeFrequency: "weekly" as const },
+    { path: "/about", priority: 0.8, changeFrequency: "monthly" as const },
+    { path: "/contact", priority: 0.8, changeFrequency: "monthly" as const },
+    { path: "/careers", priority: 0.7, changeFrequency: "weekly" as const },
+    {
+      path: "/case-studies",
+      priority: 0.9,
+      changeFrequency: "weekly" as const,
+    },
+    { path: "/culture", priority: 0.6, changeFrequency: "monthly" as const },
+    { path: "/why-us", priority: 0.7, changeFrequency: "monthly" as const },
+    { path: "/approach", priority: 0.7, changeFrequency: "monthly" as const },
+    { path: "/blog", priority: 0.8, changeFrequency: "weekly" as const },
+    { path: "/ai-safety", priority: 0.7, changeFrequency: "monthly" as const },
+    { path: "/ai-upskill", priority: 0.7, changeFrequency: "monthly" as const },
+    { path: "/events", priority: 0.7, changeFrequency: "weekly" as const },
+    {
+      path: "/rubber-duck",
+      priority: 0.5,
+      changeFrequency: "monthly" as const,
+    },
   ];
 
   for (const page of staticPages) {
@@ -44,7 +52,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entries.push({
       url: `${BASE_URL}/services/${slug}`,
       lastModified: new Date(),
-      changeFrequency: 'weekly',
+      changeFrequency: "weekly",
       priority: 0.9,
     });
   }
@@ -55,7 +63,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entries.push({
       url: `${BASE_URL}/expertise/${slug}`,
       lastModified: new Date(),
-      changeFrequency: 'weekly',
+      changeFrequency: "weekly",
       priority: 0.8,
     });
   }
@@ -66,7 +74,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entries.push({
       url: `${BASE_URL}/industries/${slug}`,
       lastModified: new Date(),
-      changeFrequency: 'weekly',
+      changeFrequency: "weekly",
       priority: 0.8,
     });
   }
@@ -77,18 +85,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entries.push({
       url: `${BASE_URL}/use-cases/${slug}`,
       lastModified: new Date(),
-      changeFrequency: 'weekly',
+      changeFrequency: "weekly",
       priority: 0.8,
     });
   }
 
   // Blog posts (dynamic)
-  const blogSlugs = getAllSlugs('blog');
+  const blogSlugs = getAllSlugs("blog");
   for (const slug of blogSlugs) {
     entries.push({
       url: `${BASE_URL}/blog/${slug}`,
       lastModified: new Date(),
-      changeFrequency: 'weekly',
+      changeFrequency: "weekly",
       priority: 0.7,
     });
   }

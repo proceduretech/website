@@ -69,21 +69,21 @@ content/
 ```yaml
 ---
 title: "Building Production-Ready RAG Systems"
-slug: "building-production-rag"          # Optional: defaults to filename
+slug: "building-production-rag" # Optional: defaults to filename
 excerpt: "A practical guide to..."
 publishedAt: "2024-12-13"
-updatedAt: "2024-12-14"                  # Optional
-draft: false                              # Optional: exclude from production
-author: "ulhas"                           # Reference to _authors.yaml
-category: "llm-engineering"               # Reference to _categories.yaml
+updatedAt: "2024-12-14" # Optional
+draft: false # Optional: exclude from production
+author: "ulhas" # Reference to _authors.yaml
+category: "llm-engineering" # Reference to _categories.yaml
 tags:
   - rag
   - production
   - llm
-featuredImage: "./assets/rag-system/hero.png"  # Relative path
+featuredImage: "./assets/rag-system/hero.png" # Relative path
 featured: true
-readTime: 12                              # Optional: auto-calculated if omitted
-seo:                                      # Optional: override defaults
+readTime: 12 # Optional: auto-calculated if omitted
+seo: # Optional: override defaults
   title: "Custom SEO Title"
   description: "Custom meta description"
   canonical: "https://..."
@@ -96,9 +96,9 @@ seo:                                      # Optional: override defaults
 ---
 title: "Real-Time Fraud Detection That Saved $47M in Year One"
 slug: "fintech-fraud-detection"
-client: "Fortune 500 Bank"                # Can be anonymized
-industry: "financial-services"            # Reference to industries
-serviceType: "ai-engineering"             # ai-engineering | product-engineering
+client: "Fortune 500 Bank" # Can be anonymized
+industry: "financial-services" # Reference to industries
+serviceType: "ai-engineering" # ai-engineering | product-engineering
 challenge: |
   A Fortune 500 bank needed to replace their rules-based fraud system...
 solution: |
@@ -114,7 +114,7 @@ technologies:
   - PyTorch
   - Kafka
   - AWS SageMaker
-testimonial:                              # Optional
+testimonial: # Optional
   quote: "Procedure transformed our fraud detection..."
   author: "VP of Engineering"
   company: "Fortune 500 Bank"
@@ -145,7 +145,7 @@ heroStats:
 capabilities:
   - title: "RAG Systems"
     description: "Production-grade retrieval augmented generation..."
-    icon: "database"                      # Icon key for component
+    icon: "database" # Icon key for component
   - title: "Fine-tuning"
     description: "Custom models trained on your data..."
     icon: "tune"
@@ -228,26 +228,28 @@ export const getContentBySlug = cache(
       frontmatter: data as T,
       content,
     };
-  }
+  },
 );
 
 // Get all content of a type
 export const getAllContent = cache(
-  <T>(type: ContentType, options?: { includeDrafts?: boolean }): ContentItem<T>[] => {
+  <T>(
+    type: ContentType,
+    options?: { includeDrafts?: boolean },
+  ): ContentItem<T>[] => {
     const dir = path.join(CONTENT_DIR, type);
     if (!fs.existsSync(dir)) return [];
 
-    const files = fs.readdirSync(dir)
-      .filter(f => f.endsWith(".mdx"));
+    const files = fs.readdirSync(dir).filter((f) => f.endsWith(".mdx"));
 
     return files
-      .map(file => getContentBySlug<T>(type, file.replace(".mdx", "")))
+      .map((file) => getContentBySlug<T>(type, file.replace(".mdx", "")))
       .filter((item): item is ContentItem<T> => {
         if (!item) return false;
         if (!options?.includeDrafts && item.frontmatter.draft) return false;
         return true;
       });
-  }
+  },
 );
 
 // Content types
@@ -291,11 +293,12 @@ content/
 ```
 
 Update content library:
+
 ```typescript
 export function getContentBySlug<T>(
   type: ContentType,
   slug: string,
-  locale: string = "en"
+  locale: string = "en",
 ): ContentItem<T> | null {
   // Try locale-specific file first
   const localePath = path.join(CONTENT_DIR, type, `${slug}.${locale}.mdx`);
@@ -327,6 +330,7 @@ content/
 ### Recommendation
 
 Start with **no locale structure**. When i18n is needed:
+
 - If < 3 locales: Use **Option A** (suffix)
 - If 3+ locales: Consider **Option B** (folders)
 
@@ -347,6 +351,7 @@ content/
 ```
 
 Reference in MDX:
+
 ```mdx
 ![Architecture Diagram](./assets/my-post/diagram-1.png)
 ```
@@ -354,6 +359,7 @@ Reference in MDX:
 ### Build Configuration
 
 Add to `next.config.mjs`:
+
 ```javascript
 const nextConfig = {
   // Allow images from content directory
@@ -364,14 +370,15 @@ const nextConfig = {
   webpack: (config) => {
     config.module.rules.push({
       test: /\.(png|jpe?g|gif|webp|svg)$/i,
-      type: 'asset/resource',
+      type: "asset/resource",
     });
     return config;
   },
-}
+};
 ```
 
 Or use the public folder for simpler setup:
+
 ```
 public/
 └── content/
@@ -388,6 +395,7 @@ public/
 ## Migration Plan
 
 ### Step 1: Create Directory Structure
+
 ```bash
 mkdir -p content/{blog,case-studies,expertise,industries,use-cases,pages,shared}
 ```
@@ -395,6 +403,7 @@ mkdir -p content/{blog,case-studies,expertise,industries,use-cases,pages,shared}
 ### Step 2: Create Shared Data Files
 
 `content/blog/_authors.yaml`:
+
 ```yaml
 ulhas:
   name: "Ulhas Mandrawadkar"
@@ -469,7 +478,7 @@ export interface BlogFrontmatter extends BaseFrontmatter {
   excerpt: string;
   publishedAt: string;
   updatedAt?: string;
-  author: string;  // Reference to _authors.yaml
+  author: string; // Reference to _authors.yaml
   category: string;
   tags?: string[];
   featuredImage?: string;
@@ -548,9 +557,7 @@ The current MDX components work unchanged. Reference in content:
 title: "Building Production RAG"
 ---
 
-<Callout type="info">
-This guide assumes familiarity with embeddings.
-</Callout>
+<Callout type="info">This guide assumes familiarity with embeddings.</Callout>
 
 <Steps>
   <Step title="Set up vector store">
@@ -565,12 +572,8 @@ This guide assumes familiarity with embeddings.
   left={{ title: "Naive RAG", type: "bad" }}
   right={{ title: "Production RAG", type: "good" }}
 >
-  <ComparisonSide side="left">
-    Simple chunk + retrieve
-  </ComparisonSide>
-  <ComparisonSide side="right">
-    Hybrid search + reranking
-  </ComparisonSide>
+  <ComparisonSide side="left">Simple chunk + retrieve</ComparisonSide>
+  <ComparisonSide side="right">Hybrid search + reranking</ComparisonSide>
 </Comparison>
 ```
 
@@ -584,7 +587,7 @@ This guide assumes familiarity with embeddings.
 // lib/content.ts
 export function generateMetadata(
   content: ContentItem<BaseFrontmatter>,
-  type: ContentType
+  type: ContentType,
 ): Metadata {
   const { frontmatter, slug } = content;
   const seo = frontmatter.seo || {};
@@ -607,6 +610,7 @@ export function generateMetadata(
 ### JSON-LD Structured Data
 
 Add to page templates:
+
 ```typescript
 const jsonLd = {
   "@context": "https://schema.org",
@@ -634,16 +638,16 @@ return (
 
 ## Summary
 
-| Aspect | Decision |
-|--------|----------|
-| **Organization** | By content type (`content/blog/`, `content/case-studies/`) |
-| **File format** | MDX for all content |
-| **Metadata** | YAML frontmatter |
-| **Assets** | Colocated in `assets/` subdirectories |
-| **i18n** | Start without locales; use `.{locale}.mdx` suffix when needed |
-| **Type safety** | Shared TypeScript interfaces in `lib/content-types.ts` |
-| **Data access** | Unified `lib/content.ts` with React cache |
-| **Shared data** | YAML files (`_authors.yaml`, `_categories.yaml`) |
+| Aspect           | Decision                                                      |
+| ---------------- | ------------------------------------------------------------- |
+| **Organization** | By content type (`content/blog/`, `content/case-studies/`)    |
+| **File format**  | MDX for all content                                           |
+| **Metadata**     | YAML frontmatter                                              |
+| **Assets**       | Colocated in `assets/` subdirectories                         |
+| **i18n**         | Start without locales; use `.{locale}.mdx` suffix when needed |
+| **Type safety**  | Shared TypeScript interfaces in `lib/content-types.ts`        |
+| **Data access**  | Unified `lib/content.ts` with React cache                     |
+| **Shared data**  | YAML files (`_authors.yaml`, `_categories.yaml`)              |
 
 ### Key Benefits
 
@@ -673,13 +677,13 @@ return (
 
 The following routes still use the old TypeScript data files. They can be updated incrementally:
 
-| Route | Old Data File | Status |
-|-------|--------------|--------|
-| `app/blog/page.tsx` | `lib/blog-data.ts` | Listing page needs update |
-| `app/case-studies/page.tsx` | `lib/case-studies-data.ts` | Listing page + components |
-| `app/expertise/[slug]/page.tsx` | `lib/expertise-data.tsx` | Route needs update |
-| `app/industries/[slug]/page.tsx` | `lib/industries-data.tsx` | Route needs update |
-| `app/use-cases/[slug]/page.tsx` | `lib/use-cases-data.ts` | Not yet migrated |
+| Route                            | Old Data File              | Status                    |
+| -------------------------------- | -------------------------- | ------------------------- |
+| `app/blog/page.tsx`              | `lib/blog-data.ts`         | Listing page needs update |
+| `app/case-studies/page.tsx`      | `lib/case-studies-data.ts` | Listing page + components |
+| `app/expertise/[slug]/page.tsx`  | `lib/expertise-data.tsx`   | Route needs update        |
+| `app/industries/[slug]/page.tsx` | `lib/industries-data.tsx`  | Route needs update        |
+| `app/use-cases/[slug]/page.tsx`  | `lib/use-cases-data.ts`    | Not yet migrated          |
 
 **Note:** Content now exists in both MDX files and old TypeScript data files. Once routes are updated, the old data files can be removed.
 

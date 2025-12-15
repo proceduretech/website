@@ -171,7 +171,8 @@
   }
 
   .animate-scroll {
-    animation: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
+    animation: scroll var(--animation-duration, 40s)
+      var(--animation-direction, forwards) linear infinite;
   }
 
   /* Aceternity UI - Spotlight animation */
@@ -193,7 +194,11 @@
 
 /* MDX Content Typography - using direct CSS for reliability */
 .mdx-content {
-  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  font-family:
+    var(--font-inter),
+    system-ui,
+    -apple-system,
+    sans-serif;
   color: rgba(255, 255, 255, 0.65);
   line-height: 1.75;
 }
@@ -205,7 +210,11 @@
 .mdx-content h4,
 .mdx-content h5,
 .mdx-content h6 {
-  font-family: var(--font-outfit), system-ui, -apple-system, sans-serif;
+  font-family:
+    var(--font-outfit),
+    system-ui,
+    -apple-system,
+    sans-serif;
   color: rgba(255, 255, 255, 0.9);
   scroll-margin-top: 6rem;
 }

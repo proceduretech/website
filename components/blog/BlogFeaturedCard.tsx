@@ -38,11 +38,7 @@ export function BlogFeaturedCard({ post }: BlogFeaturedCardProps) {
         <div className="relative w-full lg:w-[40%] p-8 lg:p-10 flex flex-col justify-center">
           {/* Featured Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-blue/20 border border-accent-blue/30 text-accent-blue-light text-xs font-semibold mb-4 w-fit">
-            <svg
-              className="w-3 h-3"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
+            <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
             </svg>
             Featured

@@ -43,15 +43,17 @@ export default function PrivacyPolicyPage() {
             {/* Section 1 */}
             <PolicySection title="1. Introduction & Scope">
               <p>
-                Welcome to Procedure&apos;s Privacy Policy. This policy explains how
-                we collect, use, and protect your information when you visit our
-                website, use our services, or interact with us. It applies to all
-                visitors, clients, partners, and anyone who engages with Procedure.
+                Welcome to Procedure&apos;s Privacy Policy. This policy explains
+                how we collect, use, and protect your information when you visit
+                our website, use our services, or interact with us. It applies
+                to all visitors, clients, partners, and anyone who engages with
+                Procedure.
               </p>
               <p>
-                By using our services, you&apos;re agreeing to the practices described
-                in this policy. We&apos;re committed to being transparent about our
-                data practices and giving you control over your information.
+                By using our services, you&apos;re agreeing to the practices
+                described in this policy. We&apos;re committed to being
+                transparent about our data practices and giving you control over
+                your information.
               </p>
             </PolicySection>
 
@@ -74,8 +76,8 @@ export default function PrivacyPolicyPage() {
                   number, company name
                 </li>
                 <li>
-                  <strong>Professional information:</strong> Job title, industry,
-                  project requirements
+                  <strong>Professional information:</strong> Job title,
+                  industry, project requirements
                 </li>
                 <li>
                   <strong>Communication records:</strong> Messages you send us,
@@ -93,8 +95,8 @@ export default function PrivacyPolicyPage() {
                   version, operating system
                 </li>
                 <li>
-                  <strong>Usage data:</strong> Pages visited, time spent on site,
-                  click patterns, referral sources
+                  <strong>Usage data:</strong> Pages visited, time spent on
+                  site, click patterns, referral sources
                 </li>
                 <li>
                   <strong>Device information:</strong> Screen resolution, device
@@ -106,8 +108,8 @@ export default function PrivacyPolicyPage() {
                 Cookies and Tracking Technologies
               </h4>
               <p>
-                We use cookies and similar technologies to enhance your experience.
-                See our dedicated Cookies section below for details.
+                We use cookies and similar technologies to enhance your
+                experience. See our dedicated Cookies section below for details.
               </p>
             </PolicySection>
 
@@ -156,9 +158,10 @@ export default function PrivacyPolicyPage() {
               </ul>
 
               <p>
-                <strong>Legal Basis:</strong> We process your data based on consent,
-                legitimate business interests, contractual necessity, and legal
-                compliance as required under Indian data protection laws.
+                <strong>Legal Basis:</strong> We process your data based on
+                consent, legitimate business interests, contractual necessity,
+                and legal compliance as required under Indian data protection
+                laws.
               </p>
             </PolicySection>
 
@@ -176,8 +179,9 @@ export default function PrivacyPolicyPage() {
                 Tracking Tools We Use
               </h4>
               <p>
-                We leverage tracking technologies like cookies and analytics tools
-                on our website to understand visitor behavior and preferences.
+                We leverage tracking technologies like cookies and analytics
+                tools on our website to understand visitor behavior and
+                preferences.
               </p>
               <p>
                 <strong>Specific Tools We Use:</strong>
@@ -188,19 +192,19 @@ export default function PrivacyPolicyPage() {
                   user engagement, and content performance
                 </li>
                 <li>
-                  <strong>Google Tag Manager:</strong> To manage and deploy tracking
-                  codes efficiently
+                  <strong>Google Tag Manager:</strong> To manage and deploy
+                  tracking codes efficiently
                 </li>
                 <li>
-                  <strong>Other analytics tools:</strong> As needed to understand
-                  user experience and site performance
+                  <strong>Other analytics tools:</strong> As needed to
+                  understand user experience and site performance
                 </li>
               </ul>
               <p>
                 The goal of using these tools is to build an accurate analytical
                 roadmap for measuring the impact of our marketing efforts,
-                understanding user needs, and continuously improving our website and
-                services.
+                understanding user needs, and continuously improving our website
+                and services.
               </p>
 
               <h4 className="text-lg font-semibold text-text-primary mt-6 mb-3">
@@ -222,7 +226,8 @@ export default function PrivacyPolicyPage() {
                 <li>Help us understand how visitors use our site</li>
                 <li>Allow us to measure and improve website performance</li>
                 <li>
-                  Powered by Google Analytics, Google Tag Manager, and similar tools
+                  Powered by Google Analytics, Google Tag Manager, and similar
+                  tools
                 </li>
               </ul>
 
@@ -248,8 +253,8 @@ export default function PrivacyPolicyPage() {
                 <li>Opt-out tools provided by analytics services</li>
               </ul>
               <p>
-                <strong>Note:</strong> Disabling certain cookies may affect website
-                functionality.
+                <strong>Note:</strong> Disabling certain cookies may affect
+                website functionality.
               </p>
             </PolicySection>
 
@@ -259,15 +264,15 @@ export default function PrivacyPolicyPage() {
                 Who We Share Data With
               </h4>
               <p>
-                <strong>Service Providers:</strong> We work with trusted third-party
-                providers for:
+                <strong>Service Providers:</strong> We work with trusted
+                third-party providers for:
               </p>
               <ul>
                 <li>Website hosting and maintenance</li>
                 <li>Email marketing and communications</li>
                 <li>
-                  Analytics and performance monitoring (including Google Analytics
-                  and Google Tag Manager)
+                  Analytics and performance monitoring (including Google
+                  Analytics and Google Tag Manager)
                 </li>
                 <li>Customer support tools</li>
               </ul>
@@ -283,9 +288,9 @@ export default function PrivacyPolicyPage() {
               </ul>
 
               <p>
-                <strong>Business Transfers:</strong> In case of merger, acquisition,
-                or sale of assets, your data may be transferred as part of that
-                transaction.
+                <strong>Business Transfers:</strong> In case of merger,
+                acquisition, or sale of assets, your data may be transferred as
+                part of that transaction.
               </p>
 
               <h4 className="text-lg font-semibold text-text-primary mt-6 mb-3">
@@ -293,14 +298,16 @@ export default function PrivacyPolicyPage() {
               </h4>
               <ul>
                 <li>
-                  <strong>We never sell your personal data</strong> to advertisers
-                  or marketers
+                  <strong>We never sell your personal data</strong> to
+                  advertisers or marketers
                 </li>
                 <li>
                   We don&apos;t share your information for promotional purposes
                   without consent
                 </li>
-                <li>We don&apos;t provide data to unauthorized third parties</li>
+                <li>
+                  We don&apos;t provide data to unauthorized third parties
+                </li>
               </ul>
             </PolicySection>
 
@@ -329,9 +336,10 @@ export default function PrivacyPolicyPage() {
               </ul>
 
               <p>
-                While we use industry-standard security measures, no system is 100%
-                secure. We continuously work to protect your data and will notify
-                you of any significant security incidents as required by law.
+                While we use industry-standard security measures, no system is
+                100% secure. We continuously work to protect your data and will
+                notify you of any significant security incidents as required by
+                law.
               </p>
             </PolicySection>
 
@@ -402,25 +410,29 @@ export default function PrivacyPolicyPage() {
             {/* Section 8 */}
             <PolicySection title="8. International Data Transfers">
               <p>
-                Some of our service providers may be located outside India. When we
-                transfer your data internationally:
+                Some of our service providers may be located outside India. When
+                we transfer your data internationally:
               </p>
               <ul>
                 <li>
                   We ensure adequate protection through appropriate safeguards
                 </li>
                 <li>
-                  We use providers that comply with international privacy standards
+                  We use providers that comply with international privacy
+                  standards
                 </li>
-                <li>We implement standard contractual clauses where applicable</li>
                 <li>
-                  We maintain the same level of protection as required under Indian
-                  law
+                  We implement standard contractual clauses where applicable
+                </li>
+                <li>
+                  We maintain the same level of protection as required under
+                  Indian law
                 </li>
               </ul>
               <p>
                 Countries where your data might be processed: United States,
-                European Union, Singapore (all with adequate protection measures).
+                European Union, Singapore (all with adequate protection
+                measures).
               </p>
             </PolicySection>
 
@@ -428,15 +440,17 @@ export default function PrivacyPolicyPage() {
             <PolicySection title="9. Third-Party Links & Services">
               <p>
                 Our website may contain links to external websites, social media
-                platforms, or third-party services. We&apos;re not responsible for
-                the privacy practices of these external sites.
+                platforms, or third-party services. We&apos;re not responsible
+                for the privacy practices of these external sites.
               </p>
 
               <p>
                 <strong>When you click external links:</strong>
               </p>
               <ul>
-                <li>You&apos;ll be subject to that site&apos;s privacy policy</li>
+                <li>
+                  You&apos;ll be subject to that site&apos;s privacy policy
+                </li>
                 <li>We recommend reading their privacy practices</li>
                 <li>Your interactions are governed by their terms</li>
               </ul>
@@ -476,9 +490,9 @@ export default function PrivacyPolicyPage() {
               </ul>
 
               <p>
-                <strong>Your continued use</strong> of our services after updates
-                constitutes acceptance of the revised policy. We encourage you to
-                review this policy periodically.
+                <strong>Your continued use</strong> of our services after
+                updates constitutes acceptance of the revised policy. We
+                encourage you to review this policy periodically.
               </p>
             </PolicySection>
 
@@ -488,10 +502,10 @@ export default function PrivacyPolicyPage() {
                 Children&apos;s Privacy
               </h4>
               <p>
-                Our services are not directed at children under 18. We don&apos;t
-                knowingly collect personal information from minors without parental
-                consent. If we discover we&apos;ve collected such information,
-                we&apos;ll delete it promptly.
+                Our services are not directed at children under 18. We
+                don&apos;t knowingly collect personal information from minors
+                without parental consent. If we discover we&apos;ve collected
+                such information, we&apos;ll delete it promptly.
               </p>
 
               <h4 className="text-lg font-semibold text-text-primary mt-6 mb-3">
@@ -499,9 +513,9 @@ export default function PrivacyPolicyPage() {
               </h4>
               <p>
                 We generally don&apos;t collect sensitive personal data (health,
-                religion, political views). If such information is shared in project
-                communications, it&apos;s handled with extra care and limited
-                access.
+                religion, political views). If such information is shared in
+                project communications, it&apos;s handled with extra care and
+                limited access.
               </p>
 
               <h4 className="text-lg font-semibold text-text-primary mt-6 mb-3">
@@ -564,20 +578,20 @@ export default function PrivacyPolicyPage() {
             {/* Final Section */}
             <PolicySection title="Your Privacy Matters to Us">
               <p>
-                At Procedure, we&apos;re committed to earning and maintaining your
-                trust through transparent, ethical data practices. This policy
-                reflects our dedication to protecting your privacy while delivering
-                exceptional service.
+                At Procedure, we&apos;re committed to earning and maintaining
+                your trust through transparent, ethical data practices. This
+                policy reflects our dedication to protecting your privacy while
+                delivering exceptional service.
               </p>
               <p>
-                If you have questions, concerns, or suggestions about our privacy
-                practices, we want to hear from you. Your feedback helps us improve
-                and ensures we&apos;re meeting your expectations.
+                If you have questions, concerns, or suggestions about our
+                privacy practices, we want to hear from you. Your feedback helps
+                us improve and ensures we&apos;re meeting your expectations.
               </p>
               <p>Thank you for trusting us with your information.</p>
               <p className="italic text-text-muted">
-                This Privacy Policy is governed by Indian law and any disputes will
-                be subject to the jurisdiction of Indian courts.
+                This Privacy Policy is governed by Indian law and any disputes
+                will be subject to the jurisdiction of Indian courts.
               </p>
             </PolicySection>
           </motion.div>

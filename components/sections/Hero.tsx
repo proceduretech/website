@@ -175,8 +175,9 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mt-5 sm:mt-6 text-base sm:text-lg md:text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed"
           >
-            Senior engineers embedded with your team to build AI-powered products
-            and secure AI systems. Battle-tested delivery—now focused on AI.
+            Senior engineers embedded with your team to build AI-powered
+            products and secure AI systems. Battle-tested delivery—now focused
+            on AI.
           </motion.p>
 
           {/* CTA buttons */}

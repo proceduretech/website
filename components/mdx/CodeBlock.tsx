@@ -47,7 +47,9 @@ export function CodeBlock({
           </div>
           {/* Filename */}
           {filename && (
-            <span className="text-sm text-text-muted font-mono">{filename}</span>
+            <span className="text-sm text-text-muted font-mono">
+              {filename}
+            </span>
           )}
           {/* Language badge */}
           {language && !filename && (

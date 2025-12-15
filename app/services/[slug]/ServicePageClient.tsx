@@ -10,30 +10,51 @@ interface Props {
 }
 
 export default function ServicePageClient({ service }: Props) {
-  const { hero, benefits, benefitsTitle, process, processTitle, idealFor, idealForTitle, cta } = service;
+  const {
+    hero,
+    benefits,
+    benefitsTitle,
+    process,
+    processTitle,
+    idealFor,
+    idealForTitle,
+    cta,
+  } = service;
 
   // Determine which additional items to show (services, productTypes, roles, sprintExamples)
-  const additionalItems = service.services || service.productTypes || service.roles || service.sprintExamples;
+  const additionalItems =
+    service.services ||
+    service.productTypes ||
+    service.roles ||
+    service.sprintExamples;
   const additionalItemsTitle = service.services
     ? "Services"
     : service.productTypes
-    ? "What We Build"
-    : service.roles
-    ? "Roles We Staff"
-    : service.sprintExamples
-    ? "Sprint Examples"
-    : null;
+      ? "What We Build"
+      : service.roles
+        ? "Roles We Staff"
+        : service.sprintExamples
+          ? "Sprint Examples"
+          : null;
 
   // Determine accent color variant based on badge variant
   const isBlueVariant = hero.badgeVariant === "blue";
   const accentColorClasses = {
     stat: isBlueVariant ? "text-accent-blue-light" : "text-accent-teal-light",
-    statBg: isBlueVariant ? "bg-accent-blue/10 border-accent-blue/20" : "bg-accent-teal/10 border-accent-teal/20",
+    statBg: isBlueVariant
+      ? "bg-accent-blue/10 border-accent-blue/20"
+      : "bg-accent-teal/10 border-accent-teal/20",
     stepBg: isBlueVariant ? "bg-accent-blue/10" : "bg-accent-teal/10",
-    stepText: isBlueVariant ? "text-accent-blue-light" : "text-accent-teal-light",
-    durationBg: isBlueVariant ? "bg-accent-blue/10 border-accent-blue/20 text-accent-blue-light" : "bg-accent-teal/10 border-accent-teal/20 text-accent-teal-light",
+    stepText: isBlueVariant
+      ? "text-accent-blue-light"
+      : "text-accent-teal-light",
+    durationBg: isBlueVariant
+      ? "bg-accent-blue/10 border-accent-blue/20 text-accent-blue-light"
+      : "bg-accent-teal/10 border-accent-teal/20 text-accent-teal-light",
     checkBg: isBlueVariant ? "bg-accent-blue/20" : "bg-accent-teal/20",
-    checkText: isBlueVariant ? "text-accent-blue-light" : "text-accent-teal-light",
+    checkText: isBlueVariant
+      ? "text-accent-blue-light"
+      : "text-accent-teal-light",
   };
 
   return (
@@ -73,8 +94,12 @@ export default function ServicePageClient({ service }: Props) {
                 className="p-6 rounded-xl bg-surface-elevated border border-border hover:border-accent-teal/30 transition-colors"
               >
                 <div className="flex items-start gap-4 mb-4">
-                  <div className={`px-3 py-1.5 rounded-lg border ${accentColorClasses.statBg}`}>
-                    <span className={`text-xl font-bold ${accentColorClasses.stat}`}>
+                  <div
+                    className={`px-3 py-1.5 rounded-lg border ${accentColorClasses.statBg}`}
+                  >
+                    <span
+                      className={`text-xl font-bold ${accentColorClasses.stat}`}
+                    >
                       {benefit.stat}
                     </span>
                   </div>
@@ -118,8 +143,12 @@ export default function ServicePageClient({ service }: Props) {
                 transition={{ delay: idx * 0.1 }}
                 className="text-center"
               >
-                <div className={`w-14 h-14 mx-auto rounded-full ${accentColorClasses.stepBg} border border-border flex items-center justify-center mb-4`}>
-                  <span className={`text-lg font-bold ${accentColorClasses.stepText}`}>
+                <div
+                  className={`w-14 h-14 mx-auto rounded-full ${accentColorClasses.stepBg} border border-border flex items-center justify-center mb-4`}
+                >
+                  <span
+                    className={`text-lg font-bold ${accentColorClasses.stepText}`}
+                  >
                     {step.step}
                   </span>
                 </div>
@@ -129,7 +158,9 @@ export default function ServicePageClient({ service }: Props) {
                 <p className="text-sm text-text-secondary mb-2">
                   {step.description}
                 </p>
-                <span className={`inline-flex px-2 py-1 text-xs font-medium ${accentColorClasses.durationBg} rounded-full`}>
+                <span
+                  className={`inline-flex px-2 py-1 text-xs font-medium ${accentColorClasses.durationBg} rounded-full`}
+                >
                   {step.duration}
                 </span>
               </motion.div>
@@ -228,7 +259,9 @@ export default function ServicePageClient({ service }: Props) {
                 transition={{ delay: idx * 0.1 }}
                 className="flex items-start gap-4 p-4 rounded-xl bg-surface-elevated border border-border"
               >
-                <div className={`w-6 h-6 rounded-full ${accentColorClasses.checkBg} flex items-center justify-center shrink-0 mt-0.5`}>
+                <div
+                  className={`w-6 h-6 rounded-full ${accentColorClasses.checkBg} flex items-center justify-center shrink-0 mt-0.5`}
+                >
                   <svg
                     className={`w-4 h-4 ${accentColorClasses.checkText}`}
                     fill="none"

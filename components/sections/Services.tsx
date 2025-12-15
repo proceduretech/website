@@ -52,12 +52,7 @@ const services = [
         />
       </svg>
     ),
-    tags: [
-      "Threat Protection",
-      "Prompt Defense",
-      "Data Privacy",
-      "Compliance",
-    ],
+    tags: ["Threat Protection", "Prompt Defense", "Data Privacy", "Compliance"],
   },
   {
     name: "Product Engineering",

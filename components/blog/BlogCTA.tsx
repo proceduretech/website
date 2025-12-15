@@ -20,8 +20,9 @@ export function BlogCTA() {
             <span className="text-highlight">AI Systems?</span>
           </h2>
           <p className="text-lg text-text-secondary mb-10 max-w-2xl mx-auto">
-            Our team has deployed AI systems serving billions of requests. Let&apos;s
-            talk about your engineering challenges and how we can help.
+            Our team has deployed AI systems serving billions of requests.
+            Let&apos;s talk about your engineering challenges and how we can
+            help.
           </p>
 
           {/* Dual CTAs */}

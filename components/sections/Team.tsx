@@ -175,8 +175,8 @@ export function Team() {
           </h2>
           <p className="text-text-secondary max-w-2xl mx-auto leading-relaxed">
             Every engagement is staffed by experienced engineers who understand
-            what it takes to ship production software. No junior handoffs.
-            No learning on your dime.
+            what it takes to ship production software. No junior handoffs. No
+            learning on your dime.
           </p>
         </motion.div>
 

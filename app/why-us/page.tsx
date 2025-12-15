@@ -238,7 +238,8 @@ export default function WhyUsPage() {
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto text-base sm:text-lg">
               We built Procedure to solve the AI delivery problems we
-              experienced as engineering leaders. Here is what makes us different.
+              experienced as engineering leaders. Here is what makes us
+              different.
             </p>
           </motion.div>
 

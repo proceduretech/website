@@ -749,7 +749,8 @@ export default function CulturePage() {
                     "Since we are a service company, you will have the advantage of working on a wide gamut of problems, technology & real world-wise.",
                 },
                 {
-                  title: "You'll be involved in all stages of a product lifecycle.",
+                  title:
+                    "You'll be involved in all stages of a product lifecycle.",
                   description:
                     "You'll never have to wonder why you are working on something because you'll always know it.",
                 },
@@ -766,7 +767,9 @@ export default function CulturePage() {
                   <h3 className="text-lg font-semibold text-text-primary mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-text-secondary">{item.description}</p>
+                  <p className="text-sm text-text-secondary">
+                    {item.description}
+                  </p>
                 </div>
               ))}
             </motion.div>

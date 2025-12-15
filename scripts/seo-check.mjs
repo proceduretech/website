@@ -1,17 +1,17 @@
-import { chromium } from 'playwright';
+import { chromium } from "playwright";
 
 const PAGES = [
-  '/',
-  '/about',
-  '/contact',
-  '/services/enterprise',
-  '/services/startups',
-  '/case-studies',
-  '/expertise/llm-applications',
-  '/industries/healthcare',
+  "/",
+  "/about",
+  "/contact",
+  "/services/enterprise",
+  "/services/startups",
+  "/case-studies",
+  "/expertise/llm-applications",
+  "/industries/healthcare",
 ];
 
-const BASE_URL = process.env.BASE_URL || 'http://localhost:3000';
+const BASE_URL = process.env.BASE_URL || "http://localhost:3000";
 
 async function checkPage(page, url) {
   const errors = [];
@@ -20,7 +20,7 @@ async function checkPage(page, url) {
 
   try {
     // Use domcontentloaded instead of networkidle to avoid timeouts on pages with external embeds
-    await page.goto(fullUrl, { waitUntil: 'domcontentloaded', timeout: 30000 });
+    await page.goto(fullUrl, { waitUntil: "domcontentloaded", timeout: 30000 });
     // Wait a bit for any client-side rendering
     await page.waitForTimeout(1000);
   } catch (err) {
@@ -33,9 +33,13 @@ async function checkPage(page, url) {
   if (!title) {
     errors.push(`[${url}] Missing title tag`);
   } else if (title.length < 30) {
-    warnings.push(`[${url}] Title too short: "${title}" (${title.length} chars, recommend 30-60)`);
+    warnings.push(
+      `[${url}] Title too short: "${title}" (${title.length} chars, recommend 30-60)`,
+    );
   } else if (title.length > 70) {
-    warnings.push(`[${url}] Title too long: "${title}" (${title.length} chars, recommend 30-60)`);
+    warnings.push(
+      `[${url}] Title too long: "${title}" (${title.length} chars, recommend 30-60)`,
+    );
   }
 
   // Check meta description
@@ -46,16 +50,16 @@ async function checkPage(page, url) {
     errors.push(`[${url}] Missing meta description`);
   } else if (metaDesc.length < 100) {
     warnings.push(
-      `[${url}] Meta description short: ${metaDesc.length} chars (recommend 120-160)`
+      `[${url}] Meta description short: ${metaDesc.length} chars (recommend 120-160)`,
     );
   } else if (metaDesc.length > 170) {
     warnings.push(
-      `[${url}] Meta description long: ${metaDesc.length} chars (recommend 120-160)`
+      `[${url}] Meta description long: ${metaDesc.length} chars (recommend 120-160)`,
     );
   }
 
   // Check H1
-  const h1s = await page.$$('h1');
+  const h1s = await page.$$("h1");
   if (h1s.length === 0) {
     errors.push(`[${url}] Missing H1 tag`);
   } else if (h1s.length > 1) {
@@ -93,8 +97,8 @@ async function checkPage(page, url) {
 
   // Check images have alt
   const imagesWithoutAlt = await page.$$eval(
-    'img:not([alt])',
-    (imgs) => imgs.length
+    "img:not([alt])",
+    (imgs) => imgs.length,
   );
   if (imagesWithoutAlt > 0) {
     warnings.push(`[${url}] ${imagesWithoutAlt} images without alt attribute`);
@@ -103,17 +107,21 @@ async function checkPage(page, url) {
   // Check for empty alt on meaningful images (not decorative)
   const emptyAltImages = await page.$$eval(
     'img[alt=""]',
-    (imgs) => imgs.filter((img) => !img.getAttribute('role')?.includes('presentation')).length
+    (imgs) =>
+      imgs.filter((img) => !img.getAttribute("role")?.includes("presentation"))
+        .length,
   );
   if (emptyAltImages > 0) {
-    warnings.push(`[${url}] ${emptyAltImages} images with empty alt (may be decorative)`);
+    warnings.push(
+      `[${url}] ${emptyAltImages} images with empty alt (may be decorative)`,
+    );
   }
 
   return { errors, warnings };
 }
 
 async function main() {
-  console.log('\n=== SEO Validation Report ===\n');
+  console.log("\n=== SEO Validation Report ===\n");
   console.log(`Base URL: ${BASE_URL}`);
   console.log(`Pages to check: ${PAGES.length}\n`);
 
@@ -130,9 +138,11 @@ async function main() {
     allWarnings = allWarnings.concat(warnings);
 
     if (errors.length === 0 && warnings.length === 0) {
-      console.log('OK');
+      console.log("OK");
     } else if (errors.length > 0) {
-      console.log(`FAIL (${errors.length} errors, ${warnings.length} warnings)`);
+      console.log(
+        `FAIL (${errors.length} errors, ${warnings.length} warnings)`,
+      );
     } else {
       console.log(`WARN (${warnings.length} warnings)`);
     }
@@ -141,32 +151,34 @@ async function main() {
   await browser.close();
 
   // Print summary
-  console.log('\n=== Summary ===\n');
+  console.log("\n=== Summary ===\n");
 
   if (allErrors.length > 0) {
-    console.log('ERRORS (blocking):');
+    console.log("ERRORS (blocking):");
     allErrors.forEach((err) => console.log(`  - ${err}`));
-    console.log('');
+    console.log("");
   }
 
   if (allWarnings.length > 0) {
-    console.log('WARNINGS (non-blocking):');
+    console.log("WARNINGS (non-blocking):");
     allWarnings.forEach((warn) => console.log(`  - ${warn}`));
-    console.log('');
+    console.log("");
   }
 
-  console.log(`Total: ${allErrors.length} errors, ${allWarnings.length} warnings\n`);
+  console.log(
+    `Total: ${allErrors.length} errors, ${allWarnings.length} warnings\n`,
+  );
 
   if (allErrors.length > 0) {
-    console.log('SEO check FAILED\n');
+    console.log("SEO check FAILED\n");
     process.exit(1);
   } else {
-    console.log('SEO check PASSED\n');
+    console.log("SEO check PASSED\n");
     process.exit(0);
   }
 }
 
 main().catch((err) => {
-  console.error('SEO check failed with error:', err);
+  console.error("SEO check failed with error:", err);
   process.exit(1);
 });

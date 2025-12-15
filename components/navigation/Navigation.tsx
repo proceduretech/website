@@ -51,133 +51,132 @@ export function Navigation() {
           onClick={() => setActiveMenu(null)}
         />
       )}
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled || isMobileMenuOpen
-          ? "bg-surface/95 backdrop-blur-md border-b border-border"
-          : "bg-base border-b border-transparent"
-      }`}
-      onMouseLeave={() => setActiveMenu(null)}
-    >
-      <nav className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <Logo />
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled || isMobileMenuOpen
+            ? "bg-surface/95 backdrop-blur-md border-b border-border"
+            : "bg-base border-b border-transparent"
+        }`}
+        onMouseLeave={() => setActiveMenu(null)}
+      >
+        <nav className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex items-center justify-between h-20">
+            {/* Logo */}
+            <Logo />
 
-          {/* Navigation Items */}
-          <nav className="hidden lg:flex lg:space-x-1">
-            <NavItem
-              label="Services"
-              megaMenu={navigationData.services}
-              isOpen={activeMenu === "services"}
-              onHover={() => setActiveMenu("services")}
-            />
-            <NavItem
-              label="Expertise"
-              megaMenu={navigationData.expertise}
-              isOpen={activeMenu === "expertise"}
-              onHover={() => setActiveMenu("expertise")}
-            />
-            <NavItem
-              label="Industries"
-              megaMenu={navigationData.industries}
-              isOpen={activeMenu === "industries"}
-              onHover={() => setActiveMenu("industries")}
-            />
-            <NavItem
-              label="Case Studies"
-              href="/case-studies"
-              onHover={() => setActiveMenu(null)}
-            />
-            <NavItem
-              label="About"
-              megaMenu={navigationData.about}
-              isOpen={activeMenu === "about"}
-              onHover={() => setActiveMenu("about")}
-            />
-            <NavItem
-              label="Resources"
-              megaMenu={navigationData.resources}
-              isOpen={activeMenu === "resources"}
-              onHover={() => setActiveMenu("resources")}
-            />
-          </nav>
+            {/* Navigation Items */}
+            <nav className="hidden lg:flex lg:space-x-1">
+              <NavItem
+                label="Services"
+                megaMenu={navigationData.services}
+                isOpen={activeMenu === "services"}
+                onHover={() => setActiveMenu("services")}
+              />
+              <NavItem
+                label="Expertise"
+                megaMenu={navigationData.expertise}
+                isOpen={activeMenu === "expertise"}
+                onHover={() => setActiveMenu("expertise")}
+              />
+              <NavItem
+                label="Industries"
+                megaMenu={navigationData.industries}
+                isOpen={activeMenu === "industries"}
+                onHover={() => setActiveMenu("industries")}
+              />
+              <NavItem
+                label="Case Studies"
+                href="/case-studies"
+                onHover={() => setActiveMenu(null)}
+              />
+              <NavItem
+                label="About"
+                megaMenu={navigationData.about}
+                isOpen={activeMenu === "about"}
+                onHover={() => setActiveMenu("about")}
+              />
+              <NavItem
+                label="Resources"
+                megaMenu={navigationData.resources}
+                isOpen={activeMenu === "resources"}
+                onHover={() => setActiveMenu("resources")}
+              />
+            </nav>
 
-          {/* CTA Button */}
-          <div className="hidden lg:flex items-center gap-4">
-            <Button href="/contact">
-              Book a Call
-              <svg
-                className="w-4 h-4 ml-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                />
-              </svg>
-            </Button>
+            {/* CTA Button */}
+            <div className="hidden lg:flex items-center gap-4">
+              <Button href="/contact">
+                Book a Call
+                <svg
+                  className="w-4 h-4 ml-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                  />
+                </svg>
+              </Button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="lg:hidden p-2 text-text-primary"
+              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? (
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={1.5}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={1.5}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  />
+                </svg>
+              )}
+            </button>
           </div>
+        </nav>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden p-2 text-text-primary"
-            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? (
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={1.5}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            ) : (
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={1.5}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                />
-              </svg>
-            )}
-          </button>
-        </div>
-      </nav>
-
-      {/* Mega Menu Container - Desktop */}
-      {activeMenu && (
-        <div className="hidden lg:block relative lg:absolute left-0 w-full lg:px-16 lg:top-full lg:z-50">
-          <div className="max-w-5xl mx-auto w-full lg:flex lg:justify-center">
-            <MegaMenuContent
-              sections={
-                navigationData[
-                  activeMenu as keyof typeof navigationData
-                ] as MenuSection[]
-              }
-            />
+        {/* Mega Menu Container - Desktop */}
+        {activeMenu && (
+          <div className="hidden lg:block relative lg:absolute left-0 w-full lg:px-16 lg:top-full lg:z-50">
+            <div className="max-w-5xl mx-auto w-full lg:flex lg:justify-center">
+              <MegaMenuContent
+                sections={
+                  navigationData[
+                    activeMenu as keyof typeof navigationData
+                  ] as MenuSection[]
+                }
+              />
+            </div>
           </div>
-        </div>
-      )}
-
-    </header>
+        )}
+      </header>
 
       {/* Mobile Menu - Rendered outside header to avoid backdrop-filter containing block issue */}
       {isMobileMenuOpen && (

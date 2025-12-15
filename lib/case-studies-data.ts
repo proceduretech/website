@@ -62,7 +62,12 @@ export const caseStudies: CaseStudy[] = [
       { value: "$180M", label: "Additional annual revenue" },
       { value: "2.3x", label: "Search-to-purchase rate" },
     ],
-    tags: ["Vector Search", "Elasticsearch", "Python", "Recommendation Systems"],
+    tags: [
+      "Vector Search",
+      "Elasticsearch",
+      "Python",
+      "Recommendation Systems",
+    ],
     image: "/case-studies/ecommerce.jpg",
     featured: true,
   },
@@ -115,7 +120,7 @@ export const caseStudies: CaseStudy[] = [
 
 // Featured case studies for homepage (filtered by featured flag)
 export const featuredCaseStudies = caseStudies.filter(
-  (study) => study.featured
+  (study) => study.featured,
 );
 
 // Service type filter options

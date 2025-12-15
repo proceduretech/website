@@ -106,7 +106,8 @@ export function CaseStudiesClient({
                         : ""
                     }
                     onChange={(e) => {
-                      if (e.target.value) setActiveIndustryFilter(e.target.value);
+                      if (e.target.value)
+                        setActiveIndustryFilter(e.target.value);
                     }}
                     className="px-4 py-2 text-sm font-medium rounded-lg bg-surface-elevated text-text-secondary border border-border hover:border-accent-teal/30 cursor-pointer focus:outline-none focus:border-accent-teal"
                   >
@@ -230,7 +231,9 @@ export function CaseStudiesClient({
               </p>
               <footer className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-accent-teal/20 border border-accent-teal/30 flex items-center justify-center">
-                  <span className="text-lg font-bold text-accent-teal-light">JR</span>
+                  <span className="text-lg font-bold text-accent-teal-light">
+                    JR
+                  </span>
                 </div>
                 <div>
                   <div className="font-semibold text-text-primary">
@@ -261,7 +264,9 @@ export function CaseStudiesClient({
               </p>
               <footer className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-accent-blue/20 border border-accent-blue/30 flex items-center justify-center">
-                  <span className="text-lg font-bold text-accent-blue-light">SK</span>
+                  <span className="text-lg font-bold text-accent-blue-light">
+                    SK
+                  </span>
                 </div>
                 <div>
                   <div className="font-semibold text-text-primary">

@@ -34,7 +34,11 @@ export function MobileTestimonialCarousel({
     const cardWidth = container.offsetWidth;
     const newIndex = Math.round(scrollLeft / cardWidth);
 
-    if (newIndex !== activeIndex && newIndex >= 0 && newIndex < testimonials.length) {
+    if (
+      newIndex !== activeIndex &&
+      newIndex >= 0 &&
+      newIndex < testimonials.length
+    ) {
       setActiveIndex(newIndex);
     }
   }, [activeIndex, testimonials.length]);
@@ -106,7 +110,7 @@ export function MobileTestimonialCarousel({
               "relative before:absolute before:inset-0 before:-m-2 before:content-['']",
               index === activeIndex
                 ? "bg-accent-teal-light scale-125"
-                : "bg-border hover:bg-border/80"
+                : "bg-border hover:bg-border/80",
             )}
             role="tab"
             aria-selected={index === activeIndex}

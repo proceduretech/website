@@ -244,7 +244,7 @@ const iconMap: Record<string, ComponentType<IconProps>> = {
  * @returns Icon component or undefined if not found
  */
 export function getTechIcon(
-  name: string
+  name: string,
 ): ComponentType<IconProps> | undefined {
   return iconMap[name.toLowerCase()];
 }

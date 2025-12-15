@@ -14,9 +14,7 @@ export function Steps({ children }: StepsProps) {
     <div className="my-8 relative steps-container">
       {/* Vertical line */}
       <div className="absolute left-[15px] top-4 bottom-4 w-0.5 bg-border" />
-      <div className="space-y-6">
-        {children}
-      </div>
+      <div className="space-y-6">{children}</div>
     </div>
   );
 }

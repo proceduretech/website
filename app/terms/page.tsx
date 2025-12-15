@@ -57,7 +57,9 @@ export default function TermsConditionsPage() {
                 <li>
                   We own our content, but you keep ownership of what you create
                 </li>
-                <li>We&apos;ll let you know if we make changes to these terms</li>
+                <li>
+                  We&apos;ll let you know if we make changes to these terms
+                </li>
                 <li>
                   We&apos;re here to help, but we can&apos;t be liable for
                   everything
@@ -69,9 +71,9 @@ export default function TermsConditionsPage() {
             {/* Section 1 */}
             <TermsSection title="1. Agreement Upon Site Usage">
               <p>
-                By accessing, browsing, or using the Procedure website and any of
-                our services, you&apos;re agreeing to be bound by these Terms &
-                Conditions and our Privacy Policy. Think of it as a digital
+                By accessing, browsing, or using the Procedure website and any
+                of our services, you&apos;re agreeing to be bound by these Terms
+                & Conditions and our Privacy Policy. Think of it as a digital
                 handshake—you&apos;re saying &quot;yes&quot; to playing by our
                 rules.
               </p>
@@ -104,12 +106,12 @@ export default function TermsConditionsPage() {
               </h4>
               <ul>
                 <li>
-                  <strong>Explore freely:</strong> Browse our content and read our
-                  articles
+                  <strong>Explore freely:</strong> Browse our content and read
+                  our articles
                 </li>
                 <li>
-                  <strong>Create and share:</strong> Upload content, participate in
-                  discussions, and engage with our community
+                  <strong>Create and share:</strong> Upload content, participate
+                  in discussions, and engage with our community
                 </li>
                 <li>
                   <strong>Learn and grow:</strong> Use our resources for
@@ -129,8 +131,8 @@ export default function TermsConditionsPage() {
                 What You CANNOT Do
               </h4>
               <p>
-                We want to keep Procedure safe and useful for everyone, so please
-                don&apos;t:
+                We want to keep Procedure safe and useful for everyone, so
+                please don&apos;t:
               </p>
 
               <p>
@@ -164,7 +166,8 @@ export default function TermsConditionsPage() {
                   intellectual property rights
                 </li>
                 <li>
-                  Send unsolicited communications, spam, or promotional materials
+                  Send unsolicited communications, spam, or promotional
+                  materials
                 </li>
                 <li>
                   Share inappropriate, offensive, or irrelevant content on our
@@ -181,16 +184,17 @@ export default function TermsConditionsPage() {
                   functionality
                 </li>
                 <li>
-                  Use any automated tools, robots, spiders, or scrapers to access
-                  our services without permission
+                  Use any automated tools, robots, spiders, or scrapers to
+                  access our services without permission
                 </li>
                 <li>Introduce viruses, malware, or other harmful code</li>
                 <li>
-                  Attempt to gain unauthorized access to our systems, servers, or
-                  databases
+                  Attempt to gain unauthorized access to our systems, servers,
+                  or databases
                 </li>
                 <li>
-                  Launch denial-of-service attacks or similar disruptive activities
+                  Launch denial-of-service attacks or similar disruptive
+                  activities
                 </li>
                 <li>
                   Use any device, software, or routine that interferes with the
@@ -215,8 +219,8 @@ export default function TermsConditionsPage() {
                   proprietary systems
                 </li>
                 <li>
-                  Compete directly with us using information obtained through our
-                  services
+                  Compete directly with us using information obtained through
+                  our services
                 </li>
               </ul>
 
@@ -257,7 +261,8 @@ export default function TermsConditionsPage() {
                   Each promotion has its own set of rules, duration, and terms
                 </li>
                 <li>
-                  You can&apos;t combine offers unless we specifically say you can
+                  You can&apos;t combine offers unless we specifically say you
+                  can
                 </li>
                 <li>
                   Promotions are subject to availability and may be limited in
@@ -269,13 +274,14 @@ export default function TermsConditionsPage() {
                 Changes & Cancellations
               </h4>
               <p>
-                We reserve the right to modify, suspend, or cancel any promotion at
-                any time. If we do, we&apos;ll:
+                We reserve the right to modify, suspend, or cancel any promotion
+                at any time. If we do, we&apos;ll:
               </p>
               <ul>
                 <li>Post an update on our website</li>
                 <li>
-                  Send an email notification if you&apos;re already participating
+                  Send an email notification if you&apos;re already
+                  participating
                 </li>
                 <li>Honor any commitments already made to participants</li>
               </ul>
@@ -289,9 +295,10 @@ export default function TermsConditionsPage() {
               <p>
                 All the content we create—including text, images, videos, logos,
                 and software—belongs to Procedure and is protected by Indian and
-                international intellectual property laws. You can use our content
-                for personal, non-commercial purposes, but please don&apos;t copy,
-                redistribute, or create derivative works without our permission.
+                international intellectual property laws. You can use our
+                content for personal, non-commercial purposes, but please
+                don&apos;t copy, redistribute, or create derivative works
+                without our permission.
               </p>
 
               <h4 className="text-lg font-semibold text-text-primary mt-6 mb-3">
@@ -300,19 +307,20 @@ export default function TermsConditionsPage() {
               <p>When you upload, post, or share content on Procedure:</p>
               <ul>
                 <li>
-                  <strong>You keep ownership:</strong> Your content remains yours
+                  <strong>You keep ownership:</strong> Your content remains
+                  yours
                 </li>
                 <li>
-                  <strong>You grant us license:</strong> We can display, store, and
-                  share your content as part of our service
+                  <strong>You grant us license:</strong> We can display, store,
+                  and share your content as part of our service
                 </li>
                 <li>
-                  <strong>You&apos;re responsible:</strong> Make sure you have the
-                  right to share what you post
+                  <strong>You&apos;re responsible:</strong> Make sure you have
+                  the right to share what you post
                 </li>
                 <li>
-                  <strong>We can moderate:</strong> We may review, edit, or remove
-                  content that violates our guidelines
+                  <strong>We can moderate:</strong> We may review, edit, or
+                  remove content that violates our guidelines
                 </li>
               </ul>
 
@@ -344,8 +352,9 @@ export default function TermsConditionsPage() {
             {/* Section 5 */}
             <TermsSection title="5. Modifications to Terms">
               <p>
-                We may need to update these terms occasionally to reflect changes
-                in our services, legal requirements, or business practices.
+                We may need to update these terms occasionally to reflect
+                changes in our services, legal requirements, or business
+                practices.
               </p>
 
               <h4 className="text-lg font-semibold text-text-primary mt-6 mb-3">
@@ -354,7 +363,8 @@ export default function TermsConditionsPage() {
               <p>When we make changes, we&apos;ll:</p>
               <ul>
                 <li>
-                  Update the &quot;Last Modified&quot; date at the top of this page
+                  Update the &quot;Last Modified&quot; date at the top of this
+                  page
                 </li>
                 <li>
                   Send an email notification to registered users for significant
@@ -371,9 +381,9 @@ export default function TermsConditionsPage() {
               </h4>
               <p>
                 By continuing to use Procedure after we&apos;ve posted updated
-                terms, you&apos;re agreeing to the new version. If you don&apos;t
-                agree with the changes, you can stop using our service or contact
-                us to discuss your concerns.
+                terms, you&apos;re agreeing to the new version. If you
+                don&apos;t agree with the changes, you can stop using our
+                service or contact us to discuss your concerns.
               </p>
             </TermsSection>
 
@@ -391,8 +401,8 @@ export default function TermsConditionsPage() {
                 Procedure is provided &quot;as is&quot; and &quot;as
                 available.&quot; While we strive for 99.9% uptime, we can&apos;t
                 guarantee our service will always be available or error-free. We
-                may need to perform maintenance, updates, or deal with unexpected
-                technical issues.
+                may need to perform maintenance, updates, or deal with
+                unexpected technical issues.
               </p>
 
               <h4 className="text-lg font-semibold text-text-primary mt-6 mb-3">
@@ -428,18 +438,18 @@ export default function TermsConditionsPage() {
                 Third-Party Links and Services
               </h4>
               <p>
-                Our website may contain links to other websites or integrate with
-                third-party services. We don&apos;t control these external sites
-                and aren&apos;t responsible for their content, privacy practices,
-                or terms of service. Use them at your own discretion.
+                Our website may contain links to other websites or integrate
+                with third-party services. We don&apos;t control these external
+                sites and aren&apos;t responsible for their content, privacy
+                practices, or terms of service. Use them at your own discretion.
               </p>
 
               <h4 className="text-lg font-semibold text-text-primary mt-6 mb-3">
                 Indemnification
               </h4>
               <p>
-                You agree to protect us from any legal claims or damages that arise
-                from:
+                You agree to protect us from any legal claims or damages that
+                arise from:
               </p>
               <ul>
                 <li>Your use of our service</li>
@@ -455,8 +465,8 @@ export default function TermsConditionsPage() {
                 Analytics and Monitoring
               </h4>
               <p>
-                We may use third-party service providers to monitor and analyze the
-                usage of our services, including:
+                We may use third-party service providers to monitor and analyze
+                the usage of our services, including:
               </p>
               <ul>
                 <li>Website analytics (Google Analytics, similar tools)</li>
@@ -471,8 +481,8 @@ export default function TermsConditionsPage() {
                 Third-Party Integration
               </h4>
               <p>
-                In the course of providing our services, we may integrate with or
-                utilize:
+                In the course of providing our services, we may integrate with
+                or utilize:
               </p>
               <ul>
                 <li>Cloud service providers (AWS, Google Cloud, Azure)</li>
@@ -481,8 +491,9 @@ export default function TermsConditionsPage() {
                 <li>Communication and project management systems</li>
               </ul>
               <p>
-                All third-party integrations are subject to their respective terms
-                of service and privacy policies, which we encourage you to review.
+                All third-party integrations are subject to their respective
+                terms of service and privacy policies, which we encourage you to
+                review.
               </p>
             </TermsSection>
 
@@ -559,8 +570,8 @@ export default function TermsConditionsPage() {
                   purposes
                 </li>
                 <li>
-                  Allow us reasonable time to address reported issues before public
-                  disclosure
+                  Allow us reasonable time to address reported issues before
+                  public disclosure
                 </li>
               </ul>
             </TermsSection>
@@ -569,9 +580,7 @@ export default function TermsConditionsPage() {
             <TermsSection title="9. Data Protection & Privacy (Indian Law Compliance)">
               <p>We take your privacy seriously and comply with:</p>
               <ul>
-                <li>
-                  The Information Technology Act, 2000 and its amendments
-                </li>
+                <li>The Information Technology Act, 2000 and its amendments</li>
                 <li>The Personal Data Protection Bill (when enacted)</li>
                 <li>Consumer Protection Act, 2019</li>
                 <li>Other applicable Indian data protection regulations</li>
@@ -616,9 +625,7 @@ export default function TermsConditionsPage() {
                 <li>Engaged in fraudulent, abusive, or harmful activity</li>
                 <li>Failed to pay for premium services</li>
                 <li>Created security risks or misused our services/IP</li>
-                <li>
-                  Acted in a way that could harm Procedure or our users
-                </li>
+                <li>Acted in a way that could harm Procedure or our users</li>
               </ul>
 
               <h4 className="text-lg font-semibold text-text-primary mt-6 mb-3">
@@ -657,10 +664,10 @@ export default function TermsConditionsPage() {
                 Survival
               </h4>
               <p>
-                Sections on intellectual property, payments, disclaimers, liability
-                limits, indemnity, governing law, and confidentiality continue to
-                apply even after termination. Separate service agreements remain
-                subject to their own clauses.
+                Sections on intellectual property, payments, disclaimers,
+                liability limits, indemnity, governing law, and confidentiality
+                continue to apply even after termination. Separate service
+                agreements remain subject to their own clauses.
               </p>
             </TermsSection>
 
@@ -696,8 +703,8 @@ export default function TermsConditionsPage() {
                   with details of your concern
                 </li>
                 <li>
-                  <strong>Good faith discussion:</strong> We&apos;ll try to resolve
-                  the issue within 30 days
+                  <strong>Good faith discussion:</strong> We&apos;ll try to
+                  resolve the issue within 30 days
                 </li>
                 <li>
                   <strong>Mediation:</strong> If needed, we can try mediation
@@ -705,8 +712,8 @@ export default function TermsConditionsPage() {
                 </li>
               </ul>
               <p>
-                <strong>Legal action:</strong> As a last resort, disputes will be
-                resolved in Indian courts
+                <strong>Legal action:</strong> As a last resort, disputes will
+                be resolved in Indian courts
               </p>
             </TermsSection>
 
@@ -730,16 +737,16 @@ export default function TermsConditionsPage() {
                 Severability
               </h4>
               <p>
-                If any part of these terms is found to be invalid or unenforceable,
-                the rest will remain in full effect.
+                If any part of these terms is found to be invalid or
+                unenforceable, the rest will remain in full effect.
               </p>
 
               <h4 className="text-lg font-semibold text-text-primary mt-6 mb-3">
                 No Waiver
               </h4>
               <p>
-                Our failure to enforce any provision doesn&apos;t mean we&apos;ve
-                waived our right to enforce it later.
+                Our failure to enforce any provision doesn&apos;t mean
+                we&apos;ve waived our right to enforce it later.
               </p>
 
               <h4 className="text-lg font-semibold text-text-primary mt-6 mb-3">

@@ -1,5 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+import fs from "fs";
+import path from "path";
 
 const BUDGET = {
   // First Load JS budget (in KB) - set higher to account for Framer Motion
@@ -9,20 +9,22 @@ const BUDGET = {
 };
 
 function formatSize(bytes) {
-  return (bytes / 1024).toFixed(2) + ' KB';
+  return (bytes / 1024).toFixed(2) + " KB";
 }
 
 async function main() {
-  console.log('\n=== Bundle Size Report ===\n');
+  console.log("\n=== Bundle Size Report ===\n");
 
   // Check for .next directory
-  if (!fs.existsSync('.next')) {
-    console.error('Error: .next directory not found. Run `npm run build` first.');
+  if (!fs.existsSync(".next")) {
+    console.error(
+      "Error: .next directory not found. Run `npm run build` first.",
+    );
     process.exit(1);
   }
 
   // Get all JS files from static directory
-  const staticDir = '.next/static';
+  const staticDir = ".next/static";
   let totalFirstLoadSize = 0;
   let oversizedChunks = [];
   let allChunks = [];
@@ -37,13 +39,13 @@ async function main() {
 
       if (stat.isDirectory()) {
         walkDir(filePath);
-      } else if (file.endsWith('.js')) {
+      } else if (file.endsWith(".js")) {
         const sizeKB = stat.size / 1024;
-        const relativePath = filePath.replace('.next/static/', '');
+        const relativePath = filePath.replace(".next/static/", "");
 
         allChunks.push({ file: relativePath, size: sizeKB });
 
-        if (filePath.includes('chunks') || filePath.includes('pages')) {
+        if (filePath.includes("chunks") || filePath.includes("pages")) {
           totalFirstLoadSize += stat.size;
 
           if (sizeKB > BUDGET.maxChunkSize) {
@@ -61,17 +63,17 @@ async function main() {
   // Sort chunks by size
   allChunks.sort((a, b) => b.size - a.size);
 
-  console.log('Budget limits:');
+  console.log("Budget limits:");
   console.log(`  - First Load JS: ${BUDGET.firstLoadJs} KB`);
   console.log(`  - Max chunk size: ${BUDGET.maxChunkSize} KB`);
-  console.log('');
+  console.log("");
 
-  console.log('Largest chunks:');
+  console.log("Largest chunks:");
   allChunks.slice(0, 5).forEach((chunk) => {
-    const status = chunk.size > BUDGET.maxChunkSize ? ' (!)' : '';
+    const status = chunk.size > BUDGET.maxChunkSize ? " (!)" : "";
     console.log(`  - ${chunk.file}: ${chunk.size.toFixed(2)} KB${status}`);
   });
-  console.log('');
+  console.log("");
 
   console.log(`Total First Load JS: ${formatSize(totalFirstLoadSize)}`);
 
@@ -79,12 +81,12 @@ async function main() {
 
   if (firstLoadKB > BUDGET.firstLoadJs) {
     console.log(
-      `\nOVER BUDGET by ${(firstLoadKB - BUDGET.firstLoadJs).toFixed(2)} KB`
+      `\nOVER BUDGET by ${(firstLoadKB - BUDGET.firstLoadJs).toFixed(2)} KB`,
     );
     hasErrors = true;
   } else {
     console.log(
-      `\nUnder budget by ${(BUDGET.firstLoadJs - firstLoadKB).toFixed(2)} KB`
+      `\nUnder budget by ${(BUDGET.firstLoadJs - firstLoadKB).toFixed(2)} KB`,
     );
   }
 
@@ -96,18 +98,18 @@ async function main() {
     hasErrors = true;
   }
 
-  console.log('');
+  console.log("");
 
   if (hasErrors) {
-    console.log('Bundle check FAILED\n');
+    console.log("Bundle check FAILED\n");
     process.exit(1);
   } else {
-    console.log('Bundle check PASSED\n');
+    console.log("Bundle check PASSED\n");
     process.exit(0);
   }
 }
 
 main().catch((err) => {
-  console.error('Bundle check failed with error:', err);
+  console.error("Bundle check failed with error:", err);
   process.exit(1);
 });

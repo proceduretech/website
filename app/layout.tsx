@@ -74,9 +74,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${outfit.variable} ${inter.variable} antialiased`}>
         {/* Main content wrapper - sits above the fixed footer reveal */}
-        <div
-          className="relative z-10 bg-base"
-        >
+        <div className="relative z-10 bg-base">
           <Navigation />
           {children}
           <Footer />

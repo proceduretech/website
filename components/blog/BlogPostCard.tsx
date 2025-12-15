@@ -3,7 +3,11 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { BlogPost } from "@/lib/blog-types";
-import { formatDateShort, getCategoryColor, getPostTypeLabel } from "@/lib/blog-utils";
+import {
+  formatDateShort,
+  getCategoryColor,
+  getPostTypeLabel,
+} from "@/lib/blog-utils";
 
 interface BlogPostCardProps {
   post: BlogPost;
@@ -78,7 +82,9 @@ export function BlogPostCard({ post, index = 0 }: BlogPostCardProps) {
             <span className="w-1 h-1 rounded-full bg-border flex-shrink-0" />
 
             {/* Date */}
-            <span className="flex-shrink-0">{formatDateShort(post.publishedAt)}</span>
+            <span className="flex-shrink-0">
+              {formatDateShort(post.publishedAt)}
+            </span>
 
             {/* Separator */}
             <span className="w-1 h-1 rounded-full bg-border flex-shrink-0" />

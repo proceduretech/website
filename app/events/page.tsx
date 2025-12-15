@@ -336,7 +336,8 @@ export default function EventsPage() {
               Mumbai Meets AI is our flagship community initiative—a free,
               monthly meetup that brings together AI practitioners, engineers,
               and builders. No sales pitches, no corporate speak. Just real
-              conversations about what&apos;s working, what&apos;s not, and what&apos;s next.
+              conversations about what&apos;s working, what&apos;s not, and
+              what&apos;s next.
             </p>
           </motion.div>
 
@@ -355,7 +356,10 @@ export default function EventsPage() {
             <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-surface-elevated to-surface border border-accent-teal/30 p-8 sm:p-12">
               {/* Pattern overlay */}
               <div className="absolute inset-0 opacity-5">
-                <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <svg
+                  className="w-full h-full"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <defs>
                     <pattern
                       id="grid"
@@ -395,7 +399,9 @@ export default function EventsPage() {
                   <div className="flex items-start gap-4 mb-5">
                     <div className="w-16 h-16 rounded-xl bg-cta flex flex-col items-center justify-center text-cta-text flex-shrink-0">
                       <span className="text-xs font-bold uppercase">FEB</span>
-                      <span className="text-2xl font-bold leading-none">2026</span>
+                      <span className="text-2xl font-bold leading-none">
+                        2026
+                      </span>
                     </div>
                     <div>
                       <p className="text-lg font-semibold text-text-primary">
@@ -428,7 +434,9 @@ export default function EventsPage() {
                       />
                     </svg>
                     <div>
-                      <p className="text-text-primary font-medium">Mumbai, Maharashtra</p>
+                      <p className="text-text-primary font-medium">
+                        Mumbai, Maharashtra
+                      </p>
                       <p className="text-sm text-text-secondary">
                         Venue details coming soon
                       </p>
@@ -436,10 +444,10 @@ export default function EventsPage() {
                   </div>
 
                   <p className="text-text-secondary mb-6">
-                    Get ready for a morning where Mumbai&apos;s AI community comes
-                    together to build, demo, and exchange ideas worth experimenting
-                    with. Engineers, founders, and designers sharing what&apos;s
-                    actually working.
+                    Get ready for a morning where Mumbai&apos;s AI community
+                    comes together to build, demo, and exchange ideas worth
+                    experimenting with. Engineers, founders, and designers
+                    sharing what&apos;s actually working.
                   </p>
 
                   {/* Format tags */}
@@ -489,12 +497,16 @@ export default function EventsPage() {
 
                     {/* Stats circle */}
                     <div className="relative w-64 h-64 rounded-full bg-surface-elevated border border-border flex flex-col items-center justify-center">
-                      <span className="text-6xl font-bold text-highlight mb-2">#4</span>
+                      <span className="text-6xl font-bold text-highlight mb-2">
+                        #4
+                      </span>
                       <span className="text-text-secondary text-sm uppercase tracking-wider">
                         Edition
                       </span>
                       <div className="mt-4 pt-4 border-t border-border w-32 text-center">
-                        <span className="text-2xl font-bold text-text-primary">253+</span>
+                        <span className="text-2xl font-bold text-text-primary">
+                          253+
+                        </span>
                         <span className="block text-xs text-text-muted">
                           Community Members
                         </span>
@@ -722,7 +734,10 @@ export default function EventsPage() {
               .slice()
               .reverse()
               .map((event, idx) => (
-                <div key={event.edition} className="flex items-center gap-4 sm:gap-8">
+                <div
+                  key={event.edition}
+                  className="flex items-center gap-4 sm:gap-8"
+                >
                   <div className="text-center">
                     <div className="text-xs text-text-muted uppercase tracking-wider mb-1">
                       Edition {event.edition}
@@ -908,7 +923,10 @@ export default function EventsPage() {
             <div className="relative overflow-hidden rounded-3xl p-8 sm:p-12 bg-surface-elevated/80 backdrop-blur-xl border border-border">
               {/* Grid pattern */}
               <div className="absolute inset-0 opacity-5">
-                <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <svg
+                  className="w-full h-full"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <defs>
                     <pattern
                       id="signup-grid"
@@ -1125,7 +1143,11 @@ export default function EventsPage() {
                 rel="noopener noreferrer"
                 className="text-text-muted hover:text-accent-teal-light transition-colors"
               >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <svg
+                  className="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                 </svg>
               </a>
@@ -1135,7 +1157,11 @@ export default function EventsPage() {
                 rel="noopener noreferrer"
                 className="text-text-muted hover:text-accent-teal-light transition-colors"
               >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <svg
+                  className="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
               </a>

@@ -2,7 +2,7 @@ import { BlogPost, BlogCategory } from "./blog-types";
 
 export function filterPostsByCategory(
   posts: BlogPost[],
-  categorySlug: string
+  categorySlug: string,
 ): BlogPost[] {
   if (categorySlug === "all") {
     return posts;
@@ -12,7 +12,7 @@ export function filterPostsByCategory(
 
 export function sortPostsByDate(
   posts: BlogPost[],
-  order: "asc" | "desc" = "desc"
+  order: "asc" | "desc" = "desc",
 ): BlogPost[] {
   return [...posts].sort((a, b) => {
     const dateA = new Date(a.publishedAt).getTime();
@@ -28,13 +28,13 @@ export function getFeaturedPosts(posts: BlogPost[]): BlogPost[] {
 export function getRelatedPosts(
   currentPost: BlogPost,
   allPosts: BlogPost[],
-  limit: number = 3
+  limit: number = 3,
 ): BlogPost[] {
   // First, try to find posts in the same category
   const sameCategoryPosts = allPosts.filter(
     (post) =>
       post.id !== currentPost.id &&
-      post.category.id === currentPost.category.id
+      post.category.id === currentPost.category.id,
   );
 
   // If we have enough, return them sorted by date
@@ -47,7 +47,7 @@ export function getRelatedPosts(
   const otherPosts = allPosts.filter(
     (post) =>
       post.id !== currentPost.id &&
-      post.category.id !== currentPost.category.id
+      post.category.id !== currentPost.category.id,
   );
 
   const postsWithSharedTags = otherPosts
@@ -66,8 +66,7 @@ export function getRelatedPosts(
   if (combined.length < limit) {
     const remainingPosts = allPosts.filter(
       (post) =>
-        post.id !== currentPost.id &&
-        !combined.some((p) => p.id === post.id)
+        post.id !== currentPost.id && !combined.some((p) => p.id === post.id),
     );
     combined.push(...sortPostsByDate(remainingPosts));
   }

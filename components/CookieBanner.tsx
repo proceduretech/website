@@ -68,8 +68,8 @@ export function CookieBanner() {
                       We value your privacy
                     </h3>
                     <p className="text-sm text-text-secondary leading-relaxed">
-                      We use cookies to enhance your browsing experience, analyze
-                      site traffic, and personalize content. By clicking
+                      We use cookies to enhance your browsing experience,
+                      analyze site traffic, and personalize content. By clicking
                       &quot;Accept All&quot;, you consent to our use of cookies.
                     </p>
                   </div>
@@ -129,7 +129,8 @@ export function CookieBanner() {
                           Necessary Cookies
                         </p>
                         <p className="text-xs text-text-muted mt-0.5">
-                          Essential for the website to function. Cannot be disabled.
+                          Essential for the website to function. Cannot be
+                          disabled.
                         </p>
                       </div>
                       <div className="relative">
@@ -152,12 +153,16 @@ export function CookieBanner() {
                           Analytics Cookies
                         </p>
                         <p className="text-xs text-text-muted mt-0.5">
-                          Help us understand how visitors interact with our website.
+                          Help us understand how visitors interact with our
+                          website.
                         </p>
                       </div>
                       <button
                         onClick={() =>
-                          setPreferences((p) => ({ ...p, analytics: !p.analytics }))
+                          setPreferences((p) => ({
+                            ...p,
+                            analytics: !p.analytics,
+                          }))
                         }
                         className="relative"
                       >
@@ -187,7 +192,10 @@ export function CookieBanner() {
                       </div>
                       <button
                         onClick={() =>
-                          setPreferences((p) => ({ ...p, marketing: !p.marketing }))
+                          setPreferences((p) => ({
+                            ...p,
+                            marketing: !p.marketing,
+                          }))
                         }
                         className="relative"
                       >
