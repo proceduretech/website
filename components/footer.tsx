@@ -18,11 +18,11 @@ const certificationBadges = [
 
 const footerLinks = {
   services: [
-    { label: "AI Engineering", href: "/services/ai-engineering" },
-    { label: "AI Security", href: "/services/ai-security" },
-    { label: "Product Engineering", href: "/services/product-engineering" },
-    { label: "Design", href: "/services/design" },
-    { label: "Cloud & DevOps", href: "/services/cloud-devops" },
+    { label: "AI Engineering", href: "/expertise/llm-applications" },
+    { label: "AI Agents", href: "/expertise/ai-agents" },
+    { label: "AI Security", href: "/expertise/ai-security" },
+    { label: "Product Design", href: "/expertise/product-design" },
+    { label: "Cloud & DevOps", href: "/expertise/cloud" },
   ],
   company: [
     { label: "About", href: "/about" },
@@ -32,8 +32,8 @@ const footerLinks = {
   ],
   resources: [
     { label: "Case Studies", href: "/case-studies" },
-    { label: "AI Playbooks", href: "/playbooks" },
-    { label: "Tech Radar", href: "/tech-radar" },
+    { label: "AI Safety", href: "/ai-safety" },
+    { label: "Events", href: "/events" },
   ],
   legal: [
     { label: "Privacy Policy", href: "/privacy" },
