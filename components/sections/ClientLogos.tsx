@@ -26,16 +26,15 @@ export function ClientLogos() {
       <p className="text-sm text-text-muted mb-6 text-center">
         Trusted by innovative teams
       </p>
-      <div className="relative overflow-hidden py-4">
-        {/* Gradient mask overlay - white from center fading to transparent at edges */}
-        <div
-          className="absolute inset-0 z-10 pointer-events-none"
-          style={{
-            background:
-              "linear-gradient(to right, #0b1220 0%, transparent 15%, transparent 85%, #0b1220 100%)",
-          }}
-        />
-
+      <div
+        className="relative overflow-hidden py-4"
+        style={{
+          maskImage:
+            "linear-gradient(to right, transparent 0%, white 25%, white 75%, transparent 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to right, transparent 0%, white 25%, white 75%, transparent 100%)",
+        }}
+      >
         <motion.div
           className="flex items-center gap-12 md:gap-16"
           animate={{
@@ -53,7 +52,7 @@ export function ClientLogos() {
           {[...clients, ...clients].map((client, idx) => (
             <div
               key={`${client.name}-${idx}`}
-              className="flex-shrink-0 h-10 flex items-center justify-center opacity-60 hover:opacity-90 transition-opacity duration-300"
+              className="flex-shrink-0 h-10 flex items-center justify-center"
               style={{ width: client.width }}
             >
               <Image
