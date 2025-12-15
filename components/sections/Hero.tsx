@@ -23,8 +23,8 @@ export function Hero() {
         className="absolute inset-0"
       >
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-accent-teal/8 rounded-full blur-[120px]" />
-        <div className="absolute top-1/3 left-1/4 w-[600px] h-[400px] bg-accent-blue/6 rounded-full blur-[100px]" />
-        <div className="absolute top-1/3 right-1/4 w-[500px] h-[350px] bg-accent-teal/5 rounded-full blur-[100px]" />
+        <div className="absolute top-1/3 left-1/4 w-[600px] h-[400px] bg-accent-teal/5 rounded-full blur-[100px]" />
+        <div className="absolute top-1/3 right-1/4 w-[500px] h-[350px] bg-accent-teal/4 rounded-full blur-[100px]" />
       </motion.div>
 
       {/* Subtle grid pattern */}
@@ -61,7 +61,7 @@ export function Hero() {
             ease: "easeInOut",
             delay: 1,
           }}
-          className="absolute top-[30%] right-[20%] w-2 h-2 bg-accent-blue/50 rounded-full blur-sm"
+          className="absolute top-[30%] right-[20%] w-2 h-2 bg-accent-teal/50 rounded-full blur-sm"
         />
         <motion.div
           animate={{
@@ -87,7 +87,7 @@ export function Hero() {
             ease: "easeInOut",
             delay: 0.5,
           }}
-          className="absolute top-[25%] right-[12%] w-5 h-5 bg-accent-blue/25 rounded-full blur-md"
+          className="absolute top-[25%] right-[12%] w-5 h-5 bg-accent-teal/25 rounded-full blur-md"
         />
 
         {/* Connecting lines - subtle tech feel */}
@@ -126,7 +126,7 @@ export function Hero() {
               y2="100%"
             >
               <stop offset="0%" stopColor="#14B8A6" stopOpacity="0.5" />
-              <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="#14B8A6" stopOpacity="0.2" />
             </linearGradient>
           </defs>
         </svg>
