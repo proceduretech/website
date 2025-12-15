@@ -73,7 +73,12 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-surface">
+    <footer
+      className="border-t border-border bg-surface rounded-b-[2.5rem] overflow-hidden"
+      style={{
+        boxShadow: '0 20px 80px 20px rgba(13, 181, 165, 0.12), 0 8px 30px 5px rgba(13, 181, 165, 0.08)'
+      }}
+    >
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8 mb-12">
           {/* Brand & Contact */}
