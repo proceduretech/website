@@ -3,6 +3,6 @@
   <rect x="0.5" y="0.5" width="119" height="47" rx="7.5" stroke="#334155"/>
   <circle cx="24" cy="24" r="12" fill="#14B8A6" fill-opacity="0.2"/>
   <path d="M24 14C18.48 14 14 18.48 14 24C14 29.52 18.48 34 24 34C29.52 34 34 29.52 34 24C34 18.48 29.52 14 24 14ZM22 29L17 24L18.41 22.59L22 26.17L29.59 18.58L31 20L22 29Z" fill="#14B8A6"/>
-  <text x="44" y="21" fill="#E5E7EB" font-family="system-ui, sans-serif" font-size="10" font-weight="600">HIPAA</text>
-  <text x="44" y="33" fill="#9CA3AF" font-family="system-ui, sans-serif" font-size="9">Compliant</text>
+  <text x="44" y="21" fill="white" fill-opacity="0.9" font-family="system-ui, sans-serif" font-size="10" font-weight="600">HIPAA</text>
+  <text x="44" y="33" fill="white" fill-opacity="0.65" font-family="system-ui, sans-serif" font-size="9">Compliant</text>
 </svg>
