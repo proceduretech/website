@@ -14,7 +14,7 @@ export function FooterReveal() {
             alt="Procedure"
             width={1600}
             height={350}
-            className="w-[120%] max-w-none h-auto opacity-80"
+            className="w-[120%] max-w-none h-auto opacity-25"
           />
         </div>
 
