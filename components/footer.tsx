@@ -233,19 +233,6 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Mascot Parade */}
-        <div className="pt-8 border-t border-border mb-8">
-          <div className="flex justify-center">
-            <Image
-              src="/mascots/scenes/footer-parade.png"
-              alt="Procedure Pets team"
-              width={1074}
-              height={300}
-              className="opacity-90 hover:opacity-100 transition-opacity"
-            />
-          </div>
-        </div>
-
         {/* Certification Badges */}
         <div className="pt-8 border-t border-border mb-8">
           <p className="text-xs text-text-muted uppercase tracking-widest mb-6 text-center">
@@ -262,28 +249,6 @@ export function Footer() {
                 className="opacity-80 hover:opacity-100 transition-opacity"
               />
             ))}
-          </div>
-        </div>
-
-        {/* Bottom bar */}
-        <div className="pt-6 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-text-muted">
-            &copy; {new Date().getFullYear()} Procedure. All rights reserved.
-          </p>
-          <div className="flex items-center gap-4 text-xs text-text-muted">
-            <Link
-              href="/privacy"
-              className="hover:text-accent-teal-light transition-colors"
-            >
-              Privacy Policy
-            </Link>
-            <span className="w-1 h-1 rounded-full bg-border" />
-            <Link
-              href="/terms"
-              className="hover:text-accent-teal-light transition-colors"
-            >
-              Terms of Service
-            </Link>
           </div>
         </div>
       </div>

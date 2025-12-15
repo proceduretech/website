@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Outfit, Inter } from "next/font/google";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { FooterReveal } from "@/components/FooterReveal";
 import { CookieBanner } from "@/components/CookieBanner";
 import "./globals.css";
 
@@ -72,9 +73,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${outfit.variable} ${inter.variable} antialiased`}>
-        <Navigation />
-        {children}
-        <Footer />
+        {/* Main content wrapper - sits above the fixed footer reveal */}
+        <div className="relative z-10 bg-base">
+          <Navigation />
+          {children}
+          <Footer />
+        </div>
+        {/* Footer reveal - fixed at bottom, revealed when scrolling */}
+        <FooterReveal />
         <CookieBanner />
       </body>
     </html>
