@@ -3,26 +3,188 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* =============================================================================
+   THEME CSS CUSTOM PROPERTIES
+
+   This file defines all design tokens as CSS custom properties.
+   The default is dark mode. Light mode is activated by removing the .dark class
+   from the html element, or by setting data-theme="light".
+
+   Naming Convention:
+   --color-{category}-{variant}
+   --{property}-{variant}
+
+   Categories: base, surface, text, border, accent, cta, callout
+   ============================================================================= */
+
 @theme inline {
-  /* Dark Theme Color Palette */
+  /* =========================================================================
+     DARK THEME (Default) - Custom Properties
+     ========================================================================= */
+
+  /* Backgrounds */
   --color-base: #0b1220;
   --color-surface: #050a15;
   --color-surface-elevated: #0f172a;
+  --color-overlay: rgba(11, 18, 32, 0.6);
+  --color-footer-reveal: #050a14;
+  --color-code-block: #22272e;
+  --color-code-title: #131b2e;
+
+  /* Text Colors */
+  --color-text-primary: rgba(255, 255, 255, 0.9);
+  --color-text-secondary: rgba(255, 255, 255, 0.65);
+  --color-text-muted: rgba(255, 255, 255, 0.5);
+  --color-text-emphasis: rgba(255, 255, 255, 0.95);
+  --color-text-inverted: #0b1220;
+
+  /* Accent Colors - Teal (Primary Brand) */
   --color-accent-teal: #0f766e;
   --color-accent-teal-light: #14b8a6;
+  --color-accent-teal-dark: #115e59;
+
+  /* Accent Colors - Blue (Secondary) */
   --color-accent-blue: #2563eb;
   --color-accent-blue-light: #3b82f6;
+  --color-accent-blue-dark: #1d4ed8;
 
   /* Designer-approved solid colors */
   --color-highlight: #0db5a5;
   --color-cta: #0d9488;
   --color-cta-text: #fcfcfc;
+  --color-cta-hover: #14b8a6;
+  --color-cta-shadow: rgba(13, 148, 136, 0.25);
+
+  /* Border Colors */
   --color-border: #1e293b;
   --color-border-light: #334155;
-  /* Text colors - white with opacity for better blending with backgrounds */
-  --color-text-primary: rgba(255, 255, 255, 0.9);
-  --color-text-secondary: rgba(255, 255, 255, 0.65);
-  --color-text-muted: rgba(255, 255, 255, 0.5);
+  --color-border-subtle: #1e293b;
+  --color-border-emphasis: #475569;
+  --color-border-focus: #0f766e;
+  --color-hr: #1e293b;
+
+  /* Selection */
+  --color-selection-bg: rgba(15, 118, 110, 0.3);
+  --color-selection-text: #14b8a6;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-cta-glow: 0 10px 15px -3px rgba(13, 148, 136, 0.25);
+  --shadow-teal-glow: 0 10px 15px -3px rgba(20, 184, 166, 0.25);
+  --shadow-mega-menu: 0 20px 70px -15px rgba(15, 118, 110, 0.3);
+  --shadow-footer-glow: 0 20px 80px 20px rgba(13, 181, 165, 0.12), 0 8px 30px 5px rgba(13, 181, 165, 0.08);
+
+  /* Opacity Scales */
+  --opacity-text-primary: 0.9;
+  --opacity-text-secondary: 0.65;
+  --opacity-text-muted: 0.5;
+  --opacity-overlay: 0.6;
+  --opacity-pattern: 0.015;
+  --opacity-disabled: 0.5;
+
+  /* Accent Opacity Scales (for bg-accent-teal/10 patterns) */
+  --opacity-accent-subtle: 0.05;
+  --opacity-accent-light: 0.1;
+  --opacity-accent-medium: 0.2;
+  --opacity-accent-strong: 0.3;
+  --opacity-accent-border-subtle: 0.2;
+  --opacity-accent-border-medium: 0.3;
+  --opacity-accent-border-strong: 0.5;
+
+  /* Callout Colors - Info (Blue) */
+  --color-callout-info-bg: rgba(59, 130, 246, 0.05);
+  --color-callout-info-border: rgba(59, 130, 246, 0.2);
+  --color-callout-info-icon: #60a5fa;
+  --color-callout-info-icon-bg: rgba(59, 130, 246, 0.1);
+
+  /* Callout Colors - Warning (Amber) */
+  --color-callout-warning-bg: rgba(245, 158, 11, 0.05);
+  --color-callout-warning-border: rgba(245, 158, 11, 0.2);
+  --color-callout-warning-icon: #fbbf24;
+  --color-callout-warning-icon-bg: rgba(245, 158, 11, 0.1);
+
+  /* Callout Colors - Error (Red) */
+  --color-callout-error-bg: rgba(239, 68, 68, 0.05);
+  --color-callout-error-border: rgba(239, 68, 68, 0.2);
+  --color-callout-error-icon: #f87171;
+  --color-callout-error-icon-bg: rgba(239, 68, 68, 0.1);
+
+  /* Callout Colors - Success (Green) */
+  --color-callout-success-bg: rgba(34, 197, 94, 0.05);
+  --color-callout-success-border: rgba(34, 197, 94, 0.2);
+  --color-callout-success-icon: #4ade80;
+  --color-callout-success-icon-bg: rgba(34, 197, 94, 0.1);
+
+  /* Callout Colors - Tip (Purple) */
+  --color-callout-tip-bg: rgba(168, 85, 247, 0.05);
+  --color-callout-tip-border: rgba(168, 85, 247, 0.2);
+  --color-callout-tip-icon: #c084fc;
+  --color-callout-tip-icon-bg: rgba(168, 85, 247, 0.1);
+
+  /* Callout Colors - Note (Teal) */
+  --color-callout-note-bg: rgba(15, 118, 110, 0.05);
+  --color-callout-note-border: rgba(15, 118, 110, 0.2);
+  --color-callout-note-icon: #14b8a6;
+  --color-callout-note-icon-bg: rgba(15, 118, 110, 0.1);
+
+  /* Code Block Colors */
+  --color-code-highlight-bg: rgba(20, 184, 166, 0.1);
+  --color-code-highlight-border: #14b8a6;
+  --color-code-highlight-word: rgba(20, 184, 166, 0.2);
+  --color-code-line-numbers: rgba(255, 255, 255, 0.5);
+  --color-code-window-close: #ff5f57;
+  --color-code-window-minimize: #febc2e;
+  --color-code-window-maximize: #28c840;
+
+  /* Prose/Typography */
+  --color-prose-body: rgba(255, 255, 255, 0.65);
+  --color-prose-headings: rgba(255, 255, 255, 0.9);
+  --color-prose-lead: rgba(255, 255, 255, 0.65);
+  --color-prose-links: #0db5a5;
+  --color-prose-bold: rgba(255, 255, 255, 0.9);
+  --color-prose-counters: rgba(255, 255, 255, 0.5);
+  --color-prose-bullets: #14b8a6;
+  --color-prose-quotes: rgba(255, 255, 255, 0.65);
+  --color-prose-quote-borders: #14b8a6;
+  --color-prose-captions: rgba(255, 255, 255, 0.5);
+  --color-prose-code: #0db5a5;
+  --color-prose-pre-code: rgba(255, 255, 255, 0.9);
+  --color-prose-pre-bg: #131b2e;
+  --color-prose-table-borders: #1e293b;
+  --color-prose-link-underline: rgba(13, 181, 165, 0.5);
+  --color-prose-link-underline-hover: rgba(13, 181, 165, 1);
+
+  /* Cal.com Integration */
+  --color-cal-bg: #0F172A;
+  --color-cal-bg-emphasis: #1E293B;
+  --color-cal-border: #334155;
+  --color-cal-border-emphasis: #475569;
+  --color-cal-border-subtle: #1E293B;
+  --color-cal-text: rgba(255, 255, 255, 0.9);
+  --color-cal-text-emphasis: rgba(255, 255, 255, 0.95);
+  --color-cal-text-muted: rgba(255, 255, 255, 0.65);
+  --color-cal-text-subtle: rgba(255, 255, 255, 0.5);
+  --color-cal-brand: #14B8A6;
+  --color-cal-brand-emphasis: #0D9488;
+  --color-cal-brand-text: #FFFFFF;
+
+  /* Component-specific */
+  --color-spotlight-fill: rgba(20, 184, 166, 0.4);
+  --color-nav-overlay: rgba(11, 18, 32, 0.6);
+  --color-scroll-indicator-border: #1e293b;
+  --color-scroll-indicator-dot: rgba(255, 255, 255, 0.5);
+  --color-tracing-beam-dot-active: #ffffff;
+  --color-tracing-beam-dot-inactive: #14B8A6;
+  --color-tracing-beam-border-active: #ffffff;
+  --color-tracing-beam-border-inactive: #0F766E;
+  --color-tracing-beam-line: #9091A0;
+
+  /* SVG Grid Pattern */
+  --color-svg-grid: #E5E7EB;
 
   /* Legacy aliases for compatibility */
   --color-background: #0b1220;
@@ -34,6 +196,8 @@
   /* Font families */
   --font-outfit: var(--font-outfit);
   --font-inter: var(--font-inter);
+
+  /* shadcn/ui compatibility variables */
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -66,6 +230,153 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+/* =============================================================================
+   LIGHT THEME OVERRIDES
+   Activated when html has data-theme="light" or no .dark class
+   ============================================================================= */
+
+:root[data-theme="light"],
+html:not(.dark) {
+  /* Backgrounds */
+  --color-base: #ffffff;
+  --color-surface: #f8fafc;
+  --color-surface-elevated: #ffffff;
+  --color-overlay: rgba(15, 23, 42, 0.5);
+  --color-footer-reveal: #f1f5f9;
+  /* Code blocks stay dark for readability */
+
+  /* Text Colors */
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #94a3b8;
+  --color-text-emphasis: #0b1220;
+  --color-text-inverted: #ffffff;
+
+  /* Accent Colors - Teal (slightly adjusted for light mode contrast) */
+  --color-accent-teal: #0d9488;
+  --color-accent-teal-light: #14b8a6;
+  --color-accent-teal-dark: #0f766e;
+
+  /* CTA Colors */
+  --color-cta: #0d9488;
+  --color-cta-text: #ffffff;
+  --color-cta-hover: #0f766e;
+  --color-cta-shadow: rgba(13, 148, 136, 0.2);
+
+  /* Highlight stays the same for brand consistency but adjusted */
+  --color-highlight: #0d9488;
+
+  /* Border Colors */
+  --color-border: #e2e8f0;
+  --color-border-light: #cbd5e1;
+  --color-border-subtle: #f1f5f9;
+  --color-border-emphasis: #94a3b8;
+  --color-border-focus: #14b8a6;
+  --color-hr: #e2e8f0;
+
+  /* Selection */
+  --color-selection-bg: rgba(13, 148, 136, 0.2);
+  --color-selection-text: #0f766e;
+
+  /* Shadows (more visible in light mode) */
+  --shadow-cta-glow: 0 10px 15px -3px rgba(13, 148, 136, 0.15);
+  --shadow-teal-glow: 0 10px 15px -3px rgba(20, 184, 166, 0.15);
+  --shadow-mega-menu: 0 20px 70px -15px rgba(15, 118, 110, 0.15);
+  --shadow-footer-glow: 0 -20px 80px 20px rgba(13, 181, 165, 0.06), 0 -8px 30px 5px rgba(13, 181, 165, 0.04);
+
+  /* Opacity adjustments for light mode */
+  --opacity-text-primary: 1;
+  --opacity-text-secondary: 1;
+  --opacity-text-muted: 1;
+  --opacity-pattern: 0.04;
+  --opacity-accent-medium: 0.15;
+  --opacity-accent-strong: 0.2;
+
+  /* Callout Colors - slightly more visible */
+  --color-callout-info-bg: rgba(59, 130, 246, 0.08);
+  --color-callout-info-border: rgba(59, 130, 246, 0.25);
+  --color-callout-info-icon: #2563eb;
+  --color-callout-info-icon-bg: rgba(59, 130, 246, 0.15);
+
+  --color-callout-warning-bg: rgba(245, 158, 11, 0.08);
+  --color-callout-warning-border: rgba(245, 158, 11, 0.25);
+  --color-callout-warning-icon: #f59e0b;
+  --color-callout-warning-icon-bg: rgba(245, 158, 11, 0.15);
+
+  --color-callout-error-bg: rgba(239, 68, 68, 0.08);
+  --color-callout-error-border: rgba(239, 68, 68, 0.25);
+  --color-callout-error-icon: #ef4444;
+  --color-callout-error-icon-bg: rgba(239, 68, 68, 0.15);
+
+  --color-callout-success-bg: rgba(34, 197, 94, 0.08);
+  --color-callout-success-border: rgba(34, 197, 94, 0.25);
+  --color-callout-success-icon: #22c55e;
+  --color-callout-success-icon-bg: rgba(34, 197, 94, 0.15);
+
+  --color-callout-tip-bg: rgba(168, 85, 247, 0.08);
+  --color-callout-tip-border: rgba(168, 85, 247, 0.25);
+  --color-callout-tip-icon: #a855f7;
+  --color-callout-tip-icon-bg: rgba(168, 85, 247, 0.15);
+
+  --color-callout-note-bg: rgba(13, 148, 136, 0.08);
+  --color-callout-note-border: rgba(13, 148, 136, 0.25);
+  --color-callout-note-icon: #0d9488;
+  --color-callout-note-icon-bg: rgba(13, 148, 136, 0.15);
+
+  /* Prose/Typography for light mode */
+  --color-prose-body: #475569;
+  --color-prose-headings: #0f172a;
+  --color-prose-lead: #475569;
+  --color-prose-links: #0d9488;
+  --color-prose-bold: #0f172a;
+  --color-prose-counters: #64748b;
+  --color-prose-bullets: #0d9488;
+  --color-prose-quotes: #475569;
+  --color-prose-quote-borders: #14b8a6;
+  --color-prose-captions: #64748b;
+  --color-prose-code: #0f766e;
+  --color-prose-table-borders: #e2e8f0;
+  --color-prose-link-underline: rgba(13, 148, 136, 0.4);
+  --color-prose-link-underline-hover: #0d9488;
+
+  /* Cal.com for light mode */
+  --color-cal-bg: #ffffff;
+  --color-cal-bg-emphasis: #f8fafc;
+  --color-cal-border: #e2e8f0;
+  --color-cal-border-emphasis: #cbd5e1;
+  --color-cal-border-subtle: #f1f5f9;
+  --color-cal-text: #0f172a;
+  --color-cal-text-emphasis: #0b1220;
+  --color-cal-text-muted: #475569;
+  --color-cal-text-subtle: #94a3b8;
+  --color-cal-brand: #0d9488;
+  --color-cal-brand-emphasis: #0f766e;
+  --color-cal-brand-text: #ffffff;
+
+  /* Component-specific for light mode */
+  --color-spotlight-fill: rgba(13, 148, 136, 0.25);
+  --color-nav-overlay: rgba(15, 23, 42, 0.4);
+  --color-scroll-indicator-border: #cbd5e1;
+  --color-scroll-indicator-dot: #94a3b8;
+  --color-tracing-beam-dot-active: #0d9488;
+  --color-tracing-beam-dot-inactive: #14b8a6;
+  --color-tracing-beam-border-active: #0f766e;
+  --color-tracing-beam-border-inactive: #0d9488;
+  --color-tracing-beam-line: #cbd5e1;
+
+  /* SVG Grid Pattern for light mode */
+  --color-svg-grid: #cbd5e1;
+
+  /* Legacy aliases */
+  --color-background: #ffffff;
+  --color-foreground: #0f172a;
+  --color-muted: #94a3b8;
+}
+
+/* =============================================================================
+   BASE STYLES
+   ============================================================================= */
+
 @layer base {
   * {
     @apply box-border;
@@ -73,13 +384,13 @@
 
   html {
     @apply bg-base;
-    background-color: #0b1220;
+    background-color: var(--color-base);
     overscroll-behavior: none;
   }
 
   body {
     @apply bg-base text-text-primary antialiased;
-    background-color: #0b1220;
+    background-color: var(--color-base);
     overscroll-behavior: none;
     line-height: 1.7;
     font-family:
@@ -126,7 +437,8 @@
   }
 
   ::selection {
-    @apply bg-accent-teal/30 text-accent-teal-light;
+    background-color: var(--color-selection-bg);
+    color: var(--color-selection-text);
   }
 
   a,
@@ -135,24 +447,30 @@
   }
 
   :focus-visible {
-    @apply outline-2 outline-accent-teal outline-offset-2;
+    outline: 2px solid var(--color-border-focus);
+    outline-offset: 2px;
   }
 }
+
+/* =============================================================================
+   UTILITY CLASSES
+   ============================================================================= */
 
 @layer utilities {
   /* Section background utilities for visual rhythm */
   .section-base {
-    background-color: #0b1220;
+    background-color: var(--color-base);
   }
 
   .section-alt {
-    background-color: #050a15;
+    background-color: var(--color-surface);
   }
 
   .section-elevated {
-    background-color: #0f172a;
+    background-color: var(--color-surface-elevated);
   }
 
+  /* Animation keyframes */
   @keyframes gradient {
     0%,
     100% {
@@ -190,16 +508,25 @@
   .animate-spotlight {
     animation: spotlight 2s ease 0.75s 1 forwards;
   }
+
+  /* Theme transition utility */
+  .theme-transition {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
 }
 
-/* MDX Content Typography - using direct CSS for reliability */
+/* =============================================================================
+   MDX CONTENT TYPOGRAPHY
+   Using CSS custom properties for theme awareness
+   ============================================================================= */
+
 .mdx-content {
   font-family:
     var(--font-inter),
     system-ui,
     -apple-system,
     sans-serif;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--color-prose-body);
   line-height: 1.75;
 }
 
@@ -215,7 +542,7 @@
     system-ui,
     -apple-system,
     sans-serif;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--color-prose-headings);
   scroll-margin-top: 6rem;
 }
 
@@ -249,12 +576,12 @@
 
 /* Anchor links on headings */
 .mdx-content .anchor {
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--color-prose-headings);
   text-decoration: none;
 }
 
 .mdx-content .anchor:hover {
-  color: #0db5a5;
+  color: var(--color-prose-links);
 }
 
 /* Paragraphs */
@@ -262,7 +589,7 @@
   margin-bottom: 1.5rem;
   font-size: 1.125rem;
   line-height: 1.75;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--color-prose-body);
 }
 
 /* Lists */
@@ -270,7 +597,7 @@
 .mdx-content ol {
   margin-bottom: 1.5rem;
   padding-left: 1.5rem;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--color-prose-body);
 }
 
 .mdx-content ul {
@@ -285,11 +612,11 @@
   font-size: 1.125rem;
   line-height: 1.75;
   margin-bottom: 0.5rem;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--color-prose-body);
 }
 
 .mdx-content li::marker {
-  color: #14b8a6;
+  color: var(--color-prose-bullets);
 }
 
 /* Nested lists */
@@ -304,7 +631,7 @@
 /* Strong and emphasis */
 .mdx-content strong {
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--color-prose-bold);
 }
 
 .mdx-content em {
@@ -322,26 +649,26 @@
 /* Horizontal rule */
 .mdx-content hr {
   margin: 3rem 0;
-  border-color: #1e293b;
+  border-color: var(--color-hr);
 }
 
 /* Strikethrough (GFM) */
 .mdx-content del {
   text-decoration: line-through;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--color-text-muted);
 }
 
 /* Task lists (GFM) */
 .mdx-content input[type="checkbox"] {
   margin-right: 0.5rem;
-  accent-color: #14b8a6;
+  accent-color: var(--color-accent-teal-light);
 }
 
 /* Footnotes (GFM) */
 .mdx-content .footnotes {
   margin-top: 3rem;
   padding-top: 2rem;
-  border-top: 1px solid #1e293b;
+  border-top: 1px solid var(--color-border);
   font-size: 0.875rem;
 }
 
@@ -368,12 +695,12 @@
 }
 
 .mdx-content pre code [data-line].highlighted {
-  background-color: rgba(20, 184, 166, 0.1);
-  border-left-color: #14b8a6;
+  background-color: var(--color-code-highlight-bg);
+  border-left-color: var(--color-code-highlight-border);
 }
 
 .mdx-content pre code .word {
-  background-color: rgba(20, 184, 166, 0.2);
+  background-color: var(--color-code-highlight-word);
   border-radius: 0.25rem;
   padding: 0.125rem 0.25rem;
 }
@@ -390,7 +717,7 @@
   text-align: right;
   display: inline-block;
   width: 1rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--color-code-line-numbers);
 }
 
 /* Language label */
@@ -398,9 +725,9 @@
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
   font-family: ui-monospace, monospace;
-  color: rgba(255, 255, 255, 0.5);
-  background-color: #131b2e;
-  border: 1px solid #1e293b;
+  color: var(--color-code-line-numbers);
+  background-color: var(--color-code-title);
+  border: 1px solid var(--color-border);
   border-bottom: none;
   border-radius: 0.75rem 0.75rem 0 0;
 }
@@ -416,12 +743,12 @@
   margin-top: 0.5rem;
   text-align: center;
   font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--color-prose-captions);
 }
 
 /* Prose container class for the article wrapper */
 .prose-container {
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--color-prose-body);
 }
 
 /* Steps component - CSS counter for numbering */
@@ -436,6 +763,11 @@
 .step-number::before {
   content: counter(step-counter);
 }
+
+/* =============================================================================
+   SHADCN/UI ROOT VARIABLES
+   These are required for shadcn/ui components to work correctly
+   ============================================================================= */
 
 :root {
   --radius: 0.625rem;
