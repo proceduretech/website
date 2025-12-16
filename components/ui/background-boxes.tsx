@@ -11,10 +11,10 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
   // Use CSS custom properties for theme-aware colors
   // These will automatically adjust based on the current theme
   const colors = [
-    "var(--color-accent-teal)",
-    "var(--color-accent-teal-light)",
-    "var(--color-accent-blue)",
-    "var(--color-accent-blue-light)",
+    "var(--color-accent)",
+    "var(--color-accent-light)",
+    "var(--color-accent-secondary)",
+    "var(--color-accent-secondary-light)",
     "var(--color-highlight)",
     "#06b6d4", // cyan-500
     "#0891b2", // cyan-600

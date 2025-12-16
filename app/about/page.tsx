@@ -188,10 +188,10 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent-teal/10 border border-accent-teal/20 mb-6"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/10 border border-accent/20 mb-6"
             >
-              <span className="w-2 h-2 rounded-full bg-accent-teal animate-pulse" />
-              <span className="text-xs font-medium text-accent-teal-light">
+              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+              <span className="text-xs font-medium text-accent-light">
                 Product Engineering Since 2017
               </span>
             </motion.div>
@@ -260,7 +260,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16 sm:mb-20"
           >
-            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-4">
+            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Our Mission
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary max-w-4xl mx-auto leading-tight mb-6">
@@ -287,8 +287,8 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
               >
-                <div className="p-8 rounded-2xl bg-surface-elevated border border-border hover:border-accent-teal/30 transition-colors">
-                  <div className="w-12 h-12 rounded-xl bg-accent-teal/10 border border-accent-teal/20 flex items-center justify-center text-accent-teal-light mb-5">
+                <div className="p-8 rounded-2xl bg-surface-elevated border border-border hover:border-accent/30 transition-colors">
+                  <div className="w-12 h-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent-light mb-5">
                     {value.icon}
                   </div>
                   <h3 className="text-xl font-semibold text-text-primary mb-3">
@@ -316,7 +316,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12 sm:mb-16"
           >
-            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-4">
+            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Leadership
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
@@ -340,11 +340,11 @@ export default function AboutPage() {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="group"
               >
-                <div className="p-6 rounded-2xl bg-surface-elevated border border-border hover:border-accent-teal/30 transition-colors">
+                <div className="p-6 rounded-2xl bg-surface-elevated border border-border hover:border-accent/30 transition-colors">
                   {/* Photo placeholder */}
                   <div className="relative w-24 h-24 mx-auto mb-5">
-                    <div className="w-full h-full rounded-full bg-accent-teal/20 border border-accent-teal/30 flex items-center justify-center">
-                      <span className="text-3xl font-bold text-accent-teal-light">
+                    <div className="w-full h-full rounded-full bg-accent/20 border border-accent/30 flex items-center justify-center">
+                      <span className="text-3xl font-bold text-accent-light">
                         {member.name.charAt(0)}
                       </span>
                     </div>
@@ -355,7 +355,7 @@ export default function AboutPage() {
                     <h3 className="text-lg font-semibold text-text-primary mb-1">
                       {member.name}
                     </h3>
-                    <p className="text-sm text-accent-teal-light font-medium mb-3">
+                    <p className="text-sm text-accent-light font-medium mb-3">
                       {member.role}
                     </p>
                     <p className="text-sm text-text-secondary leading-relaxed mb-4">
@@ -367,7 +367,7 @@ export default function AboutPage() {
                       href={member.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm text-text-muted hover:text-accent-teal-light transition-colors"
+                      className="inline-flex items-center gap-2 text-sm text-text-muted hover:text-accent-light transition-colors"
                     >
                       <svg
                         className="w-4 h-4"
@@ -398,7 +398,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12 sm:mb-16"
           >
-            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-4">
+            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Our Journey
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">
@@ -430,7 +430,7 @@ export default function AboutPage() {
                     }`}
                   >
                     <div className="p-6 rounded-2xl bg-surface-elevated border border-border">
-                      <span className="inline-block px-3 py-1 text-sm font-bold text-accent-teal-light bg-accent-teal/10 rounded-full mb-3">
+                      <span className="inline-block px-3 py-1 text-sm font-bold text-accent-light bg-accent/10 rounded-full mb-3">
                         {milestone.year}
                       </span>
                       <h3 className="text-lg font-semibold text-text-primary mb-2">
@@ -443,7 +443,7 @@ export default function AboutPage() {
                   </div>
 
                   {/* Center dot - hidden on mobile */}
-                  <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-accent-teal border-4 border-surface" />
+                  <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-accent border-4 border-surface" />
 
                   {/* Empty space for the other side */}
                   <div className="hidden md:block md:w-1/2" />
@@ -466,7 +466,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12 sm:mb-16"
           >
-            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-4">
+            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Why Procedure
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
@@ -488,12 +488,12 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
               >
-                <div className="p-6 rounded-2xl bg-surface-elevated border border-border hover:border-accent-teal/30 transition-colors h-full">
+                <div className="p-6 rounded-2xl bg-surface-elevated border border-border hover:border-accent/30 transition-colors h-full">
                   <div className="flex items-baseline gap-1 mb-3">
                     <span className="text-4xl sm:text-5xl font-bold text-highlight">
                       {diff.stat}
                     </span>
-                    <span className="text-xl font-bold text-accent-teal-light">
+                    <span className="text-xl font-bold text-accent-light">
                       {diff.unit}
                     </span>
                   </div>
@@ -523,7 +523,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-4">
+            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Trust & Compliance
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-8">
@@ -538,7 +538,7 @@ export default function AboutPage() {
                   className="flex items-center gap-3 px-5 py-3 rounded-xl bg-surface-elevated border border-border"
                 >
                   <svg
-                    className="w-5 h-5 text-accent-teal"
+                    className="w-5 h-5 text-accent"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -610,7 +610,7 @@ export default function AboutPage() {
               </Link>
               <Link
                 href="/careers"
-                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-xl hover:border-accent-teal hover:bg-accent-teal/10 transition-all duration-200"
+                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-xl hover:border-accent hover:bg-accent/10 transition-all duration-200"
               >
                 Join Our Team
                 <svg
@@ -633,7 +633,7 @@ export default function AboutPage() {
             <div className="mt-12 flex flex-wrap items-center justify-center gap-6">
               <div className="flex items-center gap-2 text-xs text-text-muted">
                 <svg
-                  className="w-4 h-4 text-accent-teal"
+                  className="w-4 h-4 text-accent"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -648,7 +648,7 @@ export default function AboutPage() {
               <div className="w-1 h-1 rounded-full bg-border" />
               <div className="flex items-center gap-2 text-xs text-text-muted">
                 <svg
-                  className="w-4 h-4 text-accent-teal"
+                  className="w-4 h-4 text-accent"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -663,7 +663,7 @@ export default function AboutPage() {
               <div className="w-1 h-1 rounded-full bg-border" />
               <div className="flex items-center gap-2 text-xs text-text-muted">
                 <svg
-                  className="w-4 h-4 text-accent-teal"
+                  className="w-4 h-4 text-accent"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >

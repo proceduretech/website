@@ -46,14 +46,14 @@ export function PageHero({
 }: PageHeroProps) {
   const badgeColorClasses =
     badgeVariant === "blue"
-      ? "bg-accent-blue/10 border-accent-blue/20 text-accent-blue-light"
-      : "bg-accent-teal/10 border-accent-teal/20 text-accent-teal-light";
+      ? "bg-accent-secondary/10 border-accent-secondary/20 text-accent-secondary-light"
+      : "bg-accent/10 border-accent/20 text-accent-light";
 
   const pulseColorClass =
-    badgeVariant === "blue" ? "bg-accent-blue-light" : "bg-accent-teal-light";
+    badgeVariant === "blue" ? "bg-accent-secondary-light" : "bg-accent-light";
 
   const glowColor =
-    badgeVariant === "blue" ? "bg-accent-blue/8" : "bg-accent-teal/8";
+    badgeVariant === "blue" ? "bg-accent-secondary/8" : "bg-accent/8";
 
   return (
     <section className="relative pt-32 pb-24 sm:pb-36 bg-base overflow-hidden">

@@ -18,7 +18,7 @@ export function BlogAuthorBio({ author }: BlogAuthorBioProps) {
     >
       <div className="flex flex-col sm:flex-row gap-6">
         {/* Avatar */}
-        <div className="w-20 h-20 rounded-full bg-gradient-to-br from-accent-teal to-accent-blue flex items-center justify-center flex-shrink-0">
+        <div className="w-20 h-20 rounded-full bg-gradient-to-br from-accent to-accent-secondary flex items-center justify-center flex-shrink-0">
           <span className="text-2xl font-bold text-white">
             {author.name.charAt(0)}
           </span>
@@ -32,7 +32,7 @@ export function BlogAuthorBio({ author }: BlogAuthorBioProps) {
           </h3>
 
           {/* Role */}
-          <p className="text-sm text-accent-teal-light font-medium mb-3">
+          <p className="text-sm text-accent-light font-medium mb-3">
             {author.role}
           </p>
 
@@ -48,7 +48,7 @@ export function BlogAuthorBio({ author }: BlogAuthorBioProps) {
                 href={author.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full bg-surface border border-border flex items-center justify-center text-text-muted hover:text-accent-teal-light hover:border-accent-teal/30 transition-colors"
+                className="w-8 h-8 rounded-full bg-surface border border-border flex items-center justify-center text-text-muted hover:text-accent-light hover:border-accent/30 transition-colors"
                 aria-label="Twitter"
               >
                 <svg
@@ -65,7 +65,7 @@ export function BlogAuthorBio({ author }: BlogAuthorBioProps) {
                 href={author.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full bg-surface border border-border flex items-center justify-center text-text-muted hover:text-accent-teal-light hover:border-accent-teal/30 transition-colors"
+                className="w-8 h-8 rounded-full bg-surface border border-border flex items-center justify-center text-text-muted hover:text-accent-light hover:border-accent/30 transition-colors"
                 aria-label="LinkedIn"
               >
                 <svg

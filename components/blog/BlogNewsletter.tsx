@@ -33,9 +33,9 @@ export function BlogNewsletter({ variant = "card" }: BlogNewsletterProps) {
     return (
       <section className="relative py-16 sm:py-20 bg-surface overflow-hidden">
         {/* Background elements */}
-        <div className="absolute inset-0 bg-gradient-to-r from-accent-teal/5 to-accent-blue/5" />
-        <div className="absolute -top-20 right-1/4 w-[400px] h-[400px] bg-accent-teal/10 rounded-full blur-[100px]" />
-        <div className="absolute -bottom-20 left-1/4 w-[300px] h-[300px] bg-accent-blue/10 rounded-full blur-[80px]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-accent/5 to-accent-secondary/5" />
+        <div className="absolute -top-20 right-1/4 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[100px]" />
+        <div className="absolute -bottom-20 left-1/4 w-[300px] h-[300px] bg-accent-secondary/10 rounded-full blur-[80px]" />
 
         <div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 text-center">
           <motion.div
@@ -44,9 +44,9 @@ export function BlogNewsletter({ variant = "card" }: BlogNewsletterProps) {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="w-12 h-12 rounded-xl bg-accent-teal/20 border border-accent-teal/30 flex items-center justify-center mx-auto mb-5">
+            <div className="w-12 h-12 rounded-xl bg-accent/20 border border-accent/30 flex items-center justify-center mx-auto mb-5">
               <svg
-                className="w-6 h-6 text-accent-teal-light"
+                className="w-6 h-6 text-accent-light"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -78,7 +78,7 @@ export function BlogNewsletter({ variant = "card" }: BlogNewsletterProps) {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
-                className="flex-1 px-4 py-3 bg-surface border border-border rounded-xl text-text-primary placeholder-text-muted focus:outline-none focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/20"
+                className="flex-1 px-4 py-3 bg-surface border border-border rounded-xl text-text-primary placeholder-text-muted focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20"
                 disabled={status === "loading" || status === "success"}
               />
               <button
@@ -111,16 +111,16 @@ export function BlogNewsletter({ variant = "card" }: BlogNewsletterProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="relative rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-accent-teal/10 to-accent-blue/10 border border-accent-teal/20 h-full flex flex-col justify-center"
+      className="relative rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-accent/10 to-accent-secondary/10 border border-accent/20 h-full flex flex-col justify-center"
     >
       {/* Decorative orbs */}
-      <div className="absolute -top-20 -right-20 w-40 h-40 bg-accent-teal/20 rounded-full blur-[60px]" />
-      <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-accent-blue/15 rounded-full blur-[50px]" />
+      <div className="absolute -top-20 -right-20 w-40 h-40 bg-accent/20 rounded-full blur-[60px]" />
+      <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-accent-secondary/15 rounded-full blur-[50px]" />
 
       <div className="relative z-10">
-        <div className="w-12 h-12 rounded-xl bg-accent-teal/20 border border-accent-teal/30 flex items-center justify-center mb-5">
+        <div className="w-12 h-12 rounded-xl bg-accent/20 border border-accent/30 flex items-center justify-center mb-5">
           <svg
-            className="w-6 h-6 text-accent-teal-light"
+            className="w-6 h-6 text-accent-light"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -148,7 +148,7 @@ export function BlogNewsletter({ variant = "card" }: BlogNewsletterProps) {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
-            className="flex-1 px-4 py-3 bg-surface border border-border rounded-xl text-text-primary placeholder-text-muted focus:outline-none focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/20 text-sm"
+            className="flex-1 px-4 py-3 bg-surface border border-border rounded-xl text-text-primary placeholder-text-muted focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 text-sm"
             disabled={status === "loading" || status === "success"}
           />
           <button

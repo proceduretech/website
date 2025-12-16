@@ -87,8 +87,8 @@ export function EngagementModels() {
   return (
     <section className="relative py-16 sm:py-24 overflow-hidden bg-surface">
       {/* Gradient orbs for depth */}
-      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-accent-blue/[0.05] rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-accent-teal/[0.05] rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-accent-secondary/[0.05] rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-accent/[0.05] rounded-full blur-[120px] pointer-events-none" />
 
       {/* Subtle grid pattern */}
       <div
@@ -107,7 +107,7 @@ export function EngagementModels() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-12 sm:mb-16"
         >
-          <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-3 sm:mb-4">
+          <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-3 sm:mb-4">
             Engagement Models
           </p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4 tracking-tight">
@@ -128,10 +128,10 @@ export function EngagementModels() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
-              className="group p-8 rounded-xl bg-surface-elevated border border-border hover:border-accent-teal/30 transition-colors h-full flex flex-col"
+              className="group p-8 rounded-xl bg-surface-elevated border border-border hover:border-accent/30 transition-colors h-full flex flex-col"
             >
               {/* Model icon */}
-              <div className="w-12 h-12 rounded-lg bg-accent-teal/10 flex items-center justify-center text-accent-teal-light mb-5">
+              <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center text-accent-light mb-5">
                 {model.icon}
               </div>
 
@@ -153,7 +153,7 @@ export function EngagementModels() {
                     className="flex items-start gap-3 text-sm text-text-secondary"
                   >
                     <svg
-                      className="w-4 h-4 text-accent-teal-light shrink-0 mt-0.5"
+                      className="w-4 h-4 text-accent-light shrink-0 mt-0.5"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -174,7 +174,7 @@ export function EngagementModels() {
               <div className="pt-5 border-t border-border">
                 <div className="flex items-center gap-3">
                   <svg
-                    className="w-4 h-4 text-accent-teal-light"
+                    className="w-4 h-4 text-accent-light"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"

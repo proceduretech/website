@@ -417,21 +417,21 @@ function PrincipleCard({
       className="group relative"
     >
       {/* Hover glow */}
-      <div className="absolute -inset-0.5 bg-gradient-to-r from-accent-teal/20 to-accent-blue/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-60 transition-all duration-700" />
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/20 to-accent-secondary/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-60 transition-all duration-700" />
 
-      <div className="relative p-8 rounded-2xl bg-surface-elevated border border-border group-hover:border-accent-teal/40 transition-all duration-500 h-full group-hover:shadow-xl group-hover:shadow-black/20 group-hover:-translate-y-1">
+      <div className="relative p-8 rounded-2xl bg-surface-elevated border border-border group-hover:border-accent/40 transition-all duration-500 h-full group-hover:shadow-xl group-hover:shadow-black/20 group-hover:-translate-y-1">
         {/* Number + Icon Row */}
         <div className="flex items-center justify-between mb-6">
-          <span className="text-5xl font-bold text-border group-hover:text-accent-teal/30 transition-colors duration-300">
+          <span className="text-5xl font-bold text-border group-hover:text-accent/30 transition-colors duration-300">
             {principle.number}
           </span>
-          <div className="w-14 h-14 rounded-xl bg-accent-teal/10 border border-accent-teal/20 flex items-center justify-center text-accent-teal-light group-hover:bg-gradient-to-br group-hover:from-accent-teal group-hover:to-accent-blue group-hover:text-white group-hover:border-transparent transition-all duration-300">
+          <div className="w-14 h-14 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent-light group-hover:bg-gradient-to-br group-hover:from-accent group-hover:to-accent-secondary group-hover:text-white group-hover:border-transparent transition-all duration-300">
             {principle.icon}
           </div>
         </div>
 
         {/* Title */}
-        <h3 className="text-xl font-bold text-text-primary mb-3 group-hover:text-accent-teal-light transition-colors duration-300">
+        <h3 className="text-xl font-bold text-text-primary mb-3 group-hover:text-accent-light transition-colors duration-300">
           {principle.title}
         </h3>
 
@@ -460,21 +460,21 @@ function ProcessPhaseCard({
       className="group relative"
     >
       {/* Hover glow */}
-      <div className="absolute -inset-0.5 bg-gradient-to-r from-accent-teal/20 to-accent-blue/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-60 transition-all duration-700" />
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/20 to-accent-secondary/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-60 transition-all duration-700" />
 
-      <div className="relative p-6 sm:p-8 rounded-2xl bg-surface-elevated border border-border group-hover:border-accent-teal/40 transition-all duration-500 h-full group-hover:shadow-xl group-hover:shadow-black/20 group-hover:-translate-y-1">
+      <div className="relative p-6 sm:p-8 rounded-2xl bg-surface-elevated border border-border group-hover:border-accent/40 transition-all duration-500 h-full group-hover:shadow-xl group-hover:shadow-black/20 group-hover:-translate-y-1">
         {/* Phase Number + Icon Row */}
         <div className="flex items-center justify-between mb-4">
-          <div className="w-12 h-12 rounded-xl bg-accent-teal/10 border border-accent-teal/20 flex items-center justify-center text-accent-teal-light group-hover:bg-gradient-to-br group-hover:from-accent-teal group-hover:to-accent-blue group-hover:text-white group-hover:border-transparent transition-all duration-300">
+          <div className="w-12 h-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent-light group-hover:bg-gradient-to-br group-hover:from-accent group-hover:to-accent-secondary group-hover:text-white group-hover:border-transparent transition-all duration-300">
             {phase.icon}
           </div>
-          <span className="text-4xl font-bold text-border group-hover:text-accent-teal/30 transition-colors duration-300">
+          <span className="text-4xl font-bold text-border group-hover:text-accent/30 transition-colors duration-300">
             {phase.number}
           </span>
         </div>
 
         {/* Title */}
-        <h3 className="text-xl font-bold text-text-primary mb-2 group-hover:text-accent-teal-light transition-colors duration-300">
+        <h3 className="text-xl font-bold text-text-primary mb-2 group-hover:text-accent-light transition-colors duration-300">
           {phase.title}
         </h3>
 
@@ -489,7 +489,7 @@ function ProcessPhaseCard({
             {phase.activities.map((item, idx) => (
               <li key={idx} className="flex items-start gap-2 text-sm">
                 <svg
-                  className="w-4 h-4 text-accent-teal shrink-0 mt-0.5"
+                  className="w-4 h-4 text-accent shrink-0 mt-0.5"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -526,14 +526,14 @@ function IndustryCard({
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="group"
     >
-      <div className="p-8 rounded-2xl bg-surface-elevated border border-border hover:border-accent-teal/40 transition-all duration-300 h-full hover:shadow-lg hover:shadow-black/10 hover:-translate-y-1">
+      <div className="p-8 rounded-2xl bg-surface-elevated border border-border hover:border-accent/40 transition-all duration-300 h-full hover:shadow-lg hover:shadow-black/10 hover:-translate-y-1">
         {/* Icon */}
-        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent-teal/20 to-accent-blue/20 border border-accent-teal/20 flex items-center justify-center text-accent-teal-light mx-auto mb-6 group-hover:from-accent-teal/30 group-hover:to-accent-blue/30 transition-all duration-300">
+        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent/20 to-accent-secondary/20 border border-accent/20 flex items-center justify-center text-accent-light mx-auto mb-6 group-hover:from-accent/30 group-hover:to-accent-secondary/30 transition-all duration-300">
           {industry.icon}
         </div>
 
         {/* Title */}
-        <h3 className="text-xl font-bold text-text-primary text-center mb-4 group-hover:text-accent-teal-light transition-colors duration-300">
+        <h3 className="text-xl font-bold text-text-primary text-center mb-4 group-hover:text-accent-light transition-colors duration-300">
           {industry.name}
         </h3>
 
@@ -542,7 +542,7 @@ function IndustryCard({
           {industry.considerations.map((item, idx) => (
             <li key={idx} className="flex items-start gap-2 text-sm">
               <svg
-                className="w-4 h-4 text-accent-teal shrink-0 mt-0.5"
+                className="w-4 h-4 text-accent shrink-0 mt-0.5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -596,9 +596,9 @@ export default function AISafetyPage() {
           transition={{ duration: 1.5 }}
           className="absolute inset-0"
         >
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-accent-teal/8 rounded-full blur-[120px]" />
-          <div className="absolute top-1/3 left-1/4 w-[600px] h-[400px] bg-accent-blue/6 rounded-full blur-[100px]" />
-          <div className="absolute top-1/3 right-1/4 w-[500px] h-[350px] bg-accent-teal/5 rounded-full blur-[100px]" />
+          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-accent/8 rounded-full blur-[120px]" />
+          <div className="absolute top-1/3 left-1/4 w-[600px] h-[400px] bg-accent-secondary/6 rounded-full blur-[100px]" />
+          <div className="absolute top-1/3 right-1/4 w-[500px] h-[350px] bg-accent/5 rounded-full blur-[100px]" />
         </motion.div>
 
         {/* Hexagon shield pattern */}
@@ -614,7 +614,7 @@ export default function AISafetyPage() {
           <motion.div
             animate={{ y: [0, -20, 0], opacity: [0.4, 0.6, 0.4] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[20%] left-[15%] w-3 h-3 bg-accent-teal/40 rounded-full blur-sm"
+            className="absolute top-[20%] left-[15%] w-3 h-3 bg-accent/40 rounded-full blur-sm"
           />
           <motion.div
             animate={{ y: [0, 15, 0], opacity: [0.3, 0.5, 0.3] }}
@@ -624,7 +624,7 @@ export default function AISafetyPage() {
               ease: "easeInOut",
               delay: 1,
             }}
-            className="absolute top-[30%] right-[20%] w-2 h-2 bg-accent-blue/50 rounded-full blur-sm"
+            className="absolute top-[30%] right-[20%] w-2 h-2 bg-accent-secondary/50 rounded-full blur-sm"
           />
           <motion.div
             animate={{ y: [0, -15, 0], opacity: [0.3, 0.5, 0.3] }}
@@ -634,7 +634,7 @@ export default function AISafetyPage() {
               ease: "easeInOut",
               delay: 2,
             }}
-            className="absolute top-[40%] left-[10%] w-4 h-4 bg-accent-teal/30 rounded-full blur-sm"
+            className="absolute top-[40%] left-[10%] w-4 h-4 bg-accent/30 rounded-full blur-sm"
           />
         </div>
 
@@ -660,7 +660,7 @@ export default function AISafetyPage() {
                   className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-elevated border border-border"
                 >
                   <svg
-                    className="w-4 h-4 text-accent-teal"
+                    className="w-4 h-4 text-accent"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -682,10 +682,10 @@ export default function AISafetyPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-teal/10 border border-accent-teal/20 mb-8"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 mb-8"
             >
-              <div className="w-2 h-2 rounded-full bg-accent-teal animate-pulse" />
-              <span className="text-sm font-medium text-accent-teal-light">
+              <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+              <span className="text-sm font-medium text-accent-light">
                 Responsible AI Engineering
               </span>
             </motion.div>
@@ -741,7 +741,7 @@ export default function AISafetyPage() {
               </CalButton>
               <Link
                 href="/expertise/ai-security"
-                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-lg hover:border-accent-teal hover:text-accent-teal-light transition-all duration-200"
+                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-lg hover:border-accent hover:text-accent-light transition-all duration-200"
               >
                 View AI Security Services
               </Link>
@@ -771,7 +771,7 @@ export default function AISafetyPage() {
           >
             {/* Quote marks */}
             <svg
-              className="w-16 h-16 mx-auto mb-6 text-accent-teal/20"
+              className="w-16 h-16 mx-auto mb-6 text-accent/20"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -816,7 +816,7 @@ export default function AISafetyPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16 sm:mb-20"
           >
-            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-4">
+            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Our Principles
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 tracking-tight">
@@ -864,7 +864,7 @@ export default function AISafetyPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16 sm:mb-20"
           >
-            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-4">
+            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               How We Operationalize Safety
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 tracking-tight">
@@ -891,8 +891,8 @@ export default function AISafetyPage() {
           ============================================ */}
       <section className="relative py-16 sm:py-24 bg-base overflow-hidden">
         {/* Ambient glows */}
-        <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-accent-teal/5 rounded-full blur-[150px]" />
-        <div className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-accent-blue/5 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[150px]" />
+        <div className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-accent-secondary/5 rounded-full blur-[120px]" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           {/* Section Header */}
@@ -903,7 +903,7 @@ export default function AISafetyPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16 sm:mb-20"
           >
-            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-4">
+            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Frameworks & Standards
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 tracking-tight">
@@ -931,10 +931,10 @@ export default function AISafetyPage() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: idx * 0.1 }}
-                    className="p-6 rounded-xl bg-surface-elevated border border-border hover:border-accent-teal/40 transition-all duration-300"
+                    className="p-6 rounded-xl bg-surface-elevated border border-border hover:border-accent/40 transition-all duration-300"
                   >
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-lg bg-accent-teal/10 border border-accent-teal/20 flex items-center justify-center text-accent-teal-light shrink-0">
+                      <div className="w-12 h-12 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center text-accent-light shrink-0">
                         <svg
                           className="w-6 h-6"
                           fill="none"
@@ -976,10 +976,10 @@ export default function AISafetyPage() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: idx * 0.08 }}
-                    className="p-5 rounded-xl bg-surface-elevated border border-border text-center hover:border-accent-teal/40 transition-all duration-300"
+                    className="p-5 rounded-xl bg-surface-elevated border border-border text-center hover:border-accent/40 transition-all duration-300"
                   >
                     <svg
-                      className="w-8 h-8 mx-auto mb-3 text-green-400"
+                      className="w-8 h-8 mx-auto mb-3 text-success"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -992,7 +992,7 @@ export default function AISafetyPage() {
                     <p className="text-sm font-semibold text-text-primary">
                       {cert.name}
                     </p>
-                    <p className="text-xs text-accent-teal-light">
+                    <p className="text-xs text-accent-light">
                       {cert.status}
                     </p>
                   </motion.div>
@@ -1005,7 +1005,7 @@ export default function AISafetyPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="p-6 rounded-xl bg-accent-teal/5 border border-accent-teal/20"
+                className="p-6 rounded-xl bg-accent/5 border border-accent/20"
               >
                 <p className="text-sm text-text-secondary">
                   We have experience building AI systems that meet
@@ -1040,7 +1040,7 @@ export default function AISafetyPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16 sm:mb-20"
           >
-            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-4">
+            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Industry-Specific Safety
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 tracking-tight">
@@ -1070,7 +1070,7 @@ export default function AISafetyPage() {
           ============================================ */}
       <section className="relative py-16 sm:py-24 bg-base overflow-hidden">
         {/* Gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-accent-teal/5 to-accent-blue/5" />
+        <div className="absolute inset-0 bg-gradient-to-r from-accent/5 to-accent-secondary/5" />
 
         {/* Animated orbs */}
         <motion.div
@@ -1079,7 +1079,7 @@ export default function AISafetyPage() {
             x: [0, 20, 0],
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-accent-teal/10 rounded-full blur-[150px]"
+          className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[150px]"
         />
         <motion.div
           animate={{
@@ -1087,7 +1087,7 @@ export default function AISafetyPage() {
             x: [0, -20, 0],
           }}
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-accent-blue/10 rounded-full blur-[120px]"
+          className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-accent-secondary/10 rounded-full blur-[120px]"
         />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
@@ -1098,9 +1098,9 @@ export default function AISafetyPage() {
             transition={{ duration: 0.6 }}
           >
             {/* Shield icon */}
-            <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-accent-teal/10 border border-accent-teal/20 flex items-center justify-center">
+            <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-accent/10 border border-accent/20 flex items-center justify-center">
               <svg
-                className="w-8 h-8 text-accent-teal-light"
+                className="w-8 h-8 text-accent-light"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -1146,7 +1146,7 @@ export default function AISafetyPage() {
               </CalButton>
               <Link
                 href="/expertise/ai-security"
-                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-xl hover:border-accent-teal hover:text-accent-teal-light transition-all duration-200"
+                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-xl hover:border-accent hover:text-accent-light transition-all duration-200"
               >
                 View AI Security Services
               </Link>
@@ -1156,7 +1156,7 @@ export default function AISafetyPage() {
             <div className="flex flex-wrap items-center justify-center gap-6">
               <div className="flex items-center gap-2 text-xs text-text-muted">
                 <svg
-                  className="w-4 h-4 text-accent-teal"
+                  className="w-4 h-4 text-accent"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -1171,7 +1171,7 @@ export default function AISafetyPage() {
               <div className="w-1 h-1 rounded-full bg-border" />
               <div className="flex items-center gap-2 text-xs text-text-muted">
                 <svg
-                  className="w-4 h-4 text-accent-teal"
+                  className="w-4 h-4 text-accent"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -1186,7 +1186,7 @@ export default function AISafetyPage() {
               <div className="w-1 h-1 rounded-full bg-border" />
               <div className="flex items-center gap-2 text-xs text-text-muted">
                 <svg
-                  className="w-4 h-4 text-accent-teal"
+                  className="w-4 h-4 text-accent"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -1203,7 +1203,7 @@ export default function AISafetyPage() {
               <div className="w-1 h-1 rounded-full bg-border" />
               <div className="flex items-center gap-2 text-xs text-text-muted">
                 <svg
-                  className="w-4 h-4 text-accent-teal"
+                  className="w-4 h-4 text-accent"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"

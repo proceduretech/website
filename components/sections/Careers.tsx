@@ -52,7 +52,7 @@ export function Careers() {
           transition={{ duration: 0.6 }}
           className="text-center mb-10 sm:mb-16"
         >
-          <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-3 sm:mb-4">
+          <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-3 sm:mb-4">
             Join Our Team
           </p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
@@ -72,15 +72,15 @@ export function Careers() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
-              className="group relative bg-surface-elevated rounded-2xl p-6 sm:p-8 border border-border hover:border-accent-teal/50 transition-all duration-300"
+              className="group relative bg-surface-elevated rounded-2xl p-6 sm:p-8 border border-border hover:border-accent/50 transition-all duration-300"
             >
               {/* Department badge */}
-              <span className="inline-block px-3 py-1 text-xs font-semibold text-accent-teal-light bg-accent-teal/10 border border-accent-teal/20 rounded-full mb-4">
+              <span className="inline-block px-3 py-1 text-xs font-semibold text-accent-light bg-accent/10 border border-accent/20 rounded-full mb-4">
                 {job.department}
               </span>
 
               {/* Job title */}
-              <h3 className="text-xl font-semibold text-text-primary mb-3 group-hover:text-accent-teal-light transition-colors">
+              <h3 className="text-xl font-semibold text-text-primary mb-3 group-hover:text-accent-light transition-colors">
                 {job.title}
               </h3>
 
@@ -134,7 +134,7 @@ export function Careers() {
               {/* Apply link */}
               <Link
                 href={`/careers/${job.id}`}
-                className="inline-flex items-center gap-2 text-accent-teal-light font-medium text-sm group-hover:text-accent-teal transition-colors"
+                className="inline-flex items-center gap-2 text-accent-light font-medium text-sm group-hover:text-accent transition-colors"
               >
                 View Position
                 <svg
@@ -165,7 +165,7 @@ export function Careers() {
         >
           <Link
             href="/careers"
-            className="inline-flex items-center gap-3 px-6 sm:px-8 py-3 sm:py-4 text-base font-semibold text-text-primary bg-surface-elevated border-2 border-border rounded-lg hover:border-accent-teal/50 hover:text-accent-teal-light transition-all duration-200"
+            className="inline-flex items-center gap-3 px-6 sm:px-8 py-3 sm:py-4 text-base font-semibold text-text-primary bg-surface-elevated border-2 border-border rounded-lg hover:border-accent/50 hover:text-accent-light transition-all duration-200"
           >
             <span>View All Openings</span>
             <svg

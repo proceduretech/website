@@ -65,7 +65,7 @@ export function ArchitectureDiagram({
         {/* Desktop layout */}
         <div className="hidden lg:block relative">
           {/* Connecting line */}
-          <div className="absolute top-24 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-accent-teal/20 via-accent-teal/40 to-accent-blue/20" />
+          <div className="absolute top-24 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-accent/20 via-accent/40 to-accent-secondary/20" />
 
           <motion.div
             initial="hidden"
@@ -81,17 +81,17 @@ export function ArchitectureDiagram({
                 className={cn(
                   "relative p-6 rounded-2xl text-center",
                   "bg-surface-elevated border border-border",
-                  "hover:border-accent-teal/30 transition-colors duration-300",
+                  "hover:border-accent/30 transition-colors duration-300",
                 )}
               >
                 {/* Step number */}
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-gradient-to-r from-accent-teal to-accent-blue text-white text-xs font-bold flex items-center justify-center shadow-lg shadow-accent-teal/25">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-gradient-to-r from-accent to-accent-secondary text-white text-xs font-bold flex items-center justify-center shadow-lg shadow-accent/25">
                   {index + 1}
                 </div>
 
                 {/* Icon */}
-                <div className="w-14 h-14 mx-auto mb-4 mt-2 rounded-xl bg-gradient-to-br from-accent-teal/20 to-accent-blue/20 border border-accent-teal/20 flex items-center justify-center">
-                  <div className="w-7 h-7 text-accent-teal-light">
+                <div className="w-14 h-14 mx-auto mb-4 mt-2 rounded-xl bg-gradient-to-br from-accent/20 to-accent-secondary/20 border border-accent/20 flex items-center justify-center">
+                  <div className="w-7 h-7 text-accent-light">
                     {step.icon}
                   </div>
                 </div>
@@ -121,13 +121,13 @@ export function ArchitectureDiagram({
               variants={stepVariants}
               className="flex items-start gap-4"
             >
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-r from-accent-teal to-accent-blue text-white text-sm font-bold flex items-center justify-center shadow-lg shadow-accent-teal/25">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-r from-accent to-accent-secondary text-white text-sm font-bold flex items-center justify-center shadow-lg shadow-accent/25">
                 {index + 1}
               </div>
               <div className="flex-1 p-4 rounded-xl bg-surface-elevated border border-border">
                 <div className="flex items-center gap-3 mb-2">
-                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-teal/20 to-accent-blue/20 flex items-center justify-center">
-                    <div className="w-4 h-4 text-accent-teal-light">
+                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent/20 to-accent-secondary/20 flex items-center justify-center">
+                    <div className="w-4 h-4 text-accent-light">
                       {step.icon}
                     </div>
                   </div>

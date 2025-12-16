@@ -148,16 +148,16 @@ function DifferentiatorCard({
     >
       {/* Glow effect on hover */}
       <div
-        className={`absolute -inset-0.5 bg-gradient-to-r ${isBlue ? "from-accent-blue/20 to-accent-teal/20" : "from-accent-teal/20 to-accent-blue/20"} rounded-2xl blur-lg opacity-0 group-hover:opacity-60 transition-all duration-700`}
+        className={`absolute -inset-0.5 bg-gradient-to-r ${isBlue ? "from-accent-secondary/20 to-accent/20" : "from-accent/20 to-accent-secondary/20"} rounded-2xl blur-lg opacity-0 group-hover:opacity-60 transition-all duration-700`}
       />
 
-      <div className="relative p-8 rounded-2xl bg-surface-elevated/90 backdrop-blur-sm border border-border group-hover:border-accent-teal/40 transition-all duration-500 h-full flex flex-col group-hover:shadow-xl group-hover:shadow-black/20 group-hover:-translate-y-1">
+      <div className="relative p-8 rounded-2xl bg-surface-elevated/90 backdrop-blur-sm border border-border group-hover:border-accent/40 transition-all duration-500 h-full flex flex-col group-hover:shadow-xl group-hover:shadow-black/20 group-hover:-translate-y-1">
         {/* Number Badge */}
         <div
-          className={`w-12 h-12 rounded-xl ${isBlue ? "bg-accent-blue/10 border-accent-blue/20" : "bg-accent-teal/10 border-accent-teal/20"} border flex items-center justify-center mb-6`}
+          className={`w-12 h-12 rounded-xl ${isBlue ? "bg-accent-secondary/10 border-accent-secondary/20" : "bg-accent/10 border-accent/20"} border flex items-center justify-center mb-6`}
         >
           <span
-            className={`text-lg font-bold ${isBlue ? "text-accent-blue-light" : "text-accent-teal-light"}`}
+            className={`text-lg font-bold ${isBlue ? "text-accent-secondary-light" : "text-accent-light"}`}
           >
             {data.number}
           </span>
@@ -165,13 +165,13 @@ function DifferentiatorCard({
 
         {/* Headline (punchy statement) */}
         <p
-          className={`text-sm font-semibold ${isBlue ? "text-accent-blue-light" : "text-accent-teal-light"} mb-2`}
+          className={`text-sm font-semibold ${isBlue ? "text-accent-secondary-light" : "text-accent-light"} mb-2`}
         >
           {data.headline}
         </p>
 
         {/* Title */}
-        <h3 className="text-xl font-bold text-text-primary mb-3 group-hover:text-accent-teal-light transition-colors duration-300">
+        <h3 className="text-xl font-bold text-text-primary mb-3 group-hover:text-accent-light transition-colors duration-300">
           {data.title}
         </h3>
 
@@ -182,10 +182,10 @@ function DifferentiatorCard({
 
         {/* Stats Badge */}
         <div
-          className={`inline-flex items-center gap-3 px-4 py-3 rounded-xl ${isBlue ? "bg-accent-blue/5 border-accent-blue/10" : "bg-accent-teal/5 border-accent-teal/10"} border`}
+          className={`inline-flex items-center gap-3 px-4 py-3 rounded-xl ${isBlue ? "bg-accent-secondary/5 border-accent-secondary/10" : "bg-accent/5 border-accent/10"} border`}
         >
           <span
-            className={`text-2xl font-bold ${isBlue ? "text-accent-blue-light" : "text-accent-teal-light"}`}
+            className={`text-2xl font-bold ${isBlue ? "text-accent-secondary-light" : "text-accent-light"}`}
           >
             {data.stats.value}
           </span>
@@ -229,7 +229,7 @@ export default function WhyUsPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16 sm:mb-20"
           >
-            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-4">
+            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Why Choose Procedure
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 tracking-tight">
@@ -277,7 +277,7 @@ export default function WhyUsPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-4">
+            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               The Comparison
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
@@ -336,9 +336,9 @@ export default function WhyUsPage() {
                       transition={{ delay: idx * 0.05 + 0.3, duration: 0.4 }}
                       className="flex items-start gap-3"
                     >
-                      <div className="w-6 h-6 rounded-full bg-red-500/10 flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="w-6 h-6 rounded-full bg-error/10 flex items-center justify-center shrink-0 mt-0.5">
                         <svg
-                          className="w-4 h-4 text-red-400"
+                          className="w-4 h-4 text-error"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -366,11 +366,11 @@ export default function WhyUsPage() {
               transition={{ duration: 0.6 }}
               className="relative"
             >
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-accent-teal/30 to-accent-blue/30 rounded-2xl blur-lg" />
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/30 to-accent-secondary/30 rounded-2xl blur-lg" />
 
-              <div className="relative p-8 rounded-2xl bg-surface-elevated border border-accent-teal/30 h-full">
+              <div className="relative p-8 rounded-2xl bg-surface-elevated border border-accent/30 h-full">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-accent-teal to-accent-blue flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-accent to-accent-secondary flex items-center justify-center">
                     <svg
                       className="w-5 h-5 text-white"
                       fill="none"
@@ -386,7 +386,7 @@ export default function WhyUsPage() {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-xs text-accent-teal-light uppercase tracking-wider">
+                    <p className="text-xs text-accent-light uppercase tracking-wider">
                       {comparisonData.procedure.subtitle}
                     </p>
                     <h3 className="text-lg font-semibold text-text-primary">
@@ -405,9 +405,9 @@ export default function WhyUsPage() {
                       transition={{ delay: idx * 0.05 + 0.3, duration: 0.4 }}
                       className="flex items-start gap-3"
                     >
-                      <div className="w-6 h-6 rounded-full bg-accent-teal/20 flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center shrink-0 mt-0.5">
                         <svg
-                          className="w-4 h-4 text-accent-teal-light"
+                          className="w-4 h-4 text-accent-light"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -427,10 +427,10 @@ export default function WhyUsPage() {
                   ))}
                 </ul>
 
-                <div className="mt-8 pt-6 border-t border-accent-teal/20">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-teal/10 border border-accent-teal/20">
-                    <span className="w-2 h-2 rounded-full bg-accent-teal animate-pulse" />
-                    <span className="text-xs font-medium text-accent-teal-light">
+                <div className="mt-8 pt-6 border-t border-accent/20">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20">
+                    <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                    <span className="text-xs font-medium text-accent-light">
                       Trusted by enterprise and startup clients
                     </span>
                   </div>
@@ -458,7 +458,7 @@ export default function WhyUsPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12 sm:mb-16"
           >
-            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-4">
+            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Our Process
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
@@ -575,7 +575,7 @@ export default function WhyUsPage() {
           >
             <div className="relative p-8 sm:p-12 rounded-2xl bg-surface-elevated border border-border">
               <svg
-                className="absolute top-8 left-8 w-12 h-12 text-accent-teal/20"
+                className="absolute top-8 left-8 w-12 h-12 text-accent/20"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
@@ -617,7 +617,7 @@ export default function WhyUsPage() {
           >
             <Link
               href="/case-studies"
-              className="inline-flex items-center gap-2 text-accent-teal-light font-medium hover:text-accent-teal transition-colors"
+              className="inline-flex items-center gap-2 text-accent-light font-medium hover:text-accent transition-colors"
             >
               Read more client stories
               <svg
@@ -640,9 +640,9 @@ export default function WhyUsPage() {
 
       {/* CTA Section */}
       <section className="relative py-16 sm:py-24 bg-surface overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-accent-teal/5 to-accent-blue/5" />
-        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-accent-teal/10 rounded-full blur-[100px]" />
-        <div className="absolute top-0 right-1/4 w-[300px] h-[300px] bg-accent-blue/10 rounded-full blur-[80px]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-accent/5 to-accent-secondary/5" />
+        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[100px]" />
+        <div className="absolute top-0 right-1/4 w-[300px] h-[300px] bg-accent-secondary/10 rounded-full blur-[80px]" />
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -690,7 +690,7 @@ export default function WhyUsPage() {
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-text-primary bg-transparent border border-border rounded-xl hover:border-accent-teal hover:text-accent-teal-light transition-all duration-300"
+                className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-text-primary bg-transparent border border-border rounded-xl hover:border-accent hover:text-accent-light transition-all duration-300"
               >
                 Contact Us
               </Link>
@@ -699,7 +699,7 @@ export default function WhyUsPage() {
             <div className="flex flex-wrap items-center justify-center gap-6">
               <div className="flex items-center gap-2 text-xs text-text-muted">
                 <svg
-                  className="w-4 h-4 text-accent-teal"
+                  className="w-4 h-4 text-accent"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -714,7 +714,7 @@ export default function WhyUsPage() {
               <div className="w-1 h-1 rounded-full bg-border" />
               <div className="flex items-center gap-2 text-xs text-text-muted">
                 <svg
-                  className="w-4 h-4 text-accent-teal"
+                  className="w-4 h-4 text-accent"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -729,7 +729,7 @@ export default function WhyUsPage() {
               <div className="w-1 h-1 rounded-full bg-border" />
               <div className="flex items-center gap-2 text-xs text-text-muted">
                 <svg
-                  className="w-4 h-4 text-accent-teal"
+                  className="w-4 h-4 text-accent"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"

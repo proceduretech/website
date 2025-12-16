@@ -45,8 +45,8 @@ export function HowWeWork() {
   return (
     <section className="relative py-16 sm:py-24 overflow-hidden bg-base">
       {/* Gradient orbs for depth */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-accent-teal/[0.07] rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-accent-blue/[0.07] rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-accent/[0.07] rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-accent-secondary/[0.07] rounded-full blur-[120px] pointer-events-none" />
 
       {/* Circuit pattern background - enhanced visibility */}
       <div
@@ -65,7 +65,7 @@ export function HowWeWork() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-16 sm:mb-20"
         >
-          <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-3 sm:mb-4">
+          <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-3 sm:mb-4">
             Our Process
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary mb-4 sm:mb-6 tracking-tight">
@@ -84,11 +84,11 @@ export function HowWeWork() {
             data={processSteps.map((step) => ({
               title: step.step,
               content: (
-                <div className="bg-surface-elevated/80 backdrop-blur-sm rounded-2xl p-6 border border-border hover:border-accent-teal/40 transition-all duration-300">
+                <div className="bg-surface-elevated/80 backdrop-blur-sm rounded-2xl p-6 border border-border hover:border-accent/40 transition-all duration-300">
                   <h3 className="text-xl font-semibold text-text-primary mb-2">
                     {step.title}
                   </h3>
-                  <span className="inline-block px-3 py-1 text-xs font-medium text-accent-teal-light bg-accent-teal/10 border border-accent-teal/20 rounded-full mb-3">
+                  <span className="inline-block px-3 py-1 text-xs font-medium text-accent-light bg-accent/10 border border-accent/20 rounded-full mb-3">
                     {step.duration}
                   </span>
                   <p className="text-text-secondary leading-relaxed">

@@ -1,21 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
-import { getLogos } from "@/lib/site-config";
-
-const certificationBadges = [
-  {
-    name: "SOC 2 Type II",
-    src: "/badges/soc2.svg",
-    alt: "SOC 2 Type II Certified",
-  },
-  { name: "GDPR", src: "/badges/gdpr.svg", alt: "GDPR Compliant" },
-  { name: "HIPAA", src: "/badges/hipaa.svg", alt: "HIPAA Compliant" },
-  {
-    name: "ISO 27001",
-    src: "/badges/iso27001.svg",
-    alt: "ISO 27001 Certified",
-  },
-];
+import { ComplianceBadge } from "./badges/ComplianceBadge";
+import { ProcedureLogoShort } from "./logos";
 
 const footerLinks = {
   services: [
@@ -73,9 +58,6 @@ const socialLinks = [
 ];
 
 export function Footer() {
-  // Get theme-appropriate logo paths from site config
-  const logos = getLogos();
-
   return (
     <footer
       className="border-t border-border bg-surface rounded-b-[2.5rem] overflow-hidden"
@@ -91,11 +73,9 @@ export function Footer() {
               href="/"
               className="inline-block hover:opacity-80 transition-opacity"
             >
-              <Image
-                src={logos.short}
-                alt="Procedure"
-                width={80}
-                height={36}
+              <ProcedureLogoShort
+                textColor="var(--color-accent)"
+                dotColor="var(--color-accent)"
                 className="h-9 w-auto"
               />
             </Link>
@@ -108,7 +88,7 @@ export function Footer() {
             <div className="mt-6 space-y-3">
               <a
                 href="mailto:hello@procedure.tech"
-                className="flex items-center gap-2 text-sm text-text-secondary hover:text-accent-teal-light transition-colors"
+                className="flex items-center gap-2 text-sm text-text-secondary hover:text-accent-light transition-colors"
               >
                 <svg
                   className="w-4 h-4"
@@ -156,7 +136,7 @@ export function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-text-muted hover:text-accent-teal-light transition-colors"
+                  className="text-text-muted hover:text-accent-light transition-colors"
                   aria-label={social.label}
                 >
                   {social.icon}
@@ -175,7 +155,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-text-secondary hover:text-accent-teal-light transition-colors"
+                    className="text-sm text-text-secondary hover:text-accent-light transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -194,7 +174,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-text-secondary hover:text-accent-teal-light transition-colors"
+                    className="text-sm text-text-secondary hover:text-accent-light transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -213,7 +193,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-text-secondary hover:text-accent-teal-light transition-colors"
+                    className="text-sm text-text-secondary hover:text-accent-light transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -232,7 +212,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-text-secondary hover:text-accent-teal-light transition-colors"
+                    className="text-sm text-text-secondary hover:text-accent-light transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -248,16 +228,30 @@ export function Footer() {
             Security & Compliance
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            {certificationBadges.map((badge) => (
-              <Image
-                key={badge.name}
-                src={badge.src}
-                alt={badge.alt}
-                width={120}
-                height={48}
-                className="opacity-80 hover:opacity-100 transition-opacity"
-              />
-            ))}
+            <ComplianceBadge
+              icon="star"
+              title="SOC 2"
+              subtitle="Type II Certified"
+              iconColor="teal"
+            />
+            <ComplianceBadge
+              icon="clock"
+              title="GDPR"
+              subtitle="Compliant"
+              iconColor="blue"
+            />
+            <ComplianceBadge
+              icon="check"
+              title="HIPAA"
+              subtitle="Compliant"
+              iconColor="teal"
+            />
+            <ComplianceBadge
+              icon="shield"
+              title="ISO 27001"
+              subtitle="Certified"
+              iconColor="blue"
+            />
           </div>
         </div>
       </div>

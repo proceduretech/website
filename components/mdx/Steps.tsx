@@ -23,7 +23,7 @@ export function Step({ title, children }: StepProps) {
   return (
     <div className="relative flex gap-4 step-item">
       {/* Step number - uses CSS counter via .step-number::before */}
-      <div className="step-number relative z-10 flex-shrink-0 w-8 h-8 rounded-full bg-surface-elevated border-2 border-accent-teal flex items-center justify-center text-sm font-bold text-accent-teal-light" />
+      <div className="step-number relative z-10 flex-shrink-0 w-8 h-8 rounded-full bg-surface-elevated border-2 border-accent flex items-center justify-center text-sm font-bold text-accent-light" />
       {/* Step content */}
       <div className="flex-1 pt-0.5">
         <h4 className="text-base font-semibold text-text-primary mb-2">

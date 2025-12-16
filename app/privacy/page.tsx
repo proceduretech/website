@@ -398,7 +398,7 @@ export default function PrivacyPolicyPage() {
                 <strong>How to Exercise Your Rights:</strong> Contact us at{" "}
                 <a
                   href="mailto:hello@procedure.tech"
-                  className="text-accent-teal-light hover:underline"
+                  className="text-accent-light hover:underline"
                 >
                   hello@procedure.tech
                 </a>
@@ -547,7 +547,7 @@ export default function PrivacyPolicyPage() {
                   Use our contact form at{" "}
                   <Link
                     href="/contact"
-                    className="text-accent-teal-light hover:underline"
+                    className="text-accent-light hover:underline"
                   >
                     https://procedure.tech/contact
                   </Link>
@@ -556,7 +556,7 @@ export default function PrivacyPolicyPage() {
                   Email us at{" "}
                   <a
                     href="mailto:hello@procedure.tech"
-                    className="text-accent-teal-light hover:underline"
+                    className="text-accent-light hover:underline"
                   >
                     hello@procedure.tech
                   </a>
@@ -568,7 +568,7 @@ export default function PrivacyPolicyPage() {
                 <strong>For urgent security concerns:</strong> Email{" "}
                 <a
                   href="mailto:hello@procedure.tech"
-                  className="text-accent-teal-light hover:underline"
+                  className="text-accent-light hover:underline"
                 >
                   hello@procedure.tech
                 </a>

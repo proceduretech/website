@@ -318,10 +318,10 @@ export function ThemeToggle({
         bg-surface-elevated
         border border-border
         text-text-primary
-        hover:border-accent-teal/30
-        hover:text-accent-teal-light
+        hover:border-accent/30
+        hover:text-accent-light
         transition-all duration-200
-        focus:outline-none focus:ring-2 focus:ring-accent-teal/20
+        focus:outline-none focus:ring-2 focus:ring-accent/20
         ${className}
       `}
       aria-label={`Switch to ${resolvedTheme === "dark" ? "light" : "dark"} mode`}

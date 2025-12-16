@@ -22,19 +22,13 @@ export function Hero() {
         transition={{ duration: 1.5 }}
         className="absolute inset-0"
       >
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-accent-teal/8 rounded-full blur-[120px]" />
-        <div className="absolute top-1/3 left-1/4 w-[600px] h-[400px] bg-accent-teal/5 rounded-full blur-[100px]" />
-        <div className="absolute top-1/3 right-1/4 w-[500px] h-[350px] bg-accent-teal/4 rounded-full blur-[100px]" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-accent/8 rounded-full blur-[120px]" />
+        <div className="absolute top-1/3 left-1/4 w-[600px] h-[400px] bg-accent/5 rounded-full blur-[100px]" />
+        <div className="absolute top-1/3 right-1/4 w-[500px] h-[350px] bg-accent/4 rounded-full blur-[100px]" />
       </motion.div>
 
-      {/* Subtle grid pattern - uses CSS variable for theme-aware color */}
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='%23E5E7EB'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e")`,
-          opacity: "var(--opacity-pattern)",
-        }}
-      />
+      {/* Subtle grid pattern - uses CSS class for theme-aware styling */}
+      <div className="absolute inset-0 hero-grid-pattern" />
 
       {/* Floating abstract elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -49,7 +43,7 @@ export function Hero() {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute top-[20%] left-[15%] w-3 h-3 bg-accent-teal/40 rounded-full blur-sm"
+          className="absolute top-[20%] left-[15%] w-3 h-3 bg-accent/40 rounded-full blur-sm"
         />
         <motion.div
           animate={{
@@ -62,7 +56,7 @@ export function Hero() {
             ease: "easeInOut",
             delay: 1,
           }}
-          className="absolute top-[30%] right-[20%] w-2 h-2 bg-accent-teal/50 rounded-full blur-sm"
+          className="absolute top-[30%] right-[20%] w-2 h-2 bg-accent/50 rounded-full blur-sm"
         />
         <motion.div
           animate={{
@@ -75,7 +69,7 @@ export function Hero() {
             ease: "easeInOut",
             delay: 2,
           }}
-          className="absolute top-[40%] left-[10%] w-4 h-4 bg-accent-teal/30 rounded-full blur-sm"
+          className="absolute top-[40%] left-[10%] w-4 h-4 bg-accent/30 rounded-full blur-sm"
         />
         <motion.div
           animate={{
@@ -88,7 +82,7 @@ export function Hero() {
             ease: "easeInOut",
             delay: 0.5,
           }}
-          className="absolute top-[25%] right-[12%] w-5 h-5 bg-accent-teal/25 rounded-full blur-md"
+          className="absolute top-[25%] right-[12%] w-5 h-5 bg-accent/25 rounded-full blur-md"
         />
 
         {/* Connecting lines - subtle tech feel */}
@@ -126,8 +120,8 @@ export function Hero() {
               x2="100%"
               y2="100%"
             >
-              <stop offset="0%" stopColor="var(--color-accent-teal-light)" stopOpacity="0.5" />
-              <stop offset="100%" stopColor="var(--color-accent-teal-light)" stopOpacity="0.2" />
+              <stop offset="0%" stopColor="var(--color-accent-light)" stopOpacity="0.5" />
+              <stop offset="100%" stopColor="var(--color-accent-light)" stopOpacity="0.2" />
             </linearGradient>
           </defs>
         </svg>
@@ -143,8 +137,8 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="flex flex-wrap gap-2 mb-6 justify-center"
           >
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-accent-teal-light bg-accent-teal/10 border border-accent-teal/20 rounded-full">
-              <span className="w-2 h-2 rounded-full bg-accent-teal animate-pulse" />
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-accent-light bg-accent/10 border border-accent/20 rounded-full">
+              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
               AI Engineering & Security
             </span>
             <span className="px-3 py-1.5 text-xs font-medium text-text-secondary bg-surface-elevated border border-border rounded-full">
@@ -193,7 +187,7 @@ export function Hero() {
             </CalButton>
             <Link
               href="/case-studies"
-              className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-surface-elevated border border-border rounded-lg hover:border-accent-teal/30 transition-all duration-200"
+              className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-lg hover:border-accent/30 transition-all duration-200"
             >
               View Our Work
             </Link>

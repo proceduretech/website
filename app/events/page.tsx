@@ -190,7 +190,7 @@ export default function EventsPage() {
       <section className="relative pt-32 pb-24 sm:pb-32 bg-base">
         {/* Background gradient orb */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-accent-teal/8 rounded-full blur-3xl" />
+          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-accent/8 rounded-full blur-3xl" />
         </div>
 
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6">
@@ -200,10 +200,10 @@ export default function EventsPage() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-teal/10 border border-accent-teal/20 mb-6"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 mb-6"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-accent-teal animate-pulse" />
-              <span className="text-sm font-medium text-accent-teal-light">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+              <span className="text-sm font-medium text-accent-light">
                 Community Events
               </span>
             </motion.div>
@@ -292,7 +292,7 @@ export default function EventsPage() {
               </a>
               <a
                 href="#notify"
-                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-xl hover:border-accent-teal/30 hover:bg-accent-teal/5 transition-all duration-200"
+                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-xl hover:border-accent/30 hover:bg-accent/5 transition-all duration-200"
               >
                 Get Notified
                 <svg
@@ -326,7 +326,7 @@ export default function EventsPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-4">
+            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Flagship Meetup
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
@@ -350,10 +350,10 @@ export default function EventsPage() {
             className="relative max-w-5xl mx-auto"
           >
             {/* Glow effect */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-accent-teal/20 to-accent-blue/20 rounded-3xl blur-xl opacity-70" />
+            <div className="absolute -inset-1 bg-accent/15 rounded-3xl blur-xl" />
 
             {/* Card */}
-            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-surface-elevated to-surface border border-accent-teal/30 p-8 sm:p-12">
+            <div className="relative overflow-hidden rounded-3xl bg-surface-elevated border border-accent/30 p-8 sm:p-12">
               {/* Pattern overlay */}
               <div className="absolute inset-0 opacity-5">
                 <svg
@@ -383,9 +383,9 @@ export default function EventsPage() {
                 {/* Left column - Event details */}
                 <div>
                   {/* Registration open badge */}
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-teal/20 border border-accent-teal/30 mb-6">
-                    <span className="w-2 h-2 rounded-full bg-accent-teal animate-pulse" />
-                    <span className="text-sm font-semibold text-accent-teal-light">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 border border-accent/30 mb-6">
+                    <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                    <span className="text-sm font-semibold text-accent-light">
                       Registration Open
                     </span>
                   </div>
@@ -416,7 +416,7 @@ export default function EventsPage() {
                   {/* Location */}
                   <div className="flex items-start gap-3 mb-6">
                     <svg
-                      className="w-5 h-5 mt-0.5 text-accent-teal-light flex-shrink-0"
+                      className="w-5 h-5 mt-0.5 text-accent-light flex-shrink-0"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -493,7 +493,7 @@ export default function EventsPage() {
                 <div className="hidden md:flex flex-col items-center justify-center">
                   <div className="relative">
                     {/* Background decoration */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-accent-teal/20 to-accent-blue/20 rounded-full blur-3xl" />
+                    <div className="absolute inset-0 bg-accent/15 rounded-full blur-3xl" />
 
                     {/* Stats circle */}
                     <div className="relative w-64 h-64 rounded-full bg-surface-elevated border border-border flex flex-col items-center justify-center">
@@ -517,7 +517,7 @@ export default function EventsPage() {
                   {/* Expected attendance */}
                   <div className="mt-6 flex items-center gap-2 text-sm text-text-secondary">
                     <svg
-                      className="w-4 h-4 text-accent-teal-light"
+                      className="w-4 h-4 text-accent-light"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -550,7 +550,7 @@ export default function EventsPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12 sm:mb-16"
           >
-            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-4">
+            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Event Archive
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
@@ -575,9 +575,9 @@ export default function EventsPage() {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="group"
               >
-                <div className="relative overflow-hidden rounded-2xl bg-surface-elevated border border-border hover:border-accent-teal/30 transition-all duration-300 h-full">
+                <div className="relative overflow-hidden rounded-2xl bg-surface-elevated border border-border hover:border-accent/30 transition-all duration-300 h-full">
                   {/* Top visual section */}
-                  <div className="relative h-48 bg-gradient-to-br from-accent-teal/10 to-accent-blue/10 overflow-hidden">
+                  <div className="relative h-48 bg-accent/10 overflow-hidden">
                     {/* Pattern */}
                     <div className="absolute inset-0 opacity-10">
                       <svg
@@ -608,7 +608,7 @@ export default function EventsPage() {
                     </div>
 
                     {/* Completed badge */}
-                    <div className="absolute top-4 right-4 flex items-center gap-1.5 px-3 py-1 text-xs font-medium bg-accent-teal/20 backdrop-blur-sm rounded-full text-accent-teal-light">
+                    <div className="absolute top-4 right-4 flex items-center gap-1.5 px-3 py-1 text-xs font-medium bg-accent/20 backdrop-blur-sm rounded-full text-accent-light">
                       <svg
                         className="w-3.5 h-3.5"
                         fill="currentColor"
@@ -625,8 +625,8 @@ export default function EventsPage() {
 
                     {/* Center decorative element */}
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-24 h-24 rounded-full bg-accent-teal/20 flex items-center justify-center">
-                        <span className="text-4xl font-bold text-accent-teal-light">
+                      <div className="w-24 h-24 rounded-full bg-accent/20 flex items-center justify-center">
+                        <span className="text-4xl font-bold text-accent-light">
                           {event.attendees}
                         </span>
                       </div>
@@ -635,7 +635,7 @@ export default function EventsPage() {
 
                   {/* Content section */}
                   <div className="p-6">
-                    <p className="text-sm text-accent-teal-light font-medium mb-2">
+                    <p className="text-sm text-accent-light font-medium mb-2">
                       {event.date}
                     </p>
                     <h3 className="text-xl font-semibold text-text-primary mb-1">
@@ -699,7 +699,7 @@ export default function EventsPage() {
                       href={event.lumaUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-4 inline-flex items-center gap-1.5 text-sm text-accent-teal-light hover:underline"
+                      className="mt-4 inline-flex items-center gap-1.5 text-sm text-accent-light hover:underline"
                     >
                       View on Luma
                       <svg
@@ -754,7 +754,7 @@ export default function EventsPage() {
                   </div>
                   {idx < pastEvents.length - 1 && (
                     <svg
-                      className="w-6 h-6 text-accent-teal-light"
+                      className="w-6 h-6 text-accent-light"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -846,7 +846,7 @@ export default function EventsPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12 sm:mb-16"
           >
-            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-4">
+            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Our Philosophy
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
@@ -917,10 +917,10 @@ export default function EventsPage() {
             className="relative"
           >
             {/* Glow effect */}
-            <div className="absolute -inset-2 bg-gradient-to-r from-accent-teal/10 to-accent-blue/10 rounded-3xl blur-2xl opacity-50" />
+            <div className="absolute -inset-2 bg-accent/10 rounded-3xl blur-2xl" />
 
             {/* Card */}
-            <div className="relative overflow-hidden rounded-3xl p-8 sm:p-12 bg-surface-elevated/80 backdrop-blur-xl border border-border">
+            <div className="relative overflow-hidden rounded-3xl p-8 sm:p-12 bg-surface-elevated backdrop-blur-xl border border-border">
               {/* Grid pattern */}
               <div className="absolute inset-0 opacity-5">
                 <svg
@@ -957,9 +957,9 @@ export default function EventsPage() {
                 </p>
 
                 {isSubmitted ? (
-                  <div className="flex items-center justify-center gap-3 p-4 rounded-xl bg-accent-teal/10 border border-accent-teal/20 max-w-lg mx-auto">
+                  <div className="flex items-center justify-center gap-3 p-4 rounded-xl bg-accent/10 border border-accent/20 max-w-lg mx-auto">
                     <svg
-                      className="w-6 h-6 text-accent-teal"
+                      className="w-6 h-6 text-accent"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -969,7 +969,7 @@ export default function EventsPage() {
                         clipRule="evenodd"
                       />
                     </svg>
-                    <span className="text-accent-teal-light font-medium">
+                    <span className="text-accent-light font-medium">
                       You&apos;re in! We&apos;ll keep you posted on everything
                       happening in the Procedure community.
                     </span>
@@ -985,7 +985,7 @@ export default function EventsPage() {
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Enter your email"
                       required
-                      className="flex-grow px-5 py-4 rounded-xl bg-surface border border-border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent-teal/50 focus:ring-2 focus:ring-accent-teal/20 transition-all"
+                      className="flex-grow px-5 py-4 rounded-xl bg-surface border border-border text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/20 transition-all"
                     />
                     <button
                       type="submit"
@@ -1018,7 +1018,7 @@ export default function EventsPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12 sm:mb-16"
           >
-            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-4">
+            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Join Us
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
@@ -1042,8 +1042,8 @@ export default function EventsPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
               >
-                <div className="p-8 rounded-2xl bg-surface-elevated border border-border hover:border-accent-teal/30 transition-colors h-full flex flex-col">
-                  <div className="w-12 h-12 rounded-xl bg-accent-teal/10 border border-accent-teal/20 flex items-center justify-center text-accent-teal-light mb-5">
+                <div className="p-8 rounded-2xl bg-surface-elevated border border-border hover:border-accent/30 transition-colors h-full flex flex-col">
+                  <div className="w-12 h-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent-light mb-5">
                     {option.icon}
                   </div>
                   <h3 className="text-xl font-semibold text-text-primary mb-3">
@@ -1054,7 +1054,7 @@ export default function EventsPage() {
                   </p>
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-2 text-accent-teal-light font-medium hover:underline"
+                    className="inline-flex items-center gap-2 text-accent-light font-medium hover:underline"
                   >
                     {option.cta}
                     {option.ctaIcon}
@@ -1069,10 +1069,10 @@ export default function EventsPage() {
       {/* ============================================
           FINAL CTA SECTION
           ============================================ */}
-      <section className="relative py-16 sm:py-24 bg-surface overflow-hidden">
+      <section className="relative py-16 sm:py-24 bg-surface-elevated overflow-hidden">
         {/* Background elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent-teal/5 rounded-full blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/8 rounded-full blur-3xl" />
         </div>
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
@@ -1115,7 +1115,7 @@ export default function EventsPage() {
               </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-xl hover:border-accent-teal/30 hover:bg-accent-teal/5 transition-all duration-200"
+                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-xl hover:border-accent/30 hover:bg-accent/5 transition-all duration-200"
               >
                 Contact Us
                 <svg
@@ -1141,7 +1141,7 @@ export default function EventsPage() {
                 href="https://linkedin.com/company/procedure"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-text-muted hover:text-accent-teal-light transition-colors"
+                className="text-text-muted hover:text-accent-light transition-colors"
               >
                 <svg
                   className="w-5 h-5"
@@ -1155,7 +1155,7 @@ export default function EventsPage() {
                 href="https://twitter.com/ProcedureHQ"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-text-muted hover:text-accent-teal-light transition-colors"
+                className="text-text-muted hover:text-accent-light transition-colors"
               >
                 <svg
                   className="w-5 h-5"

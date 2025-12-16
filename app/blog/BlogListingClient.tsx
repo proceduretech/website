@@ -60,9 +60,9 @@ export function BlogListingClient({
         <section className="relative py-12 sm:py-16 bg-base">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
             <div className="flex items-center gap-3 mb-8">
-              <div className="w-8 h-8 rounded-lg bg-accent-teal/10 border border-accent-teal/20 flex items-center justify-center">
+              <div className="w-8 h-8 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center">
                 <svg
-                  className="w-4 h-4 text-accent-teal-light"
+                  className="w-4 h-4 text-accent-light"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -130,7 +130,7 @@ export function BlogListingClient({
           {/* Load More Button (placeholder for pagination) */}
           {filteredPosts.length > 9 && (
             <div className="mt-12 text-center">
-              <button className="inline-flex items-center gap-2 px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-xl hover:border-accent-teal hover:bg-accent-teal/10 transition-all duration-200">
+              <button className="inline-flex items-center gap-2 px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-xl hover:border-accent hover:bg-accent/10 transition-all duration-200">
                 Load More Articles
                 <svg
                   className="w-5 h-5"

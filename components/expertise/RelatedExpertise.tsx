@@ -65,15 +65,15 @@ export function RelatedExpertise({
             <motion.div key={page.slug} variants={cardVariants}>
               <Link
                 href={`/expertise/${page.slug}`}
-                className="block p-6 rounded-xl h-full bg-surface-elevated border border-border hover:border-accent-teal/30 group transition-colors"
+                className="block p-6 rounded-xl h-full bg-surface-elevated border border-border hover:border-accent/30 group transition-colors"
               >
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-teal/10 border border-accent-teal/20 mb-4">
-                  <span className="text-xs font-medium text-accent-teal-light">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 mb-4">
+                  <span className="text-xs font-medium text-accent-light">
                     {page.badge}
                   </span>
                 </div>
 
-                <h3 className="text-lg font-semibold text-text-primary mb-2 group-hover:text-accent-teal-light transition-colors">
+                <h3 className="text-lg font-semibold text-text-primary mb-2 group-hover:text-accent-light transition-colors">
                   {page.title}
                 </h3>
 
@@ -81,7 +81,7 @@ export function RelatedExpertise({
                   {page.description}
                 </p>
 
-                <div className="flex items-center text-sm text-accent-teal-light font-medium">
+                <div className="flex items-center text-sm text-accent-light font-medium">
                   Learn more
                   <svg
                     className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"

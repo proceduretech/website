@@ -41,7 +41,7 @@ export function Pre({
         {copied ? (
           <>
             <svg
-              className="w-3.5 h-3.5 text-green-400"
+              className="w-3.5 h-3.5 text-success"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -53,7 +53,7 @@ export function Pre({
                 d="M5 13l4 4L19 7"
               />
             </svg>
-            <span className="text-green-400">Copied!</span>
+            <span className="text-success">Copied!</span>
           </>
         ) : (
           <>

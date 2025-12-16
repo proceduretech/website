@@ -75,9 +75,9 @@ export function FeaturesBreakdown({
               className={cn(
                 "group relative p-6 rounded-2xl",
                 "bg-surface-elevated/50 backdrop-blur-sm",
-                "border border-border hover:border-accent-blue/30",
+                "border border-border hover:border-accent-secondary/30",
                 "transition-all duration-300",
-                "hover:shadow-lg hover:shadow-accent-blue/5",
+                "hover:shadow-lg hover:shadow-accent-secondary/5",
                 "hover:-translate-y-1",
               )}
             >
@@ -85,14 +85,14 @@ export function FeaturesBreakdown({
               <div
                 className={cn(
                   "w-12 h-12 rounded-xl mb-4",
-                  "bg-gradient-to-br from-accent-blue/20 to-accent-teal/20",
-                  "border border-accent-blue/20",
+                  "bg-gradient-to-br from-accent-secondary/20 to-accent/20",
+                  "border border-accent-secondary/20",
                   "flex items-center justify-center",
-                  "group-hover:border-accent-blue/40 group-hover:scale-105",
+                  "group-hover:border-accent-secondary/40 group-hover:scale-105",
                   "transition-all duration-300",
                 )}
               >
-                <div className="w-6 h-6 text-accent-blue-light">
+                <div className="w-6 h-6 text-accent-secondary-light">
                   {feature.icon}
                 </div>
               </div>
@@ -109,7 +109,7 @@ export function FeaturesBreakdown({
               <div
                 className={cn(
                   "absolute inset-0 rounded-2xl opacity-0",
-                  "bg-gradient-to-br from-accent-blue/5 to-transparent",
+                  "bg-gradient-to-br from-accent-secondary/5 to-transparent",
                   "group-hover:opacity-100 transition-opacity duration-300",
                   "pointer-events-none",
                 )}

@@ -71,7 +71,7 @@ export function TechStack({
             <motion.div
               key={index}
               variants={itemVariants}
-              className="flex flex-col items-center gap-2 p-4 rounded-xl bg-surface-elevated border border-border hover:border-accent-teal/30 transition-colors"
+              className="flex flex-col items-center gap-2 p-4 rounded-xl bg-surface-elevated border border-border hover:border-accent/30 transition-colors"
             >
               {/* Icon */}
               {tech.icon ? (
@@ -83,8 +83,8 @@ export function TechStack({
                   <TechIcon name={tech.name} size={28} />
                 </div>
               ) : (
-                <div className="h-10 w-10 rounded-lg bg-accent-teal/10 flex items-center justify-center">
-                  <span className="text-lg font-semibold text-accent-teal-light">
+                <div className="h-10 w-10 rounded-lg bg-accent/10 flex items-center justify-center">
+                  <span className="text-lg font-semibold text-accent-light">
                     {tech.name.charAt(0)}
                   </span>
                 </div>

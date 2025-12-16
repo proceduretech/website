@@ -89,7 +89,7 @@ export function BlogTableOfContents({ content }: BlogTableOfContentsProps) {
         {/* Progress bar */}
         <div className="h-1 bg-surface rounded-full mb-6 overflow-hidden">
           <div
-            className="h-full bg-accent-teal rounded-full transition-all duration-150"
+            className="h-full bg-accent rounded-full transition-all duration-150"
             style={{ width: `${readProgress}%` }}
           />
         </div>
@@ -109,7 +109,7 @@ export function BlogTableOfContents({ content }: BlogTableOfContentsProps) {
                 heading.level === 3 ? "pl-6" : "pl-4"
               } ${
                 activeId === heading.id
-                  ? "text-accent-teal-light border-accent-teal"
+                  ? "text-accent-light border-accent"
                   : "text-text-muted hover:text-text-primary border-border"
               }`}
             >

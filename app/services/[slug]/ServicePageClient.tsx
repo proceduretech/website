@@ -40,21 +40,21 @@ export default function ServicePageClient({ service }: Props) {
   // Determine accent color variant based on badge variant
   const isBlueVariant = hero.badgeVariant === "blue";
   const accentColorClasses = {
-    stat: isBlueVariant ? "text-accent-blue-light" : "text-accent-teal-light",
+    stat: isBlueVariant ? "text-accent-secondary-light" : "text-accent-light",
     statBg: isBlueVariant
-      ? "bg-accent-blue/10 border-accent-blue/20"
-      : "bg-accent-teal/10 border-accent-teal/20",
-    stepBg: isBlueVariant ? "bg-accent-blue/10" : "bg-accent-teal/10",
+      ? "bg-accent-secondary/10 border-accent-secondary/20"
+      : "bg-accent/10 border-accent/20",
+    stepBg: isBlueVariant ? "bg-accent-secondary/10" : "bg-accent/10",
     stepText: isBlueVariant
-      ? "text-accent-blue-light"
-      : "text-accent-teal-light",
+      ? "text-accent-secondary-light"
+      : "text-accent-light",
     durationBg: isBlueVariant
-      ? "bg-accent-blue/10 border-accent-blue/20 text-accent-blue-light"
-      : "bg-accent-teal/10 border-accent-teal/20 text-accent-teal-light",
-    checkBg: isBlueVariant ? "bg-accent-blue/20" : "bg-accent-teal/20",
+      ? "bg-accent-secondary/10 border-accent-secondary/20 text-accent-secondary-light"
+      : "bg-accent/10 border-accent/20 text-accent-light",
+    checkBg: isBlueVariant ? "bg-accent-secondary/20" : "bg-accent/20",
     checkText: isBlueVariant
-      ? "text-accent-blue-light"
-      : "text-accent-teal-light",
+      ? "text-accent-secondary-light"
+      : "text-accent-light",
   };
 
   return (
@@ -91,7 +91,7 @@ export default function ServicePageClient({ service }: Props) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="p-6 rounded-xl bg-surface-elevated border border-border hover:border-accent-teal/30 transition-colors"
+                className="p-6 rounded-xl bg-surface-elevated border border-border hover:border-accent/30 transition-colors"
               >
                 <div className="flex items-start gap-4 mb-4">
                   <div

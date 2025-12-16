@@ -99,13 +99,13 @@ export function getCategoryColor(color: BlogCategory["color"]): {
 } {
   const colors = {
     teal: {
-      bg: "bg-accent-teal/60",
-      border: "border-accent-teal/50",
+      bg: "bg-accent/60",
+      border: "border-accent/50",
       text: "text-white",
     },
     blue: {
-      bg: "bg-accent-blue/60",
-      border: "border-accent-blue/50",
+      bg: "bg-accent-secondary/60",
+      border: "border-accent-secondary/50",
       text: "text-white",
     },
     default: {

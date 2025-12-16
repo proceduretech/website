@@ -73,11 +73,11 @@ export function CapabilitiesGrid({
             <motion.div
               key={index}
               variants={cardVariants}
-              className="group p-6 rounded-xl bg-surface-elevated border border-border hover:border-accent-teal/30 transition-colors"
+              className="group p-6 rounded-xl bg-surface-elevated border border-border hover:border-accent/30 transition-colors"
             >
               {/* Icon container */}
-              <div className="w-12 h-12 rounded-lg bg-accent-teal/10 flex items-center justify-center mb-4">
-                <div className="w-6 h-6 text-accent-teal-light">
+              <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
+                <div className="w-6 h-6 text-accent-light">
                   {capability.icon}
                 </div>
               </div>

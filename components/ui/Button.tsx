@@ -26,7 +26,7 @@ export function Button({
     primary:
       "bg-cta text-cta-text hover:brightness-110 border border-transparent shadow-lg shadow-cta/25",
     outline:
-      "bg-transparent text-text-primary border border-border hover:border-accent-teal hover:text-accent-teal-light",
+      "bg-transparent text-text-primary border border-border hover:border-accent hover:text-accent-light",
     ghost:
       "bg-transparent text-text-secondary hover:bg-surface-elevated hover:text-text-primary",
   };

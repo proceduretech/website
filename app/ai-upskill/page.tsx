@@ -130,9 +130,9 @@ export default function AIUpskillPage() {
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-surface via-base to-base" />
-          <div className="absolute top-20 right-1/4 w-[600px] h-[600px] bg-accent-teal/8 rounded-full blur-[120px] animate-pulse" />
-          <div className="absolute top-40 left-1/4 w-[500px] h-[500px] bg-accent-blue/6 rounded-full blur-[100px]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-accent-teal/5 via-transparent to-transparent" />
+          <div className="absolute top-20 right-1/4 w-[600px] h-[600px] bg-accent/8 rounded-full blur-[120px] animate-pulse" />
+          <div className="absolute top-40 left-1/4 w-[500px] h-[500px] bg-accent-secondary/6 rounded-full blur-[100px]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-accent/5 via-transparent to-transparent" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
@@ -142,10 +142,10 @@ export default function AIUpskillPage() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-teal/10 border border-accent-teal/20 mb-6"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 mb-6"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-accent-teal-light animate-pulse" />
-              <span className="text-sm font-medium text-accent-teal-light">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent-light animate-pulse" />
+              <span className="text-sm font-medium text-accent-light">
                 Cohort Starting Q2 2025
               </span>
             </motion.div>
@@ -182,10 +182,10 @@ export default function AIUpskillPage() {
               transition={{ duration: 0.6, delay: 0.35 }}
               className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-amber-500/15 border border-amber-400/30 mb-10"
             >
-              <span className="text-amber-400 text-xl">i</span>
-              <span className="text-sm text-white/90">
+              <span className="text-warning text-xl">i</span>
+              <span className="text-sm text-text-primary">
                 This is an{" "}
-                <strong className="text-amber-400">internal program</strong> for
+                <strong className="text-warning">internal program</strong> for
                 Procedure team members. All API costs covered by Procedure.
               </span>
             </motion.div>
@@ -240,7 +240,7 @@ export default function AIUpskillPage() {
               </a>
               <a
                 href="#curriculum"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-surface-elevated border border-border text-text-primary font-semibold rounded-xl hover:border-accent-teal/30 transition-all"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-surface-elevated border border-border text-text-primary font-semibold rounded-xl hover:border-accent/30 transition-all"
               >
                 View Curriculum
               </a>
@@ -261,7 +261,7 @@ export default function AIUpskillPage() {
           >
             <motion.span
               variants={fadeInUp}
-              className="inline-block text-sm font-medium text-accent-teal-light uppercase tracking-wider mb-4"
+              className="inline-block text-sm font-medium text-accent-light uppercase tracking-wider mb-4"
             >
               The Bootcamp
             </motion.span>
@@ -312,9 +312,9 @@ export default function AIUpskillPage() {
               <motion.div
                 key={idx}
                 variants={fadeInUp}
-                className="group relative p-6 rounded-2xl bg-base border border-border hover:border-accent-teal/30 transition-all duration-300"
+                className="group relative p-6 rounded-2xl bg-base border border-border hover:border-accent/30 transition-all duration-300"
               >
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent-teal/5 to-accent-blue/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent/5 to-accent-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="relative">
                   <span className="text-3xl mb-4 block">{item.icon}</span>
                   <p className="text-text-secondary text-sm leading-relaxed">
@@ -339,7 +339,7 @@ export default function AIUpskillPage() {
             >
               <motion.span
                 variants={fadeInUp}
-                className="inline-block text-sm font-medium text-accent-teal-light uppercase tracking-wider mb-4"
+                className="inline-block text-sm font-medium text-accent-light uppercase tracking-wider mb-4"
               >
                 Our Vision
               </motion.span>
@@ -391,8 +391,8 @@ export default function AIUpskillPage() {
                 <ul className="space-y-4">
                   {outcomes.map((outcome, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <span className="flex-shrink-0 w-6 h-6 rounded-full bg-accent-teal/20 flex items-center justify-center mt-0.5">
-                        <span className="text-accent-teal-light text-sm font-bold">
+                      <span className="flex-shrink-0 w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center mt-0.5">
+                        <span className="text-accent-light text-sm font-bold">
                           {idx + 1}
                         </span>
                       </span>
@@ -418,7 +418,7 @@ export default function AIUpskillPage() {
           >
             <motion.span
               variants={fadeInUp}
-              className="inline-block text-sm font-medium text-accent-teal-light uppercase tracking-wider mb-4"
+              className="inline-block text-sm font-medium text-accent-light uppercase tracking-wider mb-4"
             >
               Curriculum
             </motion.span>
@@ -452,7 +452,7 @@ export default function AIUpskillPage() {
               className="bg-base rounded-2xl border border-border p-6"
             >
               <h4 className="text-lg font-bold text-text-primary mb-4 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-accent-teal" />
+                <span className="w-2 h-2 rounded-full bg-accent" />
                 AI Fundamentals
               </h4>
               <ul className="space-y-3">
@@ -462,7 +462,7 @@ export default function AIUpskillPage() {
                     className="text-text-secondary text-sm flex items-center gap-2"
                   >
                     <svg
-                      className="w-4 h-4 text-accent-teal-light flex-shrink-0"
+                      className="w-4 h-4 text-accent-light flex-shrink-0"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -485,7 +485,7 @@ export default function AIUpskillPage() {
               className="bg-base rounded-2xl border border-border p-6"
             >
               <h4 className="text-lg font-bold text-text-primary mb-4 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-accent-blue" />
+                <span className="w-2 h-2 rounded-full bg-accent-secondary" />
                 Building & Integration
               </h4>
               <ul className="space-y-3">
@@ -495,7 +495,7 @@ export default function AIUpskillPage() {
                     className="text-text-secondary text-sm flex items-center gap-2"
                   >
                     <svg
-                      className="w-4 h-4 text-accent-teal-light flex-shrink-0"
+                      className="w-4 h-4 text-accent-light flex-shrink-0"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -528,7 +528,7 @@ export default function AIUpskillPage() {
                     className="text-text-secondary text-sm flex items-center gap-2"
                   >
                     <svg
-                      className="w-4 h-4 text-accent-teal-light flex-shrink-0"
+                      className="w-4 h-4 text-accent-light flex-shrink-0"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -561,7 +561,7 @@ export default function AIUpskillPage() {
                     className="text-text-secondary text-sm flex items-center gap-2"
                   >
                     <svg
-                      className="w-4 h-4 text-accent-teal-light flex-shrink-0"
+                      className="w-4 h-4 text-accent-light flex-shrink-0"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -614,9 +614,9 @@ export default function AIUpskillPage() {
                     key={idx}
                     className="flex items-start gap-3 p-4 rounded-xl bg-surface-elevated border border-border"
                   >
-                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-accent-teal/20 flex items-center justify-center">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center">
                       <svg
-                        className="w-4 h-4 text-accent-teal-light"
+                        className="w-4 h-4 text-accent-light"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -644,7 +644,7 @@ export default function AIUpskillPage() {
             >
               <motion.span
                 variants={fadeInUp}
-                className="inline-block text-sm font-medium text-accent-teal-light uppercase tracking-wider mb-4"
+                className="inline-block text-sm font-medium text-accent-light uppercase tracking-wider mb-4"
               >
                 Is This For You?
               </motion.span>
@@ -664,9 +664,9 @@ export default function AIUpskillPage() {
               </motion.p>
               <motion.div
                 variants={fadeInUp}
-                className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-accent-blue/10 border border-accent-blue/20"
+                className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-accent-secondary/10 border border-accent-secondary/20"
               >
-                <span className="text-accent-blue text-xl">!</span>
+                <span className="text-accent-secondary text-xl">!</span>
                 <span className="text-sm text-text-secondary">
                   This cohort demands{" "}
                   <strong className="text-text-primary">
@@ -692,7 +692,7 @@ export default function AIUpskillPage() {
           >
             <motion.span
               variants={fadeInUp}
-              className="inline-block text-sm font-medium text-accent-teal-light uppercase tracking-wider mb-4"
+              className="inline-block text-sm font-medium text-accent-light uppercase tracking-wider mb-4"
             >
               Your Mentors
             </motion.span>
@@ -713,12 +713,12 @@ export default function AIUpskillPage() {
               className="bg-base rounded-2xl border border-border p-8"
             >
               <div className="flex items-start gap-4 mb-6">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent-teal to-accent-blue flex items-center justify-center flex-shrink-0">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent to-accent-secondary flex items-center justify-center flex-shrink-0">
                   <span className="text-2xl font-bold text-white">U</span>
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-text-primary">Ulhas</h3>
-                  <p className="text-accent-teal-light">
+                  <p className="text-accent-light">
                     Lead Instructor & CTO
                   </p>
                 </div>
@@ -741,14 +741,14 @@ export default function AIUpskillPage() {
               className="bg-base rounded-2xl border border-border p-8"
             >
               <div className="flex items-start gap-4 mb-6">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-accent-blue flex items-center justify-center flex-shrink-0">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-accent-secondary flex items-center justify-center flex-shrink-0">
                   <span className="text-2xl">🤖</span>
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-text-primary">
                     AI Engineering Team
                   </h3>
-                  <p className="text-accent-teal-light">
+                  <p className="text-accent-light">
                     RAG, Agents, MLOps & More
                   </p>
                 </div>
@@ -774,7 +774,7 @@ export default function AIUpskillPage() {
                 day. This bootcamp is how we scale that knowledge across the
                 entire organization.&rdquo;
               </p>
-              <p className="text-accent-teal-light font-semibold">
+              <p className="text-accent-light font-semibold">
                 Learn from engineers who&apos;ve shipped AI to production.
               </p>
             </div>
@@ -794,7 +794,7 @@ export default function AIUpskillPage() {
           >
             <motion.span
               variants={fadeInUp}
-              className="inline-block text-sm font-medium text-accent-teal-light uppercase tracking-wider mb-4"
+              className="inline-block text-sm font-medium text-accent-light uppercase tracking-wider mb-4"
             >
               How It Works
             </motion.span>
@@ -826,10 +826,10 @@ export default function AIUpskillPage() {
                 variants={fadeInUp}
                 className="relative group"
               >
-                <div className="bg-surface-elevated rounded-2xl border border-border p-8 h-full hover:border-accent-teal/30 transition-all">
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent-teal/5 to-accent-blue/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="bg-surface-elevated rounded-2xl border border-border p-8 h-full hover:border-accent/30 transition-all">
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent/5 to-accent-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="relative">
-                    <span className="text-5xl font-bold text-accent-teal/20">
+                    <span className="text-5xl font-bold text-accent/20">
                       {step.step}
                     </span>
                     <h3 className="text-xl font-bold text-text-primary mt-4 mb-2">
@@ -904,7 +904,7 @@ export default function AIUpskillPage() {
           >
             <motion.span
               variants={fadeInUp}
-              className="inline-block text-sm font-medium text-accent-teal-light uppercase tracking-wider mb-4"
+              className="inline-block text-sm font-medium text-accent-light uppercase tracking-wider mb-4"
             >
               FAQs
             </motion.span>
@@ -966,7 +966,7 @@ export default function AIUpskillPage() {
       {/* Final CTA Section */}
       <section className="relative py-20 sm:py-24 bg-base overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent-teal/5 rounded-full blur-[150px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[150px]" />
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
@@ -1009,7 +1009,7 @@ export default function AIUpskillPage() {
               </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-surface-elevated border border-border text-text-primary font-semibold rounded-xl hover:border-accent-teal/30 transition-all"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-surface-elevated border border-border text-text-primary font-semibold rounded-xl hover:border-accent/30 transition-all"
               >
                 Have Questions?
               </Link>
@@ -1023,7 +1023,7 @@ export default function AIUpskillPage() {
                   href="https://www.linkedin.com/company/procedure"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-surface-elevated border border-border flex items-center justify-center text-text-muted hover:text-accent-teal-light hover:border-accent-teal/30 transition-colors"
+                  className="w-10 h-10 rounded-full bg-surface-elevated border border-border flex items-center justify-center text-text-muted hover:text-accent-light hover:border-accent/30 transition-colors"
                   aria-label="LinkedIn"
                 >
                   <svg
@@ -1038,7 +1038,7 @@ export default function AIUpskillPage() {
                   href="https://twitter.com/procedure_tech"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-surface-elevated border border-border flex items-center justify-center text-text-muted hover:text-accent-teal-light hover:border-accent-teal/30 transition-colors"
+                  className="w-10 h-10 rounded-full bg-surface-elevated border border-border flex items-center justify-center text-text-muted hover:text-accent-light hover:border-accent/30 transition-colors"
                   aria-label="Twitter"
                 >
                   <svg
@@ -1053,7 +1053,7 @@ export default function AIUpskillPage() {
                   href="https://www.instagram.com/procedure.tech"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-surface-elevated border border-border flex items-center justify-center text-text-muted hover:text-accent-teal-light hover:border-accent-teal/30 transition-colors"
+                  className="w-10 h-10 rounded-full bg-surface-elevated border border-border flex items-center justify-center text-text-muted hover:text-accent-light hover:border-accent/30 transition-colors"
                   aria-label="Instagram"
                 >
                   <svg

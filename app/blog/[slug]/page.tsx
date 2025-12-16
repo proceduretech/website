@@ -139,8 +139,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-surface via-base to-base" />
-          <div className="absolute top-20 right-1/4 w-[500px] h-[500px] bg-accent-teal/6 rounded-full blur-[100px]" />
-          <div className="absolute top-40 left-1/4 w-[400px] h-[400px] bg-accent-blue/5 rounded-full blur-[80px]" />
+          <div className="absolute top-20 right-1/4 w-[500px] h-[500px] bg-accent/6 rounded-full blur-[100px]" />
+          <div className="absolute top-40 left-1/4 w-[400px] h-[400px] bg-accent-secondary/5 rounded-full blur-[80px]" />
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
@@ -148,14 +148,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <nav className="flex items-center gap-2 text-sm text-text-muted mb-6">
             <Link
               href="/blog"
-              className="hover:text-accent-teal-light transition-colors"
+              className="hover:text-accent-light transition-colors"
             >
               Blog
             </Link>
             <span>/</span>
             <Link
               href={`/blog?category=${frontmatter.category.slug}`}
-              className="hover:text-accent-teal-light transition-colors"
+              className="hover:text-accent-light transition-colors"
             >
               {frontmatter.category.name}
             </Link>
@@ -177,7 +177,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div className="flex flex-wrap items-center gap-4 mb-8">
             {/* Author */}
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent-teal to-accent-blue flex items-center justify-center flex-shrink-0">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent to-accent-secondary flex items-center justify-center flex-shrink-0">
                 <span className="text-sm font-bold text-white">
                   {frontmatter.author.name.charAt(0)}
                 </span>
@@ -233,7 +233,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               />
             </div>
           ) : (
-            <div className="relative w-full aspect-[21/9] rounded-2xl overflow-hidden bg-gradient-to-br from-accent-teal/20 to-accent-blue/20">
+            <div className="relative w-full aspect-[21/9] rounded-2xl overflow-hidden bg-gradient-to-br from-accent/20 to-accent-secondary/20">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-20 h-20 rounded-2xl bg-surface-elevated/50 backdrop-blur border border-border flex items-center justify-center">
                   <svg

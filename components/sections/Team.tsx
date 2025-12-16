@@ -155,8 +155,8 @@ export function Team() {
       />
 
       {/* Accent glow orbs */}
-      <div className="absolute -top-32 -right-32 w-96 h-96 bg-accent-teal/5 rounded-full blur-3xl" />
-      <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-accent-blue/5 rounded-full blur-3xl" />
+      <div className="absolute -top-32 -right-32 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+      <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-accent-secondary/5 rounded-full blur-3xl" />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
@@ -167,7 +167,7 @@ export function Team() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 sm:mb-16"
         >
-          <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-3 sm:mb-4">
+          <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-3 sm:mb-4">
             Our Team
           </p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
@@ -189,17 +189,17 @@ export function Team() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="group relative bg-surface-elevated rounded-2xl overflow-hidden border border-border hover:border-accent-teal/50 transition-all duration-300"
+              className="group relative bg-surface-elevated rounded-2xl overflow-hidden border border-border hover:border-accent/50 transition-all duration-300"
             >
               {/* Gradient top border accent */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent-teal to-accent-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent to-accent-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
               <div className="p-6 sm:p-8">
                 {/* Top row: Photo + Basic Info */}
                 <div className="flex gap-5 sm:gap-6 mb-5">
                   {/* Photo container */}
                   <div className="relative flex-shrink-0">
-                    <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden ring-2 ring-border group-hover:ring-accent-teal/30 transition-all duration-300">
+                    <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden ring-2 ring-border group-hover:ring-accent/30 transition-all duration-300">
                       <Image
                         src={member.image}
                         alt={member.name}
@@ -214,7 +214,7 @@ export function Team() {
                         href={member.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="absolute -bottom-2 -right-2 w-8 h-8 bg-surface border border-border rounded-lg flex items-center justify-center text-text-muted hover:text-accent-teal-light hover:border-accent-teal/50 transition-all duration-200"
+                        className="absolute -bottom-2 -right-2 w-8 h-8 bg-surface border border-border rounded-lg flex items-center justify-center text-text-muted hover:text-accent-light hover:border-accent/50 transition-all duration-200"
                         aria-label={`${member.name} on LinkedIn`}
                       >
                         <svg
@@ -230,10 +230,10 @@ export function Team() {
 
                   {/* Name, Title, Credentials */}
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-lg sm:text-xl font-semibold text-text-primary group-hover:text-accent-teal-light transition-colors">
+                    <h3 className="text-lg sm:text-xl font-semibold text-text-primary group-hover:text-accent-light transition-colors">
                       {member.name}
                     </h3>
-                    <p className="text-accent-teal-light font-medium text-sm mb-2">
+                    <p className="text-accent-light font-medium text-sm mb-2">
                       {member.title}
                     </p>
                     {/* Credential badges */}
@@ -257,7 +257,7 @@ export function Team() {
 
                 {/* Notable achievement */}
                 {member.notable && (
-                  <p className="text-xs text-accent-teal-light italic mb-5">
+                  <p className="text-xs text-accent-light italic mb-5">
                     {member.notable}
                   </p>
                 )}
@@ -267,7 +267,7 @@ export function Team() {
                   {member.expertise?.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1 text-xs font-medium text-accent-teal-light bg-accent-teal/10 border border-accent-teal/20 rounded-full"
+                      className="px-3 py-1 text-xs font-medium text-accent-light bg-accent/10 border border-accent/20 rounded-full"
                     >
                       {skill}
                     </span>
@@ -287,10 +287,10 @@ export function Team() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.08 }}
-              className="group relative bg-surface-elevated rounded-xl p-5 sm:p-6 border border-border hover:border-accent-teal/50 transition-all duration-300 text-center"
+              className="group relative bg-surface-elevated rounded-xl p-5 sm:p-6 border border-border hover:border-accent/50 transition-all duration-300 text-center"
             >
               {/* Photo */}
-              <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 rounded-xl overflow-hidden ring-2 ring-border group-hover:ring-accent-teal/30 transition-all duration-300">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 rounded-xl overflow-hidden ring-2 ring-border group-hover:ring-accent/30 transition-all duration-300">
                 <Image
                   src={member.image}
                   alt={member.name}
@@ -301,7 +301,7 @@ export function Team() {
               </div>
 
               {/* Name */}
-              <h4 className="text-base font-semibold text-text-primary group-hover:text-accent-teal-light transition-colors mb-1">
+              <h4 className="text-base font-semibold text-text-primary group-hover:text-accent-light transition-colors mb-1">
                 {member.name}
               </h4>
 
@@ -326,7 +326,7 @@ export function Team() {
                   href={member.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="absolute top-4 right-4 text-text-muted hover:text-accent-teal-light transition-colors opacity-0 group-hover:opacity-100"
+                  className="absolute top-4 right-4 text-text-muted hover:text-accent-light transition-colors opacity-0 group-hover:opacity-100"
                   aria-label={`${member.name} on LinkedIn`}
                 >
                   <svg
@@ -353,7 +353,7 @@ export function Team() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
             {values.map((value) => (
               <div key={value.title} className="text-center">
-                <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-accent-teal/10 border border-accent-teal/20 flex items-center justify-center text-accent-teal-light">
+                <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent-light">
                   {value.icon}
                 </div>
                 <h4 className="text-sm font-semibold text-text-primary mb-1">

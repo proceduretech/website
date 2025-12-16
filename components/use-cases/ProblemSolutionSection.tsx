@@ -56,10 +56,10 @@ export function ProblemSolutionSection({
             variants={containerVariants}
             className={cn(
               "p-6 sm:p-8 rounded-2xl",
-              "bg-red-500/5 border border-red-500/20",
+              "bg-error/5 border border-error/20",
             )}
           >
-            <div className="flex items-center gap-2 text-sm font-medium text-red-400 mb-6">
+            <div className="flex items-center gap-2 text-sm font-medium text-error mb-6">
               <svg
                 className="w-5 h-5"
                 fill="none"
@@ -84,7 +84,7 @@ export function ProblemSolutionSection({
                 >
                   <div className="flex-shrink-0 w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5">
                     <svg
-                      className="w-3 h-3 text-red-400"
+                      className="w-3 h-3 text-error"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -111,10 +111,10 @@ export function ProblemSolutionSection({
             variants={containerVariants}
             className={cn(
               "p-6 sm:p-8 rounded-2xl",
-              "bg-accent-teal/5 border border-accent-teal/20",
+              "bg-accent/5 border border-accent/20",
             )}
           >
-            <div className="flex items-center gap-2 text-sm font-medium text-accent-teal-light mb-6">
+            <div className="flex items-center gap-2 text-sm font-medium text-accent-light mb-6">
               <svg
                 className="w-5 h-5"
                 fill="none"
@@ -137,9 +137,9 @@ export function ProblemSolutionSection({
                   variants={itemVariants}
                   className="flex items-start gap-3"
                 >
-                  <div className="flex-shrink-0 w-5 h-5 rounded-full bg-accent-teal/20 flex items-center justify-center mt-0.5">
+                  <div className="flex-shrink-0 w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center mt-0.5">
                     <svg
-                      className="w-3 h-3 text-accent-teal-light"
+                      className="w-3 h-3 text-accent-light"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"

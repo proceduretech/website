@@ -70,19 +70,19 @@ export function ChallengesSection({
               className={cn(
                 "p-6 rounded-2xl",
                 "bg-surface-elevated/30 border border-border",
-                "group hover:border-red-500/20 transition-all duration-300",
+                "group hover:border-error/20 transition-all duration-300",
               )}
             >
               {/* Icon container */}
               <div
                 className={cn(
                   "w-12 h-12 rounded-xl mb-4",
-                  "bg-red-500/10 border border-red-500/20",
+                  "bg-error/10 border border-error/20",
                   "flex items-center justify-center",
-                  "group-hover:border-red-500/30 transition-colors",
+                  "group-hover:border-error/30 transition-colors",
                 )}
               >
-                <div className="w-6 h-6 text-red-400">{challenge.icon}</div>
+                <div className="w-6 h-6 text-error">{challenge.icon}</div>
               </div>
 
               {/* Content */}

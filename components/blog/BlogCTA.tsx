@@ -45,7 +45,7 @@ export function BlogCTA() {
             </CalButton>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-xl hover:border-accent-teal hover:bg-accent-teal/10 transition-all duration-200"
+              className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-xl hover:border-accent hover:bg-accent/10 transition-all duration-200"
             >
               Contact Us
             </Link>
@@ -55,7 +55,7 @@ export function BlogCTA() {
           <div className="mt-12 flex flex-wrap items-center justify-center gap-6">
             <div className="flex items-center gap-2 text-xs text-text-muted">
               <svg
-                className="w-4 h-4 text-accent-teal"
+                className="w-4 h-4 text-accent"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -70,7 +70,7 @@ export function BlogCTA() {
             <div className="w-1 h-1 rounded-full bg-border" />
             <div className="flex items-center gap-2 text-xs text-text-muted">
               <svg
-                className="w-4 h-4 text-accent-teal"
+                className="w-4 h-4 text-accent"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -85,7 +85,7 @@ export function BlogCTA() {
             <div className="w-1 h-1 rounded-full bg-border" />
             <div className="flex items-center gap-2 text-xs text-text-muted">
               <svg
-                className="w-4 h-4 text-accent-teal"
+                className="w-4 h-4 text-accent"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >

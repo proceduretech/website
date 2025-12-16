@@ -61,7 +61,7 @@ export function Testimonials() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-medium text-accent-teal-light uppercase tracking-wider mb-4">
+          <p className="text-sm font-medium text-accent-light uppercase tracking-wider mb-4">
             Testimonials
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary">
@@ -73,7 +73,7 @@ export function Testimonials() {
         <div className="relative">
           {/* Quote mark */}
           <svg
-            className="absolute -top-4 -left-2 sm:-left-8 w-16 h-16 text-accent-teal/10"
+            className="absolute -top-4 -left-2 sm:-left-8 w-16 h-16 text-accent/10"
             fill="currentColor"
             viewBox="0 0 24 24"
           >
@@ -126,7 +126,7 @@ export function Testimonials() {
               onClick={() => setCurrentIndex(idx)}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
                 idx === currentIndex
-                  ? "bg-accent-teal-light w-8"
+                  ? "bg-accent-light w-8"
                   : "bg-border hover:bg-slate-600"
               }`}
               aria-label={`Go to testimonial ${idx + 1}`}

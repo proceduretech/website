@@ -47,8 +47,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
               outline-none
               ${
                 error
-                  ? "border-red-500/50 focus:border-red-500 focus:ring-2 focus:ring-red-500/20"
-                  : "border-border hover:border-border-light focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/20"
+                  ? "border-error/50 focus:border-error focus:ring-2 focus:ring-error/20"
+                  : "border-border hover:border-border-light focus:border-accent focus:ring-2 focus:ring-accent/20"
               }
               disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:border-border
             `}
@@ -67,16 +67,16 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
               }
               ${
                 error
-                  ? "text-red-400"
+                  ? "text-error"
                   : isFocused
-                    ? "text-accent-teal-light"
+                    ? "text-accent-light"
                     : "text-text-muted"
               }
             `}
           >
             {label}
             {props.required && (
-              <span className="text-accent-teal-light ml-0.5">*</span>
+              <span className="text-accent-light ml-0.5">*</span>
             )}
           </label>
         </div>
@@ -94,7 +94,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -4 }}
               transition={{ duration: 0.15 }}
-              className="mt-1.5 text-xs text-red-400 flex items-center gap-1"
+              className="mt-1.5 text-xs text-error flex items-center gap-1"
             >
               <svg
                 className="w-3.5 h-3.5"

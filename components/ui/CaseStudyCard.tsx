@@ -28,7 +28,7 @@ export function CaseStudyCard({
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="group"
     >
-      <div className="h-full flex flex-col bg-surface-elevated border border-border rounded-2xl overflow-hidden hover:border-accent-teal/30 transition-colors">
+      <div className="h-full flex flex-col bg-surface-elevated border border-border rounded-2xl overflow-hidden hover:border-accent/30 transition-colors">
         {/* Case study image */}
         <div
           className={`relative overflow-hidden ${isCompact ? "h-40" : "h-48"}`}
@@ -50,8 +50,8 @@ export function CaseStudyCard({
           <span
             className={`absolute top-4 right-4 px-2.5 py-1 text-xs font-medium rounded-full border backdrop-blur ${
               study.serviceType === "AI Engineering"
-                ? "text-white bg-accent-teal/60 border-accent-teal/50"
-                : "text-white bg-accent-blue/60 border-accent-blue/50"
+                ? "text-white bg-accent/60 border-accent/50"
+                : "text-white bg-accent-secondary/60 border-accent-secondary/50"
             }`}
           >
             {study.serviceType}
@@ -63,7 +63,7 @@ export function CaseStudyCard({
           className={`flex-1 flex flex-col ${isCompact ? "p-5 sm:p-6" : "p-6"}`}
         >
           <h3
-            className={`font-semibold text-text-primary leading-snug group-hover:text-accent-teal-light transition-colors ${
+            className={`font-semibold text-text-primary leading-snug group-hover:text-accent-light transition-colors ${
               isCompact
                 ? "text-base sm:text-lg mb-2 line-clamp-2"
                 : "text-lg mb-3"
@@ -94,11 +94,11 @@ export function CaseStudyCard({
                   className={`font-bold ${isCompact ? "text-base" : "text-lg"} ${
                     isCompact
                       ? i === 0
-                        ? "text-accent-teal-light"
+                        ? "text-accent-light"
                         : i === 1
-                          ? "text-accent-blue-light"
+                          ? "text-accent-secondary-light"
                           : "text-text-primary"
-                      : "text-accent-teal-light"
+                      : "text-accent-light"
                   }`}
                 >
                   {metric.value}
@@ -132,10 +132,10 @@ export function CaseStudyCard({
           {showReadMore && (
             <Link
               href="/case-studies"
-              className="inline-flex items-center gap-2 text-accent-teal-light font-medium text-sm mt-4 group-hover:gap-3 transition-all"
+              className="inline-flex items-center gap-2 text-accent-light font-medium text-sm mt-4 group-hover:gap-3 transition-all"
             >
               Read case study
-              <span className="w-5 h-px bg-accent-teal-light group-hover:w-7 transition-all" />
+              <span className="w-5 h-px bg-accent-light group-hover:w-7 transition-all" />
             </Link>
           )}
         </div>

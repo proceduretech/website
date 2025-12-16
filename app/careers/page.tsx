@@ -343,7 +343,7 @@ export default function CareersPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12 sm:mb-16"
           >
-            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-4">
+            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Why Join Procedure
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
@@ -368,10 +368,10 @@ export default function CareersPage() {
                 className="group relative"
               >
                 {/* Card glow effect */}
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-accent-teal/20 to-accent-blue/20 rounded-2xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/20 to-accent-secondary/20 rounded-2xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
 
-                <div className="relative p-6 rounded-2xl bg-surface-elevated border border-border group-hover:border-accent-teal/30 transition-all duration-300 h-full">
-                  <div className="w-12 h-12 rounded-xl bg-accent-teal/10 border border-accent-teal/20 flex items-center justify-center text-accent-teal-light mb-4">
+                <div className="relative p-6 rounded-2xl bg-surface-elevated border border-border group-hover:border-accent/30 transition-all duration-300 h-full">
+                  <div className="w-12 h-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent-light mb-4">
                     {benefit.icon}
                   </div>
                   <h3 className="text-lg font-semibold text-text-primary mb-2">
@@ -407,7 +407,7 @@ export default function CareersPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12 sm:mb-16"
           >
-            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-4">
+            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Our Engineering Culture
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
@@ -432,11 +432,11 @@ export default function CareersPage() {
                 className="group relative"
               >
                 {/* Card glow effect */}
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-accent-teal/20 to-accent-blue/20 rounded-2xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/20 to-accent-secondary/20 rounded-2xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
 
-                <div className="relative p-8 rounded-2xl bg-surface-elevated border border-border group-hover:border-accent-teal/30 transition-all duration-300">
+                <div className="relative p-8 rounded-2xl bg-surface-elevated border border-border group-hover:border-accent/30 transition-all duration-300">
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent-teal to-accent-blue flex items-center justify-center text-white font-bold text-lg shrink-0">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent to-accent-secondary flex items-center justify-center text-white font-bold text-lg shrink-0">
                       {idx + 1}
                     </div>
                     <div>
@@ -478,7 +478,7 @@ export default function CareersPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-10 sm:mb-12"
           >
-            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-4">
+            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Current Openings
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
@@ -505,8 +505,8 @@ export default function CareersPage() {
                 onClick={() => setSelectedDepartment(dept)}
                 className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
                   selectedDepartment === dept
-                    ? "bg-accent-teal text-white"
-                    : "bg-surface-elevated text-text-secondary border border-border hover:border-accent-teal/50 hover:text-text-primary"
+                    ? "bg-accent text-white"
+                    : "bg-surface-elevated text-text-secondary border border-border hover:border-accent/50 hover:text-text-primary"
                 }`}
               >
                 {dept}
@@ -528,8 +528,8 @@ export default function CareersPage() {
                 <div
                   className={`relative rounded-2xl bg-surface-elevated border transition-all duration-300 overflow-hidden ${
                     expandedJob === job.id
-                      ? "border-accent-teal/50"
-                      : "border-border hover:border-accent-teal/30"
+                      ? "border-accent/50"
+                      : "border-border hover:border-accent/30"
                   }`}
                 >
                   {/* Job Header - Always Visible */}
@@ -542,12 +542,12 @@ export default function CareersPage() {
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                       <div className="flex-grow">
                         {/* Department badge */}
-                        <span className="inline-block px-3 py-1 text-xs font-semibold text-accent-teal-light bg-accent-teal/10 border border-accent-teal/20 rounded-full mb-3">
+                        <span className="inline-block px-3 py-1 text-xs font-semibold text-accent-light bg-accent/10 border border-accent/20 rounded-full mb-3">
                           {job.department}
                         </span>
 
                         {/* Job title */}
-                        <h3 className="text-xl font-semibold text-text-primary mb-2 group-hover:text-accent-teal-light transition-colors">
+                        <h3 className="text-xl font-semibold text-text-primary mb-2 group-hover:text-accent-light transition-colors">
                           {job.title}
                         </h3>
 
@@ -616,7 +616,7 @@ export default function CareersPage() {
                         <motion.div
                           animate={{ rotate: expandedJob === job.id ? 180 : 0 }}
                           transition={{ duration: 0.2 }}
-                          className="w-10 h-10 rounded-full bg-surface border border-border flex items-center justify-center text-text-muted group-hover:border-accent-teal/50 group-hover:text-accent-teal-light transition-colors"
+                          className="w-10 h-10 rounded-full bg-surface border border-border flex items-center justify-center text-text-muted group-hover:border-accent/50 group-hover:text-accent-light transition-colors"
                         >
                           <svg
                             className="w-5 h-5"
@@ -666,7 +666,7 @@ export default function CareersPage() {
                                   className="flex items-start gap-3 text-sm text-text-secondary"
                                 >
                                   <svg
-                                    className="w-5 h-5 text-accent-teal shrink-0 mt-0.5"
+                                    className="w-5 h-5 text-accent shrink-0 mt-0.5"
                                     fill="currentColor"
                                     viewBox="0 0 20 20"
                                   >
@@ -694,7 +694,7 @@ export default function CareersPage() {
                                   className="flex items-start gap-3 text-sm text-text-secondary"
                                 >
                                   <svg
-                                    className="w-5 h-5 text-accent-teal shrink-0 mt-0.5"
+                                    className="w-5 h-5 text-accent shrink-0 mt-0.5"
                                     fill="currentColor"
                                     viewBox="0 0 20 20"
                                   >
@@ -766,7 +766,7 @@ export default function CareersPage() {
               </p>
               <button
                 onClick={() => setSelectedDepartment("All Departments")}
-                className="text-accent-teal-light font-medium hover:underline"
+                className="text-accent-light font-medium hover:underline"
               >
                 View all positions
               </button>
@@ -780,11 +780,11 @@ export default function CareersPage() {
           ============================================ */}
       <section className="relative py-16 sm:py-24 bg-base overflow-hidden">
         {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-accent-teal/5 to-accent-blue/5" />
+        <div className="absolute inset-0 bg-gradient-to-r from-accent/5 to-accent-secondary/5" />
 
         {/* Accent orbs */}
-        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-accent-teal/10 rounded-full blur-[100px]" />
-        <div className="absolute top-0 right-1/4 w-[300px] h-[300px] bg-accent-blue/10 rounded-full blur-[80px]" />
+        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[100px]" />
+        <div className="absolute top-0 right-1/4 w-[300px] h-[300px] bg-accent-secondary/10 rounded-full blur-[80px]" />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <motion.div
@@ -824,7 +824,7 @@ export default function CareersPage() {
               </Link>
               <Link
                 href="/"
-                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-xl hover:border-accent-teal hover:bg-accent-teal/10 transition-all duration-200"
+                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-xl hover:border-accent hover:bg-accent/10 transition-all duration-200"
               >
                 Learn About Procedure
               </Link>

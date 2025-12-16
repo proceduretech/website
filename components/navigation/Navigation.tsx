@@ -851,20 +851,20 @@ function MegaMenuContent({ sections }: { sections: MenuSection[] }) {
   const colsClass = sections.length === 2 ? "grid-cols-2" : "grid-cols-3";
 
   return (
-    <div className="bg-surface rounded-2xl shadow-2xl shadow-black/20 border border-border overflow-hidden mt-4 ring-1 ring-accent-teal/0 [box-shadow:0_20px_70px_-15px_rgba(15,118,110,0.3)]">
+    <div className="bg-surface rounded-2xl shadow-2xl shadow-black/20 border border-border overflow-hidden mt-4 ring-1 ring-accent/0 [box-shadow:0_20px_70px_-15px_rgba(15,118,110,0.3)]">
       <div className={`grid ${colsClass}`}>
         {sections.map((section, idx) => (
           <div
             key={idx}
             className={`p-8 ${
               section.highlight
-                ? "bg-gradient-to-br from-accent-teal/10 to-accent-blue/5"
+                ? "bg-gradient-to-br from-accent/10 to-accent-secondary/5"
                 : "bg-surface"
             } ${idx !== 0 ? "border-l border-border" : ""}`}
           >
             {/* Main section title */}
             {section.title && (
-              <h3 className="text-xl font-semibold text-accent-teal-light mb-5">
+              <h3 className="text-xl font-semibold text-accent-light mb-5">
                 {section.title}
               </h3>
             )}
@@ -890,12 +890,12 @@ function MegaMenuContent({ sections }: { sections: MenuSection[] }) {
                         className="group flex items-start gap-3 cursor-pointer"
                       >
                         {item.icon && (
-                          <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-surface-elevated border border-border flex items-center justify-center text-text-muted group-hover:text-accent-teal-light group-hover:border-accent-teal/30 transition-colors duration-200">
+                          <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-surface-elevated border border-border flex items-center justify-center text-text-muted group-hover:text-accent-light group-hover:border-accent/30 transition-colors duration-200">
                             <NavIcon name={item.icon} className="w-5 h-5" />
                           </div>
                         )}
                         <div className="flex-1 min-w-0">
-                          <span className="text-base text-text-primary font-medium group-hover:text-accent-teal-light transition-colors duration-200">
+                          <span className="text-base text-text-primary font-medium group-hover:text-accent-light transition-colors duration-200">
                             {item.label}
                           </span>
                           {item.description && (
@@ -917,7 +917,7 @@ function MegaMenuContent({ sections }: { sections: MenuSection[] }) {
                 {section.sections.map((subSection, subIdx) => (
                   <div key={subIdx}>
                     {subSection.title && (
-                      <h4 className="text-xl font-semibold text-accent-teal-light mb-5 mt-8">
+                      <h4 className="text-xl font-semibold text-accent-light mb-5 mt-8">
                         {subSection.title}
                       </h4>
                     )}
@@ -929,12 +929,12 @@ function MegaMenuContent({ sections }: { sections: MenuSection[] }) {
                             className="group flex items-start gap-3 cursor-pointer"
                           >
                             {item.icon && (
-                              <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-surface-elevated border border-border flex items-center justify-center text-text-muted group-hover:text-accent-teal-light group-hover:border-accent-teal/30 transition-colors duration-200">
+                              <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-surface-elevated border border-border flex items-center justify-center text-text-muted group-hover:text-accent-light group-hover:border-accent/30 transition-colors duration-200">
                                 <NavIcon name={item.icon} className="w-5 h-5" />
                               </div>
                             )}
                             <div className="flex-1 min-w-0">
-                              <span className="text-base text-text-primary font-medium group-hover:text-accent-teal-light transition-colors duration-200">
+                              <span className="text-base text-text-primary font-medium group-hover:text-accent-light transition-colors duration-200">
                                 {item.label}
                               </span>
                               {item.description && (
@@ -955,7 +955,7 @@ function MegaMenuContent({ sections }: { sections: MenuSection[] }) {
             {/* Featured card */}
             {section.featured && (
               <div className="mt-6 p-4 bg-surface-elevated rounded-xl border border-border shadow-sm">
-                <span className="text-xs font-medium text-accent-teal-light uppercase tracking-wider">
+                <span className="text-xs font-medium text-accent-light uppercase tracking-wider">
                   {section.featured.badge}
                 </span>
                 <h4 className="text-text-primary font-medium mt-2">
@@ -966,7 +966,7 @@ function MegaMenuContent({ sections }: { sections: MenuSection[] }) {
                 </p>
                 <a
                   href={section.featured.link.href}
-                  className="inline-flex items-center gap-1 text-sm font-medium text-accent-teal-light mt-3 hover:text-accent-teal cursor-pointer"
+                  className="inline-flex items-center gap-1 text-sm font-medium text-accent-light mt-3 hover:text-accent cursor-pointer"
                 >
                   {section.featured.link.label}
                   <svg
@@ -1035,7 +1035,7 @@ function MobileNavSection({
           {sections.map((section, idx) => (
             <div key={idx} className="mt-4">
               {section.title && (
-                <h4 className="px-4 text-sm font-semibold text-accent-teal-light mb-2">
+                <h4 className="px-4 text-sm font-semibold text-accent-light mb-2">
                   {section.title}
                 </h4>
               )}
@@ -1058,7 +1058,7 @@ function MobileNavSection({
                 section.sections.map((subSection, subIdx) => (
                   <div key={subIdx} className="mt-3">
                     {subSection.title && (
-                      <h5 className="px-4 text-sm font-semibold text-accent-teal-light mb-2">
+                      <h5 className="px-4 text-sm font-semibold text-accent-light mb-2">
                         {subSection.title}
                       </h5>
                     )}

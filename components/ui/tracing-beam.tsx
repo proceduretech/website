@@ -118,10 +118,10 @@ export const TracingBeam = ({
               y1={y1} // set y1 for gradient
               y2={y2} // set y2 for gradient
             >
-              <stop stopColor="var(--color-accent-teal-light)" stopOpacity="0"></stop>
-              <stop stopColor="var(--color-accent-teal-light)"></stop>
-              <stop offset="0.325" stopColor="var(--color-accent-blue)"></stop>
-              <stop offset="1" stopColor="var(--color-accent-blue-light)" stopOpacity="0"></stop>
+              <stop stopColor="var(--color-accent-light)" stopOpacity="0"></stop>
+              <stop stopColor="var(--color-accent-light)"></stop>
+              <stop offset="0.325" stopColor="var(--color-accent-secondary)"></stop>
+              <stop offset="1" stopColor="var(--color-accent-secondary-light)" stopOpacity="0"></stop>
             </motion.linearGradient>
           </defs>
         </svg>

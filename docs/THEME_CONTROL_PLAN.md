@@ -301,7 +301,7 @@ export function LogoInline({ className = "" }) {
         />
         {/* Accent dot - use CSS variable */}
         <circle
-          fill="var(--color-accent-teal)"
+          fill="var(--color-accent)"
           cx="54.1"
           cy="25.72"
           r="4.89"
@@ -344,7 +344,7 @@ export function LogoInline({ className = "" }) {
 | `components/mdx/CodeBlock.tsx` | `bg-[#22272e]`, window colors | Use CSS vars: `bg-code-block`, `bg-code-window-*` |
 | `components/ui/background-boxes.tsx` | Hardcoded color array | Import from theme or use CSS vars |
 | `components/ui/tracing-beam.tsx` | SVG colors `#14B8A6`, `#0F766E`, etc. | Use CSS vars via inline styles |
-| `components/sections/Hero.tsx` | SVG gradient colors | Use CSS vars: `var(--color-accent-teal-light)` |
+| `components/sections/Hero.tsx` | SVG gradient colors | Use CSS vars: `var(--color-accent-light)` |
 | `components/CalButton.tsx` | Cal.com theme config | Make theme-aware |
 
 ### 5.3 Priority 3: Logo Components
@@ -589,10 +589,10 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
 
   // Use CSS custom property values - these will update with theme
   const colors = [
-    "var(--color-accent-teal)",
-    "var(--color-accent-teal-light)",
-    "var(--color-accent-blue)",
-    "var(--color-accent-blue-light)",
+    "var(--color-accent)",
+    "var(--color-accent-light)",
+    "var(--color-accent-secondary)",
+    "var(--color-accent-secondary-light)",
     "var(--color-highlight)",
     "#06b6d4", // cyan-500 - could add CSS var
     "#0891b2", // cyan-600
@@ -901,8 +901,8 @@ Since this is a static configuration change (not runtime), rollback is a simple 
 ### Accent Variables
 | Variable | Dark Value | Light Value |
 |----------|------------|-------------|
-| `--color-accent-teal` | #0f766e | #0d9488 |
-| `--color-accent-teal-light` | #14b8a6 | #14b8a6 |
+| `--color-accent` | #0f766e | #0d9488 |
+| `--color-accent-light` | #14b8a6 | #14b8a6 |
 | `--color-highlight` | #0db5a5 | #0d9488 |
 | `--color-cta` | #0d9488 | #0d9488 |
 
@@ -946,7 +946,7 @@ The CSS variable approach supports unlimited themes:
 
 ```css
 :root[data-theme="brand-blue"] {
-  --color-accent-teal: #2563eb;
+  --color-accent: #2563eb;
   /* ... */
 }
 ```

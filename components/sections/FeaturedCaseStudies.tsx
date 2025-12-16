@@ -30,7 +30,7 @@ export function FeaturedCaseStudies({ caseStudies }: FeaturedCaseStudiesProps) {
           className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10 sm:mb-12"
         >
           <div>
-            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-3 sm:mb-4">
+            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-3 sm:mb-4">
               Proven Results
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">
@@ -39,7 +39,7 @@ export function FeaturedCaseStudies({ caseStudies }: FeaturedCaseStudiesProps) {
           </div>
           <Link
             href="/case-studies"
-            className="inline-flex items-center gap-2 text-accent-teal-light font-semibold text-sm hover:gap-3 transition-all"
+            className="inline-flex items-center gap-2 text-accent-light font-semibold text-sm hover:gap-3 transition-all"
           >
             View all case studies
             <svg
@@ -81,14 +81,14 @@ export function FeaturedCaseStudies({ caseStudies }: FeaturedCaseStudiesProps) {
         >
           <p className="text-text-secondary mb-4">
             Over{" "}
-            <span className="text-accent-teal-light font-semibold">
+            <span className="text-accent-light font-semibold">
               $250M+ in client ROI
             </span>{" "}
             generated across 50+ production AI systems
           </p>
           <Link
             href="/case-studies"
-            className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-text-primary bg-surface-elevated border border-border rounded-lg hover:border-accent-teal/50 hover:bg-accent-teal/5 transition-all duration-200"
+            className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-text-primary bg-surface-elevated border border-border rounded-lg hover:border-accent/50 hover:bg-accent/5 transition-all duration-200"
           >
             Explore All Success Stories
             <svg
