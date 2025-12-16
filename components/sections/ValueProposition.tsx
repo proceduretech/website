@@ -75,7 +75,10 @@ export function ValueProposition() {
   return (
     <section className="relative pt-0 pb-16 sm:pb-24 bg-surface overflow-hidden">
       {/* Gradient transition from Hero */}
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-base to-surface" />
+      <div
+        className="absolute top-0 left-0 right-0 h-32"
+        style={{ background: 'linear-gradient(to bottom, var(--color-base), var(--color-surface))' }}
+      />
 
       {/* Ambient glow - continuation from Hero */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-accent/5 rounded-full blur-[120px]" />

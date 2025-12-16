@@ -603,7 +603,7 @@ export default function EventsPage() {
                     </div>
 
                     {/* Edition badge */}
-                    <div className="absolute top-4 left-4 px-3 py-1 text-xs font-bold bg-base/80 backdrop-blur-sm rounded-full text-text-primary">
+                    <div className="absolute top-4 left-4 px-3 py-1 text-xs font-bold bg-surface-elevated/80 backdrop-blur-sm rounded-full text-text-primary border border-border">
                       #{event.edition}
                     </div>
 

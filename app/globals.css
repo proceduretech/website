@@ -408,6 +408,12 @@ html:not(.dark) {
       sans-serif;
   }
 
+  /* Placeholder text - theme aware */
+  ::placeholder {
+    color: var(--color-text-muted);
+    opacity: 1;
+  }
+
   /* Keep Outfit for headings - better for display text */
   h1,
   h2,
@@ -910,6 +916,9 @@ html:not(.dark) {
 .from-surface {
   --tw-gradient-from: var(--color-surface) !important;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+.to-surface {
+  --tw-gradient-to: var(--color-surface) !important;
 }
 .via-base {
   --tw-gradient-via: var(--color-base) !important;
