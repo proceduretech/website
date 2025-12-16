@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { getLogos } from "@/lib/site-config";
 
 const certificationBadges = [
   {
@@ -72,12 +73,14 @@ const socialLinks = [
 ];
 
 export function Footer() {
+  // Get theme-appropriate logo paths from site config
+  const logos = getLogos();
+
   return (
     <footer
       className="border-t border-border bg-surface rounded-b-[2.5rem] overflow-hidden"
       style={{
-        boxShadow:
-          "0 20px 80px 20px rgba(13, 181, 165, 0.12), 0 8px 30px 5px rgba(13, 181, 165, 0.08)",
+        boxShadow: "var(--shadow-footer-glow)",
       }}
     >
       <div className="max-w-7xl mx-auto px-6 py-16">
@@ -89,7 +92,7 @@ export function Footer() {
               className="inline-block hover:opacity-80 transition-opacity"
             >
               <Image
-                src="/logos/procedure/green-short-logo.svg"
+                src={logos.short}
                 alt="Procedure"
                 width={80}
                 height={36}

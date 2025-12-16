@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Outfit, Inter } from "next/font/google";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { FooterReveal } from "@/components/FooterReveal";
 import { CookieBanner } from "@/components/CookieBanner";
+import { siteConfig, getThemeClass, getThemeColor } from "@/lib/site-config";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -65,13 +66,23 @@ export const metadata: Metadata = {
   },
 };
 
+// Viewport configuration - separate from metadata in Next.js 16+
+// Theme color for mobile browser chrome - controlled by site-config.ts
+export const viewport: Viewport = {
+  themeColor: siteConfig.themeColors[siteConfig.theme],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Theme class is controlled by site-config.ts
+  // Change siteConfig.theme to 'light' or 'dark' to switch themes
+  const themeClass = getThemeClass();
+
   return (
-    <html lang="en">
+    <html lang="en" className={themeClass}>
       <body className={`${outfit.variable} ${inter.variable} antialiased`}>
         {/* Main content wrapper - sits above the fixed footer reveal */}
         <div className="relative z-10 bg-base">

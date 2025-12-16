@@ -1,16 +1,20 @@
 "use client";
 
 import Image from "next/image";
+import { getLogos } from "@/lib/site-config";
 
 export function FooterReveal() {
+  // Get theme-appropriate logo paths from site config
+  const logos = getLogos();
+
   return (
     <>
       {/* This is the fixed reveal section that sits behind the main content */}
-      <div className="fixed bottom-0 left-0 right-0 h-[300px] md:h-[350px] bg-[#050a14] z-0">
+      <div className="fixed bottom-0 left-0 right-0 h-[300px] md:h-[350px] bg-footer-reveal z-0">
         {/* Large logo reveal */}
         <div className="absolute inset-0 flex items-center justify-center overflow-hidden mt-12 lg:mt-24">
           <Image
-            src="/logos/procedure/white-logo.svg"
+            src={logos.footer}
             alt="Procedure"
             width={1600}
             height={350}
