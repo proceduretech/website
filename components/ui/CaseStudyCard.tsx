@@ -91,15 +91,7 @@ export function CaseStudyCard({
                 }`}
               >
                 <div
-                  className={`font-bold ${isCompact ? "text-base" : "text-lg"} ${
-                    isCompact
-                      ? i === 0
-                        ? "text-accent-light"
-                        : i === 1
-                          ? "text-accent-secondary-light"
-                          : "text-text-primary"
-                      : "text-accent-light"
-                  }`}
+                  className={`font-bold text-highlight ${isCompact ? "text-base" : "text-lg"}`}
                 >
                   {metric.value}
                 </div>

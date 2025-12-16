@@ -205,7 +205,7 @@ export function Hero() {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce"
       >
         <div className="w-6 h-10 border-2 border-border rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-text-muted rounded-full mt-2" />
+          <div className="w-1 h-3 rounded-full mt-2" style={{ backgroundColor: 'var(--color-text-muted)' }} />
         </div>
       </motion.div>
     </section>
