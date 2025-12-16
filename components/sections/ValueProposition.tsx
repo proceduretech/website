@@ -28,7 +28,7 @@ const values = [
   {
     icon: (
       <svg
-        className="w-6 h-6 text-accent-blue-light"
+        className="w-6 h-6 text-accent-teal-light"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -41,8 +41,8 @@ const values = [
         />
       </svg>
     ),
-    iconBg: "bg-accent-blue/10",
-    hoverBorder: "hover:border-accent-blue/50",
+    iconBg: "bg-accent-teal/10",
+    hoverBorder: "hover:border-accent-teal/50",
     title: "Security Built Into AI",
     description:
       "Your AI systems are protected from day one. Prompt injection defense, data leakage prevention, and AI-specific security measures that enterprise teams require.",
