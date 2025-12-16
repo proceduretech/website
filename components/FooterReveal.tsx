@@ -8,13 +8,13 @@ export function FooterReveal() {
       {/* This is the fixed reveal section that sits behind the main content */}
       <div className="fixed bottom-0 left-0 right-0 h-[300px] md:h-[350px] bg-[#050a14] z-0">
         {/* Large logo reveal */}
-        <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 flex items-center justify-center overflow-hidden mt-12 lg:mt-24">
           <Image
-            src="/logos/procedure/teal-logo.svg"
+            src="/logos/procedure/white-logo.svg"
             alt="Procedure"
             width={1600}
             height={350}
-            className="w-[120%] max-w-none h-auto opacity-25"
+            className="w-[120%] max-w-none h-auto opacity-70"
           />
         </div>
 
