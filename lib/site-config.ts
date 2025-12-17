@@ -45,7 +45,7 @@ export const siteConfig: SiteConfig = {
    * 'dark' - Dark navy background with light text (default)
    * 'light' - White/light background with dark text
    */
-  theme: "light",
+  theme: "dark",
 
   /**
    * Logo paths for each theme
