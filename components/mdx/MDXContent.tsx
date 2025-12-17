@@ -175,8 +175,11 @@ export async function MDXContent({ source }: MDXContentProps) {
       [
         rehypePrettyCode,
         {
-          theme: "gruvbox-dark-soft",
-          keepBackground: true,
+          theme: {
+            dark: "gruvbox-dark-soft",
+            light: "gruvbox-light-soft",
+          },
+          keepBackground: false,
           defaultLang: "typescript",
         },
       ],
