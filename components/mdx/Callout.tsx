@@ -163,14 +163,14 @@ export function Callout({ type = "info", title, children }: CalloutProps) {
     <div
       className={`my-8 rounded-xl border ${styles.bg} ${styles.border} overflow-hidden`}
     >
-      <div className="flex items-start gap-4 p-4">
+      <div className="flex items-start gap-4 p-3">
         <div
           className={`flex-shrink-0 w-8 h-8 rounded-lg ${styles.iconBg} flex items-center justify-center ${styles.icon}`}
         >
           {icons[type]}
         </div>
         <div className="flex-1 min-w-0">
-          <p className="font-semibold text-text-primary mb-1">{displayTitle}</p>
+          <p className="font-semibold text-text-primary mb-0.5">{displayTitle}</p>
           <div className="text-text-secondary text-sm [&>p]:mb-0">
             {children}
           </div>

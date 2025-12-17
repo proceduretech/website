@@ -37,13 +37,19 @@ export function CodeBlock({
   return (
     <figure className="my-8 group">
       {/* Header with filename and copy button */}
-      <div className="flex items-center justify-between px-4 py-2 bg-[#22272e] border border-border border-b-0 rounded-t-xl">
+      <div
+        className="flex items-center justify-between px-4 py-2 border border-b-0 rounded-t-xl"
+        style={{
+          backgroundColor: 'var(--color-code-title)',
+          borderColor: 'var(--color-code-border)',
+        }}
+      >
         <div className="flex items-center gap-3">
           {/* Window controls */}
           <div className="flex items-center gap-1.5">
-            <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
-            <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
-            <div className="w-3 h-3 rounded-full bg-[#28c840]" />
+            <div className="w-3 h-3 rounded-full" style={{ backgroundColor: 'var(--color-code-window-close)' }} />
+            <div className="w-3 h-3 rounded-full" style={{ backgroundColor: 'var(--color-code-window-minimize)' }} />
+            <div className="w-3 h-3 rounded-full" style={{ backgroundColor: 'var(--color-code-window-maximize)' }} />
           </div>
           {/* Filename */}
           {filename && (
@@ -104,9 +110,13 @@ export function CodeBlock({
       {/* Code content */}
       <div
         ref={codeRef}
-        className={`relative overflow-x-auto bg-[#22272e] border border-border border-t-0 rounded-b-xl ${
+        className={`relative overflow-x-auto border border-t-0 rounded-b-xl ${
           showLineNumbers ? "[&_pre]:pl-0 [&_code]:grid" : ""
         }`}
+        style={{
+          backgroundColor: 'var(--color-code-block)',
+          borderColor: 'var(--color-code-border)',
+        }}
       >
         {children}
       </div>
