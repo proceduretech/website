@@ -4,6 +4,7 @@ export { Tweet } from "./Tweet";
 export { Callout } from "./Callout";
 export { LinkPreview } from "./LinkPreview";
 export { ImageWithCaption } from "./ImageWithCaption";
+export { MDXImage } from "./MDXImage";
 export { Steps, Step } from "./Steps";
 export { Tabs, Tab } from "./Tabs";
 export { Accordion, AccordionItem } from "./Accordion";

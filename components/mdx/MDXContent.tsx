@@ -11,6 +11,7 @@ import {
   Callout,
   LinkPreview,
   ImageWithCaption,
+  MDXImage,
   Steps,
   Step,
   Tabs,
@@ -142,22 +143,8 @@ const components = {
   img: ({
     src,
     alt,
-    ...props
   }: React.ImgHTMLAttributes<HTMLImageElement> & { src?: string }) => (
-    <figure className="my-8">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={src}
-        alt={alt || ""}
-        className="rounded-xl border border-border w-full"
-        {...props}
-      />
-      {alt && (
-        <figcaption className="mt-3 text-center text-sm text-text-muted">
-          {alt}
-        </figcaption>
-      )}
-    </figure>
+    <MDXImage src={src || ""} alt={alt || ""} />
   ),
 };
 

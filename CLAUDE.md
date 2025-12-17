@@ -52,11 +52,43 @@ components/
 
 lib/
   navigation-data.ts    # Navigation menu content/structure
+  image-utils.ts        # Image metadata and blur placeholder utilities
 
 public/
   logos/                # Client logo SVGs
   testimonials/         # Testimonial headshot images
+  content/
+    blog/               # Blog post images (parallel to content/blog/)
+      [slug]/           # Folder per article matching MDX filename
+        cover.jpg       # Cover image (required)
+        *.png           # Inline images
 ```
+
+### Blog Images
+
+Images for blog posts use a **parallel folder structure**:
+- MDX content: `content/blog/[slug].mdx`
+- Images: `public/content/blog/[slug]/`
+
+**Convention:**
+- Image folder name must match the MDX filename (slug)
+- Cover image: `cover.jpg` (or `.png`, `.webp`) - auto-detected
+- Inline images: Any filename, referenced with absolute paths
+
+**Frontmatter:**
+```yaml
+featuredImage: /content/blog/my-article/cover.jpg
+```
+
+**Inline images in MDX:**
+```markdown
+![Architecture Diagram](/content/blog/my-article/architecture.png)
+```
+
+**Features:**
+- Automatic blur placeholder generation via `plaiceholder`
+- `next/image` optimization with AVIF/WebP conversion
+- Responsive sizes and lazy loading for inline images
 
 ### Design System
 

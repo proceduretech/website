@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { Suspense } from "react";
 import {
   getMDXPostBySlug,
@@ -9,6 +10,7 @@ import {
   calculateReadTime,
 } from "@/lib/mdx";
 import { formatDate, getCategoryColor } from "@/lib/blog-utils";
+import { getImageMetadata } from "@/lib/image-utils";
 import {
   BlogTableOfContents,
   BlogAuthorBio,
@@ -93,6 +95,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const readTime = frontmatter.readTime || calculateReadTime(content);
   const categoryColors = getCategoryColor(frontmatter.category.color);
   const relatedMDXPosts = getRelatedMDXPosts(mdxPost, 3);
+
+  // Get cover image metadata with blur placeholder
+  const coverImageMetadata = frontmatter.featuredImage
+    ? await getImageMetadata(frontmatter.featuredImage)
+    : null;
 
   // Convert MDX posts to BlogPost format for related posts component
   const relatedPosts = relatedMDXPosts.map((p) => ({
@@ -223,13 +230,28 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
 
           {/* Featured Image */}
-          {frontmatter.featuredImage ? (
+          {coverImageMetadata ? (
             <div className="relative w-full aspect-[21/9] rounded-2xl overflow-hidden">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
+                src={coverImageMetadata.src}
+                alt={frontmatter.title}
+                fill
+                className="object-cover"
+                placeholder="blur"
+                blurDataURL={coverImageMetadata.blurDataURL}
+                priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+              />
+            </div>
+          ) : frontmatter.featuredImage ? (
+            <div className="relative w-full aspect-[21/9] rounded-2xl overflow-hidden">
+              <Image
                 src={frontmatter.featuredImage}
                 alt={frontmatter.title}
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
+                priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
               />
             </div>
           ) : (
