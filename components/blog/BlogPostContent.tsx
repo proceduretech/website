@@ -12,22 +12,22 @@ export function BlogPostContent({ content }: BlogPostContentProps) {
       {/* Prose styles */}
       <style jsx global>{`
         .prose {
-          --tw-prose-body: rgba(255, 255, 255, 0.65);
-          --tw-prose-headings: rgba(255, 255, 255, 0.9);
-          --tw-prose-lead: rgba(255, 255, 255, 0.65);
-          --tw-prose-links: #0db5a5;
-          --tw-prose-bold: rgba(255, 255, 255, 0.9);
-          --tw-prose-counters: rgba(255, 255, 255, 0.5);
-          --tw-prose-bullets: #14b8a6;
-          --tw-prose-hr: #1e293b;
-          --tw-prose-quotes: rgba(255, 255, 255, 0.65);
-          --tw-prose-quote-borders: #14b8a6;
-          --tw-prose-captions: rgba(255, 255, 255, 0.5);
-          --tw-prose-code: #0db5a5;
-          --tw-prose-pre-code: rgba(255, 255, 255, 0.9);
-          --tw-prose-pre-bg: #131b2e;
-          --tw-prose-th-borders: #1e293b;
-          --tw-prose-td-borders: #1e293b;
+          --tw-prose-body: var(--color-prose-body);
+          --tw-prose-headings: var(--color-prose-headings);
+          --tw-prose-lead: var(--color-prose-lead);
+          --tw-prose-links: var(--color-prose-links);
+          --tw-prose-bold: var(--color-prose-bold);
+          --tw-prose-counters: var(--color-prose-counters);
+          --tw-prose-bullets: var(--color-prose-bullets);
+          --tw-prose-hr: var(--color-hr);
+          --tw-prose-quotes: var(--color-prose-quotes);
+          --tw-prose-quote-borders: var(--color-prose-quote-borders);
+          --tw-prose-captions: var(--color-prose-captions);
+          --tw-prose-code: var(--color-prose-code);
+          --tw-prose-pre-code: var(--color-prose-pre-code);
+          --tw-prose-pre-bg: var(--color-prose-pre-bg);
+          --tw-prose-th-borders: var(--color-prose-table-borders);
+          --tw-prose-td-borders: var(--color-prose-table-borders);
         }
 
         .prose h2 {
@@ -89,14 +89,22 @@ export function BlogPostContent({ content }: BlogPostContentProps) {
         .prose blockquote {
           border-left: 4px solid var(--tw-prose-quote-borders);
           padding-left: 1.5rem;
-          padding-top: 1rem;
-          padding-bottom: 1rem;
+          padding-top: 0.5rem;
+          padding-bottom: 0.5rem;
           padding-right: 1.5rem;
           margin: 2rem 0;
           font-style: italic;
           color: var(--tw-prose-quotes);
-          background: rgba(15, 23, 42, 0.5);
+          background: var(--color-blockquote-bg);
           border-radius: 0 0.75rem 0.75rem 0;
+        }
+
+        .prose blockquote p {
+          margin-bottom: 0.25rem;
+        }
+
+        .prose blockquote p:last-child {
+          margin-bottom: 0;
         }
 
         .prose hr {
@@ -121,14 +129,14 @@ export function BlogPostContent({ content }: BlogPostContentProps) {
           font-size: 0.875rem;
           font-family: ui-monospace, monospace;
           color: var(--tw-prose-code);
-          background: #131b2e;
-          border: 1px solid #1e293b;
+          background: var(--color-code-block);
+          border: 1px solid var(--color-code-border);
           border-radius: 0.25rem;
         }
 
         .prose pre {
           background: var(--tw-prose-pre-bg);
-          border: 1px solid #1e293b;
+          border: 1px solid var(--color-code-border);
           border-radius: 0.75rem;
           padding: 1rem;
           overflow-x: auto;
