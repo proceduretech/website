@@ -54,7 +54,7 @@ const components = {
     if (isInline) {
       return (
         <code
-          className="px-1.5 py-0.5 text-sm font-mono text-highlight bg-surface-elevated border border-border rounded"
+          className="px-1.5 py-0.5 text-sm font-mono text-highlight bg-surface-elevated rounded"
           {...props}
         >
           {children}
@@ -92,7 +92,7 @@ const components = {
   }) => (
     <blockquote
       className="border-l-4 border-accent pl-6 py-4 pr-6 my-8 italic text-text-secondary rounded-r-xl"
-      style={{ backgroundColor: 'var(--color-blockquote-bg)' }}
+      style={{ backgroundColor: "var(--color-blockquote-bg)" }}
       {...props}
     >
       {children}
