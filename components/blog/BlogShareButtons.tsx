@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface BlogShareButtonsProps {
   url: string;
@@ -14,13 +14,19 @@ export function BlogShareButtons({
   variant = "inline",
 }: BlogShareButtonsProps) {
   const [copied, setCopied] = useState(false);
+  const [shareUrl, setShareUrl] = useState(url);
 
-  const shareUrl =
-    typeof window !== "undefined" ? `${window.location.origin}${url}` : url;
+  useEffect(() => {
+    setShareUrl(`${window.location.origin}${url}`);
+  }, [url]);
 
   const shareLinks = {
-    twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(shareUrl)}`,
-    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`,
+    twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+      title
+    )}&url=${encodeURIComponent(shareUrl)}`,
+    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
+      shareUrl
+    )}`,
   };
 
   const handleCopyLink = async () => {
@@ -35,7 +41,7 @@ export function BlogShareButtons({
 
   if (variant === "sidebar") {
     return (
-      <div className="fixed left-8 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-3">
+      <div className="fixed left-8 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-3 z-11">
         {/* Twitter/X */}
         <a
           href={shareLinks.twitter}

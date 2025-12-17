@@ -27,7 +27,7 @@ export function Pre({
     <div className="relative group my-6">
       {/* Language badge */}
       {language && (
-        <div className="absolute top-0 left-4 px-2 py-1 text-xs font-mono text-text-muted bg-surface-elevated border border-border border-b-0 rounded-t-md -translate-y-full">
+        <div className="absolute top-0 left-4 px-2 py-1 text-xs font-mono text-text-muted bg-surface-elevated rounded-t-md -translate-y-full">
           {language}
         </div>
       )}
@@ -78,7 +78,7 @@ export function Pre({
       {/* Code block */}
       <pre
         ref={preRef}
-        className="overflow-x-auto rounded-xl bg-[#22272e] p-4 text-sm border-none"
+        className="overflow-x-auto rounded-xl bg-[#22272e] text-sm border-none"
         {...props}
       >
         {children}
