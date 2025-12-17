@@ -136,6 +136,7 @@
   --color-code-highlight-border: #14b8a6;
   --color-code-highlight-word: rgba(20, 184, 166, 0.2);
   --color-code-line-numbers: rgba(255, 255, 255, 0.5);
+  --color-code-border: #1e293b;
   --color-code-window-close: #ff5f57;
   --color-code-window-minimize: #febc2e;
   --color-code-window-maximize: #28c840;
@@ -157,6 +158,7 @@
   --color-prose-table-borders: #1e293b;
   --color-prose-link-underline: rgba(13, 181, 165, 0.5);
   --color-prose-link-underline-hover: rgba(13, 181, 165, 1);
+  --color-blockquote-bg: rgba(20, 184, 166, 0.08);
 
   /* Cal.com Integration */
   --color-cal-bg: #0F172A;
@@ -342,9 +344,21 @@ html:not(.dark) {
   --color-prose-quote-borders: #0e8a94;
   --color-prose-captions: #6e7087;
   --color-prose-code: #086872;
+  --color-prose-pre-code: #3c3836;
+  --color-prose-pre-bg: #f9f5d7;
   --color-prose-table-borders: #dddce0;
   --color-prose-link-underline: rgba(10, 122, 132, 0.4);
   --color-prose-link-underline-hover: #0a7a84;
+  --color-blockquote-bg: #e8f4f5;
+
+  /* Code blocks for light mode - Gruvbox Light inspired */
+  --color-code-block: #fbf1c7;
+  --color-code-title: #f2e5bc;
+  --color-code-highlight-bg: rgba(10, 122, 132, 0.12);
+  --color-code-highlight-border: #0a7a84;
+  --color-code-highlight-word: rgba(10, 122, 132, 0.15);
+  --color-code-line-numbers: #928374;
+  --color-code-border: #ebdbb2;
 
   /* Cal.com for light mode */
   --color-cal-bg: #f8f7f9;
@@ -691,6 +705,24 @@ html:not(.dark) {
 }
 
 /* Code blocks from rehype-pretty-code */
+/* Shiki dual theme switching - dark mode uses --shiki-dark, light uses --shiki-light */
+[data-rehype-pretty-code-figure] pre,
+[data-rehype-pretty-code-figure] code,
+[data-rehype-pretty-code-figure] code span {
+  color: var(--shiki-dark);
+  background-color: var(--shiki-dark-bg);
+}
+
+:root[data-theme="light"] [data-rehype-pretty-code-figure] pre,
+:root[data-theme="light"] [data-rehype-pretty-code-figure] code,
+:root[data-theme="light"] [data-rehype-pretty-code-figure] code span,
+html:not(.dark) [data-rehype-pretty-code-figure] pre,
+html:not(.dark) [data-rehype-pretty-code-figure] code,
+html:not(.dark) [data-rehype-pretty-code-figure] code span {
+  color: var(--shiki-light);
+  background-color: var(--shiki-light-bg);
+}
+
 .mdx-content pre {
   margin: 2rem 0;
   border-radius: 0.75rem;
