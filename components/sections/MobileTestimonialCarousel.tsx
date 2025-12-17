@@ -105,11 +105,11 @@ export function MobileTestimonialCarousel({
             key={index}
             onClick={() => scrollToIndex(index)}
             className={cn(
-              "w-2 h-2 rounded-full transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-teal focus-visible:ring-offset-2 focus-visible:ring-offset-surface",
+              "w-2 h-2 rounded-full transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface",
               // Larger tap target
               "relative before:absolute before:inset-0 before:-m-2 before:content-['']",
               index === activeIndex
-                ? "bg-accent-teal-light scale-125"
+                ? "bg-accent-light scale-125"
                 : "bg-border hover:bg-border/80",
             )}
             role="tab"
@@ -128,14 +128,14 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
       {/* Quote icon and highlight badge */}
       <div className="flex items-start gap-3 mb-4">
         <svg
-          className="w-7 h-7 text-accent-teal/30 flex-shrink-0 mt-0.5"
+          className="w-7 h-7 text-accent/30 flex-shrink-0 mt-0.5"
           fill="currentColor"
           viewBox="0 0 24 24"
           aria-hidden="true"
         >
           <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
         </svg>
-        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-accent-teal/10 text-accent-teal-light border border-accent-teal/20">
+        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-accent/10 text-accent-light border border-accent/20">
           {testimonial.highlight}
         </span>
       </div>
@@ -148,7 +148,7 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
       {/* Author */}
       <div className="flex items-center justify-between pt-4 border-t border-border">
         <div className="flex items-center gap-3">
-          <div className="w-11 h-11 rounded-full overflow-hidden bg-gradient-to-br from-accent-teal to-accent-blue flex items-center justify-center flex-shrink-0">
+          <div className="w-11 h-11 rounded-full overflow-hidden bg-gradient-to-br from-accent to-accent-secondary flex items-center justify-center flex-shrink-0">
             <Image
               src={testimonial.image}
               alt={testimonial.author}

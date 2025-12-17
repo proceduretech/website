@@ -41,7 +41,7 @@ export function BlogShareButtons({
           href={shareLinks.twitter}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-10 h-10 rounded-full bg-surface-elevated border border-border flex items-center justify-center text-text-muted hover:text-accent-teal-light hover:border-accent-teal/30 transition-colors"
+          className="w-10 h-10 rounded-full bg-surface-elevated border border-border flex items-center justify-center text-text-muted hover:text-accent-light hover:border-accent/30 transition-colors"
           aria-label="Share on Twitter"
         >
           <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -54,7 +54,7 @@ export function BlogShareButtons({
           href={shareLinks.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-10 h-10 rounded-full bg-surface-elevated border border-border flex items-center justify-center text-text-muted hover:text-accent-teal-light hover:border-accent-teal/30 transition-colors"
+          className="w-10 h-10 rounded-full bg-surface-elevated border border-border flex items-center justify-center text-text-muted hover:text-accent-light hover:border-accent/30 transition-colors"
           aria-label="Share on LinkedIn"
         >
           <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -65,12 +65,12 @@ export function BlogShareButtons({
         {/* Copy Link */}
         <button
           onClick={handleCopyLink}
-          className="w-10 h-10 rounded-full bg-surface-elevated border border-border flex items-center justify-center text-text-muted hover:text-accent-teal-light hover:border-accent-teal/30 transition-colors"
+          className="w-10 h-10 rounded-full bg-surface-elevated border border-border flex items-center justify-center text-text-muted hover:text-accent-light hover:border-accent/30 transition-colors"
           aria-label="Copy link"
         >
           {copied ? (
             <svg
-              className="w-4 h-4 text-accent-teal"
+              className="w-4 h-4 text-accent"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -113,7 +113,7 @@ export function BlogShareButtons({
           href={shareLinks.twitter}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-9 h-9 rounded-full bg-surface-elevated border border-border flex items-center justify-center text-text-muted hover:text-accent-teal-light hover:border-accent-teal/30 transition-colors"
+          className="w-9 h-9 rounded-full bg-surface-elevated border border-border flex items-center justify-center text-text-muted hover:text-accent-light hover:border-accent/30 transition-colors"
           aria-label="Share on Twitter"
         >
           <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -126,7 +126,7 @@ export function BlogShareButtons({
           href={shareLinks.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-9 h-9 rounded-full bg-surface-elevated border border-border flex items-center justify-center text-text-muted hover:text-accent-teal-light hover:border-accent-teal/30 transition-colors"
+          className="w-9 h-9 rounded-full bg-surface-elevated border border-border flex items-center justify-center text-text-muted hover:text-accent-light hover:border-accent/30 transition-colors"
           aria-label="Share on LinkedIn"
         >
           <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -137,12 +137,12 @@ export function BlogShareButtons({
         {/* Copy Link */}
         <button
           onClick={handleCopyLink}
-          className="w-9 h-9 rounded-full bg-surface-elevated border border-border flex items-center justify-center text-text-muted hover:text-accent-teal-light hover:border-accent-teal/30 transition-colors"
+          className="w-9 h-9 rounded-full bg-surface-elevated border border-border flex items-center justify-center text-text-muted hover:text-accent-light hover:border-accent/30 transition-colors"
           aria-label="Copy link"
         >
           {copied ? (
             <svg
-              className="w-4 h-4 text-accent-teal"
+              className="w-4 h-4 text-accent"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -173,7 +173,7 @@ export function BlogShareButtons({
       </div>
 
       {copied && (
-        <span className="text-xs text-accent-teal-light">Link copied!</span>
+        <span className="text-xs text-accent-light">Link copied!</span>
       )}
     </div>
   );

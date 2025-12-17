@@ -68,8 +68,8 @@ export function CaseStudiesClient({
                     onClick={() => setActiveServiceFilter(filter)}
                     className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
                       activeServiceFilter === filter
-                        ? "bg-accent-teal/20 text-accent-teal-light border border-accent-teal/30"
-                        : "bg-surface-elevated text-text-secondary border border-border hover:border-accent-teal/30 hover:text-text-primary"
+                        ? "bg-accent/20 text-accent-light border border-accent/30"
+                        : "bg-surface-elevated text-text-secondary border border-border hover:border-accent/30 hover:text-text-primary"
                     }`}
                   >
                     {filter}
@@ -90,8 +90,8 @@ export function CaseStudiesClient({
                     onClick={() => setActiveIndustryFilter(filter)}
                     className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
                       activeIndustryFilter === filter
-                        ? "bg-accent-teal/20 text-accent-teal-light border border-accent-teal/30"
-                        : "bg-surface-elevated text-text-secondary border border-border hover:border-accent-teal/30 hover:text-text-primary"
+                        ? "bg-accent/20 text-accent-light border border-accent/30"
+                        : "bg-surface-elevated text-text-secondary border border-border hover:border-accent/30 hover:text-text-primary"
                     }`}
                   >
                     {filter}
@@ -109,7 +109,7 @@ export function CaseStudiesClient({
                       if (e.target.value)
                         setActiveIndustryFilter(e.target.value);
                     }}
-                    className="px-4 py-2 text-sm font-medium rounded-lg bg-surface-elevated text-text-secondary border border-border hover:border-accent-teal/30 cursor-pointer focus:outline-none focus:border-accent-teal"
+                    className="px-4 py-2 text-sm font-medium rounded-lg bg-surface-elevated text-text-secondary border border-border hover:border-accent/30 cursor-pointer focus:outline-none focus:border-accent"
                   >
                     <option value="">More...</option>
                     {industryFilters.slice(4).map((filter) => (
@@ -183,7 +183,7 @@ export function CaseStudiesClient({
                   setActiveServiceFilter("All");
                   setActiveIndustryFilter("All");
                 }}
-                className="px-6 py-3 text-sm font-semibold text-accent-teal-light bg-accent-teal/10 border border-accent-teal/30 rounded-lg hover:bg-accent-teal/20 transition-colors"
+                className="px-6 py-3 text-sm font-semibold text-accent-light bg-accent/10 border border-accent/30 rounded-lg hover:bg-accent/20 transition-colors"
               >
                 Clear all filters
               </button>
@@ -204,7 +204,7 @@ export function CaseStudiesClient({
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-4">
+            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Trusted by industry leaders
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">
@@ -220,7 +220,7 @@ export function CaseStudiesClient({
               transition={{ duration: 0.5, delay: 0.1 }}
               className="relative p-6 sm:p-8 rounded-2xl bg-surface-elevated border border-border"
             >
-              <div className="absolute -top-3 left-6 text-5xl text-accent-teal/30 font-serif">
+              <div className="absolute -top-3 left-6 text-5xl text-accent/30 font-serif">
                 &ldquo;
               </div>
               <p className="text-text-secondary leading-relaxed mb-6 pt-4">
@@ -230,8 +230,8 @@ export function CaseStudiesClient({
                 was immediate and substantial.
               </p>
               <footer className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-accent-teal/20 border border-accent-teal/30 flex items-center justify-center">
-                  <span className="text-lg font-bold text-accent-teal-light">
+                <div className="w-12 h-12 rounded-full bg-accent/20 border border-accent/30 flex items-center justify-center">
+                  <span className="text-lg font-bold text-accent-light">
                     JR
                   </span>
                 </div>
@@ -253,7 +253,7 @@ export function CaseStudiesClient({
               transition={{ duration: 0.5, delay: 0.2 }}
               className="relative p-6 sm:p-8 rounded-2xl bg-surface-elevated border border-border"
             >
-              <div className="absolute -top-3 left-6 text-5xl text-accent-teal/30 font-serif">
+              <div className="absolute -top-3 left-6 text-5xl text-accent/30 font-serif">
                 &ldquo;
               </div>
               <p className="text-text-secondary leading-relaxed mb-6 pt-4">
@@ -263,8 +263,8 @@ export function CaseStudiesClient({
                 extension of our engineering org.
               </p>
               <footer className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-accent-blue/20 border border-accent-blue/30 flex items-center justify-center">
-                  <span className="text-lg font-bold text-accent-blue-light">
+                <div className="w-12 h-12 rounded-full bg-accent-secondary/20 border border-accent-secondary/30 flex items-center justify-center">
+                  <span className="text-lg font-bold text-accent-secondary-light">
                     SK
                   </span>
                 </div>
@@ -324,7 +324,7 @@ export function CaseStudiesClient({
               </CalButton>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-xl hover:border-accent-teal hover:bg-accent-teal/10 transition-all duration-200"
+                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-xl hover:border-accent hover:bg-accent/10 transition-all duration-200"
               >
                 Contact Us
               </Link>
@@ -334,7 +334,7 @@ export function CaseStudiesClient({
             <div className="mt-12 flex flex-wrap items-center justify-center gap-6">
               <div className="flex items-center gap-2 text-xs text-text-muted">
                 <svg
-                  className="w-4 h-4 text-accent-teal"
+                  className="w-4 h-4 text-accent"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -349,7 +349,7 @@ export function CaseStudiesClient({
               <div className="w-1 h-1 rounded-full bg-border" />
               <div className="flex items-center gap-2 text-xs text-text-muted">
                 <svg
-                  className="w-4 h-4 text-accent-teal"
+                  className="w-4 h-4 text-accent"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -364,7 +364,7 @@ export function CaseStudiesClient({
               <div className="w-1 h-1 rounded-full bg-border" />
               <div className="flex items-center gap-2 text-xs text-text-muted">
                 <svg
-                  className="w-4 h-4 text-accent-teal"
+                  className="w-4 h-4 text-accent"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >

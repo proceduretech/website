@@ -46,8 +46,8 @@ export default function ContactPage() {
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-surface via-base to-base" />
 
         {/* Animated gradient orbs */}
-        <div className="absolute top-20 right-1/4 w-[600px] h-[600px] bg-accent-teal/8 rounded-full blur-[120px] animate-pulse" />
-        <div className="absolute bottom-40 left-1/4 w-[500px] h-[500px] bg-accent-blue/8 rounded-full blur-[100px]" />
+        <div className="absolute top-20 right-1/4 w-[600px] h-[600px] bg-accent/8 rounded-full blur-[120px] animate-pulse" />
+        <div className="absolute bottom-40 left-1/4 w-[500px] h-[500px] bg-accent-secondary/8 rounded-full blur-[100px]" />
 
         {/* Subtle grid pattern */}
         <div
@@ -58,7 +58,7 @@ export default function ContactPage() {
         />
 
         {/* Radial gradient overlay */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-accent-teal/5 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-accent/5 via-transparent to-transparent" />
       </div>
 
       <div className="relative z-10 pt-32 pb-20 px-4 sm:px-6">
@@ -76,10 +76,10 @@ export default function ContactPage() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent-teal/10 border border-accent-teal/20 mb-6"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/10 border border-accent/20 mb-6"
               >
-                <span className="w-2 h-2 rounded-full bg-accent-teal animate-pulse" />
-                <span className="text-xs font-medium text-accent-teal-light">
+                <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                <span className="text-xs font-medium text-accent-light">
                   Typically respond within 24 hours
                 </span>
               </motion.div>
@@ -110,9 +110,9 @@ export default function ContactPage() {
                   whileHover={{ x: 4 }}
                   className="flex items-center gap-4 group"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-surface-elevated border border-border flex items-center justify-center group-hover:border-accent-teal/50 group-hover:bg-accent-teal/5 transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-surface-elevated border border-border flex items-center justify-center group-hover:border-accent/50 group-hover:bg-accent/5 transition-all duration-300">
                     <svg
-                      className="w-5 h-5 text-accent-teal-light"
+                      className="w-5 h-5 text-accent-light"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -127,7 +127,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-sm text-text-muted">Email us directly</p>
-                    <p className="text-text-primary font-medium group-hover:text-accent-teal-light transition-colors">
+                    <p className="text-text-primary font-medium group-hover:text-accent-light transition-colors">
                       hello@procedure.tech
                     </p>
                   </div>
@@ -135,9 +135,9 @@ export default function ContactPage() {
 
                 {/* Schedule a Call */}
                 <CalButton className="flex items-center gap-4 group text-left cursor-pointer">
-                  <div className="w-12 h-12 rounded-xl bg-surface-elevated border border-border flex items-center justify-center group-hover:border-accent-teal/50 group-hover:bg-accent-teal/5 transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-surface-elevated border border-border flex items-center justify-center group-hover:border-accent/50 group-hover:bg-accent/5 transition-all duration-300">
                     <svg
-                      className="w-5 h-5 text-accent-teal-light"
+                      className="w-5 h-5 text-accent-light"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -154,7 +154,7 @@ export default function ContactPage() {
                     <p className="text-sm text-text-muted">
                       Ready to talk now?
                     </p>
-                    <p className="text-text-primary font-medium group-hover:text-accent-teal-light transition-colors">
+                    <p className="text-text-primary font-medium group-hover:text-accent-light transition-colors">
                       Book a 30-minute strategy session
                     </p>
                   </div>
@@ -165,9 +165,9 @@ export default function ContactPage() {
               <div className="pt-8 border-t border-border">
                 <div className="grid grid-cols-2 gap-6">
                   <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-accent-teal/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                       <svg
-                        className="w-4 h-4 text-accent-teal-light"
+                        className="w-4 h-4 text-accent-light"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -190,9 +190,9 @@ export default function ContactPage() {
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-accent-teal/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                       <svg
-                        className="w-4 h-4 text-accent-teal-light"
+                        className="w-4 h-4 text-accent-light"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -215,9 +215,9 @@ export default function ContactPage() {
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-accent-teal/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                       <svg
-                        className="w-4 h-4 text-accent-teal-light"
+                        className="w-4 h-4 text-accent-light"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -240,9 +240,9 @@ export default function ContactPage() {
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-accent-teal/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                       <svg
-                        className="w-4 h-4 text-accent-teal-light"
+                        className="w-4 h-4 text-accent-light"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -281,7 +281,7 @@ export default function ContactPage() {
               {/* Form Card */}
               <div className="relative">
                 {/* Card glow effect */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-accent-teal/20 to-accent-blue/20 rounded-3xl blur-xl opacity-50" />
+                <div className="absolute -inset-1 bg-gradient-to-r from-accent/20 to-accent-secondary/20 rounded-3xl blur-xl opacity-50" />
 
                 <div className="relative bg-surface/80 backdrop-blur-xl border border-border rounded-2xl p-8 sm:p-10 shadow-2xl shadow-black/20">
                   {isSubmitted ? (
@@ -292,9 +292,9 @@ export default function ContactPage() {
                       transition={{ duration: 0.4 }}
                       className="text-center py-12"
                     >
-                      <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-accent-teal/20 flex items-center justify-center">
+                      <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-accent/20 flex items-center justify-center">
                         <svg
-                          className="w-8 h-8 text-accent-teal-light"
+                          className="w-8 h-8 text-accent-light"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -316,7 +316,7 @@ export default function ContactPage() {
                       </p>
                       <Link
                         href="/"
-                        className="inline-flex items-center gap-2 text-accent-teal-light font-medium hover:text-accent-teal transition-colors"
+                        className="inline-flex items-center gap-2 text-accent-light font-medium hover:text-accent transition-colors"
                       >
                         <svg
                           className="w-4 h-4"
@@ -469,7 +469,7 @@ export default function ContactPage() {
                         By submitting this form, you agree to our{" "}
                         <Link
                           href="/privacy"
-                          className="text-accent-teal-light hover:underline"
+                          className="text-accent-light hover:underline"
                         >
                           Privacy Policy
                         </Link>
@@ -489,7 +489,7 @@ export default function ContactPage() {
               >
                 <div className="flex items-center gap-2 text-xs text-text-muted">
                   <svg
-                    className="w-4 h-4 text-accent-teal"
+                    className="w-4 h-4 text-accent"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -504,7 +504,7 @@ export default function ContactPage() {
                 <div className="w-1 h-1 rounded-full bg-border" />
                 <div className="flex items-center gap-2 text-xs text-text-muted">
                   <svg
-                    className="w-4 h-4 text-accent-teal"
+                    className="w-4 h-4 text-accent"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -519,7 +519,7 @@ export default function ContactPage() {
                 <div className="w-1 h-1 rounded-full bg-border" />
                 <div className="flex items-center gap-2 text-xs text-text-muted">
                   <svg
-                    className="w-4 h-4 text-accent-teal"
+                    className="w-4 h-4 text-accent"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -595,7 +595,7 @@ export default function ContactPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.1 * idx }}
-                className="group p-6 bg-surface-elevated rounded-2xl border border-border hover:border-accent-teal/30 transition-all duration-300"
+                className="group p-6 bg-surface-elevated rounded-2xl border border-border hover:border-accent/30 transition-all duration-300"
               >
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-8 h-8 rounded-lg bg-surface border border-border flex items-center justify-center text-lg">

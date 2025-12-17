@@ -26,9 +26,9 @@ export const primitives = {
     200: '#99f6e4',
     300: '#5eead4',
     400: '#2dd4bf',
-    500: '#14b8a6',  // accent-teal-light (primary accent)
+    500: '#14b8a6',  // accent-light (primary accent)
     600: '#0d9488',  // cta background
-    700: '#0f766e',  // accent-teal (darker accent)
+    700: '#0f766e',  // accent (darker accent)
     800: '#115e59',
     900: '#134e4a',
     950: '#042f2e',
@@ -41,8 +41,8 @@ export const primitives = {
     200: '#bfdbfe',
     300: '#93c5fd',
     400: '#60a5fa',
-    500: '#3b82f6',  // accent-blue-light
-    600: '#2563eb',  // accent-blue
+    500: '#3b82f6',  // accent-secondary-light
+    600: '#2563eb',  // accent-secondary
     700: '#1d4ed8',
     800: '#1e40af',
     900: '#1e3a8a',
@@ -319,10 +319,10 @@ export const darkTheme = {
       iconBg: 'rgba(168, 85, 247, 0.1)',    // purple-500/10
     },
     note: {
-      bg: 'rgba(15, 118, 110, 0.05)',       // accent-teal/5
-      border: 'rgba(15, 118, 110, 0.2)',    // accent-teal/20
+      bg: 'rgba(15, 118, 110, 0.05)',       // accent/5
+      border: 'rgba(15, 118, 110, 0.2)',    // accent/20
       icon: primitives.teal[500],           // #14b8a6
-      iconBg: 'rgba(15, 118, 110, 0.1)',    // accent-teal/10
+      iconBg: 'rgba(15, 118, 110, 0.1)',    // accent/10
     },
   },
 
@@ -352,7 +352,7 @@ export const darkTheme = {
   // SELECTION COLORS
   // -------------------------------------------------------------------------
   selection: {
-    background: 'rgba(15, 118, 110, 0.3)',  // accent-teal/30
+    background: 'rgba(15, 118, 110, 0.3)',  // accent/30
     text: primitives.teal[500],             // #14b8a6
   },
 

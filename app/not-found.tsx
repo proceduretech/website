@@ -23,8 +23,8 @@ export default function NotFound() {
             backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='%23E5E7EB'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e")`,
           }}
         />
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-accent-teal/8 rounded-full blur-[100px]" />
-        <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[300px] bg-accent-blue/8 rounded-full blur-[80px]" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-accent/8 rounded-full blur-[100px]" />
+        <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[300px] bg-accent-secondary/8 rounded-full blur-[80px]" />
       </div>
 
       {/* Content */}
@@ -36,7 +36,7 @@ export default function NotFound() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="relative w-full max-w-5xl"
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-accent-teal/10 to-accent-blue/10 blur-3xl rounded-full scale-90" />
+          <div className="absolute inset-0 bg-gradient-to-r from-accent/10 to-accent-secondary/10 blur-3xl rounded-full scale-90" />
           <Image
             src="/mascots/scenes/404-search-party.png"
             alt="The Procedure Pets search party - Chip, Byte, Scout, Pixel, and Atlas looking for the missing page with maps and compasses"
@@ -54,9 +54,9 @@ export default function NotFound() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent-teal/10 border border-accent-teal/20"
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/10 border border-accent/20"
           >
-            <span className="text-xs font-semibold tracking-widest uppercase text-accent-teal-light">
+            <span className="text-xs font-semibold tracking-widest uppercase text-accent-light">
               Error 404
             </span>
           </motion.div>
@@ -120,7 +120,7 @@ export default function NotFound() {
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-xl hover:border-accent-teal hover:bg-accent-teal/10 transition-all duration-200"
+              className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-xl hover:border-accent hover:bg-accent/10 transition-all duration-200"
             >
               <svg
                 className="w-5 h-5 mr-2"
@@ -151,7 +151,7 @@ export default function NotFound() {
               <span key={link.href} className="flex items-center">
                 <Link
                   href={link.href}
-                  className="text-sm font-medium text-text-secondary hover:text-accent-teal-light transition-colors"
+                  className="text-sm font-medium text-text-secondary hover:text-accent-light transition-colors"
                 >
                   {link.label}
                 </Link>

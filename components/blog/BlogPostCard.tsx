@@ -27,12 +27,12 @@ export function BlogPostCard({ post, index = 0 }: BlogPostCardProps) {
     >
       <Link
         href={`/blog/${post.slug}`}
-        className="flex flex-col h-full bg-surface-elevated border border-border rounded-2xl overflow-hidden hover:border-accent-teal/30 transition-colors"
+        className="flex flex-col h-full bg-surface-elevated border border-border rounded-2xl overflow-hidden hover:border-accent/30 transition-colors"
       >
         {/* Image Container */}
         <div className="relative overflow-hidden aspect-[16/10]">
           {/* Placeholder background */}
-          <div className="absolute inset-0 bg-accent-teal/10" />
+          <div className="absolute inset-0 bg-accent/10" />
 
           {/* Image gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
@@ -55,7 +55,7 @@ export function BlogPostCard({ post, index = 0 }: BlogPostCardProps) {
         {/* Content Container */}
         <div className="flex-1 flex flex-col p-6">
           {/* Title */}
-          <h3 className="text-lg font-semibold text-text-primary leading-snug mb-3 group-hover:text-accent-teal-light transition-colors line-clamp-2">
+          <h3 className="text-lg font-semibold text-text-primary leading-snug mb-3 group-hover:text-accent-light transition-colors line-clamp-2">
             {post.title}
           </h3>
 
@@ -67,8 +67,8 @@ export function BlogPostCard({ post, index = 0 }: BlogPostCardProps) {
           {/* Meta Row */}
           <div className="flex items-center gap-3 text-xs text-text-muted">
             {/* Author Avatar */}
-            <div className="w-6 h-6 rounded-full bg-accent-teal/20 border border-accent-teal/30 flex items-center justify-center flex-shrink-0">
-              <span className="text-[10px] font-bold text-accent-teal-light">
+            <div className="w-6 h-6 rounded-full bg-accent/20 border border-accent/30 flex items-center justify-center flex-shrink-0">
+              <span className="text-[10px] font-bold text-accent-light">
                 {post.author.name.charAt(0)}
               </span>
             </div>

@@ -19,7 +19,7 @@ export function LinkPreview({
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group block my-8 rounded-xl border border-border bg-surface-elevated/50 overflow-hidden hover:border-accent-teal/50 transition-colors no-underline"
+      className="group block my-8 rounded-xl border border-border bg-surface-elevated/50 overflow-hidden hover:border-accent/50 transition-colors no-underline"
     >
       <div className="p-5">
         <div className="flex items-center gap-2 mb-2">
@@ -49,7 +49,7 @@ export function LinkPreview({
             {description}
           </p>
         )}
-        <div className="flex items-center gap-1 text-xs text-accent-teal-light">
+        <div className="flex items-center gap-1 text-xs text-accent-light">
           <svg
             className="w-3.5 h-3.5"
             fill="none"

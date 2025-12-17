@@ -44,7 +44,7 @@ export function Tabs({ children, defaultValue }: TabsProps) {
             onClick={() => setActiveTab(tab.value)}
             className={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${
               activeTab === tab.value
-                ? "bg-accent-teal/20 text-accent-teal-light border border-accent-teal/30"
+                ? "bg-accent/20 text-accent-light border border-accent/30"
                 : "text-text-muted hover:text-text-secondary hover:bg-surface"
             }`}
           >

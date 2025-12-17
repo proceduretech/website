@@ -306,7 +306,7 @@ export default function CulturePage() {
 
           {/* Animated gradient orbs */}
           <motion.div
-            className="absolute top-1/4 right-0 w-[800px] h-[800px] bg-accent-teal/6 rounded-full blur-[150px]"
+            className="absolute top-1/4 right-0 w-[800px] h-[800px] bg-accent/6 rounded-full blur-[150px]"
             animate={{
               scale: [1, 1.2, 1],
               opacity: [0.06, 0.1, 0.06],
@@ -314,7 +314,7 @@ export default function CulturePage() {
             transition={{ duration: 8, repeat: Infinity }}
           />
           <motion.div
-            className="absolute bottom-0 left-1/4 w-[600px] h-[600px] bg-accent-blue/8 rounded-full blur-[120px]"
+            className="absolute bottom-0 left-1/4 w-[600px] h-[600px] bg-accent-secondary/8 rounded-full blur-[120px]"
             animate={{
               scale: [1.2, 1, 1.2],
               opacity: [0.08, 0.04, 0.08],
@@ -331,7 +331,7 @@ export default function CulturePage() {
           />
 
           {/* Radial gradient overlay */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-accent-teal/5 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-accent/5 via-transparent to-transparent" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-32 pb-20">
@@ -341,10 +341,10 @@ export default function CulturePage() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-teal/10 border border-accent-teal/20 mb-8"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 mb-8"
             >
-              <span className="w-2 h-2 rounded-full bg-accent-teal animate-pulse" />
-              <span className="text-sm font-medium text-accent-teal-light tracking-wide">
+              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+              <span className="text-sm font-medium text-accent-light tracking-wide">
                 Our Culture
               </span>
             </motion.div>
@@ -421,7 +421,7 @@ export default function CulturePage() {
               </Link>
               <a
                 href="#beliefs"
-                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-xl hover:border-accent-teal hover:bg-accent-teal/10 transition-all duration-200"
+                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-xl hover:border-accent hover:bg-accent/10 transition-all duration-200"
               >
                 How We Work
               </a>
@@ -453,7 +453,7 @@ export default function CulturePage() {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <p className="text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-6">
+            <p className="text-sm font-semibold tracking-widest text-accent-light uppercase mb-6">
               How It Started
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary leading-tight mb-8">
@@ -497,7 +497,7 @@ export default function CulturePage() {
             transition={{ duration: 0.6 }}
             className="max-w-2xl mb-16"
           >
-            <p className="text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-4">
+            <p className="text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Our Beliefs About Work
             </p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary mb-6">
@@ -523,15 +523,15 @@ export default function CulturePage() {
                 className="group relative"
               >
                 {/* Card glow effect */}
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-accent-teal/20 to-accent-blue/20 rounded-2xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/20 to-accent-secondary/20 rounded-2xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
 
-                <div className="relative p-6 sm:p-8 rounded-2xl bg-surface-elevated border border-border group-hover:border-accent-teal/30 transition-all duration-300 h-full">
+                <div className="relative p-6 sm:p-8 rounded-2xl bg-surface-elevated border border-border group-hover:border-accent/30 transition-all duration-300 h-full">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-accent-teal/10 border border-accent-teal/20 flex items-center justify-center text-accent-teal-light flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-12 h-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent-light flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                       {belief.icon}
                     </div>
                     <div>
-                      <span className="text-xs font-bold text-accent-teal-light mb-2 block">
+                      <span className="text-xs font-bold text-accent-light mb-2 block">
                         {belief.number}
                       </span>
                       <h3 className="text-lg font-semibold text-text-primary mb-2">
@@ -570,7 +570,7 @@ export default function CulturePage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16 sm:mb-20"
           >
-            <p className="text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-4">
+            <p className="text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               The Principles That Shape Procedure
             </p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary mb-6">
@@ -595,13 +595,13 @@ export default function CulturePage() {
                 transition={{ duration: 0.5, delay: idx * 0.05 }}
                 className="group"
               >
-                <div className="relative h-full p-6 rounded-2xl bg-surface-elevated border border-border group-hover:border-accent-teal/40 transition-all duration-300">
+                <div className="relative h-full p-6 rounded-2xl bg-surface-elevated border border-border group-hover:border-accent/40 transition-all duration-300">
                   {/* Number indicator */}
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent-teal to-accent-blue flex items-center justify-center text-white font-bold text-sm mb-4">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent to-accent-secondary flex items-center justify-center text-white font-bold text-sm mb-4">
                     {String(idx + 1).padStart(2, "0")}
                   </div>
 
-                  <h3 className="text-lg font-semibold text-text-primary mb-3 group-hover:text-accent-teal-light transition-colors">
+                  <h3 className="text-lg font-semibold text-text-primary mb-3 group-hover:text-accent-light transition-colors">
                     {principle.title}
                   </h3>
 
@@ -636,7 +636,7 @@ export default function CulturePage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <p className="text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-4">
+            <p className="text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Growth Requires Investment
             </p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary mb-6">
@@ -662,11 +662,11 @@ export default function CulturePage() {
                 className="group relative"
               >
                 {/* Card glow effect */}
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-accent-teal/20 to-accent-blue/20 rounded-3xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/20 to-accent-secondary/20 rounded-3xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
 
-                <div className="relative p-8 rounded-3xl bg-surface-elevated border border-border group-hover:border-accent-teal/30 transition-all duration-300 h-full">
+                <div className="relative p-8 rounded-3xl bg-surface-elevated border border-border group-hover:border-accent/30 transition-all duration-300 h-full">
                   <div className="flex items-start gap-5">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent-teal/20 to-accent-blue/20 border border-accent-teal/30 flex items-center justify-center text-accent-teal-light flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent/20 to-accent-secondary/20 border border-accent/30 flex items-center justify-center text-accent-light flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                       {program.icon}
                     </div>
                     <div className="flex-1">
@@ -674,7 +674,7 @@ export default function CulturePage() {
                         <h3 className="text-xl font-semibold text-text-primary">
                           {program.title}
                         </h3>
-                        <span className="px-2 py-0.5 text-xs font-semibold text-accent-teal-light bg-accent-teal/10 border border-accent-teal/20 rounded-full">
+                        <span className="px-2 py-0.5 text-xs font-semibold text-accent-light bg-accent/10 border border-accent/20 rounded-full">
                           {program.highlight}
                         </span>
                       </div>
@@ -703,7 +703,7 @@ export default function CulturePage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <p className="text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-4">
+              <p className="text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
                 What It&apos;s Like Here
               </p>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary mb-6">
@@ -762,7 +762,7 @@ export default function CulturePage() {
               ].map((item, idx) => (
                 <div
                   key={idx}
-                  className="p-6 rounded-2xl bg-surface-elevated border border-border hover:border-accent-teal/30 transition-colors"
+                  className="p-6 rounded-2xl bg-surface-elevated border border-border hover:border-accent/30 transition-colors"
                 >
                   <h3 className="text-lg font-semibold text-text-primary mb-2">
                     {item.title}
@@ -782,11 +782,11 @@ export default function CulturePage() {
           ============================================ */}
       <section className="relative py-16 sm:py-24 overflow-hidden">
         {/* Gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-accent-teal/10 via-base to-accent-blue/10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-base to-accent-secondary/10" />
 
         {/* Animated orbs */}
         <motion.div
-          className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-accent-teal/15 rounded-full blur-[150px]"
+          className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-accent/15 rounded-full blur-[150px]"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.15, 0.25, 0.15],
@@ -794,7 +794,7 @@ export default function CulturePage() {
           transition={{ duration: 8, repeat: Infinity }}
         />
         <motion.div
-          className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-accent-blue/15 rounded-full blur-[120px]"
+          className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-accent-secondary/15 rounded-full blur-[120px]"
           animate={{
             scale: [1.2, 1, 1.2],
             opacity: [0.25, 0.15, 0.25],
@@ -854,7 +854,7 @@ export default function CulturePage() {
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-xl hover:border-accent-teal/50 hover:bg-accent-teal/5 transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-xl hover:border-accent/50 hover:bg-accent/5 transition-all duration-300"
               >
                 Get in Touch
               </Link>
@@ -864,7 +864,7 @@ export default function CulturePage() {
             <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-text-muted">
               <div className="flex items-center gap-2">
                 <svg
-                  className="w-5 h-5 text-accent-teal"
+                  className="w-5 h-5 text-accent"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -881,7 +881,7 @@ export default function CulturePage() {
               <span className="hidden sm:block w-1 h-1 rounded-full bg-border" />
               <div className="flex items-center gap-2">
                 <svg
-                  className="w-5 h-5 text-accent-teal"
+                  className="w-5 h-5 text-accent"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -896,7 +896,7 @@ export default function CulturePage() {
               <span className="hidden sm:block w-1 h-1 rounded-full bg-border" />
               <div className="flex items-center gap-2">
                 <svg
-                  className="w-5 h-5 text-accent-teal"
+                  className="w-5 h-5 text-accent"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"

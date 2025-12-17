@@ -85,7 +85,7 @@ export default function TermsConditionsPage() {
                 We&apos;d appreciate a quick email to{" "}
                 <a
                   href="mailto:hello@procedure.tech"
-                  className="text-accent-teal-light hover:underline"
+                  className="text-accent-light hover:underline"
                 >
                   hello@procedure.tech
                 </a>{" "}
@@ -508,7 +508,7 @@ export default function TermsConditionsPage() {
                   Direct communication at{" "}
                   <a
                     href="mailto:hello@procedure.tech"
-                    className="text-accent-teal-light hover:underline"
+                    className="text-accent-light hover:underline"
                   >
                     hello@procedure.tech
                   </a>
@@ -556,7 +556,7 @@ export default function TermsConditionsPage() {
                   Report them promptly to{" "}
                   <a
                     href="mailto:hello@procedure.tech"
-                    className="text-accent-teal-light hover:underline"
+                    className="text-accent-light hover:underline"
                   >
                     hello@procedure.tech
                   </a>
@@ -603,7 +603,7 @@ export default function TermsConditionsPage() {
                 For complete details, please read our{" "}
                 <Link
                   href="/privacy"
-                  className="text-accent-teal-light hover:underline"
+                  className="text-accent-light hover:underline"
                 >
                   Privacy Policy
                 </Link>
@@ -638,7 +638,7 @@ export default function TermsConditionsPage() {
                   Contacting{" "}
                   <a
                     href="mailto:hello@procedure.tech"
-                    className="text-accent-teal-light hover:underline"
+                    className="text-accent-light hover:underline"
                   >
                     hello@procedure.tech
                   </a>{" "}
@@ -696,7 +696,7 @@ export default function TermsConditionsPage() {
                   <strong>Contact us first:</strong> Email us at{" "}
                   <a
                     href="mailto:hello@procedure.tech"
-                    className="text-accent-teal-light hover:underline"
+                    className="text-accent-light hover:underline"
                   >
                     hello@procedure.tech
                   </a>{" "}
@@ -726,7 +726,7 @@ export default function TermsConditionsPage() {
                 These terms, along with our{" "}
                 <Link
                   href="/privacy"
-                  className="text-accent-teal-light hover:underline"
+                  className="text-accent-light hover:underline"
                 >
                   Privacy Policy
                 </Link>

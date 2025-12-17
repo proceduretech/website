@@ -6,7 +6,7 @@ const values = [
   {
     icon: (
       <svg
-        className="w-6 h-6 text-accent-teal-light"
+        className="w-6 h-6 text-accent-light"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -19,8 +19,8 @@ const values = [
         />
       </svg>
     ),
-    iconBg: "bg-accent-teal/10",
-    hoverBorder: "hover:border-accent-teal/50",
+    iconBg: "bg-accent/10",
+    hoverBorder: "hover:border-accent/50",
     title: "AI That Ships to Production",
     description:
       "From LLM applications to AI agents, you get production-ready AI systems built on deep engineering excellence. No science projects—real products that scale.",
@@ -28,7 +28,7 @@ const values = [
   {
     icon: (
       <svg
-        className="w-6 h-6 text-accent-teal-light"
+        className="w-6 h-6 text-accent-light"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -41,8 +41,8 @@ const values = [
         />
       </svg>
     ),
-    iconBg: "bg-accent-teal/10",
-    hoverBorder: "hover:border-accent-teal/50",
+    iconBg: "bg-accent/10",
+    hoverBorder: "hover:border-accent/50",
     title: "Security Built Into AI",
     description:
       "Your AI systems are protected from day one. Prompt injection defense, data leakage prevention, and AI-specific security measures that enterprise teams require.",
@@ -50,7 +50,7 @@ const values = [
   {
     icon: (
       <svg
-        className="w-6 h-6 text-accent-teal-light"
+        className="w-6 h-6 text-accent-light"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -63,8 +63,8 @@ const values = [
         />
       </svg>
     ),
-    iconBg: "bg-accent-teal/10",
-    hoverBorder: "hover:border-accent-teal/50",
+    iconBg: "bg-accent/10",
+    hoverBorder: "hover:border-accent/50",
     title: "Your AI Team, Extended",
     description:
       "Senior AI engineers embedded directly with your team—same tools, same standups, same commitment to shipping. You get AI capacity without the hiring overhead.",
@@ -75,11 +75,14 @@ export function ValueProposition() {
   return (
     <section className="relative pt-0 pb-16 sm:pb-24 bg-surface overflow-hidden">
       {/* Gradient transition from Hero */}
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-base to-surface" />
+      <div
+        className="absolute top-0 left-0 right-0 h-32"
+        style={{ background: 'linear-gradient(to bottom, var(--color-base), var(--color-surface))' }}
+      />
 
       {/* Ambient glow - continuation from Hero */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-accent-teal/5 rounded-full blur-[120px]" />
-      <div className="absolute top-20 left-1/4 w-[400px] h-[300px] bg-accent-blue/4 rounded-full blur-[100px]" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-accent/5 rounded-full blur-[120px]" />
+      <div className="absolute top-20 left-1/4 w-[400px] h-[300px] bg-accent-secondary/4 rounded-full blur-[100px]" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
         {/* Compact header - feels like continuation */}
@@ -90,7 +93,7 @@ export function ValueProposition() {
           transition={{ duration: 0.6 }}
           className="text-center mb-10 sm:mb-12"
         >
-          <p className="text-xs sm:text-sm font-medium text-accent-teal-light uppercase tracking-wider mb-3">
+          <p className="text-xs sm:text-sm font-medium text-accent-light uppercase tracking-wider mb-3">
             Why teams choose us
           </p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">
@@ -135,7 +138,7 @@ export function ValueProposition() {
           <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10">
             <div className="flex items-center gap-2 text-text-secondary">
               <svg
-                className="w-5 h-5 text-accent-teal-light"
+                className="w-5 h-5 text-accent-light"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -151,7 +154,7 @@ export function ValueProposition() {
             </div>
             <div className="flex items-center gap-2 text-text-secondary">
               <svg
-                className="w-5 h-5 text-accent-teal-light"
+                className="w-5 h-5 text-accent-light"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -167,7 +170,7 @@ export function ValueProposition() {
             </div>
             <div className="flex items-center gap-2 text-text-secondary">
               <svg
-                className="w-5 h-5 text-accent-teal-light"
+                className="w-5 h-5 text-accent-light"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -183,7 +186,7 @@ export function ValueProposition() {
             </div>
             <div className="flex items-center gap-2 text-text-secondary">
               <svg
-                className="w-5 h-5 text-accent-teal-light"
+                className="w-5 h-5 text-accent-light"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"

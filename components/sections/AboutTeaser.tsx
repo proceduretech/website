@@ -15,7 +15,7 @@ export function AboutTeaser() {
         >
           <p className="text-lg sm:text-xl md:text-2xl text-text-primary font-medium mb-2">
             Seasoned builders delivering software products—
-            <span className="text-accent-teal-light">with and without AI</span>.
+            <span className="text-accent-light">with and without AI</span>.
           </p>
           <p className="text-text-secondary mb-8">
             Production-tested engineering. Your partner for what&apos;s next.
@@ -24,7 +24,7 @@ export function AboutTeaser() {
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <Link
               href="/about"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold text-text-primary bg-surface-elevated border border-border rounded-lg hover:border-accent-teal/50 hover:text-accent-teal-light transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold text-text-primary bg-surface-elevated border border-border rounded-lg hover:border-accent/50 hover:text-accent-light transition-all duration-200"
             >
               Learn About Us
               <svg
@@ -43,10 +43,10 @@ export function AboutTeaser() {
             </Link>
             <Link
               href="/careers"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold text-accent-teal-light bg-accent-teal/10 border border-accent-teal/20 rounded-lg hover:bg-accent-teal/20 hover:border-accent-teal/40 transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold text-accent-light bg-accent/10 border border-accent/20 rounded-lg hover:bg-accent/20 hover:border-accent/40 transition-all duration-200"
             >
               We&apos;re Hiring
-              <span className="w-2 h-2 rounded-full bg-accent-teal animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
             </Link>
           </div>
         </motion.div>

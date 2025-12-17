@@ -38,7 +38,7 @@ export function BlogEmpty({ onReset }: BlogEmptyProps) {
 
       <button
         onClick={onReset}
-        className="px-6 py-3 text-sm font-semibold text-accent-teal-light bg-accent-teal/10 border border-accent-teal/30 rounded-lg hover:bg-accent-teal/20 transition-colors"
+        className="px-6 py-3 text-sm font-semibold text-accent-light bg-accent/10 border border-accent/30 rounded-lg hover:bg-accent/20 transition-colors"
       >
         Clear all filters
       </button>

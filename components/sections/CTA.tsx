@@ -13,7 +13,7 @@ export function CTA() {
         fill="rgba(20, 184, 166, 0.4)"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-r from-accent-teal/5 to-accent-blue/5" />
+      <div className="absolute inset-0 bg-gradient-to-r from-accent/5 to-accent-secondary/5" />
       {/* Diamond/rhombus pattern */}
       <div
         className="absolute inset-0 opacity-[0.03]"

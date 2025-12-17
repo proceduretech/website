@@ -58,7 +58,7 @@ function FileIcon({ type }: { type: "file" | "folder" }) {
   if (type === "folder") {
     return (
       <svg
-        className="w-4 h-4 text-amber-400"
+        className="w-4 h-4 text-warning"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -103,7 +103,7 @@ function FileTreeNode({
     <div>
       <div
         className={`flex items-center gap-2 py-1 px-2 rounded hover:bg-surface transition-colors ${
-          item.highlight ? "bg-accent-teal/10" : ""
+          item.highlight ? "bg-accent/10" : ""
         }`}
         style={{ paddingLeft: `${depth * 16 + 8}px` }}
       >
@@ -131,7 +131,7 @@ function FileTreeNode({
             <span
               className={`text-sm ${
                 item.highlight
-                  ? "text-accent-teal-light font-medium"
+                  ? "text-accent-light font-medium"
                   : "text-text-secondary"
               }`}
             >
@@ -145,7 +145,7 @@ function FileTreeNode({
             <span
               className={`text-sm ${
                 item.highlight
-                  ? "text-accent-teal-light font-medium"
+                  ? "text-accent-light font-medium"
                   : "text-text-secondary"
               }`}
             >

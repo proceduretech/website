@@ -60,7 +60,7 @@ export function ClientLogos() {
                 alt={`${client.name} logo`}
                 width={client.width}
                 height={40}
-                className="max-h-8 w-auto object-contain filter brightness-0 invert"
+                className="max-h-8 w-auto object-contain client-logo-filter"
               />
             </div>
           ))}

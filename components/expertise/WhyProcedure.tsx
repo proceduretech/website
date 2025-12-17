@@ -66,9 +66,9 @@ export function WhyProcedure({
                 variants={itemVariants}
                 className="flex items-start gap-4 p-4 rounded-xl bg-surface-elevated border border-border"
               >
-                <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-accent-teal/10 border border-accent-teal/20 flex items-center justify-center">
+                <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center">
                   <svg
-                    className="w-4 h-4 text-accent-teal-light"
+                    className="w-4 h-4 text-accent-light"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"

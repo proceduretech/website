@@ -21,7 +21,7 @@ const typeStyles = {
   good: {
     icon: (
       <svg
-        className="w-5 h-5 text-green-400"
+        className="w-5 h-5 text-success"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -30,14 +30,14 @@ const typeStyles = {
         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
       </svg>
     ),
-    border: "border-green-500/30",
-    bg: "bg-green-500/5",
-    title: "text-green-400",
+    border: "border-success/30",
+    bg: "bg-success/5",
+    title: "text-success",
   },
   bad: {
     icon: (
       <svg
-        className="w-5 h-5 text-red-400"
+        className="w-5 h-5 text-error"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -50,9 +50,9 @@ const typeStyles = {
         />
       </svg>
     ),
-    border: "border-red-500/30",
-    bg: "bg-red-500/5",
-    title: "text-red-400",
+    border: "border-error/30",
+    bg: "bg-error/5",
+    title: "text-error",
   },
   neutral: {
     icon: null,

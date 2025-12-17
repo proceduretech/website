@@ -70,11 +70,11 @@ export function ComplianceBadges({
               className={cn(
                 "flex items-center gap-3 px-5 sm:px-6 py-3 sm:py-4 rounded-xl",
                 "bg-surface-elevated border border-border",
-                "hover:border-accent-teal/30 transition-colors duration-300",
+                "hover:border-accent/30 transition-colors duration-300",
               )}
             >
-              <div className="w-10 h-10 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center justify-center">
-                <div className="w-5 h-5 text-green-400">{badge.icon}</div>
+              <div className="w-10 h-10 rounded-lg bg-success/10 border border-success/20 flex items-center justify-center">
+                <div className="w-5 h-5 text-success">{badge.icon}</div>
               </div>
               <div>
                 <div className="font-medium text-text-primary text-sm">

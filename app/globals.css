@@ -38,15 +38,15 @@
   --color-text-emphasis: rgba(255, 255, 255, 0.95);
   --color-text-inverted: #0b1220;
 
-  /* Accent Colors - Teal (Primary Brand) */
-  --color-accent-teal: #0f766e;
-  --color-accent-teal-light: #14b8a6;
-  --color-accent-teal-dark: #115e59;
+  /* Primary Accent Colors (currently teal - change these to rebrand) */
+  --color-accent: #0f766e;
+  --color-accent-light: #14b8a6;
+  --color-accent-dark: #115e59;
 
-  /* Accent Colors - Blue (Secondary) */
-  --color-accent-blue: #2563eb;
-  --color-accent-blue-light: #3b82f6;
-  --color-accent-blue-dark: #1d4ed8;
+  /* Secondary Accent Colors (blue) */
+  --color-accent-secondary: #2563eb;
+  --color-accent-secondary-light: #3b82f6;
+  --color-accent-secondary-dark: #1d4ed8;
 
   /* Designer-approved solid colors */
   --color-highlight: #0db5a5;
@@ -86,7 +86,7 @@
   --opacity-pattern: 0.015;
   --opacity-disabled: 0.5;
 
-  /* Accent Opacity Scales (for bg-accent-teal/10 patterns) */
+  /* Accent Opacity Scales (for bg-accent/10 patterns) */
   --opacity-accent-subtle: 0.05;
   --opacity-accent-light: 0.1;
   --opacity-accent-medium: 0.2;
@@ -136,6 +136,7 @@
   --color-code-highlight-border: #14b8a6;
   --color-code-highlight-word: rgba(20, 184, 166, 0.2);
   --color-code-line-numbers: rgba(255, 255, 255, 0.5);
+  --color-code-border: #1e293b;
   --color-code-window-close: #ff5f57;
   --color-code-window-minimize: #febc2e;
   --color-code-window-maximize: #28c840;
@@ -157,6 +158,7 @@
   --color-prose-table-borders: #1e293b;
   --color-prose-link-underline: rgba(13, 181, 165, 0.5);
   --color-prose-link-underline-hover: rgba(13, 181, 165, 1);
+  --color-blockquote-bg: rgba(20, 184, 166, 0.08);
 
   /* Cal.com Integration */
   --color-cal-bg: #0F172A;
@@ -233,56 +235,62 @@
 /* =============================================================================
    LIGHT THEME OVERRIDES
    Activated when html has data-theme="light" or no .dark class
+
+   Color Palette:
+   - Background: #F8F7F9 (off-white with subtle purple tint)
+   - Text: #2B2D42 (dark navy with blue undertone)
+   - Accent: #92DCE5 (bright cyan) with darker variations for CTAs
    ============================================================================= */
 
 :root[data-theme="light"],
 html:not(.dark) {
-  /* Backgrounds */
-  --color-base: #ffffff;
-  --color-surface: #f8fafc;
+  /* Backgrounds - Based on #F8F7F9 */
+  --color-base: #f8f7f9;
+  --color-surface: #efeef1;
   --color-surface-elevated: #ffffff;
-  --color-overlay: rgba(15, 23, 42, 0.5);
-  --color-footer-reveal: #f1f5f9;
+  --color-overlay: rgba(43, 45, 66, 0.5);
+  --color-footer-reveal: #edeced;
   /* Code blocks stay dark for readability */
 
-  /* Text Colors */
-  --color-text-primary: #0f172a;
-  --color-text-secondary: #475569;
-  --color-text-muted: #94a3b8;
-  --color-text-emphasis: #0b1220;
-  --color-text-inverted: #ffffff;
+  /* Text Colors - Based on #2B2D42 */
+  --color-text-primary: #2b2d42;
+  --color-text-secondary: #4a4c61;
+  --color-text-muted: #6e7087;
+  --color-text-emphasis: #1a1b2e;
+  --color-text-inverted: #f8f7f9;
 
-  /* Accent Colors - Teal (slightly adjusted for light mode contrast) */
-  --color-accent-teal: #0d9488;
-  --color-accent-teal-light: #14b8a6;
-  --color-accent-teal-dark: #0f766e;
+  /* Primary Accent Colors (currently cyan - change these to rebrand) */
+  /* For light mode, we need DARKER accent colors for text contrast */
+  --color-accent: #0e8a94;
+  --color-accent-light: #0a7a84;
+  --color-accent-dark: #086872;
 
-  /* CTA Colors */
-  --color-cta: #0d9488;
+  /* CTA Colors - Dark cyan for button contrast */
+  --color-cta: #0a7a84;
   --color-cta-text: #ffffff;
-  --color-cta-hover: #0f766e;
-  --color-cta-shadow: rgba(13, 148, 136, 0.2);
+  --color-cta-hover: #086872;
+  --color-cta-shadow: rgba(10, 122, 132, 0.25);
 
-  /* Highlight stays the same for brand consistency but adjusted */
-  --color-highlight: #0d9488;
+  /* Highlight - Dark cyan for links and highlights */
+  --color-highlight: #0a7a84;
 
   /* Border Colors */
-  --color-border: #e2e8f0;
-  --color-border-light: #cbd5e1;
-  --color-border-subtle: #f1f5f9;
-  --color-border-emphasis: #94a3b8;
-  --color-border-focus: #14b8a6;
-  --color-hr: #e2e8f0;
+  --color-border: #dddce0;
+  --color-border-light: #c5c4c9;
+  --color-border-subtle: #efeef1;
+  --color-border-emphasis: #8f8e95;
+  --color-border-focus: #0e8a94;
+  --color-hr: #dddce0;
 
-  /* Selection */
-  --color-selection-bg: rgba(13, 148, 136, 0.2);
-  --color-selection-text: #0f766e;
+  /* Selection - Using accent cyan */
+  --color-selection-bg: rgba(10, 122, 132, 0.2);
+  --color-selection-text: #086872;
 
-  /* Shadows (more visible in light mode) */
-  --shadow-cta-glow: 0 10px 15px -3px rgba(13, 148, 136, 0.15);
-  --shadow-teal-glow: 0 10px 15px -3px rgba(20, 184, 166, 0.15);
-  --shadow-mega-menu: 0 20px 70px -15px rgba(15, 118, 110, 0.15);
-  --shadow-footer-glow: 0 -20px 80px 20px rgba(13, 181, 165, 0.06), 0 -8px 30px 5px rgba(13, 181, 165, 0.04);
+  /* Shadows - Adjusted for light mode */
+  --shadow-cta-glow: 0 10px 15px -3px rgba(10, 122, 132, 0.2);
+  --shadow-teal-glow: 0 10px 15px -3px rgba(10, 122, 132, 0.2);
+  --shadow-mega-menu: 0 20px 70px -15px rgba(10, 122, 132, 0.15);
+  --shadow-footer-glow: 0 -20px 80px 20px rgba(10, 122, 132, 0.25), 0 -8px 30px 5px rgba(10, 122, 132, 0.15);
 
   /* Opacity adjustments for light mode */
   --opacity-text-primary: 1;
@@ -290,9 +298,9 @@ html:not(.dark) {
   --opacity-text-muted: 1;
   --opacity-pattern: 0.04;
   --opacity-accent-medium: 0.15;
-  --opacity-accent-strong: 0.2;
+  --opacity-accent-strong: 0.25;
 
-  /* Callout Colors - slightly more visible */
+  /* Callout Colors - Using cyan accent tones */
   --color-callout-info-bg: rgba(59, 130, 246, 0.08);
   --color-callout-info-border: rgba(59, 130, 246, 0.25);
   --color-callout-info-icon: #2563eb;
@@ -318,59 +326,72 @@ html:not(.dark) {
   --color-callout-tip-icon: #a855f7;
   --color-callout-tip-icon-bg: rgba(168, 85, 247, 0.15);
 
-  --color-callout-note-bg: rgba(13, 148, 136, 0.08);
-  --color-callout-note-border: rgba(13, 148, 136, 0.25);
-  --color-callout-note-icon: #0d9488;
-  --color-callout-note-icon-bg: rgba(13, 148, 136, 0.15);
+  /* Note callout uses the cyan accent */
+  --color-callout-note-bg: rgba(10, 122, 132, 0.08);
+  --color-callout-note-border: rgba(10, 122, 132, 0.25);
+  --color-callout-note-icon: #0a7a84;
+  --color-callout-note-icon-bg: rgba(10, 122, 132, 0.15);
 
   /* Prose/Typography for light mode */
-  --color-prose-body: #475569;
-  --color-prose-headings: #0f172a;
-  --color-prose-lead: #475569;
-  --color-prose-links: #0d9488;
-  --color-prose-bold: #0f172a;
-  --color-prose-counters: #64748b;
-  --color-prose-bullets: #0d9488;
-  --color-prose-quotes: #475569;
-  --color-prose-quote-borders: #14b8a6;
-  --color-prose-captions: #64748b;
-  --color-prose-code: #0f766e;
-  --color-prose-table-borders: #e2e8f0;
-  --color-prose-link-underline: rgba(13, 148, 136, 0.4);
-  --color-prose-link-underline-hover: #0d9488;
+  --color-prose-body: #4a4c61;
+  --color-prose-headings: #2b2d42;
+  --color-prose-lead: #4a4c61;
+  --color-prose-links: #0a7a84;
+  --color-prose-bold: #2b2d42;
+  --color-prose-counters: #6e7087;
+  --color-prose-bullets: #0e8a94;
+  --color-prose-quotes: #4a4c61;
+  --color-prose-quote-borders: #0e8a94;
+  --color-prose-captions: #6e7087;
+  --color-prose-code: #086872;
+  --color-prose-pre-code: #3c3836;
+  --color-prose-pre-bg: #f9f5d7;
+  --color-prose-table-borders: #dddce0;
+  --color-prose-link-underline: rgba(10, 122, 132, 0.4);
+  --color-prose-link-underline-hover: #0a7a84;
+  --color-blockquote-bg: #e8f4f5;
+
+  /* Code blocks for light mode - Gruvbox Light inspired */
+  --color-code-block: #fbf1c7;
+  --color-code-title: #f2e5bc;
+  --color-code-highlight-bg: rgba(10, 122, 132, 0.12);
+  --color-code-highlight-border: #0a7a84;
+  --color-code-highlight-word: rgba(10, 122, 132, 0.15);
+  --color-code-line-numbers: #928374;
+  --color-code-border: #ebdbb2;
 
   /* Cal.com for light mode */
-  --color-cal-bg: #ffffff;
-  --color-cal-bg-emphasis: #f8fafc;
-  --color-cal-border: #e2e8f0;
-  --color-cal-border-emphasis: #cbd5e1;
-  --color-cal-border-subtle: #f1f5f9;
-  --color-cal-text: #0f172a;
-  --color-cal-text-emphasis: #0b1220;
-  --color-cal-text-muted: #475569;
-  --color-cal-text-subtle: #94a3b8;
-  --color-cal-brand: #0d9488;
-  --color-cal-brand-emphasis: #0f766e;
+  --color-cal-bg: #f8f7f9;
+  --color-cal-bg-emphasis: #efeef1;
+  --color-cal-border: #dddce0;
+  --color-cal-border-emphasis: #c5c4c9;
+  --color-cal-border-subtle: #efeef1;
+  --color-cal-text: #2b2d42;
+  --color-cal-text-emphasis: #1a1b2e;
+  --color-cal-text-muted: #4a4c61;
+  --color-cal-text-subtle: #6e7087;
+  --color-cal-brand: #0a7a84;
+  --color-cal-brand-emphasis: #086872;
   --color-cal-brand-text: #ffffff;
 
   /* Component-specific for light mode */
-  --color-spotlight-fill: rgba(13, 148, 136, 0.25);
-  --color-nav-overlay: rgba(15, 23, 42, 0.4);
-  --color-scroll-indicator-border: #cbd5e1;
-  --color-scroll-indicator-dot: #94a3b8;
-  --color-tracing-beam-dot-active: #0d9488;
-  --color-tracing-beam-dot-inactive: #14b8a6;
-  --color-tracing-beam-border-active: #0f766e;
-  --color-tracing-beam-border-inactive: #0d9488;
-  --color-tracing-beam-line: #cbd5e1;
+  --color-spotlight-fill: rgba(10, 122, 132, 0.25);
+  --color-nav-overlay: rgba(43, 45, 66, 0.4);
+  --color-scroll-indicator-border: #c5c4c9;
+  --color-scroll-indicator-dot: #6e7087;
+  --color-tracing-beam-dot-active: #0a7a84;
+  --color-tracing-beam-dot-inactive: #0e8a94;
+  --color-tracing-beam-border-active: #086872;
+  --color-tracing-beam-border-inactive: #0a7a84;
+  --color-tracing-beam-line: #c5c4c9;
 
   /* SVG Grid Pattern for light mode */
-  --color-svg-grid: #cbd5e1;
+  --color-svg-grid: #c5c4c9;
 
   /* Legacy aliases */
-  --color-background: #ffffff;
-  --color-foreground: #0f172a;
-  --color-muted: #94a3b8;
+  --color-background: #f8f7f9;
+  --color-foreground: #2b2d42;
+  --color-muted: #6e7087;
 }
 
 /* =============================================================================
@@ -383,14 +404,15 @@ html:not(.dark) {
   }
 
   html {
-    @apply bg-base;
     background-color: var(--color-base);
     overscroll-behavior: none;
   }
 
   body {
-    @apply bg-base text-text-primary antialiased;
     background-color: var(--color-base);
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     overscroll-behavior: none;
     line-height: 1.7;
     font-family:
@@ -398,6 +420,12 @@ html:not(.dark) {
       system-ui,
       -apple-system,
       sans-serif;
+  }
+
+  /* Placeholder text - theme aware */
+  ::placeholder {
+    color: var(--color-text-muted);
+    opacity: 1;
   }
 
   /* Keep Outfit for headings - better for display text */
@@ -661,7 +689,7 @@ html:not(.dark) {
 /* Task lists (GFM) */
 .mdx-content input[type="checkbox"] {
   margin-right: 0.5rem;
-  accent-color: var(--color-accent-teal-light);
+  accent-color: var(--color-accent-light);
 }
 
 /* Footnotes (GFM) */
@@ -677,6 +705,24 @@ html:not(.dark) {
 }
 
 /* Code blocks from rehype-pretty-code */
+/* Shiki dual theme switching - dark mode uses --shiki-dark, light uses --shiki-light */
+[data-rehype-pretty-code-figure] pre,
+[data-rehype-pretty-code-figure] code,
+[data-rehype-pretty-code-figure] code span {
+  color: var(--shiki-dark);
+  background-color: var(--shiki-dark-bg);
+}
+
+:root[data-theme="light"] [data-rehype-pretty-code-figure] pre,
+:root[data-theme="light"] [data-rehype-pretty-code-figure] code,
+:root[data-theme="light"] [data-rehype-pretty-code-figure] code span,
+html:not(.dark) [data-rehype-pretty-code-figure] pre,
+html:not(.dark) [data-rehype-pretty-code-figure] code,
+html:not(.dark) [data-rehype-pretty-code-figure] code span {
+  color: var(--shiki-light);
+  background-color: var(--shiki-light-bg);
+}
+
 .mdx-content pre {
   margin: 2rem 0;
   border-radius: 0.75rem;
@@ -767,82 +813,364 @@ html:not(.dark) {
 /* =============================================================================
    SHADCN/UI ROOT VARIABLES
    These are required for shadcn/ui components to work correctly
+   Updated to use our theme colors for consistency
    ============================================================================= */
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  /* Light theme - matches our F8F7F9/2B2D42/92DCE5 palette */
+  --background: #f8f7f9;
+  --foreground: #2b2d42;
+  --card: #ffffff;
+  --card-foreground: #2b2d42;
+  --popover: #ffffff;
+  --popover-foreground: #2b2d42;
+  --primary: #2f9aa8;
+  --primary-foreground: #ffffff;
+  --secondary: #efeef1;
+  --secondary-foreground: #2b2d42;
+  --muted: #efeef1;
+  --muted-foreground: #6e7087;
+  --accent: #92dce5;
+  --accent-foreground: #2b2d42;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --border: #dddce0;
+  --input: #dddce0;
+  --ring: #92dce5;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar: #f8f7f9;
+  --sidebar-foreground: #2b2d42;
+  --sidebar-primary: #2f9aa8;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #efeef1;
+  --sidebar-accent-foreground: #2b2d42;
+  --sidebar-border: #dddce0;
+  --sidebar-ring: #92dce5;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
+  /* Dark theme - matches our original dark palette */
+  --background: #0b1220;
+  --foreground: rgba(255, 255, 255, 0.9);
+  --card: #0f172a;
+  --card-foreground: rgba(255, 255, 255, 0.9);
+  --popover: #0f172a;
+  --popover-foreground: rgba(255, 255, 255, 0.9);
+  --primary: #0d9488;
+  --primary-foreground: #fcfcfc;
+  --secondary: #1e293b;
+  --secondary-foreground: rgba(255, 255, 255, 0.9);
+  --muted: #1e293b;
+  --muted-foreground: rgba(255, 255, 255, 0.5);
+  --accent: #14b8a6;
+  --accent-foreground: rgba(255, 255, 255, 0.9);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
+  --border: #1e293b;
+  --input: #1e293b;
+  --ring: #14b8a6;
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --sidebar: #0f172a;
+  --sidebar-foreground: rgba(255, 255, 255, 0.9);
+  --sidebar-primary: #14b8a6;
+  --sidebar-primary-foreground: #fcfcfc;
+  --sidebar-accent: #1e293b;
+  --sidebar-accent-foreground: rgba(255, 255, 255, 0.9);
+  --sidebar-border: #1e293b;
+  --sidebar-ring: #14b8a6;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground;
+  /* Note: body background is handled by the earlier @layer base block
+     which uses our theme's bg-base and text-text-primary classes */
+}
+
+/* =============================================================================
+   THEME UTILITY OVERRIDES
+   These override Tailwind's compiled utilities to use CSS variables,
+   enabling theme switching. Placed outside @layer for highest specificity.
+   ============================================================================= */
+
+.bg-base {
+  background-color: var(--color-base) !important;
+}
+.bg-surface {
+  background-color: var(--color-surface) !important;
+}
+.bg-surface-elevated {
+  background-color: var(--color-surface-elevated) !important;
+}
+.bg-footer-reveal {
+  background-color: var(--color-footer-reveal) !important;
+}
+.text-text-primary {
+  color: var(--color-text-primary) !important;
+}
+.text-text-secondary {
+  color: var(--color-text-secondary) !important;
+}
+.text-text-muted {
+  color: var(--color-text-muted) !important;
+}
+.border-border {
+  border-color: var(--color-border) !important;
+}
+.bg-cta {
+  background-color: var(--color-cta) !important;
+}
+.text-cta-text {
+  color: var(--color-cta-text) !important;
+}
+.text-highlight {
+  color: var(--color-highlight) !important;
+}
+.bg-accent {
+  background-color: var(--color-accent) !important;
+}
+.text-accent {
+  color: var(--color-accent) !important;
+}
+.text-accent-light {
+  color: var(--color-accent-light) !important;
+}
+
+/* Gradient utilities - override Tailwind's compiled values */
+.from-surface {
+  --tw-gradient-from: var(--color-surface) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+.to-surface {
+  --tw-gradient-to: var(--color-surface) !important;
+}
+.via-base {
+  --tw-gradient-via: var(--color-base) !important;
+}
+.to-base {
+  --tw-gradient-to: var(--color-base) !important;
+}
+.from-base {
+  --tw-gradient-from: var(--color-base) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
+/* Opacity variant overrides for navigation and overlays */
+.bg-surface\/95 {
+  background-color: color-mix(in srgb, var(--color-surface) 95%, transparent) !important;
+}
+.bg-surface\/80 {
+  background-color: color-mix(in srgb, var(--color-surface) 80%, transparent) !important;
+}
+.bg-surface-elevated\/80 {
+  background-color: color-mix(in srgb, var(--color-surface-elevated) 80%, transparent) !important;
+}
+.bg-surface-elevated\/50 {
+  background-color: color-mix(in srgb, var(--color-surface-elevated) 50%, transparent) !important;
+}
+.bg-base\/60 {
+  background-color: color-mix(in srgb, var(--color-base) 60%, transparent) !important;
+}
+.bg-base\/95 {
+  background-color: color-mix(in srgb, var(--color-base) 95%, transparent) !important;
+}
+
+/* Accent opacity variants for glows and overlays */
+.bg-accent\/4 {
+  background-color: color-mix(in srgb, var(--color-accent) 4%, transparent) !important;
+}
+.bg-accent\/5 {
+  background-color: color-mix(in srgb, var(--color-accent) 5%, transparent) !important;
+}
+.bg-accent\/8 {
+  background-color: color-mix(in srgb, var(--color-accent) 8%, transparent) !important;
+}
+.bg-accent\/10 {
+  background-color: color-mix(in srgb, var(--color-accent) 10%, transparent) !important;
+}
+.bg-accent\/15 {
+  background-color: color-mix(in srgb, var(--color-accent) 15%, transparent) !important;
+}
+.bg-accent\/20 {
+  background-color: color-mix(in srgb, var(--color-accent) 20%, transparent) !important;
+}
+.bg-accent\/25 {
+  background-color: color-mix(in srgb, var(--color-accent) 25%, transparent) !important;
+}
+.bg-accent\/30 {
+  background-color: color-mix(in srgb, var(--color-accent) 30%, transparent) !important;
+}
+.bg-accent\/40 {
+  background-color: color-mix(in srgb, var(--color-accent) 40%, transparent) !important;
+}
+.bg-accent\/50 {
+  background-color: color-mix(in srgb, var(--color-accent) 50%, transparent) !important;
+}
+
+/* Hero grid pattern - theme-aware */
+.hero-grid-pattern {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='%23E5E7EB'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+  opacity: var(--opacity-pattern);
+}
+
+/* Light mode: darker grid lines for contrast */
+html:not(.dark) .hero-grid-pattern {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='%232B2D42'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+  opacity: 0.06;
+}
+
+/* Hover state overrides for navigation */
+.hover\:bg-surface-elevated:hover,
+.lg\:hover\:bg-surface-elevated:hover,
+.focus\:bg-surface-elevated:focus,
+.lg\:focus\:bg-surface-elevated:focus {
+  background-color: var(--color-surface-elevated) !important;
+}
+
+/* Responsive bg-surface-elevated for nav active states */
+@media (min-width: 1024px) {
+  .lg\:bg-surface-elevated {
+    background-color: var(--color-surface-elevated) !important;
   }
+}
+
+/* Hover state overrides for theme-awareness */
+.hover\:bg-surface:hover {
+  background-color: var(--color-surface) !important;
+}
+
+/* Client logo filter - theme-aware */
+.client-logo-filter {
+  filter: brightness(0) invert(1);
+}
+
+html:not(.dark) .client-logo-filter {
+  filter: brightness(0);
+}
+
+/* Amber text - darker in light mode for better contrast */
+html:not(.dark) .text-amber-400 {
+  color: #b45309 !important; /* amber-700 */
+}
+
+.hover\:text-text-primary:hover,
+.lg\:hover\:text-text-primary:hover {
+  color: var(--color-text-primary) !important;
+}
+
+.hover\:border-accent\/30:hover,
+.group-hover\:border-accent\/30 {
+  border-color: color-mix(in srgb, var(--color-accent) 30%, transparent) !important;
+}
+
+.group-hover\:text-accent-light {
+  color: var(--color-accent-light) !important;
+}
+
+/* Semantic color utilities - Info (for informational content) */
+.text-info {
+  color: var(--color-callout-info-icon) !important;
+}
+.bg-info {
+  background-color: var(--color-callout-info-bg) !important;
+}
+.bg-info\/5 {
+  background-color: var(--color-callout-info-bg) !important;
+}
+.bg-info\/10 {
+  background-color: var(--color-callout-info-icon-bg) !important;
+}
+.bg-info\/15 {
+  background-color: color-mix(in srgb, rgb(59, 130, 246) 15%, transparent) !important;
+}
+.border-info {
+  border-color: var(--color-callout-info-border) !important;
+}
+.border-info\/20 {
+  border-color: var(--color-callout-info-border) !important;
+}
+
+/* Semantic color utilities - Success (for positive states) */
+.text-success {
+  color: var(--color-callout-success-icon) !important;
+}
+.bg-success {
+  background-color: var(--color-callout-success-bg) !important;
+}
+.bg-success\/5 {
+  background-color: var(--color-callout-success-bg) !important;
+}
+.bg-success\/10 {
+  background-color: var(--color-callout-success-icon-bg) !important;
+}
+.border-success {
+  border-color: var(--color-callout-success-border) !important;
+}
+.border-success\/20 {
+  border-color: var(--color-callout-success-border) !important;
+}
+.border-success\/30 {
+  border-color: color-mix(in srgb, rgb(34, 197, 94) 30%, transparent) !important;
+}
+
+/* Semantic color utilities - Warning (for caution/attention) */
+.text-warning {
+  color: var(--color-callout-warning-icon) !important;
+}
+.bg-warning\/5 {
+  background-color: var(--color-callout-warning-bg) !important;
+}
+.bg-warning\/10 {
+  background-color: var(--color-callout-warning-icon-bg) !important;
+}
+.border-warning\/20 {
+  border-color: var(--color-callout-warning-border) !important;
+}
+
+/* Semantic color utilities - Error/Danger (for errors, problems) */
+.text-error {
+  color: var(--color-callout-error-icon) !important;
+}
+.bg-error\/5 {
+  background-color: var(--color-callout-error-bg) !important;
+}
+.bg-error\/10 {
+  background-color: var(--color-callout-error-icon-bg) !important;
+}
+.border-error\/20 {
+  border-color: var(--color-callout-error-border) !important;
+}
+.border-error\/30 {
+  border-color: color-mix(in srgb, rgb(239, 68, 68) 30%, transparent) !important;
+}
+.border-error\/50 {
+  border-color: color-mix(in srgb, rgb(239, 68, 68) 50%, transparent) !important;
+}
+.focus\:border-error:focus {
+  border-color: rgb(239, 68, 68) !important;
+}
+.focus\:ring-error\/20:focus {
+  --tw-ring-color: color-mix(in srgb, rgb(239, 68, 68) 20%, transparent) !important;
+}
+
+/* Semantic color utilities - Tip (for tips, hints) */
+.text-tip {
+  color: var(--color-callout-tip-icon) !important;
+}
+.bg-tip\/5 {
+  background-color: var(--color-callout-tip-bg) !important;
+}
+.bg-tip\/10 {
+  background-color: var(--color-callout-tip-icon-bg) !important;
+}
+.border-tip\/20 {
+  border-color: var(--color-callout-tip-border) !important;
 }

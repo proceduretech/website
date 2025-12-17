@@ -81,21 +81,21 @@ export function SolutionsGrid({
                 variants={cardVariants}
                 className={cn(
                   "lg:col-span-2 p-8 rounded-2xl",
-                  "bg-gradient-to-br from-accent-teal/10 to-accent-blue/5",
-                  "border border-accent-teal/20",
-                  "group hover:border-accent-teal/40 transition-all duration-300",
+                  "bg-gradient-to-br from-accent/10 to-accent-secondary/5",
+                  "border border-accent/20",
+                  "group hover:border-accent/40 transition-all duration-300",
                 )}
               >
                 <div
                   className={cn(
                     "w-14 h-14 rounded-xl mb-6",
-                    "bg-gradient-to-br from-accent-teal/20 to-accent-blue/20",
-                    "border border-accent-teal/30",
+                    "bg-gradient-to-br from-accent/20 to-accent-secondary/20",
+                    "border border-accent/30",
                     "flex items-center justify-center",
-                    "group-hover:border-accent-teal/50 transition-colors",
+                    "group-hover:border-accent/50 transition-colors",
                   )}
                 >
-                  <div className="w-7 h-7 text-accent-teal-light">
+                  <div className="w-7 h-7 text-accent-light">
                     {featuredSolution.icon}
                   </div>
                 </div>
@@ -117,20 +117,20 @@ export function SolutionsGrid({
                     className={cn(
                       "p-6 rounded-2xl",
                       "bg-surface-elevated/50 backdrop-blur-sm",
-                      "border border-border hover:border-accent-teal/30",
+                      "border border-border hover:border-accent/30",
                       "transition-all duration-300",
-                      "hover:shadow-lg hover:shadow-accent-teal/5",
+                      "hover:shadow-lg hover:shadow-accent/5",
                     )}
                   >
                     <div
                       className={cn(
                         "w-10 h-10 rounded-lg mb-4",
-                        "bg-gradient-to-br from-accent-teal/20 to-accent-blue/20",
-                        "border border-accent-teal/20",
+                        "bg-gradient-to-br from-accent/20 to-accent-secondary/20",
+                        "border border-accent/20",
                         "flex items-center justify-center",
                       )}
                     >
-                      <div className="w-5 h-5 text-accent-teal-light">
+                      <div className="w-5 h-5 text-accent-light">
                         {solution.icon}
                       </div>
                     </div>
@@ -156,21 +156,21 @@ export function SolutionsGrid({
                   className={cn(
                     "p-6 rounded-2xl",
                     "bg-surface-elevated/50 backdrop-blur-sm",
-                    "border border-border hover:border-accent-teal/30",
+                    "border border-border hover:border-accent/30",
                     "transition-all duration-300",
-                    "hover:shadow-lg hover:shadow-accent-teal/5",
+                    "hover:shadow-lg hover:shadow-accent/5",
                     "hover:-translate-y-1",
                   )}
                 >
                   <div
                     className={cn(
                       "w-12 h-12 rounded-xl mb-4",
-                      "bg-gradient-to-br from-accent-teal/20 to-accent-blue/20",
-                      "border border-accent-teal/20",
+                      "bg-gradient-to-br from-accent/20 to-accent-secondary/20",
+                      "border border-accent/20",
                       "flex items-center justify-center",
                     )}
                   >
-                    <div className="w-6 h-6 text-accent-teal-light">
+                    <div className="w-6 h-6 text-accent-light">
                       {solution.icon}
                     </div>
                   </div>

@@ -7,15 +7,18 @@ import { cn } from "@/lib/utils";
 export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
   const rows = new Array(150).fill(1);
   const cols = new Array(100).fill(1);
+
+  // Use CSS custom properties for theme-aware colors
+  // These will automatically adjust based on the current theme
   const colors = [
-    "#0f766e",
-    "#14b8a6",
-    "#2563eb",
-    "#3b82f6",
-    "#0db5a5",
-    "#06b6d4",
-    "#0891b2",
-    "#0e7490",
+    "var(--color-accent)",
+    "var(--color-accent-light)",
+    "var(--color-accent-secondary)",
+    "var(--color-accent-secondary-light)",
+    "var(--color-highlight)",
+    "#06b6d4", // cyan-500
+    "#0891b2", // cyan-600
+    "#0e7490", // cyan-700
   ];
 
   const getRandomColor = () => {

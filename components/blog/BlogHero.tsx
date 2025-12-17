@@ -27,10 +27,10 @@ export function BlogHero({ stats }: BlogHeroProps) {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-teal/10 border border-accent-teal/20 mb-6"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 mb-6"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-accent-teal-light animate-pulse" />
-            <span className="text-sm font-medium text-accent-teal-light">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent-light animate-pulse" />
+            <span className="text-sm font-medium text-accent-light">
               Engineering Insights
             </span>
           </motion.div>

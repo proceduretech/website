@@ -118,10 +118,10 @@ All CSS custom properties are defined in `globals.css` and automatically switch 
 
 | Variable | Dark Mode | Light Mode | Usage |
 |----------|-----------|------------|-------|
-| `--color-accent-teal` | `#0f766e` | `#0d9488` | Primary accent (dark) |
-| `--color-accent-teal-light` | `#14b8a6` | `#14b8a6` | Primary accent (bright) |
-| `--color-accent-blue` | `#2563eb` | `#2563eb` | Secondary accent |
-| `--color-accent-blue-light` | `#3b82f6` | `#3b82f6` | Secondary accent (bright) |
+| `--color-accent` | `#0f766e` | `#0d9488` | Primary accent (dark) |
+| `--color-accent-light` | `#14b8a6` | `#14b8a6` | Primary accent (bright) |
+| `--color-accent-secondary` | `#2563eb` | `#2563eb` | Secondary accent |
+| `--color-accent-secondary-light` | `#3b82f6` | `#3b82f6` | Secondary accent (bright) |
 | `--color-highlight` | `#0db5a5` | `#0d9488` | Key highlight text |
 
 ### CTA/Interactive
@@ -297,22 +297,22 @@ text-text-primary    → Primary text
 text-text-secondary  → Body text
 text-text-muted      → Muted/placeholder
 text-highlight       → Highlight color
-text-accent-teal     → Dark teal
-text-accent-teal-light → Bright teal
+text-accent     → Dark teal
+text-accent-light → Bright teal
 ```
 
 ### Border Classes
 ```
 border-border        → Default border
 border-border-light  → Hover border
-border-accent-teal   → Accent border
+border-accent   → Accent border
 ```
 
 ### Opacity Modifiers
 ```
-bg-accent-teal/10    → 10% opacity background
-bg-accent-teal/20    → 20% opacity background
-border-accent-teal/30 → 30% opacity border
+bg-accent/10    → 10% opacity background
+bg-accent/20    → 20% opacity background
+border-accent/30 → 30% opacity border
 ```
 
 ---
@@ -323,7 +323,7 @@ border-accent-teal/30 → 30% opacity border
 
 ```tsx
 <div className="bg-surface-elevated border border-border rounded-xl p-6
-                hover:border-accent-teal/30 transition-colors">
+                hover:border-accent/30 transition-colors">
   <h3 className="text-text-primary">Card Title</h3>
   <p className="text-text-secondary">Description</p>
 </div>
@@ -340,7 +340,7 @@ border-accent-teal/30 → 30% opacity border
 
 // Outline
 <button className="bg-transparent text-text-primary border border-border
-                   hover:border-accent-teal hover:text-accent-teal-light">
+                   hover:border-accent hover:text-accent-light">
   Secondary
 </button>
 
@@ -356,7 +356,7 @@ border-accent-teal/30 → 30% opacity border
 ```tsx
 <input className="bg-surface-elevated border border-border rounded-xl
                   text-text-primary placeholder-text-muted
-                  focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/20" />
+                  focus:border-accent focus:ring-2 focus:ring-accent/20" />
 ```
 
 ### Callouts
@@ -378,7 +378,7 @@ border-accent-teal/30 → 30% opacity border
 ### Using currentColor (Recommended)
 
 ```tsx
-<svg className="text-accent-teal-light" stroke="currentColor" fill="none">
+<svg className="text-accent-light" stroke="currentColor" fill="none">
   <path d="..." />
 </svg>
 ```
@@ -455,7 +455,7 @@ Search for these patterns and replace:
 | `#050a15` | `var(--color-surface)` or `bg-surface` |
 | `#0f172a` | `var(--color-surface-elevated)` |
 | `#1e293b` | `var(--color-border)` |
-| `#14b8a6` | `var(--color-accent-teal-light)` |
+| `#14b8a6` | `var(--color-accent-light)` |
 | `#0d9488` | `var(--color-cta)` |
 | `rgba(255,255,255,0.9)` | `var(--color-text-primary)` |
 | `rgba(255,255,255,0.65)` | `var(--color-text-secondary)` |

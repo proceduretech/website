@@ -172,7 +172,7 @@ export function Services() {
           transition={{ duration: 0.6 }}
           className="text-center mb-10 sm:mb-16"
         >
-          <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-teal-light uppercase mb-3 sm:mb-4">
+          <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-3 sm:mb-4">
             What You Get
           </p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">
@@ -188,10 +188,10 @@ export function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
-              className="group bg-surface-elevated rounded-xl p-8 border border-border hover:border-accent-teal/30 transition-colors"
+              className="group bg-surface-elevated rounded-xl p-8 border border-border hover:border-accent/30 transition-colors"
             >
               {/* Icon */}
-              <div className="w-12 h-12 rounded-lg bg-accent-teal/10 flex items-center justify-center text-accent-teal-light mb-5">
+              <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center text-accent-light mb-5">
                 {service.icon}
               </div>
 
@@ -209,7 +209,7 @@ export function Services() {
               <Link
                 href={service.href}
                 scroll={true}
-                className="inline-flex items-center gap-2 text-accent-teal-light font-medium text-sm hover:text-white transition-colors mb-6"
+                className="inline-flex items-center gap-2 text-accent-light font-medium text-sm hover:text-white transition-colors mb-6"
               >
                 Read More
                 <span className="w-5 h-px bg-current group-hover:w-7 transition-all" />

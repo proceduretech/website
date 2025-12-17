@@ -33,14 +33,14 @@ export function BlogFilters({
               {activeCategory === category.slug && (
                 <motion.div
                   layoutId="activeFilter"
-                  className="absolute inset-0 bg-accent-teal/20 border border-accent-teal/30 rounded-full"
+                  className="absolute inset-0 bg-accent/20 border border-accent/30 rounded-full"
                   transition={{ type: "spring", stiffness: 500, damping: 30 }}
                 />
               )}
               <span
                 className={`relative z-10 ${
                   activeCategory === category.slug
-                    ? "text-accent-teal-light"
+                    ? "text-accent-light"
                     : "text-text-secondary hover:text-text-primary"
                 }`}
               >
@@ -65,7 +65,7 @@ export function BlogFilters({
                   onClick={() => onCategoryChange(category.slug)}
                   className={`flex-shrink-0 px-5 py-3 text-sm font-medium rounded-full transition-all duration-200 ${
                     activeCategory === category.slug
-                      ? "bg-accent-teal/20 text-accent-teal-light border border-accent-teal/30"
+                      ? "bg-accent/20 text-accent-light border border-accent/30"
                       : "bg-surface-elevated text-text-secondary border border-border"
                   }`}
                 >
