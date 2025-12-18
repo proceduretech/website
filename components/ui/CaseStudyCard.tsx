@@ -83,7 +83,7 @@ export function CaseStudyCard({
           <div
             className={`grid grid-cols-3 ${isCompact ? "gap-2 mb-4" : "gap-3 mb-6"}`}
           >
-            {study.metrics.map((metric, i) => (
+            {study.metrics.map((metric) => (
               <div
                 key={metric.label}
                 className={`text-center rounded-lg bg-surface border border-border ${

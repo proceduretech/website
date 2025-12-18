@@ -15,7 +15,7 @@
  *   <TechIcon name="React" size={24} />
  */
 
-import { ComponentType } from "react";
+import React, { ComponentType } from "react";
 
 // AI/ML Platforms
 import {
@@ -279,9 +279,9 @@ export function TechIcon({
   className,
   fallback,
 }: TechIconProps) {
-  const Icon = getTechIcon(name);
+  const IconComponent = getTechIcon(name);
 
-  if (!Icon) {
+  if (!IconComponent) {
     // Return fallback or first letter
     if (fallback) return <>{fallback}</>;
     return (
@@ -303,7 +303,8 @@ export function TechIcon({
     );
   }
 
-  return <Icon size={size} color={color} className={className} />;
+  // Use React.createElement to avoid React Compiler "component created during render" warning
+  return React.createElement(IconComponent, { size, color, className });
 }
 
 // Export individual icons for direct use

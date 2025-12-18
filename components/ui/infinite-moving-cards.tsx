@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useCallback, useRef } from "react";
 
 export const InfiniteMovingCards = <T,>({
   items,
@@ -18,9 +18,9 @@ export const InfiniteMovingCards = <T,>({
   pauseOnHover?: boolean;
   className?: string;
 }) => {
-  const containerRef = React.useRef<HTMLDivElement>(null);
-  const scrollerRef = React.useRef<HTMLUListElement>(null);
-  const [start, setStart] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const scrollerRef = useRef<HTMLUListElement>(null);
+  const hasStarted = useRef(false);
 
   const getDirection = useCallback(() => {
     if (containerRef.current) {
@@ -51,7 +51,7 @@ export const InfiniteMovingCards = <T,>({
   }, [speed]);
 
   useEffect(() => {
-    if (containerRef.current && scrollerRef.current) {
+    if (containerRef.current && scrollerRef.current && !hasStarted.current) {
       const scrollerContent = Array.from(scrollerRef.current.children);
 
       scrollerContent.forEach((item) => {
@@ -63,7 +63,9 @@ export const InfiniteMovingCards = <T,>({
 
       getDirection();
       getSpeed();
-      setStart(true);
+      // Add animate-scroll class directly to the DOM element
+      scrollerRef.current.classList.add("animate-scroll");
+      hasStarted.current = true;
     }
   }, [getDirection, getSpeed]);
 
@@ -79,7 +81,6 @@ export const InfiniteMovingCards = <T,>({
         ref={scrollerRef}
         className={cn(
           "flex w-max min-w-full shrink-0 flex-nowrap gap-6 py-4",
-          start && "animate-scroll",
           pauseOnHover && "hover:[animation-play-state:paused]",
         )}
       >

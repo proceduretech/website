@@ -1,29 +1,35 @@
 "use client";
 
-import React from "react";
+import React, { useMemo } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
+// Use CSS custom properties for theme-aware colors
+// These will automatically adjust based on the current theme
+const colors = [
+  "var(--color-accent)",
+  "var(--color-accent-light)",
+  "var(--color-accent-secondary)",
+  "var(--color-accent-secondary-light)",
+  "var(--color-highlight)",
+  "#06b6d4", // cyan-500
+  "#0891b2", // cyan-600
+  "#0e7490", // cyan-700
+];
+
+const ROW_COUNT = 150;
+const COL_COUNT = 100;
+
+// Generate a deterministic color based on position
+function getColorForCell(rowIndex: number, colIndex: number): string {
+  // Use a simple hash-like approach to get consistent but varied colors
+  const index = (rowIndex * 7 + colIndex * 13) % colors.length;
+  return colors[index];
+}
+
 export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
-  const rows = new Array(150).fill(1);
-  const cols = new Array(100).fill(1);
-
-  // Use CSS custom properties for theme-aware colors
-  // These will automatically adjust based on the current theme
-  const colors = [
-    "var(--color-accent)",
-    "var(--color-accent-light)",
-    "var(--color-accent-secondary)",
-    "var(--color-accent-secondary-light)",
-    "var(--color-highlight)",
-    "#06b6d4", // cyan-500
-    "#0891b2", // cyan-600
-    "#0e7490", // cyan-700
-  ];
-
-  const getRandomColor = () => {
-    return colors[Math.floor(Math.random() * colors.length)];
-  };
+  const rows = useMemo(() => new Array(ROW_COUNT).fill(1), []);
+  const cols = useMemo(() => new Array(COL_COUNT).fill(1), []);
 
   return (
     <div
@@ -44,7 +50,7 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
           {cols.map((_, j) => (
             <motion.div
               whileHover={{
-                backgroundColor: `${getRandomColor()}`,
+                backgroundColor: getColorForCell(i, j),
                 transition: { duration: 0 },
               }}
               animate={{

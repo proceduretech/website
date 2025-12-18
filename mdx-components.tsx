@@ -1,4 +1,5 @@
 import type { MDXComponents } from "mdx/types";
+import Image from "next/image";
 import {
   CodeBlock,
   YouTube,
@@ -102,21 +103,29 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       </td>
     ),
     hr: (props) => <hr className="my-12 border-border" {...props} />,
-    img: ({ src, alt, ...props }) => (
-      <figure className="my-8">
-        <img
-          src={src}
-          alt={alt}
-          className="rounded-xl border border-border w-full"
-          {...props}
-        />
-        {alt && (
-          <figcaption className="mt-3 text-center text-sm text-text-muted">
-            {alt}
-          </figcaption>
-        )}
-      </figure>
-    ),
+    img: ({ src, alt, ...props }) => {
+      // Use Next.js Image for optimized images
+      // For MDX content, we use unoptimized for external URLs or unknown dimensions
+      const isExternal = src?.startsWith("http");
+      return (
+        <figure className="my-8">
+          <Image
+            src={src || ""}
+            alt={alt || ""}
+            width={1200}
+            height={675}
+            className="rounded-xl border border-border w-full h-auto"
+            unoptimized={isExternal}
+            {...props}
+          />
+          {alt && (
+            <figcaption className="mt-3 text-center text-sm text-text-muted">
+              {alt}
+            </figcaption>
+          )}
+        </figure>
+      );
+    },
     ...components,
   };
 }
