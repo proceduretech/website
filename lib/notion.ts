@@ -15,6 +15,9 @@ export const CASE_STUDIES_DATABASE_ID = "ad9669123eeb40fb96cb6565769aca24";
 // This is the data source within the database, obtained from the database schema
 export const CASE_STUDIES_DATA_SOURCE_ID = "eb93bf9f-cee9-430c-bffd-168e1d80f92d";
 
+// Blog Posts data source ID (obtained from database schema)
+export const BLOG_DATA_SOURCE_ID = "dda27538-3e23-43b5-9668-a0103ebf2e59";
+
 // Type guard to check if Notion client is properly configured
 export function isNotionConfigured(): boolean {
   return !!process.env.NOTION_TOKEN;
