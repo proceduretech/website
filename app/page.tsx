@@ -11,10 +11,14 @@ import {
   FAQ,
   CTA,
 } from "@/components/sections";
-import { getFeaturedCaseStudiesForListing } from "@/lib/content";
+import { getNotionFeaturedCaseStudies } from "@/lib/notion-case-studies";
 
-export default function Home() {
-  const featuredCaseStudies = getFeaturedCaseStudiesForListing();
+// Force static generation at build time
+export const dynamic = "force-static";
+export const revalidate = false;
+
+export default async function Home() {
+  const featuredCaseStudies = await getNotionFeaturedCaseStudies();
 
   return (
     <main className="min-h-screen">
