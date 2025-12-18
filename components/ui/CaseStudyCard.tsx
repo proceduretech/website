@@ -28,7 +28,11 @@ export function CaseStudyCard({
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="group"
     >
-      <div className="h-full flex flex-col bg-surface-elevated border border-border rounded-2xl overflow-hidden hover:border-accent/30 transition-colors">
+      <Link
+        href={`/case-studies/${study.id}`}
+        className="block h-full"
+      >
+        <div className="h-full flex flex-col bg-surface-elevated border border-border rounded-2xl overflow-hidden hover:border-accent/30 transition-colors">
         {/* Case study image */}
         <div
           className={`relative overflow-hidden ${isCompact ? "h-40" : "h-48"}`}
@@ -120,18 +124,16 @@ export function CaseStudyCard({
             ))}
           </div>
 
-          {/* Read more link (optional) */}
+          {/* Read more indicator (optional) */}
           {showReadMore && (
-            <Link
-              href="/case-studies"
-              className="inline-flex items-center gap-2 text-accent-light font-medium text-sm mt-4 group-hover:gap-3 transition-all"
-            >
+            <span className="inline-flex items-center gap-2 text-accent-light font-medium text-sm mt-4 group-hover:gap-3 transition-all">
               Read case study
               <span className="w-5 h-px bg-accent-light group-hover:w-7 transition-all" />
-            </Link>
+            </span>
           )}
         </div>
       </div>
+      </Link>
     </motion.article>
   );
 }

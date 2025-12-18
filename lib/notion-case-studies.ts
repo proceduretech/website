@@ -37,51 +37,71 @@ type NotionProperty = NotionProperties[string];
 // Helper Functions for Property Extraction
 // =============================================================================
 
-function getTitleText(property: NotionProperty): string {
+function getTitleText(property: NotionProperty | undefined): string {
+  if (!property) return "";
   if (property.type === "title" && property.title.length > 0) {
     return property.title.map((t) => t.plain_text).join("");
   }
   return "";
 }
 
-function getRichText(property: NotionProperty): string {
+function getRichText(property: NotionProperty | undefined): string {
+  if (!property) return "";
   if (property.type === "rich_text" && property.rich_text.length > 0) {
     return property.rich_text.map((t) => t.plain_text).join("");
   }
   return "";
 }
 
-function getSelect(property: NotionProperty): string | null {
+function getSelect(property: NotionProperty | undefined): string | null {
+  if (!property) return null;
   if (property.type === "select" && property.select) {
     return property.select.name;
   }
   return null;
 }
 
-function getMultiSelect(property: NotionProperty): string[] {
+function getMultiSelect(property: NotionProperty | undefined): string[] {
+  if (!property) return [];
   if (property.type === "multi_select") {
     return property.multi_select.map((s) => s.name);
   }
   return [];
 }
 
-function getCheckbox(property: NotionProperty): boolean {
+function getCheckbox(property: NotionProperty | undefined): boolean {
+  if (!property) return false;
   if (property.type === "checkbox") {
     return property.checkbox;
   }
   return false;
 }
 
-function getUrl(property: NotionProperty): string | null {
+function getUrl(property: NotionProperty | undefined): string | null {
+  if (!property) return null;
   if (property.type === "url") {
     return property.url;
   }
   return null;
 }
 
-function getDate(property: NotionProperty): string | null {
+function getDate(property: NotionProperty | undefined): string | null {
+  if (!property) return null;
   if (property.type === "date" && property.date) {
     return property.date.start;
+  }
+  return null;
+}
+
+function getFileUrl(property: NotionProperty | undefined): string | null {
+  if (!property) return null;
+  if (property.type === "files" && property.files.length > 0) {
+    const file = property.files[0];
+    if (file.type === "file") {
+      return file.file.url;
+    } else if (file.type === "external") {
+      return file.external.url;
+    }
   }
   return null;
 }
@@ -240,13 +260,23 @@ function transformNotionPageToCaseStudy(
   const featured = getCheckbox(props["Featured"]);
   const results = getRichText(props["Results"]);
   const publishDate = getDate(props["Publish Date"]);
-  // URL property is stored as "userDefined:URL" in the schema
-  const customUrl = props["URL"] ? getUrl(props["URL"]) : null;
+  // Slug property (renamed from URL) - use rich text Slug as primary
+  const customSlug = getRichText(props["Slug"]) || getUrl(props["URL"]);
+  // Cover image from Notion files property
+  const coverImage = getFileUrl(props["Cover"]);
 
-  // Generate ID/slug
-  const id = customUrl
-    ? customUrl.split("/").pop() || generateSlug(title)
-    : generateSlug(title);
+  // Generate ID/slug from Slug property or title
+  let id: string;
+  if (customSlug) {
+    // If it's a full URL, extract the last part; otherwise use as-is
+    if (customSlug.includes("/")) {
+      id = customSlug.split("/").pop() || generateSlug(title);
+    } else {
+      id = customSlug;
+    }
+  } else {
+    id = generateSlug(title);
+  }
 
   // Parse metrics from results
   const metrics = parseMetrics(results);
@@ -267,7 +297,7 @@ function transformNotionPageToCaseStudy(
     description,
     metrics,
     tags,
-    image: `/case-studies/${id}.jpg`, // Default image path
+    image: coverImage || `/case-studies/${id}.jpg`, // Use Notion Cover or fallback to default path
     featured,
   };
 

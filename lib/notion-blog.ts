@@ -264,15 +264,21 @@ function transformNotionPageToBlogPost(
   const publishDate = getDate(props["Publish Date"]) || getDate(props["Published"]) || getDate(props["Date"]);
   const updatedDate = getDate(props["Updated"]);
   const readTime = getNumber(props["Read Time"]) || 5;
-  const customUrl = getUrl(props["URL"]) || getRichText(props["Slug"]);
-  const featuredImage = getFiles(props["Featured Image"]) || getFiles(props["Cover"]) || getUrl(props["Cover Image"]) || getUrl(props["Image"]);
+  // Slug property (renamed from URL) - use rich text Slug as primary
+  const customSlug = getRichText(props["Slug"]) || getUrl(props["URL"]);
+  // Cover image from Notion files property (primary) with fallbacks
+  const featuredImage = getFiles(props["Cover"]) || getFiles(props["Featured Image"]) || getUrl(props["Cover Image"]) || getUrl(props["Image"]);
 
-  // Generate slug from URL or title
+  // Generate slug from Slug property or title
   let slug: string;
-  if (customUrl) {
-    // Extract slug from URL like "procedure.tech/blog/mdx-showcase" -> "mdx-showcase"
-    const urlParts = customUrl.split("/");
-    slug = urlParts[urlParts.length - 1] || generateSlug(title);
+  if (customSlug) {
+    // If it's a full URL, extract the last part; otherwise use as-is
+    if (customSlug.includes("/")) {
+      const urlParts = customSlug.split("/");
+      slug = urlParts[urlParts.length - 1] || generateSlug(title);
+    } else {
+      slug = customSlug;
+    }
   } else {
     slug = generateSlug(title);
   }
