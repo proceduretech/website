@@ -179,16 +179,17 @@ function parseMetrics(resultsText: string): CaseStudyMetric[] {
   // Try comma-separated format: "94% Fraud detection rate, 67% Fewer false positives"
   const metrics: CaseStudyMetric[] = [];
 
-  // Split by common delimiters
-  const parts = resultsText.split(/[,;]/).map((p) => p.trim());
+  // Split by common delimiters including bullet point (•) and newlines
+  const parts = resultsText.split(/[,;•\n\r]+/).map((p) => p.trim()).filter(Boolean);
 
   for (const part of parts) {
     if (!part) continue;
 
     // Try to extract value and label
-    // Pattern: "94% Fraud detection rate" or "$47M Prevented losses" or "2hrs Saved per day"
+    // Pattern: "94% Fraud detection rate" or "$47M Prevented losses" or "2hrs Saved per day" or "10x Scale increase"
+    // Improved regex to capture values like: 94%, $47M, 2hrs, 10x, 98.7%, 4.8/5, <50ms
     const match = part.match(
-      /^([\d\.\-<>%\+\$]+\s*[\w]*)\s+(.+)$/i
+      /^([\d\.\,<>\/]+\s*[%\$MKxhrs]*)\s+(.+)$/i
     );
 
     if (match) {
@@ -204,6 +205,15 @@ function parseMetrics(resultsText: string): CaseStudyMetric[] {
           value: pipeMatch[1].trim(),
           label: pipeMatch[2].trim(),
         });
+      } else {
+        // Final fallback: if it starts with a number/symbol, try to split at first space after the value
+        const fallbackMatch = part.match(/^([$<>]?[\d\.\,\/]+[%MKxhrswks]*)\s+(.+)$/i);
+        if (fallbackMatch) {
+          metrics.push({
+            value: fallbackMatch[1].trim(),
+            label: fallbackMatch[2].trim(),
+          });
+        }
       }
     }
   }

@@ -176,6 +176,26 @@ export function CaseStudyDetailClient({
               </>
             )}
           </motion.div>
+
+          {/* Hero Image */}
+          {caseStudy.image && !caseStudy.image.includes("/case-studies/") && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="relative w-full aspect-[21/9] rounded-2xl overflow-hidden"
+            >
+              <Image
+                src={caseStudy.image}
+                alt={caseStudy.title}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1100px"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-base/60 via-transparent to-transparent" />
+            </motion.div>
+          )}
         </div>
       </section>
 

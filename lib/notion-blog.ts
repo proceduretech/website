@@ -245,7 +245,6 @@ function transformNotionPageToBlogPost(
   // Extract title (Notion uses "Name" for the title property by default)
   const title = getTitleText(props["Name"]) || getTitleText(props["Title"]);
   if (!title) {
-    console.warn(`Blog post page ${page.id} has no title, skipping`);
     return null;
   }
 
@@ -433,14 +432,9 @@ export const getNotionBlogPosts = cache(
     }
 
     try {
+      // Query without filter first to see all posts, then filter in code
       const response: QueryDataSourceResponse = await notion.dataSources.query({
         data_source_id: BLOG_DATA_SOURCE_ID,
-        filter: {
-          property: "Status",
-          select: {
-            equals: "Published",
-          },
-        },
         sorts: [
           {
             property: "Publish Date",
