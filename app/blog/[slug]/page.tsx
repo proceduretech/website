@@ -279,7 +279,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       </section>
 
       {/* Content Section */}
-      <section className="relative py-12 sm:py-16 bg-base">
+      <section className="relative py-8 sm:py-12 bg-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-[280px_1fr] gap-12 lg:gap-16 items-start">
             {/* Table of Contents - Desktop */}

@@ -69,14 +69,18 @@
 
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 8px 10px -6px rgba(0, 0, 0, 0.1);
   --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   --shadow-cta-glow: 0 10px 15px -3px rgba(13, 148, 136, 0.25);
   --shadow-teal-glow: 0 10px 15px -3px rgba(20, 184, 166, 0.25);
   --shadow-mega-menu: 0 20px 70px -15px rgba(15, 118, 110, 0.3);
-  --shadow-footer-glow: 0 20px 80px 20px rgba(13, 181, 165, 0.12), 0 8px 30px 5px rgba(13, 181, 165, 0.08);
+  --shadow-footer-glow: 0 20px 80px 20px rgba(13, 181, 165, 0.12),
+    0 8px 30px 5px rgba(13, 181, 165, 0.08);
 
   /* Opacity Scales */
   --opacity-text-primary: 0.9;
@@ -161,18 +165,18 @@
   --color-blockquote-bg: rgba(20, 184, 166, 0.08);
 
   /* Cal.com Integration */
-  --color-cal-bg: #0F172A;
-  --color-cal-bg-emphasis: #1E293B;
+  --color-cal-bg: #0f172a;
+  --color-cal-bg-emphasis: #1e293b;
   --color-cal-border: #334155;
   --color-cal-border-emphasis: #475569;
-  --color-cal-border-subtle: #1E293B;
+  --color-cal-border-subtle: #1e293b;
   --color-cal-text: rgba(255, 255, 255, 0.9);
   --color-cal-text-emphasis: rgba(255, 255, 255, 0.95);
   --color-cal-text-muted: rgba(255, 255, 255, 0.65);
   --color-cal-text-subtle: rgba(255, 255, 255, 0.5);
-  --color-cal-brand: #14B8A6;
-  --color-cal-brand-emphasis: #0D9488;
-  --color-cal-brand-text: #FFFFFF;
+  --color-cal-brand: #14b8a6;
+  --color-cal-brand-emphasis: #0d9488;
+  --color-cal-brand-text: #ffffff;
 
   /* Component-specific */
   --color-spotlight-fill: rgba(20, 184, 166, 0.4);
@@ -180,13 +184,13 @@
   --color-scroll-indicator-border: #1e293b;
   --color-scroll-indicator-dot: rgba(255, 255, 255, 0.5);
   --color-tracing-beam-dot-active: #ffffff;
-  --color-tracing-beam-dot-inactive: #14B8A6;
+  --color-tracing-beam-dot-inactive: #14b8a6;
   --color-tracing-beam-border-active: #ffffff;
-  --color-tracing-beam-border-inactive: #0F766E;
-  --color-tracing-beam-line: #9091A0;
+  --color-tracing-beam-border-inactive: #0f766e;
+  --color-tracing-beam-line: #9091a0;
 
   /* SVG Grid Pattern */
-  --color-svg-grid: #E5E7EB;
+  --color-svg-grid: #e5e7eb;
 
   /* Legacy aliases for compatibility */
   --color-background: #0b1220;
@@ -290,7 +294,8 @@ html:not(.dark) {
   --shadow-cta-glow: 0 10px 15px -3px rgba(10, 122, 132, 0.2);
   --shadow-teal-glow: 0 10px 15px -3px rgba(10, 122, 132, 0.2);
   --shadow-mega-menu: 0 20px 70px -15px rgba(10, 122, 132, 0.15);
-  --shadow-footer-glow: 0 -20px 80px 20px rgba(10, 122, 132, 0.25), 0 -8px 30px 5px rgba(10, 122, 132, 0.15);
+  --shadow-footer-glow: 0 -20px 80px 20px rgba(10, 122, 132, 0.25),
+    0 -8px 30px 5px rgba(10, 122, 132, 0.15);
 
   /* Opacity adjustments for light mode */
   --opacity-text-primary: 1;
@@ -415,11 +420,7 @@ html:not(.dark) {
     -moz-osx-font-smoothing: grayscale;
     overscroll-behavior: none;
     line-height: 1.7;
-    font-family:
-      var(--font-inter),
-      system-ui,
-      -apple-system,
-      sans-serif;
+    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   }
 
   /* Placeholder text - theme aware */
@@ -435,11 +436,7 @@ html:not(.dark) {
   h4,
   h5,
   h6 {
-    font-family:
-      var(--font-outfit),
-      system-ui,
-      -apple-system,
-      sans-serif;
+    font-family: var(--font-outfit), system-ui, -apple-system, sans-serif;
     letter-spacing: -0.02em;
   }
 
@@ -448,20 +445,12 @@ html:not(.dark) {
   [role="button"],
   nav,
   .font-display {
-    font-family:
-      var(--font-outfit),
-      system-ui,
-      -apple-system,
-      sans-serif;
+    font-family: var(--font-outfit), system-ui, -apple-system, sans-serif;
   }
 
   /* Utility class for body font when needed */
   .font-body {
-    font-family:
-      var(--font-inter),
-      system-ui,
-      -apple-system,
-      sans-serif;
+    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   }
 
   ::selection {
@@ -539,7 +528,8 @@ html:not(.dark) {
 
   /* Theme transition utility */
   .theme-transition {
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease,
+      border-color 0.3s ease;
   }
 }
 
@@ -549,11 +539,7 @@ html:not(.dark) {
    ============================================================================= */
 
 .mdx-content {
-  font-family:
-    var(--font-inter),
-    system-ui,
-    -apple-system,
-    sans-serif;
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   color: var(--color-prose-body);
   line-height: 1.75;
 }
@@ -565,11 +551,7 @@ html:not(.dark) {
 .mdx-content h4,
 .mdx-content h5,
 .mdx-content h6 {
-  font-family:
-    var(--font-outfit),
-    system-ui,
-    -apple-system,
-    sans-serif;
+  font-family: var(--font-outfit), system-ui, -apple-system, sans-serif;
   color: var(--color-prose-headings);
   scroll-margin-top: 6rem;
 }
@@ -577,29 +559,29 @@ html:not(.dark) {
 .mdx-content h1 {
   font-size: 2.25rem;
   font-weight: 700;
-  margin-top: 3rem;
+  margin-top: 2.5rem;
   margin-bottom: 1.5rem;
 }
 
 .mdx-content h2 {
   font-size: 1.875rem;
   font-weight: 700;
-  margin-top: 3rem;
-  margin-bottom: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 1.2rem;
 }
 
 .mdx-content h3 {
   font-size: 1.5rem;
   font-weight: 600;
-  margin-top: 2rem;
-  margin-bottom: 0.75rem;
+  margin-top: 1.75rem;
+  margin-bottom: 1rem;
 }
 
 .mdx-content h4 {
   font-size: 1.25rem;
   font-weight: 600;
   margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.875rem;
 }
 
 /* Anchor links on headings */
@@ -965,54 +947,118 @@ html:not(.dark) [data-rehype-pretty-code-figure] code span {
 
 /* Opacity variant overrides for navigation and overlays */
 .bg-surface\/95 {
-  background-color: color-mix(in srgb, var(--color-surface) 95%, transparent) !important;
+  background-color: color-mix(
+    in srgb,
+    var(--color-surface) 95%,
+    transparent
+  ) !important;
 }
 .bg-surface\/80 {
-  background-color: color-mix(in srgb, var(--color-surface) 80%, transparent) !important;
+  background-color: color-mix(
+    in srgb,
+    var(--color-surface) 80%,
+    transparent
+  ) !important;
 }
 .bg-surface-elevated\/80 {
-  background-color: color-mix(in srgb, var(--color-surface-elevated) 80%, transparent) !important;
+  background-color: color-mix(
+    in srgb,
+    var(--color-surface-elevated) 80%,
+    transparent
+  ) !important;
 }
 .bg-surface-elevated\/50 {
-  background-color: color-mix(in srgb, var(--color-surface-elevated) 50%, transparent) !important;
+  background-color: color-mix(
+    in srgb,
+    var(--color-surface-elevated) 50%,
+    transparent
+  ) !important;
 }
 .bg-base\/60 {
-  background-color: color-mix(in srgb, var(--color-base) 60%, transparent) !important;
+  background-color: color-mix(
+    in srgb,
+    var(--color-base) 60%,
+    transparent
+  ) !important;
 }
 .bg-base\/95 {
-  background-color: color-mix(in srgb, var(--color-base) 95%, transparent) !important;
+  background-color: color-mix(
+    in srgb,
+    var(--color-base) 95%,
+    transparent
+  ) !important;
 }
 
 /* Accent opacity variants for glows and overlays */
 .bg-accent\/4 {
-  background-color: color-mix(in srgb, var(--color-accent) 4%, transparent) !important;
+  background-color: color-mix(
+    in srgb,
+    var(--color-accent) 4%,
+    transparent
+  ) !important;
 }
 .bg-accent\/5 {
-  background-color: color-mix(in srgb, var(--color-accent) 5%, transparent) !important;
+  background-color: color-mix(
+    in srgb,
+    var(--color-accent) 5%,
+    transparent
+  ) !important;
 }
 .bg-accent\/8 {
-  background-color: color-mix(in srgb, var(--color-accent) 8%, transparent) !important;
+  background-color: color-mix(
+    in srgb,
+    var(--color-accent) 8%,
+    transparent
+  ) !important;
 }
 .bg-accent\/10 {
-  background-color: color-mix(in srgb, var(--color-accent) 10%, transparent) !important;
+  background-color: color-mix(
+    in srgb,
+    var(--color-accent) 10%,
+    transparent
+  ) !important;
 }
 .bg-accent\/15 {
-  background-color: color-mix(in srgb, var(--color-accent) 15%, transparent) !important;
+  background-color: color-mix(
+    in srgb,
+    var(--color-accent) 15%,
+    transparent
+  ) !important;
 }
 .bg-accent\/20 {
-  background-color: color-mix(in srgb, var(--color-accent) 20%, transparent) !important;
+  background-color: color-mix(
+    in srgb,
+    var(--color-accent) 20%,
+    transparent
+  ) !important;
 }
 .bg-accent\/25 {
-  background-color: color-mix(in srgb, var(--color-accent) 25%, transparent) !important;
+  background-color: color-mix(
+    in srgb,
+    var(--color-accent) 25%,
+    transparent
+  ) !important;
 }
 .bg-accent\/30 {
-  background-color: color-mix(in srgb, var(--color-accent) 30%, transparent) !important;
+  background-color: color-mix(
+    in srgb,
+    var(--color-accent) 30%,
+    transparent
+  ) !important;
 }
 .bg-accent\/40 {
-  background-color: color-mix(in srgb, var(--color-accent) 40%, transparent) !important;
+  background-color: color-mix(
+    in srgb,
+    var(--color-accent) 40%,
+    transparent
+  ) !important;
 }
 .bg-accent\/50 {
-  background-color: color-mix(in srgb, var(--color-accent) 50%, transparent) !important;
+  background-color: color-mix(
+    in srgb,
+    var(--color-accent) 50%,
+    transparent
+  ) !important;
 }
 
 /* Hero grid pattern - theme-aware */
@@ -1068,7 +1114,11 @@ html:not(.dark) .text-amber-400 {
 
 .hover\:border-accent\/30:hover,
 .group-hover\:border-accent\/30 {
-  border-color: color-mix(in srgb, var(--color-accent) 30%, transparent) !important;
+  border-color: color-mix(
+    in srgb,
+    var(--color-accent) 30%,
+    transparent
+  ) !important;
 }
 
 .group-hover\:text-accent-light {
@@ -1089,7 +1139,11 @@ html:not(.dark) .text-amber-400 {
   background-color: var(--color-callout-info-icon-bg) !important;
 }
 .bg-info\/15 {
-  background-color: color-mix(in srgb, rgb(59, 130, 246) 15%, transparent) !important;
+  background-color: color-mix(
+    in srgb,
+    rgb(59, 130, 246) 15%,
+    transparent
+  ) !important;
 }
 .border-info {
   border-color: var(--color-callout-info-border) !important;
@@ -1118,7 +1172,11 @@ html:not(.dark) .text-amber-400 {
   border-color: var(--color-callout-success-border) !important;
 }
 .border-success\/30 {
-  border-color: color-mix(in srgb, rgb(34, 197, 94) 30%, transparent) !important;
+  border-color: color-mix(
+    in srgb,
+    rgb(34, 197, 94) 30%,
+    transparent
+  ) !important;
 }
 
 /* Semantic color utilities - Warning (for caution/attention) */
@@ -1149,16 +1207,28 @@ html:not(.dark) .text-amber-400 {
   border-color: var(--color-callout-error-border) !important;
 }
 .border-error\/30 {
-  border-color: color-mix(in srgb, rgb(239, 68, 68) 30%, transparent) !important;
+  border-color: color-mix(
+    in srgb,
+    rgb(239, 68, 68) 30%,
+    transparent
+  ) !important;
 }
 .border-error\/50 {
-  border-color: color-mix(in srgb, rgb(239, 68, 68) 50%, transparent) !important;
+  border-color: color-mix(
+    in srgb,
+    rgb(239, 68, 68) 50%,
+    transparent
+  ) !important;
 }
 .focus\:border-error:focus {
   border-color: rgb(239, 68, 68) !important;
 }
 .focus\:ring-error\/20:focus {
-  --tw-ring-color: color-mix(in srgb, rgb(239, 68, 68) 20%, transparent) !important;
+  --tw-ring-color: color-mix(
+    in srgb,
+    rgb(239, 68, 68) 20%,
+    transparent
+  ) !important;
 }
 
 /* Semantic color utilities - Tip (for tips, hints) */
