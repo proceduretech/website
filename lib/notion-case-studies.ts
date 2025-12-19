@@ -7,6 +7,10 @@ import type {
   BlockObjectResponse,
   ListBlockChildrenResponse,
 } from "@notionhq/client/build/src/api-endpoints";
+import {
+  cacheCaseStudyCover,
+  cacheContentImages,
+} from "./notion-image-cache";
 
 // =============================================================================
 // Extended Types for Detail Pages
@@ -246,9 +250,9 @@ interface TransformResult {
   detail: Omit<CaseStudyDetail, "content">;
 }
 
-function transformNotionPageToCaseStudy(
+async function transformNotionPageToCaseStudy(
   page: PageObjectResponse
-): TransformResult | null {
+): Promise<TransformResult | null> {
   const props = page.properties;
 
   // Extract properties
@@ -299,6 +303,9 @@ function transformNotionPageToCaseStudy(
   // Map services to tags
   const tags = services.length > 0 ? services : ["Engineering"];
 
+  // Cache cover image to public folder (downloads from Notion and saves locally)
+  const cachedCoverImage = await cacheCaseStudyCover(coverImage, id);
+
   const caseStudy: CaseStudy = {
     id,
     industry: mapIndustryName(industry),
@@ -307,7 +314,7 @@ function transformNotionPageToCaseStudy(
     description,
     metrics,
     tags,
-    image: coverImage || `/case-studies/${id}.jpg`, // Use Notion Cover or fallback to default path
+    image: cachedCoverImage || `/case-studies/${id}.jpg`, // Use cached image or fallback to default path
     featured,
   };
 
@@ -481,7 +488,7 @@ export const getNotionCaseStudies = cache(
           continue;
         }
 
-        const result = transformNotionPageToCaseStudy(
+        const result = await transformNotionPageToCaseStudy(
           page as PageObjectResponse
         );
         if (result) {
@@ -567,6 +574,9 @@ export const getNotionCaseStudyBySlug = cache(
 
       // Fetch page content from Notion
       const content = await fetchPageContent(detail.pageId);
+
+      // Cache any images in the content to public folder
+      await cacheContentImages(content, slug, "case-study");
 
       return {
         ...detail,

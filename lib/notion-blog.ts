@@ -7,6 +7,10 @@ import type {
   BlockObjectResponse,
   ListBlockChildrenResponse,
 } from "@notionhq/client/build/src/api-endpoints";
+import {
+  cacheBlogCover,
+  cacheContentImages,
+} from "./notion-image-cache";
 
 // =============================================================================
 // Extended Types for Blog Detail Pages
@@ -237,9 +241,9 @@ interface TransformResult {
   detail: Omit<BlogPostDetail, "notionContent">;
 }
 
-function transformNotionPageToBlogPost(
+async function transformNotionPageToBlogPost(
   page: PageObjectResponse
-): TransformResult | null {
+): Promise<TransformResult | null> {
   const props = page.properties;
 
   // Extract title (Notion uses "Name" for the title property by default)
@@ -286,13 +290,16 @@ function transformNotionPageToBlogPost(
   const category = mapCategory(categoryName);
   const author = mapAuthor(authorName);
 
+  // Cache cover image to public folder (downloads from Notion and saves locally)
+  const cachedFeaturedImage = await cacheBlogCover(featuredImage, slug);
+
   const blogPost: BlogPost = {
     id: slug,
     slug,
     title,
     excerpt,
     content: "", // Will be populated from page content
-    featuredImage: featuredImage || "/blog/default.jpg",
+    featuredImage: cachedFeaturedImage || "/blog/default.jpg",
     category,
     postType: "article" as PostType,
     author,
@@ -451,7 +458,7 @@ export const getNotionBlogPosts = cache(
           continue;
         }
 
-        const result = transformNotionPageToBlogPost(page as PageObjectResponse);
+        const result = await transformNotionPageToBlogPost(page as PageObjectResponse);
         if (result) {
           blogPosts.push(result.blogPost);
           cachedDetails.set(result.blogPost.slug, result.detail);
@@ -519,6 +526,9 @@ export const getNotionBlogPostBySlug = cache(
 
       // Fetch page content from Notion
       const notionContent = await fetchPageContent(detail.pageId);
+
+      // Cache any images in the content to public folder
+      await cacheContentImages(notionContent, slug, "blog");
 
       // Generate content string for read time calculation
       const contentText = notionContent
