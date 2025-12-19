@@ -92,7 +92,7 @@ const components = {
     children?: React.ReactNode;
   }) => (
     <blockquote
-      className="border-l-4 border-accent pl-6 py-4 pr-6 my-8 italic text-text-secondary rounded-r-xl"
+      className="border-l-4 border-accent p-6 pb-2 my-8 italic text-text-secondary rounded-r-xl"
       style={{ backgroundColor: "var(--color-blockquote-bg)" }}
       {...props}
     >
