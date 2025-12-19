@@ -4,7 +4,7 @@ import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { FooterReveal } from "@/components/FooterReveal";
 import { CookieBanner } from "@/components/CookieBanner";
-import { siteConfig, getThemeClass, getThemeColor } from "@/lib/site-config";
+import { siteConfig, getThemeClass } from "@/lib/site-config";
 import "./globals.css";
 
 const outfit = Outfit({

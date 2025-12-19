@@ -923,7 +923,7 @@ export const themes = {
 } as const;
 
 // Default export for convenience
-export default {
+const themeExport = {
   primitives,
   themes,
   typography,
@@ -932,3 +932,5 @@ export default {
   breakpoints,
   zIndex,
 };
+
+export default themeExport;

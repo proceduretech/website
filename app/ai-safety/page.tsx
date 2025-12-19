@@ -4,7 +4,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import { useRef } from "react";
 import { CalButton } from "@/components/CalButton";
-import type { Metadata } from "next";
 
 // ============================================
 // DATA

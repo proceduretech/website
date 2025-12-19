@@ -6,6 +6,7 @@ import {
   useEffect,
   useState,
   useCallback,
+  useRef,
   ReactNode,
 } from "react";
 
@@ -121,6 +122,20 @@ function applyTheme(
 // PROVIDER COMPONENT
 // =============================================================================
 
+// Helper to get initial theme from storage (runs during initial render)
+function getInitialTheme(storageKey: string, defaultTheme: ThemeMode): ThemeMode {
+  if (typeof window === "undefined") return defaultTheme;
+  try {
+    const stored = localStorage.getItem(storageKey) as ThemeMode | null;
+    if (stored && ["light", "dark", "system"].includes(stored)) {
+      return stored;
+    }
+  } catch {
+    // localStorage might not be available
+  }
+  return defaultTheme;
+}
+
 export function ThemeProvider({
   children,
   defaultTheme = "dark",
@@ -129,28 +144,31 @@ export function ThemeProvider({
   attribute = "class",
   disableTransitionOnChange = false,
 }: ThemeProviderProps) {
-  const [theme, setThemeState] = useState<ThemeMode>(defaultTheme);
-  const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>(() =>
-    resolveTheme(defaultTheme)
+  // Use lazy initializer to read from localStorage during first render
+  const [theme, setThemeState] = useState<ThemeMode>(() =>
+    getInitialTheme(storageKey, defaultTheme)
   );
-  const [mounted, setMounted] = useState(false);
-
-  // Initialize theme from storage on mount
-  useEffect(() => {
-    const stored = localStorage.getItem(storageKey) as ThemeMode | null;
-    if (stored && ["light", "dark", "system"].includes(stored)) {
-      setThemeState(stored);
-      const resolved = resolveTheme(stored);
-      setResolvedTheme(resolved);
-      applyTheme(resolved, attribute, false);
-    } else {
-      // Apply default theme
-      const resolved = resolveTheme(defaultTheme);
-      setResolvedTheme(resolved);
-      applyTheme(resolved, attribute, false);
+  const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>(() =>
+    resolveTheme(getInitialTheme(storageKey, defaultTheme))
+  );
+  // Track mount status - with lazy initialization, theme is ready from first render
+  // Using lazy initializer to check if we're on client (window available)
+  const mountedRef = useRef(false);
+  const [mounted] = useState(() => {
+    // On client, we can be considered mounted immediately since we use lazy init
+    if (typeof window !== "undefined") {
+      return true;
     }
-    setMounted(true);
-  }, [defaultTheme, storageKey, attribute]);
+    return false;
+  });
+
+  // Apply theme to DOM on mount (external system sync only)
+  useEffect(() => {
+    applyTheme(resolvedTheme, attribute, false);
+    if (!mountedRef.current) {
+      mountedRef.current = true;
+    }
+  }, [resolvedTheme, attribute]);
 
   // Listen for system theme changes
   useEffect(() => {

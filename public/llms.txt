@@ -1,0 +1,85 @@
+# Procedure
+
+> AI Engineering & Product Development Company
+
+Procedure is an AI engineering company that builds production-ready AI products and systems. We specialize in LLM applications, AI agents, and secure AI infrastructure for startups, scale-ups, and enterprises.
+
+## Services
+
+### By Engagement Model
+- **Forward-Deployed AI Teams**: Senior engineers embedded with your team, building AI-powered products
+- **AI Sprints**: Rapid 3-5 day engagements to prototype, validate, or ship AI features
+- **Full Product Build**: End-to-end AI product development from concept to production launch
+- **Staff Augmentation**: Scale your AI and engineering team with senior talent on demand
+
+### By Company Stage
+- **Startups**: Ship your AI-powered MVP or launch-ready product with velocity
+- **Scale-ups**: Scale your engineering team and AI capabilities as you grow
+- **Enterprise**: Enterprise-grade AI solutions with security and compliance built in
+
+## Expertise
+
+### AI & Machine Learning
+- **LLM Applications**: ChatGPT, Claude, and open-source LLM integrations. RAG, fine-tuning, and prompt engineering
+- **AI Agents & Automation**: Autonomous agents, workflow automation, and AI-powered business processes
+- **AI Security**: Guard against prompt injection, jailbreaks, and adversarial attacks
+- **AI Privacy**: Prevent data leakage and ensure compliance
+
+### Product Engineering
+- **Frontend Development**: React, Next.js, Vue, and modern web applications
+- **Backend Development**: Node.js, Python, Go, and cloud-native architectures
+- **Mobile Development**: Native iOS, Android, and cross-platform React Native apps
+- **QA & Test Engineering**: Automated testing, CI/CD integration, and quality assurance
+
+### Cloud & DevOps
+- **Cloud Architecture**: AWS, GCP, Azure. Scalable and cost-optimized infrastructure
+- **Kubernetes**: Container orchestration and cloud-native deployments
+
+### Design
+- **Product Design**: Human-centered UX for AI-powered products
+- **Design Systems**: Scalable component libraries and design tokens
+
+## Industries
+
+- **Financial Services**: AI for trading, risk analysis, fraud detection, and regulatory compliance
+- **Healthcare**: HIPAA-compliant AI for diagnostics and clinical workflows
+- **Education**: AI-powered learning platforms, content generation, and adaptive education
+- **SaaS & Technology**: AI features and infrastructure for software companies
+
+## Use Cases
+
+- **AI-Powered Search**: Semantic search, recommendations, and intelligent discovery
+- **Document Intelligence**: Extract, classify, and analyze documents at scale
+- **Conversational AI**: Chatbots, voice assistants, and customer service automation
+
+## Compliance
+
+- SOC 2 Type II
+- HIPAA compliant
+- GDPR ready
+- AI governance frameworks
+
+## Programs
+
+- **AI Upskill**: 12-week AI engineering bootcamp transforming developers into AI engineers
+- **Rubber Duck**: 8-week intensive cohort for fresh graduates to become industry-ready engineers
+
+## Key Pages
+
+- /: Homepage
+- /about: About Procedure - our team and mission
+- /approach: How we work differently - forward-deployed, production-first
+- /why-us: Why choose Procedure
+- /culture: Our values and team culture
+- /careers: Join our team
+- /contact: Get in touch
+- /blog: Engineering blog with technical deep-dives on AI, LLMs, and production systems
+- /case-studies: Client success stories
+- /ai-safety: Our commitment to responsible AI development
+- /ai-upskill: AI engineering bootcamp program
+- /rubber-duck: Graduate engineering program
+- /events: Meetups, workshops, and conferences
+
+## Contact
+
+Website: https://procedure.tech

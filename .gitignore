@@ -20,6 +20,9 @@
 /.next/
 /out/
 
+# Notion image cache (regenerated during build)
+/public/content/cache/
+
 # production
 /build
 
