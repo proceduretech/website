@@ -596,10 +596,14 @@ html:not(.dark) {
 
 /* Paragraphs */
 .mdx-content p {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   font-size: 1.125rem;
   line-height: 1.75;
   color: var(--color-prose-body);
+}
+
+.mdx-content .callout p {
+  margin-bottom: 0.5rem;
 }
 
 /* Lists */
