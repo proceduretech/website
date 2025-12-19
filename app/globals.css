@@ -722,7 +722,7 @@ html:not(.dark) [data-rehype-pretty-code-figure] code span {
   border-left: 2px solid transparent;
 }
 
-.mdx-content pre code [data-line].highlighted {
+.mdx-content pre code [data-highlighted-line] {
   background-color: var(--color-code-highlight-bg);
   border-left-color: var(--color-code-highlight-border);
 }
