@@ -783,6 +783,34 @@ html:not(.dark) [data-rehype-pretty-code-figure] code span {
   color: var(--color-prose-body);
 }
 
+/* Notion content - inherits same base styles as .mdx-content */
+.notion-content {
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  color: var(--color-prose-body);
+  line-height: 1.75;
+}
+
+.notion-content strong {
+  font-weight: 600;
+  color: var(--color-prose-bold);
+}
+
+.notion-content em {
+  font-style: italic;
+}
+
+.notion-content a {
+  color: var(--color-prose-links);
+  text-decoration: underline;
+  text-decoration-color: var(--color-prose-link-underline);
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.notion-content a:hover {
+  text-decoration-color: var(--color-prose-link-underline-hover);
+}
+
 /* Steps component - CSS counter for numbering */
 .steps-container {
   counter-reset: step-counter;

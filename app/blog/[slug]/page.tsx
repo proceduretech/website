@@ -7,7 +7,7 @@ import {
   getNotionBlogPostBySlug,
   getRelatedBlogPosts,
 } from "@/lib/notion-blog";
-import type { BlogPostDetail, BlogContent } from "@/lib/notion-blog";
+import type { BlogContent } from "@/lib/notion-blog";
 import { formatDate, getCategoryColor } from "@/lib/blog-utils";
 import { getImageMetadata } from "@/lib/image-utils";
 import {
@@ -85,18 +85,21 @@ function ContentLoading() {
 }
 
 // Render Notion content blocks
+// Styles aligned with .mdx-content from globals.css
 function NotionContentBlock({ block }: { block: BlogContent }) {
   switch (block.type) {
     case "paragraph":
       if (!block.text) return null;
       return (
-        <p className="text-text-secondary leading-relaxed mb-6">{block.text}</p>
+        <p className="mb-4 text-lg leading-[1.75] text-(--color-prose-body)">
+          {block.text}
+        </p>
       );
     case "heading_1":
       return (
         <h2
           id={block.text?.toLowerCase().replace(/\s+/g, "-")}
-          className="text-2xl sm:text-3xl font-bold text-text-primary mt-12 mb-4"
+          className="font-display text-[1.875rem] font-bold text-(--color-prose-headings) mt-8 mb-5 scroll-mt-24"
         >
           {block.text}
         </h2>
@@ -105,7 +108,7 @@ function NotionContentBlock({ block }: { block: BlogContent }) {
       return (
         <h3
           id={block.text?.toLowerCase().replace(/\s+/g, "-")}
-          className="text-xl sm:text-2xl font-bold text-text-primary mt-10 mb-4"
+          className="font-display text-2xl font-semibold text-(--color-prose-headings) mt-7 mb-4 scroll-mt-24"
         >
           {block.text}
         </h3>
@@ -114,37 +117,45 @@ function NotionContentBlock({ block }: { block: BlogContent }) {
       return (
         <h4
           id={block.text?.toLowerCase().replace(/\s+/g, "-")}
-          className="text-lg font-bold text-text-primary mt-8 mb-3"
+          className="font-display text-xl font-semibold text-(--color-prose-headings) mt-6 mb-3.5 scroll-mt-24"
         >
           {block.text}
         </h4>
       );
     case "bulleted_list_item":
       return (
-        <li className="text-text-secondary ml-6 mb-2 list-disc">{block.text}</li>
+        <li className="text-lg leading-[1.75] text-(--color-prose-body) ml-6 mb-2 list-disc marker:text-(--color-prose-bullets)">
+          {block.text}
+        </li>
       );
     case "numbered_list_item":
       return (
-        <li className="text-text-secondary ml-6 mb-2 list-decimal">
+        <li className="text-lg leading-[1.75] text-(--color-prose-body) ml-6 mb-2 list-decimal marker:text-(--color-prose-bullets)">
           {block.text}
         </li>
       );
     case "quote":
       return (
-        <blockquote className="border-l-4 border-accent pl-6 py-3 my-6 text-text-secondary italic bg-surface-elevated/30 rounded-r-lg">
-          {block.text}
+        <blockquote
+          className="border-l-4 border-accent pl-6 p-6 pb-2 my-8 italic text-text-secondary rounded-r-xl"
+          style={{ backgroundColor: "var(--color-blockquote-bg)" }}
+        >
+          <p className="mb-0">{block.text}</p>
         </blockquote>
       );
     case "callout":
       return (
-        <div className="bg-surface-elevated border border-border rounded-xl p-6 my-6">
-          <p className="text-text-secondary">{block.text}</p>
+        <div className="bg-(--color-callout-note-bg) border border-(--color-callout-note-border) rounded-xl p-6 my-8">
+          <p className="text-lg text-(--color-prose-body) mb-0">{block.text}</p>
         </div>
       );
     case "code":
       return (
-        <pre className="bg-surface-elevated border border-border rounded-xl p-6 my-6 overflow-x-auto">
-          <code className="text-sm text-text-secondary font-mono">
+        <pre
+          className="rounded-xl my-8 overflow-x-auto border border-(--color-code-border)"
+          style={{ backgroundColor: "var(--color-code-block)" }}
+        >
+          <code className="block text-sm leading-[1.75] font-mono p-4 text-(--color-prose-pre-code)">
             {block.text}
           </code>
         </pre>
@@ -152,18 +163,20 @@ function NotionContentBlock({ block }: { block: BlogContent }) {
     case "image":
       if (!block.url) return null;
       return (
-        <div className="relative w-full aspect-video rounded-xl overflow-hidden my-8">
-          <Image
-            src={block.url}
-            alt="Blog post image"
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 800px"
-          />
-        </div>
+        <figure className="my-8">
+          <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-border">
+            <Image
+              src={block.url}
+              alt="Blog post image"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 800px"
+            />
+          </div>
+        </figure>
       );
     case "divider":
-      return <hr className="border-border my-10" />;
+      return <hr className="border-(--color-hr) my-12" />;
     default:
       return null;
   }
@@ -203,8 +216,8 @@ function NotionTableOfContents({ blocks }: { blocks: BlogContent[] }) {
             heading.type === "heading_2"
               ? "ml-3"
               : heading.type === "heading_3"
-                ? "ml-6"
-                : "";
+              ? "ml-6"
+              : "";
           return (
             <li key={idx} className={indentClass}>
               <a
@@ -251,7 +264,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <section className="relative pt-32 pb-8 sm:pb-12 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-surface via-base to-base" />
+          <div className="absolute top-0 left-0 w-full h-full bg-linear-to-br from-surface via-base to-base" />
           <div className="absolute top-20 right-1/4 w-[500px] h-[500px] bg-accent/6 rounded-full blur-[100px]" />
           <div className="absolute top-40 left-1/4 w-[400px] h-[400px] bg-accent-secondary/5 rounded-full blur-[80px]" />
         </div>
@@ -290,7 +303,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div className="flex flex-wrap items-center gap-4 mb-8">
             {/* Author */}
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent to-accent-secondary flex items-center justify-center flex-shrink-0">
+              <div className="w-10 h-10 rounded-full bg-linear-to-br from-accent to-accent-secondary flex items-center justify-center shrink-0">
                 <span className="text-sm font-bold text-white">
                   {post.author.name.charAt(0)}
                 </span>
@@ -335,7 +348,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
           {/* Featured Image */}
           {coverImageMetadata ? (
-            <div className="relative w-full aspect-[21/9] rounded-2xl overflow-hidden">
+            <div className="relative w-full aspect-21/9 rounded-2xl overflow-hidden">
               <Image
                 src={coverImageMetadata.src}
                 alt={post.title}
@@ -347,8 +360,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
               />
             </div>
-          ) : post.featuredImage && post.featuredImage !== "/blog/default.jpg" ? (
-            <div className="relative w-full aspect-[21/9] rounded-2xl overflow-hidden">
+          ) : post.featuredImage &&
+            post.featuredImage !== "/blog/default.jpg" ? (
+            <div className="relative w-full aspect-21/9 rounded-2xl overflow-hidden">
               <Image
                 src={post.featuredImage}
                 alt={post.title}
@@ -359,7 +373,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               />
             </div>
           ) : (
-            <div className="relative w-full aspect-[21/9] rounded-2xl overflow-hidden bg-gradient-to-br from-accent/20 to-accent-secondary/20">
+            <div className="relative w-full aspect-21/9 rounded-2xl overflow-hidden bg-linear-to-br from-accent/20 to-accent-secondary/20">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-20 h-20 rounded-2xl bg-surface-elevated/50 backdrop-blur border border-border flex items-center justify-center">
                   <svg
