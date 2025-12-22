@@ -7,7 +7,7 @@ import {
   getNotionBlogPostBySlug,
   getRelatedBlogPosts,
 } from "@/lib/notion-blog";
-import type { BlogContent } from "@/lib/notion-blog";
+import type { BlogContent, RichTextSegment } from "@/lib/notion-blog";
 import { formatDate, getCategoryColor } from "@/lib/blog-utils";
 import { getImageMetadata } from "@/lib/image-utils";
 import {
@@ -85,15 +85,73 @@ function ContentLoading() {
   );
 }
 
+// Render rich text with formatting and links
+function RichText({ segments }: { segments?: RichTextSegment[] }) {
+  if (!segments || segments.length === 0) return null;
+
+  return (
+    <>
+      {segments.map((segment, idx) => {
+        let content: React.ReactNode = segment.text;
+
+        // Apply formatting
+        if (segment.code) {
+          content = (
+            <code className="px-1.5 py-0.5 rounded bg-surface-elevated text-sm font-mono text-(--color-prose-code)">
+              {content}
+            </code>
+          );
+        }
+        if (segment.bold) {
+          content = (
+            <strong className="font-semibold text-(--color-prose-bold)">
+              {content}
+            </strong>
+          );
+        }
+        if (segment.italic) {
+          content = <em>{content}</em>;
+        }
+        if (segment.underline) {
+          content = <u>{content}</u>;
+        }
+        if (segment.strikethrough) {
+          content = <del className="text-text-muted">{content}</del>;
+        }
+
+        // Wrap in link if href exists
+        if (segment.href) {
+          content = (
+            <a
+              href={segment.href}
+              target={segment.href.startsWith("http") ? "_blank" : undefined}
+              rel={
+                segment.href.startsWith("http")
+                  ? "noopener noreferrer"
+                  : undefined
+              }
+              className="text-(--color-prose-links) underline decoration-(--color-prose-link-underline) underline-offset-4 hover:decoration-(--color-prose-link-underline-hover) transition-colors"
+            >
+              {content}
+            </a>
+          );
+        }
+
+        return <span key={idx}>{content}</span>;
+      })}
+    </>
+  );
+}
+
 // Render Notion content blocks
 // Styles aligned with .mdx-content from globals.css
 function NotionContentBlock({ block }: { block: BlogContent }) {
   switch (block.type) {
     case "paragraph":
-      if (!block.text) return null;
+      if (!block.text && !block.richText?.length) return null;
       return (
         <p className="mb-4 text-lg leading-[1.75] text-(--color-prose-body)">
-          {block.text}
+          <RichText segments={block.richText} />
         </p>
       );
     case "heading_1":
@@ -126,13 +184,13 @@ function NotionContentBlock({ block }: { block: BlogContent }) {
     case "bulleted_list_item":
       return (
         <li className="text-lg leading-[1.75] text-(--color-prose-body) ml-6 mb-2 list-disc marker:text-(--color-prose-bullets)">
-          {block.text}
+          <RichText segments={block.richText} />
         </li>
       );
     case "numbered_list_item":
       return (
         <li className="text-lg leading-[1.75] text-(--color-prose-body) ml-6 mb-2 list-decimal marker:text-(--color-prose-bullets)">
-          {block.text}
+          <RichText segments={block.richText} />
         </li>
       );
     case "quote":
@@ -141,13 +199,17 @@ function NotionContentBlock({ block }: { block: BlogContent }) {
           className="border-l-4 border-accent pl-6 p-6 pb-2 my-8 italic text-text-secondary rounded-r-xl"
           style={{ backgroundColor: "var(--color-blockquote-bg)" }}
         >
-          <p className="mb-4">{block.text}</p>
+          <p className="mb-4">
+            <RichText segments={block.richText} />
+          </p>
         </blockquote>
       );
     case "callout":
       return (
         <div className="bg-(--color-callout-note-bg) border border-(--color-callout-note-border) rounded-xl p-6 my-8">
-          <p className="text-lg text-(--color-prose-body) mb-0">{block.text}</p>
+          <p className="text-lg text-(--color-prose-body) mb-0">
+            <RichText segments={block.richText} />
+          </p>
         </div>
       );
     case "code":
@@ -222,7 +284,7 @@ function NotionContent({ blocks }: { blocks: BlogContent[] }) {
                     key={liIdx}
                     className="text-lg leading-[1.75] text-(--color-prose-body) mb-2"
                   >
-                    {li.text}
+                    <RichText segments={li.richText} />
                   </li>
                 ))}
               </ul>
@@ -238,7 +300,7 @@ function NotionContent({ blocks }: { blocks: BlogContent[] }) {
                     key={liIdx}
                     className="text-lg leading-[1.75] text-(--color-prose-body) mb-2"
                   >
-                    {li.text}
+                    <RichText segments={li.richText} />
                   </li>
                 ))}
               </ol>
@@ -296,7 +358,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
   const post = await getNotionBlogPostBySlug(slug);
 
-  console.log(post);
+  // console.log(post);
 
   if (!post) {
     notFound();
