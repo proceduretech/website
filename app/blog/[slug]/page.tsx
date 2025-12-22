@@ -140,7 +140,7 @@ function NotionContentBlock({ block }: { block: BlogContent }) {
           className="border-l-4 border-accent pl-6 p-6 pb-2 my-8 italic text-text-secondary rounded-r-xl"
           style={{ backgroundColor: "var(--color-blockquote-bg)" }}
         >
-          <p className="mb-0">{block.text}</p>
+          <p className="mb-4">{block.text}</p>
         </blockquote>
       );
     case "callout":
@@ -182,13 +182,77 @@ function NotionContentBlock({ block }: { block: BlogContent }) {
   }
 }
 
-// Render all Notion content
+// Render all Notion content with proper list grouping
 function NotionContent({ blocks }: { blocks: BlogContent[] }) {
+  const groupedBlocks: (
+    | BlogContent
+    | { type: "ul" | "ol"; items: BlogContent[] }
+  )[] = [];
+
+  for (let i = 0; i < blocks.length; i++) {
+    const block = blocks[i];
+    const lastGroup = groupedBlocks[groupedBlocks.length - 1];
+    const isListGroup =
+      lastGroup && "items" in lastGroup && Array.isArray(lastGroup.items);
+
+    if (block.type === "bulleted_list_item") {
+      if (isListGroup && lastGroup.type === "ul") {
+        lastGroup.items.push(block);
+      } else {
+        groupedBlocks.push({ type: "ul", items: [block] });
+      }
+    } else if (block.type === "numbered_list_item") {
+      if (isListGroup && lastGroup.type === "ol") {
+        lastGroup.items.push(block);
+      } else {
+        groupedBlocks.push({ type: "ol", items: [block] });
+      }
+    } else {
+      groupedBlocks.push(block);
+    }
+  }
+
   return (
     <div className="notion-content">
-      {blocks.map((block, idx) => (
-        <NotionContentBlock key={idx} block={block} />
-      ))}
+      {groupedBlocks.map((item, idx) => {
+        if ("items" in item) {
+          // Render grouped list
+          if (item.type === "ul") {
+            return (
+              <ul
+                key={idx}
+                className="mb-6 pl-6 list-disc marker:text-(--color-prose-bullets)"
+              >
+                {item.items.map((li, liIdx) => (
+                  <li
+                    key={liIdx}
+                    className="text-lg leading-[1.75] text-(--color-prose-body) mb-2"
+                  >
+                    {li.text}
+                  </li>
+                ))}
+              </ul>
+            );
+          } else {
+            return (
+              <ol
+                key={idx}
+                className="mb-6 pl-6 list-decimal marker:text-(--color-prose-bullets)"
+              >
+                {item.items.map((li, liIdx) => (
+                  <li
+                    key={liIdx}
+                    className="text-lg leading-[1.75] text-(--color-prose-body) mb-2"
+                  >
+                    {li.text}
+                  </li>
+                ))}
+              </ol>
+            );
+          }
+        }
+        return <NotionContentBlock key={idx} block={item} />;
+      })}
     </div>
   );
 }
@@ -237,6 +301,8 @@ function NotionTableOfContents({ blocks }: { blocks: BlogContent[] }) {
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
   const post = await getNotionBlogPostBySlug(slug);
+
+  console.log(post);
 
   if (!post) {
     notFound();
