@@ -17,6 +17,7 @@ import {
   BlogCTA,
 } from "@/components/blog";
 import { TracingBeam } from "@/components/ui/tracing-beam";
+import { NotionCodeBlock } from "@/components/notion/CodeBlock";
 
 // Force static generation at build time
 export const dynamic = "force-static";
@@ -151,14 +152,7 @@ function NotionContentBlock({ block }: { block: BlogContent }) {
       );
     case "code":
       return (
-        <pre
-          className="rounded-xl my-8 overflow-x-auto border border-(--color-code-border)"
-          style={{ backgroundColor: "var(--color-code-block)" }}
-        >
-          <code className="block text-sm leading-[1.75] font-mono p-4 text-(--color-prose-pre-code)">
-            {block.text}
-          </code>
-        </pre>
+        <NotionCodeBlock code={block.text || ""} language={block.language} />
       );
     case "image":
       if (!block.url) return null;

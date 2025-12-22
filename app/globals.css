@@ -356,14 +356,14 @@ html:not(.dark) {
   --color-prose-link-underline-hover: #0a7a84;
   --color-blockquote-bg: #e8f4f5;
 
-  /* Code blocks for light mode - Gruvbox Light inspired */
-  --color-code-block: #fbf1c7;
-  --color-code-title: #f2e5bc;
+  /* Code blocks for light mode - neutral light background */
+  --color-code-block: #fafafa;
+  --color-code-title: #f5f5f5;
   --color-code-highlight-bg: rgba(10, 122, 132, 0.12);
   --color-code-highlight-border: #0a7a84;
   --color-code-highlight-word: rgba(10, 122, 132, 0.15);
-  --color-code-line-numbers: #928374;
-  --color-code-border: #ebdbb2;
+  --color-code-line-numbers: #6e7087;
+  --color-code-border: #dddce0;
 
   /* Cal.com for light mode */
   --color-cal-bg: #f8f7f9;
@@ -809,6 +809,29 @@ html:not(.dark) [data-rehype-pretty-code-figure] code span {
 
 .notion-content a:hover {
   text-decoration-color: var(--color-prose-link-underline-hover);
+}
+
+/* Notion code blocks - Shiki dual theme switching */
+/* Dark mode (default) - use --shiki-dark variable */
+.dark .notion-code-block pre,
+.dark .notion-code-block code,
+.dark .notion-code-block span,
+html.dark .notion-code-block pre,
+html.dark .notion-code-block code,
+html.dark .notion-code-block span {
+  color: var(--shiki-dark);
+  background-color: transparent;
+}
+
+/* Light mode - use --shiki-light variable */
+:root[data-theme="light"] .notion-code-block pre,
+:root[data-theme="light"] .notion-code-block code,
+:root[data-theme="light"] .notion-code-block span,
+html:not(.dark) .notion-code-block pre,
+html:not(.dark) .notion-code-block code,
+html:not(.dark) .notion-code-block span {
+  color: var(--shiki-light);
+  background-color: transparent;
 }
 
 /* Steps component - CSS counter for numbering */
