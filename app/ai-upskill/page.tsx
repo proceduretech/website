@@ -1020,7 +1020,7 @@ export default function AIUpskillPage() {
               <span className="text-text-muted text-sm">Find us online:</span>
               <div className="flex gap-3">
                 <a
-                  href="https://www.linkedin.com/company/procedure"
+                  href="https://in.linkedin.com/company/procedurehq"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-surface-elevated border border-border flex items-center justify-center text-text-muted hover:text-accent-light hover:border-accent/30 transition-colors"

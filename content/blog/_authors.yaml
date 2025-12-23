@@ -14,11 +14,11 @@ engineering-team:
   role: "Engineering Team"
   avatar: "/team/engineering.jpg"
   bio: "Insights from Procedure's team of AI and product engineers building production systems for enterprise clients."
-  linkedin: "https://linkedin.com/company/procedure"
+  linkedin: "https://in.linkedin.com/company/procedurehq"
 
 ai-security-team:
   name: "AI Security Team"
   role: "Security Engineering"
   avatar: "/team/security.jpg"
   bio: "Procedure's dedicated AI security specialists focused on protecting production AI systems from emerging threats."
-  linkedin: "https://linkedin.com/company/procedure"
+  linkedin: "https://in.linkedin.com/company/procedurehq"
