@@ -1138,7 +1138,7 @@ export default function EventsPage() {
             <div className="mt-12 flex items-center justify-center gap-6">
               <span className="text-sm text-text-muted">Follow us:</span>
               <a
-                href="https://linkedin.com/company/procedure"
+                href="https://in.linkedin.com/company/procedurehq"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-text-muted hover:text-accent-light transition-colors"
