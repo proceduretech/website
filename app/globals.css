@@ -805,6 +805,36 @@ html:not(.dark) [data-rehype-pretty-code-figure] code span {
   overflow: hidden;
 }
 
+/* react-tweet styling overrides to match theme */
+.react-tweet {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+/* Override react-tweet theme variables to match our design system */
+.react-tweet-theme {
+  --tweet-container-border: var(--color-border);
+  --tweet-container-bg: var(--color-surface-elevated);
+  --tweet-text-color: var(--color-text-primary);
+  --tweet-text-color-secondary: var(--color-text-muted);
+  --tweet-link-color: var(--color-accent-light);
+  --tweet-border-color: var(--color-border);
+  --tweet-font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
+/* Ensure react-tweet images and media are responsive */
+.react-tweet img,
+.react-tweet video {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* Ensure react-tweet container respects overflow */
+.react-tweet-container {
+  max-width: 100% !important;
+  overflow: hidden;
+}
+
 .notion-content strong {
   font-weight: 600;
   color: var(--color-prose-bold);

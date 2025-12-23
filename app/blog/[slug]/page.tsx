@@ -21,9 +21,9 @@ import {
   NotionCodeBlock,
   NotionTable,
   RichText,
-  TwitterEmbed,
   VideoEmbed,
 } from "@/components/notion";
+import { TwitterEmbedReactTweet } from "@/components/notion/TwitterEmbedReactTweet";
 
 // Force static generation at build time
 export const dynamic = "force-static";
@@ -197,7 +197,7 @@ function NotionContentBlock({ block }: { block: BlogContent }) {
       if (!block.url) return null;
       // Check if it's a Twitter/X URL
       if (/twitter\.com|x\.com/.test(block.url)) {
-        return <TwitterEmbed url={block.url} />;
+        return <TwitterEmbedReactTweet url={block.url} />;
       }
       // Check if it's a video URL (YouTube, Vimeo)
       if (/youtube\.com|youtu\.be|vimeo\.com/.test(block.url)) {
@@ -230,7 +230,7 @@ function NotionContentBlock({ block }: { block: BlogContent }) {
       // Check if it's a Twitter/X URL - render as tweet embed
       const isTwitterBookmark = /twitter\.com|x\.com/.test(block.url);
       if (isTwitterBookmark) {
-        return <TwitterEmbed url={block.url} />;
+        return <TwitterEmbedReactTweet url={block.url} />;
       }
       return (
         <a
