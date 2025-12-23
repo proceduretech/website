@@ -28,6 +28,15 @@ export interface RichTextSegment {
   code?: boolean;
 }
 
+export interface TableCell {
+  richText: RichTextSegment[];
+  text: string;
+}
+
+export interface TableRow {
+  cells: TableCell[];
+}
+
 export interface BlogContent {
   type:
     | "paragraph"
@@ -40,12 +49,16 @@ export interface BlogContent {
     | "callout"
     | "image"
     | "divider"
-    | "code";
+    | "code"
+    | "table";
   text?: string;
   richText?: RichTextSegment[];
   url?: string;
   language?: string;
   icon?: string; // Emoji or icon URL for callouts
+  tableRows?: TableRow[]; // For table blocks
+  hasColumnHeader?: boolean; // Whether first row is header
+  hasRowHeader?: boolean; // Whether first column is header
 }
 
 // =============================================================================
@@ -503,8 +516,40 @@ function transformBlock(block: BlockObjectResponse): BlogContent | null {
       return null;
     case "divider":
       return { type: "divider" };
+    // Table is handled separately in fetchPageContent since it needs children
     default:
       return null;
+  }
+}
+
+async function fetchTableRows(tableBlockId: string): Promise<TableRow[]> {
+  try {
+    const response = await notion.blocks.children.list({
+      block_id: tableBlockId,
+      page_size: 100,
+    });
+
+    const rows: TableRow[] = [];
+
+    for (const block of response.results) {
+      if (!("type" in block)) continue;
+      const rowBlock = block as BlockObjectResponse;
+
+      if (rowBlock.type === "table_row") {
+        const cells: TableCell[] = rowBlock.table_row.cells.map(
+          (cellRichText) => ({
+            text: extractRichTextContent(cellRichText as NotionRichText[]),
+            richText: extractRichTextSegments(cellRichText as NotionRichText[]),
+          })
+        );
+        rows.push({ cells });
+      }
+    }
+
+    return rows;
+  } catch (error) {
+    console.error(`Error fetching table rows for ${tableBlockId}:`, error);
+    return [];
   }
 }
 
@@ -520,8 +565,21 @@ async function fetchPageContent(pageId: string): Promise<BlogContent[]> {
 
     for (const block of response.results) {
       if (!("type" in block)) continue;
+      const typedBlock = block as BlockObjectResponse;
 
-      const transformed = transformBlock(block as BlockObjectResponse);
+      // Handle table blocks specially - need to fetch children
+      if (typedBlock.type === "table") {
+        const tableRows = await fetchTableRows(typedBlock.id);
+        content.push({
+          type: "table",
+          tableRows,
+          hasColumnHeader: typedBlock.table.has_column_header,
+          hasRowHeader: typedBlock.table.has_row_header,
+        });
+        continue;
+      }
+
+      const transformed = transformBlock(typedBlock);
       if (transformed) {
         content.push(transformed);
       }
