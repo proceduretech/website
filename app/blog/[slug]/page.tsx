@@ -206,7 +206,17 @@ function NotionContentBlock({ block }: { block: BlogContent }) {
       );
     case "callout":
       return (
-        <div className="bg-(--color-callout-note-bg) border border-(--color-callout-note-border) rounded-xl p-6 my-8">
+        <div className="bg-(--color-callout-note-bg) border border-(--color-callout-note-border) rounded-xl p-6 my-8 flex gap-4">
+          {block.icon && (
+            <span className="text-2xl shrink-0" aria-hidden="true">
+              {block.icon.startsWith("http") ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={block.icon} alt="" className="w-6 h-6" />
+              ) : (
+                block.icon
+              )}
+            </span>
+          )}
           <p className="text-lg text-(--color-prose-body) mb-0">
             <RichText segments={block.richText} />
           </p>

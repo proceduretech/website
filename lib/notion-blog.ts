@@ -45,6 +45,7 @@ export interface BlogContent {
   richText?: RichTextSegment[];
   url?: string;
   language?: string;
+  icon?: string; // Emoji or icon URL for callouts
 }
 
 // =============================================================================
@@ -461,6 +462,15 @@ function transformBlock(block: BlockObjectResponse): BlogContent | null {
         ),
       };
     case "callout":
+      // Extract icon (emoji or external URL)
+      let calloutIcon: string | undefined;
+      if (block.callout.icon) {
+        if (block.callout.icon.type === "emoji") {
+          calloutIcon = block.callout.icon.emoji;
+        } else if (block.callout.icon.type === "external") {
+          calloutIcon = block.callout.icon.external.url;
+        }
+      }
       return {
         type: "callout",
         text: extractRichTextContent(
@@ -469,6 +479,7 @@ function transformBlock(block: BlockObjectResponse): BlogContent | null {
         richText: extractRichTextSegments(
           block.callout.rich_text as NotionRichText[]
         ),
+        icon: calloutIcon,
       };
     case "code":
       return {
