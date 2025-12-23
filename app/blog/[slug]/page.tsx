@@ -7,7 +7,7 @@ import {
   getNotionBlogPostBySlug,
   getRelatedBlogPosts,
 } from "@/lib/notion-blog";
-import type { BlogPostDetail, BlogContent } from "@/lib/notion-blog";
+import type { BlogContent } from "@/lib/notion-blog";
 import { formatDate, getCategoryColor } from "@/lib/blog-utils";
 import { getImageMetadata } from "@/lib/image-utils";
 import {
@@ -17,6 +17,7 @@ import {
   BlogCTA,
 } from "@/components/blog";
 import { TracingBeam } from "@/components/ui/tracing-beam";
+import { NotionCodeBlock, NotionTable, RichText } from "@/components/notion";
 
 // Force static generation at build time
 export const dynamic = "force-static";
@@ -85,18 +86,21 @@ function ContentLoading() {
 }
 
 // Render Notion content blocks
+// Styles aligned with .mdx-content from globals.css
 function NotionContentBlock({ block }: { block: BlogContent }) {
   switch (block.type) {
     case "paragraph":
-      if (!block.text) return null;
+      if (!block.text && !block.richText?.length) return null;
       return (
-        <p className="text-text-secondary leading-relaxed mb-6">{block.text}</p>
+        <p className="mb-4 text-lg leading-[1.75] text-(--color-prose-body)">
+          <RichText segments={block.richText} />
+        </p>
       );
     case "heading_1":
       return (
         <h2
           id={block.text?.toLowerCase().replace(/\s+/g, "-")}
-          className="text-2xl sm:text-3xl font-bold text-text-primary mt-12 mb-4"
+          className="font-display text-[1.875rem] font-bold text-(--color-prose-headings) mt-8 mb-5 scroll-mt-24"
         >
           {block.text}
         </h2>
@@ -105,7 +109,7 @@ function NotionContentBlock({ block }: { block: BlogContent }) {
       return (
         <h3
           id={block.text?.toLowerCase().replace(/\s+/g, "-")}
-          className="text-xl sm:text-2xl font-bold text-text-primary mt-10 mb-4"
+          className="font-display text-2xl font-semibold text-(--color-prose-headings) mt-7 mb-4 scroll-mt-24"
         >
           {block.text}
         </h3>
@@ -114,68 +118,151 @@ function NotionContentBlock({ block }: { block: BlogContent }) {
       return (
         <h4
           id={block.text?.toLowerCase().replace(/\s+/g, "-")}
-          className="text-lg font-bold text-text-primary mt-8 mb-3"
+          className="font-display text-xl font-semibold text-(--color-prose-headings) mt-6 mb-3.5 scroll-mt-24"
         >
           {block.text}
         </h4>
       );
     case "bulleted_list_item":
       return (
-        <li className="text-text-secondary ml-6 mb-2 list-disc">{block.text}</li>
+        <li className="text-lg leading-[1.75] text-(--color-prose-body) ml-6 mb-2 list-disc marker:text-(--color-prose-bullets)">
+          <RichText segments={block.richText} />
+        </li>
       );
     case "numbered_list_item":
       return (
-        <li className="text-text-secondary ml-6 mb-2 list-decimal">
-          {block.text}
+        <li className="text-lg leading-[1.75] text-(--color-prose-body) ml-6 mb-2 list-decimal marker:text-(--color-prose-bullets)">
+          <RichText segments={block.richText} />
         </li>
       );
     case "quote":
       return (
-        <blockquote className="border-l-4 border-accent pl-6 py-3 my-6 text-text-secondary italic bg-surface-elevated/30 rounded-r-lg">
-          {block.text}
+        <blockquote
+          className="border-l-4 border-accent pl-6 p-6 pb-2 my-8 italic text-text-secondary rounded-r-xl"
+          style={{ backgroundColor: "var(--color-blockquote-bg)" }}
+        >
+          <p className="mb-4">
+            <RichText segments={block.richText} />
+          </p>
         </blockquote>
       );
     case "callout":
       return (
-        <div className="bg-surface-elevated border border-border rounded-xl p-6 my-6">
-          <p className="text-text-secondary">{block.text}</p>
+        <div className="bg-(--color-callout-note-bg) border border-(--color-callout-note-border) rounded-xl p-6 my-8 flex gap-4">
+          {block.icon && (
+            <span className="text-2xl shrink-0" aria-hidden="true">
+              {block.icon.startsWith("http") ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={block.icon} alt="" className="w-6 h-6" />
+              ) : (
+                block.icon
+              )}
+            </span>
+          )}
+          <p className="text-lg text-(--color-prose-body) mb-0">
+            <RichText segments={block.richText} />
+          </p>
         </div>
       );
     case "code":
       return (
-        <pre className="bg-surface-elevated border border-border rounded-xl p-6 my-6 overflow-x-auto">
-          <code className="text-sm text-text-secondary font-mono">
-            {block.text}
-          </code>
-        </pre>
+        <NotionCodeBlock code={block.text || ""} language={block.language} />
       );
     case "image":
       if (!block.url) return null;
       return (
-        <div className="relative w-full aspect-video rounded-xl overflow-hidden my-8">
-          <Image
-            src={block.url}
-            alt="Blog post image"
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 800px"
-          />
-        </div>
+        <figure className="my-8">
+          <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-border">
+            <Image
+              src={block.url}
+              alt="Blog post image"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 800px"
+            />
+          </div>
+        </figure>
       );
     case "divider":
-      return <hr className="border-border my-10" />;
+      return <hr className="border-(--color-hr) my-12" />;
+    case "table":
+      return <NotionTable block={block} />;
     default:
       return null;
   }
 }
 
-// Render all Notion content
+// Render all Notion content with proper list grouping
 function NotionContent({ blocks }: { blocks: BlogContent[] }) {
+  const groupedBlocks: (
+    | BlogContent
+    | { type: "ul" | "ol"; items: BlogContent[] }
+  )[] = [];
+
+  for (let i = 0; i < blocks.length; i++) {
+    const block = blocks[i];
+    const lastGroup = groupedBlocks[groupedBlocks.length - 1];
+    const isListGroup =
+      lastGroup && "items" in lastGroup && Array.isArray(lastGroup.items);
+
+    if (block.type === "bulleted_list_item") {
+      if (isListGroup && lastGroup.type === "ul") {
+        lastGroup.items.push(block);
+      } else {
+        groupedBlocks.push({ type: "ul", items: [block] });
+      }
+    } else if (block.type === "numbered_list_item") {
+      if (isListGroup && lastGroup.type === "ol") {
+        lastGroup.items.push(block);
+      } else {
+        groupedBlocks.push({ type: "ol", items: [block] });
+      }
+    } else {
+      groupedBlocks.push(block);
+    }
+  }
+
   return (
     <div className="notion-content">
-      {blocks.map((block, idx) => (
-        <NotionContentBlock key={idx} block={block} />
-      ))}
+      {groupedBlocks.map((item, idx) => {
+        if ("items" in item) {
+          // Render grouped list
+          if (item.type === "ul") {
+            return (
+              <ul
+                key={idx}
+                className="mb-6 pl-6 list-disc marker:text-(--color-prose-bullets)"
+              >
+                {item.items.map((li, liIdx) => (
+                  <li
+                    key={liIdx}
+                    className="text-lg leading-[1.75] text-(--color-prose-body) mb-2"
+                  >
+                    <RichText segments={li.richText} />
+                  </li>
+                ))}
+              </ul>
+            );
+          } else {
+            return (
+              <ol
+                key={idx}
+                className="mb-6 pl-6 list-decimal marker:text-(--color-prose-bullets)"
+              >
+                {item.items.map((li, liIdx) => (
+                  <li
+                    key={liIdx}
+                    className="text-lg leading-[1.75] text-(--color-prose-body) mb-2"
+                  >
+                    <RichText segments={li.richText} />
+                  </li>
+                ))}
+              </ol>
+            );
+          }
+        }
+        return <NotionContentBlock key={idx} block={item} />;
+      })}
     </div>
   );
 }
@@ -203,8 +290,8 @@ function NotionTableOfContents({ blocks }: { blocks: BlogContent[] }) {
             heading.type === "heading_2"
               ? "ml-3"
               : heading.type === "heading_3"
-                ? "ml-6"
-                : "";
+              ? "ml-6"
+              : "";
           return (
             <li key={idx} className={indentClass}>
               <a
@@ -224,6 +311,8 @@ function NotionTableOfContents({ blocks }: { blocks: BlogContent[] }) {
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
   const post = await getNotionBlogPostBySlug(slug);
+
+  // console.log(post);
 
   if (!post) {
     notFound();
@@ -251,7 +340,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <section className="relative pt-32 pb-8 sm:pb-12 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-surface via-base to-base" />
+          <div className="absolute top-0 left-0 w-full h-full bg-linear-to-br from-surface via-base to-base" />
           <div className="absolute top-20 right-1/4 w-[500px] h-[500px] bg-accent/6 rounded-full blur-[100px]" />
           <div className="absolute top-40 left-1/4 w-[400px] h-[400px] bg-accent-secondary/5 rounded-full blur-[80px]" />
         </div>
@@ -290,7 +379,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div className="flex flex-wrap items-center gap-4 mb-8">
             {/* Author */}
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent to-accent-secondary flex items-center justify-center flex-shrink-0">
+              <div className="w-10 h-10 rounded-full bg-linear-to-br from-accent to-accent-secondary flex items-center justify-center shrink-0">
                 <span className="text-sm font-bold text-white">
                   {post.author.name.charAt(0)}
                 </span>
@@ -335,7 +424,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
           {/* Featured Image */}
           {coverImageMetadata ? (
-            <div className="relative w-full aspect-[21/9] rounded-2xl overflow-hidden">
+            <div className="relative w-full aspect-21/9 rounded-2xl overflow-hidden">
               <Image
                 src={coverImageMetadata.src}
                 alt={post.title}
@@ -347,8 +436,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
               />
             </div>
-          ) : post.featuredImage && post.featuredImage !== "/blog/default.jpg" ? (
-            <div className="relative w-full aspect-[21/9] rounded-2xl overflow-hidden">
+          ) : post.featuredImage &&
+            post.featuredImage !== "/blog/default.jpg" ? (
+            <div className="relative w-full aspect-21/9 rounded-2xl overflow-hidden">
               <Image
                 src={post.featuredImage}
                 alt={post.title}
@@ -359,7 +449,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               />
             </div>
           ) : (
-            <div className="relative w-full aspect-[21/9] rounded-2xl overflow-hidden bg-gradient-to-br from-accent/20 to-accent-secondary/20">
+            <div className="relative w-full aspect-21/9 rounded-2xl overflow-hidden bg-linear-to-br from-accent/20 to-accent-secondary/20">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-20 h-20 rounded-2xl bg-surface-elevated/50 backdrop-blur border border-border flex items-center justify-center">
                   <svg
@@ -383,7 +473,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       </section>
 
       {/* Content Section */}
-      <section className="relative py-12 sm:py-16 bg-base">
+      <section className="relative py-8 sm:py-12 bg-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-[280px_1fr] gap-12 lg:gap-16 items-start">
             {/* Table of Contents - Desktop */}

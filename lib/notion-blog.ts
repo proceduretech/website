@@ -7,10 +7,7 @@ import type {
   BlockObjectResponse,
   ListBlockChildrenResponse,
 } from "@notionhq/client/build/src/api-endpoints";
-import {
-  cacheBlogCover,
-  cacheContentImages,
-} from "./notion-image-cache";
+import { cacheBlogCover, cacheContentImages } from "./notion-image-cache";
 
 // =============================================================================
 // Extended Types for Blog Detail Pages
@@ -21,11 +18,47 @@ export interface BlogPostDetail extends BlogPost {
   notionContent: BlogContent[];
 }
 
+export interface RichTextSegment {
+  text: string;
+  href?: string;
+  bold?: boolean;
+  italic?: boolean;
+  underline?: boolean;
+  strikethrough?: boolean;
+  code?: boolean;
+}
+
+export interface TableCell {
+  richText: RichTextSegment[];
+  text: string;
+}
+
+export interface TableRow {
+  cells: TableCell[];
+}
+
 export interface BlogContent {
-  type: "paragraph" | "heading_1" | "heading_2" | "heading_3" | "bulleted_list_item" | "numbered_list_item" | "quote" | "callout" | "image" | "divider" | "code";
+  type:
+    | "paragraph"
+    | "heading_1"
+    | "heading_2"
+    | "heading_3"
+    | "bulleted_list_item"
+    | "numbered_list_item"
+    | "quote"
+    | "callout"
+    | "image"
+    | "divider"
+    | "code"
+    | "table";
   text?: string;
+  richText?: RichTextSegment[];
   url?: string;
   language?: string;
+  icon?: string; // Emoji or icon URL for callouts
+  tableRows?: TableRow[]; // For table blocks
+  hasColumnHeader?: boolean; // Whether first row is header
+  hasRowHeader?: boolean; // Whether first column is header
 }
 
 // =============================================================================
@@ -146,7 +179,7 @@ const CATEGORY_MAP: Record<string, BlogCategory> = {
     description: "Building with large language models",
     color: "blue",
   },
-  "Engineering": {
+  Engineering: {
     id: "engineering",
     name: "Engineering",
     slug: "engineering",
@@ -173,13 +206,15 @@ function mapCategory(categoryName: string | null): BlogCategory {
   if (!categoryName) {
     return CATEGORY_MAP["Engineering"];
   }
-  return CATEGORY_MAP[categoryName] || {
-    id: categoryName.toLowerCase().replace(/\s+/g, "-"),
-    name: categoryName,
-    slug: categoryName.toLowerCase().replace(/\s+/g, "-"),
-    description: "",
-    color: "default",
-  };
+  return (
+    CATEGORY_MAP[categoryName] || {
+      id: categoryName.toLowerCase().replace(/\s+/g, "-"),
+      name: categoryName,
+      slug: categoryName.toLowerCase().replace(/\s+/g, "-"),
+      description: "",
+      color: "default",
+    }
+  );
 }
 
 // =============================================================================
@@ -200,13 +235,15 @@ function mapAuthor(authorName: string | null): Author {
   if (!authorName) {
     return AUTHOR_MAP["Procedure Team"];
   }
-  return AUTHOR_MAP[authorName] || {
-    id: authorName.toLowerCase().replace(/\s+/g, "-"),
-    name: authorName,
-    avatar: "/team/default.jpg",
-    role: "Engineer",
-    bio: "",
-  };
+  return (
+    AUTHOR_MAP[authorName] || {
+      id: authorName.toLowerCase().replace(/\s+/g, "-"),
+      name: authorName,
+      avatar: "/team/default.jpg",
+      role: "Engineer",
+      bio: "",
+    }
+  );
 }
 
 // =============================================================================
@@ -259,18 +296,33 @@ async function transformNotionPageToBlogPost(
   }
 
   // Extract properties based on actual Notion database schema
-  const categoryName = getSelect(props["Topic"]) || getSelect(props["Category"]);
-  const authorName = getPerson(props["Author"]) || getRichText(props["Author"]) || getSelect(props["Author"]);
-  const excerpt = getRichText(props["Notes"]) || getRichText(props["Excerpt"]) || getRichText(props["Description"]) || "";
+  const categoryName =
+    getSelect(props["Topic"]) || getSelect(props["Category"]);
+  const authorName =
+    getPerson(props["Author"]) ||
+    getRichText(props["Author"]) ||
+    getSelect(props["Author"]);
+  const excerpt =
+    getRichText(props["Notes"]) ||
+    getRichText(props["Excerpt"]) ||
+    getRichText(props["Description"]) ||
+    "";
   const tags = getMultiSelect(props["Tags"]);
   const featured = getCheckbox(props["Featured"]);
-  const publishDate = getDate(props["Publish Date"]) || getDate(props["Published"]) || getDate(props["Date"]);
+  const publishDate =
+    getDate(props["Publish Date"]) ||
+    getDate(props["Published"]) ||
+    getDate(props["Date"]);
   const updatedDate = getDate(props["Updated"]);
   const readTime = getNumber(props["Read Time"]) || 5;
   // Slug property (renamed from URL) - use rich text Slug as primary
   const customSlug = getRichText(props["Slug"]) || getUrl(props["URL"]);
   // Cover image from Notion files property (primary) with fallbacks
-  const featuredImage = getFiles(props["Cover"]) || getFiles(props["Featured Image"]) || getUrl(props["Cover Image"]) || getUrl(props["Image"]);
+  const featuredImage =
+    getFiles(props["Cover"]) ||
+    getFiles(props["Featured Image"]) ||
+    getUrl(props["Cover Image"]) ||
+    getUrl(props["Image"]);
 
   // Generate slug from Slug property or title
   let slug: string;
@@ -322,8 +374,34 @@ async function transformNotionPageToBlogPost(
 // Content Block Extraction
 // =============================================================================
 
-function extractRichTextContent(richText: Array<{ plain_text: string }>): string {
+interface NotionRichText {
+  plain_text: string;
+  href?: string | null;
+  annotations?: {
+    bold?: boolean;
+    italic?: boolean;
+    underline?: boolean;
+    strikethrough?: boolean;
+    code?: boolean;
+  };
+}
+
+function extractRichTextContent(richText: NotionRichText[]): string {
   return richText.map((t) => t.plain_text).join("");
+}
+
+function extractRichTextSegments(
+  richText: NotionRichText[]
+): RichTextSegment[] {
+  return richText.map((t) => ({
+    text: t.plain_text,
+    href: t.href || undefined,
+    bold: t.annotations?.bold,
+    italic: t.annotations?.italic,
+    underline: t.annotations?.underline,
+    strikethrough: t.annotations?.strikethrough,
+    code: t.annotations?.code,
+  }));
 }
 
 function transformBlock(block: BlockObjectResponse): BlogContent | null {
@@ -331,53 +409,102 @@ function transformBlock(block: BlockObjectResponse): BlogContent | null {
     case "paragraph":
       return {
         type: "paragraph",
-        text: extractRichTextContent(block.paragraph.rich_text),
+        text: extractRichTextContent(
+          block.paragraph.rich_text as NotionRichText[]
+        ),
+        richText: extractRichTextSegments(
+          block.paragraph.rich_text as NotionRichText[]
+        ),
       };
     case "heading_1":
       return {
         type: "heading_1",
-        text: extractRichTextContent(block.heading_1.rich_text),
+        text: extractRichTextContent(
+          block.heading_1.rich_text as NotionRichText[]
+        ),
+        richText: extractRichTextSegments(
+          block.heading_1.rich_text as NotionRichText[]
+        ),
       };
     case "heading_2":
       return {
         type: "heading_2",
-        text: extractRichTextContent(block.heading_2.rich_text),
+        text: extractRichTextContent(
+          block.heading_2.rich_text as NotionRichText[]
+        ),
+        richText: extractRichTextSegments(
+          block.heading_2.rich_text as NotionRichText[]
+        ),
       };
     case "heading_3":
       return {
         type: "heading_3",
-        text: extractRichTextContent(block.heading_3.rich_text),
+        text: extractRichTextContent(
+          block.heading_3.rich_text as NotionRichText[]
+        ),
+        richText: extractRichTextSegments(
+          block.heading_3.rich_text as NotionRichText[]
+        ),
       };
     case "bulleted_list_item":
       return {
         type: "bulleted_list_item",
-        text: extractRichTextContent(block.bulleted_list_item.rich_text),
+        text: extractRichTextContent(
+          block.bulleted_list_item.rich_text as NotionRichText[]
+        ),
+        richText: extractRichTextSegments(
+          block.bulleted_list_item.rich_text as NotionRichText[]
+        ),
       };
     case "numbered_list_item":
       return {
         type: "numbered_list_item",
-        text: extractRichTextContent(block.numbered_list_item.rich_text),
+        text: extractRichTextContent(
+          block.numbered_list_item.rich_text as NotionRichText[]
+        ),
+        richText: extractRichTextSegments(
+          block.numbered_list_item.rich_text as NotionRichText[]
+        ),
       };
     case "quote":
       return {
         type: "quote",
-        text: extractRichTextContent(block.quote.rich_text),
+        text: extractRichTextContent(block.quote.rich_text as NotionRichText[]),
+        richText: extractRichTextSegments(
+          block.quote.rich_text as NotionRichText[]
+        ),
       };
     case "callout":
+      // Extract icon (emoji or external URL)
+      let calloutIcon: string | undefined;
+      if (block.callout.icon) {
+        if (block.callout.icon.type === "emoji") {
+          calloutIcon = block.callout.icon.emoji;
+        } else if (block.callout.icon.type === "external") {
+          calloutIcon = block.callout.icon.external.url;
+        }
+      }
       return {
         type: "callout",
-        text: extractRichTextContent(block.callout.rich_text),
+        text: extractRichTextContent(
+          block.callout.rich_text as NotionRichText[]
+        ),
+        richText: extractRichTextSegments(
+          block.callout.rich_text as NotionRichText[]
+        ),
+        icon: calloutIcon,
       };
     case "code":
       return {
         type: "code",
-        text: extractRichTextContent(block.code.rich_text),
+        text: extractRichTextContent(block.code.rich_text as NotionRichText[]),
         language: block.code.language,
       };
     case "image":
-      const imageUrl = block.image.type === "external"
-        ? block.image.external.url
-        : block.image.type === "file"
+      const imageUrl =
+        block.image.type === "external"
+          ? block.image.external.url
+          : block.image.type === "file"
           ? block.image.file.url
           : null;
       if (imageUrl) {
@@ -389,24 +516,70 @@ function transformBlock(block: BlockObjectResponse): BlogContent | null {
       return null;
     case "divider":
       return { type: "divider" };
+    // Table is handled separately in fetchPageContent since it needs children
     default:
       return null;
   }
 }
 
-async function fetchPageContent(pageId: string): Promise<BlogContent[]> {
+async function fetchTableRows(tableBlockId: string): Promise<TableRow[]> {
   try {
-    const response: ListBlockChildrenResponse = await notion.blocks.children.list({
-      block_id: pageId,
+    const response = await notion.blocks.children.list({
+      block_id: tableBlockId,
       page_size: 100,
     });
+
+    const rows: TableRow[] = [];
+
+    for (const block of response.results) {
+      if (!("type" in block)) continue;
+      const rowBlock = block as BlockObjectResponse;
+
+      if (rowBlock.type === "table_row") {
+        const cells: TableCell[] = rowBlock.table_row.cells.map(
+          (cellRichText) => ({
+            text: extractRichTextContent(cellRichText as NotionRichText[]),
+            richText: extractRichTextSegments(cellRichText as NotionRichText[]),
+          })
+        );
+        rows.push({ cells });
+      }
+    }
+
+    return rows;
+  } catch (error) {
+    console.error(`Error fetching table rows for ${tableBlockId}:`, error);
+    return [];
+  }
+}
+
+async function fetchPageContent(pageId: string): Promise<BlogContent[]> {
+  try {
+    const response: ListBlockChildrenResponse =
+      await notion.blocks.children.list({
+        block_id: pageId,
+        page_size: 100,
+      });
 
     const content: BlogContent[] = [];
 
     for (const block of response.results) {
       if (!("type" in block)) continue;
+      const typedBlock = block as BlockObjectResponse;
 
-      const transformed = transformBlock(block as BlockObjectResponse);
+      // Handle table blocks specially - need to fetch children
+      if (typedBlock.type === "table") {
+        const tableRows = await fetchTableRows(typedBlock.id);
+        content.push({
+          type: "table",
+          tableRows,
+          hasColumnHeader: typedBlock.table.has_column_header,
+          hasRowHeader: typedBlock.table.has_row_header,
+        });
+        continue;
+      }
+
+      const transformed = transformBlock(typedBlock);
       if (transformed) {
         content.push(transformed);
       }
@@ -424,55 +597,56 @@ async function fetchPageContent(pageId: string): Promise<BlogContent[]> {
 // =============================================================================
 
 // Cache for storing detailed blog post data
-let cachedDetails: Map<string, Omit<BlogPostDetail, "notionContent">> | null = null;
+let cachedDetails: Map<string, Omit<BlogPostDetail, "notionContent">> | null =
+  null;
 
 /**
  * Fetch all published blog posts from Notion
  */
-export const getNotionBlogPosts = cache(
-  async (): Promise<BlogPost[]> => {
-    if (!isNotionConfigured()) {
-      console.warn(
-        "Notion token not configured, returning empty blog posts"
-      );
-      return [];
-    }
+export const getNotionBlogPosts = cache(async (): Promise<BlogPost[]> => {
+  if (!isNotionConfigured()) {
+    console.warn("Notion token not configured, returning empty blog posts");
+    return [];
+  }
 
-    try {
-      // Query without filter first to see all posts, then filter in code
-      const response: QueryDataSourceResponse = await notion.dataSources.query({
-        data_source_id: BLOG_DATA_SOURCE_ID,
-        sorts: [
-          {
-            property: "Publish Date",
-            direction: "descending",
-          },
-        ],
-      });
+  try {
+    // Query without filter first to see all posts, then filter in code
+    const response: QueryDataSourceResponse = await notion.dataSources.query({
+      data_source_id: BLOG_DATA_SOURCE_ID,
+      sorts: [
+        {
+          property: "Publish Date",
+          direction: "descending",
+        },
+      ],
+    });
 
-      const blogPosts: BlogPost[] = [];
-      cachedDetails = new Map();
+    const blogPosts: BlogPost[] = [];
+    cachedDetails = new Map();
 
-      for (const page of response.results) {
-        if (!("properties" in page)) {
-          continue;
-        }
+    console.log(response.results);
 
-        const result = await transformNotionPageToBlogPost(page as PageObjectResponse);
-        if (result) {
-          blogPosts.push(result.blogPost);
-          cachedDetails.set(result.blogPost.slug, result.detail);
-        }
+    for (const page of response.results) {
+      if (!("properties" in page)) {
+        continue;
       }
 
-      return blogPosts;
-    } catch (error) {
-      console.error("Error fetching blog posts from Notion:", error);
-      cachedDetails = null;
-      return [];
+      const result = await transformNotionPageToBlogPost(
+        page as PageObjectResponse
+      );
+      if (result) {
+        blogPosts.push(result.blogPost);
+        cachedDetails.set(result.blogPost.slug, result.detail);
+      }
     }
+
+    return blogPosts;
+  } catch (error) {
+    console.error("Error fetching blog posts from Notion:", error);
+    cachedDetails = null;
+    return [];
   }
-);
+});
 
 /**
  * Get featured blog posts from Notion
