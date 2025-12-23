@@ -225,31 +225,19 @@ export function Footer() {
         {/* Certification Badges */}
         <div className="pt-8 border-t border-border mb-8">
           <p className="text-xs text-text-muted uppercase tracking-widest mb-6 text-center">
-            Security & Compliance
+            Security & Best Practices
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <ComplianceBadge
-              icon="star"
-              title="SOC 2"
-              subtitle="Type II Certified"
-              iconColor="teal"
-            />
-            <ComplianceBadge
-              icon="clock"
-              title="GDPR"
-              subtitle="Compliant"
-              iconColor="blue"
-            />
-            <ComplianceBadge
-              icon="check"
-              title="HIPAA"
-              subtitle="Compliant"
-              iconColor="teal"
-            />
-            <ComplianceBadge
               icon="shield"
-              title="ISO 27001"
-              subtitle="Certified"
+              title="Secure SDLC"
+              subtitle="Implemented"
+              iconColor="teal"
+            />
+            <ComplianceBadge
+              icon="star"
+              title="Responsible AI"
+              subtitle="Practices"
               iconColor="blue"
             />
           </div>

@@ -1189,7 +1189,7 @@ export default function ApproachPage() {
                     clipRule="evenodd"
                   />
                 </svg>
-                SOC 2 Type II
+                Secure SDLC
               </div>
               <div className="w-1 h-1 rounded-full bg-border" />
               <div className="flex items-center gap-2 text-xs text-text-muted">

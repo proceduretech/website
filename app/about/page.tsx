@@ -168,10 +168,8 @@ const differentiators = [
 
 // Certifications data
 const certifications = [
-  { name: "SOC 2 Type II", description: "Certified" },
-  { name: "GDPR", description: "Compliant" },
-  { name: "ISO 27001", description: "Certified" },
-  { name: "HIPAA", description: "Compliant" },
+  { name: "Secure SDLC", description: "Implemented" },
+  { name: "Responsible AI Practices", description: "Adopted" },
 ];
 
 export default function AboutPage() {
