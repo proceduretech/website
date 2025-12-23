@@ -50,7 +50,10 @@ export interface BlogContent {
     | "image"
     | "divider"
     | "code"
-    | "table";
+    | "table"
+    | "embed"
+    | "video"
+    | "bookmark";
   text?: string;
   richText?: RichTextSegment[];
   url?: string;
@@ -59,6 +62,7 @@ export interface BlogContent {
   tableRows?: TableRow[]; // For table blocks
   hasColumnHeader?: boolean; // Whether first row is header
   hasRowHeader?: boolean; // Whether first column is header
+  caption?: string; // For embeds/videos/images
 }
 
 // =============================================================================
@@ -516,6 +520,44 @@ function transformBlock(block: BlockObjectResponse): BlogContent | null {
       return null;
     case "divider":
       return { type: "divider" };
+    case "embed":
+      return {
+        type: "embed",
+        url: block.embed.url,
+        caption: block.embed.caption
+          ? extractRichTextContent(block.embed.caption as NotionRichText[])
+          : undefined,
+      };
+    case "video":
+      const videoUrl =
+        block.video.type === "external"
+          ? block.video.external.url
+          : block.video.type === "file"
+          ? block.video.file.url
+          : null;
+      if (videoUrl) {
+        return {
+          type: "video",
+          url: videoUrl,
+          caption: block.video.caption
+            ? extractRichTextContent(block.video.caption as NotionRichText[])
+            : undefined,
+        };
+      }
+      return null;
+    case "bookmark":
+      return {
+        type: "bookmark",
+        url: block.bookmark.url,
+        caption: block.bookmark.caption
+          ? extractRichTextContent(block.bookmark.caption as NotionRichText[])
+          : undefined,
+      };
+    case "link_preview":
+      return {
+        type: "embed",
+        url: (block as { link_preview: { url: string } }).link_preview.url,
+      };
     // Table is handled separately in fetchPageContent since it needs children
     default:
       return null;
@@ -555,36 +597,44 @@ async function fetchTableRows(tableBlockId: string): Promise<TableRow[]> {
 
 async function fetchPageContent(pageId: string): Promise<BlogContent[]> {
   try {
-    const response: ListBlockChildrenResponse =
-      await notion.blocks.children.list({
-        block_id: pageId,
-        page_size: 100,
-      });
-
     const content: BlogContent[] = [];
+    let hasMore = true;
+    let startCursor: string | undefined = undefined;
 
-    for (const block of response.results) {
-      if (!("type" in block)) continue;
-      const typedBlock = block as BlockObjectResponse;
-
-      // Handle table blocks specially - need to fetch children
-      if (typedBlock.type === "table") {
-        const tableRows = await fetchTableRows(typedBlock.id);
-        content.push({
-          type: "table",
-          tableRows,
-          hasColumnHeader: typedBlock.table.has_column_header,
-          hasRowHeader: typedBlock.table.has_row_header,
+    // Paginate through all blocks
+    while (hasMore) {
+      const response: ListBlockChildrenResponse =
+        await notion.blocks.children.list({
+          block_id: pageId,
+          page_size: 100,
+          start_cursor: startCursor,
         });
-        continue;
+
+      for (const block of response.results) {
+        if (!("type" in block)) continue;
+        const typedBlock = block as BlockObjectResponse;
+
+        // Handle table blocks specially - need to fetch children
+        if (typedBlock.type === "table") {
+          const tableRows = await fetchTableRows(typedBlock.id);
+          content.push({
+            type: "table",
+            tableRows,
+            hasColumnHeader: typedBlock.table.has_column_header,
+            hasRowHeader: typedBlock.table.has_row_header,
+          });
+          continue;
+        }
+
+        const transformed = transformBlock(typedBlock);
+        if (transformed) {
+          content.push(transformed);
+        }
       }
 
-      const transformed = transformBlock(typedBlock);
-      if (transformed) {
-        content.push(transformed);
-      }
+      hasMore = response.has_more;
+      startCursor = response.next_cursor || undefined;
     }
-
     return content;
   } catch (error) {
     console.error(`Error fetching content for page ${pageId}:`, error);
@@ -623,8 +673,6 @@ export const getNotionBlogPosts = cache(async (): Promise<BlogPost[]> => {
 
     const blogPosts: BlogPost[] = [];
     cachedDetails = new Map();
-
-    console.log(response.results);
 
     for (const page of response.results) {
       if (!("properties" in page)) {

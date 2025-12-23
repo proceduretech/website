@@ -788,6 +788,21 @@ html:not(.dark) [data-rehype-pretty-code-figure] code span {
   font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   color: var(--color-prose-body);
   line-height: 1.75;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Ensure embeds and iframes respect container width */
+.notion-content iframe,
+.notion-content twitter-widget,
+.notion-content .twitter-tweet {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+.notion-content figure {
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .notion-content strong {
