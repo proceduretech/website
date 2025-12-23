@@ -240,13 +240,12 @@ export const navigationData = {
       ],
     },
     {
-      title: "Compliance",
+      title: "Best Practices",
       highlight: true,
       bullet: true,
       items: [
-        { label: "SOC 2 Type II", href: "/compliance" },
-        { label: "HIPAA compliant", href: "/compliance" },
-        { label: "GDPR ready", href: "/compliance" },
+        { label: "Secure SDLC", href: "/compliance" },
+        { label: "Responsible AI Practices", href: "/compliance" },
         { label: "AI governance frameworks", href: "/compliance" },
       ],
     },

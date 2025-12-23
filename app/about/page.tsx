@@ -168,10 +168,8 @@ const differentiators = [
 
 // Certifications data
 const certifications = [
-  { name: "SOC 2 Type II", description: "Certified" },
-  { name: "GDPR", description: "Compliant" },
-  { name: "ISO 27001", description: "Certified" },
-  { name: "HIPAA", description: "Compliant" },
+  { name: "Secure SDLC", description: "Implemented" },
+  { name: "Responsible AI Practices", description: "Adopted" },
 ];
 
 export default function AboutPage() {
@@ -230,7 +228,7 @@ export default function AboutPage() {
             >
               {[
                 { value: "Since 2017", label: "Building Software" },
-                { value: "75+", label: "Clients Trusted Us" },
+                { value: "80+", label: "Clients Trusted Us" },
                 { value: "150+", label: "Projects Shipped" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">

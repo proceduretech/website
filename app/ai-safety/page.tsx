@@ -314,11 +314,8 @@ const frameworks = [
 ];
 
 const certifications = [
-  { name: "SOC 2 Type II", status: "Certified" },
-  { name: "GDPR", status: "Compliant" },
-  { name: "HIPAA", status: "Compliant" },
-  { name: "ISO 27001", status: "Certified" },
-  { name: "CCPA", status: "Ready" },
+  { name: "Secure SDLC", status: "Implemented" },
+  { name: "Responsible AI Practices", status: "Adopted" },
 ];
 
 const industries = [
