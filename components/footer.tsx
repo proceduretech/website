@@ -156,6 +156,7 @@ export function Footer() {
                   <Link
                     href={link.href}
                     className="text-sm text-text-secondary hover:text-accent-light transition-colors"
+                    aria-describedby="service-heading"
                   >
                     {link.label}
                   </Link>

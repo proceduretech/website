@@ -158,8 +158,14 @@ function NotionContentBlock({ block }: { block: BlogContent }) {
           {block.icon && (
             <span className="text-2xl shrink-0" aria-hidden="true">
               {block.icon.startsWith("http") ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={block.icon} alt="" className="w-6 h-6" />
+                <Image
+                  src={block.icon}
+                  alt=""
+                  width={24}
+                  height={24}
+                  className="w-6 h-6"
+                  unoptimized={true}
+                />
               ) : (
                 block.icon
               )}
