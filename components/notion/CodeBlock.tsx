@@ -87,67 +87,73 @@ export function NotionCodeBlock({ code, language }: NotionCodeBlockProps) {
   return (
     <figure className="my-8 relative group">
       {/* Language label */}
-      <div
-        className="inline-block px-3 py-1.5 text-xs font-mono text-text-muted rounded-t-lg border border-b-0"
-        style={{
-          backgroundColor: "var(--color-code-title)",
-          borderColor: "var(--color-code-border)",
-        }}
-      >
-        {displayLanguage}
-      </div>
+      {displayLanguage !== "plain text" && (
+        <div
+          className="inline-block px-3 py-1.5 text-xs font-mono text-text-muted rounded-t-lg border border-b-0"
+          style={{
+            backgroundColor: "var(--color-code-title)",
+            borderColor: "var(--color-code-border)",
+          }}
+        >
+          {displayLanguage}
+        </div>
+      )}
 
       {/* Code content */}
       <div
-        className="relative overflow-x-auto rounded-lg rounded-tl-none border"
+        className={`relative overflow-x-auto rounded-lg ${
+          displayLanguage !== "plain text" ? "rounded-tl-none" : ""
+        } border`}
         style={{
           backgroundColor: "var(--color-code-title)",
           borderColor: "var(--color-code-border)",
         }}
       >
         {/* Copy button */}
-        <button
-          onClick={copyToClipboard}
-          className="absolute top-3 right-3 flex items-center gap-1.5 px-3 py-1.5 text-xs text-text-muted hover:text-text-primary border border-border rounded-md transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 z-10"
-          style={{ backgroundColor: "var(--color-code-title)" }}
-          aria-label="Copy code"
-        >
-          {copied ? (
-            <>
-              <svg
-                className="w-4 h-4 text-success"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
-              <span>Copied!</span>
-            </>
-          ) : (
-            <>
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
-                />
-              </svg>
-              <span>Copy</span>
-            </>
-          )}
-        </button>
+        {displayLanguage !== "plain text" && (
+          <button
+            onClick={copyToClipboard}
+            className="absolute top-3 right-3 flex items-center gap-1.5 px-3 py-1.5 text-xs text-text-muted hover:text-text-primary border border-border rounded-md transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 z-10"
+            style={{ backgroundColor: "var(--color-code-title)" }}
+            aria-label="Copy code"
+          >
+            {copied ? (
+              <>
+                <svg
+                  className="w-4 h-4 text-success"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                <span>Copied!</span>
+              </>
+            ) : (
+              <>
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                  />
+                </svg>
+                <span>Copy</span>
+              </>
+            )}
+          </button>
+        )}
 
         {/* Syntax highlighted code */}
         {highlightedHtml ? (
