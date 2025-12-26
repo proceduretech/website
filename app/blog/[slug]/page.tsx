@@ -15,6 +15,8 @@ import {
   BlogRelatedPosts,
   BlogShareButtons,
   BlogCTA,
+  BlogTableOfContents,
+  type TOCHeading,
 } from "@/components/blog";
 import { TracingBeam } from "@/components/ui/tracing-beam";
 import {
@@ -363,45 +365,24 @@ function NotionContent({ blocks }: { blocks: BlogContent[] }) {
   );
 }
 
-// Generate table of contents from Notion blocks
-function NotionTableOfContents({ blocks }: { blocks: BlogContent[] }) {
-  const headings = blocks.filter(
-    (block) =>
-      block.type === "heading_1" ||
-      block.type === "heading_2" ||
-      block.type === "heading_3"
-  );
-
-  if (headings.length === 0) return null;
-
-  return (
-    <nav className="sticky top-32">
-      <h4 className="text-sm font-semibold text-text-primary mb-4 uppercase tracking-wider">
-        On This Page
-      </h4>
-      <ul className="space-y-2">
-        {headings.map((heading, idx) => {
-          const id = heading.text?.toLowerCase().replace(/\s+/g, "-") || "";
-          const indentClass =
-            heading.type === "heading_2"
-              ? "ml-3"
-              : heading.type === "heading_3"
-              ? "ml-6"
-              : "";
-          return (
-            <li key={idx} className={indentClass}>
-              <a
-                href={`#${id}`}
-                className="text-sm text-text-muted hover:text-accent-light transition-colors line-clamp-2"
-              >
-                {heading.text}
-              </a>
-            </li>
-          );
-        })}
-      </ul>
-    </nav>
-  );
+// Extract headings from Notion blocks for BlogTableOfContents
+function extractHeadings(blocks: BlogContent[]): TOCHeading[] {
+  return blocks
+    .filter(
+      (block) =>
+        block.type === "heading_1" ||
+        block.type === "heading_2" ||
+        block.type === "heading_3"
+    )
+    .map((block) => {
+      const text = block.text || "";
+      const id = text.toLowerCase().replace(/\s+/g, "-");
+      return {
+        id,
+        title: text,
+        type: block.type as "heading_1" | "heading_2" | "heading_3",
+      };
+    });
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
@@ -424,7 +405,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       : null;
 
   return (
-    <main className="relative min-h-screen bg-base overflow-hidden">
+    <main className="min-h-screen bg-base">
       {/* Share buttons - sidebar (desktop only) */}
       <BlogShareButtons
         url={`/blog/${slug}`}
@@ -569,12 +550,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       </section>
 
       {/* Content Section */}
-      <section className="relative py-8 sm:py-12 bg-base overflow-x-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 overflow-hidden">
-          <div className="grid lg:grid-cols-[280px_1fr] gap-12 lg:gap-16 items-start overflow-hidden">
+      <section className="relative py-8 sm:py-12 bg-base">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid lg:grid-cols-[280px_1fr] gap-12 lg:gap-16 items-start">
             {/* Table of Contents - Desktop */}
-            <div className="hidden lg:block h-fit">
-              <NotionTableOfContents blocks={post.notionContent} />
+            <div className="hidden lg:block self-start sticky top-28">
+              <BlogTableOfContents
+                headings={extractHeadings(post.notionContent)}
+              />
             </div>
 
             {/* Article Content with Tracing Beam */}

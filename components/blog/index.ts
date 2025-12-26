@@ -11,3 +11,4 @@ export { BlogTableOfContents } from "./BlogTableOfContents";
 export { BlogAuthorBio } from "./BlogAuthorBio";
 export { BlogRelatedPosts } from "./BlogRelatedPosts";
 export { BlogShareButtons } from "./BlogShareButtons";
+export type { TOCHeading } from "./BlogTableOfContents";
