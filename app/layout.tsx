@@ -81,8 +81,75 @@ export default function RootLayout({
   // Change siteConfig.theme to 'light' or 'dark' to switch themes
   const themeClass = getThemeClass();
 
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://procedure.tech/#organization",
+    name: "Procedure",
+    legalName: "Procedure Technologies",
+    url: "https://procedure.tech",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/7/7f/Procedure-logo.png",
+    foundingDate: "2017",
+    description:
+      "AI engineering that ships to production. Senior engineers embedded with your team to build AI-powered products and secure AI systems. Battle-tested delivery, now focused on AI.",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Mumbai",
+      addressCountry: "IN",
+    },
+    areaServed: "Worldwide",
+    sameAs: [
+      "https://www.wikidata.org/wiki/Q137392993",
+      "https://www.crunchbase.com/organization/procedure",
+      "https://in.linkedin.com/company/procedurehq",
+      "https://x.com/procedurehq",
+      "https://github.com/proceduretech",
+    ],
+    founder: [
+      {
+        "@type": "Person",
+        name: "Brajkishor Baheti",
+        jobTitle: "Chief Executive Officer",
+      },
+      {
+        "@type": "Person",
+        name: "Ulhas Mandrawadkar",
+        jobTitle: "Chief Technology Officer",
+      },
+    ],
+    employee: [
+      {
+        "@type": "Person",
+        name: "Brajkishor Baheti",
+        jobTitle: "Chief Executive Officer",
+      },
+      {
+        "@type": "Person",
+        name: "Ulhas Mandrawadkar",
+        jobTitle: "Chief Technology Officer",
+      },
+    ],
+    knowsAbout: [
+      "Artificial Intelligence",
+      "Machine Learning",
+      "AI Security",
+      "Product Engineering",
+      "Cloud Computing",
+      "DevOps",
+      "Product Design",
+    ],
+  };
+
   return (
     <html lang="en" className={themeClass}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+      </head>
       <body className={`${outfit.variable} ${inter.variable} antialiased`}>
         {/* Main content wrapper - sits above the fixed footer reveal */}
         <div className="relative z-10 bg-base">
