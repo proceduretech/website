@@ -1,37 +1,20 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 
-interface TOCItem {
+export interface TOCHeading {
   id: string;
   title: string;
-  level: number;
+  type: "heading_1" | "heading_2" | "heading_3";
 }
 
 interface BlogTableOfContentsProps {
-  content: string;
+  headings: TOCHeading[];
 }
 
-export function BlogTableOfContents({ content }: BlogTableOfContentsProps) {
+export function BlogTableOfContents({ headings }: BlogTableOfContentsProps) {
   const [activeId, setActiveId] = useState<string>("");
   const [readProgress, setReadProgress] = useState(0);
-
-  // Extract headings from content - memoized to prevent recalculation
-  const headings = useMemo(() => {
-    const items: TOCItem[] = [];
-    const headingRegex = /^(#{2,3})\s+(.+)$/gm;
-    let match;
-
-    while ((match = headingRegex.exec(content)) !== null) {
-      items.push({
-        id: match[2].toLowerCase().replace(/[^a-z0-9]+/g, "-"),
-        title: match[2],
-        level: match[1].length,
-      });
-    }
-
-    return items;
-  }, [content]);
 
   // Scroll spy and progress tracking
   useEffect(() => {
@@ -84,7 +67,7 @@ export function BlogTableOfContents({ content }: BlogTableOfContentsProps) {
   };
 
   return (
-    <nav className="sticky top-32">
+    <aside>
       <div className="bg-surface-elevated rounded-xl border border-border p-6">
         {/* Progress bar */}
         <div className="h-1 bg-surface rounded-full mb-6 overflow-hidden">
@@ -106,7 +89,11 @@ export function BlogTableOfContents({ content }: BlogTableOfContentsProps) {
               key={heading.id}
               onClick={() => handleClick(heading.id)}
               className={`block w-full text-left text-sm py-1.5 border-l-2 transition-colors ${
-                heading.level === 3 ? "pl-6" : "pl-4"
+                heading.type === "heading_1"
+                  ? "pl-2"
+                  : heading.type === "heading_2"
+                  ? "pl-4"
+                  : "pl-6"
               } ${
                 activeId === heading.id
                   ? "text-accent-light border-accent"
@@ -118,6 +105,6 @@ export function BlogTableOfContents({ content }: BlogTableOfContentsProps) {
           ))}
         </div>
       </div>
-    </nav>
+    </aside>
   );
 }

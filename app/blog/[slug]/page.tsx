@@ -15,9 +15,17 @@ import {
   BlogRelatedPosts,
   BlogShareButtons,
   BlogCTA,
+  BlogTableOfContents,
+  type TOCHeading,
 } from "@/components/blog";
 import { TracingBeam } from "@/components/ui/tracing-beam";
-import { NotionCodeBlock, NotionTable, RichText } from "@/components/notion";
+import {
+  NotionCodeBlock,
+  NotionTable,
+  RichText,
+  VideoEmbed,
+} from "@/components/notion";
+import { TwitterEmbedReactTweet } from "@/components/notion/TwitterEmbedReactTweet";
 
 // Force static generation at build time
 export const dynamic = "force-static";
@@ -152,8 +160,14 @@ function NotionContentBlock({ block }: { block: BlogContent }) {
           {block.icon && (
             <span className="text-2xl shrink-0" aria-hidden="true">
               {block.icon.startsWith("http") ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={block.icon} alt="" className="w-6 h-6" />
+                <Image
+                  src={block.icon}
+                  alt=""
+                  width={24}
+                  height={24}
+                  className="w-6 h-6"
+                  unoptimized={true}
+                />
               ) : (
                 block.icon
               )}
@@ -187,6 +201,90 @@ function NotionContentBlock({ block }: { block: BlogContent }) {
       return <hr className="border-(--color-hr) my-12" />;
     case "table":
       return <NotionTable block={block} />;
+    case "embed":
+      if (!block.url) return null;
+      // Check if it's a Twitter/X URL
+      if (/twitter\.com|x\.com/.test(block.url)) {
+        return <TwitterEmbedReactTweet url={block.url} />;
+      }
+      // Check if it's a video URL (YouTube, Vimeo)
+      if (/youtube\.com|youtu\.be|vimeo\.com/.test(block.url)) {
+        return <VideoEmbed url={block.url} caption={block.caption} />;
+      }
+      // Default iframe embed for other platforms
+      return (
+        <figure className="my-8">
+          <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-border">
+            <iframe
+              src={block.url}
+              className="absolute inset-0 w-full h-full"
+              allowFullScreen
+              loading="lazy"
+              title={block.caption || "Embedded content"}
+            />
+          </div>
+          {block.caption && (
+            <figcaption className="mt-3 text-center text-sm text-text-muted">
+              {block.caption}
+            </figcaption>
+          )}
+        </figure>
+      );
+    case "video":
+      if (!block.url) return null;
+      return <VideoEmbed url={block.url} caption={block.caption} />;
+    case "bookmark":
+      if (!block.url) return null;
+      // Check if it's a Twitter/X URL - render as tweet embed
+      const isTwitterBookmark = /twitter\.com|x\.com/.test(block.url);
+      if (isTwitterBookmark) {
+        return <TwitterEmbedReactTweet url={block.url} />;
+      }
+      return (
+        <a
+          href={block.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block my-8 p-4 rounded-xl border border-border bg-surface-elevated hover:border-accent/30 transition-colors group"
+        >
+          <div className="flex items-center gap-3">
+            <div className="shrink-0 w-10 h-10 rounded-lg bg-surface flex items-center justify-center">
+              <svg
+                className="w-5 h-5 text-text-muted group-hover:text-accent-light transition-colors"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
+                />
+              </svg>
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-medium text-(--color-prose-headings) truncate group-hover:text-accent-light transition-colors">
+                {block.caption || block.url}
+              </p>
+              <p className="text-xs text-text-muted truncate">{block.url}</p>
+            </div>
+            <svg
+              className="w-4 h-4 text-text-muted shrink-0"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+              />
+            </svg>
+          </div>
+        </a>
+      );
     default:
       return null;
   }
@@ -267,45 +365,24 @@ function NotionContent({ blocks }: { blocks: BlogContent[] }) {
   );
 }
 
-// Generate table of contents from Notion blocks
-function NotionTableOfContents({ blocks }: { blocks: BlogContent[] }) {
-  const headings = blocks.filter(
-    (block) =>
-      block.type === "heading_1" ||
-      block.type === "heading_2" ||
-      block.type === "heading_3"
-  );
-
-  if (headings.length === 0) return null;
-
-  return (
-    <nav className="sticky top-32">
-      <h4 className="text-sm font-semibold text-text-primary mb-4 uppercase tracking-wider">
-        On This Page
-      </h4>
-      <ul className="space-y-2">
-        {headings.map((heading, idx) => {
-          const id = heading.text?.toLowerCase().replace(/\s+/g, "-") || "";
-          const indentClass =
-            heading.type === "heading_2"
-              ? "ml-3"
-              : heading.type === "heading_3"
-              ? "ml-6"
-              : "";
-          return (
-            <li key={idx} className={indentClass}>
-              <a
-                href={`#${id}`}
-                className="text-sm text-text-muted hover:text-accent-light transition-colors line-clamp-2"
-              >
-                {heading.text}
-              </a>
-            </li>
-          );
-        })}
-      </ul>
-    </nav>
-  );
+// Extract headings from Notion blocks for BlogTableOfContents
+function extractHeadings(blocks: BlogContent[]): TOCHeading[] {
+  return blocks
+    .filter(
+      (block) =>
+        block.type === "heading_1" ||
+        block.type === "heading_2" ||
+        block.type === "heading_3"
+    )
+    .map((block) => {
+      const text = block.text || "";
+      const id = text.toLowerCase().replace(/\s+/g, "-");
+      return {
+        id,
+        title: text,
+        type: block.type as "heading_1" | "heading_2" | "heading_3",
+      };
+    });
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
@@ -328,7 +405,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       : null;
 
   return (
-    <main className="relative min-h-screen bg-base overflow-hidden">
+    <main className="min-h-screen bg-base">
       {/* Share buttons - sidebar (desktop only) */}
       <BlogShareButtons
         url={`/blog/${slug}`}
@@ -477,8 +554,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-[280px_1fr] gap-12 lg:gap-16 items-start">
             {/* Table of Contents - Desktop */}
-            <div className="hidden lg:block h-fit">
-              <NotionTableOfContents blocks={post.notionContent} />
+            <div className="hidden lg:block self-start sticky top-28">
+              <BlogTableOfContents
+                headings={extractHeadings(post.notionContent)}
+              />
             </div>
 
             {/* Article Content with Tracing Beam */}
@@ -519,7 +598,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </TracingBeam>
 
             {/* Article Content - Mobile (no tracing beam) */}
-            <article className="max-w-3xl prose-container lg:hidden">
+            <article className="max-w-full prose-container lg:hidden overflow-hidden">
               {/* Excerpt */}
               {post.excerpt && (
                 <p className="text-lg text-text-secondary leading-relaxed mb-8 font-medium">
