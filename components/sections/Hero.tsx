@@ -173,9 +173,13 @@ export function Hero() {
 
           {/* Subheadline */}
           <motion.p
-            initial={{ opacity: 0, y: 8 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.6, ease: "easeOut" }}
+            transition={{
+              duration: 0.6,
+              delay: 0.75,
+              ease: [0.22, 1, 0.36, 1],
+            }}
             className="mt-5 sm:mt-6 text-base sm:text-lg md:text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed"
           >
             Senior engineers embedded with your team to build AI-powered
