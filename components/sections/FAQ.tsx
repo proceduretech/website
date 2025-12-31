@@ -15,6 +15,16 @@ const faqs = [
       "Most AI engagements begin within 2-5 days. We match senior engineers based on your AI requirements and tech stack, then integrate them into your development workflow immediately. No months of discovery—we start building fast.",
   },
   {
+    question: "How much does AI development cost?",
+    answer:
+      "AI development costs vary by engagement model. AI Sprints range from $15K-$50K for 2-4 week rapid prototypes. Forward-deployed engineering teams start at $50K/month for embedded senior engineers. Enterprise engagements are scoped based on compliance requirements and project complexity. Contact us for a detailed estimate based on your specific needs.",
+  },
+  {
+    question: "How long does it take to build an AI product?",
+    answer:
+      "Timeline depends on scope and approach. AI Sprints deliver working prototypes in 2-4 weeks. Full product builds with embedded teams typically reach MVP in 8-12 weeks. Enterprise AI systems requiring compliance and security review take 17-20 weeks from architecture to production deployment.",
+  },
+  {
     question: "How do you handle AI security?",
     answer:
       "AI security is built into every system we deliver. We implement prompt injection defense, data leakage prevention, access controls, and AI-specific security measures from day one. Your AI systems pass enterprise security review.",

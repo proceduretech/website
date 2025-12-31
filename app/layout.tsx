@@ -151,6 +151,116 @@ export default function RootLayout({
     ],
   };
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://procedure.tech/#service",
+    serviceType: "AI Engineering Services",
+    provider: {
+      "@id": "https://procedure.tech/#organization",
+    },
+    name: "AI Engineering Services",
+    description:
+      "Forward-deployed AI engineers who build production AI systems. LLM applications, AI agents, RAG systems, and secure AI deployment.",
+    areaServed: "Worldwide",
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "AI Engineering Services",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "AI Sprints",
+            description:
+              "Rapid 2-4 week AI prototypes and validation sprints.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Forward-Deployed Teams",
+            description:
+              "Senior AI engineers embedded with your team for ongoing development.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Full Product Build",
+            description:
+              "End-to-end AI product development from architecture to production.",
+          },
+        },
+      ],
+    },
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What AI systems do you build?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "We build production AI systems including LLM applications, AI agents, RAG systems, and AI-enhanced products. From conversational AI to document processing to intelligent automation—we handle the complete development lifecycle from architecture to secure production deployment.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How quickly can you start our AI project?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Most AI engagements begin within 2-5 days. We match senior engineers based on your AI requirements and tech stack, then integrate them into your development workflow immediately. No months of discovery—we start building fast.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How much does AI development cost?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "AI development costs vary by engagement model. AI Sprints range from $15K-$50K for 2-4 week rapid prototypes. Forward-deployed engineering teams start at $50K/month for embedded senior engineers. Enterprise engagements are scoped based on compliance requirements and project complexity.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How long does it take to build an AI product?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Timeline depends on scope and approach. AI Sprints deliver working prototypes in 2-4 weeks. Full product builds with embedded teams typically reach MVP in 8-12 weeks. Enterprise AI systems requiring compliance and security review take 17-20 weeks from architecture to production deployment.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How do you handle AI security?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "AI security is built into every system we deliver. We implement prompt injection defense, data leakage prevention, access controls, and AI-specific security measures from day one. Your AI systems pass enterprise security review.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What makes you different from AI consultancies?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Traditional AI consultants deliver slide decks and POCs that never ship. We deliver production AI. Our engineers embed with your team, write code daily, and ship AI systems that work. No handoffs, no knowledge silos—just AI that reaches production.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Do you work with enterprise clients?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. We partner with companies ranging from funded startups to public enterprises on AI initiatives. Our client retention rate is 98%, with many partnerships lasting 3+ years. We understand enterprise security, compliance, and procurement requirements.",
+        },
+      },
+    ],
+  };
+
   return (
     <html lang="en" className={themeClass}>
       <head>
@@ -158,6 +268,18 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(serviceSchema),
           }}
         />
       </head>
