@@ -16,6 +16,9 @@ export const metadata: Metadata = {
     "frontend developer training",
     "backend developer training",
   ],
+  alternates: {
+    canonical: "/rubber-duck",
+  },
   openGraph: {
     title: "Rubber Duck Bootcamp | Procedure",
     description:

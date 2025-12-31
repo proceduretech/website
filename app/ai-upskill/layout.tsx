@@ -16,6 +16,9 @@ export const metadata: Metadata = {
     "AI engineering certification India",
     "LLM development training",
   ],
+  alternates: {
+    canonical: "/ai-upskill",
+  },
   openGraph: {
     title: "AI Upskill | AI Engineering Bootcamp | Procedure",
     description:
