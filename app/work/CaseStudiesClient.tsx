@@ -6,6 +6,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { CalButton } from "@/components/CalButton";
 import { PageHero, CaseStudyCard } from "@/components/ui";
 import type { CaseStudy } from "@/lib/case-studies-data";
+import { ClientLogos } from "@/components/sections/ClientLogos";
+import { testimonials } from "@/lib/testimonials-data";
+import Image from "next/image";
 
 interface CaseStudiesClientProps {
   caseStudies: CaseStudy[];
@@ -47,7 +50,6 @@ export function CaseStudiesClient({
           { value: "98%", label: "Client Retention" },
         ]}
         primaryCTA={{ text: "Book a Call", href: "/contact-us" }}
-        secondaryCTA={{ text: "Contact Us", href: "/contact-us" }}
       />
 
       {/* ============================================
@@ -213,71 +215,42 @@ export function CaseStudiesClient({
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
-            <motion.blockquote
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="relative p-6 sm:p-8 rounded-2xl bg-surface-elevated border border-border"
-            >
-              <div className="absolute -top-3 left-6 text-5xl text-accent/30 font-serif">
-                &ldquo;
-              </div>
-              <p className="text-text-secondary leading-relaxed mb-6 pt-4">
-                Procedure&apos;s engineers integrated seamlessly with our team.
-                Within three months, they delivered an AI system that our
-                internal team had been struggling with for over a year. The ROI
-                was immediate and substantial.
-              </p>
-              <footer className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-accent/20 border border-accent/30 flex items-center justify-center">
-                  <span className="text-lg font-bold text-accent-light">
-                    JR
-                  </span>
+            {testimonials.slice(0, 2).map((testimonial, idx) => (
+              <motion.blockquote
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 + idx * 0.1 }}
+                className="relative p-6 sm:p-8 rounded-2xl bg-surface-elevated border border-border"
+              >
+                <div className="absolute -top-3 left-6 text-5xl text-accent/30 font-serif">
+                  &ldquo;
                 </div>
-                <div>
-                  <div className="font-semibold text-text-primary">
-                    James Richardson
+                <p className="text-text-secondary leading-relaxed mb-6 pt-4">
+                  {testimonial.quote}
+                </p>
+                <footer className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full overflow-hidden bg-surface-elevated border border-border">
+                    <Image
+                      src={testimonial.image}
+                      alt={testimonial.author}
+                      width={48}
+                      height={48}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                  <div className="text-sm text-text-muted">
-                    CTO, Fortune 500 Financial Services
+                  <div>
+                    <div className="font-semibold text-text-primary">
+                      {testimonial.author}
+                    </div>
+                    <div className="text-sm text-text-muted">
+                      {testimonial.role}, {testimonial.company}
+                    </div>
                   </div>
-                </div>
-              </footer>
-            </motion.blockquote>
-
-            <motion.blockquote
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="relative p-6 sm:p-8 rounded-2xl bg-surface-elevated border border-border"
-            >
-              <div className="absolute -top-3 left-6 text-5xl text-accent/30 font-serif">
-                &ldquo;
-              </div>
-              <p className="text-text-secondary leading-relaxed mb-6 pt-4">
-                We needed senior AI talent fast, and traditional hiring was
-                taking 6+ months. Procedure had production-ready engineers
-                embedded with us in under a week. They are now a permanent
-                extension of our engineering org.
-              </p>
-              <footer className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-accent-secondary/20 border border-accent-secondary/30 flex items-center justify-center">
-                  <span className="text-lg font-bold text-accent-secondary-light">
-                    SK
-                  </span>
-                </div>
-                <div>
-                  <div className="font-semibold text-text-primary">
-                    Sarah Kim
-                  </div>
-                  <div className="text-sm text-text-muted">
-                    VP Engineering, Series C SaaS
-                  </div>
-                </div>
-              </footer>
-            </motion.blockquote>
+                </footer>
+              </motion.blockquote>
+            ))}
           </div>
         </div>
       </section>
@@ -380,6 +353,9 @@ export function CaseStudiesClient({
           </motion.div>
         </div>
       </section>
+
+      {/* Client Logos */}
+      <ClientLogos />
     </main>
   );
 }
