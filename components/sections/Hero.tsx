@@ -11,7 +11,7 @@ import {
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-base">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-base will-change-transform">
       {/* Animated gradient background */}
       <div className="absolute inset-0 bg-gradient-to-b from-surface via-base to-base" />
 
@@ -19,8 +19,9 @@ export function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
+        transition={{ duration: 0.8 }}
         className="absolute inset-0"
+        style={{ willChange: "opacity" }}
       >
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-accent/8 rounded-full blur-[120px]" />
         <div className="absolute top-1/3 left-1/4 w-[600px] h-[400px] bg-accent/5 rounded-full blur-[100px]" />
