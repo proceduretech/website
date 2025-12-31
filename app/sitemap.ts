@@ -35,6 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
       changeFrequency: "monthly" as const,
     },
+    { path: "/culture", priority: 0.6, changeFrequency: "monthly" as const },
     {
       path: "/policies/privacy-policy",
       priority: 0.3,
