@@ -13,12 +13,15 @@ export const metadata: Metadata = {
     "AI agents production",
     "machine learning infrastructure",
   ],
+  alternates: {
+    canonical: "/blogs",
+  },
   openGraph: {
     title: "AI Engineering Blog | Procedure",
     description:
       "Battle-tested insights on LLMs, AI security, and production systems from engineers building enterprise AI infrastructure.",
     type: "website",
-    url: "/blog",
+    url: "/blogs",
   },
   twitter: {
     card: "summary_large_image",

@@ -331,7 +331,7 @@ export const navigationData = {
           label: "Engineering Blog",
           description:
             "Technical deep-dives on AI, LLMs, and production systems.",
-          href: "/blog",
+          href: "/blogs",
           icon: "pencil",
         },
       ],

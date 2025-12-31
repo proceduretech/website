@@ -22,7 +22,7 @@ export function BlogFeaturedCard({ post }: BlogFeaturedCardProps) {
       className="group"
     >
       <Link
-        href={`/blog/${post.slug}`}
+        href={`/blogs/${post.slug}`}
         className="flex flex-col lg:flex-row bg-surface-elevated border border-border rounded-2xl overflow-hidden hover:border-accent/30 transition-colors"
       >
         {/* Image Container */}

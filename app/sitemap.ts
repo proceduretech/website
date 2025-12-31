@@ -15,18 +15,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Static pages
   const staticPages = [
     { path: "", priority: 1, changeFrequency: "weekly" as const },
-    { path: "/about", priority: 0.8, changeFrequency: "monthly" as const },
-    { path: "/contact", priority: 0.8, changeFrequency: "monthly" as const },
+    { path: "/about-us", priority: 0.8, changeFrequency: "monthly" as const },
+    { path: "/contact-us", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/careers", priority: 0.7, changeFrequency: "weekly" as const },
     {
-      path: "/case-studies",
+      path: "/work",
       priority: 0.9,
       changeFrequency: "weekly" as const,
     },
     { path: "/culture", priority: 0.6, changeFrequency: "monthly" as const },
     { path: "/why-us", priority: 0.7, changeFrequency: "monthly" as const },
     { path: "/approach", priority: 0.7, changeFrequency: "monthly" as const },
-    { path: "/blog", priority: 0.8, changeFrequency: "weekly" as const },
+    { path: "/blogs", priority: 0.8, changeFrequency: "weekly" as const },
     { path: "/ai-safety", priority: 0.7, changeFrequency: "monthly" as const },
     { path: "/ai-upskill", priority: 0.7, changeFrequency: "monthly" as const },
     { path: "/events", priority: 0.7, changeFrequency: "weekly" as const },
@@ -34,6 +34,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       path: "/rubber-duck",
       priority: 0.5,
       changeFrequency: "monthly" as const,
+    },
+    {
+      path: "/policies/privacy-policy",
+      priority: 0.3,
+      changeFrequency: "yearly" as const,
+    },
+    {
+      path: "/policies/terms-conditions",
+      priority: 0.3,
+      changeFrequency: "yearly" as const,
     },
   ];
 
@@ -94,7 +104,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const blogSlugs = getAllSlugs("blog");
   for (const slug of blogSlugs) {
     entries.push({
-      url: `${BASE_URL}/blog/${slug}`,
+      url: `${BASE_URL}/blogs/${slug}`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.7,
