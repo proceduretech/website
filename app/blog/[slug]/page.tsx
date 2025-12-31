@@ -509,7 +509,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 className="object-cover"
                 placeholder="blur"
                 blurDataURL={coverImageMetadata.blurDataURL}
-                priority
+                fetchPriority="high"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
               />
             </div>

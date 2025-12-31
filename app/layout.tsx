@@ -146,15 +146,14 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={themeClass}>
-      <head>
+      <body className={`${outfit.variable} ${inter.variable} antialiased`}>
+        {/* JSON-LD Structured Data - in body to avoid hydration errors */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationSchema),
           }}
         />
-      </head>
-      <body className={`${outfit.variable} ${inter.variable} antialiased`}>
         {/* Main content wrapper - sits above the fixed footer reveal */}
         <div className="relative z-10 bg-base">
           <Navigation />

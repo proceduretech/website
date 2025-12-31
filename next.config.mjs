@@ -22,6 +22,8 @@ const nextConfig = {
       },
     ],
   },
+  compress: true,
+  productionBrowserSourceMaps: false,
 };
 
 const withMDX = createMDX({
