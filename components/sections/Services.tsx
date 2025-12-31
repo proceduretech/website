@@ -211,7 +211,7 @@ export function Services() {
                 scroll={true}
                 className="inline-flex items-center gap-2 text-accent-light font-medium text-sm hover:text-white transition-colors mb-6"
               >
-                Read More
+                Learn about {service.name}
                 <span className="w-5 h-px bg-current group-hover:w-7 transition-all" />
               </Link>
 

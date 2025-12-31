@@ -96,9 +96,14 @@ export function ValueProposition() {
           <p className="text-xs sm:text-sm font-medium text-accent-light uppercase tracking-wider mb-3">
             Why teams choose us
           </p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
             AI engineers who build, not consultants who advise
           </h2>
+          <p className="text-base sm:text-lg text-text-secondary max-w-3xl mx-auto">
+            Procedure delivers senior AI engineers who write production code, not
+            consultancies that deliver slide decks. Our embedded teams ship AI
+            systems that work in your environment, not POCs that get shelved.
+          </p>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
