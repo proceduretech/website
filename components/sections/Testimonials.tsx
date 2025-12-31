@@ -86,13 +86,17 @@ export function Testimonials() {
             <button
               key={idx}
               onClick={() => setCurrentIndex(idx)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                idx === currentIndex
-                  ? "bg-accent-light w-8"
-                  : "bg-border hover:bg-slate-600"
-              }`}
+              className="p-3 min-w-[48px] min-h-[48px] flex items-center justify-center"
               aria-label={`Go to testimonial ${idx + 1}`}
-            />
+            >
+              <span
+                className={`block w-2 h-2 rounded-full transition-all duration-300 ${
+                  idx === currentIndex
+                    ? "bg-accent-light w-8"
+                    : "bg-border hover:bg-slate-600"
+                }`}
+              />
+            </button>
           ))}
         </div>
       </div>
