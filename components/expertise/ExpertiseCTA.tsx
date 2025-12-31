@@ -20,7 +20,7 @@ interface ExpertiseCTAProps {
 export function ExpertiseCTA({
   headline,
   description,
-  primaryCTA = { text: "Book a Call", href: "/contact-us" },
+  primaryCTA = { text: "Talk to the Team", href: "/contact-us" },
   secondaryCTA = { text: "View Case Studies", href: "/work" },
 }: ExpertiseCTAProps) {
   return (

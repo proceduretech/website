@@ -330,6 +330,11 @@ export default async function UseCasePage({ params }: PageProps) {
         highlightedText={pageData.hero.highlightedText}
         tagline={pageData.hero.tagline}
         description={pageData.hero.description}
+        secondaryCTA={
+          ["ai-search", "document-ai", "conversational-ai"].includes(slug)
+            ? undefined
+            : { text: "See Demo", href: "/contact-us" }
+        }
       />
 
       <ProblemSolutionSection

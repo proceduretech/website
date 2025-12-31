@@ -79,13 +79,6 @@ export function FeaturedCaseStudies({ caseStudies }: FeaturedCaseStudiesProps) {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-12 text-center"
         >
-          <p className="text-text-secondary mb-4">
-            Over{" "}
-            <span className="text-accent-light font-semibold">
-              $250M+ in client ROI
-            </span>{" "}
-            generated across 50+ production AI systems
-          </p>
           <Link
             href="/work"
             className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-text-primary bg-surface-elevated border border-border rounded-lg hover:border-accent/50 hover:bg-accent/5 transition-all duration-200"

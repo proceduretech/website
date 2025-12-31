@@ -230,7 +230,7 @@ export default function AboutPage() {
             >
               {[
                 { value: "Since 2017", label: "Building Software" },
-                { value: "80+", label: "Clients Trusted Us" },
+                { value: "75+", label: "Clients Trusted Us" },
                 { value: "150+", label: "Projects Shipped" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">

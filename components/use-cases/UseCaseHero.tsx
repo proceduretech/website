@@ -24,7 +24,7 @@ export function UseCaseHero({
   highlightedText,
   tagline,
   description,
-  primaryCTA = { text: "Book a Call", href: "/contact-us" },
+  primaryCTA = { text: "Talk to the Team", href: "/contact-us" },
   secondaryCTA = { text: "See Demo", href: "/contact-us" },
 }: UseCaseHeroProps) {
   return (
