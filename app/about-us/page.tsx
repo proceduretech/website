@@ -243,11 +243,6 @@ export default function AboutPage() {
                 </div>
               ))}
             </motion.div>
-
-            {/* Client Logos */}
-            <div className="mt-16">
-              <ClientLogos />
-            </div>
           </div>
         </div>
       </section>
@@ -655,6 +650,9 @@ export default function AboutPage() {
           </motion.div>
         </div>
       </section>
+
+      {/* Client Logos */}
+      <ClientLogos />
     </main>
   );
 }

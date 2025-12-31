@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { ClientLogos } from "@/components/sections";
 import { PageHero } from "@/components/ui";
 
 const differentiators = [
@@ -551,6 +552,19 @@ export default function WhyUsPage() {
           </motion.div>
 
           {/* Client Logos */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mb-16"
+          >
+            <p className="text-center text-xs text-text-muted uppercase tracking-widest mb-8">
+              Trusted by leading companies
+            </p>
+            <ClientLogos />
+          </motion.div>
+
           {/* Featured Testimonial */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
