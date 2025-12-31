@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Outfit, Inter } from "next/font/google";
+import Script from "next/script";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { FooterReveal } from "@/components/FooterReveal";
@@ -92,11 +93,21 @@ export default function RootLayout({
     foundingDate: "2017",
     description:
       "AI engineering that ships to production. Senior engineers embedded with your team to build AI-powered products and secure AI systems. Battle-tested delivery, now focused on AI.",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Mumbai",
-      addressCountry: "IN",
-    },
+    address: [
+      {
+        "@type": "PostalAddress",
+        streetAddress: "406, Shrishti Square, LBS Marg, Bhandup West",
+        addressLocality: "Mumbai",
+        postalCode: "400078",
+        addressCountry: "IN",
+      },
+      {
+        "@type": "PostalAddress",
+        addressLocality: "San Francisco",
+        addressRegion: "CA",
+        addressCountry: "US",
+      },
+    ],
     areaServed: "Worldwide",
     sameAs: [
       "https://www.wikidata.org/wiki/Q137392993",
@@ -151,6 +162,43 @@ export default function RootLayout({
         />
       </head>
       <body className={`${outfit.variable} ${inter.variable} antialiased`}>
+        {/*
+          TODO: UNCOMMENT DURING PRODUCTION MIGRATION
+
+          Google Tag Manager - GTM-KD7CJ8RC
+          <Script
+            id="gtm"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                })(window,document,'script','dataLayer','GTM-KD7CJ8RC');
+              `,
+            }}
+          />
+
+          Google Analytics - G-2KW21KL401
+          <Script
+            strategy="afterInteractive"
+            src="https://www.googletagmanager.com/gtag/js?id=G-2KW21KL401"
+          />
+          <Script
+            id="google-analytics"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-2KW21KL401');
+              `,
+            }}
+          />
+        */}
+
         {/* Main content wrapper - sits above the fixed footer reveal */}
         <div className="relative z-10 bg-base">
           <Navigation />

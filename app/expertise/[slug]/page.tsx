@@ -15,6 +15,7 @@ import {
   ExpertiseCTA,
   RelatedExpertise,
 } from "@/components/expertise";
+import { ClientLogos } from "@/components/sections/ClientLogos";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -131,6 +132,9 @@ export default async function ExpertisePage({ params }: PageProps) {
         headline={pageData.cta.headline}
         description={pageData.cta.description}
       />
+
+      {/* Client Logos */}
+      <ClientLogos />
     </main>
   );
 }

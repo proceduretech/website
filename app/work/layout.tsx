@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     "See how Procedure helps enterprises ship production AI systems. Real results from financial services, healthcare, and e-commerce.",
   alternates: {
-    canonical: "/case-studies",
+    canonical: "/work",
   },
   openGraph: {
     title: "Case Studies | AI Engineering Success Stories | Procedure",

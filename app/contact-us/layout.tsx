@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     "Connect with Procedure's AI engineering team. Senior engineers, enterprise-ready. Schedule a strategy call and start building production AI systems.",
   alternates: {
-    canonical: "/contact",
+    canonical: "/contact-us",
   },
   openGraph: {
     title: "Contact Us | Enterprise AI Engineering Services | Procedure",

@@ -22,6 +22,20 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/policies/privacy-policy",
+        destination: "/privacy",
+        permanent: true,
+      },
+      {
+        source: "/policies/terms-conditions",
+        destination: "/terms",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 const withMDX = createMDX({
