@@ -23,7 +23,10 @@ const BASE_URL = "https://procedure.tech";
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   icons: {
-    icon: "/favicon.png",
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
     apple: "/favicon.png",
   },
   title: "AI Engineering Services | Enterprise AI Development | Procedure",

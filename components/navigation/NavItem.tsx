@@ -30,6 +30,7 @@ export function NavItem({
 }: NavItemProps) {
   const hasDropdown = !!megaMenu;
 
+  // Non-dropdown items - simple link
   if (!hasDropdown) {
     return (
       <div className="border-b border-solid border-border lg:border-0 flex items-center justify-between lg:justify-start flex-col lg:flex-row">
@@ -44,12 +45,14 @@ export function NavItem({
     );
   }
 
+  // Dropdown items - clickable link with dropdown indicator
   return (
     <div
       className="border-b border-solid border-border lg:border-0 flex items-center justify-between lg:justify-start flex-col lg:flex-row"
       onMouseEnter={onHover}
     >
-      <button
+      <Link
+        href={href || "#"}
         className={`w-full lg:w-fit font-normal text-lg text-text-secondary flex items-center justify-between lg:justify-start px-4 py-5 lg:p-2 lg:focus:bg-surface-elevated lg:hover:bg-surface-elevated lg:hover:text-text-primary rounded-lg transition-colors ${
           isOpen ? "lg:bg-surface-elevated text-text-primary" : ""
         }`}
@@ -71,7 +74,7 @@ export function NavItem({
             d="M19 9l-7 7-7-7"
           />
         </svg>
-      </button>
+      </Link>
     </div>
   );
 }

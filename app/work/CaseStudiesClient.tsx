@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { CalButton } from "@/components/CalButton";
 import { PageHero, CaseStudyCard } from "@/components/ui";
 import type { CaseStudy } from "@/lib/case-studies-data";
-import { ClientLogos } from "@/components/sections/ClientLogos";
 import { testimonials } from "@/lib/testimonials-data";
 import Image from "next/image";
 
@@ -353,9 +352,6 @@ export function CaseStudiesClient({
           </motion.div>
         </div>
       </section>
-
-      {/* Client Logos */}
-      <ClientLogos />
     </main>
   );
 }
