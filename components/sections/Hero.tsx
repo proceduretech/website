@@ -186,7 +186,7 @@ export function Hero() {
               Start Your AI Project
             </CalButton>
             <Link
-              href="/case-studies"
+              href="/work"
               className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-lg hover:border-accent/30 transition-all duration-200"
             >
               View Our Work

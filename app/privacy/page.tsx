@@ -546,7 +546,7 @@ export default function PrivacyPolicyPage() {
                 <li>
                   Use our contact form at{" "}
                   <Link
-                    href="/contact"
+                    href="/contact-us"
                     className="text-accent-light hover:underline"
                   >
                     https://procedure.tech/contact
