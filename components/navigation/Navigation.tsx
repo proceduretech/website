@@ -28,23 +28,19 @@ export function Navigation() {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
-      // Close menu if clicking outside the navigation container
-      if (activeMenu && !target.closest('nav') && !target.closest('.mega-menu')) {
+      // Close menu if clicking outside the header/navigation area
+      if (activeMenu && !target.closest('header')) {
         setActiveMenu(null);
       }
     };
 
     if (activeMenu) {
-      // Use setTimeout to avoid immediate closure on menu open
-      const timeoutId = setTimeout(() => {
-        document.addEventListener('mousedown', handleClickOutside);
-      }, 100);
-
-      return () => {
-        clearTimeout(timeoutId);
-        document.removeEventListener('mousedown', handleClickOutside);
-      };
+      document.addEventListener('click', handleClickOutside);
     }
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
   }, [activeMenu]);
 
   // Prevent body scroll when mobile menu is open
