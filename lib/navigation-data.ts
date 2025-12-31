@@ -334,23 +334,10 @@ export const navigationData = {
           href: "/blogs",
           icon: "pencil",
         },
-        {
-          label: "AI Playbooks",
-          description: "Practical guides for building production AI systems.",
-          href: "/playbooks",
-          icon: "book",
-        },
       ],
     },
     {
       items: [
-        {
-          label: "Tech Radar",
-          description:
-            "Our current view on AI tools, frameworks, and technologies.",
-          href: "/tech-radar",
-          icon: "radar",
-        },
         {
           label: "Events",
           description: "Meetups, workshops, and conferences.",
@@ -358,12 +345,6 @@ export const navigationData = {
           icon: "calendar",
         },
       ],
-      featured: {
-        badge: "Guide",
-        title: "Building Production LLM Apps",
-        description: "Our comprehensive guide to shipping LLMs to production.",
-        link: { label: "Read the Guide", href: "/playbooks/llm-production" },
-      },
     },
   ],
 };
