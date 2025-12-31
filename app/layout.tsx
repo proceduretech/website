@@ -71,6 +71,8 @@ export const metadata: Metadata = {
     description:
       "Forward-deployed AI engineers embedded with your team. We build production-grade AI systems, LLM applications, and custom ML models.",
     images: ["/og-image.png"],
+    site: "@procedurehq",
+    creator: "@procedurehq",
   },
 };
 

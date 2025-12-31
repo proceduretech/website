@@ -48,6 +48,10 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
+      title: page.meta.title,
+      description: page.meta.description,
+      site: "@procedurehq",
+      creator: "@procedurehq",
     },
   };
 }

@@ -18,7 +18,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Contact Procedure | Start Your AI Project Today",
     description:
-      "Get senior AI engineers embedded with your team in 2-5 days. Schedule a strategy call with our AI engineering leads. Enterprise-ready, NDA available.",
+      "Connect with Procedure's AI engineering team. Senior engineers, enterprise-ready. Schedule a strategy call and start building production AI systems.",
+    site: "@procedurehq",
+    creator: "@procedurehq",
   },
 };
 

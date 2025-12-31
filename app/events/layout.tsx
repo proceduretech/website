@@ -14,6 +14,9 @@ export const metadata: Metadata = {
     "Mumbai AI meetup",
     "engineering community",
   ],
+  alternates: {
+    canonical: "/events",
+  },
   openGraph: {
     title: "Community Events & Tech Meetups | Procedure",
     description:
@@ -27,6 +30,8 @@ export const metadata: Metadata = {
     title: "Community Events & Tech Meetups | Procedure",
     description:
       "Join Procedure's free tech events and meetups. Connect with engineers, designers, and founders. No gatekeeping, just community.",
+    site: "@procedurehq",
+    creator: "@procedurehq",
   },
 };
 

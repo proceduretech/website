@@ -75,6 +75,9 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
+      images: post.featuredImage ? [post.featuredImage] : undefined,
+      site: "@procedurehq",
+      creator: "@procedurehq",
     },
   };
 }
@@ -404,8 +407,84 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       ? await getImageMetadata(post.featuredImage)
       : null;
 
+  // Article schema for SEO
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    image: post.featuredImage,
+    datePublished: post.publishedAt,
+    dateModified: post.updatedAt,
+    author: {
+      "@type": "Person",
+      name: post.author.name,
+      jobTitle: post.author.role,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Procedure",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://procedure.tech/logos/procedure/green-logo.svg",
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://procedure.tech/blogs/${slug}`,
+    },
+  };
+
+  // BreadcrumbList schema for SEO
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://procedure.tech",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: "https://procedure.tech/blogs",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: post.category.name,
+        item: `https://procedure.tech/blogs?category=${post.category.slug}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        name: post.title,
+        item: `https://procedure.tech/blogs/${slug}`,
+      },
+    ],
+  };
+
   return (
     <main className="min-h-screen bg-base">
+      {/* Article Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(articleSchema),
+        }}
+      />
+
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
+
       {/* Share buttons - sidebar (desktop only) */}
       <BlogShareButtons
         url={`/blog/${slug}`}
