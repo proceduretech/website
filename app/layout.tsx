@@ -11,11 +11,15 @@ import "./globals.css";
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
+  display: "swap", // Prevents FOIT (Flash of Invisible Text)
+  preload: true,   // Preloads font files for faster rendering
 });
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap", // Prevents FOIT (Flash of Invisible Text)
+  preload: true,   // Preloads font files for faster rendering
 });
 
 const BASE_URL = "https://procedure.tech";
@@ -154,6 +158,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={themeClass}>
       <head>
+        {/* Resource Hints for Performance */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
