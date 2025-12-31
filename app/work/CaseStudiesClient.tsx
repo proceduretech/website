@@ -46,8 +46,8 @@ export function CaseStudiesClient({
           { value: "50+", label: "Production AI Systems" },
           { value: "98%", label: "Client Retention" },
         ]}
-        primaryCTA={{ text: "Book a Call", href: "/contact" }}
-        secondaryCTA={{ text: "Contact Us", href: "/contact" }}
+        primaryCTA={{ text: "Book a Call", href: "/contact-us" }}
+        secondaryCTA={{ text: "Contact Us", href: "/contact-us" }}
       />
 
       {/* ============================================

@@ -207,8 +207,8 @@ export default function WhyUsPage() {
         headline="AI That Ships."
         headlineAccent="Not Slide Decks."
         description="Most AI consultancies deliver strategy documents and proof-of-concepts that never reach production. Procedure delivers senior engineers who embed with your team to ship production AI—LLM applications, AI agents, and secure AI systems—in days, not months."
-        primaryCTA={{ text: "Start Your AI Project", href: "/contact" }}
-        secondaryCTA={{ text: "See AI Case Studies", href: "/case-studies" }}
+        primaryCTA={{ text: "Start Your AI Project", href: "/contact-us" }}
+        secondaryCTA={{ text: "See AI Case Studies", href: "/work" }}
       />
 
       {/* Five Differentiators Section */}

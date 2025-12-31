@@ -566,14 +566,12 @@ export default function ContactPage() {
               {
                 city: "Mumbai",
                 country: "India",
-                timezone: "IST (UTC+5:30)",
                 flag: "in",
                 address: "406, Shrishti Square, LBS Marg, Bhandup West, Mumbai - 400078",
               },
               {
                 city: "San Francisco",
                 country: "United States",
-                timezone: "PST (UTC-8)",
                 flag: "us",
                 address: "Bay Area, California",
               },
@@ -608,9 +606,6 @@ export default function ContactPage() {
                     </p>
                   </div>
                 </div>
-                <p className="text-sm text-text-secondary mb-2">
-                  {location.timezone}
-                </p>
                 {location.address && (
                   <p className="text-xs text-text-muted leading-relaxed">
                     {location.address}

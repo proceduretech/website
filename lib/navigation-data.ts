@@ -244,9 +244,9 @@ export const navigationData = {
       highlight: true,
       bullet: true,
       items: [
-        { label: "Secure SDLC", href: "/compliance" },
-        { label: "Responsible AI Practices", href: "/compliance" },
-        { label: "AI governance frameworks", href: "/compliance" },
+        { label: "Secure SDLC", href: "/ai-safety" },
+        { label: "Responsible AI Practices", href: "/ai-safety" },
+        { label: "AI governance frameworks", href: "/ai-safety" },
       ],
     },
   ],
@@ -257,7 +257,7 @@ export const navigationData = {
           label: "About Procedure",
           description:
             "AI engineering and security with proven delivery excellence. Learn about our team.",
-          href: "/about",
+          href: "/about-us",
           icon: "info",
         },
         {
@@ -307,7 +307,7 @@ export const navigationData = {
         {
           label: "Contact",
           description: "Get in touch with our team.",
-          href: "/contact",
+          href: "/contact-us",
           icon: "mail",
         },
       ],

@@ -31,8 +31,8 @@ export function IndustryHero({
   tagline,
   description,
   stats,
-  primaryCTA = { text: "Book a Call", href: "/contact" },
-  secondaryCTA = { text: "View Case Studies", href: "/case-studies" },
+  primaryCTA = { text: "Book a Call", href: "/contact-us" },
+  secondaryCTA = { text: "View Case Studies", href: "/work" },
 }: IndustryHeroProps) {
   return (
     <PageHero

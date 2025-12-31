@@ -6,9 +6,9 @@ import { motion } from "framer-motion";
 
 const quickLinks = [
   { label: "Services", href: "/services" },
-  { label: "About Us", href: "/about" },
-  { label: "Case Studies", href: "/case-studies" },
-  { label: "Contact", href: "/contact" },
+  { label: "About Us", href: "/about-us" },
+  { label: "Case Studies", href: "/work" },
+  { label: "Contact", href: "/contact-us" },
 ];
 
 export default function NotFound() {

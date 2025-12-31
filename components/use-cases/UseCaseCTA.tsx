@@ -20,8 +20,8 @@ interface UseCaseCTAProps {
 export function UseCaseCTA({
   headline,
   description,
-  primaryCTA = { text: "Book a Call", href: "/contact" },
-  secondaryCTA = { text: "See Demo", href: "/contact" },
+  primaryCTA = { text: "Book a Call", href: "/contact-us" },
+  secondaryCTA = { text: "See Demo", href: "/contact-us" },
 }: UseCaseCTAProps) {
   return (
     <section className="relative py-16 sm:py-24 overflow-hidden">
