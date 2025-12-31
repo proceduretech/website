@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { ClientLogos } from "@/components/sections";
 import { PageHero } from "@/components/ui";
 
 const differentiators = [
@@ -207,8 +206,8 @@ export default function WhyUsPage() {
         headline="AI That Ships."
         headlineAccent="Not Slide Decks."
         description="Most AI consultancies deliver strategy documents and proof-of-concepts that never reach production. Procedure delivers senior engineers who embed with your team to ship production AI—LLM applications, AI agents, and secure AI systems—in days, not months."
-        primaryCTA={{ text: "Start Your AI Project", href: "/contact" }}
-        secondaryCTA={{ text: "See AI Case Studies", href: "/case-studies" }}
+        primaryCTA={{ text: "Start Your AI Project", href: "/contact-us" }}
+        secondaryCTA={{ text: "See AI Case Studies", href: "/work" }}
       />
 
       {/* Five Differentiators Section */}
@@ -551,20 +550,6 @@ export default function WhyUsPage() {
             ))}
           </motion.div>
 
-          {/* Client Logos */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mb-16"
-          >
-            <p className="text-center text-xs text-text-muted uppercase tracking-widest mb-8">
-              Trusted by leading companies
-            </p>
-            <ClientLogos />
-          </motion.div>
-
           {/* Featured Testimonial */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -616,7 +601,7 @@ export default function WhyUsPage() {
             className="text-center mt-8"
           >
             <Link
-              href="/case-studies"
+              href="/work"
               className="inline-flex items-center gap-2 text-accent-light font-medium hover:text-accent transition-colors"
             >
               Read more client stories
@@ -670,7 +655,7 @@ export default function WhyUsPage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
               <Link
-                href="/contact"
+                href="/contact-us"
                 className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-cta-text bg-cta rounded-xl hover:brightness-110 transition-all duration-300 shadow-lg shadow-cta/25"
               >
                 Schedule Your Strategy Call
@@ -689,7 +674,7 @@ export default function WhyUsPage() {
                 </svg>
               </Link>
               <Link
-                href="/contact"
+                href="/contact-us"
                 className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-text-primary bg-transparent border border-border rounded-xl hover:border-accent hover:text-accent-light transition-all duration-300"
               >
                 Contact Us

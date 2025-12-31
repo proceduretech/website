@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui";
+import { ClientLogos } from "@/components/sections/ClientLogos";
 import { ReactNode } from "react";
 
 interface Stat {
@@ -40,8 +41,8 @@ export function PageHero({
   tagline,
   description,
   stats,
-  primaryCTA = { text: "Book a Call", href: "/contact" },
-  secondaryCTA = { text: "View Case Studies", href: "/case-studies" },
+  primaryCTA = { text: "Talk to the Team", href: "/contact-us" },
+  secondaryCTA = { text: "View Case Studies", href: "/work" },
   children,
 }: PageHeroProps) {
   const badgeColorClasses =
@@ -206,6 +207,11 @@ export function PageHero({
               {children}
             </motion.div>
           )}
+
+          {/* Client Logos - always show */}
+          <div className="mt-16">
+            <ClientLogos />
+          </div>
         </div>
       </div>
     </section>

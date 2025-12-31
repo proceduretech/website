@@ -986,11 +986,11 @@ export function getUseCaseForListing(
         "Talk to our engineers about your project.",
       primaryCTA: frontmatter.cta?.primaryCTA || {
         text: "Book a Call",
-        href: "/contact",
+        href: "/contact-us",
       },
       secondaryCTA: frontmatter.cta?.secondaryCTA || {
         text: "Learn More",
-        href: "/contact",
+        href: "/contact-us",
       },
     },
     faqs: frontmatter.faqs || [],

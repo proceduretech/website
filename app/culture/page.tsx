@@ -853,7 +853,7 @@ export default function CulturePage() {
                 </svg>
               </Link>
               <Link
-                href="/contact"
+                href="/contact-us"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-xl hover:border-accent/50 hover:bg-accent/5 transition-all duration-300"
               >
                 Get in Touch

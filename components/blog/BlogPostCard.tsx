@@ -27,7 +27,7 @@ export function BlogPostCard({ post, index = 0 }: BlogPostCardProps) {
       className="group h-full"
     >
       <Link
-        href={`/blog/${post.slug}`}
+        href={`/blogs/${post.slug}`}
         className="flex flex-col h-full bg-surface-elevated border border-border rounded-2xl overflow-hidden hover:border-accent/30 transition-colors"
       >
         {/* Image Container */}

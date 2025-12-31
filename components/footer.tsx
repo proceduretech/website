@@ -11,13 +11,13 @@ const footerLinks = {
     { label: "Cloud & DevOps", href: "/expertise/cloud" },
   ],
   company: [
-    { label: "About", href: "/about" },
+    { label: "About", href: "/about-us" },
     { label: "Careers", href: "/careers" },
-    { label: "Blog", href: "/blog" },
-    { label: "Contact", href: "/contact" },
+    { label: "Blog", href: "/blogs" },
+    { label: "Contact", href: "/contact-us" },
   ],
   resources: [
-    { label: "Case Studies", href: "/case-studies" },
+    { label: "Case Studies", href: "/work" },
     { label: "AI Safety", href: "/ai-safety" },
     { label: "Events", href: "/events" },
   ],
@@ -124,7 +124,7 @@ export function Footer() {
                     d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
                   />
                 </svg>
-                San Francisco, CA
+                San Francisco (USA) | Mumbai (IND)
               </div>
             </div>
 

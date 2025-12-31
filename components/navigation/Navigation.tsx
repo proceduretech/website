@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Logo } from "./Logo";
 import { NavItem } from "./NavItem";
 import { Button } from "../ui/Button";
@@ -15,6 +15,10 @@ export function Navigation() {
     string | null
   >(null);
 
+  // Refs for hover delays (Stripe defaults)
+  const hoverOpenTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const hoverCloseTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -23,6 +27,24 @@ export function Navigation() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Close mega menu when clicking outside (Stripe behavior)
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      // Close menu if clicking outside the header
+      if (activeMenu && !target.closest('header')) {
+        setActiveMenu(null);
+      }
+    };
+
+    if (activeMenu) {
+      document.addEventListener('click', handleClickOutside, true);
+      return () => {
+        document.removeEventListener('click', handleClickOutside, true);
+      };
+    }
+  }, [activeMenu]);
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
@@ -36,6 +58,67 @@ export function Navigation() {
     };
   }, [isMobileMenuOpen]);
 
+  // Stripe-style hover with delay to open (150ms)
+  const handleNavItemHover = (menuKey: string | null) => {
+    // Clear any pending close timeout
+    if (hoverCloseTimeoutRef.current) {
+      clearTimeout(hoverCloseTimeoutRef.current);
+      hoverCloseTimeoutRef.current = null;
+    }
+
+    if (menuKey === null) {
+      // Hovering over non-dropdown item - close immediately
+      if (hoverOpenTimeoutRef.current) {
+        clearTimeout(hoverOpenTimeoutRef.current);
+        hoverOpenTimeoutRef.current = null;
+      }
+      setActiveMenu(null);
+      return;
+    }
+
+    // If a menu is already open, switch instantly (Stripe behavior)
+    if (activeMenu) {
+      if (hoverOpenTimeoutRef.current) {
+        clearTimeout(hoverOpenTimeoutRef.current);
+        hoverOpenTimeoutRef.current = null;
+      }
+      setActiveMenu(menuKey);
+    } else {
+      // No menu open - add 150ms delay before opening
+      if (hoverOpenTimeoutRef.current) {
+        clearTimeout(hoverOpenTimeoutRef.current);
+      }
+      hoverOpenTimeoutRef.current = setTimeout(() => {
+        setActiveMenu(menuKey);
+      }, 150);
+    }
+  };
+
+  // Stripe-style mouse leave with delay to close (250ms)
+  const handleNavAreaLeave = () => {
+    // Clear any pending open timeout
+    if (hoverOpenTimeoutRef.current) {
+      clearTimeout(hoverOpenTimeoutRef.current);
+      hoverOpenTimeoutRef.current = null;
+    }
+
+    // Add 250ms delay before closing (grace period for mouse movement)
+    if (hoverCloseTimeoutRef.current) {
+      clearTimeout(hoverCloseTimeoutRef.current);
+    }
+    hoverCloseTimeoutRef.current = setTimeout(() => {
+      setActiveMenu(null);
+    }, 250);
+  };
+
+  // Cancel close timeout when mouse re-enters nav area
+  const handleNavAreaEnter = () => {
+    if (hoverCloseTimeoutRef.current) {
+      clearTimeout(hoverCloseTimeoutRef.current);
+      hoverCloseTimeoutRef.current = null;
+    }
+  };
+
   const toggleMobileSection = (section: string) => {
     setExpandedMobileSection(
       expandedMobileSection === section ? null : section,
@@ -44,20 +127,14 @@ export function Navigation() {
 
   return (
     <>
-      {/* Backdrop blur overlay when mega menu is open */}
-      {activeMenu && (
-        <div
-          className="fixed inset-0 z-40 bg-base/60 backdrop-blur-sm transition-all duration-300 hidden lg:block"
-          onClick={() => setActiveMenu(null)}
-        />
-      )}
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled || isMobileMenuOpen
             ? "bg-surface/95 backdrop-blur-md border-b border-border"
             : "bg-base border-b border-transparent"
         }`}
-        onMouseLeave={() => setActiveMenu(null)}
+        onMouseLeave={handleNavAreaLeave}
+        onMouseEnter={handleNavAreaEnter}
       >
         <nav className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
@@ -68,45 +145,50 @@ export function Navigation() {
             <nav className="hidden lg:flex lg:space-x-1">
               <NavItem
                 label="Services"
+                href="/services"
                 megaMenu={navigationData.services}
                 isOpen={activeMenu === "services"}
-                onHover={() => setActiveMenu("services")}
+                onHover={() => handleNavItemHover("services")}
               />
               <NavItem
                 label="Expertise"
+                href="/expertise"
                 megaMenu={navigationData.expertise}
                 isOpen={activeMenu === "expertise"}
-                onHover={() => setActiveMenu("expertise")}
+                onHover={() => handleNavItemHover("expertise")}
               />
               <NavItem
                 label="Industries"
+                href="/industries"
                 megaMenu={navigationData.industries}
                 isOpen={activeMenu === "industries"}
-                onHover={() => setActiveMenu("industries")}
+                onHover={() => handleNavItemHover("industries")}
               />
               <NavItem
                 label="Case Studies"
-                href="/case-studies"
-                onHover={() => setActiveMenu(null)}
+                href="/work"
+                onHover={() => handleNavItemHover(null)}
               />
               <NavItem
                 label="About"
+                href="/about-us"
                 megaMenu={navigationData.about}
                 isOpen={activeMenu === "about"}
-                onHover={() => setActiveMenu("about")}
+                onHover={() => handleNavItemHover("about")}
               />
               <NavItem
                 label="Resources"
+                href="/resources"
                 megaMenu={navigationData.resources}
                 isOpen={activeMenu === "resources"}
-                onHover={() => setActiveMenu("resources")}
+                onHover={() => handleNavItemHover("resources")}
               />
             </nav>
 
             {/* CTA Button */}
             <div className="hidden lg:flex items-center gap-4">
-              <Button href="/contact">
-                Book a Call
+              <Button href="/contact-us">
+                Talk to the Team
                 <svg
                   className="w-4 h-4 ml-2"
                   fill="none"
@@ -164,7 +246,7 @@ export function Navigation() {
 
         {/* Mega Menu Container - Desktop */}
         {activeMenu && (
-          <div className="hidden lg:block relative lg:absolute left-0 w-full lg:px-16 lg:top-full lg:z-50">
+          <div className="mega-menu hidden lg:block relative lg:absolute left-0 w-full lg:px-16 lg:top-full lg:z-50">
             <div className="max-w-5xl mx-auto w-full lg:flex lg:justify-center">
               <MegaMenuContent
                 sections={
@@ -172,6 +254,7 @@ export function Navigation() {
                     activeMenu as keyof typeof navigationData
                   ] as MenuSection[]
                 }
+                onClose={() => setActiveMenu(null)}
               />
             </div>
           </div>
@@ -187,6 +270,7 @@ export function Navigation() {
               {/* Services */}
               <MobileNavSection
                 title="Services"
+                href="/services"
                 isExpanded={expandedMobileSection === "services"}
                 onToggle={() => toggleMobileSection("services")}
                 sections={navigationData.services}
@@ -196,6 +280,7 @@ export function Navigation() {
               {/* Expertise */}
               <MobileNavSection
                 title="Expertise"
+                href="/expertise"
                 isExpanded={expandedMobileSection === "expertise"}
                 onToggle={() => toggleMobileSection("expertise")}
                 sections={navigationData.expertise}
@@ -205,6 +290,7 @@ export function Navigation() {
               {/* Industries */}
               <MobileNavSection
                 title="Industries"
+                href="/industries"
                 isExpanded={expandedMobileSection === "industries"}
                 onToggle={() => toggleMobileSection("industries")}
                 sections={navigationData.industries}
@@ -213,7 +299,7 @@ export function Navigation() {
 
               {/* Case Studies - Direct Link */}
               <Link
-                href="/case-studies"
+                href="/work"
                 className="block py-3 px-4 text-lg font-medium text-text-primary hover:bg-surface-elevated rounded-lg"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
@@ -223,6 +309,7 @@ export function Navigation() {
               {/* About */}
               <MobileNavSection
                 title="About"
+                href="/about-us"
                 isExpanded={expandedMobileSection === "about"}
                 onToggle={() => toggleMobileSection("about")}
                 sections={navigationData.about}
@@ -232,6 +319,7 @@ export function Navigation() {
               {/* Resources */}
               <MobileNavSection
                 title="Resources"
+                href="/resources"
                 isExpanded={expandedMobileSection === "resources"}
                 onToggle={() => toggleMobileSection("resources")}
                 sections={navigationData.resources}
@@ -242,7 +330,7 @@ export function Navigation() {
             {/* Mobile CTA */}
             <div className="mt-8 px-4">
               <Link
-                href="/contact"
+                href="/contact-us"
                 className="block w-full py-3 text-center font-semibold text-cta-text bg-cta rounded-lg hover:brightness-110"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
@@ -847,11 +935,11 @@ interface MenuSection {
   bullet?: boolean;
 }
 
-function MegaMenuContent({ sections }: { sections: MenuSection[] }) {
+function MegaMenuContent({ sections, onClose }: { sections: MenuSection[]; onClose: () => void }) {
   const colsClass = sections.length === 2 ? "grid-cols-2" : "grid-cols-3";
 
   return (
-    <div className="bg-surface rounded-2xl shadow-2xl shadow-black/20 border border-border overflow-hidden mt-4 ring-1 ring-accent/0 [box-shadow:0_20px_70px_-15px_rgba(15,118,110,0.3)]">
+    <div className="bg-surface rounded-2xl shadow-2xl shadow-black/20 border border-border overflow-hidden mt-4 ring-1 ring-accent/0 [box-shadow:0_20px_70px_-15px_rgba(15,118,110,0.3)] animate-in fade-in slide-in-from-top-2 duration-150">
       <div className={`grid ${colsClass}`}>
         {sections.map((section, idx) => (
           <div
@@ -885,9 +973,10 @@ function MegaMenuContent({ sections }: { sections: MenuSection[] }) {
                         </span>
                       </>
                     ) : (
-                      <a
+                      <Link
                         href={item.href}
                         className="group flex items-start gap-3 cursor-pointer"
+                        onClick={onClose}
                       >
                         {item.icon && (
                           <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-surface-elevated border border-border flex items-center justify-center text-text-muted group-hover:text-accent-light group-hover:border-accent/30 transition-colors duration-200">
@@ -904,7 +993,7 @@ function MegaMenuContent({ sections }: { sections: MenuSection[] }) {
                             </p>
                           )}
                         </div>
-                      </a>
+                      </Link>
                     )}
                   </li>
                 ))}
@@ -924,9 +1013,10 @@ function MegaMenuContent({ sections }: { sections: MenuSection[] }) {
                     <ul className="space-y-4">
                       {subSection.items.map((item, itemIdx) => (
                         <li key={itemIdx}>
-                          <a
+                          <Link
                             href={item.href}
                             className="group flex items-start gap-3 cursor-pointer"
+                            onClick={onClose}
                           >
                             {item.icon && (
                               <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-surface-elevated border border-border flex items-center justify-center text-text-muted group-hover:text-accent-light group-hover:border-accent/30 transition-colors duration-200">
@@ -943,7 +1033,7 @@ function MegaMenuContent({ sections }: { sections: MenuSection[] }) {
                                 </p>
                               )}
                             </div>
-                          </a>
+                          </Link>
                         </li>
                       ))}
                     </ul>
@@ -964,9 +1054,10 @@ function MegaMenuContent({ sections }: { sections: MenuSection[] }) {
                 <p className="text-sm text-text-muted font-normal mt-1">
                   {section.featured.description}
                 </p>
-                <a
+                <Link
                   href={section.featured.link.href}
                   className="inline-flex items-center gap-1 text-sm font-medium text-accent-light mt-3 hover:text-accent cursor-pointer"
+                  onClick={onClose}
                 >
                   {section.featured.link.label}
                   <svg
@@ -982,7 +1073,7 @@ function MegaMenuContent({ sections }: { sections: MenuSection[] }) {
                       d="M17 8l4 4m0 0l-4 4m4-4H3"
                     />
                   </svg>
-                </a>
+                </Link>
               </div>
             )}
           </div>
@@ -995,6 +1086,7 @@ function MegaMenuContent({ sections }: { sections: MenuSection[] }) {
 // Mobile Navigation Section Component
 interface MobileNavSectionProps {
   title: string;
+  href?: string;
   isExpanded: boolean;
   onToggle: () => void;
   sections: MenuSection[];
@@ -1003,6 +1095,7 @@ interface MobileNavSectionProps {
 
 function MobileNavSection({
   title,
+  href,
   isExpanded,
   onToggle,
   sections,
@@ -1043,13 +1136,13 @@ function MobileNavSection({
                 <ul className="space-y-1">
                   {section.items.map((item, itemIdx) => (
                     <li key={itemIdx}>
-                      <a
+                      <Link
                         href={item.href}
                         className="block py-2 px-4 text-text-secondary hover:bg-surface-elevated hover:text-text-primary rounded-lg"
                         onClick={onClose}
                       >
                         {item.label}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -1065,13 +1158,13 @@ function MobileNavSection({
                     <ul className="space-y-1">
                       {subSection.items.map((item, itemIdx) => (
                         <li key={itemIdx}>
-                          <a
+                          <Link
                             href={item.href}
                             className="block py-2 px-4 text-text-secondary hover:bg-surface-elevated hover:text-text-primary rounded-lg"
                             onClick={onClose}
                           >
                             {item.label}
-                          </a>
+                          </Link>
                         </li>
                       ))}
                     </ul>

@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { useRef, useState } from "react";
 import { CalButton } from "@/components/CalButton";
 
@@ -693,7 +694,7 @@ export default function ApproachPage() {
                 </svg>
               </CalButton>
               <Link
-                href="/case-studies"
+                href="/work"
                 className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-lg hover:border-accent hover:text-accent-light transition-all duration-200"
               >
                 View Case Studies
@@ -1070,25 +1071,25 @@ export default function ApproachPage() {
               </svg>
 
               <blockquote className="relative text-lg sm:text-xl text-text-secondary leading-relaxed mb-8 pl-0 sm:pl-8">
-                &quot;Their approach is refreshingly different. No lengthy
-                discovery phases, no endless meetings about meetings. Within a
-                week, their engineers were embedded with our team and shipping
-                production code. The speed and quality exceeded our
-                expectations.&quot;
+                &quot;What started with one engineer nearly three years ago has grown into a team of five, each fully owning their deliverables. They've taken on critical core roles across teams. We're extremely pleased with the commitment and engagement they bring.&quot;
               </blockquote>
 
               <div className="flex items-center gap-4 pl-0 sm:pl-8">
-                <div className="w-14 h-14 rounded-full bg-accent/20 border border-accent/30 flex items-center justify-center">
-                  <span className="text-xl font-bold text-accent-light">
-                    VP
-                  </span>
+                <div className="w-14 h-14 rounded-full overflow-hidden bg-surface-elevated border border-border">
+                  <Image
+                    src="/testimonials/shrivatsa.jpg"
+                    alt="Shrivatsa Swadi"
+                    width={56}
+                    height={56}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div>
                   <div className="font-semibold text-text-primary">
-                    VP of Engineering
+                    Shrivatsa Swadi
                   </div>
                   <div className="text-sm text-text-secondary">
-                    Series B Fintech Startup
+                    Director of Engineering, Setu
                   </div>
                 </div>
               </div>
@@ -1168,7 +1169,7 @@ export default function ApproachPage() {
                 </svg>
               </CalButton>
               <Link
-                href="/case-studies"
+                href="/work"
                 className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-xl hover:border-accent hover:text-accent-light transition-all duration-200"
               >
                 See How We&apos;ve Helped Others

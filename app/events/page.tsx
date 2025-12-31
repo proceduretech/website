@@ -1053,7 +1053,7 @@ export default function EventsPage() {
                     {option.description}
                   </p>
                   <Link
-                    href="/contact"
+                    href="/contact-us"
                     className="inline-flex items-center gap-2 text-accent-light font-medium hover:underline"
                   >
                     {option.cta}
@@ -1114,7 +1114,7 @@ export default function EventsPage() {
                 </svg>
               </a>
               <Link
-                href="/contact"
+                href="/contact-us"
                 className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-xl hover:border-accent/30 hover:bg-accent/5 transition-all duration-200"
               >
                 Contact Us

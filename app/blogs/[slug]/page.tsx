@@ -426,7 +426,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-text-muted mb-6">
             <Link
-              href="/blog"
+              href="/blogs"
               className="hover:text-accent-light transition-colors"
             >
               Blog

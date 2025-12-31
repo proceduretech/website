@@ -560,32 +560,20 @@ export default function ContactPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto"
           >
             {[
               {
+                city: "Mumbai",
+                country: "India",
+                flag: "in",
+                address: "406, Shrishti Square, LBS Marg, Bhandup West, Mumbai - 400078",
+              },
+              {
                 city: "San Francisco",
                 country: "United States",
-                timezone: "PST (UTC-8)",
                 flag: "us",
-              },
-              {
-                city: "London",
-                country: "United Kingdom",
-                timezone: "GMT (UTC+0)",
-                flag: "gb",
-              },
-              {
-                city: "Singapore",
-                country: "Singapore",
-                timezone: "SGT (UTC+8)",
-                flag: "sg",
-              },
-              {
-                city: "Sydney",
-                country: "Australia",
-                timezone: "AEDT (UTC+11)",
-                flag: "au",
+                address: "Bay Area, California",
               },
             ].map((location, idx) => (
               <motion.div
@@ -598,24 +586,14 @@ export default function ContactPage() {
               >
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-8 h-8 rounded-lg bg-surface border border-border flex items-center justify-center text-lg">
+                    {location.flag === "in" && (
+                      <span role="img" aria-label="India">
+                        IN
+                      </span>
+                    )}
                     {location.flag === "us" && (
                       <span role="img" aria-label="United States">
                         US
-                      </span>
-                    )}
-                    {location.flag === "gb" && (
-                      <span role="img" aria-label="United Kingdom">
-                        UK
-                      </span>
-                    )}
-                    {location.flag === "sg" && (
-                      <span role="img" aria-label="Singapore">
-                        SG
-                      </span>
-                    )}
-                    {location.flag === "au" && (
-                      <span role="img" aria-label="Australia">
-                        AU
                       </span>
                     )}
                   </div>
@@ -628,9 +606,11 @@ export default function ContactPage() {
                     </p>
                   </div>
                 </div>
-                <p className="text-sm text-text-secondary">
-                  {location.timezone}
-                </p>
+                {location.address && (
+                  <p className="text-xs text-text-muted leading-relaxed">
+                    {location.address}
+                  </p>
+                )}
               </motion.div>
             ))}
           </motion.div>

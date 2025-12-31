@@ -20,8 +20,8 @@ interface IndustryCTAProps {
 export function IndustryCTA({
   headline,
   description,
-  primaryCTA = { text: "Book a Call", href: "/contact" },
-  secondaryCTA = { text: "View Case Studies", href: "/case-studies" },
+  primaryCTA = { text: "Talk to the Team", href: "/contact-us" },
+  secondaryCTA = { text: "View Case Studies", href: "/work" },
 }: IndustryCTAProps) {
   return (
     <section className="relative py-16 sm:py-24 overflow-hidden">
