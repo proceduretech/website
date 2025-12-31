@@ -81,7 +81,7 @@ export function Footer() {
             </Link>
             <p className="mt-4 text-sm text-text-secondary max-w-xs">
               AI engineering and security for production systems. Proven
-              delivery excellence—now focused on AI.
+              delivery excellence, now focused on AI.
             </p>
 
             {/* Contact Info */}

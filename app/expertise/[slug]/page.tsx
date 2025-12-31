@@ -103,6 +103,11 @@ export default async function ExpertisePage({ params }: PageProps) {
         headlineAccent={pageData.hero.headlineAccent}
         tagline={pageData.hero.tagline}
         description={pageData.hero.description}
+        secondaryCTA={
+          ["llm-applications", "ai-agents", "ai-security", "ai-privacy"].includes(slug)
+            ? undefined
+            : { text: "View Case Studies", href: "/work" }
+        }
       />
 
       <CapabilitiesGrid

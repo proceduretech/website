@@ -20,7 +20,7 @@ interface UseCaseCTAProps {
 export function UseCaseCTA({
   headline,
   description,
-  primaryCTA = { text: "Book a Call", href: "/contact-us" },
+  primaryCTA = { text: "Talk to the Team", href: "/contact-us" },
   secondaryCTA = { text: "See Demo", href: "/contact-us" },
 }: UseCaseCTAProps) {
   return (

@@ -129,7 +129,7 @@ export function Navigation() {
             {/* CTA Button */}
             <div className="hidden lg:flex items-center gap-4">
               <Button href="/contact-us">
-                Book a Call
+                Talk to the Team
                 <svg
                   className="w-4 h-4 ml-2"
                   fill="none"
