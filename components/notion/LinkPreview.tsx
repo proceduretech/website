@@ -1,3 +1,4 @@
+import Image from "next/image";
 interface NotionLinkPreviewProps {
   url: string;
   title?: string;
@@ -34,9 +35,10 @@ export function NotionLinkPreview({
     >
       {image && (
         <div className="w-full h-48 overflow-hidden bg-surface">
-          <img
+          <Image
             src={image}
             alt={displayTitle}
+            fill
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             loading="lazy"
           />
@@ -62,7 +64,7 @@ export function NotionLinkPreview({
           </div>
           <span className="text-sm text-text-muted">{displaySiteName}</span>
         </div>
-        <h4 className="text-base font-semibold text-text-primary group-hover:text-highlight transition-colors mb-2">
+        <h4 className="text-base font-semibold group-hover:text-highlight transition-colors mb-2">
           {displayTitle}
         </h4>
         {description && (
