@@ -4,7 +4,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { PageHero } from "@/components/ui";
 import type { ServicePageForListing } from "@/lib/content";
-import { ClientLogos } from "@/components/sections/ClientLogos";
 
 interface Props {
   service: ServicePageForListing;
@@ -323,9 +322,6 @@ export default function ServicePageClient({ service }: Props) {
           </motion.div>
         </div>
       </section>
-
-      {/* Client Logos */}
-      <ClientLogos />
     </main>
   );
 }
