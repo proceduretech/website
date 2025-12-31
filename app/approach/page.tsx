@@ -693,7 +693,7 @@ export default function ApproachPage() {
                 </svg>
               </CalButton>
               <Link
-                href="/case-studies"
+                href="/work"
                 className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-lg hover:border-accent hover:text-accent-light transition-all duration-200"
               >
                 View Case Studies
@@ -1168,7 +1168,7 @@ export default function ApproachPage() {
                 </svg>
               </CalButton>
               <Link
-                href="/case-studies"
+                href="/work"
                 className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-xl hover:border-accent hover:text-accent-light transition-all duration-200"
               >
                 See How We&apos;ve Helped Others

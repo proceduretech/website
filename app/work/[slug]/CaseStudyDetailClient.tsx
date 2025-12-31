@@ -123,7 +123,7 @@ export function CaseStudyDetailClient({
             className="flex items-center gap-2 text-sm text-text-muted mb-6"
           >
             <Link
-              href="/case-studies"
+              href="/work"
               className="hover:text-accent-light transition-colors"
             >
               Case Studies
@@ -305,7 +305,7 @@ export function CaseStudyDetailClient({
                 </svg>
               </CalButton>
               <Link
-                href="/contact"
+                href="/contact-us"
                 className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-xl hover:border-accent hover:bg-accent/10 transition-all duration-200"
               >
                 Contact Us

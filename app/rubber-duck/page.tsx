@@ -1145,7 +1145,7 @@ export default function RubberDuckPage() {
                 </svg>
               </a>
               <Link
-                href="/contact"
+                href="/contact-us"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-surface-elevated border border-border text-text-primary font-semibold rounded-xl hover:border-accent/30 transition-all"
               >
                 Have Questions?

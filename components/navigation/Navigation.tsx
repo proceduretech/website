@@ -24,6 +24,25 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close mega menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      // Close menu if clicking outside the header/navigation area
+      if (activeMenu && !target.closest('header')) {
+        setActiveMenu(null);
+      }
+    };
+
+    if (activeMenu) {
+      document.addEventListener('click', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [activeMenu]);
+
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
@@ -86,7 +105,7 @@ export function Navigation() {
               />
               <NavItem
                 label="Case Studies"
-                href="/case-studies"
+                href="/work"
                 onHover={() => setActiveMenu(null)}
               />
               <NavItem
@@ -105,7 +124,7 @@ export function Navigation() {
 
             {/* CTA Button */}
             <div className="hidden lg:flex items-center gap-4">
-              <Button href="/contact">
+              <Button href="/contact-us">
                 Book a Call
                 <svg
                   className="w-4 h-4 ml-2"
@@ -213,7 +232,7 @@ export function Navigation() {
 
               {/* Case Studies - Direct Link */}
               <Link
-                href="/case-studies"
+                href="/work"
                 className="block py-3 px-4 text-lg font-medium text-text-primary hover:bg-surface-elevated rounded-lg"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
@@ -242,7 +261,7 @@ export function Navigation() {
             {/* Mobile CTA */}
             <div className="mt-8 px-4">
               <Link
-                href="/contact"
+                href="/contact-us"
                 className="block w-full py-3 text-center font-semibold text-cta-text bg-cta rounded-lg hover:brightness-110"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
