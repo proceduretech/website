@@ -149,13 +149,13 @@ export function Hero() {
           {/* Main headline - larger, bolder for center layout */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-text-primary leading-[1.1]">
             <TextGenerateEffect
-              words="AI Engineering"
+              words="AI Engineering Services"
               duration={0.4}
               staggerDelay={0.15}
             />
             <br />
             <TextGenerateEffectHighlight
-              words="That Ships to Production"
+              words="That Ship to Production"
               className="text-highlight"
               duration={0.4}
               staggerDelay={0.12}
@@ -170,9 +170,9 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mt-5 sm:mt-6 text-base sm:text-lg md:text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed"
           >
-            Senior engineers embedded with your team to build AI-powered
-            products and secure AI systems. Battle-tested delivery—now focused
-            on AI.
+            Senior AI engineers embedded with your team within 2-5 days. We
+            build LLM applications, AI agents, and secure AI systems that ship
+            to production.
           </motion.p>
 
           {/* CTA buttons */}
@@ -183,7 +183,7 @@ export function Hero() {
             className="mt-10 sm:mt-12 flex flex-col sm:flex-row gap-4 justify-center"
           >
             <CalButton className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-cta-text bg-cta rounded-lg hover:brightness-110 transition-all duration-200 shadow-lg shadow-cta/25 cursor-pointer">
-              Start Your AI Project
+              Schedule AI Strategy Call
             </CalButton>
             <Link
               href="/work"

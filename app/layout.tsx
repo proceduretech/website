@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
   title: "AI Engineering Services | Enterprise AI Development | Procedure",
   description:
-    "Forward-deployed AI engineers embedded with your team. We build production-grade AI systems, LLM applications, and custom ML models. Get builders, not consultants.",
+    "Forward-deployed AI engineers embedded with your team. Build production-grade AI systems, LLM apps, and ML models. Builders, not consultants.",
   keywords: [
     "AI engineering services",
     "enterprise AI development",
