@@ -101,6 +101,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   // Blog posts (dynamic)
+  // Note: Using current date for now. In future, could fetch from Notion API
+  // to get actual lastModified dates for better crawl efficiency
   const blogSlugs = getAllSlugs("blog");
   for (const slug of blogSlugs) {
     entries.push({

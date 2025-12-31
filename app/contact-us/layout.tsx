@@ -18,6 +18,8 @@ export const metadata: Metadata = {
     title: "Contact Us | Enterprise AI Engineering Services | Procedure",
     description:
       "Connect with Procedure's AI engineering team. Senior engineers, enterprise-ready. Schedule a strategy call and start building production AI systems.",
+    site: "@procedurehq",
+    creator: "@procedurehq",
   },
 };
 

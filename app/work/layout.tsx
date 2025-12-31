@@ -18,6 +18,8 @@ export const metadata: Metadata = {
     title: "Case Studies | AI Engineering Success Stories | Procedure",
     description:
       "See how Procedure helps enterprises ship production AI. Real results from financial services, healthcare, and e-commerce.",
+    site: "@procedurehq",
+    creator: "@procedurehq",
   },
 };
 
