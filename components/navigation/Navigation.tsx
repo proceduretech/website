@@ -28,8 +28,8 @@ export function Navigation() {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
-      // Close menu if clicking outside the navigation container
-      if (activeMenu && !target.closest('nav') && !target.closest('.mega-menu')) {
+      // Close menu if clicking outside the header (which contains nav and mega menu)
+      if (activeMenu && !target.closest('header')) {
         setActiveMenu(null);
       }
     };
@@ -37,12 +37,12 @@ export function Navigation() {
     if (activeMenu) {
       // Use setTimeout to avoid immediate closure on menu open
       const timeoutId = setTimeout(() => {
-        document.addEventListener('mousedown', handleClickOutside);
+        document.addEventListener('click', handleClickOutside);
       }, 100);
 
       return () => {
         clearTimeout(timeoutId);
-        document.removeEventListener('mousedown', handleClickOutside);
+        document.removeEventListener('click', handleClickOutside);
       };
     }
   }, [activeMenu]);
@@ -187,7 +187,7 @@ export function Navigation() {
 
         {/* Mega Menu Container - Desktop */}
         {activeMenu && (
-          <div className="hidden lg:block relative lg:absolute left-0 w-full lg:px-16 lg:top-full lg:z-50">
+          <div className="mega-menu hidden lg:block relative lg:absolute left-0 w-full lg:px-16 lg:top-full lg:z-50">
             <div className="max-w-5xl mx-auto w-full lg:flex lg:justify-center">
               <MegaMenuContent
                 sections={
@@ -908,7 +908,7 @@ function MegaMenuContent({ sections }: { sections: MenuSection[] }) {
                         </span>
                       </>
                     ) : (
-                      <a
+                      <Link
                         href={item.href}
                         className="group flex items-start gap-3 cursor-pointer"
                       >
@@ -927,7 +927,7 @@ function MegaMenuContent({ sections }: { sections: MenuSection[] }) {
                             </p>
                           )}
                         </div>
-                      </a>
+                      </Link>
                     )}
                   </li>
                 ))}
@@ -947,7 +947,7 @@ function MegaMenuContent({ sections }: { sections: MenuSection[] }) {
                     <ul className="space-y-4">
                       {subSection.items.map((item, itemIdx) => (
                         <li key={itemIdx}>
-                          <a
+                          <Link
                             href={item.href}
                             className="group flex items-start gap-3 cursor-pointer"
                           >
@@ -966,7 +966,7 @@ function MegaMenuContent({ sections }: { sections: MenuSection[] }) {
                                 </p>
                               )}
                             </div>
-                          </a>
+                          </Link>
                         </li>
                       ))}
                     </ul>
@@ -987,7 +987,7 @@ function MegaMenuContent({ sections }: { sections: MenuSection[] }) {
                 <p className="text-sm text-text-muted font-normal mt-1">
                   {section.featured.description}
                 </p>
-                <a
+                <Link
                   href={section.featured.link.href}
                   className="inline-flex items-center gap-1 text-sm font-medium text-accent-light mt-3 hover:text-accent cursor-pointer"
                 >
@@ -1005,7 +1005,7 @@ function MegaMenuContent({ sections }: { sections: MenuSection[] }) {
                       d="M17 8l4 4m0 0l-4 4m4-4H3"
                     />
                   </svg>
-                </a>
+                </Link>
               </div>
             )}
           </div>
@@ -1066,13 +1066,13 @@ function MobileNavSection({
                 <ul className="space-y-1">
                   {section.items.map((item, itemIdx) => (
                     <li key={itemIdx}>
-                      <a
+                      <Link
                         href={item.href}
                         className="block py-2 px-4 text-text-secondary hover:bg-surface-elevated hover:text-text-primary rounded-lg"
                         onClick={onClose}
                       >
                         {item.label}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -1088,13 +1088,13 @@ function MobileNavSection({
                     <ul className="space-y-1">
                       {subSection.items.map((item, itemIdx) => (
                         <li key={itemIdx}>
-                          <a
+                          <Link
                             href={item.href}
                             className="block py-2 px-4 text-text-secondary hover:bg-surface-elevated hover:text-text-primary rounded-lg"
                             onClick={onClose}
                           >
                             {item.label}
-                          </a>
+                          </Link>
                         </li>
                       ))}
                     </ul>

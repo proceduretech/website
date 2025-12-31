@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 interface MenuSection {
   title?: string;
   titleColor?: "default" | "blue";
@@ -31,13 +33,13 @@ export function NavItem({
   if (!hasDropdown) {
     return (
       <div className="border-b border-solid border-border lg:border-0 flex items-center justify-between lg:justify-start flex-col lg:flex-row">
-        <a
-          href={href}
+        <Link
+          href={href || "#"}
           className="w-full lg:w-fit font-normal text-lg text-text-secondary flex items-center justify-between lg:justify-start px-4 py-5 lg:p-2 lg:hover:bg-surface-elevated lg:hover:text-text-primary rounded-lg transition-colors"
           onMouseEnter={onHover}
         >
           {label}
-        </a>
+        </Link>
       </div>
     );
   }
