@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { ClientLogos } from "@/components/sections/ClientLogos";
 
@@ -340,13 +341,14 @@ export default function AboutPage() {
                 className="group"
               >
                 <div className="p-6 rounded-2xl bg-surface-elevated border border-border hover:border-accent/30 transition-colors">
-                  {/* Photo placeholder */}
+                  {/* Photo */}
                   <div className="relative w-24 h-24 mx-auto mb-5">
-                    <div className="w-full h-full rounded-full bg-accent/20 border border-accent/30 flex items-center justify-center">
-                      <span className="text-3xl font-bold text-accent-light">
-                        {member.name.charAt(0)}
-                      </span>
-                    </div>
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="rounded-full object-cover object-top border border-accent/30"
+                    />
                   </div>
 
                   {/* Info */}
