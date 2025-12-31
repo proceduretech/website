@@ -339,7 +339,7 @@ export const navigationData = {
     {
       items: [
         {
-          label: "Events",
+          label: "Community Events",
           description: "Meetups, workshops, and conferences.",
           href: "/events",
           icon: "calendar",
