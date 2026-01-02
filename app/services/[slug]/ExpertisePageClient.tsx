@@ -10,6 +10,7 @@ import {
   FAQSection,
   ExpertiseCTA,
   RelatedExpertise,
+  TestimonialsSection,
 } from "@/components/expertise";
 
 interface RelatedPage {
@@ -151,6 +152,10 @@ export default function ExpertisePageClient({
         subtitle="Production-tested tools and frameworks"
         technologies={technologies}
       />
+
+      {pageData.testimonials && pageData.testimonials.length > 0 && (
+        <TestimonialsSection testimonials={pageData.testimonials} />
+      )}
 
       {pageData.faqs.length > 0 && <FAQSection faqs={pageData.faqs} />}
 

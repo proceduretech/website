@@ -542,6 +542,12 @@ export interface ExpertisePageForListing {
     question: string;
     answer: string;
   }>;
+  testimonials?: Array<{
+    name: string;
+    role: string;
+    company: string;
+    quote: string;
+  }>;
   relatedExpertise: string[];
 }
 
@@ -631,6 +637,7 @@ export function getExpertiseForListing(
         "Talk to our engineers about your project.",
     },
     faqs: frontmatter.faqs || [],
+    testimonials: frontmatter.testimonials || [],
     relatedExpertise: frontmatter.relatedExpertise || [],
   };
 }

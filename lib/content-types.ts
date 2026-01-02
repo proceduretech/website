@@ -128,6 +128,12 @@ export interface ExpertiseFrontmatter extends BaseFrontmatter {
   technologies: string[];
   relatedExpertise?: string[]; // Slugs of related expertise pages
   faqs?: FAQItem[];
+  testimonials?: Array<{
+    name: string;
+    role: string;
+    company: string;
+    quote: string;
+  }>;
   cta?: CTABlock;
 }
 
