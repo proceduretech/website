@@ -13,7 +13,12 @@ const nextConfig = {
   // Experimental optimizations
   experimental: {
     optimizeCss: true, // Optimize CSS loading
+    optimizePackageImports: ["framer-motion", "@radix-ui/react-icons"], // Tree-shake unused exports
   },
+
+  // Performance optimizations for LCP
+  poweredByHeader: false,
+  generateEtags: true,
 
   images: {
     formats: ["image/avif", "image/webp"],
