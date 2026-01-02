@@ -4,11 +4,11 @@ import { ProcedureLogoShort } from "./logos";
 
 const footerLinks = {
   services: [
-    { label: "AI Engineering", href: "/expertise/llm-applications" },
-    { label: "AI Agents", href: "/expertise/ai-agents" },
-    { label: "AI Security", href: "/expertise/ai-security" },
-    { label: "Product Design", href: "/expertise/product-design" },
-    { label: "Cloud & DevOps", href: "/expertise/cloud" },
+    { label: "AI Engineering", href: "/services/ai-engineering" },
+    { label: "AI Agents", href: "/services/ai-agents" },
+    { label: "AI Security", href: "/services/ai-security" },
+    { label: "Product Design", href: "/services/product-design" },
+    { label: "Cloud & DevOps", href: "/services/cloud" },
   ],
   company: [
     { label: "About", href: "/about-us" },

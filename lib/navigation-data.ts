@@ -80,14 +80,14 @@ export const navigationData = {
           label: "LLM Applications",
           description:
             "ChatGPT, Claude, and open-source LLM integrations. RAG, fine-tuning, and prompt engineering.",
-          href: "/expertise/llm-applications",
+          href: "/services/ai-engineering",
           icon: "sparkles",
         },
         {
           label: "AI Agents & Automation",
           description:
             "Autonomous agents, workflow automation, and AI-powered business processes.",
-          href: "/expertise/ai-agents",
+          href: "/services/ai-agents",
           icon: "cpu",
         },
       ],
@@ -99,13 +99,13 @@ export const navigationData = {
               label: "Threat Protection",
               description:
                 "Guard against prompt injection, jailbreaks, and adversarial attacks.",
-              href: "/expertise/ai-security",
+              href: "/services/ai-security",
               icon: "shield",
             },
             {
               label: "Data & Privacy",
               description: "Prevent data leakage and ensure compliance.",
-              href: "/expertise/ai-privacy",
+              href: "/services/ai-privacy",
               icon: "lock",
             },
           ],
@@ -118,27 +118,27 @@ export const navigationData = {
         {
           label: "Frontend Development",
           description: "React, Next.js, Vue, and modern web applications.",
-          href: "/expertise/frontend",
+          href: "/services/frontend-development",
           icon: "layout",
         },
         {
           label: "Backend Development",
           description: "Node.js, Python, Go, and cloud-native architectures.",
-          href: "/expertise/backend",
+          href: "/services/backend-development",
           icon: "server",
         },
         {
           label: "Mobile Development",
           description:
             "Native iOS, Android, and cross-platform React Native apps.",
-          href: "/expertise/mobile",
+          href: "/services/mobile-development",
           icon: "smartphone",
         },
         {
           label: "QA & Test Engineering",
           description:
             "Automated testing, CI/CD integration, and quality assurance.",
-          href: "/expertise/qa",
+          href: "/services/software-testing-and-qa",
           icon: "checkCircle",
         },
       ],
@@ -150,13 +150,13 @@ export const navigationData = {
           label: "Cloud Architecture",
           description:
             "AWS, GCP, Azure. Scalable and cost-optimized infrastructure.",
-          href: "/expertise/cloud",
+          href: "/services/cloud",
           icon: "cloud",
         },
         {
           label: "Kubernetes",
           description: "Container orchestration and cloud-native deployments.",
-          href: "/expertise/kubernetes",
+          href: "/services/kubernetes",
           icon: "boxes",
         },
       ],
@@ -167,13 +167,13 @@ export const navigationData = {
             {
               label: "Product Design",
               description: "Human-centered UX for AI-powered products.",
-              href: "/expertise/product-design",
+              href: "/services/product-design",
               icon: "palette",
             },
             {
               label: "Design Systems",
               description: "Scalable component libraries and design tokens.",
-              href: "/expertise/design-systems",
+              href: "/services/design-systems",
               icon: "grid",
             },
           ],
