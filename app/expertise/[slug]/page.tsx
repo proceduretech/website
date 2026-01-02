@@ -77,16 +77,40 @@ export default async function ExpertisePage({ params }: PageProps) {
   // Map technologies to objects
   const technologies = pageData.technologies.map((name) => ({ name }));
 
-  return (
-    <main className="min-h-screen">
-      {/* JSON-LD Structured Data for FAQs */}
-      {pageData.faqs.length > 0 && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
+  // Build combined schema (Service + FAQ + Breadcrumb)
+  const combinedSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      // Service Schema
+      {
+        "@type": "Service",
+        "@id": `https://procedure.tech/expertise/${slug}#service`,
+        name: pageData.meta.title,
+        description: pageData.meta.description,
+        url: `https://procedure.tech/expertise/${slug}`,
+        provider: {
+          "@type": "Organization",
+          "@id": "https://procedure.tech/#organization",
+        },
+        areaServed: [
+          {
+            "@type": "Country",
+            name: "United States",
+          },
+          {
+            "@type": "Country",
+            name: "India",
+          },
+        ],
+        serviceType: pageData.hero.badge,
+        category: [pageData.hero.badge, "Enterprise AI Engineering", "Software Development"],
+      },
+      // FAQ Schema (only if FAQs exist)
+      ...(pageData.faqs.length > 0
+        ? [
+            {
               "@type": "FAQPage",
+              "@id": `https://procedure.tech/expertise/${slug}#faq`,
               mainEntity: pageData.faqs.map((faq) => ({
                 "@type": "Question",
                 name: faq.question,
@@ -95,10 +119,46 @@ export default async function ExpertisePage({ params }: PageProps) {
                   text: faq.answer,
                 },
               })),
-            }),
-          }}
-        />
-      )}
+            },
+          ]
+        : []),
+      // Breadcrumb Schema
+      {
+        "@type": "BreadcrumbList",
+        "@id": `https://procedure.tech/expertise/${slug}#breadcrumb`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://procedure.tech/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Expertise",
+            item: "https://procedure.tech/expertise",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: pageData.hero.badge,
+            item: `https://procedure.tech/expertise/${slug}`,
+          },
+        ],
+      },
+    ],
+  };
+
+  return (
+    <main className="min-h-screen">
+      {/* Combined JSON-LD Structured Data (Service + FAQ + Breadcrumb) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(combinedSchema),
+        }}
+      />
 
       <ExpertiseHero
         badge={pageData.hero.badge}
