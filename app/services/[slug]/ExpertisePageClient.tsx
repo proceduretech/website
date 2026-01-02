@@ -130,6 +130,8 @@ export default function ExpertisePageClient({
         primaryCTA={
           expertise.slug === "frontend-development"
             ? { text: "Talk to a Frontend Specialist", href: "/contact-us" }
+            : expertise.slug === "backend-development"
+            ? { text: "Talk to a Backend Specialist", href: "/contact-us" }
             : undefined
         }
         secondaryCTA={
@@ -150,7 +152,7 @@ export default function ExpertisePageClient({
         capabilities={capabilities}
       />
 
-      {expertise.slug === "frontend-development" && pageData.whoWeWorkWith && (
+      {["frontend-development", "backend-development"].includes(expertise.slug) && pageData.whoWeWorkWith && (
         <WhoWeWorkWith
           title="Who We Work With"
           audiences={pageData.whoWeWorkWith.audiences.map((a) => ({
@@ -161,9 +163,9 @@ export default function ExpertisePageClient({
         />
       )}
 
-      {expertise.slug === "frontend-development" && pageData.process && (
+      {pageData.process && (
         <ProcessTimeline
-          title="Our Frontend Development Process"
+          title={expertise.slug === "frontend-development" ? "Our Frontend Development Process" : expertise.slug === "backend-development" ? "Our Backend Development Process" : "Our Process"}
           subtitle="A predictable process built for high-quality delivery"
           steps={pageData.process}
         />
@@ -182,10 +184,10 @@ export default function ExpertisePageClient({
         technologies={technologies}
       />
 
-      {expertise.slug === "frontend-development" && pageData.useCases && (
+      {pageData.useCases && (
         <UseCasesGrid
-          title="Frontend Development Use Cases"
-          subtitle="Our frontend development services support"
+          title={expertise.slug === "frontend-development" ? "Frontend Development Use Cases" : expertise.slug === "backend-development" ? "Backend Development Use Cases" : "Use Cases"}
+          subtitle={expertise.slug === "frontend-development" ? "Our frontend development services support" : expertise.slug === "backend-development" ? "Our backend development services support" : "Our services support"}
           useCases={pageData.useCases.map((uc) => ({
             ...uc,
             icon: Icons[uc.icon as keyof typeof Icons] || Icons.code,
@@ -194,12 +196,12 @@ export default function ExpertisePageClient({
         />
       )}
 
-      {expertise.slug === "frontend-development" && pageData.whyChoose && (
+      {pageData.whyChoose && (
         <WhyChooseProcedure
-          title="Why Choose Procedure for Frontend Development"
+          title={expertise.slug === "frontend-development" ? "Why Choose Procedure for Frontend Development" : expertise.slug === "backend-development" ? "Why Choose Procedure for Backend Development" : `Why Choose Procedure for ${pageData.hero.badge}`}
           subtitle="Companies choose Procedure because"
           reasons={pageData.whyChoose.reasons}
-          outcomesTitle="Outcomes from recent frontend engagements"
+          outcomesTitle={expertise.slug === "frontend-development" ? "Outcomes from recent frontend engagements" : expertise.slug === "backend-development" ? "Outcomes from recent backend engagements" : "Outcomes from recent engagements"}
           outcomes={pageData.whyChoose.outcomes}
         />
       )}
@@ -208,13 +210,13 @@ export default function ExpertisePageClient({
         <Testimonials />
       )}
 
-      {expertise.slug === "frontend-development" && pageData.qualityMatters && (
+      {pageData.qualityMatters && (
         <QualityMatters
-          title="Why Frontend Quality Matters"
-          subtitle="The frontend is often the first—and only—touchpoint users have with your product"
-          costsTitle="Poor frontend engineering costs you"
+          title={expertise.slug === "frontend-development" ? "Why Frontend Quality Matters" : expertise.slug === "backend-development" ? "Why Backend Quality Matters" : "Why Quality Matters"}
+          subtitle={expertise.slug === "frontend-development" ? "The frontend is often the first—and only—touchpoint users have with your product" : expertise.slug === "backend-development" ? "Backend systems fail quietly — until they don't" : undefined}
+          costsTitle={expertise.slug === "frontend-development" ? "Poor frontend engineering costs you" : expertise.slug === "backend-development" ? "Poor backend engineering costs you" : "Poor engineering costs you"}
           costs={pageData.qualityMatters.costs}
-          benefitsTitle="Premium frontend development is an investment in"
+          benefitsTitle={expertise.slug === "frontend-development" ? "Premium frontend development is an investment in" : expertise.slug === "backend-development" ? "Premium backend development is an investment in" : "Premium development is an investment in"}
           benefits={pageData.qualityMatters.benefits}
         />
       )}
