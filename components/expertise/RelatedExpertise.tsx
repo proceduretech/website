@@ -64,7 +64,7 @@ export function RelatedExpertise({
           {pages.map((page) => (
             <motion.div key={page.slug} variants={cardVariants}>
               <Link
-                href={`/expertise/${page.slug}`}
+                href={`/services/${page.slug}`}
                 className="block p-6 rounded-xl h-full bg-surface-elevated border border-border hover:border-accent/30 group transition-colors"
               >
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 mb-4">

@@ -307,19 +307,19 @@ export function getCaseStudiesByServiceType(
 }
 
 // =============================================================================
-// Expertise Functions
+// Expertise Functions (now reads from services directory after migration)
 // =============================================================================
 
 export const getAllExpertise = cache(
   (): ContentItem<ExpertiseFrontmatter>[] => {
-    return getAllContent<ExpertiseFrontmatter>("expertise");
+    return getAllContent<ExpertiseFrontmatter>("services");
   },
 );
 
 export function getExpertise(
   slug: string,
 ): ContentItem<ExpertiseFrontmatter> | null {
-  return getContentBySlug<ExpertiseFrontmatter>("expertise", slug);
+  return getContentBySlug<ExpertiseFrontmatter>("services", slug);
 }
 
 export function getRelatedExpertise(
@@ -636,10 +636,10 @@ export function getExpertiseForListing(
 }
 
 /**
- * Get all expertise slugs for static generation
+ * Get all expertise slugs for static generation (reads from services after migration)
  */
 export function getAllExpertiseSlugsFromContent(): string[] {
-  return getAllSlugs("expertise");
+  return getAllSlugs("services");
 }
 
 /**

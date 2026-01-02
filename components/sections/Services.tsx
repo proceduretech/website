@@ -8,7 +8,7 @@ const services = [
     name: "AI Engineering",
     description:
       "Build AI-powered products that ship to production. From LLM integrations to AI agents and RAG systems, you get solutions built on proven engineering practices that scale with your business.",
-    href: "/expertise/llm-applications",
+    href: "/services/ai-engineering",
     icon: (
       <svg
         className="w-8 h-8"
@@ -36,7 +36,7 @@ const services = [
     name: "AI Security",
     description:
       "Protect your AI systems from emerging threats. Your models stay safe from prompt injection, jailbreaks, and data leakage with security measures designed specifically for AI workloads.",
-    href: "/expertise/ai-security",
+    href: "/services/ai-security",
     icon: (
       <svg
         className="w-8 h-8"
@@ -85,7 +85,7 @@ const services = [
     name: "Experience Design",
     description:
       "Design intuitive AI-powered products that users love. Your customers get seamless experiences that drive engagement, from conversational interfaces to intelligent dashboards.",
-    href: "/expertise/product-design",
+    href: "/services/product-design",
     icon: (
       <svg
         className="w-8 h-8"

@@ -68,11 +68,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  // Expertise pages (dynamic)
+  // Expertise pages (dynamic) - now using /services/
   const expertiseSlugs = getAllExpertiseSlugsFromContent();
   for (const slug of expertiseSlugs) {
     entries.push({
-      url: `${BASE_URL}/expertise/${slug}`,
+      url: `${BASE_URL}/services/${slug}`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
