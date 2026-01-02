@@ -10,8 +10,13 @@ import {
   FAQSection,
   ExpertiseCTA,
   RelatedExpertise,
-  TestimonialsSection,
+  WhoWeWorkWith,
+  ProcessTimeline,
+  UseCasesGrid,
+  WhyChooseProcedure,
+  QualityMatters,
 } from "@/components/expertise";
+import { Testimonials } from "@/components/sections/Testimonials";
 
 interface RelatedPage {
   slug: string;
@@ -122,6 +127,11 @@ export default function ExpertisePageClient({
         headlineAccent={pageData.hero.headlineAccent}
         tagline={pageData.hero.tagline}
         description={pageData.hero.description}
+        primaryCTA={
+          expertise.slug === "frontend-development"
+            ? { text: "Talk to a Frontend Specialist", href: "/contact-us" }
+            : undefined
+        }
         secondaryCTA={
           [
             "ai-engineering",
@@ -140,6 +150,25 @@ export default function ExpertisePageClient({
         capabilities={capabilities}
       />
 
+      {expertise.slug === "frontend-development" && pageData.whoWeWorkWith && (
+        <WhoWeWorkWith
+          title="Who We Work With"
+          audiences={pageData.whoWeWorkWith.audiences.map((a) => ({
+            ...a,
+            icon: Icons[a.icon as keyof typeof Icons] || Icons.users,
+          }))}
+          closingStatement={pageData.whoWeWorkWith.closingStatement}
+        />
+      )}
+
+      {expertise.slug === "frontend-development" && pageData.process && (
+        <ProcessTimeline
+          title="Our Frontend Development Process"
+          subtitle="A predictable process built for high-quality delivery"
+          steps={pageData.process}
+        />
+      )}
+
       {pageData.whyProcedure.length > 0 && (
         <WhyProcedure
           title={`Why Procedure for ${pageData.hero.badge}?`}
@@ -153,8 +182,41 @@ export default function ExpertisePageClient({
         technologies={technologies}
       />
 
+      {expertise.slug === "frontend-development" && pageData.useCases && (
+        <UseCasesGrid
+          title="Frontend Development Use Cases"
+          subtitle="Our frontend development services support"
+          useCases={pageData.useCases.map((uc) => ({
+            ...uc,
+            icon: Icons[uc.icon as keyof typeof Icons] || Icons.code,
+          }))}
+          columns={2}
+        />
+      )}
+
+      {expertise.slug === "frontend-development" && pageData.whyChoose && (
+        <WhyChooseProcedure
+          title="Why Choose Procedure for Frontend Development"
+          subtitle="Companies choose Procedure because"
+          reasons={pageData.whyChoose.reasons}
+          outcomesTitle="Outcomes from recent frontend engagements"
+          outcomes={pageData.whyChoose.outcomes}
+        />
+      )}
+
       {pageData.testimonials && pageData.testimonials.length > 0 && (
-        <TestimonialsSection testimonials={pageData.testimonials} />
+        <Testimonials />
+      )}
+
+      {expertise.slug === "frontend-development" && pageData.qualityMatters && (
+        <QualityMatters
+          title="Why Frontend Quality Matters"
+          subtitle="The frontend is often the first—and only—touchpoint users have with your product"
+          costsTitle="Poor frontend engineering costs you"
+          costs={pageData.qualityMatters.costs}
+          benefitsTitle="Premium frontend development is an investment in"
+          benefits={pageData.qualityMatters.benefits}
+        />
       )}
 
       {pageData.faqs.length > 0 && <FAQSection faqs={pageData.faqs} />}
