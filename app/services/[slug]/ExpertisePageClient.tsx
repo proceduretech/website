@@ -59,12 +59,28 @@ export default function ExpertisePageClient({
           "@id": "https://procedure.tech/#organization",
         },
         serviceType: pageData.hero.badge,
-        areaServed: "Worldwide",
-        category: [
-          pageData.hero.badge,
-          "Enterprise AI Engineering",
-          "Software Development",
+        areaServed: [
+          { "@type": "Country", name: "United States" },
+          { "@type": "Country", name: "India" },
         ],
+        availableChannel: [
+          {
+            "@type": "ServiceChannel",
+            serviceUrl: `https://procedure.tech/services/${expertise.slug}`,
+            serviceType: "In-Person",
+          },
+          {
+            "@type": "ServiceChannel",
+            serviceUrl: `https://procedure.tech/services/${expertise.slug}`,
+            serviceType: "Remote",
+          },
+        ],
+        category:
+          expertise.slug === "backend-development"
+            ? ["Backend Engineering", "Software Development", "API Development"]
+            : expertise.slug === "frontend-development"
+            ? ["Frontend Engineering", "Web Development", "UI/UX Development"]
+            : [pageData.hero.badge, "Enterprise AI Engineering", "Software Development"],
       },
       // FAQ Schema (only if FAQs exist)
       ...(pageData.faqs.length > 0
