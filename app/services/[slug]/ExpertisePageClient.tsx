@@ -58,6 +58,8 @@ export default function ExpertisePageClient({
             ? ["iOS App Development", "Android App Development", "Cross-Platform App Development", "Mobile Backend Development", "Mobile App Modernization"]
             : expertise.slug === "ai-engineering"
             ? ["AI Engineering", "ML Development", "LLMOps", "MLOps", "AI System Architecture"]
+            : expertise.slug === "product-design"
+            ? ["Product Design", "UX Design", "UI Design", "Design Systems", "Product Strategy", "User Research"]
             : pageData.hero.badge,
         areaServed: [
           { "@type": "Country", name: "United States" },
@@ -68,6 +70,8 @@ export default function ExpertisePageClient({
             ? ["Mobile App Development", "iOS Development", "Android Development", "Cross-Platform Development"]
             : expertise.slug === "ai-engineering"
             ? ["AI Engineering", "Machine Learning", "MLOps", "AI System Development"]
+            : expertise.slug === "product-design"
+            ? ["Product Design", "UX Design", "UI Design", "Design Systems", "User Experience"]
             : [pageData.hero.badge, "Enterprise AI Engineering", "Software Development"],
       },
       // FAQ Schema (only if FAQs exist)
