@@ -7,7 +7,7 @@ module.exports = {
         "http://localhost:3000/services/enterprise",
         "http://localhost:3000/contact-us",
         "http://localhost:3000/work",
-        "http://localhost:3000/expertise/llm-applications",
+        "http://localhost:3000/services/ai-engineering",
         "http://localhost:3000/industries/healthcare",
       ],
       startServerCommand: "npm run start",
