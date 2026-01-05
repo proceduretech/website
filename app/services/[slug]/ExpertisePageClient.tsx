@@ -53,13 +53,18 @@ export default function ExpertisePageClient({
           "@type": "Organization",
           "@id": "https://procedure.tech/#organization",
         },
-        serviceType: pageData.hero.badge,
-        areaServed: "Worldwide",
-        category: [
-          pageData.hero.badge,
-          "Enterprise AI Engineering",
-          "Software Development",
+        serviceType:
+          expertise.slug === "mobile-development"
+            ? ["iOS App Development", "Android App Development", "Cross-Platform App Development", "Mobile Backend Development", "Mobile App Modernization"]
+            : pageData.hero.badge,
+        areaServed: [
+          { "@type": "Country", name: "United States" },
+          { "@type": "Country", name: "India" },
         ],
+        category:
+          expertise.slug === "mobile-development"
+            ? ["Mobile App Development", "iOS Development", "Android Development", "Cross-Platform Development"]
+            : [pageData.hero.badge, "Enterprise AI Engineering", "Software Development"],
       },
       // FAQ Schema (only if FAQs exist)
       ...(pageData.faqs.length > 0
