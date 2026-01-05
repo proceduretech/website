@@ -56,6 +56,8 @@ export default function ExpertisePageClient({
         serviceType:
           expertise.slug === "mobile-development"
             ? ["iOS App Development", "Android App Development", "Cross-Platform App Development", "Mobile Backend Development", "Mobile App Modernization"]
+            : expertise.slug === "ai-engineering"
+            ? ["AI Engineering", "ML Development", "LLMOps", "MLOps", "AI System Architecture"]
             : pageData.hero.badge,
         areaServed: [
           { "@type": "Country", name: "United States" },
@@ -64,6 +66,8 @@ export default function ExpertisePageClient({
         category:
           expertise.slug === "mobile-development"
             ? ["Mobile App Development", "iOS Development", "Android Development", "Cross-Platform Development"]
+            : expertise.slug === "ai-engineering"
+            ? ["AI Engineering", "Machine Learning", "MLOps", "AI System Development"]
             : [pageData.hero.badge, "Enterprise AI Engineering", "Software Development"],
       },
       // FAQ Schema (only if FAQs exist)
