@@ -8,14 +8,14 @@ test.describe("Navigation", () => {
   });
 
   test("about page loads correctly", async ({ page }) => {
-    await page.goto("/about");
-    await expect(page).toHaveTitle(/About/);
+    await page.goto("/about-us");
+    await expect(page).toHaveTitle(/About Procedure/);
     await expect(page.locator("h1")).toBeVisible();
   });
 
   test("contact page loads correctly", async ({ page }) => {
-    await page.goto("/contact");
-    await expect(page).toHaveTitle(/Contact/);
+    await page.goto("/contact-us");
+    await expect(page).toHaveTitle(/Contact Procedure/);
     await expect(page.locator("h1")).toBeVisible();
   });
 
@@ -25,7 +25,7 @@ test.describe("Navigation", () => {
   });
 
   test("case studies page loads correctly", async ({ page }) => {
-    await page.goto("/case-studies");
+    await page.goto("/work");
     await expect(page).toHaveTitle(/Case Studies/);
     await expect(page.locator("h1")).toBeVisible();
   });
@@ -43,18 +43,18 @@ test.describe("Navigation", () => {
 
   test("direct navigation works", async ({ page }) => {
     // Test direct URL navigation works for key pages
-    await page.goto("/about");
-    await expect(page).toHaveURL(/\/about/);
+    await page.goto("/about-us");
+    await expect(page).toHaveURL(/\/about-us/);
 
-    await page.goto("/contact");
-    await expect(page).toHaveURL(/\/contact/);
+    await page.goto("/contact-us");
+    await expect(page).toHaveURL(/\/contact-us/);
 
-    await page.goto("/case-studies");
-    await expect(page).toHaveURL(/\/case-studies/);
+    await page.goto("/work");
+    await expect(page).toHaveURL(/\/work/);
   });
 
   test("logo links to homepage", async ({ page }) => {
-    await page.goto("/about");
+    await page.goto("/about-us");
 
     // Click the logo to go back to homepage
     const logo = page.locator('a[href="/"]').first();
