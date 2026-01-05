@@ -56,6 +56,8 @@ export default function ExpertisePageClient({
         serviceType:
           expertise.slug === "software-testing-and-qa"
             ? ["Software Testing", "Quality Assurance", "Test Automation", "Performance Testing", "API Testing"]
+            : expertise.slug === "ai-security"
+            ? ["AI Security", "LLM Security", "AI Threat Protection", "Secure AI Development"]
             : pageData.hero.badge,
         areaServed: [
           { "@type": "Country", name: "United States" },
@@ -64,6 +66,8 @@ export default function ExpertisePageClient({
         category:
           expertise.slug === "software-testing-and-qa"
             ? ["Software Testing", "Quality Assurance", "Test Automation"]
+            : expertise.slug === "ai-security"
+            ? ["AI Security", "LLM Security", "AI Threat Modeling", "Secure AI Engineering"]
             : [pageData.hero.badge, "Enterprise AI Engineering", "Software Development"],
       },
       // FAQ Schema (only if FAQs exist)
