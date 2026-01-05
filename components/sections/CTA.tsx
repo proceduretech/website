@@ -38,7 +38,7 @@ export function CTA() {
           within 2-5 days.
         </p>
         <CalButton className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base font-semibold text-cta-text bg-cta rounded-lg hover:brightness-110 transition-all duration-200 shadow-lg shadow-cta/25 cursor-pointer">
-          Schedule Your AI Strategy Call
+          Schedule AI Strategy Call
         </CalButton>
       </motion.div>
     </section>

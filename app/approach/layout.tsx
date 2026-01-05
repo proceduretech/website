@@ -4,6 +4,9 @@ export const metadata: Metadata = {
   title: "Our Approach | Procedure - AI Engineering That Ships",
   description:
     "Discover how Procedure works with enterprise clients. Our proven methodology takes you from discovery to production AI in days, not months.",
+  alternates: {
+    canonical: "/approach",
+  },
   openGraph: {
     title: "Our Approach | Procedure",
     description:

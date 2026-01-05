@@ -145,21 +145,18 @@ export function Navigation() {
             <nav className="hidden lg:flex lg:space-x-1">
               <NavItem
                 label="Services"
-                href="/services"
                 megaMenu={navigationData.services}
                 isOpen={activeMenu === "services"}
                 onHover={() => handleNavItemHover("services")}
               />
               <NavItem
                 label="Expertise"
-                href="/expertise"
                 megaMenu={navigationData.expertise}
                 isOpen={activeMenu === "expertise"}
                 onHover={() => handleNavItemHover("expertise")}
               />
               <NavItem
                 label="Industries"
-                href="/industries"
                 megaMenu={navigationData.industries}
                 isOpen={activeMenu === "industries"}
                 onHover={() => handleNavItemHover("industries")}
@@ -171,14 +168,12 @@ export function Navigation() {
               />
               <NavItem
                 label="About"
-                href="/about-us"
                 megaMenu={navigationData.about}
                 isOpen={activeMenu === "about"}
                 onHover={() => handleNavItemHover("about")}
               />
               <NavItem
                 label="Resources"
-                href="/resources"
                 megaMenu={navigationData.resources}
                 isOpen={activeMenu === "resources"}
                 onHover={() => handleNavItemHover("resources")}
@@ -270,7 +265,6 @@ export function Navigation() {
               {/* Services */}
               <MobileNavSection
                 title="Services"
-                href="/services"
                 isExpanded={expandedMobileSection === "services"}
                 onToggle={() => toggleMobileSection("services")}
                 sections={navigationData.services}
@@ -280,7 +274,6 @@ export function Navigation() {
               {/* Expertise */}
               <MobileNavSection
                 title="Expertise"
-                href="/expertise"
                 isExpanded={expandedMobileSection === "expertise"}
                 onToggle={() => toggleMobileSection("expertise")}
                 sections={navigationData.expertise}
@@ -290,7 +283,6 @@ export function Navigation() {
               {/* Industries */}
               <MobileNavSection
                 title="Industries"
-                href="/industries"
                 isExpanded={expandedMobileSection === "industries"}
                 onToggle={() => toggleMobileSection("industries")}
                 sections={navigationData.industries}
@@ -309,7 +301,6 @@ export function Navigation() {
               {/* About */}
               <MobileNavSection
                 title="About"
-                href="/about-us"
                 isExpanded={expandedMobileSection === "about"}
                 onToggle={() => toggleMobileSection("about")}
                 sections={navigationData.about}
@@ -319,7 +310,6 @@ export function Navigation() {
               {/* Resources */}
               <MobileNavSection
                 title="Resources"
-                href="/resources"
                 isExpanded={expandedMobileSection === "resources"}
                 onToggle={() => toggleMobileSection("resources")}
                 sections={navigationData.resources}

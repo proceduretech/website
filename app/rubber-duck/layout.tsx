@@ -16,6 +16,9 @@ export const metadata: Metadata = {
     "frontend developer training",
     "backend developer training",
   ],
+  alternates: {
+    canonical: "/rubber-duck",
+  },
   openGraph: {
     title: "Rubber Duck Bootcamp | Procedure",
     description:
@@ -28,6 +31,8 @@ export const metadata: Metadata = {
     title: "Rubber Duck Bootcamp | Procedure",
     description:
       "A 12-week intensive in-person boot camp for fresh engineering graduates. Get hired, get trained, and launch your software engineering career.",
+    site: "@procedurehq",
+    creator: "@procedurehq",
   },
 };
 

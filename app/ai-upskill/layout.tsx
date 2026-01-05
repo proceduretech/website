@@ -16,6 +16,9 @@ export const metadata: Metadata = {
     "AI engineering certification India",
     "LLM development training",
   ],
+  alternates: {
+    canonical: "/ai-upskill",
+  },
   openGraph: {
     title: "AI Upskill | AI Engineering Bootcamp | Procedure",
     description:
@@ -28,6 +31,8 @@ export const metadata: Metadata = {
     title: "AI Upskill | AI Engineering Bootcamp | Procedure",
     description:
       "A 12-week intensive AI engineering bootcamp covering RAG, Agents, Fine-tuning, and MLOps. Transform from developer to AI engineer.",
+    site: "@procedurehq",
+    creator: "@procedurehq",
   },
 };
 

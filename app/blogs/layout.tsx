@@ -28,6 +28,8 @@ export const metadata: Metadata = {
     title: "AI Engineering Blog | Procedure",
     description:
       "Battle-tested insights on LLMs, AI security, and production systems from engineers building enterprise AI infrastructure.",
+    site: "@procedurehq",
+    creator: "@procedurehq",
   },
 };
 

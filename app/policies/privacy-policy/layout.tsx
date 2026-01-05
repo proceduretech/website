@@ -5,11 +5,11 @@ export const metadata: Metadata = {
   description:
     "Learn how Procedure collects, uses, and protects your information.",
   alternates: {
-    canonical: "/privacy",
+    canonical: "/policies/privacy-policy",
   },
 };
 
-export default function PrivacyLayout({
+export default function PrivacyPolicyLayout({
   children,
 }: {
   children: React.ReactNode;

@@ -5,3 +5,4 @@ export { TechStack } from "./TechStack";
 export { ExpertiseCTA } from "./ExpertiseCTA";
 export { FAQSection } from "./FAQSection";
 export { RelatedExpertise } from "./RelatedExpertise";
+export { TestimonialsSection } from "./TestimonialsSection";
