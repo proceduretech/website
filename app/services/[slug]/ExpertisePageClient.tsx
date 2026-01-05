@@ -53,13 +53,18 @@ export default function ExpertisePageClient({
           "@type": "Organization",
           "@id": "https://procedure.tech/#organization",
         },
-        serviceType: pageData.hero.badge,
-        areaServed: "Worldwide",
-        category: [
-          pageData.hero.badge,
-          "Enterprise AI Engineering",
-          "Software Development",
+        serviceType:
+          expertise.slug === "software-testing-and-qa"
+            ? ["Software Testing", "Quality Assurance", "Test Automation", "Performance Testing", "API Testing"]
+            : pageData.hero.badge,
+        areaServed: [
+          { "@type": "Country", name: "United States" },
+          { "@type": "Country", name: "India" },
         ],
+        category:
+          expertise.slug === "software-testing-and-qa"
+            ? ["Software Testing", "Quality Assurance", "Test Automation"]
+            : [pageData.hero.badge, "Enterprise AI Engineering", "Software Development"],
       },
       // FAQ Schema (only if FAQs exist)
       ...(pageData.faqs.length > 0
