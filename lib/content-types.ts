@@ -135,6 +135,42 @@ export interface ExpertiseFrontmatter extends BaseFrontmatter {
     quote: string;
   }>;
   cta?: CTABlock;
+  // Optional frontend-specific sections
+  whoWeWorkWith?: {
+    audiences: Array<{
+      icon: string;
+      title: string;
+      description: string;
+    }>;
+    closingStatement?: string;
+  };
+  process?: Array<{
+    number: number;
+    title: string;
+    description: string;
+    icon?: string;
+  }>;
+  useCases?: Array<{
+    icon: string;
+    title: string;
+    description: string;
+  }>;
+  whyChoose?: {
+    reasons: string[];
+    outcomes: Array<{
+      value: string;
+      label: string;
+    }>;
+  };
+  qualityMatters?: {
+    costs: Array<{
+      title: string;
+      description: string;
+    }>;
+    benefits: Array<{
+      title: string;
+    }>;
+  };
 }
 
 // =============================================================================

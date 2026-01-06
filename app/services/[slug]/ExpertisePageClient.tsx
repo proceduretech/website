@@ -10,8 +10,13 @@ import {
   FAQSection,
   ExpertiseCTA,
   RelatedExpertise,
-  TestimonialsSection,
+  WhoWeWorkWith,
+  ProcessTimeline,
+  UseCasesGrid,
+  WhyChooseProcedure,
+  QualityMatters,
 } from "@/components/expertise";
+import { Testimonials } from "@/components/sections/Testimonials";
 
 interface RelatedPage {
   slug: string;
@@ -54,12 +59,28 @@ export default function ExpertisePageClient({
           "@id": "https://procedure.tech/#organization",
         },
         serviceType: pageData.hero.badge,
-        areaServed: "Worldwide",
-        category: [
-          pageData.hero.badge,
-          "Enterprise AI Engineering",
-          "Software Development",
+        areaServed: [
+          { "@type": "Country", name: "United States" },
+          { "@type": "Country", name: "India" },
         ],
+        availableChannel: [
+          {
+            "@type": "ServiceChannel",
+            serviceUrl: `https://procedure.tech/services/${expertise.slug}`,
+            serviceType: "In-Person",
+          },
+          {
+            "@type": "ServiceChannel",
+            serviceUrl: `https://procedure.tech/services/${expertise.slug}`,
+            serviceType: "Remote",
+          },
+        ],
+        category:
+          expertise.slug === "backend-development"
+            ? ["Backend Engineering", "Software Development", "API Development"]
+            : expertise.slug === "frontend-development"
+            ? ["Frontend Engineering", "Web Development", "UI/UX Development"]
+            : [pageData.hero.badge, "Enterprise AI Engineering", "Software Development"],
       },
       // FAQ Schema (only if FAQs exist)
       ...(pageData.faqs.length > 0
@@ -122,6 +143,13 @@ export default function ExpertisePageClient({
         headlineAccent={pageData.hero.headlineAccent}
         tagline={pageData.hero.tagline}
         description={pageData.hero.description}
+        primaryCTA={
+          expertise.slug === "frontend-development"
+            ? { text: "Talk to a Frontend Specialist", href: "/contact-us" }
+            : expertise.slug === "backend-development"
+            ? { text: "Talk to a Backend Specialist", href: "/contact-us" }
+            : undefined
+        }
         secondaryCTA={
           [
             "ai-engineering",
@@ -140,6 +168,25 @@ export default function ExpertisePageClient({
         capabilities={capabilities}
       />
 
+      {["frontend-development", "backend-development"].includes(expertise.slug) && pageData.whoWeWorkWith && (
+        <WhoWeWorkWith
+          title="Who We Work With"
+          audiences={pageData.whoWeWorkWith.audiences.map((a) => ({
+            ...a,
+            icon: Icons[a.icon as keyof typeof Icons] || Icons.users,
+          }))}
+          closingStatement={pageData.whoWeWorkWith.closingStatement}
+        />
+      )}
+
+      {pageData.process && (
+        <ProcessTimeline
+          title={expertise.slug === "frontend-development" ? "Our Frontend Development Process" : expertise.slug === "backend-development" ? "Our Backend Development Process" : "Our Process"}
+          subtitle="A predictable process built for high-quality delivery"
+          steps={pageData.process}
+        />
+      )}
+
       {pageData.whyProcedure.length > 0 && (
         <WhyProcedure
           title={`Why Procedure for ${pageData.hero.badge}?`}
@@ -153,8 +200,41 @@ export default function ExpertisePageClient({
         technologies={technologies}
       />
 
+      {pageData.useCases && (
+        <UseCasesGrid
+          title={expertise.slug === "frontend-development" ? "Frontend Development Use Cases" : expertise.slug === "backend-development" ? "Backend Development Use Cases" : "Use Cases"}
+          subtitle={expertise.slug === "frontend-development" ? "Our frontend development services support" : expertise.slug === "backend-development" ? "Our backend development services support" : "Our services support"}
+          useCases={pageData.useCases.map((uc) => ({
+            ...uc,
+            icon: Icons[uc.icon as keyof typeof Icons] || Icons.code,
+          }))}
+          columns={2}
+        />
+      )}
+
+      {pageData.whyChoose && (
+        <WhyChooseProcedure
+          title={expertise.slug === "frontend-development" ? "Why Choose Procedure for Frontend Development" : expertise.slug === "backend-development" ? "Why Choose Procedure for Backend Development" : `Why Choose Procedure for ${pageData.hero.badge}`}
+          subtitle="Companies choose Procedure because"
+          reasons={pageData.whyChoose.reasons}
+          outcomesTitle={expertise.slug === "frontend-development" ? "Outcomes from recent frontend engagements" : expertise.slug === "backend-development" ? "Outcomes from recent backend engagements" : "Outcomes from recent engagements"}
+          outcomes={pageData.whyChoose.outcomes}
+        />
+      )}
+
       {pageData.testimonials && pageData.testimonials.length > 0 && (
-        <TestimonialsSection testimonials={pageData.testimonials} />
+        <Testimonials />
+      )}
+
+      {pageData.qualityMatters && (
+        <QualityMatters
+          title={expertise.slug === "frontend-development" ? "Why Frontend Quality Matters" : expertise.slug === "backend-development" ? "Why Backend Quality Matters" : "Why Quality Matters"}
+          subtitle={expertise.slug === "frontend-development" ? "The frontend is often the first—and only—touchpoint users have with your product" : expertise.slug === "backend-development" ? "Backend systems fail quietly — until they don't" : undefined}
+          costsTitle={expertise.slug === "frontend-development" ? "Poor frontend engineering costs you" : expertise.slug === "backend-development" ? "Poor backend engineering costs you" : "Poor engineering costs you"}
+          costs={pageData.qualityMatters.costs}
+          benefitsTitle={expertise.slug === "frontend-development" ? "Premium frontend development is an investment in" : expertise.slug === "backend-development" ? "Premium backend development is an investment in" : "Premium development is an investment in"}
+          benefits={pageData.qualityMatters.benefits}
+        />
       )}
 
       {pageData.faqs.length > 0 && <FAQSection faqs={pageData.faqs} />}
