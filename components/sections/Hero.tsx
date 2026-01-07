@@ -121,8 +121,16 @@ export function Hero() {
               x2="100%"
               y2="100%"
             >
-              <stop offset="0%" stopColor="var(--color-accent-light)" stopOpacity="0.5" />
-              <stop offset="100%" stopColor="var(--color-accent-light)" stopOpacity="0.2" />
+              <stop
+                offset="0%"
+                stopColor="var(--color-accent-light)"
+                stopOpacity="0.5"
+              />
+              <stop
+                offset="100%"
+                stopColor="var(--color-accent-light)"
+                stopOpacity="0.2"
+              />
             </linearGradient>
           </defs>
         </svg>
@@ -166,9 +174,13 @@ export function Hero() {
 
           {/* Subheadline */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{
+              duration: 0.6,
+              delay: 0.75,
+              ease: [0.22, 1, 0.36, 1],
+            }}
             className="mt-5 sm:mt-6 text-base sm:text-lg md:text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed"
           >
             Senior AI engineers embedded with your team within 2-5 days. We
@@ -206,7 +218,10 @@ export function Hero() {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce"
       >
         <div className="w-6 h-10 border-2 border-border rounded-full flex justify-center">
-          <div className="w-1 h-3 rounded-full mt-2" style={{ backgroundColor: 'var(--color-text-muted)' }} />
+          <div
+            className="w-1 h-3 rounded-full mt-2"
+            style={{ backgroundColor: "var(--color-text-muted)" }}
+          />
         </div>
       </motion.div>
     </section>

@@ -11,8 +11,15 @@
     "test:e2e": "playwright test",
     "seo:check": "node scripts/seo-check.mjs",
     "lighthouse": "lhci autorun",
-    "bundle:check": "node scripts/bundle-budget.mjs"
+    "bundle:check": "node scripts/bundle-budget.mjs",
+    "polyfills:check": "node scripts/check-polyfills.mjs"
   },
+  "browserslist": [
+    "chrome >= 90",
+    "firefox >= 88",
+    "safari >= 14",
+    "edge >= 90"
+  ],
   "dependencies": {
     "@calcom/embed-react": "^1.5.3",
     "@icons-pack/react-simple-icons": "^13.8.0",
@@ -23,7 +30,6 @@
     "@tailwindcss/typography": "^0.5.19",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "framer-motion": "^12.23.25",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.561.0",
     "motion": "^12.23.26",

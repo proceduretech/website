@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui";
 import { ClientLogos } from "@/components/sections/ClientLogos";
 import { ReactNode } from "react";
+import { cn } from "@/lib/utils";
 
 interface Stat {
   value: string;
@@ -45,16 +46,23 @@ export function PageHero({
   secondaryCTA = { text: "View Case Studies", href: "/work" },
   children,
 }: PageHeroProps) {
-  const badgeColorClasses =
+  // Use full class names so Tailwind can detect them (not in template literals)
+  const badgeColorClasses = cn(
+    "inline-flex items-center gap-2 px-4 py-1.5 rounded-full border mb-8",
     badgeVariant === "blue"
       ? "bg-accent-secondary/10 border-accent-secondary/20 text-accent-secondary-light"
-      : "bg-accent/10 border-accent/20 text-accent-light";
+      : "bg-accent/10 border-accent/20 text-accent-light"
+  );
 
-  const pulseColorClass =
-    badgeVariant === "blue" ? "bg-accent-secondary-light" : "bg-accent-light";
+  const pulseColorClass = cn(
+    "w-1.5 h-1.5 rounded-full animate-pulse",
+    badgeVariant === "blue" ? "bg-accent-secondary-light" : "bg-accent-light"
+  );
 
-  const glowColor =
-    badgeVariant === "blue" ? "bg-accent-secondary/8" : "bg-accent/8";
+  const glowColor = cn(
+    "absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full blur-[120px]",
+    badgeVariant === "blue" ? "bg-accent-secondary/8" : "bg-accent/8"
+  );
 
   return (
     <section className="relative pt-32 pb-24 sm:pb-36 bg-base overflow-hidden">
@@ -65,9 +73,7 @@ export function PageHero({
         transition={{ duration: 1.2 }}
         className="absolute inset-0 pointer-events-none"
       >
-        <div
-          className={`absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] ${glowColor} rounded-full blur-[120px]`}
-        />
+        <div className={glowColor} />
       </motion.div>
 
       {/* Main content - CENTERED */}
@@ -78,11 +84,9 @@ export function PageHero({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: smoothEasing }}
-            className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full border mb-8 ${badgeColorClasses}`}
+            className={badgeColorClasses}
           >
-            <div
-              className={`w-1.5 h-1.5 rounded-full animate-pulse ${pulseColorClass}`}
-            />
+            <div className={pulseColorClass} />
             <span className="text-sm font-medium">{badge}</span>
           </motion.div>
 
