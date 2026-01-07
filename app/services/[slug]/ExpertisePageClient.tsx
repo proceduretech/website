@@ -58,7 +58,20 @@ export default function ExpertisePageClient({
           "@type": "Organization",
           "@id": "https://procedure.tech/#organization",
         },
-        serviceType: pageData.hero.badge,
+        serviceType:
+          expertise.slug === "software-testing-and-qa"
+            ? ["Software Testing", "Quality Assurance", "Test Automation", "Performance Testing", "API Testing"]
+            : expertise.slug === "ai-security"
+            ? ["AI Security", "LLM Security", "AI Threat Protection", "Secure AI Development"]
+            : expertise.slug === "mobile-development"
+            ? ["iOS App Development", "Android App Development", "Cross-Platform App Development", "Mobile Backend Development", "Mobile App Modernization"]
+            : expertise.slug === "ai-engineering"
+            ? ["AI Engineering", "ML Development", "LLMOps", "MLOps", "AI System Architecture"]
+            : expertise.slug === "product-design"
+            ? ["Product Design", "UX Design", "UI Design", "Design Systems", "Product Strategy", "User Research"]
+            : expertise.slug === "kubernetes"
+            ? ["Kubernetes Consulting", "Container Orchestration", "Cloud Native Infrastructure", "Kubernetes Implementation", "Kubernetes Optimization"]
+            : pageData.hero.badge,
         areaServed: [
           { "@type": "Country", name: "United States" },
           { "@type": "Country", name: "India" },
@@ -76,7 +89,19 @@ export default function ExpertisePageClient({
           },
         ],
         category:
-          expertise.slug === "backend-development"
+          expertise.slug === "software-testing-and-qa"
+            ? ["Software Testing", "Quality Assurance", "Test Automation"]
+            : expertise.slug === "ai-security"
+            ? ["AI Security", "LLM Security", "AI Threat Modeling", "Secure AI Engineering"]
+            : expertise.slug === "mobile-development"
+            ? ["Mobile App Development", "iOS Development", "Android Development", "Cross-Platform Development"]
+            : expertise.slug === "ai-engineering"
+            ? ["AI Engineering", "Machine Learning", "MLOps", "AI System Development"]
+            : expertise.slug === "product-design"
+            ? ["Product Design", "UX Design", "UI Design", "Design Systems", "User Experience"]
+            : expertise.slug === "kubernetes"
+            ? ["Kubernetes Consulting", "Container Orchestration", "Cloud Native", "Infrastructure Engineering"]
+            : expertise.slug === "backend-development"
             ? ["Backend Engineering", "Software Development", "API Development"]
             : expertise.slug === "frontend-development"
             ? ["Frontend Engineering", "Web Development", "UI/UX Development"]
