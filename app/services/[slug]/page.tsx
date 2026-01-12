@@ -61,7 +61,7 @@ export default async function ServicePage({ params }: Props) {
   }
 
   // Check if it's a service-style or expertise-style MDX based on frontmatter
-  const frontmatter = rawContent.frontmatter as any;
+  const frontmatter = rawContent.frontmatter as unknown as Record<string, unknown>;
 
   // Service-style has 'benefits' and 'process', expertise-style has 'capabilities'
   if (frontmatter.benefits && frontmatter.process) {

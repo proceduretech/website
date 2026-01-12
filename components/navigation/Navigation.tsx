@@ -1085,7 +1085,6 @@ interface MobileNavSectionProps {
 
 function MobileNavSection({
   title,
-  href,
   isExpanded,
   onToggle,
   sections,

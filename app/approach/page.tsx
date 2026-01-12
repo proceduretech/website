@@ -1071,7 +1071,7 @@ export default function ApproachPage() {
               </svg>
 
               <blockquote className="relative text-lg sm:text-xl text-text-secondary leading-relaxed mb-8 pl-0 sm:pl-8">
-                &quot;What started with one engineer nearly three years ago has grown into a team of five, each fully owning their deliverables. They've taken on critical core roles across teams. We're extremely pleased with the commitment and engagement they bring.&quot;
+                &quot;What started with one engineer nearly three years ago has grown into a team of five, each fully owning their deliverables. They&apos;ve taken on critical core roles across teams. We&apos;re extremely pleased with the commitment and engagement they bring.&quot;
               </blockquote>
 
               <div className="flex items-center gap-4 pl-0 sm:pl-8">
