@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Procedure Website
+
+A premium enterprise website built with Next.js 16, showcasing modern web development practices for AI engineering services.
+
+## Tech Stack
+
+- **Framework:** Next.js 16 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS v4
+- **Animations:** Framer Motion
+- **Fonts:** Inter (body) + Outfit (headings)
+- **Content:** MDX with Notion integration
+- **Testing:** Playwright (E2E), Lighthouse CI
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/proceduretech/website.git
+cd website
+
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your API keys (optional - for Notion blog integration)
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Build for production |
+| `npm run start` | Start production server |
+| `npm run lint` | Run ESLint |
+| `npm run typecheck` | Run TypeScript type checking |
+| `npm run test:e2e` | Run Playwright E2E tests |
+| `npm run lighthouse` | Run Lighthouse CI audits |
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+app/                    # App Router pages and layouts
+components/
+  navigation/           # Navigation system with mega menus
+  sections/             # Homepage sections (Hero, Services, etc.)
+  ui/                   # Reusable UI components
+content/                # MDX blog posts and service pages
+lib/                    # Utilities and configurations
+public/                 # Static assets
+docs/                   # Project documentation
+tests/                  # E2E tests
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+See [CLAUDE.md](./CLAUDE.md) for detailed architecture documentation.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Design System
 
-## Deploy on Vercel
+- **Theme:** Dark theme with premium enterprise aesthetic
+- **Colors:** Dark navy base (#0F172A), Teal accent (#14B8A6)
+- **Typography:** Inter for body, Outfit for headings
+- **Components:** Glassmorphic cards, floating label inputs, scroll animations
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Environment Variables
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `NOTION_TOKEN` | Notion API token for blog integration | Optional |
+| `GOOGLE_API_KEY` | Google API key | Optional |
+
+## Contributing
+
+Contributions are welcome! Please read our [Contributing Guidelines](./CONTRIBUTING.md) before submitting a PR.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+
+## Acknowledgments
+
+Built by [Procedure](https://procedure.tech) - AI Engineering Services
