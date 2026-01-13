@@ -713,7 +713,7 @@ export default function CareersPage() {
 
                         {/* Apply Button */}
                         <Link
-                          href={`/contact?role=${job.id}`}
+                          href={`/contact-us?role=${job.id}`}
                           className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-cta-text bg-cta rounded-xl hover:brightness-110 transition-all duration-200 shadow-lg shadow-cta/25"
                         >
                           Apply Now
