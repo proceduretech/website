@@ -293,8 +293,21 @@ export default function RootLayout({
         {/* Preload critical assets */}
         <link rel="preload" href="/icon.svg" as="image" type="image/svg+xml" />
 
-        {/* Performance hint for LCP image */}
-        <link rel="preload" as="image" href="/og-image.png" fetchPriority="high" />
+        {/* Preload fonts to prevent layout shifts */}
+        <link
+          rel="preload"
+          href="https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1O4a0Ew.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
 
         <script
           type="application/ld+json"

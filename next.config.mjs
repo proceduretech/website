@@ -23,6 +23,45 @@ const nextConfig = {
     webpackBuildWorker: true, // Faster builds with workers
   },
 
+  // Webpack optimizations for bundle size
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      // Optimize client-side bundle
+      config.optimization = {
+        ...config.optimization,
+        usedExports: true,
+        sideEffects: false,
+        splitChunks: {
+          chunks: "all",
+          cacheGroups: {
+            // Separate framer-motion into its own chunk
+            framerMotion: {
+              test: /[\\/]node_modules[\\/]framer-motion[\\/]/,
+              name: "framer-motion",
+              priority: 30,
+              reuseExistingChunk: true,
+            },
+            // Separate other UI libraries
+            uiLibs: {
+              test: /[\\/]node_modules[\\/](@radix-ui|lucide-react|react-icons)[\\/]/,
+              name: "ui-libs",
+              priority: 20,
+              reuseExistingChunk: true,
+            },
+            // Default vendor chunk
+            vendor: {
+              test: /[\\/]node_modules[\\/]/,
+              name: "vendor",
+              priority: 10,
+              reuseExistingChunk: true,
+            },
+          },
+        },
+      };
+    }
+    return config;
+  },
+
   // Performance optimizations for LCP
   poweredByHeader: false,
   generateEtags: true,
@@ -30,7 +69,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
     formats: ["image/avif", "image/webp"],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    // Optimized device sizes for better responsive images
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 31536000, // 1 year cache for optimized images
     dangerouslyAllowSVG: true,
@@ -53,20 +93,9 @@ const nextConfig = {
   },
   compress: true,
   productionBrowserSourceMaps: false,
-  async redirects() {
-    return [
-      {
-        source: "/policies/privacy-policy",
-        destination: "/privacy",
-        permanent: true,
-      },
-      {
-        source: "/policies/terms-conditions",
-        destination: "/terms",
-        permanent: true,
-      },
-    ];
-  },
+  // Note: headers() and redirects() don't work with output: "export"
+  // Cache headers are handled via public/_headers (Netlify/Cloudflare) and vercel.json (Vercel)
+  // Redirects should be configured in the deployment platform settings
 };
 
 const withMDX = createMDX({
