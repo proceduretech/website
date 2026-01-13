@@ -37,10 +37,19 @@ interface BlogPostPageProps {
   }>;
 }
 
-// Generate static params for all blog posts from Notion
 export async function generateStaticParams() {
-  const slugs = await getNotionBlogSlugs();
-  return slugs.map((slug) => ({ slug }));
+  try {
+    const slugs = await getNotionBlogSlugs();
+    // Ensure we always return an array, even if empty
+    if (!Array.isArray(slugs)) {
+      return [];
+    }
+    return slugs.map((slug) => ({ slug }));
+  } catch (error) {
+    console.error("Error generating static params for blog posts:", error);
+    // Return empty array to allow build to continue
+    return [];
+  }
 }
 
 // Generate metadata for SEO
