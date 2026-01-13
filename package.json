@@ -15,10 +15,12 @@
     "polyfills:check": "node scripts/check-polyfills.mjs"
   },
   "browserslist": [
-    "chrome >= 90",
-    "firefox >= 88",
-    "safari >= 14",
-    "edge >= 90"
+    "chrome >= 100",
+    "firefox >= 100",
+    "safari >= 15",
+    "edge >= 100",
+    "not dead",
+    "not op_mini all"
   ],
   "dependencies": {
     "@calcom/embed-react": "^1.5.3",

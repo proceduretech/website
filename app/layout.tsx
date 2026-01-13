@@ -13,6 +13,8 @@ const outfit = Outfit({
   subsets: ["latin"],
   display: "swap", // Prevents FOIT (Flash of Invisible Text)
   preload: true, // Preloads font files for faster rendering
+  adjustFontFallback: true, // Automatically adjust font fallback metrics
+  fallback: ["system-ui", "-apple-system", "Segoe UI", "sans-serif"],
 });
 
 const inter = Inter({
@@ -20,6 +22,8 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap", // Prevents FOIT (Flash of Invisible Text)
   preload: true, // Preloads font files for faster rendering
+  adjustFontFallback: true, // Automatically adjust font fallback metrics
+  fallback: ["system-ui", "-apple-system", "Segoe UI", "sans-serif"],
 });
 
 const BASE_URL = "https://procedure.tech";
@@ -272,9 +276,8 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={themeClass}>
-      <GoogleTagManager gtmId="GTM-KD7CJ8RC" />
       <head>
-        {/* Resource Hints for Performance */}
+        {/* Critical Resource Hints for Performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -282,6 +285,29 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+
+        {/* Viewport optimization for mobile */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+
+        {/* Preload critical assets */}
+        <link rel="preload" href="/icon.svg" as="image" type="image/svg+xml" />
+
+        {/* Preload fonts to prevent layout shifts */}
+        <link
+          rel="preload"
+          href="https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1O4a0Ew.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
 
         <script
           type="application/ld+json"
@@ -303,6 +329,9 @@ export default function RootLayout({
         />
       </head>
       <body className={`${outfit.variable} ${inter.variable} antialiased`}>
+        {/* GTM - Load early but non-blocking */}
+        <GoogleTagManager gtmId="GTM-KD7CJ8RC" />
+
         {/* Main content wrapper - sits above the fixed footer reveal */}
         <div className="relative z-10 bg-base">
           <Navigation />
@@ -312,8 +341,10 @@ export default function RootLayout({
         {/* Footer reveal - fixed at bottom, revealed when scrolling */}
         <FooterReveal />
         <CookieBanner />
+
+        {/* Load GA after main content - non-blocking */}
+        <GoogleAnalytics gaId="G-2KW21KL401" />
       </body>
-      <GoogleAnalytics gaId="G-2KW21KL401" />
     </html>
   );
 }

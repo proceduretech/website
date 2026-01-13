@@ -1344,3 +1344,96 @@ html:not(.dark) .text-amber-400 {
 .border-tip\/20 {
   border-color: var(--color-callout-tip-border) !important;
 }
+
+/* =============================================================================
+   PERFORMANCE OPTIMIZATIONS
+
+   CSS optimizations to improve Core Web Vitals (CLS, LCP, FID)
+   ============================================================================= */
+
+/* Reduce layout shifts by defining aspect ratios for images */
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+/* Optimize font rendering for faster text display */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Prevent layout shift from scrollbars */
+html {
+  scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+}
+
+/* GPU acceleration for smooth animations */
+.animate-slide-in-from-bottom,
+.animate-fade-in,
+.animate-scale-in,
+.group:hover {
+  will-change: transform;
+}
+
+/* Contain paint for better performance */
+section,
+article,
+main {
+  contain: paint;
+}
+
+/* Optimize images for faster loading */
+img[loading="lazy"] {
+  content-visibility: auto;
+}
+
+/* Prevent CLS from web fonts */
+.font-outfit,
+.font-inter {
+  font-display: swap;
+  font-feature-settings: "liga" 1, "calt" 1;
+}
+
+/* Reduce repaints for fixed/sticky elements */
+.sticky,
+.fixed {
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Respect user preferences for motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Critical above-the-fold optimizations */
+.above-fold {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+
+/* Optimize images for Core Web Vitals */
+img[fetchpriority="high"] {
+  will-change: auto;
+}
+
+/* Reduce layout shift for async content */
+.async-content {
+  min-height: 200px;
+  contain: layout style paint;
+}
+
+/* Optimize third-party embeds */
+iframe {
+  loading: lazy;
+}
