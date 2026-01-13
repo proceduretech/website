@@ -29,7 +29,7 @@ export function CaseStudyCard({
       className="group"
     >
       <Link
-        href={`/case-studies/${study.id}`}
+        href={`/work/${study.id}`}
         className="block h-full"
       >
         <div className="h-full flex flex-col bg-surface-elevated border border-border rounded-2xl overflow-hidden hover:border-accent/30 transition-colors">
