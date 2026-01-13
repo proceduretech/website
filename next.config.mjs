@@ -31,12 +31,22 @@ const nextConfig = {
         ...config.optimization,
         usedExports: true,
         sideEffects: false,
+        minimize: true,
         splitChunks: {
           chunks: "all",
+          maxInitialRequests: 25,
+          minSize: 20000,
           cacheGroups: {
+            // React & React-DOM in separate chunk
+            react: {
+              test: /[\\/]node_modules[\\/](react|react-dom|scheduler)[\\/]/,
+              name: "react",
+              priority: 40,
+              reuseExistingChunk: true,
+            },
             // Separate framer-motion into its own chunk
             framerMotion: {
-              test: /[\\/]node_modules[\\/]framer-motion[\\/]/,
+              test: /[\\/]node_modules[\\/](framer-motion|motion)[\\/]/,
               name: "framer-motion",
               priority: 30,
               reuseExistingChunk: true,

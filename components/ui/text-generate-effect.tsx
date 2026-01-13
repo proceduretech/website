@@ -40,9 +40,10 @@ export const TextGenerateEffect = ({
           return (
             <motion.span
               key={word + idx}
-              className="opacity-0 inline-block mr-[0.25em]"
+              className="inline-block mr-[0.25em]"
               style={{
-                filter: filter ? "blur(10px)" : "none",
+                opacity: 0.3,
+                filter: filter ? "blur(5px)" : "none",
               }}
             >
               {word}
@@ -100,9 +101,10 @@ export const TextGenerateEffectHighlight = ({
           return (
             <motion.span
               key={word + idx}
-              className="opacity-0 inline-block mr-[0.25em]"
+              className="inline-block mr-[0.25em]"
               style={{
-                filter: filter ? "blur(10px)" : "none",
+                opacity: 0.3,
+                filter: filter ? "blur(5px)" : "none",
               }}
             >
               {word}
