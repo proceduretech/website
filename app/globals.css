@@ -1344,3 +1344,34 @@ html:not(.dark) .text-amber-400 {
 .border-tip\/20 {
   border-color: var(--color-callout-tip-border) !important;
 }
+
+/* Global custom scrollbar styling */
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+}
+
+/* WebKit browsers (Chrome, Safari, Edge) */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-border);
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-border-light);
+}
+
+/* Horizontal scrollbars */
+*::-webkit-scrollbar:horizontal {
+  height: 8px;
+}
