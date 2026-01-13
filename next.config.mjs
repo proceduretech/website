@@ -14,7 +14,13 @@ const nextConfig = {
   // Experimental optimizations
   experimental: {
     optimizeCss: true, // Optimize CSS loading
-    optimizePackageImports: ["framer-motion", "@radix-ui/react-icons"], // Tree-shake unused exports
+    optimizePackageImports: [
+      "framer-motion",
+      "@radix-ui/react-icons",
+      "lucide-react",
+      "react-icons",
+    ], // Tree-shake unused exports
+    webpackBuildWorker: true, // Faster builds with workers
   },
 
   // Performance optimizations for LCP

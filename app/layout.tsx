@@ -272,9 +272,8 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={themeClass}>
-      <GoogleTagManager gtmId="GTM-KD7CJ8RC" />
       <head>
-        {/* Resource Hints for Performance */}
+        {/* Critical Resource Hints for Performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -282,6 +281,10 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+
+        {/* Viewport optimization for mobile */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
 
         <script
           type="application/ld+json"
@@ -303,6 +306,9 @@ export default function RootLayout({
         />
       </head>
       <body className={`${outfit.variable} ${inter.variable} antialiased`}>
+        {/* GTM - Load early but non-blocking */}
+        <GoogleTagManager gtmId="GTM-KD7CJ8RC" />
+
         {/* Main content wrapper - sits above the fixed footer reveal */}
         <div className="relative z-10 bg-base">
           <Navigation />
@@ -312,8 +318,10 @@ export default function RootLayout({
         {/* Footer reveal - fixed at bottom, revealed when scrolling */}
         <FooterReveal />
         <CookieBanner />
+
+        {/* Load GA after main content - non-blocking */}
+        <GoogleAnalytics gaId="G-2KW21KL401" />
       </body>
-      <GoogleAnalytics gaId="G-2KW21KL401" />
     </html>
   );
 }

@@ -1344,3 +1344,53 @@ html:not(.dark) .text-amber-400 {
 .border-tip\/20 {
   border-color: var(--color-callout-tip-border) !important;
 }
+
+/* =============================================================================
+   ADDITIONAL PERFORMANCE OPTIMIZATIONS
+   ============================================================================= */
+
+/* Reduce repaints for fixed/sticky elements */
+.sticky,
+.fixed {
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Optimize scroll performance */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Respect user preferences for motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Critical above-the-fold optimizations */
+.above-fold {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+
+/* Optimize images for Core Web Vitals */
+img[fetchpriority="high"] {
+  will-change: auto;
+}
+
+/* Reduce layout shift for async content */
+.async-content {
+  min-height: 200px;
+  contain: layout style paint;
+}
+
+/* Optimize third-party embeds */
+iframe {
+  loading: lazy;
+}
