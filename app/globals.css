@@ -1346,19 +1346,62 @@ html:not(.dark) .text-amber-400 {
 }
 
 /* =============================================================================
-   ADDITIONAL PERFORMANCE OPTIMIZATIONS
+   PERFORMANCE OPTIMIZATIONS
+
+   CSS optimizations to improve Core Web Vitals (CLS, LCP, FID)
    ============================================================================= */
+
+/* Reduce layout shifts by defining aspect ratios for images */
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+/* Optimize font rendering for faster text display */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Prevent layout shift from scrollbars */
+html {
+  scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+}
+
+/* GPU acceleration for smooth animations */
+.animate-slide-in-from-bottom,
+.animate-fade-in,
+.animate-scale-in,
+.group:hover {
+  will-change: transform;
+}
+
+/* Contain paint for better performance */
+section,
+article,
+main {
+  contain: paint;
+}
+
+/* Optimize images for faster loading */
+img[loading="lazy"] {
+  content-visibility: auto;
+}
+
+/* Prevent CLS from web fonts */
+.font-outfit,
+.font-inter {
+  font-display: swap;
+  font-feature-settings: "liga" 1, "calt" 1;
+}
 
 /* Reduce repaints for fixed/sticky elements */
 .sticky,
 .fixed {
   backface-visibility: hidden;
   perspective: 1000px;
-}
-
-/* Optimize scroll performance */
-html {
-  scroll-behavior: smooth;
 }
 
 /* Respect user preferences for motion */
