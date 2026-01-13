@@ -13,6 +13,8 @@ const outfit = Outfit({
   subsets: ["latin"],
   display: "swap", // Prevents FOIT (Flash of Invisible Text)
   preload: true, // Preloads font files for faster rendering
+  adjustFontFallback: true, // Automatically adjust font fallback metrics
+  fallback: ["system-ui", "-apple-system", "Segoe UI", "sans-serif"],
 });
 
 const inter = Inter({
@@ -20,6 +22,8 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap", // Prevents FOIT (Flash of Invisible Text)
   preload: true, // Preloads font files for faster rendering
+  adjustFontFallback: true, // Automatically adjust font fallback metrics
+  fallback: ["system-ui", "-apple-system", "Segoe UI", "sans-serif"],
 });
 
 const BASE_URL = "https://procedure.tech";
@@ -282,6 +286,13 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+
+        {/* Preload critical assets */}
+        <link rel="preload" href="/icon.svg" as="image" type="image/svg+xml" />
+
+        {/* Performance hint for LCP image */}
+        <link rel="preload" as="image" href="/og-image.png" fetchPriority="high" />
 
         <script
           type="application/ld+json"
