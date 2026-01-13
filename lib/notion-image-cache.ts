@@ -1,22 +1,37 @@
 import { createHash } from "crypto";
 import { existsSync, mkdirSync, writeFileSync } from "fs";
-import { join } from "path";
+import { dirname, join } from "path";
+import { fileURLToPath } from "url";
 
 // Cache directory paths
 const CACHE_BASE_DIR = "public/content/cache";
 const CASE_STUDIES_CACHE_DIR = `${CACHE_BASE_DIR}/case-studies`;
 const BLOG_CACHE_DIR = `${CACHE_BASE_DIR}/blog`;
 
+// Get project root from this file's location (lib/ -> project root)
+// Using import.meta.url for Turbopack compatibility
+const PROJECT_ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
+
+// Get absolute path from project root
+function getAbsolutePath(relativePath: string): string {
+  return join(PROJECT_ROOT, relativePath);
+}
+
 // Ensure cache directories exist
 function ensureCacheDir(dir: string): void {
-  const fullPath = join(process.cwd(), dir);
+  const fullPath = getAbsolutePath(dir);
   if (!existsSync(fullPath)) {
     mkdirSync(fullPath, { recursive: true });
   }
 }
 
 // Generate a unique filename from URL
-function generateFilename(url: string, slug: string, type: "cover" | "content", index?: number): string {
+function generateFilename(
+  url: string,
+  slug: string,
+  type: "cover" | "content",
+  index?: number
+): string {
   // Create a short hash from the URL to ensure uniqueness
   const hash = createHash("md5").update(url).digest("hex").substring(0, 8);
 
@@ -59,20 +74,9 @@ async function downloadImage(url: string, localPath: string): Promise<boolean> {
   }
 }
 
-// Check if image already exists in cache
-function imageExists(localPath: string): boolean {
-  return existsSync(localPath);
-}
-
 // =============================================================================
 // Public API
 // =============================================================================
-
-export interface CachedImage {
-  originalUrl: string;
-  localPath: string;
-  publicPath: string;
-}
 
 /**
  * Cache a case study cover image
@@ -92,11 +96,11 @@ export async function cacheCaseStudyCover(
   ensureCacheDir(CASE_STUDIES_CACHE_DIR);
 
   const filename = generateFilename(url, slug, "cover");
-  const localPath = join(process.cwd(), CASE_STUDIES_CACHE_DIR, filename);
+  const localPath = getAbsolutePath(join(CASE_STUDIES_CACHE_DIR, filename));
   const publicPath = `/content/cache/case-studies/${filename}`;
 
   // Check if already cached
-  if (imageExists(localPath)) {
+  if (existsSync(localPath)) {
     return publicPath;
   }
 
@@ -122,11 +126,11 @@ export async function cacheCaseStudyContentImage(
   ensureCacheDir(CASE_STUDIES_CACHE_DIR);
 
   const filename = generateFilename(url, slug, "content", index);
-  const localPath = join(process.cwd(), CASE_STUDIES_CACHE_DIR, filename);
+  const localPath = getAbsolutePath(join(CASE_STUDIES_CACHE_DIR, filename));
   const publicPath = `/content/cache/case-studies/${filename}`;
 
   // Check if already cached
-  if (imageExists(localPath)) {
+  if (existsSync(localPath)) {
     return publicPath;
   }
 
@@ -153,11 +157,11 @@ export async function cacheBlogCover(
   ensureCacheDir(BLOG_CACHE_DIR);
 
   const filename = generateFilename(url, slug, "cover");
-  const localPath = join(process.cwd(), BLOG_CACHE_DIR, filename);
+  const localPath = getAbsolutePath(join(BLOG_CACHE_DIR, filename));
   const publicPath = `/content/cache/blog/${filename}`;
 
   // Check if already cached
-  if (imageExists(localPath)) {
+  if (existsSync(localPath)) {
     return publicPath;
   }
 
@@ -183,11 +187,11 @@ export async function cacheBlogContentImage(
   ensureCacheDir(BLOG_CACHE_DIR);
 
   const filename = generateFilename(url, slug, "content", index);
-  const localPath = join(process.cwd(), BLOG_CACHE_DIR, filename);
+  const localPath = getAbsolutePath(join(BLOG_CACHE_DIR, filename));
   const publicPath = `/content/cache/blog/${filename}`;
 
   // Check if already cached
-  if (imageExists(localPath)) {
+  if (existsSync(localPath)) {
     return publicPath;
   }
 
@@ -200,18 +204,17 @@ export async function cacheBlogContentImage(
  * Process all images in content blocks and cache them
  * Mutates the content array in place for efficiency
  */
-export async function cacheContentImages<T extends { type: string; url?: string }>(
-  content: T[],
-  slug: string,
-  cacheType: "case-study" | "blog"
-): Promise<void> {
+export async function cacheContentImages<
+  T extends { type: string; url?: string }
+>(content: T[], slug: string, cacheType: "case-study" | "blog"): Promise<void> {
   let imageIndex = 0;
 
   for (const block of content) {
     if (block.type === "image" && block.url) {
-      const cacheFn = cacheType === "case-study"
-        ? cacheCaseStudyContentImage
-        : cacheBlogContentImage;
+      const cacheFn =
+        cacheType === "case-study"
+          ? cacheCaseStudyContentImage
+          : cacheBlogContentImage;
 
       block.url = await cacheFn(block.url, slug, imageIndex);
       imageIndex++;
