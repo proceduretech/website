@@ -18,6 +18,11 @@ const clients = [
     logo: "/logos/client/workshopventure.svg",
     width: 160,
   },
+  {
+    name:"Last9",
+    logo:"/logos/client/last9.svg",
+    width:120
+  }
 ];
 
 export function ClientLogos() {
