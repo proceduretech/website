@@ -18,7 +18,11 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: "npm run build && npm run start",
+    // In CI, we've already built in a prior step with NOTION_TOKEN
+    // Locally, we need to build first
+    command: process.env.CI
+      ? "npm run start"
+      : "npm run build && npm run start",
     url: "http://localhost:3000",
     reuseExistingServer: !process.env.CI,
   },
