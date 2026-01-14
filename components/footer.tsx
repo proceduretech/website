@@ -124,7 +124,7 @@ export function Footer() {
                     d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
                   />
                 </svg>
-                San Francisco (USA) | Mumbai (IND)
+                San Francisco (US) | Mumbai (IN)
               </div>
             </div>
 
@@ -224,11 +224,11 @@ export function Footer() {
         </div>
 
         {/* Certification Badges */}
-        <div className="pt-8 border-t border-border mb-8">
+        <div className="pt-12 border-t border-border">
           <p className="text-xs text-text-muted uppercase tracking-widest mb-6 text-center">
             Security & Best Practices
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-4 mb-6">
             <ComplianceBadge
               icon="shield"
               title="Secure SDLC"
@@ -241,7 +241,11 @@ export function Footer() {
               subtitle="Practices"
               iconColor="blue"
             />
+            {/* Bottom copyright bar */}
           </div>
+          <p className="text-sm text-text-muted text-center">
+            &copy; {new Date().getFullYear()} Procedure. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

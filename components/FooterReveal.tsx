@@ -16,15 +16,6 @@ export function FooterReveal() {
             className="w-[120%] max-w-none h-auto opacity-70"
           />
         </div>
-
-        {/* Bottom copyright bar */}
-        <div className="absolute bottom-0 left-0 right-0 py-6 px-6">
-          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-text-muted">
-              &copy; {new Date().getFullYear()} Procedure. All rights reserved.
-            </p>
-          </div>
-        </div>
       </div>
 
       {/* Spacer to push content up and allow scrolling to reveal */}

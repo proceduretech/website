@@ -23,6 +23,8 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
 
       - name: Run Lighthouse CI
         run: |
@@ -50,6 +52,8 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
 
       - name: Start server
         run: npm run start &
@@ -79,6 +83,8 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
 
       - name: Run E2E tests
         run: npm run test:e2e
