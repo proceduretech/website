@@ -32,10 +32,12 @@ const nextConfig = {
         usedExports: true,
         sideEffects: false,
         minimize: true,
+        moduleIds: 'deterministic', // Better long-term caching
         splitChunks: {
           chunks: "all",
           maxInitialRequests: 25,
           minSize: 20000,
+          maxSize: 244000, // Split large chunks (244KB gzipped ~= 1MB uncompressed)
           cacheGroups: {
             // React & React-DOM in separate chunk
             react: {
@@ -43,6 +45,7 @@ const nextConfig = {
               name: "react",
               priority: 40,
               reuseExistingChunk: true,
+              enforce: true,
             },
             // Separate framer-motion into its own chunk
             framerMotion: {
@@ -50,6 +53,7 @@ const nextConfig = {
               name: "framer-motion",
               priority: 30,
               reuseExistingChunk: true,
+              enforce: true,
             },
             // Separate other UI libraries
             uiLibs: {
@@ -68,6 +72,11 @@ const nextConfig = {
           },
         },
       };
+
+      // Reduce bundle size by excluding source maps in production
+      if (config.mode === 'production') {
+        config.devtool = false;
+      }
     }
     return config;
   },
