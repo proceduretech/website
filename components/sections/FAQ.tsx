@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { LazyMotion, domAnimation, m, AnimatePresence } from "framer-motion";
 
 const faqs = [
   {
@@ -45,7 +45,8 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="relative py-16 sm:py-24 overflow-hidden bg-surface">
+    <LazyMotion features={domAnimation} strict>
+      <section className="relative py-16 sm:py-24 overflow-hidden bg-surface">
       {/* Dot pattern */}
       <div
         className="absolute inset-0 opacity-[0.02]"
@@ -55,7 +56,7 @@ export function FAQ() {
       />
 
       <div className="relative max-w-3xl mx-auto px-4 sm:px-6">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -68,9 +69,9 @@ export function FAQ() {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">
             Frequently asked questions
           </h2>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -109,7 +110,7 @@ export function FAQ() {
               </button>
               <AnimatePresence>
                 {openIndex === idx && (
-                  <motion.div
+                  <m.div
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
@@ -119,13 +120,14 @@ export function FAQ() {
                     <p className="px-5 sm:px-6 pb-5 sm:pb-6 text-text-secondary leading-relaxed">
                       {faq.answer}
                     </p>
-                  </motion.div>
+                  </m.div>
                 )}
               </AnimatePresence>
             </div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
+    </LazyMotion>
   );
 }

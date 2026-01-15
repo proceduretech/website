@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { LazyMotion, m } from "@/components/ui/LazyMotion";
 
 const stats = [
   { value: "100+", label: "Products Shipped to Production" },
@@ -11,16 +11,17 @@ const stats = [
 
 export function Stats() {
   return (
-    <section className="relative py-16 sm:py-24 overflow-hidden bg-surface">
-      {/* Plus/cross pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.02]"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32'%3e%3cpath d='M16 8v16M8 16h16' stroke='%23E5E7EB' stroke-width='1' fill='none'/%3e%3c/svg%3e")`,
-        }}
-      />
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
-        <motion.div
+    <LazyMotion>
+      <section className="relative py-16 sm:py-24 overflow-hidden bg-surface">
+        {/* Plus/cross pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32'%3e%3cpath d='M16 8v16M8 16h16' stroke='%23E5E7EB' stroke-width='1' fill='none'/%3e%3c/svg%3e")`,
+          }}
+        />
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
+          <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -30,11 +31,11 @@ export function Stats() {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">
             Proven results from embedded engineering
           </h2>
-        </motion.div>
+        </m.div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
           {stats.map((stat, idx) => (
-            <motion.div
+            <m.div
               key={stat.label}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -48,10 +49,11 @@ export function Stats() {
               <div className="text-text-secondary text-xs sm:text-sm">
                 {stat.label}
               </div>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>
     </section>
+    </LazyMotion>
   );
 }
