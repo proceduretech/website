@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 
 const jobOpenings = [
   {
@@ -35,7 +35,8 @@ const jobOpenings = [
 
 export function Careers() {
   return (
-    <section className="relative py-16 sm:py-24 overflow-hidden bg-surface">
+    <LazyMotion features={domAnimation} strict>
+      <section className="relative py-16 sm:py-24 overflow-hidden bg-surface">
       {/* Hexagon pattern */}
       <div
         className="absolute inset-0 opacity-[0.02]"
@@ -45,7 +46,7 @@ export function Careers() {
       />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -62,11 +63,11 @@ export function Careers() {
             We&apos;re looking for talented engineers who are passionate about
             AI and want to work on challenging problems with real impact.
           </p>
-        </motion.div>
+        </m.div>
 
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-10 sm:mb-12">
           {jobOpenings.map((job, idx) => (
-            <motion.div
+            <m.div
               key={job.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -151,12 +152,12 @@ export function Careers() {
                   />
                 </svg>
               </Link>
-            </motion.div>
+            </m.div>
           ))}
         </div>
 
         {/* CTA to careers page */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -182,8 +183,9 @@ export function Careers() {
               />
             </svg>
           </Link>
-        </motion.div>
+        </m.div>
       </div>
     </section>
+    </LazyMotion>
   );
 }

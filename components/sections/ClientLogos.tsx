@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import Image from "next/image";
 
 const clients = [
@@ -27,7 +27,8 @@ const clients = [
 
 export function ClientLogos() {
   return (
-    <div className="mt-10 sm:mt-12">
+    <LazyMotion features={domAnimation} strict>
+      <div className="mt-10 sm:mt-12">
       <p className="text-sm text-text-muted mb-6 text-center">
         Trusted by innovative teams
       </p>
@@ -40,7 +41,7 @@ export function ClientLogos() {
             "linear-gradient(to right, transparent 0%, white 25%, white 75%, transparent 100%)",
         }}
       >
-        <motion.div
+        <m.div
           className="flex items-center gap-12 md:gap-16"
           animate={{
             x: [0, -150 * clients.length],
@@ -69,8 +70,9 @@ export function ClientLogos() {
               />
             </div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </div>
+    </LazyMotion>
   );
 }

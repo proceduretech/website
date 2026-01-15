@@ -12,8 +12,7 @@ interface FeaturedCaseStudiesProps {
 export function FeaturedCaseStudies({ caseStudies }: FeaturedCaseStudiesProps) {
   return (
     <LazyMotion features={domAnimation} strict>
-    <LazyMotion features={domAnimation} strict>
-    <section className="relative py-16 sm:py-24 bg-base overflow-hidden">
+      <section className="relative py-16 sm:py-24 bg-base overflow-hidden">
       {/* Background pattern */}
       <div
         className="absolute inset-0 opacity-[0.03]"
@@ -24,7 +23,7 @@ export function FeaturedCaseStudies({ caseStudies }: FeaturedCaseStudiesProps) {
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -58,7 +57,7 @@ export function FeaturedCaseStudies({ caseStudies }: FeaturedCaseStudiesProps) {
               />
             </svg>
           </Link>
-        </motion.div>
+        </m.div>
 
         {/* Case Studies Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
@@ -74,7 +73,7 @@ export function FeaturedCaseStudies({ caseStudies }: FeaturedCaseStudiesProps) {
         </div>
 
         {/* Bottom CTA */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -100,7 +99,7 @@ export function FeaturedCaseStudies({ caseStudies }: FeaturedCaseStudiesProps) {
               />
             </svg>
           </Link>
-        </motion.div>
+        </m.div>
       </div>
     </section>
     </LazyMotion>

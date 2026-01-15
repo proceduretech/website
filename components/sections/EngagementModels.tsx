@@ -86,8 +86,7 @@ const engagementModels = [
 export function EngagementModels() {
   return (
     <LazyMotion features={domAnimation} strict>
-    <LazyMotion features={domAnimation} strict>
-    <section className="relative py-16 sm:py-24 overflow-hidden bg-surface">
+      <section className="relative py-16 sm:py-24 overflow-hidden bg-surface">
       {/* Gradient orbs for depth */}
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-accent-secondary/[0.05] rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-accent/[0.05] rounded-full blur-[120px] pointer-events-none" />
@@ -102,7 +101,7 @@ export function EngagementModels() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -120,11 +119,11 @@ export function EngagementModels() {
             objectives. Scale up, scale down, or pivot—without renegotiating
             contracts.
           </p>
-        </motion.div>
+        </m.div>
 
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
           {engagementModels.map((model, idx) => (
-            <motion.div
+            <m.div
               key={model.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -198,7 +197,7 @@ export function EngagementModels() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>

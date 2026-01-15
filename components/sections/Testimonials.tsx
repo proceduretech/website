@@ -11,9 +11,8 @@ export function Testimonials() {
 
   return (
     <LazyMotion features={domAnimation} strict>
-    <LazyMotion features={domAnimation} strict>
-    <section
-      className="relative py-16 sm:py-24 bg-base overflow-hidden"
+      <section
+        className="relative py-16 sm:py-24 bg-base overflow-hidden"
       aria-label="Customer testimonials"
     >
       <div className="relative max-w-4xl mx-auto px-6 sm:px-8">
@@ -104,3 +103,6 @@ export function Testimonials() {
       </div>
     </section>
   );
+    </LazyMotion>
+  );
+}
