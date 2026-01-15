@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 
 const engagementModels = [
   {
@@ -85,6 +85,8 @@ const engagementModels = [
 
 export function EngagementModels() {
   return (
+    <LazyMotion features={domAnimation} strict>
+    <LazyMotion features={domAnimation} strict>
     <section className="relative py-16 sm:py-24 overflow-hidden bg-surface">
       {/* Gradient orbs for depth */}
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-accent-secondary/[0.05] rounded-full blur-[120px] pointer-events-none" />
@@ -201,5 +203,6 @@ export function EngagementModels() {
         </div>
       </div>
     </section>
+    </LazyMotion>
   );
 }

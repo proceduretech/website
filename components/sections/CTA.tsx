@@ -1,12 +1,13 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import { CalButton } from "@/components/CalButton";
 import { Spotlight } from "@/components/ui/spotlight";
 
 export function CTA() {
   return (
-    <section className="relative py-16 sm:py-24 bg-base overflow-hidden">
+    <LazyMotion features={domAnimation} strict>
+      <section className="relative py-16 sm:py-24 bg-base overflow-hidden">
       {/* Spotlight effect */}
       <Spotlight
         className="-top-40 left-0 md:left-60 md:-top-20"
@@ -22,7 +23,7 @@ export function CTA() {
         }}
       />
 
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -40,7 +41,8 @@ export function CTA() {
         <CalButton className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base font-semibold text-cta-text bg-cta rounded-lg hover:brightness-110 transition-all duration-200 shadow-lg shadow-cta/25 cursor-pointer">
           Schedule AI Strategy Call
         </CalButton>
-      </motion.div>
+      </m.div>
     </section>
+    </LazyMotion>
   );
 }

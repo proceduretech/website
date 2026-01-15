@@ -1,4 +1,4 @@
-# Cache static assets aggressively
+# Cache static assets aggressively (1 year)
 /*.svg
   Cache-Control: public, max-age=31536000, immutable
 /*.jpg
@@ -20,10 +20,21 @@
 /*.woff
   Cache-Control: public, max-age=31536000, immutable
 
-# Cache JavaScript and CSS bundles
+# Cache JavaScript bundles (including chunks)
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache CSS bundles
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache Next.js static assets and chunks
 /_next/static/*
   Cache-Control: public, max-age=31536000, immutable
 
-# HTML pages - short cache with revalidation
+/_next/chunks/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML pages - no cache, always revalidate
 /*.html
   Cache-Control: public, max-age=0, must-revalidate

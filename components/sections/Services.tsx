@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 
 const services = [
   {
@@ -156,6 +156,8 @@ const services = [
 
 export function Services() {
   return (
+    <LazyMotion features={domAnimation} strict>
+    <LazyMotion features={domAnimation} strict>
     <section className="relative py-16 sm:py-24 overflow-hidden bg-surface">
       {/* Diagonal lines pattern */}
       <div
@@ -165,7 +167,7 @@ export function Services() {
         }}
       />
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -178,11 +180,11 @@ export function Services() {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">
             AI engineering and product development services
           </h2>
-        </motion.div>
+        </m.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service, idx) => (
-            <motion.div
+            <m.div
               key={service.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -226,10 +228,9 @@ export function Services() {
                   </span>
                 ))}
               </div>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>
     </section>
   );
-}

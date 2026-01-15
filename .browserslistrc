@@ -1,0 +1,9 @@
+# Modern browsers only - matches package.json browserslist
+# Avoids unnecessary polyfills (saves ~14 KiB)
+
+chrome >= 100
+firefox >= 100
+safari >= 15
+edge >= 100
+not dead
+not op_mini all

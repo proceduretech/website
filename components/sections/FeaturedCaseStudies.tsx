@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import { CaseStudyCard } from "@/components/ui";
 import type { CaseStudy } from "@/lib/case-studies-data";
 
@@ -11,6 +11,8 @@ interface FeaturedCaseStudiesProps {
 
 export function FeaturedCaseStudies({ caseStudies }: FeaturedCaseStudiesProps) {
   return (
+    <LazyMotion features={domAnimation} strict>
+    <LazyMotion features={domAnimation} strict>
     <section className="relative py-16 sm:py-24 bg-base overflow-hidden">
       {/* Background pattern */}
       <div
@@ -101,5 +103,6 @@ export function FeaturedCaseStudies({ caseStudies }: FeaturedCaseStudiesProps) {
         </motion.div>
       </div>
     </section>
+    </LazyMotion>
   );
 }

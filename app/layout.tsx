@@ -281,12 +281,16 @@ export default function RootLayout({
         <style
           dangerouslySetInnerHTML={{
             __html: `
-              :root{--color-base:#0b1220;--color-surface:#050a15;--color-surface-elevated:#0f172a;--color-text-primary:rgba(255,255,255,.9);--color-text-secondary:rgba(255,255,255,.65);--color-accent-light:#14b8a6;--color-cta:#0d9488;--color-cta-text:#fcfcfc}
+              :root{--color-base:#0b1220;--color-surface:#050a15;--color-surface-elevated:#0f172a;--color-text-primary:rgba(255,255,255,.9);--color-text-secondary:rgba(255,255,255,.65);--color-accent-light:#14b8a6;--color-cta:#0d9488;--color-cta-text:#fcfcfc;--color-highlight:#0db5a5}
               *,::before,::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:currentColor}
               html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:system-ui,-apple-system,sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}
               body{margin:0;line-height:inherit;background-color:var(--color-base);color:var(--color-text-primary)}
               html{scrollbar-gutter:stable;scroll-behavior:smooth}
               img{height:auto;max-width:100%}
+              h1{margin:0;font-size:inherit;font-weight:inherit}
+              .text-highlight{color:var(--color-highlight)}
+              @font-face{font-family:'Outfit';font-display:swap}
+              @font-face{font-family:'Inter';font-display:swap}
             `,
           }}
         />
@@ -298,10 +302,13 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+        {/* Third-party resource hints - prioritized */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.google.com" />
-        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
+        <link rel="dns-prefetch" href="https://stats.g.doubleclick.net" />
 
         {/* Viewport optimization for mobile */}
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
@@ -309,13 +316,14 @@ export default function RootLayout({
         {/* Preload critical assets */}
         <link rel="preload" href="/icon.svg" as="image" type="image/svg+xml" />
 
-        {/* Preload fonts to prevent layout shifts */}
+        {/* Preload fonts to prevent layout shifts - with fetchpriority */}
         <link
           rel="preload"
           href="https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1O4a0Ew.woff2"
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"
+          fetchPriority="high"
         />
         <link
           rel="preload"
@@ -323,7 +331,12 @@ export default function RootLayout({
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"
+          fetchPriority="high"
         />
+
+        {/* Preload critical Next.js chunks */}
+        <link rel="modulepreload" href="/_next/static/chunks/react.js" />
+        <link rel="modulepreload" href="/_next/static/chunks/main.js" />
 
         <script
           type="application/ld+json"
@@ -360,6 +373,26 @@ export default function RootLayout({
 
         {/* Load GA after main content - non-blocking */}
         <GoogleAnalytics gaId="G-2KW21KL401" />
+
+        {/* Service Worker Registration for Advanced Caching */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                  navigator.serviceWorker.register('/sw.js').then(
+                    function(registration) {
+                      console.log('ServiceWorker registration successful');
+                    },
+                    function(err) {
+                      console.log('ServiceWorker registration failed: ', err);
+                    }
+                  );
+                });
+              }
+            `,
+          }}
+        />
       </body>
     </html>
   );
