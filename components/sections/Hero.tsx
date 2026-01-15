@@ -4,10 +4,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ClientLogos } from "./ClientLogos";
 import { CalButton } from "@/components/CalButton";
-import {
-  TextGenerateEffect,
-  TextGenerateEffectHighlight,
-} from "@/components/ui/text-generate-effect";
 
 export function Hero() {
   return (
@@ -155,22 +151,20 @@ export function Hero() {
             </span>
           </motion.div>
 
-          {/* Main headline - larger, bolder for center layout */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-text-primary leading-[1.1]">
-            <TextGenerateEffect
-              words="AI Engineering Services"
-              duration={0.4}
-              staggerDelay={0.15}
-            />
+          {/* Main headline - optimized for LCP */}
+          {/* Render text immediately for fast LCP, animate opacity instead of text generation */}
+          <motion.h1
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-text-primary leading-[1.1]"
+          >
+            AI Engineering Services
             <br />
-            <TextGenerateEffectHighlight
-              words="That Ship to Production"
-              className="text-highlight"
-              duration={0.4}
-              staggerDelay={0.12}
-              initialDelay={0.5}
-            />
-          </h1>
+            <span className="text-highlight">
+              That Ship to Production
+            </span>
+          </motion.h1>
 
           {/* Subheadline */}
           <motion.p
