@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 
 const values = [
   {
@@ -73,6 +73,8 @@ const values = [
 
 export function ValueProposition() {
   return (
+    <LazyMotion features={domAnimation} strict>
+    <LazyMotion features={domAnimation} strict>
     <section className="relative pt-0 pb-16 sm:pb-24 bg-surface overflow-hidden">
       {/* Gradient transition from Hero */}
       <div
@@ -86,7 +88,7 @@ export function ValueProposition() {
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
         {/* Compact header - feels like continuation */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -104,11 +106,11 @@ export function ValueProposition() {
             consultancies that deliver slide decks. Our embedded teams ship AI
             systems that work in your environment, not POCs that get shelved.
           </p>
-        </motion.div>
+        </m.div>
 
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
           {values.map((card, idx) => (
-            <motion.div
+            <m.div
               key={card.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -125,12 +127,12 @@ export function ValueProposition() {
                 {card.title}
               </h3>
               <p className="text-text-secondary">{card.description}</p>
-            </motion.div>
+            </m.div>
           ))}
         </div>
 
         {/* Trust & Security badges */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -206,8 +208,7 @@ export function ValueProposition() {
               <span className="text-sm font-medium">Secure Code Practices</span>
             </div>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );
-}

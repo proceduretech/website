@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { LazyMotion, domAnimation, m, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { testimonials } from "@/lib/testimonials-data";
 
@@ -10,13 +10,15 @@ export function Testimonials() {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
+    <LazyMotion features={domAnimation} strict>
+    <LazyMotion features={domAnimation} strict>
     <section
       className="relative py-16 sm:py-24 bg-base overflow-hidden"
       aria-label="Customer testimonials"
     >
       <div className="relative max-w-4xl mx-auto px-6 sm:px-8">
         {/* Section header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -29,7 +31,7 @@ export function Testimonials() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary">
             Trusted by engineering leaders
           </h2>
-        </motion.div>
+        </m.div>
 
         {/* Large quote */}
         <div className="relative">
@@ -43,7 +45,7 @@ export function Testimonials() {
           </svg>
 
           <AnimatePresence mode="wait">
-            <motion.div
+            <m.div
               key={currentIndex}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -76,7 +78,7 @@ export function Testimonials() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </AnimatePresence>
         </div>
 
@@ -102,4 +104,3 @@ export function Testimonials() {
       </div>
     </section>
   );
-}

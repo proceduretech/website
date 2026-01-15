@@ -1,13 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 
 export function AboutTeaser() {
   return (
-    <section className="relative py-16 sm:py-20 overflow-hidden bg-base">
+    <LazyMotion features={domAnimation} strict>
+      <section className="relative py-16 sm:py-20 overflow-hidden bg-base">
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -49,8 +50,9 @@ export function AboutTeaser() {
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
             </Link>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
+    </LazyMotion>
   );
 }
