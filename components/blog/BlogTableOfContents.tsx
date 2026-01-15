@@ -154,7 +154,7 @@ export function BlogTableOfContents({ headings }: BlogTableOfContentsProps) {
               key={heading.id}
               ref={activeId === heading.id ? activeButtonRef : null}
               onClick={() => handleClick(heading.id)}
-              className={`block w-full text-left text-sm py-1.5 border-l-2 transition-colors ${
+              className={`block w-full text-left text-sm py-1.5 transition-colors [border-top-width:0]! [border-right-width:0]! [border-bottom-width:0]! [border-left-width:revert]! ${
                 heading.type === "heading_1"
                   ? "pl-2"
                   : heading.type === "heading_2"
