@@ -11,10 +11,12 @@ const PRECACHE_URLS = [
 
 // Cache-first strategy for these patterns
 const CACHE_FIRST_PATTERNS = [
-  /\.(woff2|woff|ttf|otf)$/,
-  /\.(jpg|jpeg|png|webp|avif|gif|svg)$/,
-  /\/_next\/static\//,
-  /\/logos\//,
+  /\.(woff2|woff|ttf|otf)$/, // Fonts
+  /\.(jpg|jpeg|png|webp|avif|gif|svg)$/, // Images
+  /\.(js|css)$/, // JavaScript and CSS bundles
+  /\/_next\/static\//, // Next.js static files
+  /\/_next\/chunks\//, // Next.js code-split chunks
+  /\/logos\//, // Logo assets
 ];
 
 // Network-first strategy for these patterns
