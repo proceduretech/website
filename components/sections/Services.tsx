@@ -157,8 +157,7 @@ const services = [
 export function Services() {
   return (
     <LazyMotion features={domAnimation} strict>
-    <LazyMotion features={domAnimation} strict>
-    <section className="relative py-16 sm:py-24 overflow-hidden bg-surface">
+      <section className="relative py-16 sm:py-24 overflow-hidden bg-surface">
       {/* Diagonal lines pattern */}
       <div
         className="absolute inset-0 opacity-[0.02]"
@@ -234,3 +233,6 @@ export function Services() {
       </div>
     </section>
   );
+    </LazyMotion>
+  );
+}

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import { Timeline } from "@/components/ui/timeline";
 
 const processSteps = [
@@ -43,7 +43,8 @@ const processSteps = [
 
 export function HowWeWork() {
   return (
-    <section className="relative py-16 sm:py-24 overflow-hidden bg-base">
+    <LazyMotion features={domAnimation} strict>
+      <section className="relative py-16 sm:py-24 overflow-hidden bg-base">
       {/* Gradient orbs for depth */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-accent/[0.07] rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-accent-secondary/[0.07] rounded-full blur-[120px] pointer-events-none" />
@@ -58,7 +59,7 @@ export function HowWeWork() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -76,7 +77,7 @@ export function HowWeWork() {
             A proven engagement process built for enterprise velocity. Your team
             gains senior engineering capacity within days—not weeks.
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Process Timeline - Aceternity UI */}
         <div className="relative">
@@ -101,5 +102,6 @@ export function HowWeWork() {
         </div>
       </div>
     </section>
+    </LazyMotion>
   );
 }

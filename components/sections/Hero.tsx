@@ -1,18 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import { ClientLogos } from "./ClientLogos";
 import { CalButton } from "@/components/CalButton";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-base will-change-transform">
-      {/* Animated gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-surface via-base to-base" />
+    <LazyMotion features={domAnimation} strict>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-base will-change-transform">
+        {/* Animated gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-surface via-base to-base" />
 
-      {/* Large ambient glow - creates depth */}
-      <motion.div
+        {/* Large ambient glow - creates depth */}
+        <m.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -22,7 +23,7 @@ export function Hero() {
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-accent/8 rounded-full blur-[120px]" />
         <div className="absolute top-1/3 left-1/4 w-[600px] h-[400px] bg-accent/5 rounded-full blur-[100px]" />
         <div className="absolute top-1/3 right-1/4 w-[500px] h-[350px] bg-accent/4 rounded-full blur-[100px]" />
-      </motion.div>
+      </m.div>
 
       {/* Subtle grid pattern - uses CSS class for theme-aware styling */}
       <div className="absolute inset-0 hero-grid-pattern" />
@@ -30,7 +31,7 @@ export function Hero() {
       {/* Floating abstract elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Floating orbs */}
-        <motion.div
+        <m.div
           animate={{
             y: [0, -20, 0],
             opacity: [0.4, 0.6, 0.4],
@@ -42,7 +43,7 @@ export function Hero() {
           }}
           className="absolute top-[20%] left-[15%] w-3 h-3 bg-accent/40 rounded-full blur-sm"
         />
-        <motion.div
+        <m.div
           animate={{
             y: [0, 15, 0],
             opacity: [0.3, 0.5, 0.3],
@@ -55,7 +56,7 @@ export function Hero() {
           }}
           className="absolute top-[30%] right-[20%] w-2 h-2 bg-accent/50 rounded-full blur-sm"
         />
-        <motion.div
+        <m.div
           animate={{
             y: [0, -15, 0],
             opacity: [0.3, 0.5, 0.3],
@@ -68,7 +69,7 @@ export function Hero() {
           }}
           className="absolute top-[40%] left-[10%] w-4 h-4 bg-accent/30 rounded-full blur-sm"
         />
-        <motion.div
+        <m.div
           animate={{
             y: [0, 20, 0],
             opacity: [0.2, 0.4, 0.2],
@@ -87,7 +88,7 @@ export function Hero() {
           className="absolute inset-0 w-full h-full"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <motion.line
+          <m.line
             x1="10%"
             y1="30%"
             x2="25%"
@@ -98,7 +99,7 @@ export function Hero() {
             animate={{ pathLength: 1, opacity: 0.2 }}
             transition={{ duration: 2, delay: 0.5 }}
           />
-          <motion.line
+          <m.line
             x1="75%"
             y1="25%"
             x2="90%"
@@ -136,7 +137,7 @@ export function Hero() {
       <div className="relative z-10 w-full max-w-5xl mx-auto px-6 sm:px-8 pt-24 pb-16">
         <div className="text-center">
           {/* Tagline pills */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -149,11 +150,11 @@ export function Hero() {
             <span className="px-3 py-1.5 text-xs font-medium text-text-secondary bg-surface-elevated border border-border rounded-full">
               Production-tested engineering
             </span>
-          </motion.div>
+          </m.div>
 
           {/* Main headline - optimized for LCP */}
           {/* Render text immediately for fast LCP, animate opacity instead of text generation */}
-          <motion.h1
+          <m.h1
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
@@ -164,10 +165,10 @@ export function Hero() {
             <span className="text-highlight">
               That Ship to Production
             </span>
-          </motion.h1>
+          </m.h1>
 
           {/* Subheadline */}
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
@@ -180,10 +181,10 @@ export function Hero() {
             Senior AI engineers embedded with your team within 2-5 days. We
             build LLM applications, AI agents, and secure AI systems that ship
             to production.
-          </motion.p>
+          </m.p>
 
           {/* CTA buttons */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -198,14 +199,14 @@ export function Hero() {
             >
               View Our Work
             </Link>
-          </motion.div>
+          </m.div>
         </div>
 
         <ClientLogos />
       </div>
 
       {/* Scroll indicator */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
@@ -217,7 +218,8 @@ export function Hero() {
             style={{ backgroundColor: "var(--color-text-muted)" }}
           />
         </div>
-      </motion.div>
+      </m.div>
     </section>
+    </LazyMotion>
   );
 }

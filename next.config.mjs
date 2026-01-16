@@ -14,7 +14,6 @@ const nextConfig = {
   // Exclude legacy polyfills for modern browsers (saves 14 KiB)
   // Targets Chrome 100+, Safari 15+, Firefox 100+ per browserslist
   excludeDefaultMomentLocales: true,
-  swcMinify: true,
 
   // Experimental optimizations
   experimental: {
@@ -91,15 +90,19 @@ const nextConfig = {
   generateEtags: true,
 
   images: {
+    // MUST be true for static export (output: "export")
+    // GitHub Pages doesn't support dynamic image optimization
     unoptimized: true,
     formats: ["image/avif", "image/webp"],
-    // Optimized device sizes for better responsive images
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    minimumCacheTTL: 31536000, // 1 year cache for optimized images
+    minimumCacheTTL: 31536000,
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    // Loader for static export - generates proper srcset
+    loader: "custom",
+    loaderFile: "./lib/image-loader.ts",
     remotePatterns: [
       {
         protocol: "https",
