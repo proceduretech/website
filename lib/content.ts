@@ -562,6 +562,7 @@ export interface ExpertisePageForListing {
     description: string;
     icon?: string;
   }>;
+  useCasesSubtitle?: string;
   useCases?: Array<{
     icon: string;
     title: string;
@@ -675,6 +676,7 @@ export function getExpertiseForListing(
     testimonials: frontmatter.testimonials || [],
     whoWeWorkWith: frontmatter.whoWeWorkWith,
     process: frontmatter.process,
+    useCasesSubtitle: frontmatter.useCasesSubtitle,
     useCases: frontmatter.useCases,
     whyChoose: frontmatter.whyChoose,
     qualityMatters: frontmatter.qualityMatters,
