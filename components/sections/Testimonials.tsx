@@ -10,7 +10,7 @@ export function Testimonials() {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <LazyMotion features={domAnimation} strict>
+    <LazyMotion features={domAnimation}>
       <section
         className="relative py-16 sm:py-24 bg-base overflow-hidden"
       aria-label="Customer testimonials"

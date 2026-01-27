@@ -11,7 +11,7 @@ interface FeaturedCaseStudiesProps {
 
 export function FeaturedCaseStudies({ caseStudies }: FeaturedCaseStudiesProps) {
   return (
-    <LazyMotion features={domAnimation} strict>
+    <LazyMotion features={domAnimation}>
       <section className="relative py-16 sm:py-24 bg-base overflow-hidden">
       {/* Background pattern */}
       <div
