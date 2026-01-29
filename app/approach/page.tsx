@@ -632,30 +632,12 @@ export default function ApproachPage() {
           className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 pt-32 pb-16"
         >
           <div className="text-center">
-            {/* Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 mb-8"
-            >
-              <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              <span className="text-sm font-medium text-accent-light">
-                Our Methodology
-              </span>
-            </motion.div>
-
             {/* Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-text-primary leading-[1.1] tracking-tight mb-6"
-            >
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-text-primary leading-[1.1] tracking-tight mb-6">
               Stay Close to the Problem.
               <br />
               <span className="text-highlight">Ship What Matters.</span>
-            </motion.h1>
+            </h1>
 
             {/* Subheadline */}
             <motion.p
