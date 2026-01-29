@@ -73,7 +73,7 @@ const values = [
 
 export function ValueProposition() {
   return (
-    <LazyMotion features={domAnimation} strict>
+    <LazyMotion features={domAnimation}>
       <section className="relative pt-0 pb-16 sm:pb-24 bg-surface overflow-hidden">
       {/* Gradient transition from Hero */}
       <div

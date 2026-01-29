@@ -5,7 +5,7 @@ import { LazyMotion, domAnimation, m } from "framer-motion";
 
 export function AboutTeaser() {
   return (
-    <LazyMotion features={domAnimation} strict>
+    <LazyMotion features={domAnimation}>
       <section className="relative py-16 sm:py-20 overflow-hidden bg-base">
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
         <m.div

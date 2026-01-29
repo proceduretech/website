@@ -85,7 +85,7 @@ const engagementModels = [
 
 export function EngagementModels() {
   return (
-    <LazyMotion features={domAnimation} strict>
+    <LazyMotion features={domAnimation}>
       <section className="relative py-16 sm:py-24 overflow-hidden bg-surface">
       {/* Gradient orbs for depth */}
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-accent-secondary/[0.05] rounded-full blur-[120px] pointer-events-none" />

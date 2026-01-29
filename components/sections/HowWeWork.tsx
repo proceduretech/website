@@ -43,7 +43,7 @@ const processSteps = [
 
 export function HowWeWork() {
   return (
-    <LazyMotion features={domAnimation} strict>
+    <LazyMotion features={domAnimation}>
       <section className="relative py-16 sm:py-24 overflow-hidden bg-base">
       {/* Gradient orbs for depth */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-accent/[0.07] rounded-full blur-[120px] pointer-events-none" />

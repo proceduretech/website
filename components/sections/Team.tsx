@@ -145,7 +145,7 @@ const values = [
 
 export function Team() {
   return (
-    <LazyMotion features={domAnimation} strict>
+    <LazyMotion features={domAnimation}>
       <section className="relative py-16 sm:py-24 overflow-hidden bg-base">
       {/* Dot matrix pattern */}
       <div
