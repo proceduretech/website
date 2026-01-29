@@ -228,7 +228,7 @@ export default function ExpertisePageClient({
       {pageData.useCases && (
         <UseCasesGrid
           title={expertise.slug === "frontend-development" ? "Frontend Development Use Cases" : expertise.slug === "backend-development" ? "Backend Development Use Cases" : "Use Cases"}
-          subtitle={expertise.slug === "frontend-development" ? "Our frontend development services support" : expertise.slug === "backend-development" ? "Our backend development services support" : "Our services support"}
+          subtitle={pageData.useCasesSubtitle || (expertise.slug === "frontend-development" ? "Our frontend development services support" : expertise.slug === "backend-development" ? "Our backend development services support" : "Real-world applications we help teams build and scale")}
           useCases={pageData.useCases.map((uc) => ({
             ...uc,
             icon: Icons[uc.icon as keyof typeof Icons] || Icons.code,
