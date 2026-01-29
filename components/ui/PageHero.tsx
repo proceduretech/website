@@ -79,24 +79,8 @@ export function PageHero({
       {/* Main content - CENTERED */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          {/* Eyebrow badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: smoothEasing }}
-            className={badgeColorClasses}
-          >
-            <div className={pulseColorClass} />
-            <span className="text-sm font-medium">{badge}</span>
-          </motion.div>
-
           {/* Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: smoothEasing }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] text-text-primary mb-6"
-          >
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] text-text-primary mb-6">
             {headline}
             {headlineAccent && (
               <motion.span
@@ -109,7 +93,7 @@ export function PageHero({
                 {headlineAccent}
               </motion.span>
             )}
-          </motion.h1>
+          </h1>
 
           {/* Tagline */}
           {tagline && (
