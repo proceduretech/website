@@ -184,7 +184,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
             {/* Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-extrabold text-text-primary leading-[1.1] tracking-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-semibold text-text-primary leading-[1.1] tracking-tight mb-6">
               Engineers Who Ship.
               <br />
               <span className="text-highlight">Problems That Matter.</span>
