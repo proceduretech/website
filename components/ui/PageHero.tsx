@@ -65,7 +65,7 @@ export function PageHero({
   );
 
   return (
-    <section className="relative pt-32 pb-24 sm:pb-36 bg-base overflow-hidden">
+    <section className="relative pt-32 pb-12 sm:pb-16 bg-base overflow-hidden">
       {/* Animated background glow */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -197,7 +197,7 @@ export function PageHero({
           )}
 
           {/* Client Logos - always show */}
-          <div className="mt-16 mb-16">
+          <div className="mt-16">
             <ClientLogos />
           </div>
         </div>
