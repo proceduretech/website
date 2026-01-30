@@ -4,74 +4,6 @@
 @custom-variant dark (&:is(.dark *));
 
 /* =============================================================================
-   H1 FONT SIZE UTILITIES - INDUSTRY STANDARD
-
-   Based on B2B SaaS best practices (2025):
-   - Mobile (base): 28-32px
-   - Tablet (sm): 36-40px
-   - Desktop (md/lg): 44-48px max
-
-   Sources:
-   - https://www.learnui.design/blog/mobile-desktop-website-font-size-guidelines.html
-   - https://pimpmytype.com/font-size/
-   ============================================================================= */
-
-/* Base mobile sizes */
-.text-3xl {
-  font-size: 1.875rem !important;       /* 30px - mobile H1 */
-  line-height: 1.15;
-}
-
-.text-4xl {
-  font-size: 2.25rem !important;        /* 36px - tablet H1 */
-  line-height: 1.1;
-}
-
-.text-5xl {
-  font-size: 3rem !important;           /* 48px - desktop H1 (max) */
-  line-height: 1.1;
-}
-
-/* Tablet breakpoint (640px+) */
-@media (min-width: 640px) {
-  .sm\:text-3xl {
-    font-size: 1.875rem !important;     /* 30px */
-  }
-  .sm\:text-4xl {
-    font-size: 2.25rem !important;      /* 36px */
-  }
-  .sm\:text-5xl {
-    font-size: 3rem !important;         /* 48px */
-  }
-}
-
-/* Medium desktop (768px+) */
-@media (min-width: 768px) {
-  .md\:text-3xl {
-    font-size: 1.875rem !important;     /* 30px */
-  }
-  .md\:text-4xl {
-    font-size: 2.25rem !important;      /* 36px */
-  }
-  .md\:text-5xl {
-    font-size: 3rem !important;         /* 48px */
-  }
-}
-
-/* Large desktop (1024px+) - max recommended size */
-@media (min-width: 1024px) {
-  .lg\:text-3xl {
-    font-size: 1.875rem !important;     /* 30px */
-  }
-  .lg\:text-4xl {
-    font-size: 2.25rem !important;      /* 36px */
-  }
-  .lg\:text-5xl {
-    font-size: 3rem !important;         /* 48px */
-  }
-}
-
-/* =============================================================================
    THEME CSS CUSTOM PROPERTIES
 
    This file defines all design tokens as CSS custom properties.
@@ -1535,4 +1467,80 @@ img[fetchpriority="high"] {
 /* Optimize third-party embeds */
 iframe {
   loading: lazy;
+}
+
+/* =============================================================================
+   H1 FONT SIZE UTILITIES - INDUSTRY STANDARD
+
+   Placed at END of file to ensure highest specificity in cascade.
+   Uses @layer utilities to override Tailwind's generated utilities.
+
+   Based on B2B SaaS best practices (2025):
+   - Mobile (base): 30px (text-3xl)
+   - Tablet (sm): 36px (text-4xl)
+   - Desktop (md/lg): 48px max (text-5xl)
+
+   Sources:
+   - https://www.learnui.design/blog/mobile-desktop-website-font-size-guidelines.html
+   - https://pimpmytype.com/font-size/
+
+   CRITICAL: DO NOT MOVE these utilities. They MUST remain at the end of this
+   file to prevent Tailwind v4 from overriding them during build.
+   ============================================================================= */
+
+@layer utilities {
+  /* Base mobile sizes */
+  .text-3xl {
+    font-size: 1.875rem !important;       /* 30px - mobile H1 */
+    line-height: 1.15;
+  }
+
+  .text-4xl {
+    font-size: 2.25rem !important;        /* 36px - tablet H1 */
+    line-height: 1.1;
+  }
+
+  .text-5xl {
+    font-size: 3rem !important;           /* 48px - desktop H1 (max) */
+    line-height: 1.1;
+  }
+
+  /* Tablet breakpoint (640px+) */
+  @media (min-width: 640px) {
+    .sm\:text-3xl {
+      font-size: 1.875rem !important;     /* 30px */
+    }
+    .sm\:text-4xl {
+      font-size: 2.25rem !important;      /* 36px */
+    }
+    .sm\:text-5xl {
+      font-size: 3rem !important;         /* 48px */
+    }
+  }
+
+  /* Medium desktop (768px+) */
+  @media (min-width: 768px) {
+    .md\:text-3xl {
+      font-size: 1.875rem !important;     /* 30px */
+    }
+    .md\:text-4xl {
+      font-size: 2.25rem !important;      /* 36px */
+    }
+    .md\:text-5xl {
+      font-size: 3rem !important;         /* 48px */
+    }
+  }
+
+  /* Large desktop (1024px+) - max recommended size */
+  @media (min-width: 1024px) {
+    .lg\:text-3xl {
+      font-size: 1.875rem !important;     /* 30px */
+    }
+    .lg\:text-4xl {
+      font-size: 2.25rem !important;      /* 36px */
+    }
+    .lg\:text-5xl {
+      font-size: 3rem !important;         /* 48px */
+    }
+  }
 }
