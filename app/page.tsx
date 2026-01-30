@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import {
   Hero,
   ValueProposition,
@@ -16,6 +17,12 @@ import { getNotionFeaturedCaseStudies } from "@/lib/notion-case-studies";
 // Force static generation at build time
 export const dynamic = "force-static";
 export const revalidate = false;
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default async function Home() {
   const featuredCaseStudies = await getNotionFeaturedCaseStudies();
