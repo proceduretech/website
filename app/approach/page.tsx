@@ -633,7 +633,7 @@ export default function ApproachPage() {
         >
           <div className="text-center">
             {/* Headline */}
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-text-primary leading-[1.1] tracking-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold text-text-primary leading-[1.1] tracking-tight mb-6">
               Stay Close to the Problem.
               <br />
               <span className="text-highlight">Ship What Matters.</span>

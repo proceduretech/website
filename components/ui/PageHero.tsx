@@ -80,7 +80,7 @@ export function PageHero({
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           {/* Headline */}
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] text-text-primary mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold leading-[1.1] text-text-primary mb-6">
             {headline}
             {headlineAccent && (
               <motion.span

@@ -4,82 +4,70 @@
 @custom-variant dark (&:is(.dark *));
 
 /* =============================================================================
-   EXPLICIT FONT SIZE UTILITIES FOR H1
+   H1 FONT SIZE UTILITIES - INDUSTRY STANDARD
 
-   Tailwind v4 doesn't always generate these larger responsive sizes by default.
-   We explicitly define them here as CSS utilities to ensure H1 elements render
-   at the correct size.
+   Based on B2B SaaS best practices (2025):
+   - Mobile (base): 28-32px
+   - Tablet (sm): 36-40px
+   - Desktop (md/lg): 44-48px max
+
+   Sources:
+   - https://www.learnui.design/blog/mobile-desktop-website-font-size-guidelines.html
+   - https://pimpmytype.com/font-size/
    ============================================================================= */
 
-/* Base font sizes - mobile first */
+/* Base mobile sizes */
+.text-3xl {
+  font-size: 1.875rem !important;       /* 30px - mobile H1 */
+  line-height: 1.15;
+}
+
+.text-4xl {
+  font-size: 2.25rem !important;        /* 36px - tablet H1 */
+  line-height: 1.1;
+}
+
 .text-5xl {
-  font-size: 3rem !important;           /* 48px */
-  line-height: 1;
+  font-size: 3rem !important;           /* 48px - desktop H1 (max) */
+  line-height: 1.1;
 }
 
-.text-6xl {
-  font-size: 3.75rem !important;        /* 60px */
-  line-height: 1;
-}
-
-.text-7xl {
-  font-size: 4.5rem !important;         /* 72px */
-  line-height: 1;
-}
-
-.text-8xl {
-  font-size: 6rem !important;           /* 96px */
-  line-height: 1;
-}
-
-.text-9xl {
-  font-size: 8rem !important;           /* 128px */
-  line-height: 1;
-}
-
-/* Responsive variants */
+/* Tablet breakpoint (640px+) */
 @media (min-width: 640px) {
+  .sm\:text-3xl {
+    font-size: 1.875rem !important;     /* 30px */
+  }
+  .sm\:text-4xl {
+    font-size: 2.25rem !important;      /* 36px */
+  }
   .sm\:text-5xl {
-    font-size: 3rem !important;
-  }
-  .sm\:text-6xl {
-    font-size: 3.75rem !important;
-  }
-  .sm\:text-7xl {
-    font-size: 4.5rem !important;
-  }
-  .sm\:text-8xl {
-    font-size: 6rem !important;
+    font-size: 3rem !important;         /* 48px */
   }
 }
 
+/* Medium desktop (768px+) */
 @media (min-width: 768px) {
+  .md\:text-3xl {
+    font-size: 1.875rem !important;     /* 30px */
+  }
+  .md\:text-4xl {
+    font-size: 2.25rem !important;      /* 36px */
+  }
   .md\:text-5xl {
-    font-size: 3rem !important;
-  }
-  .md\:text-6xl {
-    font-size: 3.75rem !important;
-  }
-  .md\:text-7xl {
-    font-size: 4.5rem !important;
-  }
-  .md\:text-8xl {
-    font-size: 6rem !important;
+    font-size: 3rem !important;         /* 48px */
   }
 }
 
+/* Large desktop (1024px+) - max recommended size */
 @media (min-width: 1024px) {
+  .lg\:text-3xl {
+    font-size: 1.875rem !important;     /* 30px */
+  }
+  .lg\:text-4xl {
+    font-size: 2.25rem !important;      /* 36px */
+  }
   .lg\:text-5xl {
-    font-size: 3rem !important;
-  }
-  .lg\:text-6xl {
-    font-size: 3.75rem !important;
-  }
-  .lg\:text-7xl {
-    font-size: 4.5rem !important;
-  }
-  .lg\:text-8xl {
-    font-size: 6rem !important;
+    font-size: 3rem !important;         /* 48px */
   }
 }
 
