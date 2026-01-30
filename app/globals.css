@@ -4,6 +4,21 @@
 @custom-variant dark (&:is(.dark *));
 
 /* =============================================================================
+   EXPLICIT FONT SIZE UTILITIES FOR H1
+
+   Tailwind v4 doesn't always generate these larger responsive sizes by default.
+   We explicitly define them here to ensure H1 elements render at the correct size.
+   ============================================================================= */
+@theme {
+  /* Font size scale - explicitly define all sizes used in H1 elements */
+  --font-size-5xl: 3rem;      /* 48px */
+  --font-size-6xl: 3.75rem;   /* 60px */
+  --font-size-7xl: 4.5rem;    /* 72px */
+  --font-size-8xl: 6rem;      /* 96px */
+  --font-size-9xl: 8rem;      /* 128px */
+}
+
+/* =============================================================================
    THEME CSS CUSTOM PROPERTIES
 
    This file defines all design tokens as CSS custom properties.
