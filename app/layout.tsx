@@ -11,6 +11,7 @@ import "./globals.css";
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"], // Include extrabold (800) for H1
   display: "swap", // Prevents FOIT (Flash of Invisible Text)
   preload: true, // Preloads font files for faster rendering
   adjustFontFallback: true, // Automatically adjust font fallback metrics
@@ -20,6 +21,7 @@ const outfit = Outfit({
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"], // Include weights for body text and emphasis
   display: "swap", // Prevents FOIT (Flash of Invisible Text)
   preload: true, // Preloads font files for faster rendering
   adjustFontFallback: true, // Automatically adjust font fallback metrics
