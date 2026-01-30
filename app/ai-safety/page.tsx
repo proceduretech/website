@@ -641,7 +641,7 @@ export default function AISafetyPage() {
         >
           <div className="text-center">
             {/* Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold text-text-primary leading-[1.1] tracking-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-extrabold text-text-primary leading-[1.1] tracking-tight mb-6">
               Responsible AI.
               <br />
               <span className="text-highlight">Built Into the Code.</span>
