@@ -65,7 +65,7 @@ export function PageHero({
   );
 
   return (
-    <section className="relative pt-32 pb-24 sm:pb-36 bg-base overflow-hidden">
+    <section className="relative pt-32 pb-12 sm:pb-16 bg-base overflow-hidden">
       {/* Animated background glow */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -80,7 +80,7 @@ export function PageHero({
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           {/* Headline */}
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] text-text-primary mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-semibold leading-[1.1] tracking-tight text-text-primary mb-6">
             {headline}
             {headlineAccent && (
               <motion.span
@@ -197,7 +197,7 @@ export function PageHero({
           )}
 
           {/* Client Logos - always show */}
-          <div className="mt-16 mb-16">
+          <div className="mt-16">
             <ClientLogos />
           </div>
         </div>

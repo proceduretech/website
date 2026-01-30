@@ -28,12 +28,15 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Ref for the navigation container (header + mega menu)
+  const navContainerRef = useRef<HTMLElement>(null);
+
   // Close mega menu when clicking outside (Stripe behavior)
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
-      // Close menu if clicking outside the header
-      if (activeMenu && !target.closest('header')) {
+      // Close menu if clicking outside the navigation container
+      if (activeMenu && navContainerRef.current && !navContainerRef.current.contains(target)) {
         setActiveMenu(null);
       }
     };
@@ -128,6 +131,7 @@ export function Navigation() {
   return (
     <>
       <header
+        ref={navContainerRef}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled || isMobileMenuOpen
             ? "bg-surface/95 backdrop-blur-md border-b border-border"
@@ -241,8 +245,14 @@ export function Navigation() {
 
         {/* Mega Menu Container - Desktop */}
         {activeMenu && (
-          <div className="mega-menu hidden lg:block relative lg:absolute left-0 w-full lg:px-16 lg:top-full lg:z-50">
-            <div className="max-w-5xl mx-auto w-full lg:flex lg:justify-center">
+          <div
+            className="mega-menu hidden lg:block relative lg:absolute left-0 w-full lg:px-16 lg:top-full lg:z-50 pointer-events-none"
+          >
+            <div
+              className="max-w-5xl mx-auto w-full lg:flex lg:justify-center pointer-events-auto pt-4"
+              onMouseLeave={handleNavAreaLeave}
+              onMouseEnter={handleNavAreaEnter}
+            >
               <MegaMenuContent
                 sections={
                   navigationData[
@@ -929,7 +939,7 @@ function MegaMenuContent({ sections, onClose }: { sections: MenuSection[]; onClo
   const colsClass = sections.length === 2 ? "grid-cols-2" : "grid-cols-3";
 
   return (
-    <div className="bg-surface rounded-2xl shadow-2xl shadow-black/20 border border-border overflow-hidden mt-4 ring-1 ring-accent/0 [box-shadow:0_20px_70px_-15px_rgba(15,118,110,0.3)] animate-in fade-in slide-in-from-top-2 duration-150">
+    <div className="bg-surface rounded-2xl shadow-2xl shadow-black/20 border border-border overflow-hidden ring-1 ring-accent/0 [box-shadow:0_20px_70px_-15px_rgba(15,118,110,0.3)] animate-in fade-in slide-in-from-top-2 duration-150">
       <div className={`grid ${colsClass}`}>
         {sections.map((section, idx) => (
           <div

@@ -24,8 +24,20 @@ export function CookieBanner() {
   useEffect(() => {
     const consent = localStorage.getItem("cookie-consent");
     if (!consent) {
-      // Small delay for better UX - let the page load first
-      const timer = setTimeout(() => setIsVisible(true), 1000);
+      // Delay cookie banner until after LCP to improve page speed scores
+      // Minimum 3.5s delay, then wait for browser idle time
+      const MINIMUM_DELAY = 3500;
+      const showBanner = () => setIsVisible(true);
+
+      const timer = setTimeout(() => {
+        // After minimum delay, use requestIdleCallback if available
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(showBanner, { timeout: 1000 });
+        } else {
+          showBanner();
+        }
+      }, MINIMUM_DELAY);
+
       return () => clearTimeout(timer);
     }
   }, []);
