@@ -25,24 +25,20 @@ export function CookieBanner() {
     const consent = localStorage.getItem("cookie-consent");
     if (!consent) {
       // Delay cookie banner until after LCP to improve page speed scores
-      // Uses requestIdleCallback for non-critical UI, with 3.5s fallback
+      // Minimum 3.5s delay, then wait for browser idle time
+      const MINIMUM_DELAY = 3500;
       const showBanner = () => setIsVisible(true);
 
-      if ('requestIdleCallback' in window) {
-        const timeoutId = setTimeout(showBanner, 3500);
-        const idleId = requestIdleCallback(() => {
-          clearTimeout(timeoutId);
+      const timer = setTimeout(() => {
+        // After minimum delay, use requestIdleCallback if available
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(showBanner, { timeout: 1000 });
+        } else {
           showBanner();
-        }, { timeout: 3500 });
-        return () => {
-          clearTimeout(timeoutId);
-          cancelIdleCallback(idleId);
-        };
-      } else {
-        // Fallback for Safari
-        const timer = setTimeout(showBanner, 3500);
-        return () => clearTimeout(timer);
-      }
+        }
+      }, MINIMUM_DELAY);
+
+      return () => clearTimeout(timer);
     }
   }, []);
 
