@@ -50,9 +50,6 @@ export const metadata: Metadata = {
     "AI integration services",
     "production AI systems",
   ],
-  alternates: {
-    canonical: "/",
-  },
   openGraph: {
     title: "AI Engineering Services | Enterprise AI Development | Procedure",
     description:
@@ -335,9 +332,6 @@ export default function RootLayout({
           fetchPriority="high"
         />
 
-        {/* Preload critical Next.js chunks */}
-        <link rel="modulepreload" href="/_next/static/chunks/react.js" />
-        <link rel="modulepreload" href="/_next/static/chunks/main.js" />
 
         {/* Microsoft Clarity */}
         <script
