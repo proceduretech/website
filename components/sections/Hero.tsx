@@ -7,12 +7,13 @@ import { CalButton } from "@/components/CalButton";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-base will-change-transform">
-      {/* Animated gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-surface via-base to-base" />
+    
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-base will-change-transform">
+        {/* Animated gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-surface via-base to-base" />
 
-      {/* Large ambient glow - creates depth */}
-      <motion.div
+        {/* Large ambient glow - creates depth */}
+        <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -135,36 +136,15 @@ export function Hero() {
       {/* Main content - CENTERED */}
       <div className="relative z-10 w-full max-w-5xl mx-auto px-6 sm:px-8 pt-24 pb-16">
         <div className="text-center">
-          {/* Tagline pills */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="flex flex-wrap gap-2 mb-6 justify-center"
-          >
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-accent-light bg-accent/10 border border-accent/20 rounded-full">
-              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              AI Engineering & Security
-            </span>
-            <span className="px-3 py-1.5 text-xs font-medium text-text-secondary bg-surface-elevated border border-border rounded-full">
-              Production-tested engineering
-            </span>
-          </motion.div>
-
           {/* Main headline - optimized for LCP */}
           {/* Render text immediately for fast LCP, animate opacity instead of text generation */}
-          <motion.h1
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-text-primary leading-[1.1]"
-          >
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-text-primary leading-[1.1] mb-6">
             AI Engineering Services
             <br />
             <span className="text-highlight">
               That Ship to Production
             </span>
-          </motion.h1>
+          </h1>
 
           {/* Subheadline */}
           <motion.p
@@ -219,5 +199,6 @@ export function Hero() {
         </div>
       </motion.div>
     </section>
+    
   );
 }

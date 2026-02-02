@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import Image from "next/image";
 
 interface TeamMember {
@@ -145,7 +145,8 @@ const values = [
 
 export function Team() {
   return (
-    <section className="relative py-16 sm:py-24 overflow-hidden bg-base">
+    <LazyMotion features={domAnimation}>
+      <section className="relative py-16 sm:py-24 overflow-hidden bg-base">
       {/* Dot matrix pattern */}
       <div
         className="absolute inset-0 opacity-[0.02]"
@@ -160,7 +161,7 @@ export function Team() {
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -178,12 +179,12 @@ export function Team() {
             what it takes to ship production software. No junior handoffs. No
             learning on your dime.
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Featured Leadership */}
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-10 sm:mb-12">
           {leadership.map((member, idx) => (
-            <motion.div
+            <m.div
               key={member.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -274,14 +275,14 @@ export function Team() {
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           ))}
         </div>
 
         {/* Team Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {team.map((member, idx) => (
-            <motion.div
+            <m.div
               key={member.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -338,12 +339,12 @@ export function Team() {
                   </svg>
                 </a>
               )}
-            </motion.div>
+            </m.div>
           ))}
         </div>
 
         {/* Team Values Strip */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -363,8 +364,9 @@ export function Team() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
+    </LazyMotion>
   );
 }

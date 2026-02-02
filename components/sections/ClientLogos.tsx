@@ -27,7 +27,8 @@ const clients = [
 
 export function ClientLogos() {
   return (
-    <div className="mt-10 sm:mt-12">
+    
+      <div className="mt-10 sm:mt-12">
       <p className="text-sm text-text-muted mb-6 text-center">
         Trusted by innovative teams
       </p>
@@ -72,5 +73,6 @@ export function ClientLogos() {
         </motion.div>
       </div>
     </div>
+    
   );
 }

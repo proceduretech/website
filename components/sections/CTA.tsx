@@ -6,7 +6,7 @@ import { Spotlight } from "@/components/ui/spotlight";
 
 export function CTA() {
   return (
-    <LazyMotion features={domAnimation} strict>
+    <LazyMotion features={domAnimation}>
       <section className="relative py-16 sm:py-24 bg-base overflow-hidden">
       {/* Spotlight effect */}
       <Spotlight
