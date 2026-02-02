@@ -296,7 +296,7 @@ export function CaseStudyDetailClient({
           </motion.div>
 
           {/* Hero Image */}
-          {caseStudy.image && !caseStudy.image.includes("/case-studies/") && (
+          {caseStudy.image && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
