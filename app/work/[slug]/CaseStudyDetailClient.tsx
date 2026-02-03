@@ -8,6 +8,40 @@ import { CaseStudyCard } from "@/components/ui";
 import type { CaseStudyDetail, CaseStudyContent } from "@/lib/notion-case-studies";
 import type { CaseStudy } from "@/lib/case-studies-data";
 
+// Client name to logo mapping - add new clients here
+const clientLogos: Record<string, string> = {
+  "Setu": "/logos/client/setu.svg",
+  "Pine Labs": "/logos/client/pinelabs.svg",
+  "KredX": "/logos/client/kredx.svg",
+  "ESPN": "/logos/client/espn.svg",
+  "Treebo": "/logos/client/treebo.svg",
+  "Turtlemint": "/logos/client/turtlemint.svg",
+  "Timely": "/logos/client/timely.svg",
+  "Tenmeya": "/logos/client/tenmeya.svg",
+  "Last9": "/logos/client/last9.svg",
+  "Aster": "/logos/client/aster.svg",
+  "Workshop Ventures": "/logos/client/workshopventure.svg",
+  "MCLabs": "/logos/client/mclabs.svg", // Add logo file when available
+};
+
+/**
+ * Get client logo path if available
+ */
+function getClientLogo(clientName: string): string | null {
+  // Try exact match first
+  if (clientLogos[clientName]) {
+    return clientLogos[clientName];
+  }
+  // Try case-insensitive match
+  const lowerName = clientName.toLowerCase();
+  for (const [key, value] of Object.entries(clientLogos)) {
+    if (key.toLowerCase() === lowerName) {
+      return value;
+    }
+  }
+  return null;
+}
+
 interface CaseStudyDetailClientProps {
   caseStudy: CaseStudyDetail;
   relatedCaseStudies: CaseStudy[];
@@ -86,22 +120,102 @@ function ContentBlock({ block }: { block: CaseStudyContent }) {
       );
     case "divider":
       return <hr className="border-border my-8" />;
+    case "table":
+      if (!block.tableData || block.tableData.rows.length === 0) return null;
+      return (
+        <div className="my-6 overflow-x-auto">
+          <table className="w-full border-collapse">
+            <tbody>
+              {block.tableData.rows.map((row, rowIdx) => {
+                const isHeader = block.tableData!.hasColumnHeader && rowIdx === 0;
+                return (
+                  <tr
+                    key={rowIdx}
+                    className={isHeader ? "bg-surface-elevated" : rowIdx % 2 === 0 ? "bg-surface/50" : ""}
+                  >
+                    {row.map((cell, cellIdx) => {
+                      const isRowHeader = block.tableData!.hasRowHeader && cellIdx === 0;
+                      const CellTag = isHeader || isRowHeader ? "th" : "td";
+                      return (
+                        <CellTag
+                          key={cellIdx}
+                          className={`border border-border px-4 py-3 text-left ${
+                            isHeader || isRowHeader
+                              ? "font-semibold text-text-primary"
+                              : "text-text-secondary"
+                          }`}
+                        >
+                          {cell}
+                        </CellTag>
+                      );
+                    })}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      );
     default:
       return null;
   }
+}
+
+/**
+ * Group consecutive list items into proper list structures
+ * This ensures bullet points are wrapped in <ul> and numbered items in <ol>
+ */
+function groupListItems(blocks: CaseStudyContent[]): (CaseStudyContent | { type: "list"; listType: "bullet" | "number"; items: CaseStudyContent[] })[] {
+  const result: (CaseStudyContent | { type: "list"; listType: "bullet" | "number"; items: CaseStudyContent[] })[] = [];
+  let currentList: { type: "list"; listType: "bullet" | "number"; items: CaseStudyContent[] } | null = null;
+
+  for (const block of blocks) {
+    if (block.type === "bulleted_list_item") {
+      if (currentList && currentList.listType === "bullet") {
+        currentList.items.push(block);
+      } else {
+        if (currentList) result.push(currentList);
+        currentList = { type: "list", listType: "bullet", items: [block] };
+      }
+    } else if (block.type === "numbered_list_item") {
+      if (currentList && currentList.listType === "number") {
+        currentList.items.push(block);
+      } else {
+        if (currentList) result.push(currentList);
+        currentList = { type: "list", listType: "number", items: [block] };
+      }
+    } else {
+      if (currentList) {
+        result.push(currentList);
+        currentList = null;
+      }
+      result.push(block);
+    }
+  }
+
+  if (currentList) result.push(currentList);
+  return result;
 }
 
 export function CaseStudyDetailClient({
   caseStudy,
   relatedCaseStudies,
 }: CaseStudyDetailClientProps) {
-  const formattedDate = caseStudy.publishDate
-    ? new Date(caseStudy.publishDate).toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      })
-    : null;
+  // Filter out heading_1 blocks that match the case study title to avoid repetition
+  const filteredContent = caseStudy.content.filter((block) => {
+    if (block.type === "heading_1" && block.text) {
+      // Skip if heading matches the title (case-insensitive)
+      const normalizedHeading = block.text.toLowerCase().trim();
+      const normalizedTitle = caseStudy.title.toLowerCase().trim();
+      if (normalizedHeading === normalizedTitle || normalizedHeading.includes(normalizedTitle) || normalizedTitle.includes(normalizedHeading)) {
+        return false;
+      }
+    }
+    return true;
+  });
+
+  // Group consecutive list items into proper lists
+  const groupedContent = groupListItems(filteredContent);
 
   return (
     <main className="relative min-h-screen bg-base overflow-hidden">
@@ -159,26 +273,30 @@ export function CaseStudyDetailClient({
             {caseStudy.title}
           </motion.h1>
 
-          {/* Meta */}
+          {/* Client - show logo if available, otherwise text */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.3 }}
-            className="flex flex-wrap items-center gap-4 text-sm text-text-muted mb-8"
+            className="flex flex-wrap items-center gap-4 mb-8"
           >
-            <span className="font-medium text-text-secondary">
-              {caseStudy.client}
-            </span>
-            {formattedDate && (
-              <>
-                <span className="w-1 h-1 rounded-full bg-border" />
-                <span>{formattedDate}</span>
-              </>
+            {getClientLogo(caseStudy.client) ? (
+              <Image
+                src={getClientLogo(caseStudy.client)!}
+                alt={caseStudy.client}
+                width={120}
+                height={40}
+                className="h-8 w-auto object-contain client-logo-filter"
+              />
+            ) : (
+              <span className="font-medium text-text-secondary text-sm">
+                {caseStudy.client}
+              </span>
             )}
           </motion.div>
 
           {/* Hero Image */}
-          {caseStudy.image && !caseStudy.image.includes("/case-studies/") && (
+          {caseStudy.image && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -238,30 +356,30 @@ export function CaseStudyDetailClient({
             </div>
 
             {/* Notion Content */}
-            {caseStudy.content.length > 0 && (
+            {groupedContent.length > 0 && (
               <div className="mt-8">
-                {caseStudy.content.map((block, idx) => (
-                  <ContentBlock key={idx} block={block} />
-                ))}
-              </div>
-            )}
-
-            {/* Technologies/Tags */}
-            {caseStudy.tags.length > 0 && (
-              <div className="mt-12 pt-8 border-t border-border">
-                <h4 className="text-sm font-medium text-text-muted mb-4">
-                  Technologies Used
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {caseStudy.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1.5 text-sm font-medium text-text-secondary bg-surface-elevated border border-border rounded-lg"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+                {groupedContent.map((item, idx) => {
+                  // Check if this is a grouped list
+                  if ("listType" in item) {
+                    const ListTag = item.listType === "bullet" ? "ul" : "ol";
+                    return (
+                      <ListTag
+                        key={idx}
+                        className={`mb-4 ml-6 ${
+                          item.listType === "bullet" ? "list-disc" : "list-decimal"
+                        }`}
+                      >
+                        {item.items.map((listItem, listIdx) => (
+                          <li key={listIdx} className="text-text-secondary mb-2">
+                            {listItem.text}
+                          </li>
+                        ))}
+                      </ListTag>
+                    );
+                  }
+                  // Regular content block
+                  return <ContentBlock key={idx} block={item} />;
+                })}
               </div>
             )}
           </motion.div>

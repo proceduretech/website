@@ -24,10 +24,15 @@ export interface CaseStudyDetail extends CaseStudy {
 }
 
 export interface CaseStudyContent {
-  type: "paragraph" | "heading_1" | "heading_2" | "heading_3" | "bulleted_list_item" | "numbered_list_item" | "quote" | "callout" | "image" | "divider" | "code";
+  type: "paragraph" | "heading_1" | "heading_2" | "heading_3" | "bulleted_list_item" | "numbered_list_item" | "quote" | "callout" | "image" | "divider" | "code" | "table";
   text?: string;
   url?: string;
   language?: string;
+  tableData?: {
+    hasColumnHeader: boolean;
+    hasRowHeader: boolean;
+    rows: string[][];
+  };
 }
 
 // =============================================================================
@@ -405,8 +410,49 @@ function transformBlock(block: BlockObjectResponse): CaseStudyContent | null {
       return null;
     case "divider":
       return { type: "divider" };
+    case "table":
+      // Table blocks need special handling - rows fetched separately
+      return {
+        type: "table",
+        tableData: {
+          hasColumnHeader: block.table.has_column_header,
+          hasRowHeader: block.table.has_row_header,
+          rows: [], // Will be populated by fetchTableRows
+        },
+      };
     default:
       return null;
+  }
+}
+
+/**
+ * Fetch table rows from a table block
+ */
+async function fetchTableRows(tableBlockId: string): Promise<string[][]> {
+  try {
+    const response: ListBlockChildrenResponse = await notion.blocks.children.list({
+      block_id: tableBlockId,
+      page_size: 100,
+    });
+
+    const rows: string[][] = [];
+
+    for (const block of response.results) {
+      if (!("type" in block)) continue;
+      const typedBlock = block as BlockObjectResponse;
+
+      if (typedBlock.type === "table_row") {
+        const cells = typedBlock.table_row.cells.map((cell) =>
+          cell.map((richText) => richText.plain_text).join("")
+        );
+        rows.push(cells);
+      }
+    }
+
+    return rows;
+  } catch (error) {
+    console.error(`Error fetching table rows for block ${tableBlockId}:`, error);
+    return [];
   }
 }
 
@@ -425,8 +471,15 @@ async function fetchPageContent(pageId: string): Promise<CaseStudyContent[]> {
     for (const block of response.results) {
       if (!("type" in block)) continue;
 
-      const transformed = transformBlock(block as BlockObjectResponse);
+      const typedBlock = block as BlockObjectResponse;
+      const transformed = transformBlock(typedBlock);
+
       if (transformed) {
+        // If it's a table, fetch the rows
+        if (transformed.type === "table" && transformed.tableData) {
+          const rows = await fetchTableRows(typedBlock.id);
+          transformed.tableData.rows = rows;
+        }
         content.push(transformed);
       }
     }
