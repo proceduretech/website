@@ -20,9 +20,11 @@ const nextConfig = {
     optimizeCss: true, // Optimize CSS loading
     optimizePackageImports: [
       "framer-motion",
+      "motion",
       "@radix-ui/react-icons",
       "lucide-react",
       "react-icons",
+      "@icons-pack/react-simple-icons",
     ], // Tree-shake unused exports
     webpackBuildWorker: true, // Faster builds with workers
   },
