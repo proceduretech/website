@@ -142,6 +142,7 @@ function mapServiceType(
 
 /**
  * Map Notion industry values to display names
+ * If industry is not in map, return as-is (don't default to Technology)
  */
 function mapIndustryName(industry: string | null): string {
   if (!industry) return "Technology";
@@ -152,8 +153,14 @@ function mapIndustryName(industry: string | null): string {
     "E-commerce": "E-Commerce",
     SaaS: "SaaS",
     Enterprise: "Enterprise",
+    Telecommunications: "Telecommunications",
+    EdTech: "EdTech",
+    Manufacturing: "Manufacturing",
+    Retail: "Retail",
+    Media: "Media",
   };
 
+  // Return mapped name or original if not in map
   return industryMap[industry] || industry;
 }
 
@@ -274,7 +281,9 @@ async function transformNotionPageToCaseStudy(
     return null;
   }
 
-  const industry = getSelect(props["Industry"]);
+  // Industry can be multi-select in Notion - take first value
+  const industries = getMultiSelect(props["Industry"]);
+  const industry = industries.length > 0 ? industries[0] : getSelect(props["Industry"]);
   const services = getMultiSelect(props["Service"]);
   const client = getRichText(props["Client"]);
   const featured = getCheckbox(props["Featured"]);
