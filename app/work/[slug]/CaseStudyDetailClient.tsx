@@ -59,13 +59,13 @@ function ContentBlock({ block }: { block: CaseStudyContent }) {
       );
     case "heading_1":
       return (
-        <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mt-8 mb-4">
+        <h2 className="text-xl sm:text-2xl font-bold text-text-primary mt-8 mb-4">
           {block.text}
         </h2>
       );
     case "heading_2":
       return (
-        <h3 className="text-xl sm:text-2xl font-bold text-text-primary mt-6 mb-3">
+        <h3 className="text-lg sm:text-xl font-bold text-text-primary mt-6 mb-3">
           {block.text}
         </h3>
       );
@@ -246,7 +246,7 @@ export function CaseStudyDetailClient({
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary leading-tight mb-6"
+            className="text-2xl sm:text-3xl lg:text-4xl font-bold text-text-primary leading-tight mb-6"
           >
             {caseStudy.title}
           </motion.h1>
@@ -326,16 +326,9 @@ export function CaseStudyDetailClient({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
           >
-            {/* Description */}
-            <div className="prose prose-lg prose-invert max-w-none mb-8">
-              <p className="text-lg text-text-secondary leading-relaxed">
-                {caseStudy.description}
-              </p>
-            </div>
-
             {/* Notion Content */}
             {groupedContent.length > 0 && (
-              <div className="mt-8">
+              <div>
                 {groupedContent.map((item, idx) => {
                   // Check if this is a grouped list
                   if ("listType" in item) {

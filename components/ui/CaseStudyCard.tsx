@@ -47,15 +47,9 @@ export function CaseStudyCard({
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
 
-          {/* Service type badge */}
-          <span
-            className={`absolute top-4 left-4 px-2.5 py-1 text-xs font-medium rounded-full border backdrop-blur ${
-              study.serviceType === "AI Engineering"
-                ? "text-white bg-accent/60 border-accent/50"
-                : "text-white bg-accent-secondary/60 border-accent-secondary/50"
-            }`}
-          >
-            {study.serviceType}
+          {/* Industry badge */}
+          <span className="absolute top-4 left-4 px-2.5 py-1 text-xs font-medium text-white bg-black/50 backdrop-blur rounded-full border border-white/20">
+            {study.industry}
           </span>
         </div>
 
