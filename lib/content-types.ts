@@ -150,6 +150,7 @@ export interface ExpertiseFrontmatter extends BaseFrontmatter {
     description: string;
     icon?: string;
   }>;
+  useCasesSubtitle?: string;
   useCases?: Array<{
     icon: string;
     title: string;
