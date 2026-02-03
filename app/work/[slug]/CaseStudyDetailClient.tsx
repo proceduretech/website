@@ -229,37 +229,15 @@ export function CaseStudyDetailClient({
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
-          {/* Breadcrumb */}
-          <motion.nav
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="flex items-center gap-2 text-sm text-text-muted mb-6"
-          >
-            <Link
-              href="/work"
-              className="hover:text-accent-light transition-colors"
-            >
-              Case Studies
-            </Link>
-            <span>/</span>
-            <span className="text-text-secondary truncate">
-              {caseStudy.title}
-            </span>
-          </motion.nav>
-
-          {/* Badges */}
+          {/* Service Type Badge */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.1 }}
+            transition={{ duration: 0.4 }}
             className="flex flex-wrap gap-2 mb-4"
           >
             <span className="inline-flex px-3 py-1 text-xs font-medium rounded-full bg-accent/10 border border-accent/20 text-accent-light">
               {caseStudy.serviceType}
-            </span>
-            <span className="inline-flex px-3 py-1 text-xs font-medium rounded-full bg-surface-elevated border border-border text-text-secondary">
-              {caseStudy.industry}
             </span>
           </motion.div>
 
@@ -267,7 +245,7 @@ export function CaseStudyDetailClient({
           <motion.h1
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary leading-tight mb-6"
           >
             {caseStudy.title}
@@ -277,7 +255,7 @@ export function CaseStudyDetailClient({
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.3 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
             className="flex flex-wrap items-center gap-4 mb-8"
           >
             {getClientLogo(caseStudy.client) ? (
@@ -300,7 +278,7 @@ export function CaseStudyDetailClient({
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
               className="relative w-full aspect-[21/9] rounded-2xl overflow-hidden"
             >
               <Image
