@@ -269,22 +269,12 @@ export function CaseStudyDetailClient({
             </span>
           </motion.div>
 
-          {/* Title */}
-          <motion.h1
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.1 }}
-            className="text-2xl sm:text-3xl lg:text-4xl font-bold text-text-primary leading-tight mb-6"
-          >
-            {caseStudy.title}
-          </motion.h1>
-
-          {/* Client - show logo if available, otherwise text */}
+          {/* Client Logo - show logo if available, otherwise text */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-            className="flex flex-wrap items-center gap-4 mb-8"
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="flex flex-wrap items-center gap-4 mb-4"
           >
             {getClientLogo(caseStudy.client) ? (
               <Image
@@ -300,6 +290,16 @@ export function CaseStudyDetailClient({
               </span>
             )}
           </motion.div>
+
+          {/* Title */}
+          <motion.h1
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+            className="text-2xl sm:text-3xl lg:text-4xl font-bold text-text-primary leading-tight mb-8"
+          >
+            {caseStudy.title}
+          </motion.h1>
 
           {/* Hero Image */}
           {caseStudy.image && (

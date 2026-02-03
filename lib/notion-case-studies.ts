@@ -20,6 +20,7 @@ export interface CaseStudyDetail extends CaseStudy {
   pageId: string;
   client: string;
   publishDate: string | null;
+  previewText: string | null;
   content: CaseStudyContent[];
 }
 
@@ -278,6 +279,7 @@ async function transformNotionPageToCaseStudy(
   const client = getRichText(props["Client"]);
   const featured = getCheckbox(props["Featured"]);
   const results = getRichText(props["Results"]);
+  const previewText = getRichText(props["Preview Text"]);
   const publishDate = getDate(props["Publish Date"]);
   // Slug property (renamed from URL) - use rich text Slug as primary
   const customSlug = getRichText(props["Slug"]) || getUrl(props["URL"]);
@@ -297,13 +299,16 @@ async function transformNotionPageToCaseStudy(
     id = generateSlug(title);
   }
 
-  // Parse metrics from results
-  const metrics = parseMetrics(results);
+  // Parse metrics from results (take first 3)
+  const allMetrics = parseMetrics(results);
+  const metrics = allMetrics.slice(0, 3);
 
-  // Create description from client name and title context
-  const description = client
-    ? `${client}: ${title}`
-    : `Case study: ${title}`;
+  // Use preview text as description, or fallback to client + title
+  const description = previewText
+    ? previewText
+    : client
+      ? `${client}: ${title}`
+      : `Case study: ${title}`;
 
   // Map services to tags
   const tags = services.length > 0 ? services : ["Engineering"];
@@ -328,6 +333,7 @@ async function transformNotionPageToCaseStudy(
     pageId: page.id,
     client: client || "Confidential Client",
     publishDate,
+    previewText: previewText || null,
   };
 
   return { caseStudy, detail };
@@ -648,6 +654,7 @@ export const getNotionCaseStudyBySlug = cache(
         pageId: "",
         client: "Confidential Client",
         publishDate: null,
+        previewText: null,
         content: [],
       };
     }
