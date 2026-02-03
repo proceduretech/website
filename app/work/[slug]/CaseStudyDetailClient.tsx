@@ -9,36 +9,64 @@ import type { CaseStudyDetail, CaseStudyContent } from "@/lib/notion-case-studie
 import type { CaseStudy } from "@/lib/case-studies-data";
 
 // Client name to logo mapping - add new clients here
+// Include common variations to handle different naming from Notion
 const clientLogos: Record<string, string> = {
   "Setu": "/logos/client/setu.svg",
   "Pine Labs": "/logos/client/pinelabs.svg",
+  "PineLabs": "/logos/client/pinelabs.svg",
   "KredX": "/logos/client/kredx.svg",
   "ESPN": "/logos/client/espn.svg",
   "Treebo": "/logos/client/treebo.svg",
   "Turtlemint": "/logos/client/turtlemint.svg",
   "Timely": "/logos/client/timely.svg",
+  "Timely.ai": "/logos/client/timely.svg",
+  "TimelyApp": "/logos/client/timely.svg",
   "Tenmeya": "/logos/client/tenmeya.svg",
   "Last9": "/logos/client/last9.svg",
   "Aster": "/logos/client/aster.svg",
   "Workshop Ventures": "/logos/client/workshopventure.svg",
-  "MCLabs": "/logos/client/mclabs.svg", // Add logo file when available
+  "WorkshopVentures": "/logos/client/workshopventure.svg",
+  "MCLabs": "/logos/client/mclabs.svg",
+  "MC Labs": "/logos/client/mclabs.svg",
+  "MC labs": "/logos/client/mclabs.svg",
 };
 
 /**
  * Get client logo path if available
+ * Handles various naming conventions from Notion
  */
 function getClientLogo(clientName: string): string | null {
+  const trimmedName = clientName.trim();
+
   // Try exact match first
-  if (clientLogos[clientName]) {
-    return clientLogos[clientName];
+  if (clientLogos[trimmedName]) {
+    return clientLogos[trimmedName];
   }
+
   // Try case-insensitive match
-  const lowerName = clientName.toLowerCase();
+  const lowerName = trimmedName.toLowerCase();
   for (const [key, value] of Object.entries(clientLogos)) {
     if (key.toLowerCase() === lowerName) {
       return value;
     }
   }
+
+  // Try normalized match (remove spaces, dots, common suffixes)
+  const normalizedInput = lowerName
+    .replace(/\s+/g, '')
+    .replace(/\./g, '')
+    .replace(/(inc|llc|ai|app|io|co)$/i, '');
+
+  for (const [key, value] of Object.entries(clientLogos)) {
+    const normalizedKey = key.toLowerCase()
+      .replace(/\s+/g, '')
+      .replace(/\./g, '')
+      .replace(/(inc|llc|ai|app|io|co)$/i, '');
+    if (normalizedKey === normalizedInput) {
+      return value;
+    }
+  }
+
   return null;
 }
 
