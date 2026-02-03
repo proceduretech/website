@@ -4,18 +4,23 @@ import { ProcedureLogoShort } from "./logos";
 import { ObfuscatedEmail } from "./ui/ObfuscatedEmail";
 
 const footerLinks = {
-  services: [
-    { label: "Forward-Deployed AI Teams", href: "/services/forward-deployed" },
-    { label: "AI Sprints", href: "/services/ai-sprints" },
-    { label: "Full Product Build", href: "/services/product-build" },
-    { label: "Staff Augmentation", href: "/services/staff-augmentation" },
-  ],
-  expertise: [
-    { label: "AI Engineering", href: "/services/ai-engineering" },
+  aiServices: [
+    { label: "LLM Applications", href: "/services/ai-engineering" },
     { label: "AI Agents", href: "/services/ai-agents" },
-    { label: "AI Security", href: "/services/ai-security" },
-    { label: "Cloud & DevOps", href: "/services/cloud" },
+    { label: "Threat Protection", href: "/services/ai-security" },
+    { label: "Data & Privacy", href: "/services/ai-privacy" },
+  ],
+  productEngineering: [
+    { label: "Frontend Development", href: "/services/frontend-development" },
+    { label: "Backend Development", href: "/services/backend-development" },
+    { label: "Mobile Development", href: "/services/mobile-development" },
+    { label: "QA & Testing", href: "/services/software-testing-and-qa" },
+  ],
+  cloudDesign: [
+    { label: "Cloud Architecture", href: "/services/cloud" },
+    { label: "Kubernetes", href: "/services/kubernetes" },
     { label: "Product Design", href: "/services/product-design" },
+    { label: "Design Systems", href: "/services/design-systems" },
   ],
   industries: [
     { label: "Financial Services", href: "/industries/financial-services" },
@@ -25,16 +30,10 @@ const footerLinks = {
   ],
   company: [
     { label: "About Us", href: "/about-us" },
-    { label: "Our Approach", href: "/approach" },
-    { label: "Culture", href: "/culture" },
     { label: "Careers", href: "/careers" },
-    { label: "Contact", href: "/contact-us" },
-  ],
-  resources: [
     { label: "Case Studies", href: "/work" },
-    { label: "Engineering Blog", href: "/blogs" },
-    { label: "Events", href: "/events" },
-    { label: "AI Safety & Ethics", href: "/ai-safety" },
+    { label: "Blog", href: "/blogs" },
+    { label: "Contact", href: "/contact-us" },
   ],
   legal: [
     { label: "Privacy Policy", href: "/privacy" },
@@ -149,13 +148,13 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Services */}
+          {/* AI & ML */}
           <div className="md:col-span-2">
             <h3 className="text-sm font-semibold text-text-primary mb-4">
-              Services
+              AI & ML
             </h3>
-            <ul className="space-y-3">
-              {footerLinks.services.map((link) => (
+            <ul className="space-y-2.5">
+              {footerLinks.aiServices.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -168,13 +167,13 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Expertise */}
+          {/* Product Engineering */}
           <div className="md:col-span-2">
             <h3 className="text-sm font-semibold text-text-primary mb-4">
-              Expertise
+              Engineering
             </h3>
-            <ul className="space-y-3">
-              {footerLinks.expertise.map((link) => (
+            <ul className="space-y-2.5">
+              {footerLinks.productEngineering.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -187,12 +186,31 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Industries */}
+          {/* Cloud & Design */}
+          <div className="md:col-span-2">
+            <h3 className="text-sm font-semibold text-text-primary mb-4">
+              Cloud & Design
+            </h3>
+            <ul className="space-y-2.5">
+              {footerLinks.cloudDesign.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-text-secondary hover:text-accent-light transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Industries & Company combined */}
           <div className="md:col-span-2">
             <h3 className="text-sm font-semibold text-text-primary mb-4">
               Industries
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-2.5">
               {footerLinks.industries.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -204,31 +222,12 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
 
-          {/* Company & Resources combined */}
-          <div className="md:col-span-2">
-            <h3 className="text-sm font-semibold text-text-primary mb-4">
+            <h3 className="text-sm font-semibold text-text-primary mb-4 mt-6">
               Company
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-2.5">
               {footerLinks.company.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-text-secondary hover:text-accent-light transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-
-            <h3 className="text-sm font-semibold text-text-primary mb-4 mt-8">
-              Resources
-            </h3>
-            <ul className="space-y-3">
-              {footerLinks.resources.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
