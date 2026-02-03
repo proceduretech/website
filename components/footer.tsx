@@ -148,12 +148,12 @@ export function Footer() {
             </div>
           </div>
 
-          {/* AI & ML */}
-          <div className="md:col-span-2">
+          {/* Column 1: AI & ML + Engineering */}
+          <div className="md:col-span-3">
             <h3 className="text-sm font-semibold text-text-primary mb-4">
               AI & ML
             </h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-2.5 mb-6">
               {footerLinks.aiServices.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -165,10 +165,7 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
 
-          {/* Product Engineering */}
-          <div className="md:col-span-2">
             <h3 className="text-sm font-semibold text-text-primary mb-4">
               Engineering
             </h3>
@@ -186,12 +183,12 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Cloud & Design */}
-          <div className="md:col-span-2">
+          {/* Column 2: Cloud & Design + Industries */}
+          <div className="md:col-span-3">
             <h3 className="text-sm font-semibold text-text-primary mb-4">
               Cloud & Design
             </h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-2.5 mb-6">
               {footerLinks.cloudDesign.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -203,10 +200,7 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
 
-          {/* Industries & Company combined */}
-          <div className="md:col-span-2">
             <h3 className="text-sm font-semibold text-text-primary mb-4">
               Industries
             </h3>
@@ -222,11 +216,14 @@ export function Footer() {
                 </li>
               ))}
             </ul>
+          </div>
 
-            <h3 className="text-sm font-semibold text-text-primary mb-4 mt-6">
+          {/* Column 3: Company + Resources */}
+          <div className="md:col-span-2">
+            <h3 className="text-sm font-semibold text-text-primary mb-4">
               Company
             </h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-2.5 mb-6">
               {footerLinks.company.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -237,6 +234,28 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
+            </ul>
+
+            <h3 className="text-sm font-semibold text-text-primary mb-4">
+              Resources
+            </h3>
+            <ul className="space-y-2.5">
+              <li>
+                <Link
+                  href="/events"
+                  className="text-sm text-text-secondary hover:text-accent-light transition-colors"
+                >
+                  Events
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/ai-safety"
+                  className="text-sm text-text-secondary hover:text-accent-light transition-colors"
+                >
+                  AI Safety & Ethics
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
