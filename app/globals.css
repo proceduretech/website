@@ -1196,10 +1196,12 @@ html:not(.dark) .hero-grid-pattern {
 /* Client logo filter - theme-aware */
 .client-logo-filter {
   filter: brightness(0) invert(1);
+  opacity: 0.6;
 }
 
 html:not(.dark) .client-logo-filter {
   filter: brightness(0);
+  opacity: 0.6;
 }
 
 /* Amber text - darker in light mode for better contrast */
