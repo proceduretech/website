@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { CalButton } from "@/components/CalButton";
+import { CalInline } from "@/components/CalInline";
 import { PageHero, CaseStudyCard } from "@/components/ui";
 import type { CaseStudy } from "@/lib/case-studies-data";
 import { testimonials } from "@/lib/testimonials-data";
@@ -255,100 +254,39 @@ export function CaseStudiesClient({
       </section>
 
       {/* ============================================
-          CTA SECTION
+          CTA SECTION WITH INLINE BOOKING
           ============================================ */}
       <section className="relative py-16 sm:py-24 bg-base">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="text-center mb-10"
           >
             <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-text-primary mb-6">
               Ready to Build Your
               <br />
               <span className="text-highlight">Success Story?</span>
             </h2>
-            <p className="text-lg text-text-secondary mb-10 max-w-2xl mx-auto">
+            <p className="text-lg text-text-secondary max-w-2xl mx-auto">
               Every case study started with a conversation. Tell us about your
               AI challenges, and our engineers will give you an honest
               assessment of how we can help—even if that means pointing you in a
               different direction.
             </p>
+          </motion.div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <CalButton className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-cta-text bg-cta rounded-xl hover:brightness-110 transition-all duration-200 shadow-lg shadow-cta/25 cursor-pointer">
-                Book a Strategy Call
-                <svg
-                  className="w-5 h-5 ml-2"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                  />
-                </svg>
-              </CalButton>
-              <Link
-                href="/contact-us"
-                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-xl hover:border-accent hover:bg-accent/10 transition-all duration-200"
-              >
-                Contact Us
-              </Link>
-            </div>
-
-            {/* Trust indicators */}
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-6">
-              <div className="flex items-center gap-2 text-xs text-text-muted">
-                <svg
-                  className="w-4 h-4 text-accent"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                No obligation
-              </div>
-              <div className="w-1 h-1 rounded-full bg-border" />
-              <div className="flex items-center gap-2 text-xs text-text-muted">
-                <svg
-                  className="w-4 h-4 text-accent"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                30-minute call
-              </div>
-              <div className="w-1 h-1 rounded-full bg-border" />
-              <div className="flex items-center gap-2 text-xs text-text-muted">
-                <svg
-                  className="w-4 h-4 text-accent"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                Talk with engineers, not sales
-              </div>
-            </div>
+          {/* Inline Cal.com booking widget */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="rounded-2xl overflow-hidden border border-border bg-surface-elevated"
+          >
+            <CalInline className="h-[600px]" />
           </motion.div>
         </div>
       </section>
