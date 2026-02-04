@@ -56,10 +56,10 @@ export function CaseStudiesClient({
       <section className="relative py-8 bg-surface border-y border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-between">
-            {/* Service Type Filter */}
+            {/* Expertise Filter */}
             <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
               <span className="text-sm text-text-muted font-medium">
-                Service:
+                Expertise:
               </span>
               <div className="flex flex-wrap gap-2">
                 {serviceFilters.map((filter) => (
@@ -78,48 +78,26 @@ export function CaseStudiesClient({
               </div>
             </div>
 
-            {/* Industry Filter */}
+            {/* Industry Filter - Dropdown */}
             <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
               <span className="text-sm text-text-muted font-medium">
                 Industry:
               </span>
-              <div className="flex flex-wrap gap-2">
-                {industryFilters.slice(0, 4).map((filter) => (
-                  <button
-                    key={filter}
-                    onClick={() => setActiveIndustryFilter(filter)}
-                    className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
-                      activeIndustryFilter === filter
-                        ? "bg-accent/20 text-accent-light border border-accent/30"
-                        : "bg-surface-elevated text-text-secondary border border-border hover:border-accent/30 hover:text-text-primary"
-                    }`}
-                  >
+              <select
+                value={activeIndustryFilter}
+                onChange={(e) => setActiveIndustryFilter(e.target.value)}
+                className={`px-4 py-2 text-sm font-medium rounded-lg cursor-pointer focus:outline-none transition-all duration-200 ${
+                  activeIndustryFilter !== "All"
+                    ? "bg-accent/20 text-accent-light border border-accent/30"
+                    : "bg-surface-elevated text-text-secondary border border-border hover:border-accent/30"
+                }`}
+              >
+                {industryFilters.map((filter) => (
+                  <option key={filter} value={filter}>
                     {filter}
-                  </button>
+                  </option>
                 ))}
-                {/* Dropdown for remaining industries on larger screens */}
-                {industryFilters.length > 4 && (
-                  <select
-                    value={
-                      industryFilters.slice(4).includes(activeIndustryFilter)
-                        ? activeIndustryFilter
-                        : ""
-                    }
-                    onChange={(e) => {
-                      if (e.target.value)
-                        setActiveIndustryFilter(e.target.value);
-                    }}
-                    className="px-4 py-2 text-sm font-medium rounded-lg bg-surface-elevated text-text-secondary border border-border hover:border-accent/30 cursor-pointer focus:outline-none focus:border-accent"
-                  >
-                    <option value="">More...</option>
-                    {industryFilters.slice(4).map((filter) => (
-                      <option key={filter} value={filter}>
-                        {filter}
-                      </option>
-                    ))}
-                  </select>
-                )}
-              </div>
+              </select>
             </div>
           </div>
         </div>
