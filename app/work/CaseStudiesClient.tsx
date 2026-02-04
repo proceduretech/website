@@ -44,8 +44,8 @@ export function CaseStudiesClient({
         headlineAccent="Results That Matter."
         description="From Fortune 500 enterprises to high-growth startups, we help organizations turn AI ambitions into production systems that drive measurable business outcomes."
         stats={[
-          { value: "$250M+", label: "Client ROI Generated" },
-          { value: "50+", label: "Production AI Systems" },
+          { value: "75+", label: "Projects Delivered" },
+          { value: "50+", label: "Certified Engineers" },
           { value: "98%", label: "Client Retention" },
         ]}
         primaryCTA={{ text: "Talk to the Team", href: "/contact-us" }}
