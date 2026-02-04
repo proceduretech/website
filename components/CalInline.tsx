@@ -63,7 +63,16 @@ export function CalInline({
   }, [currentTheme, calConfig]);
 
   return (
-    <div className={className}>
+    <div className={`${className} cal-inline-wrapper`}>
+      <style jsx global>{`
+        /* Hide Cal.com branding footer */
+        .cal-inline-wrapper [data-cal-link] + div,
+        .cal-inline-wrapper iframe + div,
+        .cal-inline-wrapper a[href*="cal.com"]:has(img),
+        .cal-inline-wrapper div:has(> a[href*="cal.com"]) {
+          display: none !important;
+        }
+      `}</style>
       <Cal
         calLink={calLink}
         style={{ width: "100%", height: "100%", overflow: "scroll" }}

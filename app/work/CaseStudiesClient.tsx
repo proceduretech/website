@@ -21,6 +21,7 @@ export function CaseStudiesClient({
 }: CaseStudiesClientProps) {
   const [activeServiceFilter, setActiveServiceFilter] = useState("All");
   const [activeIndustryFilter, setActiveIndustryFilter] = useState("All");
+  const [isIndustryDropdownOpen, setIsIndustryDropdownOpen] = useState(false);
 
   // Filter case studies
   const filteredStudies = caseStudies.filter((study) => {
@@ -78,26 +79,53 @@ export function CaseStudiesClient({
               </div>
             </div>
 
-            {/* Industry Filter - Dropdown */}
+            {/* Industry Filter - Custom Dropdown */}
             <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
               <span className="text-sm text-text-muted font-medium">
                 Industry:
               </span>
-              <select
-                value={activeIndustryFilter}
-                onChange={(e) => setActiveIndustryFilter(e.target.value)}
-                className={`px-4 py-2 text-sm font-medium rounded-lg cursor-pointer focus:outline-none transition-all duration-200 ${
-                  activeIndustryFilter !== "All"
-                    ? "bg-accent/20 text-accent-light border border-accent/30"
-                    : "bg-surface-elevated text-text-secondary border border-border hover:border-accent/30"
-                }`}
-              >
-                {industryFilters.map((filter) => (
-                  <option key={filter} value={filter}>
-                    {filter}
-                  </option>
-                ))}
-              </select>
+              <div className="relative">
+                <button
+                  onClick={() => setIsIndustryDropdownOpen(!isIndustryDropdownOpen)}
+                  onBlur={() => setTimeout(() => setIsIndustryDropdownOpen(false), 150)}
+                  className={`px-4 py-2 text-sm font-medium rounded-lg cursor-pointer transition-all duration-200 flex items-center gap-2 ${
+                    activeIndustryFilter !== "All"
+                      ? "bg-accent/20 text-accent-light border border-accent/30"
+                      : "bg-surface-elevated text-text-secondary border border-border hover:border-accent/30"
+                  }`}
+                >
+                  {activeIndustryFilter}
+                  <svg
+                    className={`w-4 h-4 transition-transform ${isIndustryDropdownOpen ? "rotate-180" : ""}`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                {isIndustryDropdownOpen && (
+                  <div className="absolute top-full right-0 mt-1 py-1 min-w-[160px] bg-surface-elevated border border-border rounded-lg shadow-xl z-50">
+                    {industryFilters.map((filter) => (
+                      <button
+                        key={filter}
+                        onClick={() => {
+                          setActiveIndustryFilter(filter);
+                          setIsIndustryDropdownOpen(false);
+                        }}
+                        className={`w-full px-4 py-2 text-sm text-left transition-colors ${
+                          activeIndustryFilter === filter
+                            ? "bg-accent/20 text-accent-light"
+                            : "text-text-secondary hover:bg-accent/10 hover:text-accent-light"
+                        }`}
+                      >
+                        {filter}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
