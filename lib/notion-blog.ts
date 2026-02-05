@@ -235,19 +235,30 @@ const AUTHOR_MAP: Record<string, Author> = {
   },
 };
 
-function mapAuthor(authorName: string | null): Author {
+function mapAuthor(
+  authorName: string | null,
+  authorBio?: string,
+  authorTitle?: string
+): Author {
   if (!authorName) {
     return AUTHOR_MAP["Procedure Team"];
   }
-  return (
-    AUTHOR_MAP[authorName] || {
-      id: authorName.toLowerCase().replace(/\s+/g, "-"),
-      name: authorName,
-      avatar: "/team/default.jpg",
-      role: "Engineer",
-      bio: "",
-    }
-  );
+  const existingAuthor = AUTHOR_MAP[authorName];
+  if (existingAuthor) {
+    return {
+      ...existingAuthor,
+      // Override with Notion values if provided
+      bio: authorBio || existingAuthor.bio,
+      role: authorTitle || existingAuthor.role,
+    };
+  }
+  return {
+    id: authorName.toLowerCase().replace(/\s+/g, "-"),
+    name: authorName,
+    avatar: "/team/default.jpg",
+    role: authorTitle || "Engineer",
+    bio: authorBio || "",
+  };
 }
 
 // =============================================================================
@@ -306,6 +317,9 @@ async function transformNotionPageToBlogPost(
     getPerson(props["Author"]) ||
     getRichText(props["Author"]) ||
     getSelect(props["Author"]);
+  const authorBio = getRichText(props["author bio"]) || "";
+  const authorTitle = getRichText(props["author title"]) || "";
+  const metaDescription = getRichText(props["Meta Description"]) || "";
   const excerpt =
     getRichText(props["Notes"]) ||
     getRichText(props["Excerpt"]) ||
@@ -344,7 +358,7 @@ async function transformNotionPageToBlogPost(
 
   // Map category and author
   const category = mapCategory(categoryName);
-  const author = mapAuthor(authorName);
+  const author = mapAuthor(authorName, authorBio, authorTitle);
 
   // Cache cover image to public folder (downloads from Notion and saves locally)
   const cachedFeaturedImage = await cacheBlogCover(featuredImage, slug);
@@ -364,6 +378,7 @@ async function transformNotionPageToBlogPost(
     readTime,
     tags,
     featured,
+    metaDescription: metaDescription || excerpt || undefined,
   };
 
   const detail: Omit<BlogPostDetail, "notionContent"> = {
@@ -773,7 +788,7 @@ export const getNotionBlogPostBySlug = cache(
 );
 
 /**
- * Get related blog posts based on category and tags
+ * Get related blog posts - prioritizes same category, then fills with latest
  */
 export async function getRelatedBlogPosts(
   currentSlug: string,
@@ -786,23 +801,25 @@ export async function getRelatedBlogPosts(
     return allPosts.slice(0, limit);
   }
 
-  // Score posts by relevance
-  const scored = allPosts
-    .filter((post) => post.slug !== currentSlug)
-    .map((post) => {
-      let score = 0;
-      // Same category = 3 points
-      if (post.category.slug === current.category.slug) score += 3;
-      // Matching tags = 1 point each
-      const currentTags = current.tags || [];
-      const postTags = post.tags || [];
-      const matchingTags = postTags.filter((tag) => currentTags.includes(tag));
-      score += matchingTags.length;
-      return { post, score };
-    })
-    .sort((a, b) => b.score - a.score);
+  const otherPosts = allPosts.filter((post) => post.slug !== currentSlug);
 
-  return scored.slice(0, limit).map((s) => s.post);
+  // First, get posts from the same category (already sorted by date from Notion)
+  const sameCategoryPosts = otherPosts.filter(
+    (post) => post.category.slug === current.category.slug
+  );
+
+  // If we have enough same-category posts, return them
+  if (sameCategoryPosts.length >= limit) {
+    return sameCategoryPosts.slice(0, limit);
+  }
+
+  // Otherwise, fill with latest posts from other categories
+  const otherCategoryPosts = otherPosts.filter(
+    (post) => post.category.slug !== current.category.slug
+  );
+
+  const result = [...sameCategoryPosts, ...otherCategoryPosts];
+  return result.slice(0, limit);
 }
 
 // =============================================================================
