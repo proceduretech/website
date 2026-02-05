@@ -54,7 +54,7 @@ export function CaseStudiesClient({
       {/* ============================================
           FILTERS SECTION
           ============================================ */}
-      <section className="relative py-8 bg-surface border-y border-border z-20 overflow-visible">
+      <section className="relative py-8 bg-surface border-y border-border z-30 overflow-visible">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-between">
             {/* Expertise Filter */}
@@ -80,7 +80,7 @@ export function CaseStudiesClient({
             </div>
 
             {/* Industry Filter - Custom Dropdown */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:items-center relative z-[100]">
               <span className="text-sm text-text-muted font-medium">
                 Industry:
               </span>
@@ -106,7 +106,7 @@ export function CaseStudiesClient({
                   </svg>
                 </button>
                 {isIndustryDropdownOpen && (
-                  <div className="absolute top-full right-0 mt-1 py-1 min-w-[160px] bg-surface-elevated border border-border rounded-lg shadow-xl z-50">
+                  <div className="absolute top-full right-0 mt-1 py-1 min-w-[160px] bg-surface-elevated border border-border rounded-lg shadow-xl z-[9999]">
                     {industryFilters.map((filter) => (
                       <button
                         key={filter}
