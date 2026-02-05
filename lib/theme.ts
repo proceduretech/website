@@ -19,16 +19,31 @@
  * These are the raw building blocks - use semantic tokens in components.
  */
 export const primitives = {
-  // Teal family - Primary brand accent
+  // Green family - Primary brand accent (#1D9B69)
+  green: {
+    50: '#ecfdf5',
+    100: '#d1fae5',
+    200: '#a7f3d0',
+    300: '#6ee7b7',
+    400: '#34d399',
+    500: '#1D9B69',  // PRIMARY ACCENT - brand green
+    600: '#178556',  // accent-dark / emphasis
+    700: '#127a4c',  // darker accent
+    800: '#0e6940',
+    900: '#0a5534',
+    950: '#064728',
+  },
+
+  // Legacy teal family (kept for reference, use green for new work)
   teal: {
     50: '#f0fdfa',
     100: '#ccfbf1',
     200: '#99f6e4',
     300: '#5eead4',
     400: '#2dd4bf',
-    500: '#14b8a6',  // accent-light (primary accent)
-    600: '#0d9488',  // cta background
-    700: '#0f766e',  // accent (darker accent)
+    500: '#14b8a6',
+    600: '#0d9488',
+    700: '#0f766e',
     800: '#115e59',
     900: '#134e4a',
     950: '#042f2e',
@@ -50,6 +65,7 @@ export const primitives = {
   },
 
   // Neutral/Slate family - For backgrounds and text
+  // Updated to match new design system base #0A1425
   slate: {
     50: '#f8fafc',
     100: '#f1f5f9',
@@ -58,12 +74,12 @@ export const primitives = {
     400: '#94a3b8',
     500: '#64748b',
     600: '#475569',
-    700: '#334155',  // border-light
-    800: '#1e293b',  // border, surface-elevated (light mode)
-    900: '#0f172a',  // surface-elevated (dark mode)
-    950: '#0b1220',  // base (dark mode)
-    980: '#050a15',  // surface (dark mode) - custom
-    990: '#050a14',  // footer reveal (dark mode) - custom
+    700: '#2A3A55',  // border-light (updated)
+    800: '#1A2A45',  // border (updated)
+    900: '#111F35',  // surface-elevated (updated)
+    950: '#0A1425',  // base (updated) - PRIMARY BASE COLOR
+    980: '#070F1B',  // surface (updated)
+    990: '#050C16',  // footer reveal (updated)
   },
 
   // Semantic colors for callouts/alerts
@@ -129,9 +145,9 @@ export const darkTheme = {
     /** Inverted text (for light backgrounds) */
     inverted: primitives.slate[950],
     /** Link text color */
-    link: primitives.teal[500],             // #14b8a6
+    link: primitives.green[500],            // #1D9B69
     /** Highlight text (solid, not gradient) */
-    highlight: '#0db5a5',
+    highlight: '#1D9B69',
   },
 
   // -------------------------------------------------------------------------
@@ -147,7 +163,7 @@ export const darkTheme = {
     /** Emphasis border */
     emphasis: primitives.slate[600],        // #475569
     /** Focus ring color */
-    focus: primitives.teal[700],            // #0f766e
+    focus: primitives.green[500],           // #1D9B69
     /** Horizontal rule color */
     hr: primitives.slate[800],              // #1e293b
   },
@@ -156,11 +172,11 @@ export const darkTheme = {
   // ACCENT COLORS
   // -------------------------------------------------------------------------
   accents: {
-    // Primary accent (teal)
-    teal: {
-      base: primitives.teal[700],           // #0f766e - darker variant
-      light: primitives.teal[500],          // #14b8a6 - bright/primary
-      dark: primitives.teal[800],           // #115e59
+    // Primary accent (green) - #1D9B69
+    green: {
+      base: primitives.green[500],          // #1D9B69 - primary
+      light: '#2AAE79',                     // lighter variant
+      dark: primitives.green[600],          // #178556 - emphasis
     },
     // Secondary accent (blue)
     blue: {
@@ -175,15 +191,15 @@ export const darkTheme = {
   // -------------------------------------------------------------------------
   interactive: {
     /** Primary CTA background */
-    ctaBackground: primitives.teal[600],    // #0d9488
+    ctaBackground: primitives.green[500],   // #1D9B69
     /** Primary CTA text */
     ctaText: '#fcfcfc',
     /** Primary CTA hover */
-    ctaHover: primitives.teal[500],
+    ctaHover: '#2AAE79',                    // lighter on hover
     /** Primary CTA shadow */
-    ctaShadow: 'rgba(13, 148, 136, 0.25)',
+    ctaShadow: 'rgba(29, 155, 105, 0.25)',
     /** Outline button border on hover */
-    outlineHover: primitives.teal[500],
+    outlineHover: primitives.green[500],
     /** Ghost button hover background */
     ghostHover: primitives.slate[900],
   },
@@ -203,13 +219,13 @@ export const darkTheme = {
     /** 2XL shadow */
     '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
     /** CTA button glow */
-    ctaGlow: '0 10px 15px -3px rgba(13, 148, 136, 0.25)',
-    /** Accent teal glow */
-    tealGlow: '0 10px 15px -3px rgba(20, 184, 166, 0.25)',
+    ctaGlow: '0 10px 15px -3px rgba(29, 155, 105, 0.25)',
+    /** Accent green glow */
+    greenGlow: '0 10px 15px -3px rgba(42, 174, 121, 0.25)',
     /** Navigation mega menu shadow */
-    megaMenu: '0 20px 70px -15px rgba(15, 118, 110, 0.3)',
+    megaMenu: '0 20px 70px -15px rgba(29, 155, 105, 0.3)',
     /** Footer glow */
-    footerGlow: '0 20px 80px 20px rgba(13, 181, 165, 0.12), 0 8px 30px 5px rgba(13, 181, 165, 0.08)',
+    footerGlow: '0 20px 80px 20px rgba(29, 155, 105, 0.12), 0 8px 30px 5px rgba(29, 155, 105, 0.08)',
     /** Tracing beam shadow */
     tracingBeam: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
   },
@@ -219,23 +235,23 @@ export const darkTheme = {
   // -------------------------------------------------------------------------
   gradients: {
     /** Base to surface (vertical) */
-    baseToSurface: 'linear-gradient(to bottom, #050a15, #0b1220)',
+    baseToSurface: 'linear-gradient(to bottom, #070F1B, #0A1425)',
     /** Surface to base */
-    surfaceToBase: 'linear-gradient(to bottom, #0b1220, #050a15)',
-    /** Teal accent gradient (for glow effects) */
-    tealGlow: 'linear-gradient(to bottom right, rgba(20, 184, 166, 0.1), rgba(37, 99, 235, 0.05))',
-    /** Transparent teal fade (horizontal) */
-    tealFadeHorizontal: 'linear-gradient(to right, transparent, rgba(20, 184, 166, 0.3), transparent)',
+    surfaceToBase: 'linear-gradient(to bottom, #0A1425, #070F1B)',
+    /** Green accent gradient (for glow effects) */
+    greenGlow: 'linear-gradient(to bottom right, rgba(29, 155, 105, 0.1), rgba(37, 99, 235, 0.05))',
+    /** Transparent green fade (horizontal) */
+    greenFadeHorizontal: 'linear-gradient(to right, transparent, rgba(29, 155, 105, 0.3), transparent)',
     /** SVG line gradient stops */
     svgLine: {
-      start: { color: '#14B8A6', opacity: 0.5 },
-      end: { color: '#14B8A6', opacity: 0.2 },
+      start: { color: '#1D9B69', opacity: 0.5 },
+      end: { color: '#1D9B69', opacity: 0.2 },
     },
     /** Tracing beam gradient */
     tracingBeam: {
       stops: [
-        { color: '#14B8A6', opacity: 0, offset: 0 },
-        { color: '#14B8A6', opacity: 1, offset: 0.1 },
+        { color: '#1D9B69', opacity: 0, offset: 0 },
+        { color: '#1D9B69', opacity: 1, offset: 0.1 },
         { color: '#007DE5', opacity: 1, offset: 0.325 },
         { color: '#3B82F6', opacity: 0, offset: 1 },
       ],
@@ -319,10 +335,10 @@ export const darkTheme = {
       iconBg: 'rgba(168, 85, 247, 0.1)',    // purple-500/10
     },
     note: {
-      bg: 'rgba(15, 118, 110, 0.05)',       // accent/5
-      border: 'rgba(15, 118, 110, 0.2)',    // accent/20
-      icon: primitives.teal[500],           // #14b8a6
-      iconBg: 'rgba(15, 118, 110, 0.1)',    // accent/10
+      bg: 'rgba(29, 155, 105, 0.05)',       // accent/5
+      border: 'rgba(29, 155, 105, 0.2)',    // accent/20
+      icon: primitives.green[500],          // #1D9B69
+      iconBg: 'rgba(29, 155, 105, 0.1)',    // accent/10
     },
   },
 
@@ -330,16 +346,16 @@ export const darkTheme = {
   // CODE SYNTAX HIGHLIGHTING (matching current dark theme)
   // -------------------------------------------------------------------------
   code: {
-    background: '#22272e',
-    titleBackground: '#131b2e',
-    border: primitives.slate[800],          // #1e293b
+    background: '#0D1A2D',
+    titleBackground: '#111F35',
+    border: primitives.slate[800],          // #1A2A45
     text: 'rgba(255, 255, 255, 0.9)',
     lineNumbers: 'rgba(255, 255, 255, 0.5)',
     highlightLine: {
-      bg: 'rgba(20, 184, 166, 0.1)',
-      border: primitives.teal[500],         // #14b8a6
+      bg: 'rgba(29, 155, 105, 0.1)',
+      border: primitives.green[500],        // #1D9B69
     },
-    highlightWord: 'rgba(20, 184, 166, 0.2)',
+    highlightWord: 'rgba(29, 155, 105, 0.2)',
     // macOS window buttons
     windowButtons: {
       close: '#ff5f57',
@@ -352,8 +368,8 @@ export const darkTheme = {
   // SELECTION COLORS
   // -------------------------------------------------------------------------
   selection: {
-    background: 'rgba(15, 118, 110, 0.3)',  // accent/30
-    text: primitives.teal[500],             // #14b8a6
+    background: 'rgba(29, 155, 105, 0.3)',  // accent/30
+    text: primitives.green[500],            // #1D9B69
   },
 
   // -------------------------------------------------------------------------
@@ -365,7 +381,7 @@ export const darkTheme = {
     /** Primary fill color for solid icons */
     fill: 'currentColor',
     /** Accent colored icons */
-    accent: primitives.teal[500],           // #14b8a6
+    accent: primitives.green[500],          // #1D9B69
     /** Muted icons */
     muted: 'rgba(255, 255, 255, 0.5)',
     /** Grid pattern stroke */
@@ -378,11 +394,11 @@ export const darkTheme = {
   components: {
     /** Background boxes hover colors (interactive grid) */
     backgroundBoxes: [
-      primitives.teal[700],   // #0f766e
-      primitives.teal[500],   // #14b8a6
+      primitives.green[600],  // #178556
+      primitives.green[500],  // #1D9B69
       primitives.blue[600],   // #2563eb
       primitives.blue[500],   // #3b82f6
-      '#0db5a5',              // highlight
+      '#2AAE79',              // highlight
       '#06b6d4',              // cyan-500
       '#0891b2',              // cyan-600
       '#0e7490',              // cyan-700
@@ -390,15 +406,15 @@ export const darkTheme = {
     /** Tracing beam colors */
     tracingBeam: {
       dotActive: primitives.white,
-      dotInactive: primitives.teal[500],
+      dotInactive: primitives.green[500],
       dotBorderActive: primitives.white,
-      dotBorderInactive: primitives.teal[700],
+      dotBorderInactive: primitives.green[600],
       lineInactive: '#9091A0',
     },
     /** Spotlight fill */
-    spotlightFill: 'rgba(20, 184, 166, 0.4)',
+    spotlightFill: 'rgba(29, 155, 105, 0.4)',
     /** Navigation overlay */
-    navOverlay: 'rgba(11, 18, 32, 0.6)',    // base/60
+    navOverlay: 'rgba(10, 20, 37, 0.6)',    // base/60
     /** Scroll indicator */
     scrollIndicator: {
       border: primitives.slate[800],        // border
@@ -413,38 +429,38 @@ export const darkTheme = {
     body: 'rgba(255, 255, 255, 0.65)',
     headings: 'rgba(255, 255, 255, 0.9)',
     lead: 'rgba(255, 255, 255, 0.65)',
-    links: '#0db5a5',
+    links: '#1D9B69',
     bold: 'rgba(255, 255, 255, 0.9)',
     counters: 'rgba(255, 255, 255, 0.5)',
-    bullets: primitives.teal[500],          // #14b8a6
-    hr: primitives.slate[800],              // #1e293b
+    bullets: '#2AAE79',                     // accent-light
+    hr: primitives.slate[800],              // #1A2A45
     quotes: 'rgba(255, 255, 255, 0.65)',
-    quoteBorders: primitives.teal[500],     // #14b8a6
+    quoteBorders: '#2AAE79',                // accent-light
     captions: 'rgba(255, 255, 255, 0.5)',
-    code: '#0db5a5',
+    code: '#1D9B69',
     preCode: 'rgba(255, 255, 255, 0.9)',
-    preBg: '#131b2e',
-    thBorders: primitives.slate[800],       // #1e293b
-    tdBorders: primitives.slate[800],       // #1e293b
-    linkUnderline: 'rgba(13, 181, 165, 0.5)',
-    linkUnderlineHover: 'rgba(13, 181, 165, 1)',
+    preBg: '#111F35',
+    thBorders: primitives.slate[800],       // #1A2A45
+    tdBorders: primitives.slate[800],       // #1A2A45
+    linkUnderline: 'rgba(29, 155, 105, 0.5)',
+    linkUnderlineHover: 'rgba(29, 155, 105, 1)',
   },
 
   // -------------------------------------------------------------------------
   // CAL.COM INTEGRATION COLORS
   // -------------------------------------------------------------------------
   cal: {
-    bg: primitives.slate[900],              // #0F172A
-    bgEmphasis: primitives.slate[800],      // #1E293B
-    border: primitives.slate[700],          // #334155
-    borderEmphasis: primitives.slate[600],  // #475569
-    borderSubtle: primitives.slate[800],    // #1E293B
+    bg: primitives.slate[950],              // #0A1425
+    bgEmphasis: primitives.slate[900],      // #111F35
+    border: primitives.slate[800],          // #1A2A45
+    borderEmphasis: primitives.slate[700],  // #2A3A55
+    borderSubtle: primitives.slate[900],    // #111F35
     text: 'rgba(255, 255, 255, 0.9)',
     textEmphasis: 'rgba(255, 255, 255, 0.95)',
     textMuted: 'rgba(255, 255, 255, 0.65)',
     textSubtle: 'rgba(255, 255, 255, 0.5)',
-    brand: primitives.teal[500],            // #14B8A6
-    brandEmphasis: primitives.teal[600],    // #0D9488
+    brand: '#2AAE79',                       // accent-light
+    brandEmphasis: primitives.green[500],   // #1D9B69
     brandText: primitives.white,
   },
 } as const;
@@ -489,9 +505,9 @@ export const lightTheme = {
     /** Inverted text (for dark backgrounds) */
     inverted: primitives.white,
     /** Link text color */
-    link: primitives.teal[600],             // #0d9488
+    link: primitives.green[600],            // #178556
     /** Highlight text */
-    highlight: primitives.teal[600],        // #0d9488
+    highlight: primitives.green[600],       // #178556
   },
 
   // -------------------------------------------------------------------------
@@ -507,19 +523,19 @@ export const lightTheme = {
     /** Emphasis border */
     emphasis: primitives.slate[400],        // #94a3b8
     /** Focus ring color */
-    focus: primitives.teal[500],            // #14b8a6
+    focus: primitives.green[500],           // #1D9B69
     /** Horizontal rule color */
     hr: primitives.slate[200],              // #e2e8f0
   },
 
   // -------------------------------------------------------------------------
-  // ACCENT COLORS (remain similar for brand consistency)
+  // ACCENT COLORS (green for brand consistency)
   // -------------------------------------------------------------------------
   accents: {
-    teal: {
-      base: primitives.teal[600],           // #0d9488 - slightly darker for contrast
-      light: primitives.teal[500],          // #14b8a6
-      dark: primitives.teal[700],           // #0f766e
+    green: {
+      base: primitives.green[500],          // #1D9B69 - primary
+      light: '#2AAE79',                     // lighter variant
+      dark: primitives.green[600],          // #178556 - emphasis
     },
     blue: {
       base: primitives.blue[600],           // #2563eb
@@ -532,11 +548,11 @@ export const lightTheme = {
   // INTERACTIVE ELEMENTS
   // -------------------------------------------------------------------------
   interactive: {
-    ctaBackground: primitives.teal[600],    // #0d9488
+    ctaBackground: primitives.green[500],   // #1D9B69
     ctaText: primitives.white,
-    ctaHover: primitives.teal[700],         // Darker on hover in light mode
-    ctaShadow: 'rgba(13, 148, 136, 0.2)',
-    outlineHover: primitives.teal[600],
+    ctaHover: primitives.green[600],        // Darker on hover in light mode
+    ctaShadow: 'rgba(29, 155, 105, 0.2)',
+    outlineHover: primitives.green[500],
     ghostHover: primitives.slate[100],
   },
 
@@ -549,10 +565,10 @@ export const lightTheme = {
     lg: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)',
     xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)',
     '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-    ctaGlow: '0 10px 15px -3px rgba(13, 148, 136, 0.15)',
-    tealGlow: '0 10px 15px -3px rgba(20, 184, 166, 0.15)',
-    megaMenu: '0 20px 70px -15px rgba(15, 118, 110, 0.15)',
-    footerGlow: '0 -20px 80px 20px rgba(13, 181, 165, 0.06), 0 -8px 30px 5px rgba(13, 181, 165, 0.04)',
+    ctaGlow: '0 10px 15px -3px rgba(29, 155, 105, 0.15)',
+    greenGlow: '0 10px 15px -3px rgba(42, 174, 121, 0.15)',
+    megaMenu: '0 20px 70px -15px rgba(29, 155, 105, 0.15)',
+    footerGlow: '0 -20px 80px 20px rgba(29, 155, 105, 0.06), 0 -8px 30px 5px rgba(29, 155, 105, 0.04)',
     tracingBeam: 'rgba(0, 0, 0, 0.1) 0px 3px 8px',
   },
 
@@ -562,16 +578,16 @@ export const lightTheme = {
   gradients: {
     baseToSurface: 'linear-gradient(to bottom, #f8fafc, #ffffff)',
     surfaceToBase: 'linear-gradient(to bottom, #ffffff, #f8fafc)',
-    tealGlow: 'linear-gradient(to bottom right, rgba(20, 184, 166, 0.08), rgba(37, 99, 235, 0.04))',
-    tealFadeHorizontal: 'linear-gradient(to right, transparent, rgba(20, 184, 166, 0.2), transparent)',
+    greenGlow: 'linear-gradient(to bottom right, rgba(29, 155, 105, 0.08), rgba(37, 99, 235, 0.04))',
+    greenFadeHorizontal: 'linear-gradient(to right, transparent, rgba(29, 155, 105, 0.2), transparent)',
     svgLine: {
-      start: { color: '#0d9488', opacity: 0.4 },
-      end: { color: '#0d9488', opacity: 0.15 },
+      start: { color: '#1D9B69', opacity: 0.4 },
+      end: { color: '#1D9B69', opacity: 0.15 },
     },
     tracingBeam: {
       stops: [
-        { color: '#0d9488', opacity: 0, offset: 0 },
-        { color: '#0d9488', opacity: 1, offset: 0.1 },
+        { color: '#1D9B69', opacity: 0, offset: 0 },
+        { color: '#1D9B69', opacity: 1, offset: 0.1 },
         { color: '#2563eb', opacity: 1, offset: 0.325 },
         { color: '#3b82f6', opacity: 0, offset: 1 },
       ],
@@ -640,10 +656,10 @@ export const lightTheme = {
       iconBg: 'rgba(168, 85, 247, 0.15)',
     },
     note: {
-      bg: 'rgba(13, 148, 136, 0.08)',
-      border: 'rgba(13, 148, 136, 0.25)',
-      icon: primitives.teal[600],
-      iconBg: 'rgba(13, 148, 136, 0.15)',
+      bg: 'rgba(29, 155, 105, 0.08)',
+      border: 'rgba(29, 155, 105, 0.25)',
+      icon: primitives.green[500],
+      iconBg: 'rgba(29, 155, 105, 0.15)',
     },
   },
 
@@ -657,10 +673,10 @@ export const lightTheme = {
     text: 'rgba(255, 255, 255, 0.9)',
     lineNumbers: 'rgba(255, 255, 255, 0.5)',
     highlightLine: {
-      bg: 'rgba(20, 184, 166, 0.15)',
-      border: primitives.teal[500],
+      bg: 'rgba(29, 155, 105, 0.15)',
+      border: primitives.green[500],
     },
-    highlightWord: 'rgba(20, 184, 166, 0.25)',
+    highlightWord: 'rgba(29, 155, 105, 0.25)',
     windowButtons: {
       close: '#ff5f57',
       minimize: '#febc2e',
@@ -672,8 +688,8 @@ export const lightTheme = {
   // SELECTION COLORS
   // -------------------------------------------------------------------------
   selection: {
-    background: 'rgba(13, 148, 136, 0.2)',
-    text: primitives.teal[700],
+    background: 'rgba(29, 155, 105, 0.2)',
+    text: primitives.green[600],
   },
 
   // -------------------------------------------------------------------------
@@ -682,7 +698,7 @@ export const lightTheme = {
   svg: {
     stroke: 'currentColor',
     fill: 'currentColor',
-    accent: primitives.teal[600],
+    accent: primitives.green[500],
     muted: primitives.slate[400],
     gridPattern: primitives.slate[300],
   },
@@ -692,23 +708,23 @@ export const lightTheme = {
   // -------------------------------------------------------------------------
   components: {
     backgroundBoxes: [
-      primitives.teal[600],
-      primitives.teal[500],
+      primitives.green[600],
+      primitives.green[500],
       primitives.blue[600],
       primitives.blue[500],
-      primitives.teal[500],
+      '#2AAE79',
       '#0891b2',
       '#06b6d4',
       '#0e7490',
     ],
     tracingBeam: {
-      dotActive: primitives.teal[600],
-      dotInactive: primitives.teal[500],
-      dotBorderActive: primitives.teal[700],
-      dotBorderInactive: primitives.teal[600],
+      dotActive: primitives.green[500],
+      dotInactive: '#2AAE79',
+      dotBorderActive: primitives.green[600],
+      dotBorderInactive: primitives.green[500],
       lineInactive: primitives.slate[300],
     },
-    spotlightFill: 'rgba(13, 148, 136, 0.25)',
+    spotlightFill: 'rgba(29, 155, 105, 0.25)',
     navOverlay: 'rgba(15, 23, 42, 0.4)',
     scrollIndicator: {
       border: primitives.slate[300],
@@ -723,21 +739,21 @@ export const lightTheme = {
     body: primitives.slate[600],
     headings: primitives.slate[900],
     lead: primitives.slate[600],
-    links: primitives.teal[600],
+    links: primitives.green[500],
     bold: primitives.slate[900],
     counters: primitives.slate[500],
-    bullets: primitives.teal[600],
+    bullets: primitives.green[500],
     hr: primitives.slate[200],
     quotes: primitives.slate[600],
-    quoteBorders: primitives.teal[500],
+    quoteBorders: '#2AAE79',
     captions: primitives.slate[500],
-    code: primitives.teal[700],
+    code: primitives.green[600],
     preCode: 'rgba(255, 255, 255, 0.9)',
     preBg: primitives.slate[900],
     thBorders: primitives.slate[200],
     tdBorders: primitives.slate[200],
-    linkUnderline: 'rgba(13, 148, 136, 0.4)',
-    linkUnderlineHover: primitives.teal[600],
+    linkUnderline: 'rgba(29, 155, 105, 0.4)',
+    linkUnderlineHover: primitives.green[500],
   },
 
   // -------------------------------------------------------------------------
@@ -753,8 +769,8 @@ export const lightTheme = {
     textEmphasis: primitives.slate[950],
     textMuted: primitives.slate[600],
     textSubtle: primitives.slate[400],
-    brand: primitives.teal[600],
-    brandEmphasis: primitives.teal[700],
+    brand: primitives.green[500],
+    brandEmphasis: primitives.green[600],
     brandText: primitives.white,
   },
 } as const;
