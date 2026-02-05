@@ -311,8 +311,16 @@ async function transformNotionPageToBlogPost(
   }
 
   // Extract properties based on actual Notion database schema
+  // Category from Topic column - check multiple possible column names and types
   const categoryName =
-    getSelect(props["Topic"]) || getSelect(props["Category"]);
+    getSelect(props["Topic"]) ||
+    getSelect(props["topic"]) ||
+    getMultiSelect(props["Topic"])?.[0] ||
+    getMultiSelect(props["topic"])?.[0] ||
+    getRichText(props["Topic"]) ||
+    getRichText(props["topic"]) ||
+    getSelect(props["Category"]) ||
+    getSelect(props["category"]);
   const authorName =
     getPerson(props["Author"]) ||
     getRichText(props["Author"]) ||
