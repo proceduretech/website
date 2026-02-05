@@ -134,7 +134,7 @@ export function CaseStudiesClient({
       {/* ============================================
           CASE STUDIES GRID
           ============================================ */}
-      <section className="relative py-16 sm:py-24 bg-base">
+      <section className="relative py-16 sm:py-24 bg-base z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <AnimatePresence mode="wait">
             <motion.div
