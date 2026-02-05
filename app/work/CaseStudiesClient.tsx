@@ -54,7 +54,7 @@ export function CaseStudiesClient({
       {/* ============================================
           FILTERS SECTION
           ============================================ */}
-      <section className="relative py-8 bg-surface border-y border-border">
+      <section className="relative py-8 bg-surface border-y border-border z-20 overflow-visible">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-between">
             {/* Expertise Filter */}
