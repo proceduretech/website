@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import Cal, { getCalApi } from "@calcom/embed-react";
 import { siteConfig } from "@/lib/site-config";
 
@@ -47,8 +47,37 @@ export function CalInline({
 }: CalInlineProps) {
   const currentTheme = siteConfig.theme;
   const calConfig = calThemeConfigs[currentTheme];
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
+  // Lazy load: only render Cal widget when container is in viewport
   useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Load when element is within 200px of viewport (preload slightly early)
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      {
+        rootMargin: "200px", // Start loading 200px before entering viewport
+        threshold: 0,
+      }
+    );
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
+
+  // Initialize Cal API only after widget becomes visible
+  useEffect(() => {
+    if (!isVisible) return;
+
     (async function () {
       const cal = await getCalApi();
       cal("ui", {
@@ -59,11 +88,12 @@ export function CalInline({
         },
         hideEventTypeDetails: false,
       });
+      setIsLoaded(true);
     })();
-  }, [currentTheme, calConfig]);
+  }, [isVisible, currentTheme, calConfig]);
 
   return (
-    <div className={`${className} cal-inline-wrapper`}>
+    <div ref={containerRef} className={`${className} cal-inline-wrapper`}>
       <style jsx global>{`
         /* Hide Cal.com branding footer */
         .cal-inline-wrapper [data-cal-link] + div,
@@ -73,14 +103,34 @@ export function CalInline({
           display: none !important;
         }
       `}</style>
-      <Cal
-        calLink={calLink}
-        style={{ width: "100%", height: "100%", overflow: "scroll" }}
-        config={{
-          layout: "month_view",
-          theme: currentTheme,
-        }}
-      />
+
+      {/* Loading placeholder - shown until widget is in view */}
+      {!isVisible && (
+        <div className="w-full h-full flex items-center justify-center bg-surface-elevated">
+          <div className="text-center">
+            <div className="w-8 h-8 border-2 border-accent/30 border-t-accent rounded-full animate-spin mx-auto mb-3" />
+            <p className="text-sm text-text-muted">Loading calendar...</p>
+          </div>
+        </div>
+      )}
+
+      {/* Cal widget - only rendered after intersection */}
+      {isVisible && (
+        <Cal
+          calLink={calLink}
+          style={{
+            width: "100%",
+            height: "100%",
+            overflow: "scroll",
+            opacity: isLoaded ? 1 : 0.5,
+            transition: "opacity 0.3s ease-in-out",
+          }}
+          config={{
+            layout: "month_view",
+            theme: currentTheme,
+          }}
+        />
+      )}
     </div>
   );
 }
