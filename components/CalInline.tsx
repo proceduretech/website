@@ -1,8 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import Cal, { getCalApi } from "@calcom/embed-react";
+import { useEffect, useRef, useState, lazy, Suspense } from "react";
 import { siteConfig } from "@/lib/site-config";
+
+// Dynamically import Cal component to reduce initial bundle size
+const Cal = lazy(() =>
+  import("@calcom/embed-react").then((mod) => ({ default: mod.default }))
+);
 
 interface CalInlineProps {
   calLink?: string;
@@ -79,6 +83,8 @@ export function CalInline({
     if (!isVisible) return;
 
     (async function () {
+      // Dynamically import getCalApi to keep it in the same chunk as Cal
+      const { getCalApi } = await import("@calcom/embed-react");
       const cal = await getCalApi();
       cal("ui", {
         theme: currentTheme,
@@ -114,22 +120,33 @@ export function CalInline({
         </div>
       )}
 
-      {/* Cal widget - only rendered after intersection */}
+      {/* Cal widget - only rendered after intersection, wrapped in Suspense for lazy loading */}
       {isVisible && (
-        <Cal
-          calLink={calLink}
-          style={{
-            width: "100%",
-            height: "100%",
-            overflow: "scroll",
-            opacity: isLoaded ? 1 : 0.5,
-            transition: "opacity 0.3s ease-in-out",
-          }}
-          config={{
-            layout: "month_view",
-            theme: currentTheme,
-          }}
-        />
+        <Suspense
+          fallback={
+            <div className="w-full h-full flex items-center justify-center bg-surface-elevated">
+              <div className="text-center">
+                <div className="w-8 h-8 border-2 border-accent/30 border-t-accent rounded-full animate-spin mx-auto mb-3" />
+                <p className="text-sm text-text-muted">Loading calendar...</p>
+              </div>
+            </div>
+          }
+        >
+          <Cal
+            calLink={calLink}
+            style={{
+              width: "100%",
+              height: "100%",
+              overflow: "scroll",
+              opacity: isLoaded ? 1 : 0.5,
+              transition: "opacity 0.3s ease-in-out",
+            }}
+            config={{
+              layout: "month_view",
+              theme: currentTheme,
+            }}
+          />
+        </Suspense>
       )}
     </div>
   );
