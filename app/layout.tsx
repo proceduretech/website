@@ -280,7 +280,7 @@ export default function RootLayout({
         <style
           dangerouslySetInnerHTML={{
             __html: `
-              :root{--color-base:#0b1220;--color-surface:#050a15;--color-surface-elevated:#0f172a;--color-text-primary:rgba(255,255,255,.9);--color-text-secondary:rgba(255,255,255,.65);--color-accent-light:#14b8a6;--color-cta:#0d9488;--color-cta-text:#fcfcfc;--color-highlight:#0db5a5}
+              :root{--color-base:#0A1425;--color-surface:#070F1B;--color-surface-elevated:#111F35;--color-text-primary:rgba(255,255,255,.9);--color-text-secondary:rgba(255,255,255,.65);--color-accent-light:#2AAE79;--color-cta:#1D9B69;--color-cta-text:#fcfcfc;--color-highlight:#1D9B69}
               *,::before,::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:currentColor}
               html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:system-ui,-apple-system,sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}
               body{margin:0;line-height:inherit;background-color:var(--color-base);color:var(--color-text-primary)}

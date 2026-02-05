@@ -13,11 +13,11 @@ interface CalButtonProps {
 // Theme configurations for Cal.com embed
 const calThemeConfigs = {
   dark: {
-    "cal-bg": "#0F172A",
-    "cal-bg-emphasis": "#1E293B",
-    "cal-border": "#334155",
-    "cal-border-emphasis": "#475569",
-    "cal-border-subtle": "#1E293B",
+    "cal-bg": "#0A1425",
+    "cal-bg-emphasis": "#111F35",
+    "cal-border": "#1A2A45",
+    "cal-border-emphasis": "#2A3A55",
+    "cal-border-subtle": "#111F35",
     "cal-text": "rgba(255, 255, 255, 0.9)",
     "cal-text-emphasis": "rgba(255, 255, 255, 0.95)",
     "cal-text-muted": "rgba(255, 255, 255, 0.65)",

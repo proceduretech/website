@@ -195,20 +195,7 @@ export default function EventsPage() {
 
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center">
-            {/* Eyebrow */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 mb-6"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-              <span className="text-sm font-medium text-accent-light">
-                Community Events
-              </span>
-            </motion.div>
-
-            {/* Headline */}
+{/* Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -382,15 +369,7 @@ export default function EventsPage() {
               <div className="relative grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
                 {/* Left column - Event details */}
                 <div>
-                  {/* Registration open badge */}
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 border border-accent/30 mb-6">
-                    <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                    <span className="text-sm font-semibold text-accent-light">
-                      Registration Open
-                    </span>
-                  </div>
-
-                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-text-primary mb-6">
+  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-text-primary mb-6">
                     Mumbai Meets AI
                     <span className="block text-highlight mt-1">Edition 4</span>
                   </h3>

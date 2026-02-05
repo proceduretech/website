@@ -46,8 +46,7 @@ export function AboutTeaser() {
               href="/careers"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold text-accent-light bg-accent/10 border border-accent/20 rounded-lg hover:bg-accent/20 hover:border-accent/40 transition-all duration-200"
             >
-              We&apos;re Hiring
-              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+We&apos;re Hiring
             </Link>
           </div>
         </m.div>

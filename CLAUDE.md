@@ -93,11 +93,13 @@ featuredImage: /content/blog/my-article/cover.jpg
 ### Design System
 
 - **Theme:** Dark theme with premium enterprise aesthetic
-- **Base color:** #0F172A (dark navy)
-- **Surface colors:** #1E293B (elevated), #0F172A (base)
-- **Accent color:** Teal (#14B8A6) - single unified accent color throughout
-- **Highlight text:** Solid #0DB5A5 (`text-highlight`) - no gradient text
-- **CTA buttons:** Solid #0D9488 (`bg-cta`) with #FCFCFC text (`text-cta-text`)
+- **Base color:** #0A1425 (deep navy)
+- **Surface colors:** #111F35 (elevated), #070F1B (surface), #0A1425 (base)
+- **Accent color:** Green (#1D9B69) - single unified accent color throughout
+- **Accent light:** #2AAE79 (for hover states and lighter accents)
+- **Highlight text:** Solid #1D9B69 (`text-highlight`) - no gradient text
+- **CTA buttons:** Solid #1D9B69 (`bg-cta`) with #FCFCFC text (`text-cta-text`)
+- **Border color:** #1A2A45
 - **Text colors:** White with opacity - 90% (primary), 65% (secondary), 50% (muted) - blends better with backgrounds
 - **Typography:** Inter for body copy (better readability), Outfit for headings/buttons/nav (brand display font)
 - **Animations:** Framer Motion for scroll-triggered animations and micro-interactions

@@ -118,20 +118,7 @@ export default function ContactPage() {
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               className="lg:sticky lg:top-32"
             >
-              {/* Eyebrow */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/10 border border-accent/20 mb-6"
-              >
-                <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                <span className="text-xs font-medium text-accent-light">
-                  Typically respond within 24 hours
-                </span>
-              </motion.div>
-
-              {/* Headline */}
+{/* Headline */}
               <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-semibold text-text-primary leading-[1.1] tracking-tight mb-6">
                 Start Building with
                 <br />
