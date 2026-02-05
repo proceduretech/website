@@ -17,6 +17,8 @@ import {
   QualityMatters,
 } from "@/components/expertise";
 import { Testimonials } from "@/components/sections/Testimonials";
+import { CalInline } from "@/components/CalInline";
+import { motion } from "framer-motion";
 
 interface RelatedPage {
   slug: string;
@@ -170,9 +172,9 @@ export default function ExpertisePageClient({
         description={pageData.hero.description}
         primaryCTA={
           expertise.slug === "frontend-development"
-            ? { text: "Talk to a Frontend Specialist", href: "/contact-us" }
+            ? { text: "Talk to a Frontend Specialist", href: "#book-call" }
             : expertise.slug === "backend-development"
-            ? { text: "Talk to a Backend Specialist", href: "/contact-us" }
+            ? { text: "Talk to a Backend Specialist", href: "#book-call" }
             : undefined
         }
         secondaryCTA={
@@ -261,6 +263,39 @@ export default function ExpertisePageClient({
           benefits={pageData.qualityMatters.benefits}
         />
       )}
+
+      {/* Book a Call Section */}
+      <section id="book-call" className="relative py-16 sm:py-24 bg-surface scroll-mt-20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-10"
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-text-primary mb-6">
+              Ready to Discuss Your
+              <br />
+              <span className="text-highlight">{pageData.hero.badge} Project?</span>
+            </h2>
+            <p className="text-lg text-text-secondary max-w-2xl mx-auto">
+              Schedule a call with our engineering team. We&apos;ll discuss your
+              technical requirements and provide an honest assessment of how we can help.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="rounded-2xl overflow-hidden border border-border bg-surface-elevated"
+          >
+            <CalInline className="h-[600px]" />
+          </motion.div>
+        </div>
+      </section>
 
       {pageData.faqs.length > 0 && <FAQSection faqs={pageData.faqs} />}
 
