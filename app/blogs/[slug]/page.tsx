@@ -303,14 +303,34 @@ function NotionContentBlock({ block }: { block: BlogContent }) {
 }
 
 // Render all Notion content with proper list grouping
-function NotionContent({ blocks }: { blocks: BlogContent[] }) {
+function NotionContent({
+  blocks,
+  skipFirstHeading,
+}: {
+  blocks: BlogContent[];
+  skipFirstHeading?: boolean;
+}) {
+  // Filter out the first heading_1 if it matches the page title (avoid duplication)
+  let filteredBlocks = blocks;
+  if (skipFirstHeading) {
+    const firstHeadingIdx = blocks.findIndex(
+      (block) => block.type === "heading_1"
+    );
+    if (firstHeadingIdx !== -1) {
+      filteredBlocks = [
+        ...blocks.slice(0, firstHeadingIdx),
+        ...blocks.slice(firstHeadingIdx + 1),
+      ];
+    }
+  }
+
   const groupedBlocks: (
     | BlogContent
     | { type: "ul" | "ol"; items: BlogContent[] }
   )[] = [];
 
-  for (let i = 0; i < blocks.length; i++) {
-    const block = blocks[i];
+  for (let i = 0; i < filteredBlocks.length; i++) {
+    const block = filteredBlocks[i];
     const lastGroup = groupedBlocks[groupedBlocks.length - 1];
     const isListGroup =
       lastGroup && "items" in lastGroup && Array.isArray(lastGroup.items);
@@ -652,7 +672,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
                 {/* Notion Content */}
                 {post.notionContent.length > 0 ? (
-                  <NotionContent blocks={post.notionContent} />
+                  <NotionContent blocks={post.notionContent} skipFirstHeading />
                 ) : (
                   <ContentLoading />
                 )}
@@ -688,7 +708,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
               {/* Notion Content */}
               {post.notionContent.length > 0 ? (
-                <NotionContent blocks={post.notionContent} />
+                <NotionContent blocks={post.notionContent} skipFirstHeading />
               ) : (
                 <ContentLoading />
               )}

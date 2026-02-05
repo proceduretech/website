@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 interface BlogShareButtonsProps {
   url: string;
@@ -16,42 +16,42 @@ export function BlogShareButtons({
   const [copied, setCopied] = useState(false);
   const [shareUrl, setShareUrl] = useState(url);
   const [isVisible, setIsVisible] = useState(false);
-  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
     setShareUrl(`${window.location.origin}${url}`);
   }, [url]);
 
-  // Track visibility for sidebar variant based on article content
+  // Track visibility for sidebar variant - show when article is in view
+  // Icons appear when top of article enters viewport, stay until bottom exits
   useEffect(() => {
     if (variant !== "sidebar") return;
 
-    // Find the article content section
-    const articleElement = document.querySelector("article.prose-container");
-    if (!articleElement) {
-      setIsVisible(true); // Fallback: always show if no article found
-      return;
-    }
-
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          // Show when article is in viewport (any part visible)
-          setIsVisible(entry.isIntersecting);
-        });
-      },
-      {
-        threshold: 0,
-        rootMargin: "0px 0px -100px 0px", // Hide when bottom of article is 100px above viewport bottom
+    const checkVisibility = () => {
+      const articleElement = document.querySelector("article.prose-container");
+      if (!articleElement) {
+        setIsVisible(true);
+        return;
       }
-    );
 
-    observerRef.current.observe(articleElement);
+      const rect = articleElement.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+
+      // Show when article top is in upper half of viewport (user has scrolled to content)
+      // Hide when article bottom has scrolled above the viewport
+      const articleTopInView = rect.top < viewportHeight * 0.6;
+      const articleBottomAboveViewport = rect.bottom < 100;
+
+      setIsVisible(articleTopInView && !articleBottomAboveViewport);
+    };
+
+    // Check on mount
+    checkVisibility();
+
+    // Check on scroll
+    window.addEventListener("scroll", checkVisibility, { passive: true });
 
     return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect();
-      }
+      window.removeEventListener("scroll", checkVisibility);
     };
   }, [variant]);
 
