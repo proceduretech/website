@@ -19,7 +19,7 @@ export function reportWebVitals() {
         });
       });
       lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
-    } catch (e) {
+    } catch {
       // Observer not supported
     }
 
@@ -28,8 +28,9 @@ export function reportWebVitals() {
       let clsValue = 0;
       const clsObserver = new PerformanceObserver((list) => {
         for (const entry of list.getEntries()) {
-          if (!(entry as any).hadRecentInput) {
-            clsValue += (entry as any).value;
+          const layoutShiftEntry = entry as PerformanceEntry & { hadRecentInput?: boolean; value?: number };
+          if (!layoutShiftEntry.hadRecentInput) {
+            clsValue += layoutShiftEntry.value ?? 0;
           }
         }
         sendToAnalytics({
@@ -39,16 +40,22 @@ export function reportWebVitals() {
         });
       });
       clsObserver.observe({ entryTypes: ['layout-shift'] });
-    } catch (e) {
+    } catch {
       // Observer not supported
     }
   }
 }
 
+declare global {
+  interface Window {
+    gtag?: (command: string, action: string, params: Record<string, unknown>) => void;
+  }
+}
+
 function sendToAnalytics(metric: { name: string; value: number; id: string }) {
   // Send to Google Analytics if available
-  if (typeof window !== 'undefined' && (window as any).gtag) {
-    (window as any).gtag('event', metric.name, {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', metric.name, {
       event_category: 'Web Vitals',
       value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value),
       event_label: metric.id,
