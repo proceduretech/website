@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import {
   getNotionCaseStudies,
   getNotionServiceFilters,
-  getNotionIndustryFilters,
 } from "@/lib/notion-case-studies";
 import { CaseStudiesClient } from "./CaseStudiesClient";
 
@@ -29,13 +28,11 @@ export default async function CaseStudiesPage() {
   // The data is fetched from Notion once and baked into the static HTML
   const caseStudies = await getNotionCaseStudies();
   const serviceFilters = getNotionServiceFilters();
-  const industryFilters = await getNotionIndustryFilters();
 
   return (
     <CaseStudiesClient
       caseStudies={caseStudies}
       serviceFilters={serviceFilters}
-      industryFilters={industryFilters}
     />
   );
 }

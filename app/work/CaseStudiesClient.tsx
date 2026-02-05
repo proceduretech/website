@@ -11,26 +11,20 @@ import Image from "next/image";
 interface CaseStudiesClientProps {
   caseStudies: CaseStudy[];
   serviceFilters: string[];
-  industryFilters: string[];
 }
 
 export function CaseStudiesClient({
   caseStudies,
   serviceFilters,
-  industryFilters,
 }: CaseStudiesClientProps) {
   const [activeServiceFilter, setActiveServiceFilter] = useState("All");
-  const [activeIndustryFilter, setActiveIndustryFilter] = useState("All");
-  const [isIndustryDropdownOpen, setIsIndustryDropdownOpen] = useState(false);
 
   // Filter case studies
   const filteredStudies = caseStudies.filter((study) => {
     const matchesService =
       activeServiceFilter === "All" ||
       study.serviceType === activeServiceFilter;
-    const matchesIndustry =
-      activeIndustryFilter === "All" || study.industry === activeIndustryFilter;
-    return matchesService && matchesIndustry;
+    return matchesService;
   });
 
   return (
@@ -79,54 +73,6 @@ export function CaseStudiesClient({
               </div>
             </div>
 
-            {/* Industry Filter - Custom Dropdown */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:items-center relative z-[100]">
-              <span className="text-sm text-text-muted font-medium">
-                Industry:
-              </span>
-              <div className="relative">
-                <button
-                  onClick={() => setIsIndustryDropdownOpen(!isIndustryDropdownOpen)}
-                  onBlur={() => setTimeout(() => setIsIndustryDropdownOpen(false), 150)}
-                  className={`px-4 py-2 text-sm font-medium rounded-lg cursor-pointer transition-all duration-200 flex items-center gap-2 ${
-                    activeIndustryFilter !== "All"
-                      ? "bg-accent/20 text-accent-light border border-accent/30"
-                      : "bg-surface-elevated text-text-secondary border border-border hover:border-accent/30"
-                  }`}
-                >
-                  {activeIndustryFilter}
-                  <svg
-                    className={`w-4 h-4 transition-transform ${isIndustryDropdownOpen ? "rotate-180" : ""}`}
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                {isIndustryDropdownOpen && (
-                  <div className="absolute top-full right-0 mt-1 py-1 min-w-[160px] bg-surface-elevated border border-border rounded-lg shadow-xl z-[9999]">
-                    {industryFilters.map((filter) => (
-                      <button
-                        key={filter}
-                        onClick={() => {
-                          setActiveIndustryFilter(filter);
-                          setIsIndustryDropdownOpen(false);
-                        }}
-                        className={`w-full px-4 py-2 text-sm text-left transition-colors ${
-                          activeIndustryFilter === filter
-                            ? "bg-accent/20 text-accent-light"
-                            : "text-text-secondary hover:bg-accent/10 hover:text-accent-light"
-                        }`}
-                      >
-                        {filter}
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -138,7 +84,7 @@ export function CaseStudiesClient({
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <AnimatePresence mode="wait">
             <motion.div
-              key={`${activeServiceFilter}-${activeIndustryFilter}`}
+              key={activeServiceFilter}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
@@ -185,10 +131,7 @@ export function CaseStudiesClient({
                 Try adjusting your filters to see more results.
               </p>
               <button
-                onClick={() => {
-                  setActiveServiceFilter("All");
-                  setActiveIndustryFilter("All");
-                }}
+                onClick={() => setActiveServiceFilter("All")}
                 className="px-6 py-3 text-sm font-semibold text-accent-light bg-accent/10 border border-accent/30 rounded-lg hover:bg-accent/20 transition-colors"
               >
                 Clear all filters
