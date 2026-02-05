@@ -112,7 +112,7 @@ function NotionContentBlock({ block }: { block: BlogContent }) {
     case "paragraph":
       if (!block.text && !block.richText?.length) return null;
       return (
-        <p className="mb-4 text-base leading-[1.75] text-(--color-prose-body)">
+        <p className="mb-4 text-base leading-[1.75] text-text-secondary">
           <RichText segments={block.richText} />
         </p>
       );
@@ -120,7 +120,7 @@ function NotionContentBlock({ block }: { block: BlogContent }) {
       return (
         <h2
           id={block.text?.toLowerCase().replace(/\s+/g, "-")}
-          className="font-display text-2xl font-bold text-(--color-prose-headings) mt-12 mb-5 scroll-mt-24"
+          className="font-display text-2xl font-bold text-text-primary mt-12 mb-5 scroll-mt-24"
         >
           {block.text}
         </h2>
@@ -129,7 +129,7 @@ function NotionContentBlock({ block }: { block: BlogContent }) {
       return (
         <h3
           id={block.text?.toLowerCase().replace(/\s+/g, "-")}
-          className="font-display text-xl font-semibold text-(--color-prose-headings) mt-10 mb-4 scroll-mt-24"
+          className="font-display text-xl font-semibold text-text-primary mt-10 mb-4 scroll-mt-24"
         >
           {block.text}
         </h3>
@@ -138,20 +138,20 @@ function NotionContentBlock({ block }: { block: BlogContent }) {
       return (
         <h4
           id={block.text?.toLowerCase().replace(/\s+/g, "-")}
-          className="font-display text-lg font-semibold text-(--color-prose-headings) mt-8 mb-3.5 scroll-mt-24"
+          className="font-display text-lg font-semibold text-text-primary mt-8 mb-3.5 scroll-mt-24"
         >
           {block.text}
         </h4>
       );
     case "bulleted_list_item":
       return (
-        <li className="text-base leading-[1.75] text-(--color-prose-body) ml-6 mb-2 list-disc marker:text-(--color-prose-bullets)">
+        <li className="text-base leading-[1.75] text-text-secondary ml-6 mb-2 list-disc marker:text-accent-light">
           <RichText segments={block.richText} />
         </li>
       );
     case "numbered_list_item":
       return (
-        <li className="text-base leading-[1.75] text-(--color-prose-body) ml-6 mb-2 list-decimal marker:text-(--color-prose-bullets)">
+        <li className="text-base leading-[1.75] text-text-secondary ml-6 mb-2 list-decimal marker:text-accent-light">
           <RichText segments={block.richText} />
         </li>
       );
@@ -185,7 +185,7 @@ function NotionContentBlock({ block }: { block: BlogContent }) {
               )}
             </span>
           )}
-          <p className="text-base text-(--color-prose-body) mb-0">
+          <p className="text-base text-text-secondary mb-0">
             <RichText segments={block.richText} />
           </p>
         </div>
@@ -341,12 +341,12 @@ function NotionContent({ blocks }: { blocks: BlogContent[] }) {
             return (
               <ul
                 key={idx}
-                className="mb-6 pl-6 list-disc marker:text-(--color-prose-bullets)"
+                className="mb-6 pl-6 list-disc marker:text-accent-light"
               >
                 {item.items.map((li, liIdx) => (
                   <li
                     key={liIdx}
-                    className="text-base leading-[1.75] text-(--color-prose-body) mb-2"
+                    className="text-base leading-[1.75] text-text-secondary mb-2"
                   >
                     <RichText segments={li.richText} />
                   </li>
@@ -357,12 +357,12 @@ function NotionContent({ blocks }: { blocks: BlogContent[] }) {
             return (
               <ol
                 key={idx}
-                className="mb-6 pl-6 list-decimal marker:text-(--color-prose-bullets)"
+                className="mb-6 pl-6 list-decimal marker:text-accent-light"
               >
                 {item.items.map((li, liIdx) => (
                   <li
                     key={liIdx}
-                    className="text-base leading-[1.75] text-(--color-prose-body) mb-2"
+                    className="text-base leading-[1.75] text-text-secondary mb-2"
                   >
                     <RichText segments={li.richText} />
                   </li>
