@@ -42,7 +42,7 @@ export function CaseStudiesClient({
           { value: "50+", label: "Certified Engineers" },
           { value: "98%", label: "Client Retention" },
         ]}
-        primaryCTA={{ text: "Talk to the Team", href: "/contact-us" }}
+        primaryCTA={{ text: "Talk to the Team", href: "#book-call" }}
       />
 
       {/* ============================================
@@ -205,7 +205,7 @@ export function CaseStudiesClient({
       {/* ============================================
           CTA SECTION WITH INLINE BOOKING
           ============================================ */}
-      <section className="relative py-16 sm:py-24 bg-base">
+      <section id="book-call" className="relative py-16 sm:py-24 bg-base scroll-mt-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

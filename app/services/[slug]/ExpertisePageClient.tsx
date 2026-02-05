@@ -17,6 +17,8 @@ import {
   QualityMatters,
 } from "@/components/expertise";
 import { Testimonials } from "@/components/sections/Testimonials";
+import { CalInline } from "@/components/CalInline";
+import { motion } from "framer-motion";
 
 interface RelatedPage {
   slug: string;
@@ -29,6 +31,30 @@ interface Props {
   expertise: ExpertisePageForListing;
   relatedPages: RelatedPage[];
 }
+
+// Customized booking section copy per expertise
+const bookingSubtext: Record<string, string> = {
+  "ai-engineering":
+    "Share your AI project requirements—from model architecture to MLOps infrastructure. We'll outline a practical path from prototype to production-ready deployment.",
+  "ai-agents":
+    "Tell us about the workflows you want to automate with AI agents. We'll discuss tool integrations, safety guardrails, and a realistic timeline to deployment.",
+  "ai-security":
+    "Describe your AI system's architecture and security concerns. We'll assess prompt injection risks, output vulnerabilities, and recommend a defense strategy.",
+  "ai-privacy":
+    "Share your compliance requirements and data handling challenges. We'll discuss privacy-preserving architectures and how to meet GDPR, HIPAA, or SOC 2 standards.",
+  "mobile-development":
+    "Walk us through your mobile app vision—native or cross-platform. We'll help you choose the right approach and plan for a smooth App Store launch.",
+  "frontend-development":
+    "Tell us about your web application challenges—whether a new build or performance optimization. We'll discuss framework choices, design implementation, and Core Web Vitals.",
+  "backend-development":
+    "Describe your backend architecture needs—APIs, data pipelines, or scaling challenges. We'll assess the right stack and infrastructure for your growth trajectory.",
+  "software-testing-and-qa":
+    "Share your testing challenges—flaky tests, missing coverage, or CI/CD gaps. We'll outline a test automation strategy that fits your development workflow.",
+  "product-design":
+    "Tell us about your AI product and the user experience challenges you face. We'll discuss research methods, prototyping, and design patterns that build user trust.",
+  "kubernetes":
+    "Describe your container orchestration needs—new clusters, migrations, or operational pain points. We'll assess your workloads and recommend a production-ready approach.",
+};
 
 export default function ExpertisePageClient({
   expertise,
@@ -170,9 +196,9 @@ export default function ExpertisePageClient({
         description={pageData.hero.description}
         primaryCTA={
           expertise.slug === "frontend-development"
-            ? { text: "Talk to a Frontend Specialist", href: "/contact-us" }
+            ? { text: "Talk to a Frontend Specialist", href: "#book-call" }
             : expertise.slug === "backend-development"
-            ? { text: "Talk to a Backend Specialist", href: "/contact-us" }
+            ? { text: "Talk to a Backend Specialist", href: "#book-call" }
             : undefined
         }
         secondaryCTA={
@@ -261,6 +287,39 @@ export default function ExpertisePageClient({
           benefits={pageData.qualityMatters.benefits}
         />
       )}
+
+      {/* Book a Call Section */}
+      <section id="book-call" className="relative py-16 sm:py-24 bg-surface scroll-mt-20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-10"
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-text-primary mb-6">
+              Ready to Discuss Your
+              <br />
+              <span className="text-highlight">{pageData.hero.badge} Project?</span>
+            </h2>
+            <p className="text-lg text-text-secondary max-w-2xl mx-auto">
+              {bookingSubtext[expertise.slug] ||
+                "Schedule a call with our engineering team. We'll discuss your technical requirements and provide an honest assessment of how we can help."}
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="rounded-2xl overflow-hidden border border-border bg-surface-elevated"
+          >
+            <CalInline className="h-[600px]" />
+          </motion.div>
+        </div>
+      </section>
 
       {pageData.faqs.length > 0 && <FAQSection faqs={pageData.faqs} />}
 

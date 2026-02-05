@@ -70,6 +70,9 @@ export default function ContactLayout({
 }) {
   return (
     <>
+      {/* Preconnect to Cal.com for faster calendar widget loading */}
+      <link rel="preconnect" href="https://app.cal.com" />
+      <link rel="dns-prefetch" href="https://app.cal.com" />
       <Script
         id="contact-faq-schema"
         type="application/ld+json"

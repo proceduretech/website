@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { CalButton } from "@/components/CalButton";
 
 export function BlogCTA() {
   return (
@@ -27,7 +26,10 @@ export function BlogCTA() {
 
           {/* Dual CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CalButton className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-cta-text bg-cta rounded-xl hover:brightness-110 transition-all duration-200 shadow-lg shadow-cta/25 cursor-pointer">
+            <Link
+              href="/contact-us"
+              className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-cta-text bg-cta rounded-xl hover:brightness-110 transition-all duration-200 shadow-lg shadow-cta/25"
+            >
               Schedule a Technical Consultation
               <svg
                 className="w-5 h-5 ml-2"
@@ -42,12 +44,12 @@ export function BlogCTA() {
                   d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
                 />
               </svg>
-            </CalButton>
+            </Link>
             <Link
-              href="/contact-us"
+              href="/work"
               className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-xl hover:border-accent hover:bg-accent/10 transition-all duration-200"
             >
-              Contact Us
+              View Our Work
             </Link>
           </div>
 

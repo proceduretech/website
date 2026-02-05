@@ -3,11 +3,34 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { PageHero } from "@/components/ui";
+import { CalInline } from "@/components/CalInline";
 import type { ServicePageForListing } from "@/lib/content";
 
 interface Props {
   service: ServicePageForListing;
 }
+
+// Customized booking section copy per service
+const bookingSubtext: Record<string, string> = {
+  "ai-sprints":
+    "Discuss your AI concept and how we can deliver a working prototype in 2-4 weeks.",
+  "cloud":
+    "Talk to our architects about your AWS, GCP, or Azure infrastructure and cost optimization opportunities.",
+  "design-systems":
+    "Explore how we can build a component library and design token architecture your team will actually adopt.",
+  "enterprise":
+    "Schedule a consultation to discuss your compliance requirements, security standards, and procurement process.",
+  "forward-deployed":
+    "Tell us about your team and tech stack. We can have engineers embedded and shipping code within 5 days.",
+  "product-build":
+    "Walk us through your product vision. Most builds go from kickoff to production in 6-12 weeks.",
+  "scale-ups":
+    "Share your roadmap and capacity challenges. We match senior engineers to your growth priorities within days.",
+  "staff-augmentation":
+    "Describe your technical requirements and we'll present qualified senior engineers within 48 hours.",
+  "startups":
+    "Talk to engineers who understand runway pressure. We scope MVPs for 4-8 week delivery with investor-ready architecture.",
+};
 
 export default function ServicePageClient({ service }: Props) {
   const {
@@ -65,7 +88,7 @@ export default function ServicePageClient({ service }: Props) {
         headline={hero.headline}
         headlineAccent={hero.headlineAccent}
         description={hero.description}
-        primaryCTA={hero.primaryCTA}
+        primaryCTA={hero.primaryCTA ? { ...hero.primaryCTA, href: "#book-call" } : { text: "Talk to the Team", href: "#book-call" }}
         secondaryCTA={hero.secondaryCTA}
       />
 
@@ -280,6 +303,37 @@ export default function ServicePageClient({ service }: Props) {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Book a Call Section */}
+      <section id="book-call" className="relative py-16 sm:py-24 bg-surface scroll-mt-20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-10"
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-text-primary mb-6">
+              Ready to Get Started?
+            </h2>
+            <p className="text-lg text-text-secondary max-w-2xl mx-auto">
+              {bookingSubtext[service.slug] ||
+                "Schedule a call with our team. We'll discuss your requirements and how we can help you achieve your goals."}
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="rounded-2xl overflow-hidden border border-border bg-surface-elevated"
+          >
+            <CalInline className="h-[600px]" />
+          </motion.div>
         </div>
       </section>
 
