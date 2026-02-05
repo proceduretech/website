@@ -276,20 +276,48 @@ export default function RootLayout({
   return (
     <html lang="en" className={themeClass}>
       <head>
-        {/* Critical inline CSS for instant render */}
+        {/* Critical inline CSS for instant render - includes hero styles to avoid FOUC */}
         <style
           dangerouslySetInnerHTML={{
             __html: `
-              :root{--color-base:#0A1425;--color-surface:#070F1B;--color-surface-elevated:#111F35;--color-text-primary:rgba(255,255,255,.9);--color-text-secondary:rgba(255,255,255,.65);--color-accent-light:#2AAE79;--color-cta:#1D9B69;--color-cta-text:#fcfcfc;--color-highlight:#1D9B69}
+              :root{--color-base:#0A1425;--color-surface:#070F1B;--color-surface-elevated:#111F35;--color-border:#1E293B;--color-text-primary:rgba(255,255,255,.9);--color-text-secondary:rgba(255,255,255,.65);--color-text-muted:rgba(255,255,255,.5);--color-accent:#14B8A6;--color-accent-light:#2AAE79;--color-cta:#1D9B69;--color-cta-text:#fcfcfc;--color-highlight:#1D9B69}
               *,::before,::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:currentColor}
-              html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:system-ui,-apple-system,sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}
-              body{margin:0;line-height:inherit;background-color:var(--color-base);color:var(--color-text-primary)}
-              html{scrollbar-gutter:stable;scroll-behavior:smooth}
+              html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent;scrollbar-gutter:stable;scroll-behavior:smooth}
+              body{margin:0;line-height:inherit;background-color:var(--color-base);color:var(--color-text-primary);font-family:var(--font-inter),system-ui,-apple-system,sans-serif}
               img{height:auto;max-width:100%}
-              h1{margin:0;font-size:inherit;font-weight:inherit}
+              h1,h2,h3{margin:0;font-family:var(--font-outfit),system-ui,-apple-system,sans-serif}
               .text-highlight{color:var(--color-highlight)}
-              @font-face{font-family:'Outfit';font-display:swap}
-              @font-face{font-family:'Inter';font-display:swap}
+              .text-text-primary{color:var(--color-text-primary)}
+              .text-text-secondary{color:var(--color-text-secondary)}
+              .bg-base{background-color:var(--color-base)}
+              .bg-surface{background-color:var(--color-surface)}
+              .bg-cta{background-color:var(--color-cta)}
+              .text-cta-text{color:var(--color-cta-text)}
+              .min-h-screen{min-height:100vh}
+              .relative{position:relative}
+              .absolute{position:absolute}
+              .inset-0{inset:0}
+              .z-10{z-index:10}
+              .flex{display:flex}
+              .items-center{align-items:center}
+              .justify-center{justify-content:center}
+              .text-center{text-align:center}
+              .overflow-hidden{overflow:hidden}
+              .mx-auto{margin-left:auto;margin-right:auto}
+              .px-6{padding-left:1.5rem;padding-right:1.5rem}
+              .pt-24{padding-top:6rem}
+              .pb-16{padding-bottom:4rem}
+              .mb-6{margin-bottom:1.5rem}
+              .max-w-5xl{max-width:64rem}
+              .max-w-2xl{max-width:42rem}
+              .leading-tight{line-height:1.1}
+              .tracking-tight{letter-spacing:-0.025em}
+              .font-semibold{font-weight:600}
+              .text-3xl{font-size:1.875rem;line-height:2.25rem}
+              .text-base{font-size:1rem;line-height:1.5rem}
+              @media(min-width:640px){.sm\\:text-4xl{font-size:2.25rem;line-height:2.5rem}.sm\\:text-lg{font-size:1.125rem;line-height:1.75rem}.sm\\:px-8{padding-left:2rem;padding-right:2rem}}
+              @media(min-width:768px){.md\\:text-4xl{font-size:2.25rem;line-height:2.5rem}.md\\:text-xl{font-size:1.25rem;line-height:1.75rem}}
+              @media(min-width:1024px){.lg\\:text-5xl{font-size:3rem;line-height:1}}
             `,
           }}
         />
