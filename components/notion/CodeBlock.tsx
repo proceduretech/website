@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { codeToHtml } from "shiki";
+// Note: shiki is dynamically imported in useEffect to reduce initial bundle size
 
 interface NotionCodeBlockProps {
   code: string;
@@ -43,10 +43,12 @@ export function NotionCodeBlock({ code, language }: NotionCodeBlockProps) {
   const displayLanguage = language || "plaintext";
   const mappedLang = mapLanguage(language);
 
-  // Highlight code on mount
+  // Highlight code on mount - shiki is dynamically imported to reduce bundle
   useEffect(() => {
     async function highlight() {
       try {
+        // Dynamic import of shiki to keep it in a separate chunk
+        const { codeToHtml } = await import("shiki");
         const html = await codeToHtml(code, {
           lang: mappedLang,
           themes: {
@@ -58,6 +60,7 @@ export function NotionCodeBlock({ code, language }: NotionCodeBlockProps) {
         setHighlightedHtml(html);
       } catch {
         // Fallback to plaintext if language not supported
+        const { codeToHtml } = await import("shiki");
         const html = await codeToHtml(code, {
           lang: "plaintext",
           themes: {

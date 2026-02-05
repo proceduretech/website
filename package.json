@@ -12,6 +12,7 @@
     "seo:check": "node scripts/seo-check.mjs",
     "lighthouse": "lhci autorun",
     "bundle:check": "node scripts/bundle-budget.mjs",
+    "bundle:analyze": "ANALYZE=true next build",
     "polyfills:check": "node scripts/check-polyfills.mjs"
   },
   "browserslist": [
@@ -35,7 +36,6 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "gray-matter": "^4.0.3",
-    "lucide-react": "^0.561.0",
     "motion": "^12.23.26",
     "next": "^16.1.6",
     "plaiceholder": "^3.0.0",
@@ -52,6 +52,7 @@
   },
   "devDependencies": {
     "@lhci/cli": "^0.15.1",
+    "@next/bundle-analyzer": "^16.1.6",
     "@playwright/test": "^1.57.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",

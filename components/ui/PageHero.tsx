@@ -66,6 +66,23 @@ export function PageHero({
       {/* Main content - CENTERED */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
+          {/* Badge */}
+          {badge && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+              className={cn(
+                "inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium mb-6",
+                badgeVariant === "blue"
+                  ? "bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20"
+                  : "bg-accent/10 text-accent border border-accent/20"
+              )}
+            >
+              {badge}
+            </motion.div>
+          )}
+
           {/* Headline - reduced delays for better LCP */}
           <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-semibold leading-[1.1] tracking-tight text-text-primary mb-6">
             {headline}
