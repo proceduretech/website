@@ -1,12 +1,11 @@
 "use client";
 
-import { useEffect, ReactNode } from "react";
-import { getCalApi } from "@calcom/embed-react";
+import { useEffect } from "react";
+import Cal, { getCalApi } from "@calcom/embed-react";
 import { siteConfig } from "@/lib/site-config";
 
-interface CalButtonProps {
+interface CalInlineProps {
   calLink?: string;
-  children: ReactNode;
   className?: string;
 }
 
@@ -42,12 +41,10 @@ const calThemeConfigs = {
   },
 };
 
-export function CalButton({
+export function CalInline({
   calLink = "ulhas/intro",
-  children,
-  className,
-}: CalButtonProps) {
-  // Get theme from site config
+  className = "",
+}: CalInlineProps) {
   const currentTheme = siteConfig.theme;
   const calConfig = calThemeConfigs[currentTheme];
 
@@ -66,12 +63,24 @@ export function CalButton({
   }, [currentTheme, calConfig]);
 
   return (
-    <button
-      data-cal-link={calLink}
-      data-cal-config={`{"layout":"month_view","theme":"${currentTheme}"}`}
-      className={className}
-    >
-      {children}
-    </button>
+    <div className={`${className} cal-inline-wrapper`}>
+      <style jsx global>{`
+        /* Hide Cal.com branding footer */
+        .cal-inline-wrapper [data-cal-link] + div,
+        .cal-inline-wrapper iframe + div,
+        .cal-inline-wrapper a[href*="cal.com"]:has(img),
+        .cal-inline-wrapper div:has(> a[href*="cal.com"]) {
+          display: none !important;
+        }
+      `}</style>
+      <Cal
+        calLink={calLink}
+        style={{ width: "100%", height: "100%", overflow: "scroll" }}
+        config={{
+          layout: "month_view",
+          theme: currentTheme,
+        }}
+      />
+    </div>
   );
 }

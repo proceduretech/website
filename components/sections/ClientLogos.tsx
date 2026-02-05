@@ -7,6 +7,7 @@ const clients = [
   { name: "Aster", logo: "/logos/client/aster.svg", width: 100 },
   { name: "ESPN", logo: "/logos/client/espn.svg", width: 120 },
   { name: "KredX", logo: "/logos/client/kredx.svg", width: 110 },
+  { name: "MCLabs", logo: "/logos/client/mclabs.svg", width: 120 },
   { name: "Pine Labs", logo: "/logos/client/pinelabs.svg", width: 140 },
   { name: "Setu", logo: "/logos/client/setu.svg", width: 100 },
   { name: "Tenmeya", logo: "/logos/client/tenmeya.svg", width: 120 },
@@ -19,10 +20,10 @@ const clients = [
     width: 160,
   },
   {
-    name:"Last9",
-    logo:"/logos/client/last9.svg",
-    width:120
-  }
+    name: "Last9",
+    logo: "/logos/client/last9.svg",
+    width: 120,
+  },
 ];
 
 export function ClientLogos() {

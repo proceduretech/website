@@ -43,7 +43,7 @@ export function PageHero({
   description,
   stats,
   primaryCTA = { text: "Talk to the Team", href: "/contact-us" },
-  secondaryCTA = { text: "View Case Studies", href: "/work" },
+  secondaryCTA,
   children,
 }: PageHeroProps) {
   // Use full class names so Tailwind can detect them (not in template literals)
@@ -177,11 +177,13 @@ export function PageHero({
                 </svg>
               </Button>
             </Link>
-            <Link href={secondaryCTA.href}>
-              <Button variant="outline" size="lg">
-                {secondaryCTA.text}
-              </Button>
-            </Link>
+            {secondaryCTA && (
+              <Link href={secondaryCTA.href}>
+                <Button variant="outline" size="lg">
+                  {secondaryCTA.text}
+                </Button>
+              </Link>
+            )}
           </motion.div>
 
           {/* Optional children content */}

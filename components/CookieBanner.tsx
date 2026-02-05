@@ -25,8 +25,8 @@ export function CookieBanner() {
     const consent = localStorage.getItem("cookie-consent");
     if (!consent) {
       // Delay cookie banner until after LCP to improve page speed scores
-      // Minimum 3.5s delay, then wait for browser idle time
-      const MINIMUM_DELAY = 3500;
+      // 7s delay, then wait for browser idle time
+      const MINIMUM_DELAY = 7000;
       const showBanner = () => setIsVisible(true);
 
       const timer = setTimeout(() => {

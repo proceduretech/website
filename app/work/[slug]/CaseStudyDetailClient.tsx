@@ -9,36 +9,64 @@ import type { CaseStudyDetail, CaseStudyContent } from "@/lib/notion-case-studie
 import type { CaseStudy } from "@/lib/case-studies-data";
 
 // Client name to logo mapping - add new clients here
+// Include common variations to handle different naming from Notion
 const clientLogos: Record<string, string> = {
   "Setu": "/logos/client/setu.svg",
   "Pine Labs": "/logos/client/pinelabs.svg",
+  "PineLabs": "/logos/client/pinelabs.svg",
   "KredX": "/logos/client/kredx.svg",
   "ESPN": "/logos/client/espn.svg",
   "Treebo": "/logos/client/treebo.svg",
   "Turtlemint": "/logos/client/turtlemint.svg",
   "Timely": "/logos/client/timely.svg",
+  "Timely.ai": "/logos/client/timely.svg",
+  "TimelyApp": "/logos/client/timely.svg",
   "Tenmeya": "/logos/client/tenmeya.svg",
   "Last9": "/logos/client/last9.svg",
   "Aster": "/logos/client/aster.svg",
   "Workshop Ventures": "/logos/client/workshopventure.svg",
-  "MCLabs": "/logos/client/mclabs.svg", // Add logo file when available
+  "WorkshopVentures": "/logos/client/workshopventure.svg",
+  "MCLabs": "/logos/client/mclabs.svg",
+  "MC Labs": "/logos/client/mclabs.svg",
+  "MC labs": "/logos/client/mclabs.svg",
 };
 
 /**
  * Get client logo path if available
+ * Handles various naming conventions from Notion
  */
 function getClientLogo(clientName: string): string | null {
+  const trimmedName = clientName.trim();
+
   // Try exact match first
-  if (clientLogos[clientName]) {
-    return clientLogos[clientName];
+  if (clientLogos[trimmedName]) {
+    return clientLogos[trimmedName];
   }
+
   // Try case-insensitive match
-  const lowerName = clientName.toLowerCase();
+  const lowerName = trimmedName.toLowerCase();
   for (const [key, value] of Object.entries(clientLogos)) {
     if (key.toLowerCase() === lowerName) {
       return value;
     }
   }
+
+  // Try normalized match (remove spaces, dots, common suffixes)
+  const normalizedInput = lowerName
+    .replace(/\s+/g, '')
+    .replace(/\./g, '')
+    .replace(/(inc|llc|ai|app|io|co)$/i, '');
+
+  for (const [key, value] of Object.entries(clientLogos)) {
+    const normalizedKey = key.toLowerCase()
+      .replace(/\s+/g, '')
+      .replace(/\./g, '')
+      .replace(/(inc|llc|ai|app|io|co)$/i, '');
+    if (normalizedKey === normalizedInput) {
+      return value;
+    }
+  }
+
   return null;
 }
 
@@ -59,13 +87,13 @@ function ContentBlock({ block }: { block: CaseStudyContent }) {
       );
     case "heading_1":
       return (
-        <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mt-8 mb-4">
+        <h2 className="text-xl sm:text-2xl font-bold text-text-primary mt-8 mb-4">
           {block.text}
         </h2>
       );
     case "heading_2":
       return (
-        <h3 className="text-xl sm:text-2xl font-bold text-text-primary mt-6 mb-3">
+        <h3 className="text-lg sm:text-xl font-bold text-text-primary mt-6 mb-3">
           {block.text}
         </h3>
       );
@@ -229,56 +257,24 @@ export function CaseStudyDetailClient({
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
-          {/* Breadcrumb */}
-          <motion.nav
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="flex items-center gap-2 text-sm text-text-muted mb-6"
-          >
-            <Link
-              href="/work"
-              className="hover:text-accent-light transition-colors"
-            >
-              Case Studies
-            </Link>
-            <span>/</span>
-            <span className="text-text-secondary truncate">
-              {caseStudy.title}
-            </span>
-          </motion.nav>
-
-          {/* Badges */}
+          {/* Service Type Badge */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.1 }}
+            transition={{ duration: 0.4 }}
             className="flex flex-wrap gap-2 mb-4"
           >
             <span className="inline-flex px-3 py-1 text-xs font-medium rounded-full bg-accent/10 border border-accent/20 text-accent-light">
               {caseStudy.serviceType}
             </span>
-            <span className="inline-flex px-3 py-1 text-xs font-medium rounded-full bg-surface-elevated border border-border text-text-secondary">
-              {caseStudy.industry}
-            </span>
           </motion.div>
 
-          {/* Title */}
-          <motion.h1
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary leading-tight mb-6"
-          >
-            {caseStudy.title}
-          </motion.h1>
-
-          {/* Client - show logo if available, otherwise text */}
+          {/* Client Logo - show logo if available, otherwise text */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.3 }}
-            className="flex flex-wrap items-center gap-4 mb-8"
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="flex flex-wrap items-center gap-4 mb-4"
           >
             {getClientLogo(caseStudy.client) ? (
               <Image
@@ -295,12 +291,22 @@ export function CaseStudyDetailClient({
             )}
           </motion.div>
 
+          {/* Title */}
+          <motion.h1
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+            className="text-2xl sm:text-3xl lg:text-4xl font-bold text-text-primary leading-tight mb-8"
+          >
+            {caseStudy.title}
+          </motion.h1>
+
           {/* Hero Image */}
           {caseStudy.image && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
               className="relative w-full aspect-[21/9] rounded-2xl overflow-hidden"
             >
               <Image
@@ -348,16 +354,9 @@ export function CaseStudyDetailClient({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
           >
-            {/* Description */}
-            <div className="prose prose-lg prose-invert max-w-none mb-8">
-              <p className="text-lg text-text-secondary leading-relaxed">
-                {caseStudy.description}
-              </p>
-            </div>
-
             {/* Notion Content */}
             {groupedContent.length > 0 && (
-              <div className="mt-8">
+              <div>
                 {groupedContent.map((item, idx) => {
                   // Check if this is a grouped list
                   if ("listType" in item) {

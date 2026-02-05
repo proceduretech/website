@@ -3,8 +3,44 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Input, Textarea, Select } from "@/components/ui";
+import { Input, Textarea, Select, ObfuscatedEmailBlock } from "@/components/ui";
 import { CalButton } from "@/components/CalButton";
+
+// Common free email providers to block - prospects should use work email
+const FREE_EMAIL_PROVIDERS = [
+  "gmail.com",
+  "googlemail.com",
+  "yahoo.com",
+  "yahoo.co.in",
+  "yahoo.co.uk",
+  "hotmail.com",
+  "hotmail.co.uk",
+  "outlook.com",
+  "outlook.co.uk",
+  "live.com",
+  "msn.com",
+  "aol.com",
+  "icloud.com",
+  "me.com",
+  "mac.com",
+  "mail.com",
+  "protonmail.com",
+  "proton.me",
+  "zoho.com",
+  "yandex.com",
+  "gmx.com",
+  "gmx.net",
+  "inbox.com",
+  "fastmail.com",
+  "tutanota.com",
+  "rediffmail.com",
+];
+
+function isWorkEmail(email: string): boolean {
+  const domain = email.split("@")[1]?.toLowerCase();
+  if (!domain) return false;
+  return !FREE_EMAIL_PROVIDERS.includes(domain);
+}
 
 const budgetOptions = [
   { value: "under-50k", label: "Under $50K - Ideal for AI sprints" },
@@ -25,9 +61,21 @@ const timelineOptions = [
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [emailError, setEmailError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setEmailError(null);
+
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get("email") as string;
+
+    // Validate work email
+    if (!isWorkEmail(email)) {
+      setEmailError("Please use your work email address");
+      return;
+    }
+
     setIsSubmitting(true);
 
     // Simulate form submission
@@ -103,34 +151,15 @@ export default function ContactPage() {
                   Prefer a Different Path?
                 </h2>
 
-                {/* Email */}
-                <motion.a
-                  href="mailto:hello@procedure.tech"
-                  whileHover={{ x: 4 }}
-                  className="flex items-center gap-4 group"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-surface-elevated border border-border flex items-center justify-center group-hover:border-accent/50 group-hover:bg-accent/5 transition-all duration-300">
-                    <svg
-                      className="w-5 h-5 text-accent-light"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={1.5}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-sm text-text-muted">Email us directly</p>
-                    <p className="text-text-primary font-medium group-hover:text-accent-light transition-colors">
-                      hello@procedure.tech
-                    </p>
-                  </div>
-                </motion.a>
+                {/* Email - obfuscated to prevent bot scraping */}
+                <motion.div whileHover={{ x: 4 }}>
+                  <ObfuscatedEmailBlock
+                    user="hello"
+                    domain="procedure"
+                    tld="tech"
+                    label="Email us directly"
+                  />
+                </motion.div>
 
                 {/* Schedule a Call */}
                 <CalButton className="flex items-center gap-4 group text-left cursor-pointer">
@@ -363,6 +392,9 @@ export default function ContactPage() {
                           type="email"
                           required
                           autoComplete="email"
+                          error={emailError || undefined}
+                          onChange={() => emailError && setEmailError(null)}
+                          hint="Please use your company email"
                         />
                       </div>
 

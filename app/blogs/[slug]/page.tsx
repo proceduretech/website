@@ -120,7 +120,7 @@ function NotionContentBlock({ block }: { block: BlogContent }) {
       return (
         <h2
           id={block.text?.toLowerCase().replace(/\s+/g, "-")}
-          className="font-display text-[1.875rem] font-bold text-(--color-prose-headings) mt-8 mb-5 scroll-mt-24"
+          className="font-display text-2xl font-bold text-(--color-prose-headings) mt-8 mb-5 scroll-mt-24"
         >
           {block.text}
         </h2>
@@ -129,7 +129,7 @@ function NotionContentBlock({ block }: { block: BlogContent }) {
       return (
         <h3
           id={block.text?.toLowerCase().replace(/\s+/g, "-")}
-          className="font-display text-2xl font-semibold text-(--color-prose-headings) mt-7 mb-4 scroll-mt-24"
+          className="font-display text-xl font-semibold text-(--color-prose-headings) mt-7 mb-4 scroll-mt-24"
         >
           {block.text}
         </h3>
@@ -138,7 +138,7 @@ function NotionContentBlock({ block }: { block: BlogContent }) {
       return (
         <h4
           id={block.text?.toLowerCase().replace(/\s+/g, "-")}
-          className="font-display text-xl font-semibold text-(--color-prose-headings) mt-6 mb-3.5 scroll-mt-24"
+          className="font-display text-lg font-semibold text-(--color-prose-headings) mt-6 mb-3.5 scroll-mt-24"
         >
           {block.text}
         </h4>
@@ -536,7 +536,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
 
           {/* Title */}
-          <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-semibold text-text-primary leading-[1.1] tracking-tight mb-6">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-text-primary leading-[1.1] tracking-tight mb-6">
             {post.title}
           </h1>
 
