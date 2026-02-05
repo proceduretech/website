@@ -91,7 +91,7 @@ export const primitives = {
     400: '#fbbf24',
     500: '#f59e0b',
   },
-  green: {
+  success: {
     400: '#4ade80',
     500: '#22c55e',
   },
