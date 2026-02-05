@@ -1,7 +1,7 @@
 "use client";
 
+import Link from "next/link";
 import { LazyMotion, domAnimation, m } from "framer-motion";
-import { CalButton } from "@/components/CalButton";
 import { Spotlight } from "@/components/ui/spotlight";
 
 export function CTA() {
@@ -38,9 +38,12 @@ export function CTA() {
           existing AI systems, our engineers can be embedded with your team
           within 2-5 days.
         </p>
-        <CalButton className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base font-semibold text-cta-text bg-cta rounded-lg hover:brightness-110 transition-all duration-200 shadow-lg shadow-cta/25 cursor-pointer">
+        <Link
+          href="/contact-us"
+          className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base font-semibold text-cta-text bg-cta rounded-lg hover:brightness-110 transition-all duration-200 shadow-lg shadow-cta/25"
+        >
           Schedule AI Strategy Call
-        </CalButton>
+        </Link>
       </m.div>
     </section>
     </LazyMotion>

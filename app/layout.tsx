@@ -294,15 +294,8 @@ export default function RootLayout({
           }}
         />
 
-        {/* Critical Resource Hints for Performance */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-
         {/* Third-party resource hints - prioritized */}
+        {/* Note: next/font/google self-hosts fonts, so no preconnect to fonts.googleapis.com needed */}
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.google.com" />
@@ -315,24 +308,7 @@ export default function RootLayout({
 
         {/* Preload critical assets */}
         <link rel="preload" href="/icon.svg" as="image" type="image/svg+xml" />
-
-        {/* Preload fonts to prevent layout shifts - with fetchpriority */}
-        <link
-          rel="preload"
-          href="https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1O4a0Ew.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-          fetchPriority="high"
-        />
-        <link
-          rel="preload"
-          href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-          fetchPriority="high"
-        />
+        {/* Note: Font preloads removed - next/font/google self-hosts fonts locally */}
 
 
         {/* Microsoft Clarity */}

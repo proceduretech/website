@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ClientLogos } from "./ClientLogos";
-import { CalButton } from "@/components/CalButton";
 
 export function Hero() {
   return (
@@ -169,9 +168,12 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mt-10 sm:mt-12 flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <CalButton className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-cta-text bg-cta rounded-lg hover:brightness-110 transition-all duration-200 shadow-lg shadow-cta/25 cursor-pointer">
+            <Link
+              href="/contact-us"
+              className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-cta-text bg-cta rounded-lg hover:brightness-110 transition-all duration-200 shadow-lg shadow-cta/25"
+            >
               Schedule AI Strategy Call
-            </CalButton>
+            </Link>
             <Link
               href="/work"
               className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-text-primary bg-surface-elevated border border-border rounded-lg hover:border-accent/30 transition-all duration-200"
