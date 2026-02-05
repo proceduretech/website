@@ -1,10 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Outfit, Inter } from "next/font/google";
-import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { FooterReveal } from "@/components/FooterReveal";
 import { CookieBanner } from "@/components/CookieBanner";
+import { Analytics } from "@/components/Analytics";
 import { siteConfig, getThemeClass } from "@/lib/site-config";
 import "./globals.css";
 
@@ -311,19 +311,7 @@ export default function RootLayout({
         {/* Note: Font preloads removed - next/font/google self-hosts fonts locally */}
 
 
-        {/* Microsoft Clarity */}
-        <script
-          type="text/javascript"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-              })(window, document, "clarity", "script", "t4e6b4g83o");
-            `,
-          }}
-        />
+        {/* Analytics (GA4, GTM, Clarity) loaded via client component - only on production */}
 
         <script
           type="application/ld+json"
@@ -345,8 +333,8 @@ export default function RootLayout({
         />
       </head>
       <body className={`${outfit.variable} ${inter.variable} antialiased`}>
-        {/* GTM - Load early but non-blocking */}
-        <GoogleTagManager gtmId="GTM-KD7CJ8RC" />
+        {/* Analytics (GA4, GTM, Clarity) - only loads on production domains */}
+        <Analytics />
 
         {/* Main content wrapper - sits above the fixed footer reveal */}
         <div className="relative z-10 bg-base">
@@ -357,9 +345,6 @@ export default function RootLayout({
         {/* Footer reveal - fixed at bottom, revealed when scrolling */}
         <FooterReveal />
         <CookieBanner />
-
-        {/* Load GA after main content - non-blocking */}
-        <GoogleAnalytics gaId="G-2KW21KL401" />
 
         {/* Service Worker Registration for Advanced Caching */}
         <script
