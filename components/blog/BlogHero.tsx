@@ -22,11 +22,11 @@ export function BlogHero({ stats }: BlogHeroProps) {
     <section className="relative pt-32 pb-24 sm:pb-36 bg-base">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="max-w-4xl mx-auto text-center">
-{/* Headline */}
+{/* Headline - reduced delays for better LCP */}
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.05 }}
             className="text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary leading-[1.1] tracking-tight mb-6"
           >
             Engineering AI Systems
@@ -36,9 +36,9 @@ export function BlogHero({ stats }: BlogHeroProps) {
 
           {/* Subheadline */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
             className="text-lg sm:text-xl text-text-secondary leading-relaxed mb-10 max-w-3xl mx-auto"
           >
             Battle-tested insights on LLMs, AI security, and production systems
@@ -47,9 +47,9 @@ export function BlogHero({ stats }: BlogHeroProps) {
 
           {/* Stats row */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.4, delay: 0.15 }}
             className="grid grid-cols-3 gap-4 sm:gap-6 max-w-2xl mx-auto"
           >
             {displayStats.map((stat) => (
