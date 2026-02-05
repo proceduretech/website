@@ -317,8 +317,20 @@ async function transformNotionPageToBlogPost(
     getPerson(props["Author"]) ||
     getRichText(props["Author"]) ||
     getSelect(props["Author"]);
-  const authorBio = getRichText(props["author bio"]) || "";
-  const authorTitle = getRichText(props["author title"]) || "";
+  // Author bio and title - check multiple possible column names and types
+  const authorBio =
+    getRichText(props["author bio"]) ||
+    getRichText(props["Author Bio"]) ||
+    getRichText(props["Bio"]) ||
+    "";
+  const authorTitle =
+    getRichText(props["author title"]) ||
+    getRichText(props["Author Title"]) ||
+    getSelect(props["author title"]) ||
+    getSelect(props["Author Title"]) ||
+    getRichText(props["Role"]) ||
+    getSelect(props["Role"]) ||
+    "";
   const metaDescription = getRichText(props["Meta Description"]) || "";
   const excerpt =
     getRichText(props["Notes"]) ||
