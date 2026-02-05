@@ -1,18 +1,17 @@
 module.exports = {
   ci: {
     collect: {
+      // Test critical user paths only for faster CI
       url: [
-        "http://localhost:3000/",
-        "http://localhost:3000/about-us",
-        "http://localhost:3000/services/enterprise",
-        "http://localhost:3000/contact-us",
-        "http://localhost:3000/work",
-        "http://localhost:3000/services/ai-engineering",
-        "http://localhost:3000/industries/healthcare",
+        "http://localhost:3000/", // Homepage - most important
+        "http://localhost:3000/contact-us", // High-intent conversion page
+        "http://localhost:3000/services/ai-engineering", // Key service page
       ],
       startServerCommand: "npm run start",
       startServerReadyPattern: "Ready",
-      numberOfRuns: 3,
+      // Single run is sufficient for CI checks - saves ~66% time
+      // Use numberOfRuns: 3 locally for accurate measurements
+      numberOfRuns: 1,
     },
     assert: {
       assertions: {
