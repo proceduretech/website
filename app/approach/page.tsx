@@ -562,7 +562,7 @@ export default function ApproachPage() {
           ============================================ */}
       <section
         ref={heroRef}
-        className="relative min-h-screen flex items-center justify-center overflow-hidden bg-base"
+        className="relative pt-32 pb-20 sm:pb-24 overflow-hidden bg-base"
       >
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-b from-surface via-base to-base" />
@@ -629,7 +629,7 @@ export default function ApproachPage() {
         {/* Main content */}
         <motion.div
           style={{ opacity: heroOpacity, scale: heroScale }}
-          className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 pt-32 pb-16"
+          className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6"
         >
           <div className="text-center">
             {/* Headline */}

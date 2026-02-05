@@ -13,7 +13,7 @@ interface Stat {
 }
 
 interface PageHeroProps {
-  badge: string;
+  badge?: string;
   badgeVariant?: "teal" | "blue";
   headline: string;
   headlineAccent?: string;
@@ -46,19 +46,6 @@ export function PageHero({
   secondaryCTA,
   children,
 }: PageHeroProps) {
-  // Use full class names so Tailwind can detect them (not in template literals)
-  const badgeColorClasses = cn(
-    "inline-flex items-center gap-2 px-4 py-1.5 rounded-full border mb-8",
-    badgeVariant === "blue"
-      ? "bg-accent-secondary/10 border-accent-secondary/20 text-accent-secondary-light"
-      : "bg-accent/10 border-accent/20 text-accent-light"
-  );
-
-  const pulseColorClass = cn(
-    "w-1.5 h-1.5 rounded-full animate-pulse",
-    badgeVariant === "blue" ? "bg-accent-secondary-light" : "bg-accent-light"
-  );
-
   const glowColor = cn(
     "absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full blur-[120px]",
     badgeVariant === "blue" ? "bg-accent-secondary/8" : "bg-accent/8"

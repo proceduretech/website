@@ -336,20 +336,7 @@ export default function CulturePage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-32 pb-20">
           <div className="max-w-4xl mx-auto text-center">
-            {/* Eyebrow badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 mb-8"
-            >
-              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              <span className="text-sm font-medium text-accent-light tracking-wide">
-                Our Culture
-              </span>
-            </motion.div>
-
-            {/* Main headline */}
+{/* Main headline */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
