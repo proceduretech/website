@@ -10,6 +10,28 @@ interface Props {
   service: ServicePageForListing;
 }
 
+// Customized booking section copy per service
+const bookingSubtext: Record<string, string> = {
+  "ai-sprints":
+    "Discuss your AI concept and how we can deliver a working prototype in 2-4 weeks.",
+  "cloud":
+    "Talk to our architects about your AWS, GCP, or Azure infrastructure and cost optimization opportunities.",
+  "design-systems":
+    "Explore how we can build a component library and design token architecture your team will actually adopt.",
+  "enterprise":
+    "Schedule a consultation to discuss your compliance requirements, security standards, and procurement process.",
+  "forward-deployed":
+    "Tell us about your team and tech stack. We can have engineers embedded and shipping code within 5 days.",
+  "product-build":
+    "Walk us through your product vision. Most builds go from kickoff to production in 6-12 weeks.",
+  "scale-ups":
+    "Share your roadmap and capacity challenges. We match senior engineers to your growth priorities within days.",
+  "staff-augmentation":
+    "Describe your technical requirements and we'll present qualified senior engineers within 48 hours.",
+  "startups":
+    "Talk to engineers who understand runway pressure. We scope MVPs for 4-8 week delivery with investor-ready architecture.",
+};
+
 export default function ServicePageClient({ service }: Props) {
   const {
     hero,
@@ -298,8 +320,8 @@ export default function ServicePageClient({ service }: Props) {
               Ready to Get Started?
             </h2>
             <p className="text-lg text-text-secondary max-w-2xl mx-auto">
-              Schedule a call with our team. We&apos;ll discuss your requirements
-              and how we can help you achieve your goals.
+              {bookingSubtext[service.slug] ||
+                "Schedule a call with our team. We'll discuss your requirements and how we can help you achieve your goals."}
             </p>
           </motion.div>
 
