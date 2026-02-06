@@ -27,7 +27,7 @@ export function Testimonials() {
           <p className="text-sm font-medium text-accent-light uppercase tracking-wider mb-4">
             Testimonials
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">
             Trusted by engineering leaders
           </h2>
         </m.div>
@@ -53,7 +53,7 @@ export function Testimonials() {
               className="text-center"
             >
               {/* Quote text */}
-              <blockquote className="text-xl sm:text-2xl md:text-3xl text-text-primary font-medium leading-relaxed mb-10">
+              <blockquote className="text-lg sm:text-xl md:text-2xl text-text-primary font-medium leading-relaxed mb-10">
                 &ldquo;{currentTestimonial.quote}&rdquo;
               </blockquote>
 
