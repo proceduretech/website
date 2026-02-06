@@ -61,7 +61,7 @@ export function KekaJobsEmbed({ className = "" }: KekaJobsEmbedProps) {
 
             /* Clip the Keka embed to hide footer - use wrapper with negative margin */
             #khembedjobs {
-              margin-bottom: -120px !important;
+              margin-bottom: -160px !important;
               padding-bottom: 0 !important;
             }
 
