@@ -168,7 +168,7 @@ const differentiators = [
     id: "embedded",
     title: "Embedded, Not Outsourced",
     description:
-      "Our engineers don't work in isolation on the other side of an account manager. They join your standups, use your tools, and care about your outcomes. When the engagement ends, the knowledge stays with your team.",
+      "Our engineers don't work in isolation on the other side of an account manager. They join your standups, use your tools, and care about your outcomes. Our certified best workplace culture means engineers are engaged and invested in your success. When the engagement ends, the knowledge stays with your team.",
     icon: (
       <svg
         className="w-6 h-6"

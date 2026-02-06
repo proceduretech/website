@@ -52,7 +52,7 @@ const differentiators = [
     headline: "Your AI Team, Extended",
     title: "Embedded AI Engineering",
     description:
-      "Procedure engineers are not external vendors working in isolation. They embed with your team, use your tools, and own AI delivery alongside your developers. When the engagement ends, you keep the code and the knowledge.",
+      "Procedure engineers are not external vendors working in isolation. They embed with your team, use your tools, and own AI delivery alongside your developers. Our certified best workplace culture means you get engaged, senior engineers who stay for the long term. When the engagement ends, you keep the code and the knowledge.",
     stats: { value: "3+", label: "Years average partnership" },
     accentColor: "teal" as const,
   },
@@ -76,7 +76,7 @@ const comparisonData = {
     subtitle: "What you get with us",
     items: [
       "AI engineers deployed in 2-5 days",
-      "Senior engineers with deep experience",
+      "Senior engineers from a certified best workplace",
       "Production AI from week one",
       "AI security built in from day one",
       "Production-grade from first commit",

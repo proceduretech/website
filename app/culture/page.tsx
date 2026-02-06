@@ -359,7 +359,8 @@ export default function CulturePage() {
               We&apos;re forward-deployed engineers, designers, and thinkers who
               stay close to the problem, not tucked behind layers of process.
               From idea to deploy, we move with intent, learn in the open, and
-              keep the &apos;why&apos; visible.
+              keep the &apos;why&apos; visible. Our certified best workplace culture
+              ensures engineers thrive—not just deliver.
             </motion.p>
 
             {/* Stats row */}
@@ -514,7 +515,7 @@ export default function CulturePage() {
             <p className="text-lg text-text-secondary">
               These aren&apos;t corporate values on a poster. These are the
               beliefs that guide our daily decisions and how we treat each
-              other.
+              other—and why we earned our Best Workplace certification.
             </p>
           </motion.div>
 
@@ -587,7 +588,8 @@ export default function CulturePage() {
             </h2>
             <p className="text-lg text-text-secondary max-w-2xl mx-auto">
               The values that keep our teams aligned, our code intentional, and
-              our culture authentic.
+              our culture authentic. These principles earned us our certified best
+              workplace recognition.
             </p>
           </motion.div>
 
@@ -833,7 +835,7 @@ export default function CulturePage() {
 
             {/* Subheadline */}
             <p className="text-xl text-text-secondary leading-relaxed mb-10 max-w-2xl mx-auto">
-              Join a team that values autonomy, learning, and thoughtful
+              Join a certified best workplace that values autonomy, learning, and thoughtful
               engineering over everything else. We&apos;re growing, and
               we&apos;d love to grow with you.
             </p>

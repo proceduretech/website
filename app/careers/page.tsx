@@ -286,7 +286,7 @@ const values = [
   {
     title: "Continuous Technical Growth",
     description:
-      "AI evolves rapidly, and so do we. Weekly knowledge sharing, dedicated learning time, and a culture of experimentation ensure you stay at the forefront of the industry.",
+      "AI evolves rapidly, and so do we. Weekly knowledge sharing, dedicated learning time, and a culture of experimentation ensure you stay at the forefront of the industry. Our Best Workplace certification reflects this commitment to your growth.",
   },
   {
     title: "Direct, Transparent Communication",
@@ -319,7 +319,7 @@ export default function CareersPage() {
         badge={`${jobOpenings.length} Open Positions`}
         headline="AI Engineering Careers"
         headlineAccent="That Shape the Future"
-        description="Build production AI systems for Fortune 500 companies and high-growth startups. We offer remote ML engineer and AI developer positions with top-tier compensation, meaningful work, and a culture built for senior technical talent."
+        description="Build production AI systems for Fortune 500 companies and high-growth startups. We offer remote ML engineer and AI developer positions with top-tier compensation, meaningful work, and a certified best workplace culture built for senior technical talent."
         primaryCTA={{ text: "Explore AI Engineering Roles", href: "#openings" }}
         secondaryCTA={{ text: "Learn About Our Culture", href: "/culture" }}
         showClientLogos={false}
@@ -450,7 +450,7 @@ export default function CareersPage() {
               The Values That Drive Our Work
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto">
-              A high-performance culture built on trust, technical excellence,
+              A certified best workplace culture built on trust, technical excellence,
               and a shared commitment to delivering production AI systems that
               transform enterprises.
             </p>
