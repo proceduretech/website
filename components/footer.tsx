@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ComplianceBadge } from "./badges/ComplianceBadge";
 import { ProcedureLogoShort } from "./logos";
@@ -145,6 +146,17 @@ export function Footer() {
                   {social.icon}
                 </a>
               ))}
+            </div>
+
+            {/* Best Place to Work Badge */}
+            <div className="mt-6">
+              <Image
+                src="/assets/bptw-badge.webp"
+                alt="Certified Best Workplace - Dec 2025 to Dec 2026 - India"
+                width={64}
+                height={64}
+                className="opacity-90 hover:opacity-100 transition-opacity"
+              />
             </div>
           </div>
 
