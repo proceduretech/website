@@ -4,10 +4,19 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { PageHero } from "@/components/ui";
 import { CalInline } from "@/components/CalInline";
+import { RelatedExpertise } from "@/components/expertise";
 import type { ServicePageForListing } from "@/lib/content";
+
+interface RelatedPage {
+  slug: string;
+  title: string;
+  description: string;
+  badge: string;
+}
 
 interface Props {
   service: ServicePageForListing;
+  relatedPages?: RelatedPage[];
 }
 
 // Customized booking section copy per service
@@ -32,7 +41,7 @@ const bookingSubtext: Record<string, string> = {
     "Talk to engineers who understand runway pressure. We scope MVPs for 4-8 week delivery with investor-ready architecture.",
 };
 
-export default function ServicePageClient({ service }: Props) {
+export default function ServicePageClient({ service, relatedPages = [] }: Props) {
   const {
     hero,
     benefits,
@@ -305,6 +314,14 @@ export default function ServicePageClient({ service }: Props) {
           </div>
         </div>
       </section>
+
+      {/* Related Expertise */}
+      {relatedPages.length > 0 && (
+        <RelatedExpertise
+          title="Explore Our Expertise"
+          pages={relatedPages}
+        />
+      )}
 
       {/* Book a Call Section */}
       <section id="book-call" className="relative py-16 sm:py-24 bg-surface scroll-mt-20">

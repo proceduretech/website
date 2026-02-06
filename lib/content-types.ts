@@ -252,6 +252,7 @@ export interface ServiceFrontmatter extends BaseFrontmatter {
   roles?: string[]; // Roles staffed (for staff-augmentation)
   sprintExamples?: string[]; // Sprint examples (for ai-sprints)
   compliance?: string[]; // Compliance certifications (for enterprise)
+  relatedExpertise?: string[]; // Slugs of related expertise pages
   idealFor: string[];
   idealForTitle?: string;
   cta: ServiceCTA;

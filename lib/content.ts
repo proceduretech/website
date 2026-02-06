@@ -1090,6 +1090,7 @@ export interface ServicePageForListing {
   roles?: string[];
   sprintExamples?: string[];
   compliance?: string[];
+  relatedExpertise?: string[];
   idealFor: string[];
   idealForTitle: string;
   cta: {
@@ -1152,6 +1153,7 @@ export function getServiceForListing(
     roles: frontmatter.roles,
     sprintExamples: frontmatter.sprintExamples,
     compliance: frontmatter.compliance,
+    relatedExpertise: frontmatter.relatedExpertise,
     idealFor: frontmatter.idealFor,
     idealForTitle:
       frontmatter.idealForTitle || `Who ${frontmatter.title} Is For`,

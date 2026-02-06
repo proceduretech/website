@@ -69,7 +69,14 @@ export default async function ServicePage({ params }: Props) {
     if (!service) {
       notFound();
     }
-    return <ServicePageClient service={service} />;
+
+    // Get related expertise pages for service (server-side)
+    const { getRelatedExpertiseForListing } = await import("@/lib/content");
+    const relatedPages = service.relatedExpertise
+      ? getRelatedExpertiseForListing(service.relatedExpertise)
+      : [];
+
+    return <ServicePageClient service={service} relatedPages={relatedPages} />;
   } else if (frontmatter.capabilities) {
     const expertise = getExpertiseForListing(slug);
     if (!expertise) {
