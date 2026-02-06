@@ -29,6 +29,7 @@ interface PageHeroProps {
     href: string;
   };
   children?: ReactNode;
+  showClientLogos?: boolean;
 }
 
 // Smooth easing curve for premium feel
@@ -45,6 +46,7 @@ export function PageHero({
   primaryCTA = { text: "Talk to the Team", href: "/contact-us" },
   secondaryCTA,
   children,
+  showClientLogos = true,
 }: PageHeroProps) {
   const glowColor = cn(
     "absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full blur-[120px]",
@@ -66,8 +68,8 @@ export function PageHero({
       {/* Main content - CENTERED */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          {/* Badge */}
-          {badge && (
+          {/* Badge - disabled per design decision */}
+          {/* {badge && (
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -81,7 +83,7 @@ export function PageHero({
             >
               {badge}
             </motion.div>
-          )}
+          )} */}
 
           {/* Headline - reduced delays for better LCP */}
           <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-semibold leading-[1.1] tracking-tight text-text-primary mb-6">
@@ -202,10 +204,12 @@ export function PageHero({
             </motion.div>
           )}
 
-          {/* Client Logos - always show */}
-          <div className="mt-16">
-            <ClientLogos />
-          </div>
+          {/* Client Logos */}
+          {showClientLogos && (
+            <div className="mt-16">
+              <ClientLogos />
+            </div>
+          )}
         </div>
       </div>
     </section>
