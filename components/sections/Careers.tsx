@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { LazyMotion, domAnimation, m } from "framer-motion";
 
@@ -53,9 +54,17 @@ export function Careers() {
           transition={{ duration: 0.6 }}
           className="text-center mb-10 sm:mb-16"
         >
-          <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-3 sm:mb-4">
-            Join Our Team
-          </p>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent/10 border border-accent/20 rounded-full mb-4">
+            <Image
+              src="/assets/bptw-badge.webp"
+              alt="TSOW Certified"
+              width={20}
+              height={20}
+            />
+            <span className="text-xs font-semibold text-accent-light">
+              Certified Best Workplace
+            </span>
+          </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
             Build the future of AI with us
           </h2>

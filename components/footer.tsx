@@ -153,8 +153,8 @@ export function Footer() {
               <Image
                 src="/assets/bptw-badge.webp"
                 alt="Certified Best Workplace - Dec 2025 to Dec 2026 - India"
-                width={64}
-                height={64}
+                width={128}
+                height={128}
                 className="opacity-90 hover:opacity-100 transition-opacity"
               />
             </div>
