@@ -59,30 +59,16 @@ export function KekaJobsEmbed({ className = "" }: KekaJobsEmbedProps) {
               overflow: hidden;
             }
 
-            /* Hide Keka footer/branding section */
-            .keka-light-wrapper footer,
-            .keka-light-wrapper [class*="footer"],
-            .keka-light-wrapper [class*="Footer"],
-            .keka-light-wrapper [class*="powered"],
-            .keka-light-wrapper [class*="Powered"],
-            .keka-light-wrapper [class*="copyright"],
-            .keka-light-wrapper [class*="Copyright"],
-            .keka-light-wrapper [class*="branding"],
-            .keka-light-wrapper [class*="Branding"] {
-              display: none !important;
+            /* Clip the Keka embed to hide footer - use wrapper with negative margin */
+            #khembedjobs {
+              margin-bottom: -200px !important;
+              padding-bottom: 0 !important;
             }
 
-            /* Hide the last section which contains company name and Keka branding */
-            #khembedjobs > div:last-child,
-            #khembedjobs > section:last-child,
-            #khembedjobs footer,
-            #khembedjobs > div > div:last-child:not([class*="job"]):not([class*="card"]) {
-              display: none !important;
-            }
-
-            /* Fallback: hide by targeting text patterns in any element */
-            .keka-light-wrapper *:has(> a[href*="keka.com"]),
-            .keka-light-wrapper div:has(> img[src*="keka"]) {
+            /* Hide Keka branding images */
+            .keka-light-wrapper img[src*="keka"],
+            .keka-light-wrapper img[alt*="keka" i],
+            .keka-light-wrapper img[alt*="Keka"] {
               display: none !important;
             }
 

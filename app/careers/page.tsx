@@ -167,41 +167,26 @@ export default function CareersPage() {
         primaryCTA={{ text: "Explore AI Engineering Roles", href: "#openings" }}
         secondaryCTA={{ text: "Learn About Our Culture", href: "/culture" }}
         showClientLogos={false}
-      />
-
-      {/* ============================================
-          CERTIFICATION BADGE
-          ============================================ */}
-      <section className="relative py-8 sm:py-12 bg-base">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-6 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-accent/5 via-surface-elevated to-accent-secondary/5 border border-accent/20"
-          >
-            <Image
-              src="/assets/bptw-badge.webp"
-              alt="TSOW Certified Best Workplace"
-              width={100}
-              height={100}
-              className="shrink-0"
-            />
-            <div className="text-center sm:text-left">
-              <h3 className="text-lg sm:text-xl font-semibold text-text-primary mb-2">
-                Officially a TSOW Certified Best Workplace
-              </h3>
-              <p className="text-text-secondary text-sm sm:text-base">
-                We&apos;re proud to be recognized for creating a culture where
-                people feel valued, supported, and inspired to do their best
-                work. This certification reflects our commitment to trust,
-                belonging, growth, and well-being.
-              </p>
-            </div>
-          </motion.div>
+      >
+        {/* TSOW Certification Badge */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
+          <Image
+            src="/assets/bptw-badge.webp"
+            alt="TSOW Certified Best Workplace"
+            width={64}
+            height={64}
+            className="shrink-0"
+          />
+          <div className="text-center sm:text-left">
+            <p className="text-sm sm:text-base font-medium text-text-primary">
+              Officially a TSOW Certified Best Workplace
+            </p>
+            <p className="text-text-muted text-xs sm:text-sm">
+              Recognized for creating a culture where people thrive.
+            </p>
+          </div>
         </div>
-      </section>
+      </PageHero>
 
       {/* ============================================
           WHY JOIN US SECTION
