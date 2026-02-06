@@ -8,7 +8,7 @@ import {
   getRelatedBlogPosts,
 } from "@/lib/notion-blog";
 import type { BlogContent } from "@/lib/notion-blog";
-import { formatDate, getCategoryColor } from "@/lib/blog-utils";
+import { formatDate } from "@/lib/blog-utils";
 import { getImageMetadata } from "@/lib/image-utils";
 import {
   BlogAuthorBio,
@@ -112,7 +112,7 @@ function NotionContentBlock({ block }: { block: BlogContent }) {
     case "paragraph":
       if (!block.text && !block.richText?.length) return null;
       return (
-        <p className="mb-4 text-lg leading-[1.75] text-(--color-prose-body)">
+        <p className="mb-4 text-base leading-[1.75] text-text-secondary">
           <RichText segments={block.richText} />
         </p>
       );
@@ -120,7 +120,7 @@ function NotionContentBlock({ block }: { block: BlogContent }) {
       return (
         <h2
           id={block.text?.toLowerCase().replace(/\s+/g, "-")}
-          className="font-display text-2xl font-bold text-(--color-prose-headings) mt-8 mb-5 scroll-mt-24"
+          className="font-display text-2xl font-bold text-text-primary mt-12 mb-5 scroll-mt-24"
         >
           {block.text}
         </h2>
@@ -129,7 +129,7 @@ function NotionContentBlock({ block }: { block: BlogContent }) {
       return (
         <h3
           id={block.text?.toLowerCase().replace(/\s+/g, "-")}
-          className="font-display text-xl font-semibold text-(--color-prose-headings) mt-7 mb-4 scroll-mt-24"
+          className="font-display text-xl font-semibold text-text-primary mt-10 mb-4 scroll-mt-24"
         >
           {block.text}
         </h3>
@@ -138,20 +138,20 @@ function NotionContentBlock({ block }: { block: BlogContent }) {
       return (
         <h4
           id={block.text?.toLowerCase().replace(/\s+/g, "-")}
-          className="font-display text-lg font-semibold text-(--color-prose-headings) mt-6 mb-3.5 scroll-mt-24"
+          className="font-display text-lg font-semibold text-text-primary mt-8 mb-3.5 scroll-mt-24"
         >
           {block.text}
         </h4>
       );
     case "bulleted_list_item":
       return (
-        <li className="text-lg leading-[1.75] text-(--color-prose-body) ml-6 mb-2 list-disc marker:text-(--color-prose-bullets)">
+        <li className="text-base leading-[1.75] text-text-secondary ml-6 mb-2 list-disc marker:text-accent-light">
           <RichText segments={block.richText} />
         </li>
       );
     case "numbered_list_item":
       return (
-        <li className="text-lg leading-[1.75] text-(--color-prose-body) ml-6 mb-2 list-decimal marker:text-(--color-prose-bullets)">
+        <li className="text-base leading-[1.75] text-text-secondary ml-6 mb-2 list-decimal marker:text-accent-light">
           <RichText segments={block.richText} />
         </li>
       );
@@ -185,7 +185,7 @@ function NotionContentBlock({ block }: { block: BlogContent }) {
               )}
             </span>
           )}
-          <p className="text-lg text-(--color-prose-body) mb-0">
+          <p className="text-base text-text-secondary mb-0">
             <RichText segments={block.richText} />
           </p>
         </div>
@@ -303,14 +303,34 @@ function NotionContentBlock({ block }: { block: BlogContent }) {
 }
 
 // Render all Notion content with proper list grouping
-function NotionContent({ blocks }: { blocks: BlogContent[] }) {
+function NotionContent({
+  blocks,
+  skipFirstHeading,
+}: {
+  blocks: BlogContent[];
+  skipFirstHeading?: boolean;
+}) {
+  // Filter out the first heading_1 if it matches the page title (avoid duplication)
+  let filteredBlocks = blocks;
+  if (skipFirstHeading) {
+    const firstHeadingIdx = blocks.findIndex(
+      (block) => block.type === "heading_1"
+    );
+    if (firstHeadingIdx !== -1) {
+      filteredBlocks = [
+        ...blocks.slice(0, firstHeadingIdx),
+        ...blocks.slice(firstHeadingIdx + 1),
+      ];
+    }
+  }
+
   const groupedBlocks: (
     | BlogContent
     | { type: "ul" | "ol"; items: BlogContent[] }
   )[] = [];
 
-  for (let i = 0; i < blocks.length; i++) {
-    const block = blocks[i];
+  for (let i = 0; i < filteredBlocks.length; i++) {
+    const block = filteredBlocks[i];
     const lastGroup = groupedBlocks[groupedBlocks.length - 1];
     const isListGroup =
       lastGroup && "items" in lastGroup && Array.isArray(lastGroup.items);
@@ -341,12 +361,12 @@ function NotionContent({ blocks }: { blocks: BlogContent[] }) {
             return (
               <ul
                 key={idx}
-                className="mb-6 pl-6 list-disc marker:text-(--color-prose-bullets)"
+                className="mb-6 pl-6 list-disc marker:text-accent-light"
               >
                 {item.items.map((li, liIdx) => (
                   <li
                     key={liIdx}
-                    className="text-lg leading-[1.75] text-(--color-prose-body) mb-2"
+                    className="text-base leading-[1.75] text-text-secondary mb-2"
                   >
                     <RichText segments={li.richText} />
                   </li>
@@ -357,12 +377,12 @@ function NotionContent({ blocks }: { blocks: BlogContent[] }) {
             return (
               <ol
                 key={idx}
-                className="mb-6 pl-6 list-decimal marker:text-(--color-prose-bullets)"
+                className="mb-6 pl-6 list-decimal marker:text-accent-light"
               >
                 {item.items.map((li, liIdx) => (
                   <li
                     key={liIdx}
-                    className="text-lg leading-[1.75] text-(--color-prose-body) mb-2"
+                    className="text-base leading-[1.75] text-text-secondary mb-2"
                   >
                     <RichText segments={li.richText} />
                   </li>
@@ -407,7 +427,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
-  const categoryColors = getCategoryColor(post.category.color);
   const relatedPosts = await getRelatedBlogPosts(slug, 3);
 
   // Get cover image metadata with blur placeholder (for local images)
@@ -527,13 +546,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {post.category.name}
             </Link>
           </nav>
-
-          {/* Category Badge */}
-          <div
-            className={`inline-flex px-3 py-1 text-xs font-medium rounded-full mb-4 ${categoryColors.bg} ${categoryColors.border} border ${categoryColors.text}`}
-          >
-            {post.category.name}
-          </div>
 
           {/* Title */}
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-text-primary leading-[1.1] tracking-tight mb-6">
@@ -660,7 +672,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
                 {/* Notion Content */}
                 {post.notionContent.length > 0 ? (
-                  <NotionContent blocks={post.notionContent} />
+                  <NotionContent blocks={post.notionContent} skipFirstHeading />
                 ) : (
                   <ContentLoading />
                 )}
@@ -696,7 +708,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
               {/* Notion Content */}
               {post.notionContent.length > 0 ? (
-                <NotionContent blocks={post.notionContent} />
+                <NotionContent blocks={post.notionContent} skipFirstHeading />
               ) : (
                 <ContentLoading />
               )}

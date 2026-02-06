@@ -11,9 +11,9 @@ interface BlogHeroProps {
 
 export function BlogHero({ stats }: BlogHeroProps) {
   const defaultStats = [
-    { value: "50+", label: "Technical Deep-Dives" },
-    { value: "15K+", label: "Monthly Readers" },
-    { value: "100%", label: "Practitioner-Written" },
+    { value: "30+", label: "Technical Deep-Dives" },
+    { value: "3K+", label: "Monthly Readers" },
+    { value: "100%", label: "Practitioner-Sourced" },
   ];
 
   const displayStats = stats || defaultStats;
@@ -29,9 +29,9 @@ export function BlogHero({ stats }: BlogHeroProps) {
             transition={{ duration: 0.4, delay: 0.05 }}
             className="text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary leading-[1.1] tracking-tight mb-6"
           >
-            Engineering AI Systems
+            Engineering Insights
             <br />
-            <span className="text-highlight">That Actually Ship</span>
+            <span className="text-highlight">From the Trenches</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -41,8 +41,8 @@ export function BlogHero({ stats }: BlogHeroProps) {
             transition={{ duration: 0.4, delay: 0.1 }}
             className="text-lg sm:text-xl text-text-secondary leading-relaxed mb-10 max-w-3xl mx-auto"
           >
-            Battle-tested insights on LLMs, AI security, and production systems
-            from engineers building enterprise AI infrastructure.
+            Deep-dives on AI, product development, and cloud infrastructure from
+            engineers building real systems.
           </motion.p>
 
           {/* Stats row */}

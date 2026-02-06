@@ -33,6 +33,7 @@ export interface BlogPost {
   readTime: number;
   tags?: string[];
   featured?: boolean;
+  metaDescription?: string;
 }
 
 export interface BlogFilterState {
