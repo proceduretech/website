@@ -59,24 +59,16 @@ export function KekaJobsEmbed({ className = "" }: KekaJobsEmbedProps) {
               overflow: hidden;
             }
 
-            /* Hide Keka footer/branding - target specific patterns only */
-            .keka-light-wrapper footer,
-            .keka-light-wrapper [class*="powered"],
-            .keka-light-wrapper [class*="Powered"] {
-              display: none !important;
+            /* Clip the Keka embed to hide footer - use wrapper with negative margin */
+            #khembedjobs {
+              margin-bottom: -120px !important;
+              padding-bottom: 0 !important;
             }
 
-            /* Hide elements containing Keka branding links/images */
-            .keka-light-wrapper a[href*="keka.com"]:not([class*="job"]):not([class*="apply"]),
+            /* Hide Keka branding images */
             .keka-light-wrapper img[src*="keka"],
             .keka-light-wrapper img[alt*="keka" i],
             .keka-light-wrapper img[alt*="Keka"] {
-              display: none !important;
-            }
-
-            /* Hide parent of Keka branding elements */
-            .keka-light-wrapper div:has(> a[href*="keka.com"]:only-child),
-            .keka-light-wrapper div:has(> img[src*="keka"]:only-child) {
               display: none !important;
             }
 
