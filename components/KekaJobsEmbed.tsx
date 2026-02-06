@@ -54,7 +54,18 @@ export function KekaJobsEmbed({ className = "" }: KekaJobsEmbedProps) {
               color-scheme: light !important;
               border-radius: 1rem;
               padding: 1.5rem;
+              padding-bottom: 1rem;
               isolation: isolate;
+              overflow: hidden;
+            }
+
+            /* Hide Keka footer branding to fix alignment */
+            .keka-light-wrapper footer,
+            .keka-light-wrapper [class*="footer"],
+            .keka-light-wrapper [class*="Footer"],
+            .keka-light-wrapper [class*="powered"],
+            .keka-light-wrapper [class*="Powered"] {
+              display: none !important;
             }
 
             /* Force all text to be dark */
@@ -163,6 +174,7 @@ export function KekaJobsEmbed({ className = "" }: KekaJobsEmbedProps) {
           colorScheme: "light",
           borderRadius: "1rem",
           padding: "1.5rem",
+          overflow: "hidden",
         }}
       >
         {/* Keka Embed Target Container */}
