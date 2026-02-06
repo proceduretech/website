@@ -1173,6 +1173,28 @@ html:not(.dark) .hero-grid-pattern {
   opacity: 0.06;
 }
 
+/* Hero fade-in animations - CSS-based for server-rendered content */
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-fade-in {
+  animation: heroFadeIn 0.4s ease-out forwards;
+  animation-delay: 0.1s;
+  opacity: 0;
+}
+
+.hero-fade-in-delay {
+  animation-delay: 0.2s;
+}
+
 /* Hover state overrides for navigation */
 .hover\:bg-surface-elevated:hover,
 .lg\:hover\:bg-surface-elevated:hover,
