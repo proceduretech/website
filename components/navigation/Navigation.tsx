@@ -952,7 +952,7 @@ function MegaMenuContent({ sections, onClose }: { sections: MenuSection[]; onClo
           >
             {/* Main section title */}
             {section.title && (
-              <h3 className="text-xl font-semibold text-accent-light mb-5">
+              <h3 className="text-xl font-semibold text-accent-light mb-6">
                 {section.title}
               </h3>
             )}
@@ -1006,7 +1006,7 @@ function MegaMenuContent({ sections, onClose }: { sections: MenuSection[]; onClo
                 {section.sections.map((subSection, subIdx) => (
                   <div key={subIdx}>
                     {subSection.title && (
-                      <h4 className="text-xl font-semibold text-accent-light mb-5 mt-8">
+                      <h4 className="text-xl font-semibold text-accent-light mb-6 mt-8">
                         {subSection.title}
                       </h4>
                     )}

@@ -1585,3 +1585,67 @@ iframe {
     }
   }
 }
+
+/* =============================================================================
+   KEKA CAREERS EMBED STYLING
+   Override Keka's default styles for better contrast on dark theme
+   ============================================================================= */
+
+#khembedjobs {
+  /* Give the embed a light background for readability */
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  color: #1a1a1a;
+}
+
+/* Ensure all text inside Keka embed is readable */
+#khembedjobs * {
+  color-scheme: light;
+}
+
+/* Style the job cards */
+#khembedjobs a,
+#khembedjobs .job-title,
+#khembedjobs h3,
+#khembedjobs h4 {
+  color: #1a1a1a !important;
+}
+
+/* Style secondary text */
+#khembedjobs p,
+#khembedjobs span,
+#khembedjobs .job-location,
+#khembedjobs .job-type {
+  color: #4a4a4a !important;
+}
+
+/* Style inputs and filters */
+#khembedjobs input,
+#khembedjobs select {
+  background-color: #f5f5f5 !important;
+  border-color: #e0e0e0 !important;
+  color: #1a1a1a !important;
+}
+
+#khembedjobs input::placeholder {
+  color: #888 !important;
+}
+
+/* Style buttons within Keka */
+#khembedjobs button {
+  color: #1a1a1a !important;
+}
+
+/* Job card hover states */
+#khembedjobs [class*="job"],
+#khembedjobs [class*="card"] {
+  background-color: #fafafa !important;
+  border-color: #e5e5e5 !important;
+}
+
+#khembedjobs [class*="job"]:hover,
+#khembedjobs [class*="card"]:hover {
+  background-color: #f0f0f0 !important;
+  border-color: var(--color-accent) !important;
+}
