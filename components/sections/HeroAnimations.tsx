@@ -1,16 +1,16 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { LazyMotion, domMax, m } from "framer-motion";
 
 // Client component - loads after initial render, provides visual enhancements
 export function HeroAnimations() {
   return (
-    <>
+    <LazyMotion features={domMax}>
       {/* Animated gradient background */}
       <div className="absolute inset-0 bg-gradient-to-b from-surface via-base to-base" />
 
       {/* Large ambient glow - creates depth */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -20,7 +20,7 @@ export function HeroAnimations() {
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-accent/8 rounded-full blur-[120px]" />
         <div className="absolute top-1/3 left-1/4 w-[600px] h-[400px] bg-accent/5 rounded-full blur-[100px]" />
         <div className="absolute top-1/3 right-1/4 w-[500px] h-[350px] bg-accent/4 rounded-full blur-[100px]" />
-      </motion.div>
+      </m.div>
 
       {/* Subtle grid pattern */}
       <div className="absolute inset-0 hero-grid-pattern" />
@@ -28,7 +28,7 @@ export function HeroAnimations() {
       {/* Floating abstract elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Floating orbs */}
-        <motion.div
+        <m.div
           animate={{
             y: [0, -20, 0],
             opacity: [0.4, 0.6, 0.4],
@@ -40,7 +40,7 @@ export function HeroAnimations() {
           }}
           className="absolute top-[20%] left-[15%] w-3 h-3 bg-accent/40 rounded-full blur-sm"
         />
-        <motion.div
+        <m.div
           animate={{
             y: [0, 15, 0],
             opacity: [0.3, 0.5, 0.3],
@@ -53,7 +53,7 @@ export function HeroAnimations() {
           }}
           className="absolute top-[30%] right-[20%] w-2 h-2 bg-accent/50 rounded-full blur-sm"
         />
-        <motion.div
+        <m.div
           animate={{
             y: [0, -15, 0],
             opacity: [0.3, 0.5, 0.3],
@@ -66,7 +66,7 @@ export function HeroAnimations() {
           }}
           className="absolute top-[40%] left-[10%] w-4 h-4 bg-accent/30 rounded-full blur-sm"
         />
-        <motion.div
+        <m.div
           animate={{
             y: [0, 20, 0],
             opacity: [0.2, 0.4, 0.2],
@@ -85,7 +85,7 @@ export function HeroAnimations() {
           className="absolute inset-0 w-full h-full"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <motion.line
+          <m.line
             x1="10%"
             y1="30%"
             x2="25%"
@@ -96,7 +96,7 @@ export function HeroAnimations() {
             animate={{ pathLength: 1, opacity: 0.2 }}
             transition={{ duration: 2, delay: 0.5 }}
           />
-          <motion.line
+          <m.line
             x1="75%"
             y1="25%"
             x2="90%"
@@ -129,25 +129,27 @@ export function HeroAnimations() {
           </defs>
         </svg>
       </div>
-    </>
+    </LazyMotion>
   );
 }
 
 // Scroll indicator - separate client component
 export function HeroScrollIndicator() {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 1.5 }}
-      className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce"
-    >
-      <div className="w-6 h-10 border-2 border-border rounded-full flex justify-center">
-        <div
-          className="w-1 h-3 rounded-full mt-2"
-          style={{ backgroundColor: "var(--color-text-muted)" }}
-        />
-      </div>
-    </motion.div>
+    <LazyMotion features={domMax}>
+      <m.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce"
+      >
+        <div className="w-6 h-10 border-2 border-border rounded-full flex justify-center">
+          <div
+            className="w-1 h-3 rounded-full mt-2"
+            style={{ backgroundColor: "var(--color-text-muted)" }}
+          />
+        </div>
+      </m.div>
+    </LazyMotion>
   );
 }
