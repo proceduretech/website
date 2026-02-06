@@ -33,7 +33,6 @@ export function CaseStudiesClient({
           HERO SECTION
           ============================================ */}
       <PageHero
-        badge="Proven results across industries"
         headline="AI That Ships."
         headlineAccent="Results That Matter."
         description="From Fortune 500 enterprises to high-growth startups, we help organizations turn AI ambitions into production systems that drive measurable business outcomes."

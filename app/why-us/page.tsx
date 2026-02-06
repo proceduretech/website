@@ -202,7 +202,6 @@ export default function WhyUsPage() {
     <main className="min-h-screen">
       {/* Hero Section */}
       <PageHero
-        badge="The Procedure Difference"
         headline="AI That Ships."
         headlineAccent="Not Slide Decks."
         description="Most AI consultancies deliver strategy documents and proof-of-concepts that never reach production. Procedure delivers senior engineers who embed with your team to ship production AI—LLM applications, AI agents, and secure AI systems—in days, not months."
