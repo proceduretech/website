@@ -90,8 +90,8 @@ export function Footer() {
               className="inline-block hover:opacity-80 transition-opacity"
             >
               <ProcedureLogoShort
-                textColor="var(--color-accent)"
-                dotColor="var(--color-accent)"
+                textColor="var(--color-highlight)"
+                dotColor="var(--color-highlight)"
                 className="h-9 w-auto"
               />
             </Link>
