@@ -322,6 +322,7 @@ export default function CareersPage() {
         description="Build production AI systems for Fortune 500 companies and high-growth startups. We offer remote ML engineer and AI developer positions with top-tier compensation, meaningful work, and a culture built for senior technical talent."
         primaryCTA={{ text: "Explore AI Engineering Roles", href: "#openings" }}
         secondaryCTA={{ text: "Learn About Our Culture", href: "/culture" }}
+        showClientLogos={false}
       />
 
       {/* ============================================

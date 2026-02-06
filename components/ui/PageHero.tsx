@@ -29,6 +29,7 @@ interface PageHeroProps {
     href: string;
   };
   children?: ReactNode;
+  showClientLogos?: boolean;
 }
 
 // Smooth easing curve for premium feel
@@ -45,6 +46,7 @@ export function PageHero({
   primaryCTA = { text: "Talk to the Team", href: "/contact-us" },
   secondaryCTA,
   children,
+  showClientLogos = true,
 }: PageHeroProps) {
   const glowColor = cn(
     "absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full blur-[120px]",
@@ -202,10 +204,12 @@ export function PageHero({
             </motion.div>
           )}
 
-          {/* Client Logos - always show */}
-          <div className="mt-16">
-            <ClientLogos />
-          </div>
+          {/* Client Logos */}
+          {showClientLogos && (
+            <div className="mt-16">
+              <ClientLogos />
+            </div>
+          )}
         </div>
       </div>
     </section>
