@@ -5,6 +5,7 @@ import { Footer } from "@/components/footer";
 import { FooterReveal } from "@/components/FooterReveal";
 import { CookieBanner } from "@/components/CookieBanner";
 import { Analytics } from "@/components/Analytics";
+import { JsonLd } from "@/components/seo";
 import { siteConfig, getThemeClass } from "@/lib/site-config";
 import "./globals.css";
 
@@ -98,19 +99,31 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     "@id": "https://procedure.tech/#organization",
-    name: "Procedure",
-    legalName: "Procedure Technologies",
+    name: "Procedure Technologies",
+    alternateName: "Procedure",
     url: "https://procedure.tech",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/7/7f/Procedure-logo.png",
-    foundingDate: "2017",
+    logo: "https://procedure.tech/logo.svg",
     description:
-      "AI engineering that ships to production. Senior engineers embedded with your team to build AI-powered products and secure AI systems. Battle-tested delivery, now focused on AI.",
+      "AI-native design & development studio. Senior AI engineers embedded with your team to build production-grade AI systems, LLM applications, and custom ML models.",
+    foundingDate: "2017",
+    foundingLocation: {
+      "@type": "Place",
+      name: "Mumbai, India",
+    },
+    sameAs: [
+      "https://www.wikidata.org/wiki/Q137392993",
+      "https://www.linkedin.com/company/procedure-tech",
+      "https://github.com/aspect-build",
+      "https://www.glassdoor.co.in/Reviews/Procedure-Technologies-Reviews-E2578960.htm",
+      "https://www.crunchbase.com/organization/procedure",
+      "https://in.linkedin.com/company/procedurehq",
+      "https://x.com/procedurehq",
+      "https://github.com/proceduretech",
+    ],
     address: [
       {
         "@type": "PostalAddress",
-        streetAddress: "406, Shrishti Square, LBS Marg, Bhandup West",
         addressLocality: "Mumbai",
-        postalCode: "400078",
         addressCountry: "IN",
       },
       {
@@ -120,46 +133,41 @@ export default function RootLayout({
         addressCountry: "US",
       },
     ],
-    areaServed: "Worldwide",
-    sameAs: [
-      "https://www.wikidata.org/wiki/Q137392993",
-      "https://www.crunchbase.com/organization/procedure",
-      "https://in.linkedin.com/company/procedurehq",
-      "https://x.com/procedurehq",
-      "https://github.com/proceduretech",
-    ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "sales",
+      email: "hello@procedure.tech",
+      availableLanguage: ["English"],
+    },
     founder: [
       {
         "@type": "Person",
+        "@id": "https://www.wikidata.org/wiki/Q137392996",
         name: "Brajkishor Baheti",
         jobTitle: "Chief Executive Officer",
+        sameAs: "https://www.linkedin.com/in/brajkishor",
       },
       {
         "@type": "Person",
+        "@id": "https://www.wikidata.org/wiki/Q137392995",
         name: "Ulhas Mandrawadkar",
         jobTitle: "Chief Technology Officer",
+        sameAs: "https://www.linkedin.com/in/ulhasmandrawadkar",
       },
     ],
-    employee: [
-      {
-        "@type": "Person",
-        name: "Brajkishor Baheti",
-        jobTitle: "Chief Executive Officer",
-      },
-      {
-        "@type": "Person",
-        name: "Ulhas Mandrawadkar",
-        jobTitle: "Chief Technology Officer",
-      },
-    ],
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      reviewCount: "32",
+      bestRating: "5",
+    },
     knowsAbout: [
       "Artificial Intelligence",
       "Machine Learning",
       "AI Security",
-      "Product Engineering",
+      "LLM Applications",
+      "Software Engineering",
       "Cloud Computing",
-      "DevOps",
-      "Product Design",
     ],
   };
 
@@ -341,24 +349,9 @@ export default function RootLayout({
 
         {/* Analytics (GA4, GTM, Clarity) loaded via client component - only on production */}
 
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(serviceSchema),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(faqSchema),
-          }}
-        />
+        <JsonLd data={organizationSchema} />
+        <JsonLd data={serviceSchema} />
+        <JsonLd data={faqSchema} />
       </head>
       <body className={`${outfit.variable} ${inter.variable} antialiased`}>
         {/* Analytics (GA4, GTM, Clarity) - only loads on production domains */}

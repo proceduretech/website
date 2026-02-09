@@ -23,6 +23,14 @@ export async function generateStaticParams() {
   return getAllIndustrySlugsFromContent().map((slug) => ({ slug }));
 }
 
+// Default OG image configuration
+const defaultOgImage = {
+  url: "/og-image.png",
+  width: 1200,
+  height: 630,
+  alt: "Procedure - AI Engineering Services",
+};
+
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
@@ -45,11 +53,13 @@ export async function generateMetadata({
       title: page.meta.title,
       description: page.meta.description,
       type: "website",
+      images: [defaultOgImage],
     },
     twitter: {
       card: "summary_large_image",
       title: page.meta.title,
       description: page.meta.description,
+      images: [defaultOgImage],
       site: "@procedurehq",
       creator: "@procedurehq",
     },
