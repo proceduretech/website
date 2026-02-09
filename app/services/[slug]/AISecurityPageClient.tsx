@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { PageHero } from "@/components/ui";
 import { CalInline } from "@/components/CalInline";
@@ -430,42 +429,6 @@ export default function AISecurityPageClient({ data, relatedPages }: Props) {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="py-16 sm:py-24 bg-surface">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
-              Ready to Secure Your AI Systems?
-            </h2>
-            <p className="text-lg text-text-secondary mb-8 max-w-2xl mx-auto">
-              Don&apos;t wait for an incident. Get a security assessment before deploying AI to production.
-            </p>
-            <Link
-              href="#book-call"
-              className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-cta-text bg-cta rounded-xl hover:brightness-110 transition-all duration-300 shadow-lg shadow-cta/25"
-            >
-              Book Security Assessment
-              <svg
-                className="w-5 h-5 ml-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                />
-              </svg>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
     </main>
   );
 }
