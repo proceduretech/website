@@ -52,6 +52,15 @@ export async function generateStaticParams() {
   }
 }
 
+// Helper to check if an image URL is a valid local path (not a temporary Notion URL)
+function isValidOgImage(url: string | null | undefined): boolean {
+  if (!url) return false;
+  // Skip Notion temporary URLs and default placeholder
+  if (url.includes("amazonaws.com") || url.includes("notion.so")) return false;
+  if (url === "/blog/default.jpg") return false;
+  return true;
+}
+
 // Generate metadata for SEO
 export async function generateMetadata({
   params,
@@ -64,6 +73,21 @@ export async function generateMetadata({
       title: "Post Not Found | Procedure Blog",
     };
   }
+
+  // Use post featured image if valid, otherwise fall back to default OG image
+  const ogImage = isValidOgImage(post.featuredImage)
+    ? {
+        url: post.featuredImage!,
+        width: 1200,
+        height: 630,
+        alt: post.title,
+      }
+    : {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Procedure - AI Engineering Services",
+      };
 
   return {
     title: `${post.title} | Procedure Blog`,
@@ -78,13 +102,13 @@ export async function generateMetadata({
       modifiedTime: post.updatedAt,
       authors: [post.author.name],
       tags: post.tags,
-      images: post.featuredImage ? [post.featuredImage] : undefined,
+      images: [ogImage],
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
-      images: post.featuredImage ? [post.featuredImage] : undefined,
+      images: [ogImage],
       site: "@procedurehq",
       creator: "@procedurehq",
     },
