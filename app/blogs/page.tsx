@@ -24,11 +24,15 @@ export const metadata: Metadata = {
   title: "Blog | AI Engineering Insights | Procedure",
   description:
     "Expert insights on AI engineering, LLM applications, production systems, and enterprise AI. Learn from engineers who ship.",
+  alternates: {
+    canonical: "/blogs",
+  },
   openGraph: {
     title: "Blog | AI Engineering Insights | Procedure",
     description:
       "Expert insights on AI engineering, LLM applications, production systems, and enterprise AI.",
     type: "website",
+    url: "/blogs",
     images: [defaultOgImage],
   },
   twitter: {
