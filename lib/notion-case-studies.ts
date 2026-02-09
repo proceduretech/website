@@ -20,14 +20,20 @@ export interface CaseStudyDetail extends CaseStudy {
   pageId: string;
   client: string;
   publishDate: string | null;
+  previewText: string | null;
   content: CaseStudyContent[];
 }
 
 export interface CaseStudyContent {
-  type: "paragraph" | "heading_1" | "heading_2" | "heading_3" | "bulleted_list_item" | "numbered_list_item" | "quote" | "callout" | "image" | "divider" | "code";
+  type: "paragraph" | "heading_1" | "heading_2" | "heading_3" | "bulleted_list_item" | "numbered_list_item" | "quote" | "callout" | "image" | "divider" | "code" | "table";
   text?: string;
   url?: string;
   language?: string;
+  tableData?: {
+    hasColumnHeader: boolean;
+    hasRowHeader: boolean;
+    rows: string[][];
+  };
 }
 
 // =============================================================================
@@ -136,6 +142,7 @@ function mapServiceType(
 
 /**
  * Map Notion industry values to display names
+ * If industry is not in map, return as-is (don't default to Technology)
  */
 function mapIndustryName(industry: string | null): string {
   if (!industry) return "Technology";
@@ -146,8 +153,14 @@ function mapIndustryName(industry: string | null): string {
     "E-commerce": "E-Commerce",
     SaaS: "SaaS",
     Enterprise: "Enterprise",
+    Telecommunications: "Telecommunications",
+    EdTech: "EdTech",
+    Manufacturing: "Manufacturing",
+    Retail: "Retail",
+    Media: "Media",
   };
 
+  // Return mapped name or original if not in map
   return industryMap[industry] || industry;
 }
 
@@ -268,11 +281,14 @@ async function transformNotionPageToCaseStudy(
     return null;
   }
 
-  const industry = getSelect(props["Industry"]);
+  // Industry can be multi-select in Notion - take first value
+  const industries = getMultiSelect(props["Industry"]);
+  const industry = industries.length > 0 ? industries[0] : getSelect(props["Industry"]);
   const services = getMultiSelect(props["Service"]);
   const client = getRichText(props["Client"]);
   const featured = getCheckbox(props["Featured"]);
   const results = getRichText(props["Results"]);
+  const previewText = getRichText(props["Preview Text"]);
   const publishDate = getDate(props["Publish Date"]);
   // Slug property (renamed from URL) - use rich text Slug as primary
   const customSlug = getRichText(props["Slug"]) || getUrl(props["URL"]);
@@ -292,13 +308,16 @@ async function transformNotionPageToCaseStudy(
     id = generateSlug(title);
   }
 
-  // Parse metrics from results
-  const metrics = parseMetrics(results);
+  // Parse metrics from results (take first 3)
+  const allMetrics = parseMetrics(results);
+  const metrics = allMetrics.slice(0, 3);
 
-  // Create description from client name and title context
-  const description = client
-    ? `${client}: ${title}`
-    : `Case study: ${title}`;
+  // Use preview text as description, or fallback to client + title
+  const description = previewText
+    ? previewText
+    : client
+      ? `${client}: ${title}`
+      : `Case study: ${title}`;
 
   // Map services to tags
   const tags = services.length > 0 ? services : ["Engineering"];
@@ -323,6 +342,7 @@ async function transformNotionPageToCaseStudy(
     pageId: page.id,
     client: client || "Confidential Client",
     publishDate,
+    previewText: previewText || null,
   };
 
   return { caseStudy, detail };
@@ -405,8 +425,49 @@ function transformBlock(block: BlockObjectResponse): CaseStudyContent | null {
       return null;
     case "divider":
       return { type: "divider" };
+    case "table":
+      // Table blocks need special handling - rows fetched separately
+      return {
+        type: "table",
+        tableData: {
+          hasColumnHeader: block.table.has_column_header,
+          hasRowHeader: block.table.has_row_header,
+          rows: [], // Will be populated by fetchTableRows
+        },
+      };
     default:
       return null;
+  }
+}
+
+/**
+ * Fetch table rows from a table block
+ */
+async function fetchTableRows(tableBlockId: string): Promise<string[][]> {
+  try {
+    const response: ListBlockChildrenResponse = await notion.blocks.children.list({
+      block_id: tableBlockId,
+      page_size: 100,
+    });
+
+    const rows: string[][] = [];
+
+    for (const block of response.results) {
+      if (!("type" in block)) continue;
+      const typedBlock = block as BlockObjectResponse;
+
+      if (typedBlock.type === "table_row") {
+        const cells = typedBlock.table_row.cells.map((cell) =>
+          cell.map((richText) => richText.plain_text).join("")
+        );
+        rows.push(cells);
+      }
+    }
+
+    return rows;
+  } catch (error) {
+    console.error(`Error fetching table rows for block ${tableBlockId}:`, error);
+    return [];
   }
 }
 
@@ -425,8 +486,15 @@ async function fetchPageContent(pageId: string): Promise<CaseStudyContent[]> {
     for (const block of response.results) {
       if (!("type" in block)) continue;
 
-      const transformed = transformBlock(block as BlockObjectResponse);
+      const typedBlock = block as BlockObjectResponse;
+      const transformed = transformBlock(typedBlock);
+
       if (transformed) {
+        // If it's a table, fetch the rows
+        if (transformed.type === "table" && transformed.tableData) {
+          const rows = await fetchTableRows(typedBlock.id);
+          transformed.tableData.rows = rows;
+        }
         content.push(transformed);
       }
     }
@@ -595,6 +663,7 @@ export const getNotionCaseStudyBySlug = cache(
         pageId: "",
         client: "Confidential Client",
         publishDate: null,
+        previewText: null,
         content: [],
       };
     }

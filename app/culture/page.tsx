@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 
 // Work beliefs from the team
@@ -336,20 +337,7 @@ export default function CulturePage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-32 pb-20">
           <div className="max-w-4xl mx-auto text-center">
-            {/* Eyebrow badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 mb-8"
-            >
-              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              <span className="text-sm font-medium text-accent-light tracking-wide">
-                Our Culture
-              </span>
-            </motion.div>
-
-            {/* Main headline */}
+{/* Main headline */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -371,7 +359,8 @@ export default function CulturePage() {
               We&apos;re forward-deployed engineers, designers, and thinkers who
               stay close to the problem, not tucked behind layers of process.
               From idea to deploy, we move with intent, learn in the open, and
-              keep the &apos;why&apos; visible.
+              keep the &apos;why&apos; visible. Our certified best workplace culture
+              ensures engineers thrive—not just deliver.
             </motion.p>
 
             {/* Stats row */}
@@ -379,7 +368,7 @@ export default function CulturePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-wrap gap-8 sm:gap-12 mb-12 justify-center"
+              className="flex flex-wrap gap-8 sm:gap-12 mb-8 justify-center"
             >
               {stats.map((stat) => (
                 <div key={stat.label}>
@@ -391,6 +380,25 @@ export default function CulturePage() {
                   </div>
                 </div>
               ))}
+            </motion.div>
+
+            {/* Certification Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.45 }}
+              className="flex items-center justify-center gap-3 mb-12 px-4 py-2 bg-accent/10 border border-accent/20 rounded-full"
+            >
+              <Image
+                src="/assets/bptw-badge.webp"
+                alt="TSOW Certified Best Workplace"
+                width={32}
+                height={32}
+                className="shrink-0"
+              />
+              <span className="text-sm font-medium text-accent-light">
+                TSOW Certified Best Workplace 2025-2026
+              </span>
             </motion.div>
 
             {/* CTAs */}
@@ -507,7 +515,7 @@ export default function CulturePage() {
             <p className="text-lg text-text-secondary">
               These aren&apos;t corporate values on a poster. These are the
               beliefs that guide our daily decisions and how we treat each
-              other.
+              other—and why we earned our Best Workplace certification.
             </p>
           </motion.div>
 
@@ -580,7 +588,8 @@ export default function CulturePage() {
             </h2>
             <p className="text-lg text-text-secondary max-w-2xl mx-auto">
               The values that keep our teams aligned, our code intentional, and
-              our culture authentic.
+              our culture authentic. These principles earned us our certified best
+              workplace recognition.
             </p>
           </motion.div>
 
@@ -826,7 +835,7 @@ export default function CulturePage() {
 
             {/* Subheadline */}
             <p className="text-xl text-text-secondary leading-relaxed mb-10 max-w-2xl mx-auto">
-              Join a team that values autonomy, learning, and thoughtful
+              Join a certified best workplace that values autonomy, learning, and thoughtful
               engineering over everything else. We&apos;re growing, and
               we&apos;d love to grow with you.
             </p>
@@ -863,6 +872,17 @@ export default function CulturePage() {
             {/* Trust indicators */}
             <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-text-muted">
               <div className="flex items-center gap-2">
+                <Image
+                  src="/assets/bptw-badge.webp"
+                  alt="TSOW Certified"
+                  width={20}
+                  height={20}
+                  className="shrink-0"
+                />
+                <span>Certified Best Workplace</span>
+              </div>
+              <span className="hidden sm:block w-1 h-1 rounded-full bg-border" />
+              <div className="flex items-center gap-2">
                 <svg
                   className="w-5 h-5 text-accent"
                   fill="none"
@@ -877,21 +897,6 @@ export default function CulturePage() {
                   />
                 </svg>
                 <span>100% Remote</span>
-              </div>
-              <span className="hidden sm:block w-1 h-1 rounded-full bg-border" />
-              <div className="flex items-center gap-2">
-                <svg
-                  className="w-5 h-5 text-accent"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span>Weekends Off</span>
               </div>
               <span className="hidden sm:block w-1 h-1 rounded-full bg-border" />
               <div className="flex items-center gap-2">

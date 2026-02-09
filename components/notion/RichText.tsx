@@ -11,14 +11,14 @@ export function RichText({ segments }: { segments?: RichTextSegment[] }) {
         // Apply formatting
         if (segment.code) {
           content = (
-            <code className="px-1.5 py-0.5 rounded bg-surface-elevated text-sm font-mono text-(--color-prose-code)">
+            <code className="px-1.5 py-0.5 rounded bg-surface-elevated text-sm font-mono text-accent">
               {content}
             </code>
           );
         }
         if (segment.bold) {
           content = (
-            <strong className="font-semibold text-(--color-prose-bold)">
+            <strong className="font-semibold text-text-primary">
               {content}
             </strong>
           );
@@ -44,7 +44,7 @@ export function RichText({ segments }: { segments?: RichTextSegment[] }) {
                   ? "noopener noreferrer"
                   : undefined
               }
-              className="text-(--color-prose-links) underline decoration-(--color-prose-link-underline) underline-offset-4 hover:decoration-(--color-prose-link-underline-hover) transition-colors"
+              className="text-accent underline decoration-accent/50 underline-offset-4 hover:decoration-accent transition-colors"
             >
               {content}
             </a>

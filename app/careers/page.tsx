@@ -1,155 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { PageHero } from "@/components/ui";
-
-// Job openings data
-const jobOpenings = [
-  {
-    id: "senior-ai-engineer",
-    title: "Senior AI Engineer",
-    department: "AI Engineering",
-    location: "Remote",
-    type: "Full-time",
-    experience: "5+ years",
-    description:
-      "Lead the development of production AI systems that power critical business operations for Fortune 500 clients. You will architect LLM integrations, RAG pipelines, and custom ML models that process millions of requests daily while maintaining enterprise-grade reliability.",
-    responsibilities: [
-      "Design and deploy production AI/ML systems serving enterprise workloads",
-      "Architect LLM-powered applications with advanced RAG and agent frameworks",
-      "Partner with client stakeholders to translate business requirements into technical solutions",
-      "Mentor team members and establish engineering best practices through code reviews",
-    ],
-    requirements: [
-      "5+ years of software engineering with production deployments",
-      "3+ years building ML/AI systems at scale",
-      "Expert proficiency in Python and ML frameworks (PyTorch, TensorFlow, Hugging Face)",
-      "Hands-on experience with LLM APIs (OpenAI, Anthropic, Google) and vector databases",
-    ],
-  },
-  {
-    id: "full-stack-developer",
-    title: "Full Stack Developer",
-    department: "Product Engineering",
-    location: "Remote",
-    type: "Full-time",
-    experience: "4+ years",
-    description:
-      "Build intelligent web applications that bring AI capabilities to enterprise users. You will own the full stack, from pixel-perfect React interfaces to scalable Node.js APIs, creating products that transform how organizations leverage artificial intelligence.",
-    responsibilities: [
-      "Develop high-performance web applications using React, Next.js, and TypeScript",
-      "Design and implement scalable RESTful and GraphQL APIs",
-      "Integrate LLM and ML capabilities into intuitive user experiences",
-      "Deliver production-ready code with comprehensive test coverage",
-    ],
-    requirements: [
-      "4+ years of full-stack development with shipped production applications",
-      "Expert-level React and TypeScript with modern patterns and best practices",
-      "Strong backend experience with Node.js or Python API development",
-      "Familiarity with CI/CD pipelines, containerization, and cloud deployment",
-    ],
-  },
-  {
-    id: "devops-engineer",
-    title: "DevOps Engineer",
-    department: "Cloud & Infrastructure",
-    location: "Remote",
-    type: "Full-time",
-    experience: "4+ years",
-    description:
-      "Architect and operate the cloud infrastructure that powers enterprise AI systems. You will build resilient, cost-optimized platforms on AWS and GCP that handle GPU-intensive ML workloads with 99.9% uptime requirements.",
-    responsibilities: [
-      "Design and maintain production cloud infrastructure on AWS and GCP",
-      "Build and optimize CI/CD pipelines for rapid, reliable deployments",
-      "Manage Kubernetes clusters optimized for ML workloads and GPU scheduling",
-      "Implement infrastructure as code using Terraform and GitOps workflows",
-    ],
-    requirements: [
-      "4+ years of DevOps or Site Reliability Engineering experience",
-      "Expert-level Kubernetes and container orchestration skills",
-      "Deep proficiency with AWS or GCP services and architecture patterns",
-      "Strong experience with Terraform, Ansible, or similar IaC tools",
-    ],
-  },
-  {
-    id: "ml-engineer",
-    title: "Machine Learning Engineer",
-    department: "AI Engineering",
-    location: "Remote",
-    type: "Full-time",
-    experience: "4+ years",
-    description:
-      "Own the complete ML lifecycle for mission-critical enterprise applications. You will design data pipelines, train and fine-tune models, and deploy inference systems that serve predictions at scale with sub-100ms latency requirements.",
-    responsibilities: [
-      "Build end-to-end ML pipelines from data ingestion to production serving",
-      "Optimize model performance for inference latency and throughput",
-      "Implement MLOps best practices including versioning, monitoring, and automated retraining",
-      "Partner with data scientists to productionize research models",
-    ],
-    requirements: [
-      "4+ years of ML engineering with production deployment experience",
-      "Strong Python proficiency and deep expertise with PyTorch or TensorFlow",
-      "Hands-on experience with ML platforms (Kubeflow, MLflow, SageMaker, or Vertex AI)",
-      "Background in distributed computing and large-scale data processing",
-    ],
-  },
-  {
-    id: "technical-project-manager",
-    title: "Technical Project Manager",
-    department: "Delivery",
-    location: "Remote",
-    type: "Full-time",
-    experience: "5+ years",
-    description:
-      "Drive complex AI engineering initiatives from discovery to production deployment. You will serve as the critical bridge between technical teams and enterprise stakeholders, ensuring projects deliver measurable business outcomes on time and within scope.",
-    responsibilities: [
-      "Lead end-to-end delivery of AI projects for enterprise clients",
-      "Coordinate cross-functional engineering teams across multiple time zones",
-      "Define project scope, milestones, and success metrics aligned with business objectives",
-      "Proactively identify risks and implement mitigation strategies",
-    ],
-    requirements: [
-      "5+ years of technical project management in software or consulting",
-      "Demonstrated experience delivering AI/ML or complex software projects",
-      "Strong command of agile methodologies and delivery frameworks",
-      "Exceptional communication skills with technical and executive audiences",
-    ],
-  },
-  {
-    id: "solutions-architect",
-    title: "Solutions Architect",
-    department: "Architecture",
-    location: "Remote",
-    type: "Full-time",
-    experience: "7+ years",
-    description:
-      "Design enterprise-grade AI architectures that deliver measurable ROI at scale. You will lead technical discovery with C-suite stakeholders, translate complex business requirements into robust technical solutions, and guide implementation across multi-million dollar engagements.",
-    responsibilities: [
-      "Design scalable, secure AI/ML architectures meeting enterprise compliance requirements",
-      "Lead technical discovery sessions and solution design with client executives",
-      "Author technical proposals, architecture documentation, and implementation roadmaps",
-      "Provide architectural guidance and oversight to engineering teams throughout delivery",
-    ],
-    requirements: [
-      "7+ years of software or solutions architecture experience",
-      "Deep expertise in distributed systems and cloud-native architecture patterns",
-      "Proven experience designing AI/ML systems for enterprise production environments",
-      "Executive presence with strong client-facing communication and presentation skills",
-    ],
-  },
-];
-
-// Department filters
-const departments = [
-  "All Departments",
-  "AI Engineering",
-  "Product Engineering",
-  "Cloud & Infrastructure",
-  "Delivery",
-  "Architecture",
-];
+import { KekaJobsEmbed } from "@/components/KekaJobsEmbed";
 
 // Benefits data
 const benefits = [
@@ -285,7 +140,7 @@ const values = [
   {
     title: "Continuous Technical Growth",
     description:
-      "AI evolves rapidly, and so do we. Weekly knowledge sharing, dedicated learning time, and a culture of experimentation ensure you stay at the forefront of the industry.",
+      "AI evolves rapidly, and so do we. Weekly knowledge sharing, dedicated learning time, and a culture of experimentation ensure you stay at the forefront of the industry. Our Best Workplace certification reflects this commitment to your growth.",
   },
   {
     title: "Direct, Transparent Communication",
@@ -300,28 +155,38 @@ const values = [
 ];
 
 export default function CareersPage() {
-  const [selectedDepartment, setSelectedDepartment] =
-    useState("All Departments");
-  const [expandedJob, setExpandedJob] = useState<string | null>(null);
-
-  const filteredJobs =
-    selectedDepartment === "All Departments"
-      ? jobOpenings
-      : jobOpenings.filter((job) => job.department === selectedDepartment);
-
   return (
     <main className="relative min-h-screen bg-base overflow-hidden">
       {/* ============================================
           HERO SECTION
           ============================================ */}
       <PageHero
-        badge={`${jobOpenings.length} Open Positions`}
         headline="AI Engineering Careers"
         headlineAccent="That Shape the Future"
-        description="Build production AI systems for Fortune 500 companies and high-growth startups. We offer remote ML engineer and AI developer positions with top-tier compensation, meaningful work, and a culture built for senior technical talent."
+        description="Build production AI systems for Fortune 500 companies and high-growth startups. We offer remote ML engineer and AI developer positions with top-tier compensation, meaningful work, and a certified best workplace culture built for senior technical talent."
         primaryCTA={{ text: "Explore AI Engineering Roles", href: "#openings" }}
         secondaryCTA={{ text: "Learn About Our Culture", href: "/culture" }}
-      />
+        showClientLogos={false}
+      >
+        {/* TSOW Certification Badge */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
+          <Image
+            src="/assets/bptw-badge.webp"
+            alt="TSOW Certified Best Workplace"
+            width={64}
+            height={64}
+            className="shrink-0"
+          />
+          <div className="text-center sm:text-left">
+            <p className="text-sm sm:text-base font-medium text-text-primary">
+              Officially a TSOW Certified Best Workplace
+            </p>
+            <p className="text-text-muted text-xs sm:text-sm">
+              Recognized for creating a culture where people thrive.
+            </p>
+          </div>
+        </div>
+      </PageHero>
 
       {/* ============================================
           WHY JOIN US SECTION
@@ -414,7 +279,7 @@ export default function CareersPage() {
               The Values That Drive Our Work
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto">
-              A high-performance culture built on trust, technical excellence,
+              A certified best workplace culture built on trust, technical excellence,
               and a shared commitment to delivering production AI systems that
               transform enterprises.
             </p>
@@ -456,7 +321,7 @@ export default function CareersPage() {
       </section>
 
       {/* ============================================
-          JOB OPENINGS SECTION
+          JOB OPENINGS SECTION - KEKA EMBED
           ============================================ */}
       <section
         id="openings"
@@ -491,287 +356,15 @@ export default function CareersPage() {
             </p>
           </motion.div>
 
-          {/* Department Filter */}
+          {/* Keka Careers Embed */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="flex flex-wrap justify-center gap-2 mb-10"
           >
-            {departments.map((dept) => (
-              <button
-                key={dept}
-                onClick={() => setSelectedDepartment(dept)}
-                className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
-                  selectedDepartment === dept
-                    ? "bg-accent text-white"
-                    : "bg-surface-elevated text-text-secondary border border-border hover:border-accent/50 hover:text-text-primary"
-                }`}
-              >
-                {dept}
-              </button>
-            ))}
+            <KekaJobsEmbed />
           </motion.div>
-
-          {/* Job Listings */}
-          <div className="space-y-4 max-w-4xl mx-auto">
-            {filteredJobs.map((job, idx) => (
-              <motion.div
-                key={job.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.05 }}
-                className="group"
-              >
-                <div
-                  className={`relative rounded-2xl bg-surface-elevated border transition-all duration-300 overflow-hidden ${
-                    expandedJob === job.id
-                      ? "border-accent/50"
-                      : "border-border hover:border-accent/30"
-                  }`}
-                >
-                  {/* Job Header - Always Visible */}
-                  <button
-                    onClick={() =>
-                      setExpandedJob(expandedJob === job.id ? null : job.id)
-                    }
-                    className="w-full p-6 sm:p-8 text-left"
-                  >
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                      <div className="flex-grow">
-                        {/* Department badge */}
-                        <span className="inline-block px-3 py-1 text-xs font-semibold text-accent-light bg-accent/10 border border-accent/20 rounded-full mb-3">
-                          {job.department}
-                        </span>
-
-                        {/* Job title */}
-                        <h3 className="text-xl font-semibold text-text-primary mb-2 group-hover:text-accent-light transition-colors">
-                          {job.title}
-                        </h3>
-
-                        {/* Meta info */}
-                        <div className="flex flex-wrap items-center gap-3 text-sm text-text-muted">
-                          <span className="flex items-center gap-1.5">
-                            <svg
-                              className="w-4 h-4"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                              strokeWidth={1.5}
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
-                              />
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
-                              />
-                            </svg>
-                            {job.location}
-                          </span>
-                          <span className="w-1 h-1 bg-border rounded-full" />
-                          <span className="flex items-center gap-1.5">
-                            <svg
-                              className="w-4 h-4"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                              strokeWidth={1.5}
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                              />
-                            </svg>
-                            {job.type}
-                          </span>
-                          <span className="w-1 h-1 bg-border rounded-full" />
-                          <span className="flex items-center gap-1.5">
-                            <svg
-                              className="w-4 h-4"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                              strokeWidth={1.5}
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0"
-                              />
-                            </svg>
-                            {job.experience}
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* Expand/Collapse indicator */}
-                      <div className="flex items-center gap-4">
-                        <motion.div
-                          animate={{ rotate: expandedJob === job.id ? 180 : 0 }}
-                          transition={{ duration: 0.2 }}
-                          className="w-10 h-10 rounded-full bg-surface border border-border flex items-center justify-center text-text-muted group-hover:border-accent/50 group-hover:text-accent-light transition-colors"
-                        >
-                          <svg
-                            className="w-5 h-5"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            strokeWidth={2}
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                            />
-                          </svg>
-                        </motion.div>
-                      </div>
-                    </div>
-                  </button>
-
-                  {/* Expanded Content */}
-                  <motion.div
-                    initial={false}
-                    animate={{
-                      height: expandedJob === job.id ? "auto" : 0,
-                      opacity: expandedJob === job.id ? 1 : 0,
-                    }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="overflow-hidden"
-                  >
-                    <div className="px-6 sm:px-8 pb-8 pt-0">
-                      <div className="border-t border-border pt-6">
-                        {/* Description */}
-                        <p className="text-text-secondary leading-relaxed mb-6">
-                          {job.description}
-                        </p>
-
-                        <div className="grid md:grid-cols-2 gap-6 mb-8">
-                          {/* Responsibilities */}
-                          <div>
-                            <h4 className="text-sm font-semibold text-text-primary uppercase tracking-wider mb-4">
-                              What You&apos;ll Do
-                            </h4>
-                            <ul className="space-y-3">
-                              {job.responsibilities.map((resp, i) => (
-                                <li
-                                  key={i}
-                                  className="flex items-start gap-3 text-sm text-text-secondary"
-                                >
-                                  <svg
-                                    className="w-5 h-5 text-accent shrink-0 mt-0.5"
-                                    fill="currentColor"
-                                    viewBox="0 0 20 20"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                      clipRule="evenodd"
-                                    />
-                                  </svg>
-                                  {resp}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-
-                          {/* Requirements */}
-                          <div>
-                            <h4 className="text-sm font-semibold text-text-primary uppercase tracking-wider mb-4">
-                              What We&apos;re Looking For
-                            </h4>
-                            <ul className="space-y-3">
-                              {job.requirements.map((req, i) => (
-                                <li
-                                  key={i}
-                                  className="flex items-start gap-3 text-sm text-text-secondary"
-                                >
-                                  <svg
-                                    className="w-5 h-5 text-accent shrink-0 mt-0.5"
-                                    fill="currentColor"
-                                    viewBox="0 0 20 20"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                      clipRule="evenodd"
-                                    />
-                                  </svg>
-                                  {req}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </div>
-
-                        {/* Apply Button */}
-                        <Link
-                          href={`/contact-us?role=${job.id}`}
-                          className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-cta-text bg-cta rounded-xl hover:brightness-110 transition-all duration-200 shadow-lg shadow-cta/25"
-                        >
-                          Apply Now
-                          <svg
-                            className="w-4 h-4"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            strokeWidth={2}
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                            />
-                          </svg>
-                        </Link>
-                      </div>
-                    </div>
-                  </motion.div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* No Results */}
-          {filteredJobs.length === 0 && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="text-center py-12"
-            >
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-surface-elevated border border-border flex items-center justify-center">
-                <svg
-                  className="w-8 h-8 text-text-muted"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={1.5}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                  />
-                </svg>
-              </div>
-              <p className="text-text-secondary mb-4">
-                No positions found in {selectedDepartment}.
-              </p>
-              <button
-                onClick={() => setSelectedDepartment("All Departments")}
-                className="text-accent-light font-medium hover:underline"
-              >
-                View all positions
-              </button>
-            </motion.div>
-          )}
         </div>
       </section>
 

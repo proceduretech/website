@@ -12,15 +12,37 @@ import { BlogListingClient } from "./BlogListingClient";
 export const dynamic = "force-static";
 export const revalidate = false;
 
+// Default OG image configuration
+const defaultOgImage = {
+  url: "/og-image.png",
+  width: 1200,
+  height: 630,
+  alt: "Procedure - AI Engineering Services",
+};
+
 export const metadata: Metadata = {
   title: "Blog | AI Engineering Insights | Procedure",
   description:
     "Expert insights on AI engineering, LLM applications, production systems, and enterprise AI. Learn from engineers who ship.",
+  alternates: {
+    canonical: "/blogs",
+  },
   openGraph: {
     title: "Blog | AI Engineering Insights | Procedure",
     description:
       "Expert insights on AI engineering, LLM applications, production systems, and enterprise AI.",
     type: "website",
+    url: "/blogs",
+    images: [defaultOgImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog | AI Engineering Insights | Procedure",
+    description:
+      "Expert insights on AI engineering, LLM applications, production systems, and enterprise AI.",
+    images: [defaultOgImage],
+    site: "@procedurehq",
+    creator: "@procedurehq",
   },
 };
 

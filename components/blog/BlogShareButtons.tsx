@@ -15,10 +15,45 @@ export function BlogShareButtons({
 }: BlogShareButtonsProps) {
   const [copied, setCopied] = useState(false);
   const [shareUrl, setShareUrl] = useState(url);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     setShareUrl(`${window.location.origin}${url}`);
   }, [url]);
+
+  // Track visibility for sidebar variant - show when article is in view
+  // Icons appear when top of article enters viewport, stay until bottom exits
+  useEffect(() => {
+    if (variant !== "sidebar") return;
+
+    const checkVisibility = () => {
+      const articleElement = document.querySelector("article.prose-container");
+      if (!articleElement) {
+        setIsVisible(true);
+        return;
+      }
+
+      const rect = articleElement.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+
+      // Show when article top is in upper half of viewport (user has scrolled to content)
+      // Hide when article bottom has scrolled above the viewport
+      const articleTopInView = rect.top < viewportHeight * 0.6;
+      const articleBottomAboveViewport = rect.bottom < 100;
+
+      setIsVisible(articleTopInView && !articleBottomAboveViewport);
+    };
+
+    // Check on mount
+    checkVisibility();
+
+    // Check on scroll
+    window.addEventListener("scroll", checkVisibility, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", checkVisibility);
+    };
+  }, [variant]);
 
   const shareLinks = {
     twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(
@@ -41,7 +76,11 @@ export function BlogShareButtons({
 
   if (variant === "sidebar") {
     return (
-      <div className="fixed left-8 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-3 z-11">
+      <div
+        className={`fixed left-8 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-3 z-11 transition-opacity duration-300 ${
+          isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+      >
         {/* Twitter/X */}
         <a
           href={shareLinks.twitter}
@@ -73,6 +112,7 @@ export function BlogShareButtons({
           onClick={handleCopyLink}
           className="w-10 h-10 rounded-full bg-surface-elevated border border-border flex items-center justify-center text-text-muted hover:text-accent-light hover:border-accent/30 transition-colors"
           aria-label="Copy link"
+          title="Copy URL to clipboard"
         >
           {copied ? (
             <svg
@@ -145,6 +185,7 @@ export function BlogShareButtons({
           onClick={handleCopyLink}
           className="w-9 h-9 rounded-full bg-surface-elevated border border-border flex items-center justify-center text-text-muted hover:text-accent-light hover:border-accent/30 transition-colors"
           aria-label="Copy link"
+          title="Copy URL to clipboard"
         >
           {copied ? (
             <svg

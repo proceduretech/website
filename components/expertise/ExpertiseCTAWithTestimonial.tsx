@@ -109,7 +109,7 @@ export function ExpertiseCTAWithTestimonial({
 
             <blockquote className="mt-4">
               <p className="text-text-primary leading-relaxed mb-6 text-base sm:text-lg">
-                "{testimonial.quote}"
+                &ldquo;{testimonial.quote}&rdquo;
               </p>
 
               <footer className="flex items-center gap-3">

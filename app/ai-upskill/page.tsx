@@ -137,20 +137,7 @@ export default function AIUpskillPage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
-            {/* Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 mb-6"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-accent-light animate-pulse" />
-              <span className="text-sm font-medium text-accent-light">
-                Cohort Starting Q2 2025
-              </span>
-            </motion.div>
-
-            {/* Headline */}
+{/* Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

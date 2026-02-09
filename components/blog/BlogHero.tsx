@@ -11,9 +11,9 @@ interface BlogHeroProps {
 
 export function BlogHero({ stats }: BlogHeroProps) {
   const defaultStats = [
-    { value: "50+", label: "Technical Deep-Dives" },
-    { value: "15K+", label: "Monthly Readers" },
-    { value: "100%", label: "Practitioner-Written" },
+    { value: "30+", label: "Technical Deep-Dives" },
+    { value: "3K+", label: "Monthly Readers" },
+    { value: "100%", label: "Practitioner-Sourced" },
   ];
 
   const displayStats = stats || defaultStats;
@@ -22,47 +22,34 @@ export function BlogHero({ stats }: BlogHeroProps) {
     <section className="relative pt-32 pb-24 sm:pb-36 bg-base">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 mb-6"
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-accent-light animate-pulse" />
-            <span className="text-sm font-medium text-accent-light">
-              Engineering Insights
-            </span>
-          </motion.div>
-
-          {/* Headline */}
+{/* Headline - reduced delays for better LCP */}
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.05 }}
             className="text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary leading-[1.1] tracking-tight mb-6"
           >
-            Engineering AI Systems
+            Engineering Insights
             <br />
-            <span className="text-highlight">That Actually Ship</span>
+            <span className="text-highlight">From the Trenches</span>
           </motion.h1>
 
           {/* Subheadline */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
             className="text-lg sm:text-xl text-text-secondary leading-relaxed mb-10 max-w-3xl mx-auto"
           >
-            Battle-tested insights on LLMs, AI security, and production systems
-            from engineers building enterprise AI infrastructure.
+            Deep-dives on AI, product development, and cloud infrastructure from
+            engineers building real systems.
           </motion.p>
 
           {/* Stats row */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.4, delay: 0.15 }}
             className="grid grid-cols-3 gap-4 sm:gap-6 max-w-2xl mx-auto"
           >
             {displayStats.map((stat) => (

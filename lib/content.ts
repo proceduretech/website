@@ -695,6 +695,13 @@ export function getExpertiseForListing(
   if (!expertise) return null;
 
   const { frontmatter, content } = expertise;
+
+  // Return null if required fields for expertise pages are missing
+  // (e.g., ai-security uses custom layout without capabilities/technologies)
+  if (!frontmatter.capabilities || !frontmatter.technologies) {
+    return null;
+  }
+
   const whyProcedure = parseWhyProcedureFromContent(content);
 
   // Use explicit headline/headlineAccent if provided, otherwise parse from title

@@ -24,7 +24,7 @@ export function ExpertiseHero({
   headlineAccent,
   tagline,
   description,
-  primaryCTA = { text: "Talk to the Team", href: "/contact-us" },
+  primaryCTA = { text: "Talk to the Team", href: "#book-call" },
   secondaryCTA,
 }: ExpertiseHeroProps) {
   return (

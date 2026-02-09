@@ -1,16 +1,18 @@
 import type { Metadata, Viewport } from "next";
 import { Outfit, Inter } from "next/font/google";
-import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { FooterReveal } from "@/components/FooterReveal";
 import { CookieBanner } from "@/components/CookieBanner";
+import { Analytics } from "@/components/Analytics";
+import { JsonLd } from "@/components/seo";
 import { siteConfig, getThemeClass } from "@/lib/site-config";
 import "./globals.css";
 
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
+  // Variable font - includes all weights 100-900
   display: "swap", // Prevents FOIT (Flash of Invisible Text)
   preload: true, // Preloads font files for faster rendering
   adjustFontFallback: true, // Automatically adjust font fallback metrics
@@ -20,6 +22,7 @@ const outfit = Outfit({
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  // Variable font - includes all weights 100-900
   display: "swap", // Prevents FOIT (Flash of Invisible Text)
   preload: true, // Preloads font files for faster rendering
   adjustFontFallback: true, // Automatically adjust font fallback metrics
@@ -50,9 +53,6 @@ export const metadata: Metadata = {
     "AI integration services",
     "production AI systems",
   ],
-  alternates: {
-    canonical: "/",
-  },
   openGraph: {
     title: "AI Engineering Services | Enterprise AI Development | Procedure",
     description:
@@ -99,19 +99,31 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     "@id": "https://procedure.tech/#organization",
-    name: "Procedure",
-    legalName: "Procedure Technologies",
+    name: "Procedure Technologies",
+    alternateName: "Procedure",
     url: "https://procedure.tech",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/7/7f/Procedure-logo.png",
-    foundingDate: "2017",
+    logo: "https://procedure.tech/logo.svg",
     description:
-      "AI engineering that ships to production. Senior engineers embedded with your team to build AI-powered products and secure AI systems. Battle-tested delivery, now focused on AI.",
+      "AI-native design & development studio. Senior AI engineers embedded with your team to build production-grade AI systems, LLM applications, and custom ML models.",
+    foundingDate: "2017",
+    foundingLocation: {
+      "@type": "Place",
+      name: "Mumbai, India",
+    },
+    sameAs: [
+      "https://www.wikidata.org/wiki/Q137392993",
+      "https://www.linkedin.com/company/procedure-tech",
+      "https://github.com/aspect-build",
+      "https://www.glassdoor.co.in/Reviews/Procedure-Technologies-Reviews-E2578960.htm",
+      "https://www.crunchbase.com/organization/procedure",
+      "https://in.linkedin.com/company/procedurehq",
+      "https://x.com/procedurehq",
+      "https://github.com/proceduretech",
+    ],
     address: [
       {
         "@type": "PostalAddress",
-        streetAddress: "406, Shrishti Square, LBS Marg, Bhandup West",
         addressLocality: "Mumbai",
-        postalCode: "400078",
         addressCountry: "IN",
       },
       {
@@ -121,46 +133,41 @@ export default function RootLayout({
         addressCountry: "US",
       },
     ],
-    areaServed: "Worldwide",
-    sameAs: [
-      "https://www.wikidata.org/wiki/Q137392993",
-      "https://www.crunchbase.com/organization/procedure",
-      "https://in.linkedin.com/company/procedurehq",
-      "https://x.com/procedurehq",
-      "https://github.com/proceduretech",
-    ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "sales",
+      email: "hello@procedure.tech",
+      availableLanguage: ["English"],
+    },
     founder: [
       {
         "@type": "Person",
+        "@id": "https://www.wikidata.org/wiki/Q137392996",
         name: "Brajkishor Baheti",
         jobTitle: "Chief Executive Officer",
+        sameAs: "https://www.linkedin.com/in/brajkishor",
       },
       {
         "@type": "Person",
+        "@id": "https://www.wikidata.org/wiki/Q137392995",
         name: "Ulhas Mandrawadkar",
         jobTitle: "Chief Technology Officer",
+        sameAs: "https://www.linkedin.com/in/ulhasmandrawadkar",
       },
     ],
-    employee: [
-      {
-        "@type": "Person",
-        name: "Brajkishor Baheti",
-        jobTitle: "Chief Executive Officer",
-      },
-      {
-        "@type": "Person",
-        name: "Ulhas Mandrawadkar",
-        jobTitle: "Chief Technology Officer",
-      },
-    ],
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      reviewCount: "32",
+      bestRating: "5",
+    },
     knowsAbout: [
       "Artificial Intelligence",
       "Machine Learning",
       "AI Security",
-      "Product Engineering",
+      "LLM Applications",
+      "Software Engineering",
       "Cloud Computing",
-      "DevOps",
-      "Product Design",
     ],
   };
 
@@ -277,33 +284,54 @@ export default function RootLayout({
   return (
     <html lang="en" className={themeClass}>
       <head>
-        {/* Critical inline CSS for instant render */}
+        {/* Critical inline CSS for instant render - includes hero styles to avoid FOUC */}
         <style
           dangerouslySetInnerHTML={{
             __html: `
-              :root{--color-base:#0b1220;--color-surface:#050a15;--color-surface-elevated:#0f172a;--color-text-primary:rgba(255,255,255,.9);--color-text-secondary:rgba(255,255,255,.65);--color-accent-light:#14b8a6;--color-cta:#0d9488;--color-cta-text:#fcfcfc;--color-highlight:#0db5a5}
+              :root{--color-base:#0A1425;--color-surface:#070F1B;--color-surface-elevated:#111F35;--color-border:#1E293B;--color-text-primary:rgba(255,255,255,.9);--color-text-secondary:rgba(255,255,255,.65);--color-text-muted:rgba(255,255,255,.5);--color-accent:#14B8A6;--color-accent-light:#2AAE79;--color-cta:#1D9B69;--color-cta-text:#fcfcfc;--color-highlight:#1D9B69}
               *,::before,::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:currentColor}
-              html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:system-ui,-apple-system,sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}
-              body{margin:0;line-height:inherit;background-color:var(--color-base);color:var(--color-text-primary)}
-              html{scrollbar-gutter:stable;scroll-behavior:smooth}
+              html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent;scrollbar-gutter:stable;scroll-behavior:smooth}
+              body{margin:0;line-height:inherit;background-color:var(--color-base);color:var(--color-text-primary);font-family:var(--font-inter),system-ui,-apple-system,sans-serif}
               img{height:auto;max-width:100%}
-              h1{margin:0;font-size:inherit;font-weight:inherit}
+              h1,h2,h3{margin:0;font-family:var(--font-outfit),system-ui,-apple-system,sans-serif}
               .text-highlight{color:var(--color-highlight)}
-              @font-face{font-family:'Outfit';font-display:swap}
-              @font-face{font-family:'Inter';font-display:swap}
+              .text-text-primary{color:var(--color-text-primary)}
+              .text-text-secondary{color:var(--color-text-secondary)}
+              .bg-base{background-color:var(--color-base)}
+              .bg-surface{background-color:var(--color-surface)}
+              .bg-cta{background-color:var(--color-cta)}
+              .text-cta-text{color:var(--color-cta-text)}
+              .min-h-screen{min-height:100vh}
+              .relative{position:relative}
+              .absolute{position:absolute}
+              .inset-0{inset:0}
+              .z-10{z-index:10}
+              .flex{display:flex}
+              .items-center{align-items:center}
+              .justify-center{justify-content:center}
+              .text-center{text-align:center}
+              .overflow-hidden{overflow:hidden}
+              .mx-auto{margin-left:auto;margin-right:auto}
+              .px-6{padding-left:1.5rem;padding-right:1.5rem}
+              .pt-24{padding-top:6rem}
+              .pb-16{padding-bottom:4rem}
+              .mb-6{margin-bottom:1.5rem}
+              .max-w-5xl{max-width:64rem}
+              .max-w-2xl{max-width:42rem}
+              .leading-tight{line-height:1.1}
+              .tracking-tight{letter-spacing:-0.025em}
+              .font-semibold{font-weight:600}
+              .text-3xl{font-size:1.875rem;line-height:2.25rem}
+              .text-base{font-size:1rem;line-height:1.5rem}
+              @media(min-width:640px){.sm\\:text-4xl{font-size:2.25rem;line-height:2.5rem}.sm\\:text-lg{font-size:1.125rem;line-height:1.75rem}.sm\\:px-8{padding-left:2rem;padding-right:2rem}}
+              @media(min-width:768px){.md\\:text-4xl{font-size:2.25rem;line-height:2.5rem}.md\\:text-xl{font-size:1.25rem;line-height:1.75rem}}
+              @media(min-width:1024px){.lg\\:text-5xl{font-size:3rem;line-height:1}}
             `,
           }}
         />
 
-        {/* Critical Resource Hints for Performance */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-
         {/* Third-party resource hints - prioritized */}
+        {/* Note: next/font/google self-hosts fonts, so no preconnect to fonts.googleapis.com needed */}
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.google.com" />
@@ -316,65 +344,18 @@ export default function RootLayout({
 
         {/* Preload critical assets */}
         <link rel="preload" href="/icon.svg" as="image" type="image/svg+xml" />
+        {/* Note: Font preloads removed - next/font/google self-hosts fonts locally */}
 
-        {/* Preload fonts to prevent layout shifts - with fetchpriority */}
-        <link
-          rel="preload"
-          href="https://fonts.gstatic.com/s/outfit/v11/QGYyz_MVcBeNP4NjuGObqx1XmO1I4TC1O4a0Ew.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-          fetchPriority="high"
-        />
-        <link
-          rel="preload"
-          href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-          fetchPriority="high"
-        />
 
-        {/* Preload critical Next.js chunks */}
-        <link rel="modulepreload" href="/_next/static/chunks/react.js" />
-        <link rel="modulepreload" href="/_next/static/chunks/main.js" />
+        {/* Analytics (GA4, GTM, Clarity) loaded via client component - only on production */}
 
-        {/* Microsoft Clarity */}
-        <script
-          type="text/javascript"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-              })(window, document, "clarity", "script", "t4e6b4g83o");
-            `,
-          }}
-        />
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(serviceSchema),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(faqSchema),
-          }}
-        />
+        <JsonLd data={organizationSchema} />
+        <JsonLd data={serviceSchema} />
+        <JsonLd data={faqSchema} />
       </head>
       <body className={`${outfit.variable} ${inter.variable} antialiased`}>
-        {/* GTM - Load early but non-blocking */}
-        <GoogleTagManager gtmId="GTM-KD7CJ8RC" />
+        {/* Analytics (GA4, GTM, Clarity) - only loads on production domains */}
+        <Analytics />
 
         {/* Main content wrapper - sits above the fixed footer reveal */}
         <div className="relative z-10 bg-base">
@@ -385,9 +366,6 @@ export default function RootLayout({
         {/* Footer reveal - fixed at bottom, revealed when scrolling */}
         <FooterReveal />
         <CookieBanner />
-
-        {/* Load GA after main content - non-blocking */}
-        <GoogleAnalytics gaId="G-2KW21KL401" />
 
         {/* Service Worker Registration for Advanced Caching */}
         <script

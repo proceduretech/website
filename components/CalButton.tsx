@@ -13,17 +13,17 @@ interface CalButtonProps {
 // Theme configurations for Cal.com embed
 const calThemeConfigs = {
   dark: {
-    "cal-bg": "#0F172A",
-    "cal-bg-emphasis": "#1E293B",
-    "cal-border": "#334155",
-    "cal-border-emphasis": "#475569",
-    "cal-border-subtle": "#1E293B",
+    "cal-bg": "#0A1425",
+    "cal-bg-emphasis": "#111F35",
+    "cal-border": "#1A2A45",
+    "cal-border-emphasis": "#2A3A55",
+    "cal-border-subtle": "#111F35",
     "cal-text": "rgba(255, 255, 255, 0.9)",
     "cal-text-emphasis": "rgba(255, 255, 255, 0.95)",
     "cal-text-muted": "rgba(255, 255, 255, 0.65)",
     "cal-text-subtle": "rgba(255, 255, 255, 0.5)",
-    "cal-brand": "#14B8A6",
-    "cal-brand-emphasis": "#0D9488",
+    "cal-brand": "#1D9B69",
+    "cal-brand-emphasis": "#178556",
     "cal-brand-text": "#FFFFFF",
   },
   light: {
@@ -36,8 +36,8 @@ const calThemeConfigs = {
     "cal-text-emphasis": "#0b1220",
     "cal-text-muted": "#475569",
     "cal-text-subtle": "#94a3b8",
-    "cal-brand": "#0d9488",
-    "cal-brand-emphasis": "#0f766e",
+    "cal-brand": "#1D9B69",
+    "cal-brand-emphasis": "#178556",
     "cal-brand-text": "#ffffff",
   },
 };

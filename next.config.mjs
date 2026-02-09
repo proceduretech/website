@@ -1,4 +1,9 @@
 import createMDX from "@next/mdx";
+import bundleAnalyzer from "@next/bundle-analyzer";
+
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+});
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -20,9 +25,11 @@ const nextConfig = {
     optimizeCss: true, // Optimize CSS loading
     optimizePackageImports: [
       "framer-motion",
+      "motion",
       "@radix-ui/react-icons",
       "lucide-react",
       "react-icons",
+      "@icons-pack/react-simple-icons",
     ], // Tree-shake unused exports
     webpackBuildWorker: true, // Faster builds with workers
   },
@@ -143,4 +150,4 @@ const withMDX = createMDX({
   },
 });
 
-export default withMDX(nextConfig);
+export default withBundleAnalyzer(withMDX(nextConfig));

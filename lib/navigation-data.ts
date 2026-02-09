@@ -270,13 +270,13 @@ export const navigationData = {
         {
           label: "Culture",
           description:
-            "Where engineers build AI that matters. Our values and team.",
+            "A certified best workplace where engineers build AI that matters.",
           href: "/culture",
           icon: "users",
         },
         {
           label: "Careers",
-          description: "Join our team of AI and product engineers.",
+          description: "Join our certified best workplace of AI and product engineers.",
           href: "/careers",
           icon: "briefcase",
         },

@@ -1,25 +1,40 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ComplianceBadge } from "./badges/ComplianceBadge";
 import { ProcedureLogoShort } from "./logos";
+import { ObfuscatedEmail } from "./ui/ObfuscatedEmail";
 
 const footerLinks = {
-  services: [
-    { label: "AI Engineering", href: "/services/ai-engineering" },
+  aiServices: [
+    { label: "LLM Applications", href: "/services/ai-engineering" },
     { label: "AI Agents", href: "/services/ai-agents" },
-    { label: "AI Security", href: "/services/ai-security" },
+    { label: "Threat Protection", href: "/services/ai-security" },
+    { label: "Data & Privacy", href: "/services/ai-privacy" },
+  ],
+  productEngineering: [
+    { label: "Frontend Development", href: "/services/frontend-development" },
+    { label: "Backend Development", href: "/services/backend-development" },
+    { label: "Mobile Development", href: "/services/mobile-development" },
+    { label: "QA & Testing", href: "/services/software-testing-and-qa" },
+  ],
+  cloudDesign: [
+    { label: "Cloud Architecture", href: "/services/cloud" },
+    { label: "Kubernetes", href: "/services/kubernetes" },
     { label: "Product Design", href: "/services/product-design" },
-    { label: "Cloud & DevOps", href: "/services/cloud" },
+    { label: "Design Systems", href: "/services/design-systems" },
+  ],
+  industries: [
+    { label: "Financial Services", href: "/industries/financial-services" },
+    { label: "Healthcare", href: "/industries/healthcare" },
+    { label: "Education", href: "/industries/education" },
+    { label: "SaaS & Technology", href: "/industries/saas" },
   ],
   company: [
-    { label: "About", href: "/about-us" },
+    { label: "About Us", href: "/about-us" },
     { label: "Careers", href: "/careers" },
+    { label: "Case Studies", href: "/work" },
     { label: "Blog", href: "/blogs" },
     { label: "Contact", href: "/contact-us" },
-  ],
-  resources: [
-    { label: "Case Studies", href: "/work" },
-    { label: "AI Safety", href: "/ai-safety" },
-    { label: "Events", href: "/events" },
   ],
   legal: [
     { label: "Privacy Policy", href: "/privacy" },
@@ -66,16 +81,17 @@ export function Footer() {
       }}
     >
       <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-8 mb-12">
+        {/* Top row: Brand + Link columns */}
+        <div className="grid grid-cols-2 md:grid-cols-12 gap-8 mb-12">
           {/* Brand & Contact */}
-          <div className="col-span-2">
+          <div className="col-span-2 md:col-span-4">
             <Link
               href="/"
               className="inline-block hover:opacity-80 transition-opacity"
             >
               <ProcedureLogoShort
-                textColor="var(--color-accent)"
-                dotColor="var(--color-accent)"
+                textColor="var(--color-highlight)"
+                dotColor="var(--color-highlight)"
                 className="h-9 w-auto"
               />
             </Link>
@@ -86,25 +102,13 @@ export function Footer() {
 
             {/* Contact Info */}
             <div className="mt-6 space-y-3">
-              <a
-                href="mailto:hello@procedure.tech"
+              <ObfuscatedEmail
+                user="hello"
+                domain="procedure"
+                tld="tech"
+                showIcon
                 className="flex items-center gap-2 text-sm text-text-secondary hover:text-accent-light transition-colors"
-              >
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={1.5}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
-                  />
-                </svg>
-                hello@procedure.tech
-              </a>
+              />
               <div className="flex items-center gap-2 text-sm text-text-secondary">
                 <svg
                   className="w-4 h-4"
@@ -143,20 +147,46 @@ export function Footer() {
                 </a>
               ))}
             </div>
+
+            {/* Best Place to Work Badge */}
+            <div className="mt-6">
+              <Image
+                src="/assets/bptw-badge.webp"
+                alt="Certified Best Workplace - Dec 2025 to Dec 2026 - India"
+                width={128}
+                height={128}
+                className="opacity-90 hover:opacity-100 transition-opacity"
+              />
+            </div>
           </div>
 
-          {/* Services */}
-          <div>
+          {/* Column 1: AI & ML + Engineering */}
+          <div className="md:col-span-3">
             <h3 className="text-sm font-semibold text-text-primary mb-4">
-              Services
+              AI & ML
             </h3>
-            <ul className="space-y-3">
-              {footerLinks.services.map((link) => (
+            <ul className="space-y-2.5 mb-6">
+              {footerLinks.aiServices.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
                     className="text-sm text-text-secondary hover:text-accent-light transition-colors"
-                    aria-describedby="service-heading"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            <h3 className="text-sm font-semibold text-text-primary mb-4">
+              Engineering
+            </h3>
+            <ul className="space-y-2.5">
+              {footerLinks.productEngineering.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-text-secondary hover:text-accent-light transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -165,12 +195,47 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Company */}
-          <div>
+          {/* Column 2: Cloud & Design + Industries */}
+          <div className="md:col-span-3">
+            <h3 className="text-sm font-semibold text-text-primary mb-4">
+              Cloud & Design
+            </h3>
+            <ul className="space-y-2.5 mb-6">
+              {footerLinks.cloudDesign.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-text-secondary hover:text-accent-light transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            <h3 className="text-sm font-semibold text-text-primary mb-4">
+              Industries
+            </h3>
+            <ul className="space-y-2.5">
+              {footerLinks.industries.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-text-secondary hover:text-accent-light transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 3: Company + Resources */}
+          <div className="md:col-span-2">
             <h3 className="text-sm font-semibold text-text-primary mb-4">
               Company
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-2.5 mb-6">
               {footerLinks.company.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -182,43 +247,27 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
 
-          {/* Resources */}
-          <div>
             <h3 className="text-sm font-semibold text-text-primary mb-4">
               Resources
             </h3>
-            <ul className="space-y-3">
-              {footerLinks.resources.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-text-secondary hover:text-accent-light transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h3 className="text-sm font-semibold text-text-primary mb-4">
-              Legal
-            </h3>
-            <ul className="space-y-3">
-              {footerLinks.legal.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-text-secondary hover:text-accent-light transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+            <ul className="space-y-2.5">
+              <li>
+                <Link
+                  href="/events"
+                  className="text-sm text-text-secondary hover:text-accent-light transition-colors"
+                >
+                  Events
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/ai-safety"
+                  className="text-sm text-text-secondary hover:text-accent-light transition-colors"
+                >
+                  AI Safety & Ethics
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -243,9 +292,22 @@ export function Footer() {
             />
             {/* Bottom copyright bar */}
           </div>
-          <p className="text-sm text-text-muted text-center">
-            &copy; {new Date().getFullYear()} Procedure. All rights reserved.
-          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+            <p className="text-sm text-text-muted">
+              &copy; {new Date().getFullYear()} Procedure. All rights reserved.
+            </p>
+            <div className="flex items-center gap-4">
+              {footerLinks.legal.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm text-text-muted hover:text-accent-light transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </footer>

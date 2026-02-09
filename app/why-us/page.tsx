@@ -52,7 +52,7 @@ const differentiators = [
     headline: "Your AI Team, Extended",
     title: "Embedded AI Engineering",
     description:
-      "Procedure engineers are not external vendors working in isolation. They embed with your team, use your tools, and own AI delivery alongside your developers. When the engagement ends, you keep the code and the knowledge.",
+      "Procedure engineers are not external vendors working in isolation. They embed with your team, use your tools, and own AI delivery alongside your developers. Our certified best workplace culture means you get engaged, senior engineers who stay for the long term. When the engagement ends, you keep the code and the knowledge.",
     stats: { value: "3+", label: "Years average partnership" },
     accentColor: "teal" as const,
   },
@@ -76,7 +76,7 @@ const comparisonData = {
     subtitle: "What you get with us",
     items: [
       "AI engineers deployed in 2-5 days",
-      "Senior engineers with deep experience",
+      "Senior engineers from a certified best workplace",
       "Production AI from week one",
       "AI security built in from day one",
       "Production-grade from first commit",
@@ -202,7 +202,6 @@ export default function WhyUsPage() {
     <main className="min-h-screen">
       {/* Hero Section */}
       <PageHero
-        badge="The Procedure Difference"
         headline="AI That Ships."
         headlineAccent="Not Slide Decks."
         description="Most AI consultancies deliver strategy documents and proof-of-concepts that never reach production. Procedure delivers senior engineers who embed with your team to ship production AI—LLM applications, AI agents, and secure AI systems—in days, not months."
@@ -426,14 +425,6 @@ export default function WhyUsPage() {
                   ))}
                 </ul>
 
-                <div className="mt-8 pt-6 border-t border-accent/20">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20">
-                    <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                    <span className="text-xs font-medium text-accent-light">
-                      Trusted by enterprise and startup clients
-                    </span>
-                  </div>
-                </div>
               </div>
             </motion.div>
           </div>

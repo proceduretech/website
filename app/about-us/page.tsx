@@ -63,7 +63,7 @@ const values = [
     ),
     title: "Embedded Partnership",
     description:
-      "We don't believe in the agency model where contractors disappear after handoff. Our engineers become true extensions of your team—attending your standups, understanding your codebase, and caring about your outcomes.",
+      "We don't believe in the agency model where contractors disappear after handoff. Our engineers become true extensions of your team—attending your standups, understanding your codebase, and caring about your outcomes. Our certified best workplace culture means you get engaged, fulfilled engineers who stay for the long term.",
   },
   {
     icon: (
@@ -138,6 +138,12 @@ const milestones = [
     description:
       "Deepened investment in AI engineering, AI security, and MLOps. Now shipping AI systems that reach production.",
   },
+  {
+    year: "2025",
+    title: "Certified Best Workplace",
+    description:
+      "Recognized as a TSOW Certified Best Workplace, validating our commitment to trust, growth, and engineer well-being.",
+  },
 ];
 
 // Differentiators data
@@ -172,6 +178,7 @@ const differentiators = [
 const certifications = [
   { name: "Secure SDLC", description: "Implemented" },
   { name: "Responsible AI Practices", description: "Adopted" },
+  { name: "TSOW Certified Best Workplace", description: "2025-2026" },
 ];
 
 export default function AboutPage() {
@@ -184,7 +191,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
             {/* Headline */}
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-text-primary leading-[1.1] tracking-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-semibold text-text-primary leading-[1.1] tracking-tight mb-6">
               Engineers Who Ship.
               <br />
               <span className="text-highlight">Problems That Matter.</span>

@@ -23,25 +23,25 @@
      ========================================================================= */
 
   /* Backgrounds */
-  --color-base: #0b1220;
-  --color-surface: #050a15;
-  --color-surface-elevated: #0f172a;
-  --color-overlay: rgba(11, 18, 32, 0.6);
-  --color-footer-reveal: #050a14;
-  --color-code-block: #22272e;
-  --color-code-title: #131b2e;
+  --color-base: #0A1425;
+  --color-surface: #070F1B;
+  --color-surface-elevated: #111F35;
+  --color-overlay: rgba(10, 20, 37, 0.6);
+  --color-footer-reveal: #050C16;
+  --color-code-block: #0D1A2D;
+  --color-code-title: #111F35;
 
   /* Text Colors */
   --color-text-primary: rgba(255, 255, 255, 0.9);
   --color-text-secondary: rgba(255, 255, 255, 0.65);
   --color-text-muted: rgba(255, 255, 255, 0.5);
   --color-text-emphasis: rgba(255, 255, 255, 0.95);
-  --color-text-inverted: #0b1220;
+  --color-text-inverted: #0A1425;
 
-  /* Primary Accent Colors (currently teal - change these to rebrand) */
-  --color-accent: #0f766e;
-  --color-accent-light: #14b8a6;
-  --color-accent-dark: #115e59;
+  /* Primary Accent Colors (green) */
+  --color-accent: #1D9B69;
+  --color-accent-light: #2AAE79;
+  --color-accent-dark: #178556;
 
   /* Secondary Accent Colors (blue) */
   --color-accent-secondary: #2563eb;
@@ -49,23 +49,23 @@
   --color-accent-secondary-dark: #1d4ed8;
 
   /* Designer-approved solid colors */
-  --color-highlight: #0db5a5;
-  --color-cta: #0d9488;
+  --color-highlight: #1D9B69;
+  --color-cta: #1D9B69;
   --color-cta-text: #fcfcfc;
-  --color-cta-hover: #14b8a6;
-  --color-cta-shadow: rgba(13, 148, 136, 0.25);
+  --color-cta-hover: #2AAE79;
+  --color-cta-shadow: rgba(29, 155, 105, 0.25);
 
   /* Border Colors */
-  --color-border: #1e293b;
-  --color-border-light: #334155;
-  --color-border-subtle: #1e293b;
-  --color-border-emphasis: #475569;
-  --color-border-focus: #0f766e;
-  --color-hr: #1e293b;
+  --color-border: #1A2A45;
+  --color-border-light: #2A3A55;
+  --color-border-subtle: #1A2A45;
+  --color-border-emphasis: #3A4A65;
+  --color-border-focus: #1D9B69;
+  --color-hr: #1A2A45;
 
   /* Selection */
-  --color-selection-bg: rgba(15, 118, 110, 0.3);
-  --color-selection-text: #14b8a6;
+  --color-selection-bg: rgba(29, 155, 105, 0.3);
+  --color-selection-text: #2AAE79;
 
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -76,11 +76,11 @@
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
     0 8px 10px -6px rgba(0, 0, 0, 0.1);
   --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  --shadow-cta-glow: 0 10px 15px -3px rgba(13, 148, 136, 0.25);
-  --shadow-teal-glow: 0 10px 15px -3px rgba(20, 184, 166, 0.25);
-  --shadow-mega-menu: 0 20px 70px -15px rgba(15, 118, 110, 0.3);
-  --shadow-footer-glow: 0 20px 80px 20px rgba(13, 181, 165, 0.12),
-    0 8px 30px 5px rgba(13, 181, 165, 0.08);
+  --shadow-cta-glow: 0 10px 15px -3px rgba(29, 155, 105, 0.25);
+  --shadow-green-glow: 0 10px 15px -3px rgba(42, 174, 121, 0.25);
+  --shadow-mega-menu: 0 20px 70px -15px rgba(29, 155, 105, 0.3);
+  --shadow-footer-glow: 0 20px 80px 20px rgba(29, 155, 105, 0.12),
+    0 8px 30px 5px rgba(29, 155, 105, 0.08);
 
   /* Opacity Scales */
   --opacity-text-primary: 0.9;
@@ -129,18 +129,18 @@
   --color-callout-tip-icon: #c084fc;
   --color-callout-tip-icon-bg: rgba(168, 85, 247, 0.1);
 
-  /* Callout Colors - Note (Teal) */
-  --color-callout-note-bg: rgba(15, 118, 110, 0.05);
-  --color-callout-note-border: rgba(15, 118, 110, 0.2);
-  --color-callout-note-icon: #14b8a6;
-  --color-callout-note-icon-bg: rgba(15, 118, 110, 0.1);
+  /* Callout Colors - Note (Green) */
+  --color-callout-note-bg: rgba(29, 155, 105, 0.05);
+  --color-callout-note-border: rgba(29, 155, 105, 0.2);
+  --color-callout-note-icon: #2AAE79;
+  --color-callout-note-icon-bg: rgba(29, 155, 105, 0.1);
 
   /* Code Block Colors */
-  --color-code-highlight-bg: rgba(20, 184, 166, 0.1);
-  --color-code-highlight-border: #14b8a6;
-  --color-code-highlight-word: rgba(20, 184, 166, 0.2);
+  --color-code-highlight-bg: rgba(29, 155, 105, 0.1);
+  --color-code-highlight-border: #2AAE79;
+  --color-code-highlight-word: rgba(29, 155, 105, 0.2);
   --color-code-line-numbers: rgba(255, 255, 255, 0.5);
-  --color-code-border: #1e293b;
+  --color-code-border: #1A2A45;
   --color-code-window-close: #ff5f57;
   --color-code-window-minimize: #febc2e;
   --color-code-window-maximize: #28c840;
@@ -149,54 +149,54 @@
   --color-prose-body: rgba(255, 255, 255, 0.65);
   --color-prose-headings: rgba(255, 255, 255, 0.9);
   --color-prose-lead: rgba(255, 255, 255, 0.65);
-  --color-prose-links: #0db5a5;
+  --color-prose-links: #1D9B69;
   --color-prose-bold: rgba(255, 255, 255, 0.9);
   --color-prose-counters: rgba(255, 255, 255, 0.5);
-  --color-prose-bullets: #14b8a6;
+  --color-prose-bullets: #2AAE79;
   --color-prose-quotes: rgba(255, 255, 255, 0.65);
-  --color-prose-quote-borders: #14b8a6;
+  --color-prose-quote-borders: #2AAE79;
   --color-prose-captions: rgba(255, 255, 255, 0.5);
-  --color-prose-code: #0db5a5;
+  --color-prose-code: #1D9B69;
   --color-prose-pre-code: rgba(255, 255, 255, 0.9);
-  --color-prose-pre-bg: #131b2e;
-  --color-prose-table-borders: #1e293b;
-  --color-prose-link-underline: rgba(13, 181, 165, 0.5);
-  --color-prose-link-underline-hover: rgba(13, 181, 165, 1);
-  --color-blockquote-bg: rgba(20, 184, 166, 0.08);
+  --color-prose-pre-bg: #111F35;
+  --color-prose-table-borders: #1A2A45;
+  --color-prose-link-underline: rgba(29, 155, 105, 0.5);
+  --color-prose-link-underline-hover: rgba(29, 155, 105, 1);
+  --color-blockquote-bg: rgba(29, 155, 105, 0.08);
 
   /* Cal.com Integration */
-  --color-cal-bg: #0f172a;
-  --color-cal-bg-emphasis: #1e293b;
-  --color-cal-border: #334155;
-  --color-cal-border-emphasis: #475569;
-  --color-cal-border-subtle: #1e293b;
+  --color-cal-bg: #111F35;
+  --color-cal-bg-emphasis: #1A2A45;
+  --color-cal-border: #2A3A55;
+  --color-cal-border-emphasis: #3A4A65;
+  --color-cal-border-subtle: #1A2A45;
   --color-cal-text: rgba(255, 255, 255, 0.9);
   --color-cal-text-emphasis: rgba(255, 255, 255, 0.95);
   --color-cal-text-muted: rgba(255, 255, 255, 0.65);
   --color-cal-text-subtle: rgba(255, 255, 255, 0.5);
-  --color-cal-brand: #14b8a6;
-  --color-cal-brand-emphasis: #0d9488;
+  --color-cal-brand: #2AAE79;
+  --color-cal-brand-emphasis: #1D9B69;
   --color-cal-brand-text: #ffffff;
 
   /* Component-specific */
-  --color-spotlight-fill: rgba(20, 184, 166, 0.4);
-  --color-nav-overlay: rgba(11, 18, 32, 0.6);
-  --color-scroll-indicator-border: #1e293b;
+  --color-spotlight-fill: rgba(29, 155, 105, 0.4);
+  --color-nav-overlay: rgba(10, 20, 37, 0.6);
+  --color-scroll-indicator-border: #1A2A45;
   --color-scroll-indicator-dot: rgba(255, 255, 255, 0.5);
   --color-tracing-beam-dot-active: #ffffff;
-  --color-tracing-beam-dot-inactive: #14b8a6;
+  --color-tracing-beam-dot-inactive: #2AAE79;
   --color-tracing-beam-border-active: #ffffff;
-  --color-tracing-beam-border-inactive: #0f766e;
+  --color-tracing-beam-border-inactive: #1D9B69;
   --color-tracing-beam-line: #9091a0;
 
   /* SVG Grid Pattern */
   --color-svg-grid: #e5e7eb;
 
   /* Legacy aliases for compatibility */
-  --color-background: #0b1220;
+  --color-background: #0A1425;
   --color-foreground: rgba(255, 255, 255, 0.9);
   --color-muted: rgba(255, 255, 255, 0.5);
-  --color-accent: #0f766e;
+  --color-accent: #1D9B69;
   --color-accent-secondary: #2563eb;
 
   /* Font families */
@@ -935,38 +935,38 @@ html:not(.dark) .notion-code-block span {
 }
 
 .dark {
-  /* Dark theme - matches our original dark palette */
-  --background: #0b1220;
+  /* Dark theme - matches our updated dark palette */
+  --background: #0A1425;
   --foreground: rgba(255, 255, 255, 0.9);
-  --card: #0f172a;
+  --card: #111F35;
   --card-foreground: rgba(255, 255, 255, 0.9);
-  --popover: #0f172a;
+  --popover: #111F35;
   --popover-foreground: rgba(255, 255, 255, 0.9);
-  --primary: #0d9488;
+  --primary: #1D9B69;
   --primary-foreground: #fcfcfc;
-  --secondary: #1e293b;
+  --secondary: #1A2A45;
   --secondary-foreground: rgba(255, 255, 255, 0.9);
-  --muted: #1e293b;
+  --muted: #1A2A45;
   --muted-foreground: rgba(255, 255, 255, 0.5);
-  --accent: #14b8a6;
+  --accent: #2AAE79;
   --accent-foreground: rgba(255, 255, 255, 0.9);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: #1e293b;
-  --input: #1e293b;
-  --ring: #14b8a6;
+  --border: #1A2A45;
+  --input: #1A2A45;
+  --ring: #2AAE79;
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: #0f172a;
+  --sidebar: #111F35;
   --sidebar-foreground: rgba(255, 255, 255, 0.9);
-  --sidebar-primary: #14b8a6;
+  --sidebar-primary: #2AAE79;
   --sidebar-primary-foreground: #fcfcfc;
-  --sidebar-accent: #1e293b;
+  --sidebar-accent: #1A2A45;
   --sidebar-accent-foreground: rgba(255, 255, 255, 0.9);
-  --sidebar-border: #1e293b;
-  --sidebar-ring: #14b8a6;
+  --sidebar-border: #1A2A45;
+  --sidebar-ring: #2AAE79;
 }
 
 @layer base {
@@ -1173,6 +1173,28 @@ html:not(.dark) .hero-grid-pattern {
   opacity: 0.06;
 }
 
+/* Hero fade-in animations - CSS-based for server-rendered content */
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-fade-in {
+  animation: heroFadeIn 0.4s ease-out forwards;
+  animation-delay: 0.1s;
+  opacity: 0;
+}
+
+.hero-fade-in-delay {
+  animation-delay: 0.2s;
+}
+
 /* Hover state overrides for navigation */
 .hover\:bg-surface-elevated:hover,
 .lg\:hover\:bg-surface-elevated:hover,
@@ -1196,10 +1218,12 @@ html:not(.dark) .hero-grid-pattern {
 /* Client logo filter - theme-aware */
 .client-logo-filter {
   filter: brightness(0) invert(1);
+  opacity: 0.6;
 }
 
 html:not(.dark) .client-logo-filter {
   filter: brightness(0);
+  opacity: 0.6;
 }
 
 /* Amber text - darker in light mode for better contrast */
@@ -1467,4 +1491,161 @@ img[fetchpriority="high"] {
 /* Optimize third-party embeds */
 iframe {
   loading: lazy;
+}
+
+/* =============================================================================
+   H1 FONT SIZE UTILITIES - INDUSTRY STANDARD
+
+   Placed at END of file to ensure highest specificity in cascade.
+   Uses @layer utilities to override Tailwind's generated utilities.
+
+   Based on B2B SaaS best practices (2025):
+   - Mobile (base): 30px (text-3xl)
+   - Tablet (sm): 36px (text-4xl)
+   - Desktop (md/lg): 48px max (text-5xl)
+
+   Sources:
+   - https://www.learnui.design/blog/mobile-desktop-website-font-size-guidelines.html
+   - https://pimpmytype.com/font-size/
+
+   CRITICAL: DO NOT MOVE these utilities. They MUST remain at the end of this
+   file to prevent Tailwind v4 from overriding them during build.
+   ============================================================================= */
+
+@layer utilities {
+  /* Font weights - ensure they work with variable fonts */
+  .font-normal {
+    font-weight: 400 !important;
+  }
+  .font-medium {
+    font-weight: 500 !important;
+  }
+  .font-semibold {
+    font-weight: 600 !important;
+  }
+  .font-bold {
+    font-weight: 700 !important;
+  }
+  .font-extrabold {
+    font-weight: 800 !important;
+  }
+
+  /* Base mobile sizes */
+  .text-3xl {
+    font-size: 1.875rem !important;       /* 30px - mobile H1 */
+    line-height: 1.15;
+  }
+
+  .text-4xl {
+    font-size: 2.25rem !important;        /* 36px - tablet H1 */
+    line-height: 1.1;
+  }
+
+  .text-5xl {
+    font-size: 3rem !important;           /* 48px - desktop H1 (max) */
+    line-height: 1.1;
+  }
+
+  /* Tablet breakpoint (640px+) */
+  @media (min-width: 640px) {
+    .sm\:text-3xl {
+      font-size: 1.875rem !important;     /* 30px */
+    }
+    .sm\:text-4xl {
+      font-size: 2.25rem !important;      /* 36px */
+    }
+    .sm\:text-5xl {
+      font-size: 3rem !important;         /* 48px */
+    }
+  }
+
+  /* Medium desktop (768px+) */
+  @media (min-width: 768px) {
+    .md\:text-3xl {
+      font-size: 1.875rem !important;     /* 30px */
+    }
+    .md\:text-4xl {
+      font-size: 2.25rem !important;      /* 36px */
+    }
+    .md\:text-5xl {
+      font-size: 3rem !important;         /* 48px */
+    }
+  }
+
+  /* Large desktop (1024px+) - max recommended size */
+  @media (min-width: 1024px) {
+    .lg\:text-3xl {
+      font-size: 1.875rem !important;     /* 30px */
+    }
+    .lg\:text-4xl {
+      font-size: 2.25rem !important;      /* 36px */
+    }
+    .lg\:text-5xl {
+      font-size: 3rem !important;         /* 48px */
+    }
+  }
+}
+
+/* =============================================================================
+   KEKA CAREERS EMBED STYLING
+   Override Keka's default styles for better contrast on dark theme
+   ============================================================================= */
+
+#khembedjobs {
+  /* Give the embed a light background for readability */
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  color: #1a1a1a;
+}
+
+/* Ensure all text inside Keka embed is readable */
+#khembedjobs * {
+  color-scheme: light;
+}
+
+/* Style the job cards */
+#khembedjobs a,
+#khembedjobs .job-title,
+#khembedjobs h3,
+#khembedjobs h4 {
+  color: #1a1a1a !important;
+}
+
+/* Style secondary text */
+#khembedjobs p,
+#khembedjobs span,
+#khembedjobs .job-location,
+#khembedjobs .job-type {
+  color: #4a4a4a !important;
+}
+
+/* Style inputs and filters */
+#khembedjobs input,
+#khembedjobs select {
+  background-color: #f5f5f5 !important;
+  border-color: #e0e0e0 !important;
+  color: #1a1a1a !important;
+}
+
+#khembedjobs input::placeholder {
+  color: #888 !important;
+}
+
+/* Style buttons within Keka */
+#khembedjobs button {
+  color: #1a1a1a !important;
+}
+
+/* Job card hover states */
+#khembedjobs [class*="job"],
+#khembedjobs [class*="card"] {
+  background-color: #fafafa !important;
+  border-color: #e5e5e5 !important;
+}
+
+#khembedjobs [class*="job"]:hover,
+#khembedjobs [class*="card"]:hover {
+  background-color: #f0f0f0 !important;
+  border-color: var(--color-accent) !important;
 }

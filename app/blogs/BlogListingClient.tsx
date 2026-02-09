@@ -90,34 +90,6 @@ export function BlogListingClient({
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
-          {/* Section Header */}
-          {!showFeatured && (
-            <div className="mb-8">
-              <h2 className="text-xl font-semibold text-text-primary">
-                {activeCategory === "all"
-                  ? "All Articles"
-                  : categories.find((c) => c.slug === activeCategory)?.name ||
-                    "Articles"}
-              </h2>
-              <p className="text-sm text-text-muted mt-1">
-                {filteredPosts.length} article
-                {filteredPosts.length !== 1 ? "s" : ""}
-              </p>
-            </div>
-          )}
-
-          {showFeatured && (
-            <div className="mb-8">
-              <h2 className="text-xl font-semibold text-text-primary">
-                Latest Articles
-              </h2>
-              <p className="text-sm text-text-muted mt-1">
-                {gridPosts.length} more article
-                {gridPosts.length !== 1 ? "s" : ""}
-              </p>
-            </div>
-          )}
-
           {/* Blog Grid */}
           <BlogGrid
             posts={showFeatured ? gridPosts : filteredPosts}
