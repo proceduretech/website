@@ -114,7 +114,7 @@ export default async function ServicePage({ params }: Props) {
     }
 
     const relatedPages = getRelatedExpertiseForListing(
-      expertise.relatedExpertise,
+      expertise.relatedExpertise || [],
     );
 
     return (
