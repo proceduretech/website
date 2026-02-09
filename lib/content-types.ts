@@ -34,6 +34,7 @@ export interface CTABlock {
   description?: string;
   buttonText: string;
   buttonLink: string;
+  supportingNote?: string;
 }
 
 // =============================================================================
