@@ -227,4 +227,5 @@ When building pages, structure content for AI discoverability:
 
 **GA4 Measurement ID:** G-2KW21KL401
 **GTM Container ID:** GTM-KD7CJ8RC
+
 **Key conversion event:** `generate_lead` (Cal.com booking)
