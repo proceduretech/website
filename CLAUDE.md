@@ -9,6 +9,18 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint
 
+## Pre-PR Checklist
+
+**Before creating a Pull Request, you MUST:**
+
+1. **Run lint**: `npm run lint` - Fix any linting errors (warnings are acceptable)
+2. **Test locally**: `npm run dev` - Verify your changes work as expected
+3. **Run the build** (if environment is configured): `npm run build` - Ensure the build completes without errors
+
+This project uses `output: "export"` for static site generation. All dynamic routes (e.g., `[slug]`) require `generateStaticParams()` to work with static export.
+
+**Note:** The full build requires `NOTION_TOKEN` environment variable to be set (for blog post generation). If you don't have Notion access, CI/CD will handle the full build validation.
+
 ## Architecture
 
 This is a Next.js 16 project using the App Router, building a premium enterprise AI engineering services website.
