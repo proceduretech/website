@@ -321,11 +321,367 @@ export default function CareersPage() {
       </section>
 
       {/* ============================================
+          HIRING PROCESS SECTION
+          ============================================ */}
+      <section className="relative py-16 sm:py-24 bg-surface">
+        {/* Dot pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3e%3ccircle cx='2' cy='2' r='1' fill='%23E5E7EB'/%3e%3c/svg%3e")`,
+          }}
+        />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12 sm:mb-16"
+          >
+            <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
+              How We Hire
+            </p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
+              Our Hiring Process
+            </h2>
+            <p className="text-text-secondary max-w-2xl mx-auto">
+              A transparent and efficient process designed to identify
+              exceptional talent. From application to offer, we move quickly
+              while ensuring the right fit for both sides.
+            </p>
+          </motion.div>
+
+          {/* Timeline - Desktop (Horizontal) */}
+          <div className="hidden lg:block">
+            <div className="relative">
+              {/* Connecting line */}
+              <div className="absolute top-[72px] left-0 right-0 h-[2px] bg-gradient-to-r from-border via-accent/30 to-border" />
+
+              <div className="grid grid-cols-5 gap-4">
+                {[
+                  {
+                    step: 1,
+                    title: "Application Received",
+                    description:
+                      "Submit your application through our careers portal. We review all applications within 3-5 business days.",
+                    icon: (
+                      <svg
+                        className="w-6 h-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={1.5}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z"
+                        />
+                      </svg>
+                    ),
+                  },
+                  {
+                    step: 2,
+                    title: "TA Screening",
+                    description:
+                      "Quick call with our Talent Acquisition team to discuss your experience, career goals, and role expectations.",
+                    icon: (
+                      <svg
+                        className="w-6 h-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={1.5}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"
+                        />
+                      </svg>
+                    ),
+                  },
+                  {
+                    step: 3,
+                    title: "HM Screening",
+                    description:
+                      "Technical conversation with the Hiring Manager to deep-dive into your skills, project experience, and technical approach.",
+                    icon: (
+                      <svg
+                        className="w-6 h-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={1.5}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
+                        />
+                      </svg>
+                    ),
+                  },
+                  {
+                    step: 4,
+                    title: "Interviews",
+                    description:
+                      "Technical assessments and team conversations. Mix of coding exercises, system design, and cultural fit discussions.",
+                    icon: (
+                      <svg
+                        className="w-6 h-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={1.5}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+                        />
+                      </svg>
+                    ),
+                  },
+                  {
+                    step: 5,
+                    title: "Offer Release",
+                    description:
+                      "Receive your offer with detailed compensation breakdown. We move fast and keep the process transparent.",
+                    icon: (
+                      <svg
+                        className="w-6 h-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={1.5}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"
+                        />
+                      </svg>
+                    ),
+                  },
+                ].map((item, idx) => (
+                  <motion.div
+                    key={item.step}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: idx * 0.1 }}
+                    className="relative"
+                  >
+                    {/* Step number circle */}
+                    <div className="flex justify-center mb-6">
+                      <div className="relative">
+                        {/* Glow effect */}
+                        <div className="absolute inset-0 bg-accent/30 rounded-full blur-xl" />
+                        <div className="relative w-16 h-16 rounded-full bg-gradient-to-br from-accent to-accent-secondary flex items-center justify-center border-4 border-surface">
+                          <div className="text-white">{item.icon}</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Card */}
+                    <div className="relative group">
+                      <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/20 to-accent-secondary/20 rounded-xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
+                      <div className="relative p-6 rounded-xl bg-surface-elevated border border-border group-hover:border-accent/30 transition-all duration-300">
+                        <div className="text-xs font-bold text-accent-light mb-2">
+                          STEP {item.step}
+                        </div>
+                        <h3 className="text-base font-semibold text-text-primary mb-2">
+                          {item.title}
+                        </h3>
+                        <p className="text-sm text-text-secondary leading-relaxed">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Timeline - Mobile (Vertical) */}
+          <div className="lg:hidden space-y-6">
+            {[
+              {
+                step: 1,
+                title: "Application Received",
+                description:
+                  "Submit your application through our careers portal. We review all applications within 3-5 business days.",
+                icon: (
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z"
+                    />
+                  </svg>
+                ),
+              },
+              {
+                step: 2,
+                title: "TA Screening",
+                description:
+                  "Quick call with our Talent Acquisition team to discuss your experience, career goals, and role expectations.",
+                icon: (
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"
+                    />
+                  </svg>
+                ),
+              },
+              {
+                step: 3,
+                title: "HM Screening",
+                description:
+                  "Technical conversation with the Hiring Manager to deep-dive into your skills, project experience, and technical approach.",
+                icon: (
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                  </svg>
+                ),
+              },
+              {
+                step: 4,
+                title: "Interviews",
+                description:
+                  "Technical assessments and team conversations. Mix of coding exercises, system design, and cultural fit discussions.",
+                icon: (
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+                    />
+                  </svg>
+                ),
+              },
+              {
+                step: 5,
+                title: "Offer Release",
+                description:
+                  "Receive your offer with detailed compensation breakdown. We move fast and keep the process transparent.",
+                icon: (
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"
+                    />
+                  </svg>
+                ),
+              },
+            ].map((item, idx) => (
+              <motion.div
+                key={item.step}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="relative flex gap-4"
+              >
+                {/* Timeline line */}
+                {idx < 4 && (
+                  <div className="absolute left-8 top-16 bottom-0 w-[2px] bg-gradient-to-b from-accent/30 to-border translate-y-4" />
+                )}
+
+                {/* Step number circle */}
+                <div className="relative shrink-0">
+                  <div className="absolute inset-0 bg-accent/30 rounded-full blur-xl" />
+                  <div className="relative w-16 h-16 rounded-full bg-gradient-to-br from-accent to-accent-secondary flex items-center justify-center border-4 border-surface">
+                    <div className="text-white">{item.icon}</div>
+                  </div>
+                </div>
+
+                {/* Card */}
+                <div className="flex-1 group relative">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/20 to-accent-secondary/20 rounded-xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
+                  <div className="relative p-6 rounded-xl bg-surface-elevated border border-border group-hover:border-accent/30 transition-all duration-300">
+                    <div className="text-xs font-bold text-accent-light mb-2">
+                      STEP {item.step}
+                    </div>
+                    <h3 className="text-lg font-semibold text-text-primary mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-text-secondary leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Additional info */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="mt-12 text-center"
+          >
+            <p className="text-text-secondary max-w-2xl mx-auto">
+              <span className="text-accent-light font-semibold">
+                Total timeline: 2-3 weeks.
+              </span>{" "}
+              We value your time and move quickly through each stage. You will
+              have a dedicated point of contact throughout the process to answer
+              questions and provide updates.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ============================================
           JOB OPENINGS SECTION - KEKA EMBED
           ============================================ */}
       <section
         id="openings"
-        className="relative py-16 sm:py-24 bg-surface scroll-mt-24"
+        className="relative py-16 sm:py-24 bg-base scroll-mt-24"
       >
         {/* Hexagon pattern */}
         <div
