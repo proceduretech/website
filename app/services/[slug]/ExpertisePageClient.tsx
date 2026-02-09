@@ -9,14 +9,20 @@ import {
   TechStack,
   FAQSection,
   ExpertiseCTA,
+  ExpertiseCTAWithTestimonial,
   RelatedExpertise,
   WhoWeWorkWith,
   ProcessTimeline,
   UseCasesGrid,
   WhyChooseProcedure,
   QualityMatters,
+  ArchitectureSection,
+  EngagementModels,
+  RiskReversal,
+  PhilosophySection,
 } from "@/components/expertise";
 import { Testimonials } from "@/components/sections/Testimonials";
+import { Stats } from "@/components/sections/Stats";
 
 interface RelatedPage {
   slug: string;
@@ -71,6 +77,8 @@ export default function ExpertisePageClient({
             ? ["Product Design", "UX Design", "UI Design", "Design Systems", "Product Strategy", "User Research"]
             : expertise.slug === "kubernetes"
             ? ["Kubernetes Consulting", "Container Orchestration", "Cloud Native Infrastructure", "Kubernetes Implementation", "Kubernetes Optimization"]
+            : expertise.slug === "dotnet-development"
+            ? [".NET Development Services", "ASP.NET Core Development", "C# Development", "Azure .NET Development", ".NET Migration Services", "Enterprise .NET Consulting"]
             : pageData.hero.badge,
         areaServed: [
           { "@type": "Country", name: "United States" },
@@ -105,6 +113,8 @@ export default function ExpertisePageClient({
             ? ["Backend Engineering", "Software Development", "API Development"]
             : expertise.slug === "frontend-development"
             ? ["Frontend Engineering", "Web Development", "UI/UX Development"]
+            : expertise.slug === "dotnet-development"
+            ? [".NET Development", "ASP.NET Core", "C# Development", "Azure Development", "Enterprise Software Development"]
             : [pageData.hero.badge, "Enterprise AI Engineering", "Software Development"],
       },
       // FAQ Schema (only if FAQs exist)
@@ -173,6 +183,8 @@ export default function ExpertisePageClient({
             ? { text: "Talk to a Frontend Specialist", href: "/contact-us" }
             : expertise.slug === "backend-development"
             ? { text: "Talk to a Backend Specialist", href: "/contact-us" }
+            : expertise.slug === "dotnet-development"
+            ? { text: "Talk to a .NET Expert", href: "/contact-us" }
             : undefined
         }
         secondaryCTA={
@@ -181,26 +193,50 @@ export default function ExpertisePageClient({
             "ai-agents",
             "ai-security",
             "ai-privacy",
+            "dotnet-development",
           ].includes(expertise.slug)
             ? undefined
             : { text: "View Case Studies", href: "/work" }
         }
       />
 
+      {expertise.slug === "dotnet-development" && (
+        <Stats
+          title="Proven Outcomes from Enterprise .NET Engineering"
+          stats={[
+            { value: "40+", label: ".NET systems running in production" },
+            { value: "6–8 weeks", label: "Typical time to production-ready release" },
+            { value: "95%+", label: "Client retention across long-term engagements" },
+            { value: "3+ years", label: "Average system lifecycle supported" },
+          ]}
+        />
+      )}
+
       <CapabilitiesGrid
-        title="Key Capabilities"
-        subtitle="Everything you need to build production-grade solutions"
+        title={expertise.slug === "dotnet-development" ? ".NET Development Capabilities for Production-Grade Systems" : "Key Capabilities"}
+        subtitle={expertise.slug === "dotnet-development" ? "Everything required to design, modernize, and operate production-grade .NET systems at scale." : "Everything you need to build production-grade solutions"}
         capabilities={capabilities}
       />
 
-      {["frontend-development", "backend-development"].includes(expertise.slug) && pageData.whoWeWorkWith && (
+      {["frontend-development", "backend-development", "dotnet-development"].includes(expertise.slug) && pageData.whoWeWorkWith && (
         <WhoWeWorkWith
-          title="Who We Work With"
+          title={pageData.whoWeWorkWith.title || "Who We Work With"}
           audiences={pageData.whoWeWorkWith.audiences.map((a) => ({
             ...a,
             icon: Icons[a.icon as keyof typeof Icons] || Icons.users,
           }))}
           closingStatement={pageData.whoWeWorkWith.closingStatement}
+          commonApplications={pageData.whoWeWorkWith.commonApplications}
+          variant={expertise.slug === "dotnet-development" ? "tabs" : "cards"}
+        />
+      )}
+
+      {/* For dotnet-development: Philosophy section comes early, before TechStack */}
+      {expertise.slug === "dotnet-development" && pageData.philosophy && (
+        <PhilosophySection
+          title={pageData.philosophy.title}
+          subtitle={pageData.philosophy.subtitle}
+          blocks={pageData.philosophy.blocks}
         />
       )}
 
@@ -219,11 +255,24 @@ export default function ExpertisePageClient({
         />
       )}
 
-      <TechStack
-        title="Technologies We Use"
-        subtitle="Production-tested tools and frameworks"
-        technologies={technologies}
-      />
+      {expertise.slug === "dotnet-development" ? (
+        <TechStack
+          title=".NET Technology Stack (Production-Proven)"
+          variant="grouped"
+          groups={[
+            { category: "Runtime & Frameworks", items: [".NET 8", "ASP.NET Core", "C#", "Entity Framework Core"] },
+            { category: "Cloud & Infrastructure", items: ["Azure", "Docker", "Kubernetes"] },
+            { category: "Data & Caching", items: ["SQL Server", "PostgreSQL", "Redis"] },
+            { category: "Observability & Messaging", items: ["Serilog", "MediatR"] },
+          ]}
+        />
+      ) : (
+        <TechStack
+          title="Technologies We Use"
+          subtitle="Production-tested tools and frameworks"
+          technologies={technologies}
+        />
+      )}
 
       {pageData.useCases && (
         <UseCasesGrid
@@ -237,12 +286,14 @@ export default function ExpertisePageClient({
         />
       )}
 
-      {pageData.whyChoose && (
+      {/* For non-dotnet pages: Philosophy section in original position */}
+      {expertise.slug !== "dotnet-development" && pageData.whyChoose && (
         <WhyChooseProcedure
-          title={expertise.slug === "frontend-development" ? "Why Choose Procedure for Frontend Development" : expertise.slug === "backend-development" ? "Why Choose Procedure for Backend Development" : `Why Choose Procedure for ${pageData.hero.badge}`}
-          subtitle="Companies choose Procedure because"
+          title={pageData.whyChoose.title || (expertise.slug === "frontend-development" ? "Why Choose Procedure for Frontend Development" : expertise.slug === "backend-development" ? "Why Choose Procedure for Backend Development" : `Why Choose Procedure for ${pageData.hero.badge}`)}
+          subtitle={pageData.whyChoose.subtitle}
+          reasonsTitle={pageData.whyChoose.reasonsTitle}
           reasons={pageData.whyChoose.reasons}
-          outcomesTitle={expertise.slug === "frontend-development" ? "Outcomes from recent frontend engagements" : expertise.slug === "backend-development" ? "Outcomes from recent backend engagements" : "Outcomes from recent engagements"}
+          outcomesTitle={pageData.whyChoose.outcomesTitle || (expertise.slug === "frontend-development" ? "Outcomes from recent frontend engagements" : expertise.slug === "backend-development" ? "Outcomes from recent backend engagements" : "Outcomes from recent engagements")}
           outcomes={pageData.whyChoose.outcomes}
         />
       )}
@@ -262,14 +313,55 @@ export default function ExpertisePageClient({
         />
       )}
 
+      {pageData.architecture && (
+        <ArchitectureSection
+          title={pageData.architecture.title}
+          subtitle={pageData.architecture.subtitle}
+          diagramSrc={pageData.architecture.diagramSrc}
+          layers={pageData.architecture.layers}
+        />
+      )}
+
+      {pageData.engagementModels && (
+        <EngagementModels
+          title={pageData.engagementModels.title}
+          subtitle={pageData.engagementModels.subtitle}
+          models={pageData.engagementModels.models}
+        />
+      )}
+
+      {pageData.riskReversal && (
+        <RiskReversal
+          title={pageData.riskReversal.title}
+          subtitle={pageData.riskReversal.subtitle}
+          items={pageData.riskReversal.items || []}
+          closingNote={pageData.riskReversal.closingNote}
+          variant={pageData.riskReversal.variant}
+          leftTriggers={pageData.riskReversal.leftTriggers}
+          rightBlocks={pageData.riskReversal.rightBlocks}
+        />
+      )}
+
+      {/* CTA with testimonial for pages that have it, regular CTA otherwise */}
+      {pageData.ctaTestimonial ? (
+        <ExpertiseCTAWithTestimonial
+          headline={pageData.cta.headline}
+          description={pageData.cta.description}
+          buttonText={pageData.cta.buttonText}
+          buttonLink={pageData.cta.buttonLink}
+          supportingNote={pageData.cta.supportingNote}
+          testimonial={pageData.ctaTestimonial}
+        />
+      ) : (
+        <ExpertiseCTA
+          headline={pageData.cta.headline}
+          description={pageData.cta.description}
+        />
+      )}
+
       {pageData.faqs.length > 0 && <FAQSection faqs={pageData.faqs} />}
 
       {relatedPages.length > 0 && <RelatedExpertise pages={relatedPages} />}
-
-      <ExpertiseCTA
-        headline={pageData.cta.headline}
-        description={pageData.cta.description}
-      />
     </main>
   );
 }

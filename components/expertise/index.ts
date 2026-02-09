@@ -13,3 +13,8 @@ export { ProcessTimeline } from "./ProcessTimeline";
 export { UseCasesGrid } from "./UseCasesGrid";
 export { WhyChooseProcedure } from "./WhyChooseProcedure";
 export { QualityMatters } from "./QualityMatters";
+export { ArchitectureSection } from "./ArchitectureSection";
+export { EngagementModels } from "./EngagementModels";
+export { RiskReversal } from "./RiskReversal";
+export { ExpertiseCTAWithTestimonial } from "./ExpertiseCTAWithTestimonial";
+export { PhilosophySection } from "./PhilosophySection";

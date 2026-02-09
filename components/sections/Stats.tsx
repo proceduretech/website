@@ -2,14 +2,27 @@
 
 import { LazyMotion, m } from "@/components/ui/LazyMotion";
 
-const stats = [
+const defaultStats = [
   { value: "100+", label: "Products Shipped to Production" },
   { value: "5", label: "Days to First Deployment" },
   { value: "98%", label: "Client Retention Rate" },
   { value: "3+", label: "Years Average Partnership" },
 ];
 
-export function Stats() {
+interface Stat {
+  value: string;
+  label: string;
+}
+
+interface StatsProps {
+  title?: string;
+  stats?: Stat[];
+}
+
+export function Stats({
+  title = "Proven results from embedded engineering",
+  stats = defaultStats,
+}: StatsProps) {
   return (
     <LazyMotion>
       <section className="relative py-16 sm:py-24 overflow-hidden bg-surface">
@@ -29,7 +42,7 @@ export function Stats() {
           className="text-center mb-10 sm:mb-12"
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">
-            Proven results from embedded engineering
+            {title}
           </h2>
         </m.div>
 

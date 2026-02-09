@@ -5,8 +5,8 @@ import { PageHero } from "@/components/ui";
 interface ExpertiseHeroProps {
   badge: string;
   headline: string;
-  headlineAccent: string;
-  tagline: string;
+  headlineAccent?: string;
+  tagline?: string;
   description: string;
   primaryCTA?: {
     text: string;
@@ -25,7 +25,7 @@ export function ExpertiseHero({
   tagline,
   description,
   primaryCTA = { text: "Talk to the Team", href: "/contact-us" },
-  secondaryCTA = { text: "View Case Studies", href: "/work" },
+  secondaryCTA,
 }: ExpertiseHeroProps) {
   return (
     <PageHero
