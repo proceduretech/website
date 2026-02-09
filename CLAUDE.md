@@ -118,7 +118,7 @@ featuredImage: /content/blog/my-article/cover.jpg
 
 ## Website Strategy & Business Context
 
-**Ownership Mindset:** Approach this website with active ownership - balancing technical excellence, UX, and demand generation to create a brand that attracts talent and converts decision-makers into booked meetings via Calendly.
+**Ownership Mindset:** Approach this website with active ownership - balancing technical excellence, UX, and demand generation to create a brand that attracts talent and converts decision-makers into booked meetings via Cal.com.
 
 ### Target Audiences
 
@@ -126,7 +126,7 @@ featuredImage: /content/blog/my-article/cover.jpg
 - Software engineers who could be future Procedure employees
 - Currently reading our technical blogs for guidance and problem-solving
 - Path: Blog reader → Careers page (`/careers/`) → Applicant
-- Content focus: Technical tutorials (current), thought leadership (future)
+- Trust signals: BPTW certification, Glassdoor 4.9/5 rating, remote-first culture
 
 **Audience B - Decision Makers (Clients)**
 - Titles: VP/Director of Engineering, IT/Engineering Heads, CTOs
@@ -137,31 +137,32 @@ featuredImage: /content/blog/my-article/cover.jpg
 
 ### Conversion Flow
 1. Decision makers engage with content first (blogs, case studies)
-2. Visit high-intent pages (services, industries)
+2. Visit high-intent pages (services, industries, technology pages)
 3. Some come directly from SERP to high-intent pages
-4. Goal: Frictionless path to Calendly booking
-5. Also discoverable via SERPs and LLM citations
+4. Goal: Frictionless path to Cal.com booking
+5. Also discoverable via SERPs and LLM citations (AEO)
 
 ### Client Portfolio
 
 | Client | Industry | Notable |
 |--------|----------|---------|
-| **Setu** | Fintech/API Banking | India's leading open banking infra |
+| **Setu** | Fintech/API Banking | India's leading open banking infra, 3-year partnership |
 | **Pine Labs** | Payments/POS | Major payment processor |
 | **KredX** | Fintech/Invoice Financing | Supply chain finance |
 | **ESPN** | Media/Sports | Global brand recognition |
 | **Treebo** | Hospitality/Travel | Budget hotel chain |
 | **Turtlemint** | Insurtech | Insurance marketplace |
-| **Timely** | SaaS/Productivity | Time tracking |
+| **Timely** | SaaS/EdTech | School scheduling, scaled to 30+ districts |
 | **Tenmeya** | Middle East startup | 1000+ paying users in 6 months |
 | **Last9** | Observability/DevOps | SRE tooling |
+| **MCLabs** | Telecommunications | Mission-critical communication software |
 | **Workshop Ventures** | VC/Investor | Portfolio-wide endorsement |
 
-**Industries with traction:** Fintech, Payments, SaaS, Media, Observability
+**Industries with traction:** Fintech, Payments, SaaS, Healthcare, EdTech, Observability
 
 ### Testimonial Proof Points
 - **Long-term retention:** 3 years with Setu, team scaled 1→5
-- **Speed:** 12 weeks to launch (Tenmeya)
+- **Speed:** 12 weeks to launch (Tenmeya), 6 months faster (MCLabs)
 - **Business outcomes:** 1000+ paying users in 6 months
 - **VC endorsement:** Workshop Ventures recommends across their portfolio
 - **Key titles:** Director of Engineering, CTO, CEO, Managing Partner
@@ -170,24 +171,60 @@ featuredImage: /content/blog/my-article/cover.jpg
 
 **Competitors:**
 - Radixweb, Simform, OpenXcell, ValueCoders, Netguru
-- Iflexion, ScienceSoft, ELEKS, Hidden Brains, MindInventory
+- Iflexion, ScienceSoft, ELEKS, Hidden Brains, MindInventory, Toptal
 
 **Competitor characteristics:**
 - Larger body shops (500-2000+ engineers)
-- Generalist (web, mobile, QA, DevOps - everything)
+- Generalist positioning (web, mobile, QA, DevOps - everything)
 - Price-competitive but lower senior density
-- Heavy SEO investment on broad terms
+- Heavy SEO investment on broad generic terms
+- Technology-specific landing pages (React, Node, Python, etc.)
 
 ### Procedure's USPs (Differentiation)
 1. **Embedded model** - Extension of client's team, not a vendor
 2. **Senior density** - Not a pyramid of juniors
 3. **Low attrition** - Continuity for complex projects
-4. **Speed** - 12-week launches, fast starts
-5. **AI/Modern tech focus** - Specialized, not generalist
+4. **Speed** - 2-5 days to start, 12-week launches
+5. **AI/Modern tech focus** - Specialized in AI engineering, not generalist
+6. **Security-first AI** - Prompt injection defense, AI security expertise
 
-### Strategic Priorities
-1. **SEO:** High-intent pages must rank well on SERP (analyze competitor rankings)
-2. **Trust signals:** Leverage ESPN logo, VC endorsement more prominently
-3. **Conversion optimization:** Strong CTAs, embedded Calendly on service pages
-4. **LLM visibility:** Clear, authoritative content for AI engine citations
-5. **Content:** Technical blogs for engineers, thought leadership for decision makers
+---
+
+## SEO & Technical Requirements
+
+### Page Types by Intent
+
+| Intent Level | Page Type | Examples |
+|--------------|-----------|----------|
+| **High Intent** | Service pages, Technology pages, Industry pages | `/services/ai-engineering`, `/industries/healthcare` |
+| **Mid Intent** | Comparison pages, Guides | `/resources/staff-augmentation-vs-managed-delivery` |
+| **Low Intent** | Blogs, Tutorials | `/blogs/[slug]` |
+
+### Schema Markup Requirements
+
+Implement JSON-LD structured data:
+
+| Schema Type | Where | Purpose |
+|-------------|-------|---------|
+| Organization | Root layout | Site-wide trust signal, locations (Mumbai, SF), aggregate rating |
+| FAQPage | Service pages with FAQ sections | Rich snippets in SERP |
+| ProfessionalService | Service pages | Service-specific rich results |
+| TechArticle | Blog posts | Author, date, category in SERP |
+| BreadcrumbList | All nested pages | Navigation breadcrumbs in SERP |
+
+### LLM Citation Optimization (AEO)
+
+When building pages, structure content for AI discoverability:
+- Clear H1 with primary keyword
+- Definitive statements early in content (not buried)
+- Consistent H2/H3 hierarchy
+- FAQ sections with natural question-answer format
+- Specific numbers and outcomes (not vague claims)
+
+---
+
+## Analytics
+
+**GA4 Measurement ID:** G-2KW21KL401
+**GTM Container ID:** GTM-KD7CJ8RC
+**Key conversion event:** `generate_lead` (Cal.com booking)
