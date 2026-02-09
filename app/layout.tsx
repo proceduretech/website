@@ -98,6 +98,7 @@ export default function RootLayout({
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": "https://procedure.tech/#organization",
     name: "Procedure Technologies",
     alternateName: "Procedure",
     url: "https://procedure.tech",
@@ -105,10 +106,19 @@ export default function RootLayout({
     description:
       "AI-native design & development studio. Senior AI engineers embedded with your team to build production-grade AI systems, LLM applications, and custom ML models.",
     foundingDate: "2017",
+    foundingLocation: {
+      "@type": "Place",
+      name: "Mumbai, India",
+    },
     sameAs: [
+      "https://www.wikidata.org/wiki/Q137392993",
       "https://www.linkedin.com/company/procedure-tech",
       "https://github.com/aspect-build",
       "https://www.glassdoor.co.in/Reviews/Procedure-Technologies-Reviews-E2578960.htm",
+      "https://www.crunchbase.com/organization/procedure",
+      "https://in.linkedin.com/company/procedurehq",
+      "https://x.com/procedurehq",
+      "https://github.com/proceduretech",
     ],
     address: [
       {
@@ -129,12 +139,36 @@ export default function RootLayout({
       email: "hello@procedure.tech",
       availableLanguage: ["English"],
     },
+    founder: [
+      {
+        "@type": "Person",
+        "@id": "https://www.wikidata.org/wiki/Q137392996",
+        name: "Brajkishor Baheti",
+        jobTitle: "Chief Executive Officer",
+        sameAs: "https://www.linkedin.com/in/brajkishor",
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.wikidata.org/wiki/Q137392995",
+        name: "Ulhas Mandrawadkar",
+        jobTitle: "Chief Technology Officer",
+        sameAs: "https://www.linkedin.com/in/ulhasmandrawadkar",
+      },
+    ],
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "4.9",
       reviewCount: "32",
       bestRating: "5",
     },
+    knowsAbout: [
+      "Artificial Intelligence",
+      "Machine Learning",
+      "AI Security",
+      "LLM Applications",
+      "Software Engineering",
+      "Cloud Computing",
+    ],
   };
 
   const serviceSchema = {
