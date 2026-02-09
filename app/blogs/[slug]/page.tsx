@@ -26,6 +26,7 @@ import {
   VideoEmbed,
 } from "@/components/notion";
 import { TwitterEmbedReactTweet } from "@/components/notion/TwitterEmbedReactTweet";
+import { JsonLd } from "@/components/seo";
 
 // Force static generation at build time
 export const dynamic = "force-static";
@@ -435,26 +436,31 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       ? await getImageMetadata(post.featuredImage)
       : null;
 
-  // Article schema for SEO
+  // TechArticle schema for SEO
   const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "TechArticle",
     headline: post.title,
     description: post.excerpt,
-    image: post.featuredImage,
+    image: post.featuredImage
+      ? `https://procedure.tech${post.featuredImage}`
+      : undefined,
     datePublished: post.publishedAt,
     dateModified: post.updatedAt,
     author: {
       "@type": "Person",
       name: post.author.name,
-      jobTitle: post.author.role,
+      jobTitle: post.author.role || "Engineer",
+      worksFor: {
+        "@type": "Organization",
+        name: "Procedure Technologies",
+      },
     },
     publisher: {
       "@type": "Organization",
-      name: "Procedure",
+      name: "Procedure Technologies",
       logo: {
         "@type": "ImageObject",
-        url: "https://procedure.tech/logos/procedure/green-logo.svg",
+        url: "https://procedure.tech/logo.svg",
       },
     },
     mainEntityOfPage: {
@@ -465,7 +471,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   // BreadcrumbList schema for SEO
   const breadcrumbSchema = {
-    "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
       {
@@ -497,21 +502,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <main className="min-h-screen bg-base">
-      {/* Article Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(articleSchema),
-        }}
-      />
-
-      {/* Breadcrumb Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbSchema),
-        }}
-      />
+      {/* Schema Markup */}
+      <JsonLd data={articleSchema} />
+      <JsonLd data={breadcrumbSchema} />
 
       {/* Share buttons - sidebar (desktop only) */}
       <BlogShareButtons
