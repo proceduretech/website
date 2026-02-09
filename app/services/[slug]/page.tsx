@@ -6,6 +6,7 @@ import {
   getAllServiceSlugsFromContent,
   getService,
 } from "@/lib/content";
+import { JsonLd } from "@/components/seo";
 import ServicePageClient from "./ServicePageClient";
 import ExpertisePageClient from "./ExpertisePageClient";
 
@@ -63,13 +64,70 @@ export default async function ServicePage({ params }: Props) {
   // Check if it's a service-style or expertise-style MDX based on frontmatter
   const frontmatter = rawContent.frontmatter as unknown as Record<string, unknown>;
 
+  // Generate schema markup for the page
+  const generateSchemas = (pageSlug: string, data: Record<string, unknown>) => {
+    const schemas: Array<Record<string, unknown>> = [];
+
+    // ProfessionalService schema
+    const serviceSchema: Record<string, unknown> = {
+      "@type": "ProfessionalService",
+      name: data.title as string,
+      description: data.description as string,
+      url: `https://procedure.tech/services/${pageSlug}`,
+      provider: {
+        "@type": "Organization",
+        name: "Procedure Technologies",
+        url: "https://procedure.tech",
+      },
+      areaServed: [
+        { "@type": "Country", name: "United States" },
+        { "@type": "Country", name: "India" },
+      ],
+    };
+
+    // Add service types if available
+    if (data.capabilities && Array.isArray(data.capabilities)) {
+      serviceSchema.serviceType = (data.capabilities as Array<{ title: string }>).map((c) => c.title);
+    }
+
+    schemas.push(serviceSchema);
+
+    // FAQPage schema if FAQs exist
+    if (data.faqs && Array.isArray(data.faqs)) {
+      const faqSchema = {
+        "@type": "FAQPage",
+        mainEntity: (data.faqs as Array<{ question: string; answer: string }>).map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      };
+      schemas.push(faqSchema);
+    }
+
+    return schemas;
+  };
+
   // Service-style has 'benefits' and 'process', expertise-style has 'capabilities'
   if (frontmatter.benefits && frontmatter.process) {
     const service = getServiceForListing(slug);
     if (!service) {
       notFound();
     }
-    return <ServicePageClient service={service} />;
+
+    const schemas = generateSchemas(slug, frontmatter);
+
+    return (
+      <>
+        {schemas.map((schema, index) => (
+          <JsonLd key={index} data={schema} />
+        ))}
+        <ServicePageClient service={service} />
+      </>
+    );
   } else if (frontmatter.capabilities) {
     const expertise = getExpertiseForListing(slug);
     if (!expertise) {
@@ -82,8 +140,15 @@ export default async function ServicePage({ params }: Props) {
       expertise.relatedExpertise,
     );
 
+    const schemas = generateSchemas(slug, frontmatter);
+
     return (
-      <ExpertisePageClient expertise={expertise} relatedPages={relatedPages} />
+      <>
+        {schemas.map((schema, index) => (
+          <JsonLd key={index} data={schema} />
+        ))}
+        <ExpertisePageClient expertise={expertise} relatedPages={relatedPages} />
+      </>
     );
   }
 
