@@ -67,10 +67,14 @@ export async function generateMetadata({
   return {
     title: `${caseStudy.title} | Case Study | Procedure`,
     description: caseStudy.description,
+    alternates: {
+      canonical: `/work/${slug}`,
+    },
     openGraph: {
       title: `${caseStudy.title} | Case Study`,
       description: caseStudy.description,
       type: "article",
+      url: `/work/${slug}`,
       images: [ogImage],
     },
     twitter: {
