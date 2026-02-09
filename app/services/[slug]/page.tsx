@@ -44,6 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         title: service.meta.title,
         description: service.meta.description,
         type: "website",
+        url: `/services/${slug}`,
         images: [defaultOgImage],
       },
       twitter: {
@@ -69,6 +70,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         title: expertise.meta.title,
         description: expertise.meta.description,
         type: "website",
+        url: `/services/${slug}`,
         images: [defaultOgImage],
       },
       twitter: {
