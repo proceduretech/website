@@ -55,11 +55,11 @@ export function ArchitectureSection({
           transition={{ duration: 0.5 }}
           className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-4">
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-5">
             {title}
           </h2>
           {subtitle && (
-            <p className="text-lg text-text-secondary max-w-2xl mx-auto">
+            <p className="text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed">
               {subtitle}
             </p>
           )}
@@ -89,41 +89,41 @@ export function ArchitectureSection({
               </div>
             ) : (
               /* Conceptual architecture diagram - 4 layers with inward dependencies */
-              <div className="flex flex-col items-center px-6 pt-10 pb-8 sm:px-8 sm:pt-12 sm:pb-10">
-                <div className="relative w-full max-w-[280px] sm:max-w-[340px] aspect-square">
+              <div className="flex flex-col items-center px-6 pt-12 pb-8 sm:px-8 sm:pt-14 sm:pb-10">
+                <div className="relative w-full max-w-[300px] sm:max-w-[360px] aspect-square">
                   {/* Outermost layer - API */}
-                  <div className="absolute inset-0 rounded-full border-[1.5px] border-[#1A2A45] flex items-center justify-center">
+                  <div className="absolute inset-0 rounded-full border-[1.5px] border-white/[0.12] flex items-center justify-center">
                     <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-medium text-text-secondary bg-surface-elevated px-2.5 py-0.5 rounded-sm whitespace-nowrap">
                       API
                     </span>
-                    {/* Inward arrow - top */}
-                    <svg className="absolute top-[7%] left-1/2 -translate-x-1/2 w-4 h-4 text-text-muted" viewBox="0 0 12 12" fill="none">
-                      <path d="M6 2L6 10M6 10L3 7M6 10L9 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
                   </div>
+                  {/* Arrow between API and Infrastructure */}
+                  <svg className="absolute top-[11%] left-1/2 -translate-x-1/2 w-4 h-4 text-text-muted/70" viewBox="0 0 12 12" fill="none">
+                    <path d="M6 2L6 10M6 10L3 7M6 10L9 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
                   {/* Second layer - Infrastructure */}
-                  <div className="absolute inset-[12%] rounded-full border-[1.5px] border-[#1A2A45] flex items-center justify-center">
+                  <div className="absolute inset-[16%] rounded-full border-[1.5px] border-white/[0.12] flex items-center justify-center">
                     <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-medium text-text-secondary bg-surface-elevated px-2.5 py-0.5 rounded-sm whitespace-nowrap">
                       Infrastructure
                     </span>
-                    {/* Inward arrow - top */}
-                    <svg className="absolute top-[7%] left-1/2 -translate-x-1/2 w-4 h-4 text-text-muted" viewBox="0 0 12 12" fill="none">
-                      <path d="M6 2L6 10M6 10L3 7M6 10L9 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
                   </div>
+                  {/* Arrow between Infrastructure and Application */}
+                  <svg className="absolute top-[27%] left-1/2 -translate-x-1/2 w-4 h-4 text-text-muted/70" viewBox="0 0 12 12" fill="none">
+                    <path d="M6 2L6 10M6 10L3 7M6 10L9 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
                   {/* Third layer - Application */}
-                  <div className="absolute inset-[24%] rounded-full border-[1.5px] border-[#1D9B69]/40 flex items-center justify-center">
+                  <div className="absolute inset-[32%] rounded-full border-[1.5px] border-accent/30 flex items-center justify-center">
                     <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-medium text-text-secondary bg-surface-elevated px-2.5 py-0.5 rounded-sm whitespace-nowrap">
                       Application
                     </span>
-                    {/* Inward arrow - top */}
-                    <svg className="absolute top-[7%] left-1/2 -translate-x-1/2 w-4 h-4 text-[#1D9B69]/60" viewBox="0 0 12 12" fill="none">
-                      <path d="M6 2L6 10M6 10L3 7M6 10L9 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
                   </div>
+                  {/* Arrow between Application and Domain */}
+                  <svg className="absolute top-[43%] left-1/2 -translate-x-1/2 w-4 h-4 text-accent/50" viewBox="0 0 12 12" fill="none">
+                    <path d="M6 2L6 10M6 10L3 7M6 10L9 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
                   {/* Innermost layer - Domain (protected core) */}
-                  <div className="absolute inset-[38%] rounded-full bg-[#1D9B69]/10 border-[1.5px] border-[#1D9B69]/50 flex items-center justify-center">
-                    <span className="text-sm text-accent-light font-semibold">
+                  <div className="absolute inset-[48%] rounded-full bg-accent/10 border-[1.5px] border-accent/50 flex items-center justify-center">
+                    <span className="text-sm text-accent-light font-semibold whitespace-nowrap">
                       Domain
                     </span>
                   </div>

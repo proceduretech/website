@@ -30,7 +30,7 @@ export function PhilosophySection({
           transition={{ duration: 0.5 }}
           className="mb-12"
         >
-          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-text-primary mb-4">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-text-primary mb-5">
             {title}
           </h2>
           {subtitle && (

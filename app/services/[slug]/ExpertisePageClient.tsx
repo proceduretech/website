@@ -366,29 +366,7 @@ export default function ExpertisePageClient({
         />
       )}
 
-      {pageData.architecture && (
-        <ArchitectureSection
-          title={pageData.architecture.title}
-          subtitle={pageData.architecture.subtitle}
-          diagramSrc={pageData.architecture.diagramSrc}
-          layers={pageData.architecture.layers}
-        />
-      )}
-
-      {/* For dotnet: Testimonials after Architecture (social proof earlier) */}
-      {expertise.slug === "dotnet-development" && pageData.testimonials && pageData.testimonials.length > 0 && (
-        <Testimonials />
-      )}
-
-      {pageData.engagementModels && (
-        <EngagementModels
-          title={pageData.engagementModels.title}
-          subtitle={pageData.engagementModels.subtitle}
-          models={pageData.engagementModels.models}
-        />
-      )}
-
-      {/* Mid-page CTA for dotnet */}
+      {/* Mid-page CTA for dotnet - before Architecture section */}
       {expertise.slug === "dotnet-development" && (
         <section className="relative py-16 sm:py-24 bg-base">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
@@ -417,6 +395,28 @@ export default function ExpertisePageClient({
             </motion.div>
           </div>
         </section>
+      )}
+
+      {pageData.architecture && (
+        <ArchitectureSection
+          title={pageData.architecture.title}
+          subtitle={pageData.architecture.subtitle}
+          diagramSrc={pageData.architecture.diagramSrc}
+          layers={pageData.architecture.layers}
+        />
+      )}
+
+      {/* For dotnet: Testimonials after Architecture (social proof earlier) */}
+      {expertise.slug === "dotnet-development" && pageData.testimonials && pageData.testimonials.length > 0 && (
+        <Testimonials />
+      )}
+
+      {pageData.engagementModels && (
+        <EngagementModels
+          title={pageData.engagementModels.title}
+          subtitle={pageData.engagementModels.subtitle}
+          models={pageData.engagementModels.models}
+        />
       )}
 
       {pageData.riskReversal && (

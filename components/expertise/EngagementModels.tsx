@@ -51,7 +51,7 @@ export function EngagementModels({
           transition={{ duration: 0.5 }}
           className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-4">
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-5">
             {title}
           </h2>
           {subtitle && (
@@ -101,7 +101,7 @@ export function EngagementModels({
                   <div className="h-[2px] bg-gradient-to-r from-accent/60 via-accent-light/40 to-accent/60 opacity-60 group-hover:opacity-100 transition-opacity duration-400" />
 
                   {/* Content */}
-                  <div className="p-6 sm:p-8 lg:p-10">
+                  <div className="flex flex-col h-full p-6 sm:p-8 lg:p-10">
                     {/* Model number + title */}
                     <div className="mb-4">
                       <span className="text-xs font-medium text-text-muted uppercase tracking-widest mb-2 block">

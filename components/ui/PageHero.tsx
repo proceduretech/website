@@ -89,15 +89,17 @@ export function PageHero({
           <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-semibold leading-[1.1] tracking-tight text-text-primary mb-6">
             {headline}
             {headlineAccent && (
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.3, delay: 0.1 }}
-                className="text-highlight"
-              >
-                {" "}
-                {headlineAccent}
-              </motion.span>
+              <>
+                <br />
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3, delay: 0.1 }}
+                  className="text-highlight"
+                >
+                  {headlineAccent}
+                </motion.span>
+              </>
             )}
           </h1>
 
