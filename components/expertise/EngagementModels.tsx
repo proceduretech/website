@@ -20,18 +20,18 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.15,
       delayChildren: 0.2,
     },
   },
 };
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
+const columnVariants = {
+  hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as const },
+    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as const },
   },
 };
 
@@ -61,61 +61,83 @@ export function EngagementModels({
           )}
         </motion.div>
 
-        {/* Models grid */}
+        {/* Horizontal comparison layout -- no cards, column-based with vertical dividers */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          className={cn(
+            "relative rounded-2xl overflow-hidden",
+            "bg-surface-elevated/40",
+            "border border-border"
+          )}
         >
-          {models.map((model, index) => (
-            <motion.div
-              key={index}
-              variants={cardVariants}
-              className={cn(
-                "group relative p-6 sm:p-8 rounded-2xl",
-                "bg-surface-elevated/80 backdrop-blur-sm",
-                "border border-border",
-                "hover:border-accent/30 transition-all duration-300",
-                "hover:shadow-lg hover:shadow-accent/5"
-              )}
-            >
-              {/* Subtle gradient on hover */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          {/* Inner flex layout */}
+          <div
+            className={cn(
+              "flex flex-col",
+              models.length <= 3
+                ? "md:flex-row"
+                : "md:flex-row md:flex-wrap"
+            )}
+          >
+            {models.map((model, index) => {
+              const isLast = index === models.length - 1;
 
-              <div className="relative">
-                {/* Number badge */}
-                <div
+              return (
+                <motion.div
+                  key={index}
+                  variants={columnVariants}
                   className={cn(
-                    "inline-flex items-center justify-center w-8 h-8 rounded-lg mb-4",
-                    "bg-accent/10 border border-accent/20",
-                    "text-sm font-semibold text-accent-light"
+                    "group relative flex-1 min-w-0",
+                    // Vertical divider on desktop (border-right on all but last)
+                    !isLast && "md:border-r md:border-border",
+                    // Horizontal divider on mobile (border-bottom on all but last)
+                    !isLast && "border-b border-border md:border-b-0"
                   )}
                 >
-                  {index + 1}
-                </div>
+                  {/* Top accent line */}
+                  <div className="h-[2px] bg-gradient-to-r from-accent/60 via-accent-light/40 to-accent/60 opacity-60 group-hover:opacity-100 transition-opacity duration-400" />
 
-                {/* Content */}
-                <h3 className="text-xl font-semibold text-text-primary mb-2">
-                  {model.title}
-                </h3>
-                <p className="text-text-secondary leading-relaxed mb-4">
-                  {model.description}
-                </p>
+                  {/* Content */}
+                  <div className="p-6 sm:p-8 lg:p-10">
+                    {/* Model number + title */}
+                    <div className="mb-4">
+                      <span className="text-xs font-medium text-text-muted uppercase tracking-widest mb-2 block">
+                        Model {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <h3 className="text-xl sm:text-2xl font-semibold text-text-primary group-hover:text-highlight transition-colors duration-300">
+                        {model.title}
+                      </h3>
+                    </div>
 
-                {/* Best for tag */}
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-medium text-text-muted uppercase tracking-wide">
-                    Best for:
-                  </span>
-                  <span className="text-sm text-accent-light font-medium">
-                    {model.bestFor}
-                  </span>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+                    {/* Description */}
+                    <p className="text-text-secondary leading-relaxed mb-6">
+                      {model.description}
+                    </p>
+
+                    {/* Best for tag */}
+                    <div
+                      className={cn(
+                        "inline-flex items-center gap-2 px-3 py-1.5 rounded-full",
+                        "bg-accent/8 border border-accent/15",
+                        "group-hover:bg-accent/12 group-hover:border-accent/25",
+                        "transition-all duration-300"
+                      )}
+                    >
+                      <span className="text-[11px] font-semibold text-text-muted uppercase tracking-wider">
+                        Best for
+                      </span>
+                      <span className="text-sm text-accent-light font-medium">
+                        {model.bestFor}
+                      </span>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </motion.div>
       </div>
     </section>

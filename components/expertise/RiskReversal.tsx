@@ -136,9 +136,9 @@ export function RiskReversal({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="mt-12 pt-8 border-t border-border"
+              className="mt-12 pt-8 border-t border-border text-center"
             >
-              <p className="text-text-secondary text-sm sm:text-base max-w-2xl">
+              <p className="text-text-secondary text-sm sm:text-base max-w-2xl mx-auto">
                 {closingNote}
               </p>
             </motion.div>

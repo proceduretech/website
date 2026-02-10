@@ -136,7 +136,7 @@ export function WhoWeWorkWith({
                           key={i}
                           className="flex items-start gap-3 text-text-secondary leading-relaxed"
                         >
-                          <span className="text-accent mt-1.5 flex-shrink-0">•</span>
+                          <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-accent mt-[9px]" />
                           <span>{bullet}</span>
                         </li>
                       ))}

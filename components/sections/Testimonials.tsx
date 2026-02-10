@@ -4,6 +4,7 @@ import { useState } from "react";
 import { LazyMotion, domAnimation, m, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { testimonials } from "@/lib/testimonials-data";
+import { cn } from "@/lib/utils";
 
 export function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -72,9 +73,22 @@ export function Testimonials() {
                   <div className="font-semibold text-text-primary text-lg">
                     {currentTestimonial.author}
                   </div>
-                  <div className="text-text-secondary">
-                    {currentTestimonial.role}, {currentTestimonial.company}
+                  <div className="text-text-secondary text-sm">
+                    {currentTestimonial.role}
                   </div>
+                  {currentTestimonial.logo && (
+                    <div className="mt-2 flex items-center justify-center">
+                      <Image
+                        src={currentTestimonial.logo}
+                        alt={currentTestimonial.company}
+                        width={80}
+                        height={24}
+                        className={cn(
+                          "h-5 w-auto object-contain brightness-0 invert opacity-60"
+                        )}
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
             </m.div>

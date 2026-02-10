@@ -446,7 +446,7 @@ export default function ExpertisePageClient({
               <br />
               <span className="text-highlight">{pageData.hero.badge} Project?</span>
             </h2>
-            <p className="text-lg text-text-secondary max-w-2xl mx-auto">
+            <p className="text-lg text-text-secondary max-w-3xl mx-auto">
               {bookingSubtext[expertise.slug] ||
                 "Schedule a call with our engineering team. We'll discuss your technical requirements and provide an honest assessment of how we can help."}
             </p>
