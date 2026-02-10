@@ -123,7 +123,10 @@ export default function RootLayout({
     address: [
       {
         "@type": "PostalAddress",
+        streetAddress: "406, Srishti Square, Lal Bahadur Shastri Marg",
         addressLocality: "Mumbai",
+        addressRegion: "Maharashtra",
+        postalCode: "400078",
         addressCountry: "IN",
       },
       {
@@ -137,6 +140,7 @@ export default function RootLayout({
       "@type": "ContactPoint",
       contactType: "sales",
       email: "hello@procedure.tech",
+      areaServed: ["United States", "Europe", "India"],
       availableLanguage: ["English"],
     },
     founder: [
@@ -215,6 +219,27 @@ export default function RootLayout({
           },
         },
       ],
+    },
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://procedure.tech/#website",
+    url: "https://procedure.tech",
+    name: "Procedure",
+    description:
+      "AI, product design, and software development consulting studio.",
+    publisher: {
+      "@id": "https://procedure.tech/#organization",
+    },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: "https://procedure.tech/blogs?q={search_term_string}",
+      },
+      "query-input": "required name=search_term_string",
     },
   };
 
@@ -351,6 +376,7 @@ export default function RootLayout({
 
         <JsonLd data={organizationSchema} />
         <JsonLd data={serviceSchema} />
+        <JsonLd data={websiteSchema} />
         <JsonLd data={faqSchema} />
       </head>
       <body className={`${outfit.variable} ${inter.variable} antialiased`}>

@@ -141,21 +141,62 @@ export default async function ServicePage({ params }: Props) {
   const generateSchemas = (pageSlug: string, data: Record<string, unknown>) => {
     const schemas: Array<Record<string, unknown>> = [];
 
-    // ProfessionalService schema
+    // ProfessionalService schema with enhanced properties
     const serviceSchema: Record<string, unknown> = {
+      "@context": "https://schema.org",
       "@type": "ProfessionalService",
+      "@id": `https://procedure.tech/services/${pageSlug}#service`,
       name: data.title as string,
       description: data.description as string,
       url: `https://procedure.tech/services/${pageSlug}`,
+      mainEntityOfPage: `https://procedure.tech/services/${pageSlug}`,
       provider: {
-        "@type": "Organization",
-        name: "Procedure Technologies",
-        url: "https://procedure.tech",
+        "@id": "https://procedure.tech/#organization",
       },
       areaServed: [
         { "@type": "Country", name: "United States" },
         { "@type": "Country", name: "India" },
+        { "@type": "Country", name: "United Kingdom" },
       ],
+      availableChannel: {
+        "@type": "ServiceChannel",
+        serviceUrl: `https://procedure.tech/services/${pageSlug}`,
+        serviceLocation: {
+          "@type": "Place",
+          address: [
+            {
+              "@type": "PostalAddress",
+              addressLocality: "Mumbai",
+              addressRegion: "Maharashtra",
+              addressCountry: "IN",
+            },
+            {
+              "@type": "PostalAddress",
+              addressLocality: "San Francisco",
+              addressRegion: "CA",
+              addressCountry: "US",
+            },
+          ],
+        },
+      },
+      offers: {
+        "@type": "Offer",
+        url: `https://procedure.tech/services/${pageSlug}`,
+        priceCurrency: "USD",
+        eligibleRegion: ["US", "IN", "EU", "GB"],
+      },
+      potentialAction: {
+        "@type": "CommunicateAction",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: "https://cal.com/procedure/discovery",
+          actionPlatform: [
+            "http://schema.org/DesktopWebPlatform",
+            "http://schema.org/MobileWebPlatform",
+          ],
+        },
+        name: "Book a Discovery Call",
+      },
     };
 
     // Add service types if available
@@ -168,6 +209,7 @@ export default async function ServicePage({ params }: Props) {
     // FAQPage schema if FAQs exist
     if (data.faqs && Array.isArray(data.faqs)) {
       const faqSchema = {
+        "@context": "https://schema.org",
         "@type": "FAQPage",
         mainEntity: (data.faqs as Array<{ question: string; answer: string }>).map((faq) => ({
           "@type": "Question",
