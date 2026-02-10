@@ -71,29 +71,42 @@ export function TechStack({
         {/* Grouped chips variant */}
         {variant === "grouped" && groups && (
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-            className="max-w-4xl mx-auto"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={containerVariants}
+            className="max-w-5xl mx-auto"
           >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
               {groups.map((group, index) => (
-                <div key={index}>
-                  <h3 className="text-xs font-medium text-text-muted uppercase tracking-wider mb-3">
-                    {group.category}
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {group.items.map((item, itemIndex) => (
-                      <span
-                        key={itemIndex}
-                        className="px-3 py-1.5 text-sm text-text-secondary bg-surface-elevated border border-border rounded-lg"
-                      >
-                        {item}
-                      </span>
-                    ))}
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  className="relative p-5 sm:p-6 rounded-2xl bg-surface-elevated/80 border border-border hover:border-accent/20 transition-all duration-300 group"
+                >
+                  {/* Subtle gradient glow on hover */}
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="relative">
+                    {/* Category header with accent indicator */}
+                    <div className="flex items-center gap-2.5 mb-4">
+                      <div className="w-1 h-5 rounded-full bg-accent/40 group-hover:bg-accent/70 transition-colors duration-300" />
+                      <h3 className="text-sm font-semibold text-text-primary tracking-wide">
+                        {group.category}
+                      </h3>
+                    </div>
+                    {/* Technology items */}
+                    <div className="flex flex-wrap gap-2">
+                      {group.items.map((item, itemIndex) => (
+                        <span
+                          key={itemIndex}
+                          className="px-3 py-1.5 text-sm text-text-secondary bg-surface/80 border border-border rounded-lg hover:border-accent/20 hover:text-text-primary transition-colors duration-200"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </motion.div>

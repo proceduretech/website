@@ -217,7 +217,7 @@ export function WhoWeWorkWith({
           </motion.div>
         )}
 
-        {/* Common Applications - 2-column bullet list */}
+        {/* Common Applications - structured card grid */}
         {commonApplications && (
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -226,30 +226,35 @@ export function WhoWeWorkWith({
             transition={{ duration: 0.5, delay: 0.3 }}
             className="mt-12 sm:mt-16"
           >
-            <div className="max-w-3xl mx-auto">
-              <h3 className="text-lg font-semibold text-text-primary mb-6 text-center">
+            <div className="max-w-5xl mx-auto">
+              <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-text-primary mb-8 text-center">
                 {commonApplications.title}
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
+              <div className={cn(
+                "grid grid-cols-1 sm:grid-cols-2 gap-4",
+                commonApplications.items.length % 3 === 0 ? "lg:grid-cols-3" : "lg:grid-cols-2"
+              )}>
                 {commonApplications.items.map((item, index) => {
                   const isObject = typeof item === "object";
 
                   return (
                     <div
                       key={index}
-                      className="flex items-start gap-3"
+                      className="flex items-start gap-3.5 p-4 sm:p-5 rounded-xl bg-surface-elevated/60 border border-border hover:border-accent/20 transition-all duration-200"
                     >
-                      <span className="text-accent mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-accent" />
-                      <span className="text-text-secondary text-sm leading-relaxed">
+                      <span className="mt-1.5 flex-shrink-0 w-2 h-2 rounded-full bg-accent/60" />
+                      <div>
                         {isObject ? (
                           <>
-                            <span className="text-text-primary font-medium">{item.title}</span>
-                            {item.description && <> &mdash; {item.description}</>}
+                            <span className="block text-text-primary font-medium text-sm mb-1">{item.title}</span>
+                            {item.description && (
+                              <span className="block text-text-muted text-sm leading-relaxed">{item.description}</span>
+                            )}
                           </>
                         ) : (
-                          item
+                          <span className="text-text-secondary text-sm leading-relaxed">{item}</span>
                         )}
-                      </span>
+                      </div>
                     </div>
                   );
                 })}
