@@ -58,6 +58,8 @@ const bookingSubtext: Record<string, string> = {
     "Tell us about your AI product and the user experience challenges you face. We'll discuss research methods, prototyping, and design patterns that build user trust.",
   "kubernetes":
     "Describe your container orchestration needs—new clusters, migrations, or operational pain points. We'll assess your workloads and recommend a production-ready approach.",
+  "dotnet-development":
+    "Talk directly with engineers\u2014not sales. We\u2019ll assess fit and give honest next steps.",
 };
 
 export default function ExpertisePageClient({
@@ -222,23 +224,48 @@ export default function ExpertisePageClient({
             ? undefined
             : { text: "View Case Studies", href: "/work" }
         }
-      />
+      >
+        {expertise.slug === "dotnet-development" && (
+          <div className="flex items-center justify-center gap-3 text-xs text-text-muted -mt-6">
+            <div className="flex items-center gap-1.5">
+              <svg className="w-3.5 h-3.5 text-accent" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+              </svg>
+              No obligation
+            </div>
+            <div className="w-1 h-1 rounded-full bg-border" />
+            <div className="flex items-center gap-1.5">
+              <svg className="w-3.5 h-3.5 text-accent" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+              </svg>
+              30-minute call
+            </div>
+            <div className="w-1 h-1 rounded-full bg-border" />
+            <div className="flex items-center gap-1.5">
+              <svg className="w-3.5 h-3.5 text-accent" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+              </svg>
+              Talk with engineers, not sales
+            </div>
+          </div>
+        )}
+      </ExpertiseHero>
 
       {expertise.slug === "dotnet-development" && (
         <Stats
-          title="Proven Outcomes from Enterprise .NET Engineering"
+          title=".NET Development Track Record"
           stats={[
-            { value: "40+", label: ".NET systems running in production" },
-            { value: "6–8 weeks", label: "Typical time to production-ready release" },
-            { value: "95%+", label: "Client retention across long-term engagements" },
-            { value: "3+ years", label: "Average system lifecycle supported" },
+            { value: "40+", label: "Production .NET Systems" },
+            { value: "6\u20138 Weeks", label: "Time to Production Release" },
+            { value: "95%+", label: "Client Retention Rate" },
+            { value: ".NET 8 + Azure", label: "Primary Stack" },
           ]}
         />
       )}
 
       <CapabilitiesGrid
-        title={expertise.slug === "dotnet-development" ? ".NET Development Capabilities for Production-Grade Systems" : "Key Capabilities"}
-        subtitle={expertise.slug === "dotnet-development" ? "Everything required to design, modernize, and operate production-grade .NET systems at scale." : "Everything you need to build production-grade solutions"}
+        title={expertise.slug === "dotnet-development" ? ".NET Development Services We Offer" : "Key Capabilities"}
+        subtitle={expertise.slug === "dotnet-development" ? "End-to-end .NET services\u2014from greenfield builds to legacy modernization." : "Everything you need to build production-grade solutions"}
         capabilities={capabilities}
       />
 
@@ -281,13 +308,15 @@ export default function ExpertisePageClient({
 
       {expertise.slug === "dotnet-development" ? (
         <TechStack
-          title=".NET Technology Stack (Production-Proven)"
+          title=".NET Technology Stack We Use"
           variant="grouped"
           groups={[
-            { category: "Runtime & Frameworks", items: [".NET 8", "ASP.NET Core", "C#", "Entity Framework Core"] },
-            { category: "Cloud & Infrastructure", items: ["Azure", "Docker", "Kubernetes"] },
-            { category: "Data & Caching", items: ["SQL Server", "PostgreSQL", "Redis"] },
-            { category: "Observability & Messaging", items: ["Serilog", "MediatR"] },
+            { category: "Runtime & Frameworks", items: [".NET 8 / .NET 9", "ASP.NET Core", "Blazor", "Entity Framework Core", "Minimal APIs"] },
+            { category: "Cloud Platforms", items: ["Microsoft Azure", "AWS", "GCP"] },
+            { category: "Infrastructure & DevOps", items: ["Docker", "Kubernetes", "Terraform", "GitHub Actions", "Azure DevOps"] },
+            { category: "Data & Caching", items: ["SQL Server", "PostgreSQL", "Redis", "Azure Cosmos DB"] },
+            { category: "Observability", items: ["Application Insights", "Serilog", "OpenTelemetry", "Seq"] },
+            { category: "Messaging & Patterns", items: ["RabbitMQ", "Azure Service Bus", "MediatR", "MassTransit"] },
           ]}
         />
       ) : (
@@ -322,7 +351,7 @@ export default function ExpertisePageClient({
         />
       )}
 
-      {pageData.testimonials && pageData.testimonials.length > 0 && (
+      {expertise.slug !== "dotnet-development" && pageData.testimonials && pageData.testimonials.length > 0 && (
         <Testimonials />
       )}
 
@@ -346,12 +375,48 @@ export default function ExpertisePageClient({
         />
       )}
 
+      {/* For dotnet: Testimonials after Architecture (social proof earlier) */}
+      {expertise.slug === "dotnet-development" && pageData.testimonials && pageData.testimonials.length > 0 && (
+        <Testimonials />
+      )}
+
       {pageData.engagementModels && (
         <EngagementModels
           title={pageData.engagementModels.title}
           subtitle={pageData.engagementModels.subtitle}
           models={pageData.engagementModels.models}
         />
+      )}
+
+      {/* Mid-page CTA for dotnet */}
+      {expertise.slug === "dotnet-development" && (
+        <section className="relative py-16 sm:py-24 bg-base">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
+                Discuss Your <span className="text-highlight">.NET Project</span>
+              </h2>
+              <p className="text-lg text-text-secondary mb-8">
+                Whether modernizing legacy systems or building new&mdash;we&rsquo;re happy to talk through your situation.
+              </p>
+              <a
+                href="#book-call"
+                className="inline-flex items-center px-8 py-3 rounded-lg bg-cta text-cta-text font-semibold hover:brightness-110 transition-all"
+              >
+                Schedule a Call
+                <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </a>
+              <p className="text-sm text-text-muted mt-4">No sales pitch. Just an honest conversation.</p>
+            </motion.div>
+          </div>
+        </section>
       )}
 
       {pageData.riskReversal && (
@@ -399,7 +464,12 @@ export default function ExpertisePageClient({
         </div>
       </section>
 
-      {pageData.faqs.length > 0 && <FAQSection faqs={pageData.faqs} />}
+      {pageData.faqs.length > 0 && (
+        <FAQSection
+          title={expertise.slug === "dotnet-development" ? ".NET Development Services FAQ" : undefined}
+          faqs={pageData.faqs}
+        />
+      )}
 
       {relatedPages.length > 0 && <RelatedExpertise pages={relatedPages} />}
     </main>

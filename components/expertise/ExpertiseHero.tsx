@@ -1,6 +1,7 @@
 "use client";
 
 import { PageHero } from "@/components/ui";
+import { ReactNode } from "react";
 
 interface ExpertiseHeroProps {
   badge: string;
@@ -16,6 +17,7 @@ interface ExpertiseHeroProps {
     text: string;
     href: string;
   };
+  children?: ReactNode;
 }
 
 export function ExpertiseHero({
@@ -26,6 +28,7 @@ export function ExpertiseHero({
   description,
   primaryCTA = { text: "Talk to the Team", href: "#book-call" },
   secondaryCTA,
+  children,
 }: ExpertiseHeroProps) {
   return (
     <PageHero
@@ -37,6 +40,8 @@ export function ExpertiseHero({
       description={description}
       primaryCTA={primaryCTA}
       secondaryCTA={secondaryCTA}
-    />
+    >
+      {children}
+    </PageHero>
   );
 }

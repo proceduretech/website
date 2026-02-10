@@ -1,78 +1,95 @@
 ---
 title: ".NET Development Services"
-headline: "Enterprise .NET Development for Mission-Critical Systems"
-description: "We design and modernize production-grade .NET applications that scale under real-world load, integrate cleanly with enterprise ecosystems, and remain maintainable for years—not just initial release cycles."
+headline: "Custom .NET Development Services"
+headlineAccent: "for Mission-Critical Systems"
+description: "Production-grade .NET applications that scale, integrate cleanly, and stay maintainable for years. Certified engineers who work as your team—not a detached vendor."
 capabilities:
   - title: "Custom .NET Application Development"
-    description: "Design and build enterprise-grade ASP.NET Core applications and APIs engineered for reliability, security, and sustained growth."
+    description: "Enterprise-grade web applications, APIs, and backend systems using ASP.NET Core, C#, and Entity Framework. Architected for security and long-term maintainability."
     icon: "api"
-  - title: "Legacy .NET Modernization & Migration"
-    description: "Incremental modernization from .NET Framework to modern .NET runtimes using low-risk migration strategies without disrupting production."
+  - title: ".NET Modernization & Migration"
+    description: "Migrate from .NET Framework 4.x to .NET 8 without production downtime. Incremental strategies—strangler fig, containerization—to reduce risk while unlocking modern performance."
     icon: "workflow"
-  - title: ".NET Microservices & Distributed Systems"
-    description: "Architect distributed .NET systems with clear service boundaries, independent deployments, and resilience under sustained traffic."
+  - title: ".NET Microservices Architecture"
+    description: "Distributed .NET systems with clear service boundaries, independent deployments, and built-in resilience. Monolith decomposition done right."
     icon: "layers"
-  - title: "Cloud-Native .NET Application Development"
-    description: "Build cloud-ready .NET systems optimized for managed environments with infrastructure, observability, and scalability built in."
+  - title: "Cloud-Native .NET Development"
+    description: "Cloud-native .NET applications for Azure, AWS, or GCP. Infrastructure-as-code, CI/CD pipelines, and observability baked in from day one."
     icon: "cloud"
-  - title: ".NET Performance Engineering & Optimization"
-    description: "Identify and resolve performance bottlenecks at code and system levels to maintain responsiveness under high concurrency."
+  - title: ".NET Performance Optimization"
+    description: "Diagnose and fix performance bottlenecks in existing .NET applications. Memory profiling, query optimization, caching strategies, async tuning."
     icon: "chart"
-  - title: ".NET Architecture & Technical Advisory"
-    description: "Provide architectural reviews, codebase assessments, and technical direction grounded in real production experience."
+  - title: ".NET Consulting & Advisory"
+    description: "Architectural reviews, codebase assessments, and technical direction from engineers with production experience. Validate decisions before major investments."
     icon: "building"
 technologies:
   - .NET 8
   - ASP.NET Core
   - C#
   - Entity Framework Core
+  - Blazor
   - Azure
+  - AWS
   - SQL Server
   - PostgreSQL
   - Redis
+  - Azure Cosmos DB
   - Docker
   - Kubernetes
-  - MediatR
+  - Terraform
+  - GitHub Actions
+  - Azure DevOps
+  - Application Insights
   - Serilog
+  - OpenTelemetry
+  - RabbitMQ
+  - Azure Service Bus
+  - MediatR
+  - MassTransit
 relatedExpertise:
   - backend-development
   - cloud
   - kubernetes
 whoWeWorkWith:
-  title: "When .NET Development Services Are the Right Choice"
+  title: "When to Choose .NET Development Services"
   audiences:
     - icon: "rocket"
       title: "Founders & Business Leaders"
-      subtitle: ".NET development services are the right choice when:"
+      subtitle: "Consider .NET when:"
       bullets:
-        - "Enterprise-grade reliability and security are required from day one"
-        - "APIs must scale predictably with user growth without architectural rewrites"
-        - "Long-term platform stability and Microsoft ecosystem support influence risk decisions"
-        - "Customers expect Microsoft-stack compliance and enterprise familiarity"
+        - "Enterprise customers will scrutinize your product for security and compliance"
+        - "You need predictable scaling without re-architecting every 18 months"
+        - "You want a stack with 20+ years of Microsoft backing and a large talent pool"
+        - "Your target customers already run on Microsoft ecosystems"
     - icon: "code"
       title: "CTOs & Engineering Leaders"
-      subtitle: ".NET development services are the right choice when:"
+      subtitle: ".NET makes sense when:"
       bullets:
-        - "Type-safe codebases are required for long-term maintainability at scale"
-        - "High-performance systems must operate reliably under sustained production load"
-        - "Azure-native integration is required for cloud-first .NET application development"
-        - "Architecture decisions must actively control technical debt over time"
+        - "Strong typing and compile-time safety matter for complex domain logic"
+        - "Performance requirements demand a runtime that competes with Go and Rust"
+        - "Your team values mature tooling—Visual Studio, Rider, robust debugging"
+        - "LTS releases align with your maintenance and upgrade cycles"
     - icon: "target"
       title: "Product Leaders & Platform Owners"
-      subtitle: ".NET development services are the right choice when:"
+      subtitle: ".NET is strategic when:"
       bullets:
-        - "Faster iteration is enabled through compile-time safety and fewer runtime errors"
-        - "Applications must run consistently across Windows, Linux, and containerized environments"
-        - "Predictable release cycles are required with reduced production incidents"
-        - "Security and compliance requirements must be met without slowing product delivery"
+        - "Building internal platforms that need to outlast individual team tenures"
+        - "Backward compatibility matters—.NET's migration path is predictable"
+        - "You need enterprise integrations (Active Directory, SQL Server, Dynamics)"
+        - "Multiple deployment targets: cloud, on-prem, hybrid, edge"
   commonApplications:
-    title: "Common Applications Where .NET Excels"
+    title: "What Teams Build With .NET"
     items:
-      - "Enterprise line-of-business systems with complex workflows"
-      - "High-volume API backends handling sustained traffic"
-      - "Legacy .NET platforms evolving toward modern runtimes"
-      - "Cloud-based SaaS platforms operating in managed environments"
-      - "Long-lived enterprise products requiring predictable evolution"
+      - title: "Enterprise Applications"
+        description: "ERP extensions, CRM integrations, workflow automation, internal tools"
+      - title: "API Backends"
+        description: "High-throughput REST APIs, gRPC services, event-driven systems"
+      - title: "SaaS Platforms"
+        description: "Multi-tenant apps, subscription billing, customer portals"
+      - title: "Legacy Modernization"
+        description: ".NET Framework migrations, monolith decomposition"
+      - title: "Regulated Industries"
+        description: "Financial services, healthcare, compliance-heavy systems"
 philosophy:
   title: "Our Philosophy on Building with .NET"
   subtitle: "We approach .NET development as long-term system engineering, not short-term delivery. Every decision is made with production reality, system ownership, and future evolution in mind."
@@ -88,8 +105,8 @@ philosophy:
     - title: "Intentional Technical Debt Management"
       description: "Trade-offs are made consciously, documented clearly, and revisited deliberately. Technical debt is managed as a strategic decision—not an accident that compounds over time."
 architecture:
-  title: "Architecture for Long-Lived .NET Systems"
-  subtitle: "Our .NET architectures are designed to withstand years of product evolution, framework upgrades, and infrastructure change—without forcing rewrites or destabilizing core business logic. The goal is predictable change, not fragile growth."
+  title: "How We Architect .NET Applications"
+  subtitle: "Clean Architecture principles—business logic independent of frameworks, databases, and delivery mechanisms. When .NET 10 arrives or you swap databases, your core code doesn't change."
   layers:
     - name: "Domain Layer"
       description: "Encapsulates core business rules and domain models in stable logic, isolated from frameworks and infrastructure."
@@ -99,41 +116,48 @@ architecture:
       description: "Contains external dependencies such as databases, messaging, and integrations behind abstractions."
     - name: "API Layer"
       description: "Acts as a thin interface for external communication, keeping business logic independent of delivery mechanisms."
+testimonials:
+  - name: "Engineering Leader"
+    role: "Director of Engineering"
+    company: "Fintech Platform"
+    quote: "Modernized our legacy .NET platform while feature delivery continued. The team handled risk thoughtfully and operated like senior engineers embedded in our organization."
 engagementModels:
-  title: "Engagement Options"
-  subtitle: "Designed to align ownership, risk, and delivery responsibility with your product's needs."
+  title: ".NET Engagement Models"
+  subtitle: "Choose the model that fits your project. All engagements start with discovery—no long-term commitment required."
   models:
-    - title: "Dedicated .NET Product Team"
-      description: "A long-term engineering partnership with shared accountability and deep domain alignment."
-      bestFor: "Long-lived products and complex enterprise platforms"
+    - title: "Dedicated .NET Team"
+      description: "Full-time engineers as an extension of your organization. Shared accountability for outcomes."
+      bestFor: "Long-lived products, complex platforms, scaling capacity"
     - title: "Project-Based .NET Delivery"
-      description: "Clearly scoped engagements focused on delivering defined outcomes within agreed boundaries."
-      bestFor: "Modernization initiatives and well-defined milestones"
-    - title: ".NET Architecture & Technical Advisory"
-      description: "Targeted guidance to validate direction, assess risk, or unblock critical decisions."
-      bestFor: "Technical due diligence and architectural validation"
-    - title: "Ongoing Product Ownership"
-      description: "End-to-end responsibility for system evolution, maintenance, and operational stability."
-      bestFor: "Teams prioritizing business growth over internal engineering scale-up"
+      description: "Fixed-scope engagement with clear deliverables, timeline, and budget."
+      bestFor: "Modernization, MVP development, defined feature builds"
+    - title: ".NET Consulting & Advisory"
+      description: "Targeted expertise: architecture reviews, migration planning, performance audits."
+      bestFor: "Technical due diligence, pre-investment validation"
+    - title: "Ongoing .NET Product Ownership"
+      description: "Full responsibility for your .NET product—development, maintenance, operations."
+      bestFor: "Non-technical founders, teams focused on business growth"
 riskReversal:
-  title: "Why Teams Choose Us for Critical .NET Systems"
-  subtitle: "When reliability, maintainability, and long-term ownership matter more than speed alone."
+  title: "Why Teams Choose Us for .NET Projects"
+  subtitle: "We're not the cheapest option. We're the option when the system matters too much to get wrong."
   variant: "split"
   leftTriggers:
-    - "A legacy .NET system is becoming a bottleneck"
-    - "Architectural decisions are compounding risk"
-    - "Previous vendors delivered features but left fragile systems"
-    - "Technical direction needs validation before major investment"
-    - "Delivery requires ownership, not just execution"
+    - "Legacy .NET Framework system blocking cloud migration"
+    - "Previous vendor left code but no documentation"
+    - "Internal team stretched, need senior .NET expertise fast"
+    - "Architecture needs validation before major investment"
+    - "Need a partner who owns outcomes, not just tasks"
   rightBlocks:
-    - title: "Discovery before commitment"
-      description: "Focused system assessment before scale"
+    - title: "Discovery first"
+      description: "Honest assessment before you commit"
     - title: "Pilot before expansion"
-      description: "Contained delivery on real codebases"
-    - title: "Phased delivery with exit control"
-      description: "Progress without lock-in"
+      description: "Start contained, prove fit on real code"
     - title: "No vendor lock-in"
-      description: "Full code and documentation ownership"
+      description: "You own 100% of code, docs, and infra"
+    - title: "Transparent communication"
+      description: "Weekly syncs, full visibility"
+    - title: "Exit-ready always"
+      description: "Every milestone leaves working software"
   closingNote: "No long-term contract required to begin. Discovery and pilot engagements available as starting points."
 ctaTestimonial:
   name: "Engineering Leader"
@@ -141,6 +165,16 @@ ctaTestimonial:
   company: "Fintech Platform"
   quote: "Modernized our legacy .NET platform while feature delivery continued. The team handled risk thoughtfully and operated like senior engineers embedded in our organization."
 faqs:
+  - question: "What is the typical cost of .NET development services?"
+    answer: "Depends on scope and model. Discovery engagements typically run $5,000–$15,000 over 1–2 weeks. MVPs range from $50,000–$150,000 over 6–12 weeks. Full enterprise applications range from $150,000–$500,000+ over 4–12 months. Dedicated teams run $25,000–$80,000/month. We provide detailed estimates after discovery with no hidden fees."
+  - question: "How long does .NET development take?"
+    answer: "Timelines depend on complexity. Simple APIs take 4–6 weeks. MVPs typically take 8–12 weeks. Full enterprise applications require 4–8 months for initial release. Legacy modernization projects span 3–12 months depending on system size. We work in sprints with continuous releases so you see progress early."
+  - question: "Do you offer .NET staff augmentation?"
+    answer: "Yes. Senior .NET engineers who integrate with your team—your repos, your processes, your standups. This works well when you have technical leadership but need capacity. For teams needing technical direction, a dedicated team model is usually a better fit."
+  - question: "What industries have you built .NET systems for?"
+    answer: "Financial services (payment processing, trading, regulatory reporting), healthcare (patient portals, claims, HIPAA-compliant systems), SaaS (multi-tenant platforms, subscription billing), and enterprise (internal tools, workflow automation, ERP integrations). Our engineers adapt quickly to new domains."
+  - question: "How do you compare to other .NET development companies?"
+    answer: "We're not the largest or cheapest. What's different: senior engineers only—no juniors learning on your project. Ownership mindset—outcomes, not just features. Transparent communication—you always know what's happening. No lock-in—you own everything, easy to leave. US + India presence—timezone coverage and cost efficiency."
   - question: "Is .NET suitable for enterprise and mission-critical systems?"
     answer: "Yes. .NET is widely adopted for enterprise applications due to its strong type system, high-throughput runtime, and long-term Microsoft support (LTS releases supported 3+ years). The ecosystem includes mature libraries for security, data access, and enterprise integration. Organizations like Stack Overflow and major financial institutions run core systems on .NET."
   - question: "Can modern .NET applications scale with growing demand?"
@@ -148,7 +182,7 @@ faqs:
   - question: "Do you work with existing or legacy .NET systems?"
     answer: "Yes. Much of our work involves existing systems—modernizing .NET Framework applications, refactoring monoliths, or migrating to modern runtimes. We use incremental approaches like strangler fig patterns so teams continue shipping features while modernization happens in parallel, without large-scale rewrites."
   - question: "How risky is migrating from .NET Framework to modern .NET?"
-    answer: "Risk depends on system complexity and architecture. Well-structured systems with clear boundaries migrate more smoothly. The key is incremental migration—extracting components one at a time and validating each in production. We assess codebases before proposing paths. Many migrations complete in 3-6 months while development continues."
+    answer: "What reduces risk: Microsoft's .NET Upgrade Assistant automates mechanical work. Incremental strategies (strangler fig) let you migrate piece by piece. Side-by-side deployment allows old and new to coexist. What increases risk: heavy Windows-specific APIs (WCF, legacy WinForms), tightly coupled architecture, and missing tests (we often write tests first). Most migrations complete in 3–6 months without production incidents."
   - question: "Is .NET suitable for cloud-native and cross-platform applications?"
     answer: "Yes. Modern .NET runs on Windows, Linux, and macOS, and is commonly deployed in Docker containers orchestrated through Kubernetes. Azure, AWS, and GCP all offer first-class .NET support. The runtime is optimized for containerized environments with fast startup and low memory footprint."
   - question: "How do you ensure long-term maintainability of .NET systems?"
@@ -156,12 +190,12 @@ faqs:
   - question: "When should teams seek external .NET expertise?"
     answer: "When systems become business-critical and architectural decisions carry long-term consequences. When modernization is needed but internal teams lack bandwidth. When previous development left fragile code needing stabilization. Or when stakeholders need independent validation before committing resources."
 cta:
-  title: "Review Your .NET System With Senior Engineers"
-  description: "A focused conversation to evaluate your current .NET system, identify risks, and clarify next steps—before any long-term commitment.\n\nYou'll speak directly with engineers who design and modernize production .NET systems, not sales representatives."
+  title: "Ready to Discuss Your .NET Development Services Project?"
+  description: "Talk directly with engineers—not sales. We'll assess fit and give honest next steps."
   buttonText: "Request a .NET Architecture Review"
   buttonLink: "/contact-us"
   supportingNote: "No obligation. No pressure. Clear technical direction."
 seo:
-  title: ".NET Development Services | Scalable .NET Applications | Procedure"
-  description: "Enterprise .NET development services from Procedure. Scalable .NET applications, legacy .NET modernization, .NET microservices architecture, Azure deployment. Production-grade systems for fintech and healthcare."
+  title: "Custom .NET Development Services | Enterprise ASP.NET Core Applications"
+  description: "Custom .NET development services for enterprise applications. We build, modernize, and scale production-grade ASP.NET Core systems. Certified engineers. Discovery engagements available."
 ---
