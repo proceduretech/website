@@ -117,21 +117,14 @@ export function EngagementModels({
                       {model.description}
                     </p>
 
-                    {/* Best for tag */}
-                    <div
-                      className={cn(
-                        "inline-flex items-center gap-2 px-3 py-1.5 rounded-full",
-                        "bg-accent/8 border border-accent/15",
-                        "group-hover:bg-accent/12 group-hover:border-accent/25",
-                        "transition-all duration-300"
-                      )}
-                    >
+                    {/* Best for */}
+                    <div className="pt-4 mt-auto border-t border-border/60">
                       <span className="text-[11px] font-semibold text-text-muted uppercase tracking-wider">
                         Best for
                       </span>
-                      <span className="text-sm text-accent-light font-medium">
+                      <p className="text-sm text-accent-light mt-1 leading-relaxed">
                         {model.bestFor}
-                      </span>
+                      </p>
                     </div>
                   </div>
                 </motion.div>

@@ -74,60 +74,61 @@ export function ArchitectureSection({
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className={cn(
-              "relative rounded-2xl overflow-hidden",
-              "bg-surface-elevated border border-border",
-              "aspect-[4/3] lg:aspect-[16/10]"
+              "relative rounded-2xl",
+              "bg-surface-elevated border border-border"
             )}
           >
             {diagramSrc ? (
-              <Image
-                src={diagramSrc}
-                alt={diagramAlt}
-                fill
-                className="object-contain p-6"
-              />
+              <div className="relative aspect-[4/3] lg:aspect-[16/10] overflow-hidden rounded-2xl">
+                <Image
+                  src={diagramSrc}
+                  alt={diagramAlt}
+                  fill
+                  className="object-contain p-6"
+                />
+              </div>
             ) : (
               /* Conceptual architecture diagram - 4 layers with inward dependencies */
-              <div className="absolute inset-0 flex flex-col items-center justify-center p-6">
-                <div className="relative w-full max-w-[340px] aspect-square">
+              <div className="flex flex-col items-center px-6 pt-10 pb-8 sm:px-8 sm:pt-12 sm:pb-10">
+                <div className="relative w-full max-w-[280px] sm:max-w-[340px] aspect-square">
                   {/* Outermost layer - API */}
-                  <div className="absolute inset-0 rounded-full border border-border/60 flex items-center justify-center">
-                    <span className="absolute -top-2 left-1/2 -translate-x-1/2 text-xs font-medium text-text-muted bg-surface-elevated px-2">
+                  <div className="absolute inset-0 rounded-full border-[1.5px] border-[#1A2A45] flex items-center justify-center">
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-medium text-text-secondary bg-surface-elevated px-2.5 py-0.5 rounded-sm whitespace-nowrap">
                       API
                     </span>
                     {/* Inward arrow - top */}
-                    <svg className="absolute top-[8%] left-1/2 -translate-x-1/2 w-3.5 h-3.5 text-text-muted/60" viewBox="0 0 12 12" fill="none">
+                    <svg className="absolute top-[7%] left-1/2 -translate-x-1/2 w-4 h-4 text-text-muted" viewBox="0 0 12 12" fill="none">
                       <path d="M6 2L6 10M6 10L3 7M6 10L9 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
                   {/* Second layer - Infrastructure */}
-                  <div className="absolute inset-[12%] rounded-full border border-border/70 flex items-center justify-center">
-                    <span className="absolute -top-2 left-1/2 -translate-x-1/2 text-xs font-medium text-text-muted bg-surface-elevated px-2">
+                  <div className="absolute inset-[12%] rounded-full border-[1.5px] border-[#1A2A45] flex items-center justify-center">
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-medium text-text-secondary bg-surface-elevated px-2.5 py-0.5 rounded-sm whitespace-nowrap">
                       Infrastructure
                     </span>
                     {/* Inward arrow - top */}
-                    <svg className="absolute top-[8%] left-1/2 -translate-x-1/2 w-3.5 h-3.5 text-text-muted/60" viewBox="0 0 12 12" fill="none">
+                    <svg className="absolute top-[7%] left-1/2 -translate-x-1/2 w-4 h-4 text-text-muted" viewBox="0 0 12 12" fill="none">
                       <path d="M6 2L6 10M6 10L3 7M6 10L9 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
                   {/* Third layer - Application */}
-                  <div className="absolute inset-[24%] rounded-full border border-accent/30 flex items-center justify-center">
-                    <span className="absolute -top-2 left-1/2 -translate-x-1/2 text-xs font-medium text-text-muted bg-surface-elevated px-2">
+                  <div className="absolute inset-[24%] rounded-full border-[1.5px] border-[#1D9B69]/40 flex items-center justify-center">
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-medium text-text-secondary bg-surface-elevated px-2.5 py-0.5 rounded-sm whitespace-nowrap">
                       Application
                     </span>
                     {/* Inward arrow - top */}
-                    <svg className="absolute top-[8%] left-1/2 -translate-x-1/2 w-3.5 h-3.5 text-accent/50" viewBox="0 0 12 12" fill="none">
+                    <svg className="absolute top-[7%] left-1/2 -translate-x-1/2 w-4 h-4 text-[#1D9B69]/60" viewBox="0 0 12 12" fill="none">
                       <path d="M6 2L6 10M6 10L3 7M6 10L9 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
                   {/* Innermost layer - Domain (protected core) */}
-                  <div className="absolute inset-[38%] rounded-full bg-accent/10 border border-accent/50 flex items-center justify-center">
+                  <div className="absolute inset-[38%] rounded-full bg-[#1D9B69]/10 border-[1.5px] border-[#1D9B69]/50 flex items-center justify-center">
                     <span className="text-sm text-accent-light font-semibold">
                       Domain
                     </span>
                   </div>
                 </div>
-                <p className="mt-5 text-sm text-text-secondary text-center max-w-[260px]">
+                <p className="mt-6 text-sm text-text-secondary text-center max-w-[280px]">
                   Dependencies point inward to protect core business logic.
                 </p>
               </div>

@@ -116,7 +116,7 @@ export function RiskReversal({
                 >
                   <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-accent mt-2" />
                   <div>
-                    <span className="text-text-primary font-medium">
+                    <span className="text-text-primary">
                       {block.title}
                     </span>
                     <span className="text-text-muted"> — </span>
@@ -138,7 +138,7 @@ export function RiskReversal({
               transition={{ duration: 0.5, delay: 0.3 }}
               className="mt-12 pt-8 border-t border-border text-center"
             >
-              <p className="text-text-secondary text-sm sm:text-base max-w-2xl mx-auto">
+              <p className="text-text-secondary text-sm sm:text-base max-w-3xl mx-auto">
                 {closingNote}
               </p>
             </motion.div>
