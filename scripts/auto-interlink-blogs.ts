@@ -10,6 +10,13 @@
  * Usage: npx tsx scripts/auto-interlink-blogs.ts
  */
 
+interface BlogPost {
+  title?: string;
+  text?: string;
+  pageId?: string;
+  url?: string;
+}
+
 interface LinkOpportunity {
   pageId: string;
   pageTitle: string;
@@ -73,7 +80,7 @@ const CONTENT_CLUSTERS: Record<string, string[]> = {
 /**
  * Analyze blog post content and find interlinking opportunities
  */
-function analyzeBlogPost(post: any): LinkOpportunity {
+function analyzeBlogPost(post: BlogPost): LinkOpportunity {
   const content = post.text?.toLowerCase() || '';
   const title = post.title?.toLowerCase() || '';
   const suggestions: LinkSuggestion[] = [];
