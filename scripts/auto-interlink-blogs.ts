@@ -122,7 +122,7 @@ function analyzeBlogPost(post: BlogPost): LinkOpportunity {
   }
 
   return {
-    pageId: post.id,
+    pageId: post.pageId || '',
     pageTitle: post.title || 'Untitled',
     pageUrl: post.url || '',
     suggestions
