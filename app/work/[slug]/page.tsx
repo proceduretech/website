@@ -24,6 +24,21 @@ export async function generateStaticParams() {
   return slugs.map((slug) => ({ slug }));
 }
 
+// Default OG image configuration
+const defaultOgImage = {
+  url: "/og-image.png",
+  width: 1200,
+  height: 630,
+  alt: "Procedure - AI Engineering Services",
+};
+
+// Helper to check if an image URL is valid (not a temporary Notion URL)
+function isValidOgImage(url: string | null | undefined): boolean {
+  if (!url) return false;
+  if (url.includes("amazonaws.com") || url.includes("notion.so")) return false;
+  return true;
+}
+
 /**
  * Generate metadata for each case study page
  */
@@ -39,14 +54,36 @@ export async function generateMetadata({
     };
   }
 
+  // Use case study image if valid, otherwise fall back to default
+  const ogImage = isValidOgImage(caseStudy.image)
+    ? {
+        url: caseStudy.image,
+        width: 1200,
+        height: 630,
+        alt: caseStudy.title,
+      }
+    : defaultOgImage;
+
   return {
     title: `${caseStudy.title} | Case Study | Procedure`,
     description: caseStudy.description,
+    alternates: {
+      canonical: `/work/${slug}`,
+    },
     openGraph: {
       title: `${caseStudy.title} | Case Study`,
       description: caseStudy.description,
       type: "article",
-      images: [caseStudy.image],
+      url: `/work/${slug}`,
+      images: [ogImage],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${caseStudy.title} | Case Study`,
+      description: caseStudy.description,
+      images: [ogImage],
+      site: "@procedurehq",
+      creator: "@procedurehq",
     },
   };
 }
