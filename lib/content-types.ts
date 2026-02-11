@@ -34,6 +34,7 @@ export interface CTABlock {
   description?: string;
   buttonText: string;
   buttonLink: string;
+  supportingNote?: string;
 }
 
 // =============================================================================
@@ -137,12 +138,19 @@ export interface ExpertiseFrontmatter extends BaseFrontmatter {
   cta?: CTABlock;
   // Optional frontend-specific sections
   whoWeWorkWith?: {
+    title?: string;
     audiences: Array<{
       icon: string;
       title: string;
-      description: string;
+      subtitle?: string;
+      description?: string;
+      bullets?: string[];
     }>;
     closingStatement?: string;
+    commonApplications?: {
+      title: string;
+      items: string[];
+    };
   };
   process?: Array<{
     number: number;
@@ -150,13 +158,18 @@ export interface ExpertiseFrontmatter extends BaseFrontmatter {
     description: string;
     icon?: string;
   }>;
+  useCasesSubtitle?: string;
   useCases?: Array<{
     icon: string;
     title: string;
     description: string;
   }>;
   whyChoose?: {
+    title?: string;
+    subtitle?: string;
+    reasonsTitle?: string;
     reasons: string[];
+    outcomesTitle?: string;
     outcomes: Array<{
       value: string;
       label: string;
@@ -170,6 +183,39 @@ export interface ExpertiseFrontmatter extends BaseFrontmatter {
     benefits: Array<{
       title: string;
     }>;
+  };
+  architecture?: {
+    title: string;
+    subtitle?: string;
+    diagramSrc?: string;
+    layers: Array<{
+      name: string;
+      description: string;
+    }>;
+  };
+  engagementModels?: {
+    title?: string;
+    subtitle?: string;
+    models: Array<{
+      title: string;
+      description: string;
+      bestFor: string;
+    }>;
+  };
+  riskReversal?: {
+    title?: string;
+    subtitle?: string;
+    items: Array<{
+      title: string;
+      description: string;
+    }>;
+    closingNote?: string;
+  };
+  ctaTestimonial?: {
+    name: string;
+    role: string;
+    company: string;
+    quote: string;
   };
 }
 

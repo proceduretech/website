@@ -209,8 +209,7 @@ export function ValueProposition() {
           </div>
         </m.div>
       </div>
-    </section>
-  );
+      </section>
     </LazyMotion>
   );
 }

@@ -31,7 +31,7 @@ export function ClientLogos() {
     <LazyMotion features={domAnimation}>
       <div className="mt-10 sm:mt-12">
         <p className="text-sm text-text-muted mb-6 text-center">
-          Trusted by innovative teams
+          Trusted by engineering teams at
         </p>
         <div
           className="relative overflow-hidden py-4"

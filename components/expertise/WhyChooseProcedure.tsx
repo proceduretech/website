@@ -11,6 +11,7 @@ interface Outcome {
 interface WhyChooseProcedureProps {
   title?: string;
   subtitle?: string;
+  reasonsTitle?: string;
   reasons: string[];
   outcomesTitle?: string;
   outcomes: Outcome[];
@@ -48,6 +49,7 @@ const outcomeVariants = {
 export function WhyChooseProcedure({
   title = "Why Choose Procedure",
   subtitle,
+  reasonsTitle = "Companies choose Procedure because:",
   reasons,
   outcomesTitle = "Outcomes from Recent Engagements",
   outcomes,
@@ -88,7 +90,7 @@ export function WhyChooseProcedure({
             )}
           >
             <h3 className="text-lg font-semibold text-text-primary mb-6">
-              Companies choose Procedure because:
+              {reasonsTitle}
             </h3>
             <ul className="space-y-4">
               {reasons.map((reason, index) => (
