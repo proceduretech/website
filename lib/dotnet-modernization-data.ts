@@ -341,7 +341,7 @@ export const relatedServices: RelatedService[] = [
     title: ".NET Staff Augmentation",
     description:
       "Need .NET developers to supplement your team? We provide senior engineers who integrate with your processes and hit the ground running.",
-    href: "/services/staff-augmentation",
+    href: "/technologies/dotnet/staff-augmentation",
   },
   {
     title: "Cloud Architecture",

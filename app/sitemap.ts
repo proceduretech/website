@@ -116,9 +116,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  // Technology subpages (modernization, etc.)
+  // Technology subpages
   entries.push({
     url: `${BASE_URL}/technologies/dotnet/modernization`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.9,
+  });
+  entries.push({
+    url: `${BASE_URL}/technologies/dotnet/staff-augmentation`,
     lastModified: new Date(),
     changeFrequency: "weekly",
     priority: 0.9,
