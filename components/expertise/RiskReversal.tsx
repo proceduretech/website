@@ -116,7 +116,7 @@ export function RiskReversal({
                 >
                   <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-accent mt-2" />
                   <div>
-                    <span className="text-text-primary">
+                    <span className="text-text-secondary">
                       {block.title}
                     </span>
                     <span className="text-text-muted"> — </span>
