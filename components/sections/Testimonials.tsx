@@ -115,8 +115,7 @@ export function Testimonials() {
           ))}
         </div>
       </div>
-    </section>
-  );
+      </section>
     </LazyMotion>
   );
 }
