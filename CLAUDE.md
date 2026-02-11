@@ -9,6 +9,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint
 
+## Pre-Push Checklist
+
+**Before pushing any commits, you MUST:**
+
+1. **Run the build**: `npm run build` - Ensure TypeScript compilation and build pass without errors
+2. **Run lint**: `npm run lint` - Fix any linting errors (warnings are acceptable)
+
 ## Pre-PR Checklist
 
 **Before creating a Pull Request, you MUST:**
