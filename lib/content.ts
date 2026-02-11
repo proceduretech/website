@@ -351,6 +351,33 @@ export function getAllTechnologySlugsFromContent(): string[] {
 }
 
 /**
+ * Auto-discover all technology page routes by scanning app/technologies/ for page.tsx files
+ * Returns paths like: ["dotnet", "dotnet/modernization", "dotnet/staff-augmentation"]
+ */
+export function getAllTechnologyRoutes(): string[] {
+  const techDir = path.join(process.cwd(), "app", "technologies");
+  if (!fs.existsSync(techDir)) return [];
+
+  const routes: string[] = [];
+
+  function scanDir(dir: string, prefix: string) {
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
+    const hasPage = entries.some((e) => e.isFile() && e.name === "page.tsx");
+    if (hasPage && prefix) {
+      routes.push(prefix);
+    }
+    for (const entry of entries) {
+      if (entry.isDirectory() && !entry.name.startsWith("[")) {
+        scanDir(path.join(dir, entry.name), prefix ? `${prefix}/${entry.name}` : entry.name);
+      }
+    }
+  }
+
+  scanDir(techDir, "");
+  return routes;
+}
+
+/**
  * Get a technology page in the ExpertisePageForListing format
  * (same shape as expertise pages for component compatibility)
  */
