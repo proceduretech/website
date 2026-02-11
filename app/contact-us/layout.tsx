@@ -24,6 +24,19 @@ export const metadata: Metadata = {
   },
 };
 
+const contactPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "@id": "https://procedure.tech/contact-us/#contactpage",
+  url: "https://procedure.tech/contact-us",
+  name: "Contact Procedure",
+  description:
+    "Contact the Procedure team for AI, product engineering, and development consulting.",
+  publisher: {
+    "@id": "https://procedure.tech/#organization",
+  },
+};
+
 const contactFAQSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -73,6 +86,13 @@ export default function ContactLayout({
       {/* Preconnect to Cal.com for faster calendar widget loading */}
       <link rel="preconnect" href="https://app.cal.com" />
       <link rel="dns-prefetch" href="https://app.cal.com" />
+      <Script
+        id="contact-page-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(contactPageSchema),
+        }}
+      />
       <Script
         id="contact-faq-schema"
         type="application/ld+json"

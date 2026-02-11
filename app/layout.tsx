@@ -119,11 +119,17 @@ export default function RootLayout({
       "https://in.linkedin.com/company/procedurehq",
       "https://x.com/procedurehq",
       "https://github.com/proceduretech",
+      "https://www.instagram.com/procedure_hq/",
+      "https://clutch.co/profile/procedure-technologies-private",
+      "https://www.goodfirms.co/company/procedure-technologies",
     ],
     address: [
       {
         "@type": "PostalAddress",
+        streetAddress: "406, Srishti Square, Lal Bahadur Shastri Marg",
         addressLocality: "Mumbai",
+        addressRegion: "Maharashtra",
+        postalCode: "400078",
         addressCountry: "IN",
       },
       {
@@ -133,12 +139,17 @@ export default function RootLayout({
         addressCountry: "US",
       },
     ],
-    contactPoint: {
-      "@type": "ContactPoint",
-      contactType: "sales",
-      email: "hello@procedure.tech",
-      availableLanguage: ["English"],
-    },
+    telephone: "+91-97666-16776",
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: "+91-97666-16776",
+        email: "hello@procedure.tech",
+        contactType: "sales",
+        areaServed: ["United States", "Europe", "India"],
+        availableLanguage: ["English"],
+      },
+    ],
     founder: [
       {
         "@type": "Person",
@@ -168,6 +179,50 @@ export default function RootLayout({
       "LLM Applications",
       "Software Engineering",
       "Cloud Computing",
+    ],
+    service: [
+      {
+        "@type": "Service",
+        serviceType: "AI Engineering",
+        description:
+          "Model evaluation, prompt engineering, RAG, agents, and fine-tuning for production-ready AI.",
+      },
+      {
+        "@type": "Service",
+        serviceType: "Software Engineering",
+        description:
+          "Backend and full-stack development, APIs, integrations, and cloud architecture.",
+      },
+      {
+        "@type": "Service",
+        serviceType: "Product Design",
+        description:
+          "End-to-end UX/UI design, prototyping, design systems, and user experience strategy.",
+      },
+      {
+        "@type": "Service",
+        serviceType: "DevOps & MLOps",
+        description:
+          "Infrastructure as code, CI/CD pipelines, model lifecycle management, and scalability.",
+      },
+      {
+        "@type": "Service",
+        serviceType: "Front-End Development",
+        description:
+          "Custom web applications, progressive web apps, and modern front-end frameworks.",
+      },
+      {
+        "@type": "Service",
+        serviceType: "Software Testing & QA",
+        description:
+          "Comprehensive QA processes including automation, performance, and functional testing.",
+      },
+      {
+        "@type": "Service",
+        serviceType: "Mobile App Development",
+        description:
+          "Native and cross-platform mobile apps for Android and iOS.",
+      },
     ],
   };
 
@@ -215,6 +270,27 @@ export default function RootLayout({
           },
         },
       ],
+    },
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://procedure.tech/#website",
+    url: "https://procedure.tech",
+    name: "Procedure",
+    description:
+      "AI, product design, and software development consulting studio.",
+    publisher: {
+      "@id": "https://procedure.tech/#organization",
+    },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: "https://procedure.tech/blogs?q={search_term_string}",
+      },
+      "query-input": "required name=search_term_string",
     },
   };
 
@@ -351,6 +427,7 @@ export default function RootLayout({
 
         <JsonLd data={organizationSchema} />
         <JsonLd data={serviceSchema} />
+        <JsonLd data={websiteSchema} />
         <JsonLd data={faqSchema} />
       </head>
       <body className={`${outfit.variable} ${inter.variable} antialiased`}>
