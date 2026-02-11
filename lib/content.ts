@@ -537,6 +537,9 @@ export interface ExpertisePageForListing {
   cta: {
     headline: string;
     description: string;
+    buttonText?: string;
+    buttonLink?: string;
+    supportingNote?: string;
   };
   faqs: Array<{
     question: string;
@@ -549,12 +552,19 @@ export interface ExpertisePageForListing {
     quote: string;
   }>;
   whoWeWorkWith?: {
+    title?: string;
     audiences: Array<{
       icon: string;
       title: string;
-      description: string;
+      subtitle?: string;
+      description?: string;
+      bullets?: string[];
     }>;
     closingStatement?: string;
+    commonApplications?: {
+      title: string;
+      items: (string | { title: string; description: string })[];
+    };
   };
   process?: Array<{
     number: number;
@@ -562,16 +572,29 @@ export interface ExpertisePageForListing {
     description: string;
     icon?: string;
   }>;
+  useCasesSubtitle?: string;
   useCases?: Array<{
     icon: string;
     title: string;
     description: string;
   }>;
   whyChoose?: {
+    title?: string;
+    subtitle?: string;
+    reasonsTitle?: string;
     reasons: string[];
+    outcomesTitle?: string;
     outcomes: Array<{
       value: string;
       label: string;
+    }>;
+  };
+  philosophy?: {
+    title: string;
+    subtitle?: string;
+    blocks: Array<{
+      title: string;
+      description: string;
     }>;
   };
   qualityMatters?: {
@@ -582,6 +605,45 @@ export interface ExpertisePageForListing {
     benefits: Array<{
       title: string;
     }>;
+  };
+  architecture?: {
+    title: string;
+    subtitle?: string;
+    diagramSrc?: string;
+    layers: Array<{
+      name: string;
+      description: string;
+    }>;
+  };
+  engagementModels?: {
+    title?: string;
+    subtitle?: string;
+    models: Array<{
+      title: string;
+      description: string;
+      bestFor: string;
+    }>;
+  };
+  riskReversal?: {
+    title?: string;
+    subtitle?: string;
+    items?: Array<{
+      title: string;
+      description: string;
+    }>;
+    closingNote?: string;
+    variant?: "grid" | "split";
+    leftTriggers?: string[];
+    rightBlocks?: Array<{
+      title: string;
+      description: string;
+    }>;
+  };
+  ctaTestimonial?: {
+    name: string;
+    role: string;
+    company: string;
+    quote: string;
   };
   relatedExpertise: string[];
 }
@@ -677,14 +739,22 @@ export function getExpertiseForListing(
       description:
         frontmatter.cta?.description ||
         "Talk to our engineers about your project.",
+      buttonText: frontmatter.cta?.buttonText,
+      buttonLink: frontmatter.cta?.buttonLink,
+      supportingNote: frontmatter.cta?.supportingNote,
     },
     faqs: frontmatter.faqs || [],
     testimonials: frontmatter.testimonials || [],
     whoWeWorkWith: frontmatter.whoWeWorkWith,
     process: frontmatter.process,
+    useCasesSubtitle: frontmatter.useCasesSubtitle,
     useCases: frontmatter.useCases,
     whyChoose: frontmatter.whyChoose,
     qualityMatters: frontmatter.qualityMatters,
+    architecture: frontmatter.architecture,
+    engagementModels: frontmatter.engagementModels,
+    riskReversal: frontmatter.riskReversal,
+    ctaTestimonial: frontmatter.ctaTestimonial,
     relatedExpertise: frontmatter.relatedExpertise || [],
   };
 }

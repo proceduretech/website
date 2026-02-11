@@ -21,12 +21,14 @@ export async function generateStaticParams() {
 }
 
 // Default OG image configuration for service pages
-const defaultOgImage = {
-  url: "/og-image.png",
-  width: 1200,
-  height: 630,
-  alt: "Procedure - AI Engineering Services",
-};
+function getOgImage(title: string) {
+  return {
+    url: "/og-image.png",
+    width: 1200,
+    height: 630,
+    alt: `Procedure - ${title}`,
+  };
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
@@ -45,13 +47,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         description: service.meta.description,
         type: "website",
         url: `/services/${slug}`,
-        images: [defaultOgImage],
+        images: [getOgImage(service.hero.badge)],
       },
       twitter: {
         card: "summary_large_image",
         title: service.meta.title,
         description: service.meta.description,
-        images: [defaultOgImage],
+        images: [getOgImage(service.hero.badge)],
         site: "@procedurehq",
         creator: "@procedurehq",
       },
@@ -71,13 +73,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         description: expertise.meta.description,
         type: "website",
         url: `/services/${slug}`,
-        images: [defaultOgImage],
+        images: [getOgImage(expertise.hero.badge)],
       },
       twitter: {
         card: "summary_large_image",
         title: expertise.meta.title,
         description: expertise.meta.description,
-        images: [defaultOgImage],
+        images: [getOgImage(expertise.hero.badge)],
         site: "@procedurehq",
         creator: "@procedurehq",
       },
