@@ -141,6 +141,13 @@ export const navigationData = {
           href: "/services/software-testing-and-qa",
           icon: "checkCircle",
         },
+        {
+          label: ".NET Development",
+          description:
+            "ASP.NET Core, C#, Azure, and .NET modernization services.",
+          href: "/technologies/dotnet",
+          icon: "code",
+        },
       ],
     },
     {

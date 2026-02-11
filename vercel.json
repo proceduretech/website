@@ -1,4 +1,11 @@
 {
+  "redirects": [
+    {
+      "source": "/services/dotnet-development",
+      "destination": "/technologies/dotnet",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*\\.(?:svg|jpg|jpeg|png|webp|avif|gif|ico))",

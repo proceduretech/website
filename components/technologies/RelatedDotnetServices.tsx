@@ -2,18 +2,17 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
-interface RelatedPage {
-  slug: string;
+interface RelatedService {
   title: string;
   description: string;
-  badge: string;
-  href?: string;
+  href: string;
 }
 
-interface RelatedExpertiseProps {
+interface RelatedDotnetServicesProps {
   title?: string;
-  pages: RelatedPage[];
+  services: RelatedService[];
 }
 
 const containerVariants = {
@@ -36,25 +35,27 @@ const cardVariants = {
   },
 };
 
-export function RelatedExpertise({
-  title = "Related Expertise",
-  pages,
-}: RelatedExpertiseProps) {
+export function RelatedDotnetServices({
+  title = "Related Services",
+  services,
+}: RelatedDotnetServicesProps) {
   return (
-    <section className="py-16 sm:py-24 bg-surface">
+    <section className="py-16 sm:py-24 bg-base">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-text-primary">
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-5">
             {title}
           </h2>
         </motion.div>
 
+        {/* Services grid */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -62,24 +63,22 @@ export function RelatedExpertise({
           variants={containerVariants}
           className="grid md:grid-cols-3 gap-6"
         >
-          {pages.map((page) => (
-            <motion.div key={page.slug} variants={cardVariants}>
+          {services.map((service, index) => (
+            <motion.div key={index} variants={cardVariants}>
               <Link
-                href={page.href || `/services/${page.slug}`}
-                className="block p-6 rounded-xl h-full bg-surface-elevated border border-border hover:border-accent/30 group transition-colors"
+                href={service.href}
+                className={cn(
+                  "block p-6 rounded-xl h-full",
+                  "bg-surface-elevated border border-border",
+                  "hover:border-accent/30 group transition-colors"
+                )}
               >
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 mb-4">
-                  <span className="text-xs font-medium text-accent-light">
-                    {page.badge}
-                  </span>
-                </div>
-
                 <h3 className="text-lg font-semibold text-text-primary mb-2 group-hover:text-accent-light transition-colors">
-                  {page.title}
+                  {service.title}
                 </h3>
 
                 <p className="text-sm text-text-secondary leading-relaxed mb-4">
-                  {page.description}
+                  {service.description}
                 </p>
 
                 <div className="flex items-center text-sm text-accent-light font-medium">

@@ -16,6 +16,7 @@ const footerLinks = {
     { label: "Backend Development", href: "/services/backend-development" },
     { label: "Mobile Development", href: "/services/mobile-development" },
     { label: "QA & Testing", href: "/services/software-testing-and-qa" },
+    { label: ".NET Development", href: "/technologies/dotnet" },
   ],
   cloudDesign: [
     { label: "Cloud Architecture", href: "/services/cloud" },
