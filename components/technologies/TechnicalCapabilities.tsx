@@ -74,7 +74,7 @@ export function TechnicalCapabilities({
               )}
             >
               {/* Group title */}
-              <h3 className="text-lg font-semibold text-text-primary mb-4">
+              <h3 className="text-lg font-semibold text-text-primary mb-5">
                 {group.title}
               </h3>
 

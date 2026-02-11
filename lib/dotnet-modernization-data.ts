@@ -4,7 +4,7 @@
 
 export const heroData = {
   badge: ".NET Modernization",
-  headline: ".NET Framework to .NET 8 Migration Services",
+  headline: ".NET Migration Services",
   headlineAccent: "",
   tagline: "",
   description:
@@ -143,31 +143,31 @@ export const approachSteps: ApproachStep[] = [
     number: 1,
     title: "Discovery & Assessment (2 weeks)",
     description:
-      "We analyze your codebase, map dependencies, and identify migration blockers. You get a detailed report with: dependency compatibility analysis, risk assessment by module, recommended migration strategy, and realistic timeline and budget range.",
+      "We analyze your codebase, map dependencies, and identify migration blockers. You get a detailed report covering risk assessment, recommended strategy, and realistic timeline.",
   },
   {
     number: 2,
     title: "Proof of Concept (2-4 weeks)",
     description:
-      "Before committing to full migration, we migrate a representative module to validate our approach. This catches surprises early and gives your team confidence in the path forward.",
+      "Before committing to full migration, we migrate a representative module to validate our approach. This catches surprises early and gives your team confidence to proceed.",
   },
   {
     number: 3,
     title: "Incremental Migration (varies)",
     description:
-      "We follow the Strangler Fig pattern, migrating module by module while keeping your application running. No big-bang deployments. No extended downtime.",
+      "We follow the Strangler Fig pattern, migrating module by module while keeping your application running. No big-bang deployments. No extended downtime. Zero disruption.",
   },
   {
     number: 4,
     title: "Validation & Testing (ongoing)",
     description:
-      "Automated regression testing ensures migrated components behave exactly like their legacy counterparts. We don't call it done until your tests pass.",
+      "Automated regression testing ensures every migrated component behaves exactly like its legacy counterpart. We don't call it done until your full test suite passes clean.",
   },
   {
     number: 5,
     title: "Knowledge Transfer & Handoff",
     description:
-      "Your team gets documentation, architecture decision records, and hands-on training. We're not trying to create dependency. We want you self-sufficient on the new stack.",
+      "Your team gets documentation, architecture decision records, and hands-on training. We build for self-sufficiency, not dependency. You own the modernized stack completely.",
   },
 ];
 
