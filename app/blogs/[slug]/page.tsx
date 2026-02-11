@@ -622,7 +622,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
           {/* Featured Image */}
           {coverImageMetadata ? (
-            <div className="relative w-full aspect-21/9 rounded-2xl overflow-hidden">
+            <div className="relative w-full aspect-video sm:aspect-[21/9] rounded-2xl overflow-hidden border border-border/50">
               <Image
                 src={coverImageMetadata.src}
                 alt={post.title}
@@ -636,7 +636,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </div>
           ) : post.featuredImage &&
             post.featuredImage !== "/blog/default.jpg" ? (
-            <div className="relative w-full aspect-21/9 rounded-2xl overflow-hidden">
+            <div className="relative w-full aspect-video sm:aspect-[21/9] rounded-2xl overflow-hidden border border-border/50">
               <Image
                 src={post.featuredImage}
                 alt={post.title}
@@ -647,7 +647,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               />
             </div>
           ) : (
-            <div className="relative w-full aspect-21/9 rounded-2xl overflow-hidden bg-linear-to-br from-accent/20 to-accent-secondary/20">
+            <div className="relative w-full aspect-video sm:aspect-[21/9] rounded-2xl overflow-hidden border border-border/50 bg-linear-to-br from-accent/20 to-accent-secondary/20">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-20 h-20 rounded-2xl bg-surface-elevated/50 backdrop-blur border border-border flex items-center justify-center">
                   <svg

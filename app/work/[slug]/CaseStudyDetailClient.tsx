@@ -371,7 +371,7 @@ export function CaseStudyDetailClient({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="relative w-full aspect-[21/9] rounded-2xl overflow-hidden"
+              className="relative w-full aspect-video sm:aspect-[21/9] rounded-2xl overflow-hidden border border-border/50"
             >
               <Image
                 src={caseStudy.image}
@@ -381,7 +381,6 @@ export function CaseStudyDetailClient({
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1100px"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-base/60 via-transparent to-transparent" />
             </motion.div>
           )}
         </div>
