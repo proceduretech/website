@@ -4,8 +4,8 @@
 
 export const heroData = {
   badge: ".NET Staff Augmentation",
-  headline: "Hire Senior .NET Developers Without the Recruitment Overhead",
-  headlineAccent: "",
+  headline: "Hire Senior .NET Developers",
+  headlineAccent: "Without the Recruitment Overhead",
   tagline: "",
   description:
     "Extend your development team with pre-vetted .NET experts who integrate with your existing workflows. Start in days, not months.",
@@ -67,10 +67,7 @@ export const problemTitle =
   "Why Engineering Teams Choose .NET Staff Augmentation";
 
 export const problemIntro =
-  "Finding qualified .NET developers takes time. The average hiring cycle for a senior .NET engineer runs 4 to 6 months when you factor in sourcing, screening, interviewing, and onboarding. Meanwhile, your projects wait.";
-
-export const problemBody =
-  "Staff augmentation solves this by giving you access to production-ready talent without the recruitment overhead. You get senior .NET developers who already know ASP.NET Core, Entity Framework, and Azure, and they can contribute from week one.";
+  "Hiring a senior .NET engineer takes 4 to 6 months. Staff augmentation gives you production-ready .NET talent who contribute from week one.";
 
 // =============================================================================
 // What You Get (Service Features)
@@ -213,6 +210,9 @@ export const specializedSkills: string[] = [
 export interface UseCase {
   title: string;
   description: string;
+  category: string;
+  highlight: string;
+  icon: string;
 }
 
 export const useCasesTitle =
@@ -223,16 +223,25 @@ export const useCases: UseCase[] = [
     title: "Project Acceleration",
     description:
       "A fintech company needed to deliver a payment processing feature before a regulatory deadline. Their two .NET developers were already committed to maintenance work. We added two senior ASP.NET Core developers for four months. The feature shipped on time, and the augmented team handled ongoing iterations while the internal team caught up.",
+    category: "Fintech",
+    highlight: "Feature shipped before regulatory deadline",
+    icon: "bolt",
   },
   {
     title: "Specialized Expertise",
     description:
       "An enterprise with a large .NET Framework codebase wanted to modernize to .NET 8 without disrupting operations. Their team knew the business logic but lacked migration experience. We provided two developers with specific experience in incremental modernization strategies. They worked alongside the internal team, transferring knowledge while executing the migration.",
+    category: "Enterprise",
+    highlight: "Incremental migration without disruption",
+    icon: "cog",
   },
   {
     title: "Capacity During Growth",
     description:
       "A SaaS company secured new enterprise contracts that doubled their implementation workload. Rather than rush permanent hires, they augmented with three .NET developers for six months. This gave them time to make thoughtful hiring decisions while meeting customer commitments.",
+    category: "SaaS",
+    highlight: "Doubled implementation capacity in one week",
+    icon: "chart",
   },
 ];
 
@@ -243,6 +252,7 @@ export const useCases: UseCase[] = [
 export interface ValueProp {
   title: string;
   description: string;
+  icon: string;
 }
 
 export const whyProcedureTitle =
@@ -253,21 +263,25 @@ export const whyProcedure: ValueProp[] = [
     title: "Production Experience",
     description:
       "Our .NET developers come from building products, not just completing coursework. They have worked on payment systems, healthcare platforms, fintech applications, and enterprise integrations. When they join your team, they bring patterns and practices from real production environments.",
+    icon: "code",
   },
   {
     title: "Certified Best Workplace Culture",
     description:
       "We have built a team culture that retains talent. Our engineers stay because they are engaged with interesting work and supported by colleagues who care about craft. When you augment with our team, you get professionals who are invested in their work, not contractors counting hours.",
+    icon: "shield",
   },
   {
     title: "Same Timezone Collaboration",
     description:
       "With teams in India and access to developers across timezones, we structure engagements for meaningful overlap with your working hours. Daily standups, real-time collaboration, and quick responses are standard, not exceptions.",
+    icon: "globe",
   },
   {
     title: "Flexible Terms",
     description:
       "Start with one developer and expand to a full team. Reduce capacity between major releases. Extend engagements as projects evolve. No rigid contracts that lock you into arrangements that no longer fit your needs.",
+    icon: "puzzle",
   },
 ];
 
@@ -278,6 +292,8 @@ export const whyProcedure: ValueProp[] = [
 export interface EngagementModel {
   title: string;
   description: string;
+  teamSize: string;
+  bestFor: string;
 }
 
 export const engagementModelsTitle =
@@ -288,16 +304,22 @@ export const engagementModels: EngagementModel[] = [
     title: "Individual Developer",
     description:
       "Add a single senior .NET developer to your existing team. They participate in your standups, follow your processes, and report to your technical lead. Best for filling specific skill gaps or adding capacity to an established team.",
+    teamSize: "1",
+    bestFor: "Skill gaps & capacity boost",
   },
   {
     title: "Pod Model",
     description:
       "Bring in a small, self-contained unit: typically a senior developer and a mid-level developer who work together. The senior developer provides technical leadership while both contribute to delivery. Best for projects that need more than one person but not a full team.",
+    teamSize: "2",
+    bestFor: "Focused project delivery",
   },
   {
     title: "Extended Team",
     description:
       "Augment with multiple developers across different seniority levels, potentially including QA and DevOps expertise. We can include a technical lead who coordinates the augmented team's work. Best for significant initiatives where you need substantial capacity.",
+    teamSize: "3+",
+    bestFor: "Large-scale initiatives",
   },
 ];
 

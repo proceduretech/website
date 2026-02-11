@@ -1,11 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { Icons } from "@/lib/expertise-data";
 
 interface UseCase {
   title: string;
   description: string;
+  category?: string;
+  highlight?: string;
+  icon?: string;
 }
 
 interface UseCaseStoriesProps {
@@ -66,22 +71,78 @@ export function UseCaseStories({
               key={index}
               variants={itemVariants}
               className={cn(
-                "group p-6 rounded-2xl",
+                "group relative flex flex-col rounded-2xl overflow-hidden h-full",
                 "bg-surface-elevated/80 backdrop-blur-sm",
                 "border border-border",
                 "hover:border-accent/30 transition-all duration-300",
                 "hover:shadow-lg hover:shadow-accent/5"
               )}
             >
-              {/* Case title */}
-              <h3 className="text-lg font-semibold text-text-primary mb-3">
-                {useCase.title}
-              </h3>
+              {/* Hover gradient overlay */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-              {/* Description */}
-              <p className="text-text-secondary text-sm leading-relaxed">
-                {useCase.description}
-              </p>
+              <div className="relative flex flex-col h-full p-6">
+                {/* Top: category badge + icon */}
+                <div className="flex items-center justify-between mb-5">
+                  {useCase.category && (
+                    <span
+                      className={cn(
+                        "inline-flex px-3 py-1 rounded-full",
+                        "bg-accent/10 border border-accent/20",
+                        "text-xs font-medium text-accent-light uppercase tracking-wider"
+                      )}
+                    >
+                      {useCase.category}
+                    </span>
+                  )}
+                  {useCase.icon && (
+                    <div
+                      className={cn(
+                        "flex items-center justify-center w-10 h-10 rounded-xl",
+                        "bg-accent/10 border border-accent/20"
+                      )}
+                    >
+                      <div className="w-5 h-5 text-accent-light">
+                        {Icons[useCase.icon as keyof typeof Icons] as ReactNode}
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Title with quotes */}
+                <h3 className="text-xl font-bold text-text-primary mb-3">
+                  &ldquo;{useCase.title}&rdquo;
+                </h3>
+
+                {/* Description */}
+                <p className="text-text-secondary text-sm leading-relaxed flex-grow">
+                  {useCase.description}
+                </p>
+
+                {/* Outcome bar */}
+                {useCase.highlight && (
+                  <div className="mt-5 pt-4 border-t border-border">
+                    <div className="flex items-center gap-2">
+                      <svg
+                        className="w-4 h-4 text-accent flex-shrink-0"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M4.5 12.75l6 6 9-13.5"
+                        />
+                      </svg>
+                      <span className="text-sm font-medium text-accent-light">
+                        {useCase.highlight}
+                      </span>
+                    </div>
+                  </div>
+                )}
+              </div>
             </motion.div>
           ))}
         </motion.div>

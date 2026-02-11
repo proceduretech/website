@@ -17,7 +17,6 @@ import {
   problemSignals,
   problemTitle,
   problemIntro,
-  problemBody,
   serviceFeatures,
   serviceFeaturesTitle,
   approachSteps,
@@ -143,6 +142,7 @@ export default function DotnetStaffAugPageClient() {
       <PageHero
         badge={heroData.badge}
         headline={heroData.headline}
+        headlineAccent={heroData.headlineAccent}
         description={heroData.description}
         primaryCTA={heroData.primaryCTA}
         showClientLogos={true}
@@ -173,7 +173,7 @@ export default function DotnetStaffAugPageClient() {
       {/* Why Staff Augmentation */}
       <ProblemSignals
         title={problemTitle}
-        intro={`${problemIntro}\n\n${problemBody}`}
+        intro={problemIntro}
         signals={problemSignals}
       />
 
@@ -181,6 +181,7 @@ export default function DotnetStaffAugPageClient() {
       <ServiceFeatures
         title={serviceFeaturesTitle}
         features={serviceFeatures}
+        variant="editorial"
       />
 
       {/* How It Works */}
@@ -206,7 +207,9 @@ export default function DotnetStaffAugPageClient() {
         features={whyProcedure.map((vp) => ({
           title: vp.title,
           description: vp.description,
+          icon: vp.icon,
         }))}
+        variant="compact"
       />
 
       {/* Engagement Models */}
