@@ -364,7 +364,7 @@ export function CaseStudyDetailClient({
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.2 }}
-            className="text-2xl sm:text-3xl lg:text-4xl font-bold text-text-primary leading-tight mb-12"
+            className="text-2xl sm:text-3xl lg:text-4xl font-bold text-text-primary leading-tight"
           >
             {caseStudy.title}
           </motion.h1>
@@ -375,7 +375,7 @@ export function CaseStudyDetailClient({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="relative w-full aspect-video sm:aspect-[21/9] rounded-2xl overflow-hidden border border-border/50"
+              className="relative w-full aspect-video sm:aspect-[21/9] rounded-2xl overflow-hidden border border-border/50 mt-10 sm:mt-14"
             >
               <Image
                 src={caseStudy.image}
