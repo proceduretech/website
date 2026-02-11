@@ -83,6 +83,61 @@ Living document. Updated every session with verified facts, decisions, and known
 
 ---
 
+## .NET Staff Augmentation Page (`/technologies/dotnet/staff-augmentation`)
+
+### Route structure
+- Page: `/technologies/dotnet/staff-augmentation`
+- `app/technologies/dotnet/staff-augmentation/page.tsx` - Server component
+- `app/technologies/dotnet/staff-augmentation/DotnetStaffAugPageClient.tsx` - Client component with JSON-LD schema
+- `app/technologies/dotnet/staff-augmentation/layout.tsx` - Metadata, canonical, OG
+
+### Content data
+- `lib/dotnet-staff-augmentation-data.ts` - All page content as typed constants
+- Exports: heroData, problemSignals, problemTitle, problemIntro, serviceFeatures, serviceFeaturesTitle, approachSteps, skillsTitle, skillsTable, specializedSkills, useCasesTitle, useCases, whyProcedureTitle, whyProcedure, engagementModelsTitle, engagementModels, faqs, ctaData, relatedServices
+
+### Components (created/updated for this page)
+- `components/technologies/ServiceFeatures.tsx` - **Two variants**: `editorial` (left accent bars, numbered badges, 2-col item grids) and `compact` (2x2 grid with icons, hover gradient overlays). Used twice on page.
+- `components/technologies/SkillsTable.tsx` - Desktop table with tech chip badges, experience level bars. Mobile cards. Specialized skills as flex-wrap pills with accent border and decorative blur.
+- `components/technologies/UseCaseStories.tsx` - Category badges (Fintech/Enterprise/SaaS), quoted titles, icon containers, outcome highlight bar at bottom with checkmark.
+- `components/technologies/EngagementModels.tsx` - Progressive top bars (1/3, 2/3, full width), large team size numbers, best-for labels, narrower max-w-5xl container.
+- Barrel export updated in `components/technologies/index.ts`
+
+### Schema markup
+- Combined JSON-LD `@graph`: Service (with hasOfferCatalog for 3 engagement models), FAQPage, BreadcrumbList
+
+### Design decisions
+- H1 split: `headline="Hire Senior .NET Developers"` + `headlineAccent="Without the Recruitment Overhead"` (uses PageHero highlight)
+- Section bg alternation: base/surface/own/base/surface/base/surface/surface(CTA)/own/own
+- ServiceFeatures `editorial` variant used for "What You Get", `compact` variant for "Why Procedure" - prevents visual monotony when same component is used twice
+- `problemIntro` shortened to single sentence (was 2 paragraphs)
+
+### Cross-links
+- `lib/dotnet-modernization-data.ts`: Staff aug related service href updated to `/technologies/dotnet/staff-augmentation`
+- `app/sitemap.ts`: Staff augmentation URL added with priority 0.9
+
+---
+
+## Case Studies (Notion integration)
+
+### Image caching system
+- `lib/notion-image-cache.ts` - Downloads Notion-hosted images to `public/content/cache/`
+- Cover images: `cacheCaseStudyCover()` -> `{slug}-cover-{hash}.{ext}`
+- Inline images: `cacheCaseStudyContentImage()` -> `{slug}-{index}-{hash}.{ext}`
+- Runs at build time when NOTION_TOKEN is available
+- `lib/notion-case-studies.ts:647` calls `cacheContentImages()` for inline images
+- Block fetcher (`fetchPageContent`) reads top-level blocks only (page_size: 100, no child block recursion)
+
+### Published case studies (as of Feb 2026)
+1. **Securing Agentic AI Browsers** - 2 inline images (Phase 1 + Phase 3 screenshots), Phase 2 has no image
+2. **School Scheduling Transformation** - No inline images (text only)
+3. **MCLabs Mission-Critical** - No inline images (text only)
+
+### Known issue
+- Phase 2 of the AI security case study may have an image in Notion that isn't rendering. Possible cause: image is inside a nested/toggle block that `fetchPageContent()` doesn't traverse (only top-level blocks fetched). Needs NOTION_TOKEN to investigate.
+- OG image validation in `app/work/[slug]/page.tsx:35-40` rejects AWS/Notion URLs, falls back to default.
+
+---
+
 ## Branch: `dotnet-modernization-page`
 - PR: #74
-- Latest commit: `f7b7e19`
+- Latest commit: `51f03e1`
