@@ -69,13 +69,14 @@ export function ProblemSignals({
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="flex flex-wrap justify-center gap-6"
         >
           {signals.map((signal, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
               className={cn(
+                "w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]",
                 "group relative p-6 rounded-2xl",
                 "bg-surface-elevated/80 backdrop-blur-sm",
                 "border border-border",

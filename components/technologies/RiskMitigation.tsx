@@ -1,11 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { Icons } from "@/lib/expertise-data";
 
 interface Scenario {
   title: string;
   description: string;
+  icon: string;
 }
 
 interface RiskMitigationProps {
@@ -66,13 +69,14 @@ export function RiskMitigation({
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="flex flex-wrap justify-center gap-6"
         >
           {scenarios.map((scenario, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
               className={cn(
+                "w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]",
                 "group relative p-6 rounded-2xl",
                 "bg-surface-elevated/80 backdrop-blur-sm",
                 "border border-border",
@@ -91,19 +95,9 @@ export function RiskMitigation({
                     "bg-accent/10 border border-accent/20"
                   )}
                 >
-                  <svg
-                    className="w-5 h-5 text-accent-light"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
-                    />
-                  </svg>
+                  <div className="w-5 h-5 text-accent-light">
+                    {Icons[scenario.icon as keyof typeof Icons] as ReactNode}
+                  </div>
                 </div>
 
                 {/* Quoted title */}

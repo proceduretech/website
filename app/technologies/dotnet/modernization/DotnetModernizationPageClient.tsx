@@ -124,7 +124,7 @@ export default function DotnetModernizationPageClient() {
         headline={heroData.headline}
         description={heroData.description}
         primaryCTA={heroData.primaryCTA}
-        showClientLogos={false}
+        showClientLogos={true}
       >
         <div className="flex items-center justify-center gap-3 text-xs text-text-muted -mt-6">
           <div className="flex items-center gap-1.5">
@@ -183,7 +183,7 @@ export default function DotnetModernizationPageClient() {
 
       {/* Migration Paths Table */}
       <MigrationPathsTable
-        title="Migration Paths We Support"
+        title=".NET Migration Paths We Support"
         intro={migrationPathsIntro}
         paths={migrationPaths}
         note={migrationPathsNote}
@@ -191,20 +191,20 @@ export default function DotnetModernizationPageClient() {
 
       {/* Approach / Process Timeline */}
       <ProcessTimeline
-        title="Our Modernization Approach"
+        title="Our .NET Modernization Approach"
         subtitle="A proven process that minimizes risk and maximizes velocity"
         steps={approachSteps}
       />
 
       {/* Technical Capabilities */}
       <TechnicalCapabilities
-        title="What We Migrate"
+        title="What We Modernize in .NET"
         groups={technicalCapabilities}
       />
 
       {/* Risk Mitigation */}
       <RiskMitigation
-        title="How We Prevent Common Migration Failures"
+        title="How We Prevent .NET Modernization Failures"
         intro={riskIntro}
         scenarios={riskScenarios}
       />

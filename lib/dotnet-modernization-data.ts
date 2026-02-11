@@ -4,7 +4,7 @@
 
 export const heroData = {
   badge: ".NET Modernization",
-  headline: ".NET Modernization Services",
+  headline: ".NET Framework to .NET 8 Migration Services",
   headlineAccent: "",
   tagline: "",
   description:
@@ -58,12 +58,12 @@ export const problemSignals: ProblemSignal[] = [
     title: "Performance ceiling",
     description:
       ".NET 8 delivers 20-40% better throughput than .NET Framework on identical hardware. That's real money on cloud hosting bills.",
-    icon: "rocket",
+    icon: "bolt",
   },
 ];
 
 export const problemIntro =
-  "Legacy .NET applications don't just slow down your developers\u2014they slow down your entire business. Here's what we see in organizations still running .NET Framework 4.x:";
+  "Legacy .NET applications don't just slow down your developers. They slow down your entire business. Here's what we see in organizations still running .NET Framework 4.x";
 
 // =============================================================================
 // Migration Paths
@@ -123,7 +123,7 @@ export const migrationPaths: MigrationPath[] = [
 ];
 
 export const migrationPathsIntro =
-  "Every legacy .NET application is different. We assess your codebase, dependencies, and business constraints to recommend the right approach\u2014not the most expensive one.";
+  "Every legacy .NET application is different. We assess your codebase, dependencies, and business constraints to recommend the right approach, not the most expensive one.";
 
 export const migrationPathsNote =
   "Timeline estimates assume a mid-sized application (50K-200K lines of code) with typical dependencies. Your assessment will include specific estimates for your codebase.";
@@ -155,7 +155,7 @@ export const approachSteps: ApproachStep[] = [
     number: 3,
     title: "Incremental Migration (varies)",
     description:
-      "We follow the Strangler Fig pattern\u2014migrating module by module while keeping your application running. No big-bang deployments. No extended downtime.",
+      "We follow the Strangler Fig pattern, migrating module by module while keeping your application running. No big-bang deployments. No extended downtime.",
   },
   {
     number: 4,
@@ -167,7 +167,7 @@ export const approachSteps: ApproachStep[] = [
     number: 5,
     title: "Knowledge Transfer & Handoff",
     description:
-      "Your team gets documentation, architecture decision records, and hands-on training. We're not trying to create dependency\u2014we want you self-sufficient on the new stack.",
+      "Your team gets documentation, architecture decision records, and hands-on training. We're not trying to create dependency. We want you self-sufficient on the new stack.",
   },
 ];
 
@@ -226,38 +226,44 @@ export const technicalCapabilities: CapabilityGroup[] = [
 export interface RiskScenario {
   title: string;
   description: string;
+  icon: string;
 }
 
 export const riskScenarios: RiskScenario[] = [
   {
     title: "\u201CThe migration broke production\u201D",
     description:
-      "We never do big-bang migrations. The Strangler Fig pattern lets us migrate incrementally while maintaining a working application. If something goes wrong, we roll back one module\u2014not your entire system.",
+      "We never do big-bang migrations. The Strangler Fig pattern lets us migrate incrementally while maintaining a working application. If something goes wrong, we roll back one module, not your entire system.",
+    icon: "shield",
   },
   {
     title: "\u201CIt took 3x longer than estimated\u201D",
     description:
       "Our discovery phase identifies blockers before you commit budget. We've walked away from projects where the migration cost exceeded the business value. Honesty upfront saves everyone time.",
+    icon: "chart",
   },
   {
     title: "\u201COur team can't maintain the new code\u201D",
     description:
-      "We involve your developers from day one. Pair programming, code reviews, and documentation ensure knowledge transfer happens throughout the project\u2014not as an afterthought.",
+      "We involve your developers from day one. Pair programming, code reviews, and documentation ensure knowledge transfer happens throughout the project, not as an afterthought.",
+    icon: "users",
   },
   {
     title: "\u201CDependencies weren't compatible\u201D",
     description:
       "We run automated compatibility analysis against your full dependency tree. Third-party libraries without .NET 8 support get flagged early, with alternatives recommended.",
+    icon: "puzzle",
   },
   {
     title: "\u201CPerformance got worse after migration\u201D",
     description:
-      "We benchmark before and after. .NET 8 should be faster\u2014if it's not, we investigate and fix root causes before handoff.",
+      "We benchmark before and after. .NET 8 should be faster. If it's not, we investigate and fix root causes before handoff.",
+    icon: "bolt",
   },
 ];
 
 export const riskIntro =
-  ".NET modernization projects fail for predictable reasons. We've seen them all\u2014and we've built processes to prevent them.";
+  ".NET modernization projects fail for predictable reasons. We've seen them all, and we've built processes to prevent each one.";
 
 // =============================================================================
 // FAQs
@@ -287,7 +293,7 @@ export const faqs: FAQ[] = [
   {
     question: "Should we migrate WCF to gRPC or REST?",
     answer:
-      "It depends on your use case. gRPC is best for internal service-to-service communication\u2014it offers streaming, lower latency, and efficient binary serialization (requires HTTP/2). REST APIs are best for external integrations, browser clients, or when you need maximum compatibility\u2014easier to test and debug. CoreWCF is an option if you need to maintain SOAP compatibility for legacy clients during a transitional period. We typically recommend gRPC for new internal services and REST for external APIs.",
+      "It depends on your use case. gRPC is best for internal service-to-service communication because it offers streaming, lower latency, and efficient binary serialization (requires HTTP/2). REST APIs are best for external integrations, browser clients, or when you need maximum compatibility since they're easier to test and debug. CoreWCF is an option if you need to maintain SOAP compatibility for legacy clients during a transitional period. We typically recommend gRPC for new internal services and REST for external APIs.",
   },
   {
     question: "Can we migrate incrementally without downtime?",
@@ -308,7 +314,7 @@ export const faqs: FAQ[] = [
 export const ctaData = {
   title: "Start with a Free Assessment",
   description:
-    "Not sure where to begin? Our technical team will review your application architecture and give you honest feedback on whether migration makes business sense for your situation, recommended approach and realistic timeline, potential blockers and how to address them, and rough budget range before you commit.",
+    "Not sure where to begin? Our team will assess your architecture and provide honest feedback on migration strategy, realistic timeline, potential blockers, and budget range before you commit.",
   closingNote: "No sales pressure. If migration isn't right for you, we'll tell you.",
   buttonText: "Schedule Your Assessment",
   buttonLink: "/contact-us",
