@@ -317,7 +317,7 @@ export function CaseStudyDetailClient({
   return (
     <main className="relative min-h-screen bg-base overflow-hidden">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-12 sm:pb-16 overflow-hidden">
+      <section className="relative pt-32 pb-6 sm:pb-8 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-surface via-base to-base" />
@@ -346,13 +346,14 @@ export function CaseStudyDetailClient({
             className="flex flex-wrap items-center gap-4 mb-4"
           >
             {getClientLogo(caseStudy.client) ? (
-              <Image
-                src={getClientLogo(caseStudy.client)!}
-                alt={caseStudy.client}
-                width={120}
-                height={40}
-                className={`h-8 w-auto object-contain ${getClientLogo(caseStudy.client)!.endsWith(".svg") ? "client-logo-filter" : ""}`}
-              />
+              <div className="relative h-8 w-[140px]">
+                <Image
+                  src={getClientLogo(caseStudy.client)!}
+                  alt={caseStudy.client}
+                  fill
+                  className={`object-contain object-left ${getClientLogo(caseStudy.client)!.endsWith(".svg") ? "client-logo-filter" : ""}`}
+                />
+              </div>
             ) : (
               <span className="font-medium text-text-secondary text-sm">
                 {caseStudy.client}
