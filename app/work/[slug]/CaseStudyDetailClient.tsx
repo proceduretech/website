@@ -10,6 +10,7 @@ import type { CaseStudy } from "@/lib/case-studies-data";
 
 // Client name to logo mapping - add new clients here
 // Include common variations to handle different naming from Notion
+// Logos under /assets/case-studies/ are full-color webp; /logos/client/ are monochrome SVGs
 const clientLogos: Record<string, string> = {
   "Setu": "/logos/client/setu.svg",
   "Pine Labs": "/logos/client/pinelabs.svg",
@@ -18,17 +19,20 @@ const clientLogos: Record<string, string> = {
   "ESPN": "/logos/client/espn.svg",
   "Treebo": "/logos/client/treebo.svg",
   "Turtlemint": "/logos/client/turtlemint.svg",
-  "Timely": "/logos/client/timely.svg",
-  "Timely.ai": "/logos/client/timely.svg",
-  "TimelyApp": "/logos/client/timely.svg",
+  "Timely": "/assets/case-studies/timely.webp",
+  "Timely.ai": "/assets/case-studies/timely.webp",
+  "TimelyApp": "/assets/case-studies/timely.webp",
   "Tenmeya": "/logos/client/tenmeya.svg",
   "Last9": "/logos/client/last9.svg",
   "Aster": "/logos/client/aster.svg",
   "Workshop Ventures": "/logos/client/workshopventure.svg",
   "WorkshopVentures": "/logos/client/workshopventure.svg",
-  "MCLabs": "/logos/client/mclabs.svg",
-  "MC Labs": "/logos/client/mclabs.svg",
-  "MC labs": "/logos/client/mclabs.svg",
+  "Fellou AI": "/assets/case-studies/fellou-ai.webp",
+  "Fellou": "/assets/case-studies/fellou-ai.webp",
+  "FellouAI": "/assets/case-studies/fellou-ai.webp",
+  "MCLabs": "/assets/case-studies/mclabs.webp",
+  "MC Labs": "/assets/case-studies/mclabs.webp",
+  "MC labs": "/assets/case-studies/mclabs.webp",
 };
 
 /**
@@ -346,7 +350,7 @@ export function CaseStudyDetailClient({
                 alt={caseStudy.client}
                 width={120}
                 height={40}
-                className="h-8 w-auto object-contain client-logo-filter"
+                className={`h-8 w-auto object-contain ${getClientLogo(caseStudy.client)!.endsWith(".svg") ? "client-logo-filter" : ""}`}
               />
             ) : (
               <span className="font-medium text-text-secondary text-sm">
