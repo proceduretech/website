@@ -331,6 +331,98 @@ export function getRelatedExpertise(
 }
 
 // =============================================================================
+// Technology Functions
+// =============================================================================
+
+export const getAllTechnologies = cache(
+  (): ContentItem<ExpertiseFrontmatter>[] => {
+    return getAllContent<ExpertiseFrontmatter>("technologies");
+  },
+);
+
+export function getTechnology(
+  slug: string,
+): ContentItem<ExpertiseFrontmatter> | null {
+  return getContentBySlug<ExpertiseFrontmatter>("technologies", slug);
+}
+
+export function getAllTechnologySlugsFromContent(): string[] {
+  return getAllSlugs("technologies");
+}
+
+/**
+ * Get a technology page in the ExpertisePageForListing format
+ * (same shape as expertise pages for component compatibility)
+ */
+export function getTechnologyForListing(
+  slug: string,
+): ExpertisePageForListing | null {
+  const tech = getTechnology(slug);
+  if (!tech) return null;
+
+  const { frontmatter, content } = tech;
+
+  if (!frontmatter.capabilities || !frontmatter.technologies) {
+    return null;
+  }
+
+  const whyProcedure = parseWhyProcedureFromContent(content);
+
+  const headlineParts = frontmatter.headline
+    ? {
+        headline: frontmatter.headline,
+        headlineAccent: frontmatter.headlineAccent || "",
+      }
+    : parseExpertiseHeadline(frontmatter.title);
+
+  return {
+    slug,
+    meta: {
+      title: frontmatter.seo?.title || `${frontmatter.title} | Procedure`,
+      description: frontmatter.seo?.description || frontmatter.description,
+    },
+    hero: {
+      badge: frontmatter.title,
+      headline: headlineParts.headline,
+      headlineAccent: headlineParts.headlineAccent,
+      tagline: frontmatter.tagline,
+      description: frontmatter.description,
+    },
+    capabilities: frontmatter.capabilities.map((cap) => ({
+      icon: cap.icon,
+      title: cap.title,
+      description: cap.description,
+    })),
+    technologies: frontmatter.technologies,
+    whyProcedure,
+    cta: {
+      headline:
+        frontmatter.cta?.title ||
+        `Ready to Get Started with ${frontmatter.title}?`,
+      description:
+        frontmatter.cta?.description ||
+        "Talk to our engineers about your project.",
+      buttonText: frontmatter.cta?.buttonText,
+      buttonLink: frontmatter.cta?.buttonLink,
+      supportingNote: frontmatter.cta?.supportingNote,
+    },
+    faqs: frontmatter.faqs || [],
+    testimonials: frontmatter.testimonials || [],
+    whoWeWorkWith: frontmatter.whoWeWorkWith,
+    process: frontmatter.process,
+    useCasesSubtitle: frontmatter.useCasesSubtitle,
+    useCases: frontmatter.useCases,
+    whyChoose: frontmatter.whyChoose,
+    qualityMatters: frontmatter.qualityMatters,
+    architecture: frontmatter.architecture,
+    engagementModels: frontmatter.engagementModels,
+    riskReversal: frontmatter.riskReversal,
+    ctaTestimonial: frontmatter.ctaTestimonial,
+    relatedExpertise: frontmatter.relatedExpertise || [],
+  };
+}
+
+// =============================================================================
 // Industry Functions
 // =============================================================================
 

@@ -7,6 +7,7 @@ import {
   getAllIndustrySlugsFromContent,
   getAllUseCaseSlugsFromContent,
   getAllServiceSlugsFromContent,
+  getAllTechnologySlugsFromContent,
   getAllSlugs,
 } from "@/lib/content";
 
@@ -103,6 +104,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     });
   }
+
+  // Technology pages (dynamic)
+  const technologySlugs = getAllTechnologySlugsFromContent();
+  for (const slug of technologySlugs) {
+    entries.push({
+      url: `${BASE_URL}/technologies/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    });
+  }
+
+  // Technology subpages
+  entries.push({
+    url: `${BASE_URL}/technologies/dotnet/modernization`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.9,
+  });
+  entries.push({
+    url: `${BASE_URL}/technologies/dotnet/staff-augmentation`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.9,
+  });
 
   // Blog posts (dynamic)
   // Note: Using current date for now. In future, could fetch from Notion API

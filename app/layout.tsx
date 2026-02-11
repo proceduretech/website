@@ -103,6 +103,7 @@ export default function RootLayout({
     alternateName: "Procedure",
     url: "https://procedure.tech",
     logo: "https://procedure.tech/logo.svg",
+    image: "https://procedure.tech/og-image.png",
     description:
       "AI-native design & development studio. Senior AI engineers embedded with your team to build production-grade AI systems, LLM applications, and custom ML models.",
     foundingDate: "2017",
@@ -273,6 +274,10 @@ export default function RootLayout({
     },
   };
 
+  // NOTE: FAQPage schema moved to app/page.tsx (homepage only) to avoid
+  // duplicate FAQPage schemas on subpages that have their own FAQ sections.
+  // Google expects only one FAQPage schema per page.
+
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -292,69 +297,6 @@ export default function RootLayout({
       },
       "query-input": "required name=search_term_string",
     },
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "What AI systems do you build?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "We build production AI systems including LLM applications, AI agents, RAG systems, and AI-enhanced products. From conversational AI to document processing to intelligent automation—we handle the complete development lifecycle from architecture to secure production deployment.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "How quickly can you start our AI project?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Most AI engagements begin within 2-5 days. We match senior engineers based on your AI requirements and tech stack, then integrate them into your development workflow immediately. No months of discovery—we start building fast.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "How much does AI development cost?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "AI development costs vary by engagement model. AI Sprints range from $15K-$50K for 2-4 week rapid prototypes. Forward-deployed engineering teams start at $50K/month for embedded senior engineers. Enterprise engagements are scoped based on compliance requirements and project complexity. Contact us for a detailed estimate based on your specific needs.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "How long does it take to build an AI product?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Timeline depends on scope and approach. AI Sprints deliver working prototypes in 2-4 weeks. Full product builds with embedded teams typically reach MVP in 8-12 weeks. Enterprise AI systems requiring compliance and security review take 17-20 weeks from architecture to production deployment.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Do you only work with large enterprises?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "No. We work with high-growth startups, scale-ups, and enterprises. What matters is the complexity of the AI challenge and your commitment to shipping production systems. If you need serious AI engineering—not consulting theater—we can help.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "What makes Procedure different from AI consultancies?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "We're engineers who write production code, not consultants who deliver slide decks. Our team embeds with yours, ships working systems, and leaves your team stronger. No months of discovery, no handoff nightmares, no POCs that never reach production.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "How do you handle AI security and compliance?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Security is built into every AI system we develop—not bolted on later. We implement secure LLM architectures, prevent prompt injection, ensure data privacy, and meet compliance requirements (SOC 2, HIPAA, GDPR). Our AI security expertise comes from building production systems that enterprises trust.",
-        },
-      },
-    ],
   };
 
   return (
@@ -428,7 +370,6 @@ export default function RootLayout({
         <JsonLd data={organizationSchema} />
         <JsonLd data={serviceSchema} />
         <JsonLd data={websiteSchema} />
-        <JsonLd data={faqSchema} />
       </head>
       <body className={`${outfit.variable} ${inter.variable} antialiased`}>
         {/* Analytics (GA4, GTM, Clarity) - only loads on production domains */}

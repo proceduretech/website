@@ -34,6 +34,7 @@ interface RelatedPage {
 interface Props {
   expertise: ExpertisePageForListing;
   relatedPages: RelatedPage[];
+  basePath?: string;
 }
 
 // Customized booking section copy per expertise
@@ -58,13 +59,14 @@ const bookingSubtext: Record<string, string> = {
     "Tell us about your AI product and the user experience challenges you face. We'll discuss research methods, prototyping, and design patterns that build user trust.",
   "kubernetes":
     "Describe your container orchestration needs—new clusters, migrations, or operational pain points. We'll assess your workloads and recommend a production-ready approach.",
-  "dotnet-development":
+  "dotnet":
     "Talk directly with engineers\u2014not sales. We\u2019ll assess fit and give honest next steps.",
 };
 
 export default function ExpertisePageClient({
   expertise,
   relatedPages,
+  basePath = "/services",
 }: Props) {
   const pageData = expertise;
 
@@ -83,7 +85,7 @@ export default function ExpertisePageClient({
       // Service Schema
       {
         "@type": "Service",
-        "@id": `https://procedure.tech/services/${expertise.slug}#service`,
+        "@id": `https://procedure.tech${basePath}/${expertise.slug}#service`,
         name: `${pageData.hero.headline} ${pageData.hero.headlineAccent}`,
         description: pageData.hero.description,
         provider: {
@@ -103,7 +105,7 @@ export default function ExpertisePageClient({
             ? ["Product Design", "UX Design", "UI Design", "Design Systems", "Product Strategy", "User Research"]
             : expertise.slug === "kubernetes"
             ? ["Kubernetes Consulting", "Container Orchestration", "Cloud Native Infrastructure", "Kubernetes Implementation", "Kubernetes Optimization"]
-            : expertise.slug === "dotnet-development"
+            : expertise.slug === "dotnet"
             ? [".NET Development Services", "ASP.NET Core Development", "C# Development", "Azure .NET Development", ".NET Migration Services", "Enterprise .NET Consulting"]
             : pageData.hero.badge,
         areaServed: [
@@ -113,12 +115,12 @@ export default function ExpertisePageClient({
         availableChannel: [
           {
             "@type": "ServiceChannel",
-            serviceUrl: `https://procedure.tech/services/${expertise.slug}`,
+            serviceUrl: `https://procedure.tech${basePath}/${expertise.slug}`,
             serviceType: "In-Person",
           },
           {
             "@type": "ServiceChannel",
-            serviceUrl: `https://procedure.tech/services/${expertise.slug}`,
+            serviceUrl: `https://procedure.tech${basePath}/${expertise.slug}`,
             serviceType: "Remote",
           },
         ],
@@ -139,7 +141,7 @@ export default function ExpertisePageClient({
             ? ["Backend Engineering", "Software Development", "API Development"]
             : expertise.slug === "frontend-development"
             ? ["Frontend Engineering", "Web Development", "UI/UX Development"]
-            : expertise.slug === "dotnet-development"
+            : expertise.slug === "dotnet"
             ? [".NET Development", "ASP.NET Core", "C# Development", "Azure Development", "Enterprise Software Development"]
             : [pageData.hero.badge, "Enterprise AI Engineering", "Software Development"],
       },
@@ -148,7 +150,7 @@ export default function ExpertisePageClient({
         ? [
             {
               "@type": "FAQPage",
-              "@id": `https://procedure.tech/services/${expertise.slug}#faq`,
+              "@id": `https://procedure.tech${basePath}/${expertise.slug}#faq`,
               mainEntity: pageData.faqs.map((faq) => ({
                 "@type": "Question",
                 name: faq.question,
@@ -163,7 +165,7 @@ export default function ExpertisePageClient({
       // Breadcrumb Schema
       {
         "@type": "BreadcrumbList",
-        "@id": `https://procedure.tech/services/${expertise.slug}#breadcrumb`,
+        "@id": `https://procedure.tech${basePath}/${expertise.slug}#breadcrumb`,
         itemListElement: [
           {
             "@type": "ListItem",
@@ -174,14 +176,14 @@ export default function ExpertisePageClient({
           {
             "@type": "ListItem",
             position: 2,
-            name: "Services",
-            item: "https://procedure.tech/services",
+            name: basePath === "/technologies" ? "Technologies" : "Services",
+            item: `https://procedure.tech${basePath}`,
           },
           {
             "@type": "ListItem",
             position: 3,
             name: pageData.hero.badge,
-            item: `https://procedure.tech/services/${expertise.slug}`,
+            item: `https://procedure.tech${basePath}/${expertise.slug}`,
           },
         ],
       },
@@ -209,7 +211,7 @@ export default function ExpertisePageClient({
             ? { text: "Talk to a Frontend Specialist", href: "#book-call" }
             : expertise.slug === "backend-development"
             ? { text: "Talk to a Backend Specialist", href: "#book-call" }
-            : expertise.slug === "dotnet-development"
+            : expertise.slug === "dotnet"
             ? { text: "Talk to a .NET Expert", href: "#book-call" }
             : undefined
         }
@@ -219,13 +221,13 @@ export default function ExpertisePageClient({
             "ai-agents",
             "ai-security",
             "ai-privacy",
-            "dotnet-development",
+            "dotnet",
           ].includes(expertise.slug)
             ? undefined
             : { text: "View Case Studies", href: "/work" }
         }
       >
-        {expertise.slug === "dotnet-development" && (
+        {expertise.slug === "dotnet" && (
           <div className="flex items-center justify-center gap-3 text-xs text-text-muted -mt-6">
             <div className="flex items-center gap-1.5">
               <svg className="w-3.5 h-3.5 text-accent" viewBox="0 0 20 20" fill="currentColor">
@@ -251,7 +253,7 @@ export default function ExpertisePageClient({
         )}
       </ExpertiseHero>
 
-      {expertise.slug === "dotnet-development" && (
+      {expertise.slug === "dotnet" && (
         <Stats
           title=".NET Development Track Record"
           stats={[
@@ -264,12 +266,12 @@ export default function ExpertisePageClient({
       )}
 
       <CapabilitiesGrid
-        title={expertise.slug === "dotnet-development" ? ".NET Development Services We Offer" : "Key Capabilities"}
-        subtitle={expertise.slug === "dotnet-development" ? "End-to-end .NET services\u2014from greenfield builds to legacy modernization." : "Everything you need to build production-grade solutions"}
+        title={expertise.slug === "dotnet" ? ".NET Development Services We Offer" : "Key Capabilities"}
+        subtitle={expertise.slug === "dotnet" ? "End-to-end .NET services\u2014from greenfield builds to legacy modernization." : "Everything you need to build production-grade solutions"}
         capabilities={capabilities}
       />
 
-      {["frontend-development", "backend-development", "dotnet-development"].includes(expertise.slug) && pageData.whoWeWorkWith && (
+      {["frontend-development", "backend-development", "dotnet"].includes(expertise.slug) && pageData.whoWeWorkWith && (
         <WhoWeWorkWith
           title={pageData.whoWeWorkWith.title || "Who We Work With"}
           audiences={pageData.whoWeWorkWith.audiences.map((a) => ({
@@ -278,12 +280,12 @@ export default function ExpertisePageClient({
           }))}
           closingStatement={pageData.whoWeWorkWith.closingStatement}
           commonApplications={pageData.whoWeWorkWith.commonApplications}
-          variant={expertise.slug === "dotnet-development" ? "tabs" : "cards"}
+          variant={expertise.slug === "dotnet" ? "tabs" : "cards"}
         />
       )}
 
-      {/* For dotnet-development: Philosophy section comes early, before TechStack */}
-      {expertise.slug === "dotnet-development" && pageData.philosophy && (
+      {/* For dotnet: Philosophy section comes early, before TechStack */}
+      {expertise.slug === "dotnet" && pageData.philosophy && (
         <PhilosophySection
           title={pageData.philosophy.title}
           subtitle={pageData.philosophy.subtitle}
@@ -306,7 +308,7 @@ export default function ExpertisePageClient({
         />
       )}
 
-      {expertise.slug === "dotnet-development" ? (
+      {expertise.slug === "dotnet" ? (
         <TechStack
           title=".NET Technology Stack We Use"
           variant="grouped"
@@ -340,7 +342,7 @@ export default function ExpertisePageClient({
       )}
 
       {/* For non-dotnet pages: Philosophy section in original position */}
-      {expertise.slug !== "dotnet-development" && pageData.whyChoose && (
+      {expertise.slug !== "dotnet" && pageData.whyChoose && (
         <WhyChooseProcedure
           title={pageData.whyChoose.title || (expertise.slug === "frontend-development" ? "Why Choose Procedure for Frontend Development" : expertise.slug === "backend-development" ? "Why Choose Procedure for Backend Development" : `Why Choose Procedure for ${pageData.hero.badge}`)}
           subtitle={pageData.whyChoose.subtitle}
@@ -351,7 +353,7 @@ export default function ExpertisePageClient({
         />
       )}
 
-      {expertise.slug !== "dotnet-development" && pageData.testimonials && pageData.testimonials.length > 0 && (
+      {expertise.slug !== "dotnet" && pageData.testimonials && pageData.testimonials.length > 0 && (
         <Testimonials />
       )}
 
@@ -367,7 +369,7 @@ export default function ExpertisePageClient({
       )}
 
       {/* Mid-page CTA for dotnet - before Architecture section */}
-      {expertise.slug === "dotnet-development" && (
+      {expertise.slug === "dotnet" && (
         <section className="relative py-16 sm:py-24 bg-base">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
             <motion.div
@@ -407,7 +409,7 @@ export default function ExpertisePageClient({
       )}
 
       {/* For dotnet: Testimonials after Architecture (social proof earlier) */}
-      {expertise.slug === "dotnet-development" && pageData.testimonials && pageData.testimonials.length > 0 && (
+      {expertise.slug === "dotnet" && pageData.testimonials && pageData.testimonials.length > 0 && (
         <Testimonials />
       )}
 
@@ -466,7 +468,7 @@ export default function ExpertisePageClient({
 
       {pageData.faqs.length > 0 && (
         <FAQSection
-          title={expertise.slug === "dotnet-development" ? ".NET Development Services FAQ" : undefined}
+          title={expertise.slug === "dotnet" ? ".NET Development Services FAQ" : undefined}
           faqs={pageData.faqs}
         />
       )}

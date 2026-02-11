@@ -375,6 +375,7 @@ export type ContentType =
   | "industries"
   | "use-cases"
   | "services"
+  | "technologies"
   | "pages";
 
 // Map content types to their frontmatter interfaces
@@ -385,5 +386,6 @@ export type ContentTypeMap = {
   industries: IndustryFrontmatter;
   "use-cases": UseCaseFrontmatter;
   services: ServiceFrontmatter;
+  technologies: ExpertiseFrontmatter;
   pages: BaseFrontmatter;
 };
