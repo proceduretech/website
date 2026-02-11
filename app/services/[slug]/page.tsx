@@ -7,6 +7,7 @@ import {
   getService,
   getRelatedExpertiseForListing,
 } from "@/lib/content";
+import { JsonLd } from "@/components/seo";
 import ServicePageClient from "./ServicePageClient";
 import ExpertisePageClient from "./ExpertisePageClient";
 import AISecurityPageClient from "./AISecurityPageClient";
@@ -138,13 +139,112 @@ export default async function ServicePage({ params }: Props) {
     );
   }
 
+  // Generate schema markup for the page
+  const generateSchemas = (pageSlug: string, data: Record<string, unknown>) => {
+    const schemas: Array<Record<string, unknown>> = [];
+
+    // ProfessionalService schema with enhanced properties
+    const serviceSchema: Record<string, unknown> = {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "@id": `https://procedure.tech/services/${pageSlug}#service`,
+      name: data.title as string,
+      description: data.description as string,
+      url: `https://procedure.tech/services/${pageSlug}`,
+      mainEntityOfPage: `https://procedure.tech/services/${pageSlug}`,
+      provider: {
+        "@id": "https://procedure.tech/#organization",
+      },
+      areaServed: [
+        { "@type": "Country", name: "United States" },
+        { "@type": "Country", name: "India" },
+        { "@type": "Country", name: "United Kingdom" },
+      ],
+      availableChannel: {
+        "@type": "ServiceChannel",
+        serviceUrl: `https://procedure.tech/services/${pageSlug}`,
+        serviceLocation: {
+          "@type": "Place",
+          address: [
+            {
+              "@type": "PostalAddress",
+              addressLocality: "Mumbai",
+              addressRegion: "Maharashtra",
+              addressCountry: "IN",
+            },
+            {
+              "@type": "PostalAddress",
+              addressLocality: "San Francisco",
+              addressRegion: "CA",
+              addressCountry: "US",
+            },
+          ],
+        },
+      },
+      offers: {
+        "@type": "Offer",
+        url: `https://procedure.tech/services/${pageSlug}`,
+        priceCurrency: "USD",
+        eligibleRegion: ["US", "IN", "EU", "GB"],
+      },
+      potentialAction: {
+        "@type": "CommunicateAction",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: "https://cal.com/procedure/discovery",
+          actionPlatform: [
+            "http://schema.org/DesktopWebPlatform",
+            "http://schema.org/MobileWebPlatform",
+          ],
+        },
+        name: "Book a Discovery Call",
+      },
+    };
+
+    // Add service types if available
+    if (data.capabilities && Array.isArray(data.capabilities)) {
+      serviceSchema.serviceType = (data.capabilities as Array<{ title: string }>).map((c) => c.title);
+    }
+
+    schemas.push(serviceSchema);
+
+    // FAQPage schema if FAQs exist
+    if (data.faqs && Array.isArray(data.faqs)) {
+      const faqSchema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: (data.faqs as Array<{ question: string; answer: string }>).map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      };
+      schemas.push(faqSchema);
+    }
+
+    return schemas;
+  };
+
   // Service-style has 'benefits' and 'process', expertise-style has 'capabilities'
   if (frontmatter.benefits && frontmatter.process) {
     const service = getServiceForListing(slug);
     if (!service) {
       notFound();
     }
-    return <ServicePageClient service={service} />;
+
+    const schemas = generateSchemas(slug, frontmatter);
+
+    return (
+      <>
+        {schemas.map((schema, index) => (
+          <JsonLd key={index} data={schema} />
+        ))}
+        <ServicePageClient service={service} />
+      </>
+    );
   } else if (frontmatter.capabilities) {
     const expertise = getExpertiseForListing(slug);
     if (!expertise) {
@@ -155,8 +255,15 @@ export default async function ServicePage({ params }: Props) {
       expertise.relatedExpertise || [],
     );
 
+    const schemas = generateSchemas(slug, frontmatter);
+
     return (
-      <ExpertisePageClient expertise={expertise} relatedPages={relatedPages} />
+      <>
+        {schemas.map((schema, index) => (
+          <JsonLd key={index} data={schema} />
+        ))}
+        <ExpertisePageClient expertise={expertise} relatedPages={relatedPages} />
+      </>
     );
   }
 
