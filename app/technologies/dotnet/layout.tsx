@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     url: "/technologies/dotnet",
     images: [
       {
-        url: "/og-image.png",
+        url: "/assets/technologies/dotnet-development.png",
         width: 1200,
         height: 630,
         alt: "Procedure - .NET Development Services",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
       "Expert .NET development services including ASP.NET Core, C#, Azure, and .NET modernization. Senior engineers, embedded teams, production-ready delivery.",
     images: [
       {
-        url: "/og-image.png",
+        url: "/assets/technologies/dotnet-development.png",
         width: 1200,
         height: 630,
         alt: "Procedure - .NET Development Services",

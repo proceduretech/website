@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     url: "/technologies/dotnet/modernization",
     images: [
       {
-        url: "/og-image.png",
+        url: "/assets/technologies/dotnet-migration.png",
         width: 1200,
         height: 630,
         alt: "Procedure - .NET Modernization Services",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
       "Migrate legacy .NET Framework applications to .NET 8 with zero downtime. Expert .NET modernization using Strangler Fig pattern. Free migration assessment included.",
     images: [
       {
-        url: "/og-image.png",
+        url: "/assets/technologies/dotnet-migration.png",
         width: 1200,
         height: 630,
         alt: "Procedure - .NET Modernization Services",

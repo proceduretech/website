@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     url: "/technologies/dotnet/staff-augmentation",
     images: [
       {
-        url: "/og-image.png",
+        url: "/assets/technologies/dotnet-staff-augmentation.png",
         width: 1200,
         height: 630,
         alt: "Procedure - .NET Staff Augmentation Services",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
       "Extend your team with senior .NET developers in 5 days. Pre-vetted ASP.NET Core, C#, and Azure experts who integrate with your workflows. No recruitment overhead.",
     images: [
       {
-        url: "/og-image.png",
+        url: "/assets/technologies/dotnet-staff-augmentation.png",
         width: 1200,
         height: 630,
         alt: "Procedure - .NET Staff Augmentation Services",
