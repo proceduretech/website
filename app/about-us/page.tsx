@@ -522,7 +522,7 @@ export default function AboutPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Trust & Compliance
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-16">
               Enterprise-grade security you can trust
             </h2>
 
