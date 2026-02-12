@@ -1011,8 +1011,9 @@ function parseMetricsFromContent(
         if (match) {
           const [, boldPart, context] = match;
           // Try to split bold part into value and label
+          // Matches: optional $, digits/symbols, optional letter suffix (e.g. "ms", "M", "x"), optional trailing +/%
           const valueLabelMatch = boldPart.match(
-            /^([\d\.\-<>%\+]+\s*[\w]*)\s+(.+)$/,
+            /^(\$?[\d.\-<>%+]+[A-Za-z]*[+%]?)\s+(.+)$/,
           );
           if (valueLabelMatch) {
             return {
