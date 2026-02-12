@@ -536,7 +536,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
       {/* Share buttons - sidebar (desktop only) */}
       <BlogShareButtons
-        url={`/blog/${slug}`}
+        url={`/blogs/${slug}`}
         title={post.title}
         variant="sidebar"
       />
@@ -561,7 +561,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </Link>
             <span>/</span>
             <Link
-              href={`/blog?category=${post.category.slug}`}
+              href={`/blogs?category=${post.category.slug}`}
               className="hover:text-accent-light transition-colors"
             >
               {post.category.name}
@@ -752,7 +752,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {/* Share Buttons - Inline (mobile/tablet) */}
               <div className="xl:hidden">
                 <BlogShareButtons
-                  url={`/blog/${slug}`}
+                  url={`/blogs/${slug}`}
                   title={post.title}
                   variant="inline"
                 />

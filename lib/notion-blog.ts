@@ -672,52 +672,77 @@ async function fetchPageContent(pageId: string): Promise<BlogContent[]> {
 // Main Data Fetching Functions
 // =============================================================================
 
-// Cache for storing detailed blog post data
+// Module-level cache for storing detailed blog post data
+// Persists across React render contexts during the same build
 let cachedDetails: Map<string, Omit<BlogPostDetail, "notionContent">> | null =
   null;
+let cachedBlogPosts: BlogPost[] | null = null;
 
 /**
  * Fetch all published blog posts from Notion
+ * Uses pagination to ensure ALL posts are fetched, not just the first page
  */
 export const getNotionBlogPosts = cache(async (): Promise<BlogPost[]> => {
+  // Return module-level cache if already populated (persists across render contexts)
+  if (cachedBlogPosts && cachedDetails && cachedDetails.size > 0) {
+    return cachedBlogPosts;
+  }
+
   if (!isNotionConfigured()) {
     console.warn("Notion token not configured, returning empty blog posts");
     return [];
   }
 
   try {
-    // Query without filter first to see all posts, then filter in code
-    const response: QueryDataSourceResponse = await notion.dataSources.query({
-      data_source_id: BLOG_DATA_SOURCE_ID,
-      sorts: [
-        {
-          property: "Publish Date",
-          direction: "descending",
-        },
-      ],
-    });
+    // Paginate through all results to ensure we get every post
+    const allPages: PageObjectResponse[] = [];
+    let hasMore = true;
+    let startCursor: string | undefined = undefined;
+
+    while (hasMore) {
+      const response: QueryDataSourceResponse =
+        await notion.dataSources.query({
+          data_source_id: BLOG_DATA_SOURCE_ID,
+          sorts: [
+            {
+              property: "Publish Date",
+              direction: "descending",
+            },
+          ],
+          ...(startCursor ? { start_cursor: startCursor } : {}),
+        });
+
+      for (const page of response.results) {
+        if ("properties" in page) {
+          allPages.push(page as PageObjectResponse);
+        }
+      }
+
+      hasMore = response.has_more;
+      startCursor = response.next_cursor || undefined;
+    }
 
     const blogPosts: BlogPost[] = [];
-    cachedDetails = new Map();
+    const details = new Map<
+      string,
+      Omit<BlogPostDetail, "notionContent">
+    >();
 
-    for (const page of response.results) {
-      if (!("properties" in page)) {
-        continue;
-      }
-
-      const result = await transformNotionPageToBlogPost(
-        page as PageObjectResponse
-      );
+    for (const page of allPages) {
+      const result = await transformNotionPageToBlogPost(page);
       if (result) {
         blogPosts.push(result.blogPost);
-        cachedDetails.set(result.blogPost.slug, result.detail);
+        details.set(result.blogPost.slug, result.detail);
       }
     }
+
+    // Set module-level cache atomically (after all processing is done)
+    cachedDetails = details;
+    cachedBlogPosts = blogPosts;
 
     return blogPosts;
   } catch (error) {
     console.error("Error fetching blog posts from Notion:", error);
-    cachedDetails = null;
     return [];
   }
 });
