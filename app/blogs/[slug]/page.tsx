@@ -775,7 +775,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       )}
 
       {/* CTA Section */}
-      <BlogCTA />
+      <BlogCTA categorySlug={post.category.slug} />
     </main>
   );
 }

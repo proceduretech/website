@@ -35,7 +35,7 @@ export function FeaturedCaseStudies({ caseStudies }: FeaturedCaseStudiesProps) {
               Proven Results
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">
-              AI that ships. Results that matter.
+              AI That Ships. Results That Matter.
             </h2>
           </div>
           <Link

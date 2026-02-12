@@ -20,7 +20,7 @@ interface StatsProps {
 }
 
 export function Stats({
-  title = "Proven results from embedded engineering",
+  title = "Proven Results from Embedded Engineering",
   stats = defaultStats,
 }: StatsProps) {
   return (

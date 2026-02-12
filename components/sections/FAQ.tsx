@@ -67,7 +67,7 @@ export function FAQ() {
             FAQ
           </p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">
-            Frequently asked questions
+            Frequently Asked Questions
           </h2>
         </m.div>
 

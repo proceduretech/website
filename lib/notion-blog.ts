@@ -275,15 +275,6 @@ function generateSlug(title: string): string {
 }
 
 // =============================================================================
-// Read Time Calculation
-// =============================================================================
-
-function calculateReadTime(content: string): number {
-  const wordsPerMinute = 200;
-  const words = content.trim().split(/\s+/).length;
-  return Math.ceil(words / wordsPerMinute);
-}
-
 // =============================================================================
 // Transform Notion Page to BlogPost
 // =============================================================================
@@ -812,18 +803,18 @@ export const getNotionBlogPostBySlug = cache(
       // Cache any images in the content to public folder
       await cacheContentImages(notionContent, slug, "blog");
 
-      // Generate content string for read time calculation
+      // Generate content string
       const contentText = notionContent
         .filter((block) => block.text)
         .map((block) => block.text)
         .join(" ");
 
-      const readTime = calculateReadTime(contentText) || detail.readTime;
-
+      // Use the same readTime from Notion property as the listing cards
+      // to ensure consistency between blog cards and blog post pages.
+      // The Notion "Read Time" property (or default 5) is set in processNotionPage().
       return {
         ...detail,
         content: contentText,
-        readTime,
         notionContent,
       };
     }

@@ -204,7 +204,6 @@ export default function ExpertisePageClient({
         badge={pageData.hero.badge}
         headline={pageData.hero.headline}
         headlineAccent={pageData.hero.headlineAccent}
-        tagline={pageData.hero.tagline}
         description={pageData.hero.description}
         primaryCTA={
           expertise.slug === "frontend-development"
@@ -378,7 +377,7 @@ export default function ExpertisePageClient({
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
                 Discuss Your <span className="text-highlight">.NET Project</span>
               </h2>
               <p className="text-lg text-text-secondary mb-8">

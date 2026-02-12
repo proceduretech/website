@@ -42,9 +42,6 @@ export function SolutionsGrid({
   subtitle,
   solutions,
 }: SolutionsGridProps) {
-  const featuredSolution = solutions.find((s) => s.featured);
-  const regularSolutions = solutions.filter((s) => !s.featured);
-
   return (
     <section className="py-16 sm:py-24 bg-base">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -66,124 +63,47 @@ export function SolutionsGrid({
           )}
         </motion.div>
 
-        {/* Solutions layout */}
+        {/* Uniform solutions grid */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {/* Featured + side cards layout */}
-          {featuredSolution && (
-            <div className="grid lg:grid-cols-3 gap-6 mb-6">
-              {/* Featured card - takes 2 columns */}
-              <motion.div
-                variants={cardVariants}
+          {solutions.map((solution, index) => (
+            <motion.div
+              key={index}
+              variants={cardVariants}
+              className={cn(
+                "p-6 rounded-2xl",
+                "bg-surface-elevated/50 backdrop-blur-sm",
+                "border border-border hover:border-accent/30",
+                "transition-all duration-300",
+                "hover:shadow-lg hover:shadow-accent/5",
+                "hover:-translate-y-1",
+              )}
+            >
+              <div
                 className={cn(
-                  "lg:col-span-2 p-8 rounded-2xl",
-                  "bg-gradient-to-br from-accent/10 to-accent-secondary/5",
+                  "w-12 h-12 rounded-xl mb-4",
+                  "bg-gradient-to-br from-accent/20 to-accent-secondary/20",
                   "border border-accent/20",
-                  "group hover:border-accent/40 transition-all duration-300",
+                  "flex items-center justify-center",
                 )}
               >
-                <div
-                  className={cn(
-                    "w-14 h-14 rounded-xl mb-6",
-                    "bg-gradient-to-br from-accent/20 to-accent-secondary/20",
-                    "border border-accent/30",
-                    "flex items-center justify-center",
-                    "group-hover:border-accent/50 transition-colors",
-                  )}
-                >
-                  <div className="w-7 h-7 text-accent-light">
-                    {featuredSolution.icon}
-                  </div>
+                <div className="w-6 h-6 text-accent-light">
+                  {solution.icon}
                 </div>
-
-                <h3 className="text-xl font-semibold text-text-primary mb-3">
-                  {featuredSolution.title}
-                </h3>
-                <p className="text-text-secondary leading-relaxed text-lg">
-                  {featuredSolution.description}
-                </p>
-              </motion.div>
-
-              {/* Side cards */}
-              <div className="space-y-6">
-                {regularSolutions.slice(0, 2).map((solution, index) => (
-                  <motion.div
-                    key={index}
-                    variants={cardVariants}
-                    className={cn(
-                      "p-6 rounded-2xl",
-                      "bg-surface-elevated/50 backdrop-blur-sm",
-                      "border border-border hover:border-accent/30",
-                      "transition-all duration-300",
-                      "hover:shadow-lg hover:shadow-accent/5",
-                    )}
-                  >
-                    <div
-                      className={cn(
-                        "w-10 h-10 rounded-lg mb-4",
-                        "bg-gradient-to-br from-accent/20 to-accent-secondary/20",
-                        "border border-accent/20",
-                        "flex items-center justify-center",
-                      )}
-                    >
-                      <div className="w-5 h-5 text-accent-light">
-                        {solution.icon}
-                      </div>
-                    </div>
-                    <h3 className="text-base font-semibold text-text-primary mb-2">
-                      {solution.title}
-                    </h3>
-                    <p className="text-sm text-text-secondary leading-relaxed">
-                      {solution.description}
-                    </p>
-                  </motion.div>
-                ))}
               </div>
-            </div>
-          )}
-
-          {/* Bottom row */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {(featuredSolution ? regularSolutions.slice(2) : solutions).map(
-              (solution, index) => (
-                <motion.div
-                  key={index}
-                  variants={cardVariants}
-                  className={cn(
-                    "p-6 rounded-2xl",
-                    "bg-surface-elevated/50 backdrop-blur-sm",
-                    "border border-border hover:border-accent/30",
-                    "transition-all duration-300",
-                    "hover:shadow-lg hover:shadow-accent/5",
-                    "hover:-translate-y-1",
-                  )}
-                >
-                  <div
-                    className={cn(
-                      "w-12 h-12 rounded-xl mb-4",
-                      "bg-gradient-to-br from-accent/20 to-accent-secondary/20",
-                      "border border-accent/20",
-                      "flex items-center justify-center",
-                    )}
-                  >
-                    <div className="w-6 h-6 text-accent-light">
-                      {solution.icon}
-                    </div>
-                  </div>
-                  <h3 className="text-lg font-semibold text-text-primary mb-2">
-                    {solution.title}
-                  </h3>
-                  <p className="text-text-secondary leading-relaxed">
-                    {solution.description}
-                  </p>
-                </motion.div>
-              ),
-            )}
-          </div>
+              <h3 className="text-lg font-semibold text-text-primary mb-2">
+                {solution.title}
+              </h3>
+              <p className="text-text-secondary leading-relaxed">
+                {solution.description}
+              </p>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </section>

@@ -211,7 +211,7 @@ export default function CareersPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Why Join Procedure
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
               Benefits Designed for Senior AI Engineers
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto">
@@ -275,7 +275,7 @@ export default function CareersPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Our Engineering Culture
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
               The Values That Drive Our Work
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto">
@@ -346,7 +346,7 @@ export default function CareersPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Current Openings
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
               Remote AI and Engineering Positions
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto">

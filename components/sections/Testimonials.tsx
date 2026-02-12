@@ -29,7 +29,7 @@ export function Testimonials() {
             Testimonials
           </p>
           <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-text-primary">
-            Trusted by engineering leaders
+            Trusted by Engineering Leaders
           </h2>
         </m.div>
 

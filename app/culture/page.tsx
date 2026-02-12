@@ -464,18 +464,15 @@ export default function CulturePage() {
             <p className="text-sm font-semibold tracking-widest text-accent-light uppercase mb-6">
               How It Started
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary leading-tight mb-8">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-text-primary leading-tight mb-6">
               Procedure started as a small crew that just loved making things
               work better, and that hasn&apos;t changed.
-            </h2>
-            <p className="text-lg sm:text-xl text-text-secondary leading-relaxed">
-              Today, we&apos;re still experimenting, breaking, fixing, and
-              shipping together, because that&apos;s how real products and real
-              teams grow. Our team is a mixed bag. Of the smart and the hard
-              workers. Of the organised and slightly chaotic. Of the early
-              risers and the burners of the midnight oil. We appreciate
-              diversity and truly like having differing perspectives in the
-              room.
+            </h3>
+            <p className="text-lg text-text-secondary leading-relaxed max-w-3xl mx-auto">
+              We&apos;re still experimenting, breaking, fixing, and shipping
+              together&mdash;because that&apos;s how real products and real
+              teams grow. A diverse mix of perspectives, personalities, and
+              working styles, united by a shared love for the craft.
             </p>
           </motion.div>
         </div>
@@ -520,7 +517,7 @@ export default function CulturePage() {
           </motion.div>
 
           {/* Beliefs Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="flex flex-wrap justify-center gap-6">
             {workBeliefs.map((belief, idx) => (
               <motion.div
                 key={belief.title}
@@ -528,7 +525,7 @@ export default function CulturePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="group relative"
+                className="group relative w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]"
               >
                 {/* Card glow effect */}
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/20 to-accent-secondary/20 rounded-2xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
