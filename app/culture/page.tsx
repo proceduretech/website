@@ -470,7 +470,7 @@ export default function CulturePage() {
             </h3>
             <p className="text-lg text-text-secondary leading-relaxed max-w-3xl mx-auto">
               We&apos;re still experimenting, breaking, fixing, and shipping
-              together - because that&apos;s how real products and real
+              together&mdash;because that&apos;s how real products and real
               teams grow. A diverse mix of perspectives, personalities, and
               working styles, united by a shared love for the craft.
             </p>

@@ -652,7 +652,7 @@ export default function RubberDuckPage() {
                 <div className="space-y-4 text-text-secondary">
                   <p>
                     The most effective engineers aren&apos;t just
-                    specialists - they&apos;re{" "}
+                    specialists&mdash;they&apos;re{" "}
                     <strong className="text-text-primary">
                       T-shaped professionals
                     </strong>{" "}
@@ -672,7 +672,7 @@ export default function RubberDuckPage() {
                     The{" "}
                     <strong className="text-text-primary">vertical bar</strong>{" "}
                     represents your depth: we&apos;ll help you develop mastery
-                    in your chosen specialization - the skill you&apos;ll be
+                    in your chosen specialization&mdash;the skill you&apos;ll be
                     known for.
                   </p>
                 </div>
