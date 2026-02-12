@@ -101,7 +101,7 @@ export default function ServicePageClient({ service }: Props) {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-6">
               {benefitsTitle}
             </h2>
           </motion.div>
@@ -151,7 +151,7 @@ export default function ServicePageClient({ service }: Props) {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-6">
               {processTitle}
             </h2>
           </motion.div>
@@ -202,7 +202,7 @@ export default function ServicePageClient({ service }: Props) {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-4">
+              <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-6">
                 {additionalItemsTitle}
               </h2>
             </motion.div>
@@ -235,7 +235,7 @@ export default function ServicePageClient({ service }: Props) {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-4">
+              <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-6">
                 Compliance & Security
               </h2>
             </motion.div>
@@ -267,7 +267,7 @@ export default function ServicePageClient({ service }: Props) {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-6">
               {idealForTitle}
             </h2>
           </motion.div>

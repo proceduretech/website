@@ -764,7 +764,7 @@ export default function AISafetyPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Our Principles
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-6 tracking-tight">
               Six Pillars of{" "}
               <span className="text-highlight">Responsible AI.</span>
             </h2>
@@ -812,7 +812,7 @@ export default function AISafetyPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               How We Operationalize Safety
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-6 tracking-tight">
               Safety Integrated at{" "}
               <span className="text-highlight">Every Stage.</span>
             </h2>
@@ -851,7 +851,7 @@ export default function AISafetyPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Frameworks & Standards
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-6 tracking-tight">
               Built on{" "}
               <span className="text-highlight">Industry Standards.</span>
             </h2>
@@ -988,7 +988,7 @@ export default function AISafetyPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Industry-Specific Safety
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-6 tracking-tight">
               Tailored for <span className="text-highlight">Your Domain.</span>
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto text-base sm:text-lg">

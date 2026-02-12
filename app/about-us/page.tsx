@@ -314,7 +314,7 @@ export default function AboutPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Leadership
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
               Choosing a mentor is more important than choosing a company
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto">
@@ -465,7 +465,7 @@ export default function AboutPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Why Procedure
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
               The numbers speak for themselves
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto">

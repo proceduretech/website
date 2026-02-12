@@ -463,7 +463,7 @@ export function CaseStudyDetailClient({
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
               Ready to Build Your
               <br />
               <span className="text-highlight">Success Story?</span>

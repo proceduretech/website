@@ -316,7 +316,7 @@ export default function EventsPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Flagship Meetup
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
               Mumbai Meets AI - Edition 4
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto">
@@ -532,7 +532,7 @@ export default function EventsPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Event Archive
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
               Where We&apos;ve Been
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto">
@@ -828,7 +828,7 @@ export default function EventsPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Our Philosophy
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
               Why We Show Up
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto">
@@ -926,7 +926,7 @@ export default function EventsPage() {
               </div>
 
               <div className="relative text-center">
-                <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-4">
+                <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-6">
                   Stay in the Loop
                 </h2>
                 <p className="text-text-secondary mb-8 max-w-xl mx-auto">
@@ -1000,7 +1000,7 @@ export default function EventsPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Join Us
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
               There&apos;s a Place for You Here
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto">

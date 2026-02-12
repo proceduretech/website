@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { PageHero } from "@/components/ui";
 import { CalInline } from "@/components/CalInline";
-import { RelatedExpertise } from "@/components/expertise";
+import { RelatedExpertise, FAQSection } from "@/components/expertise";
 
 interface RelatedPage {
   slug: string;
@@ -140,7 +140,7 @@ export default function AISecurityPageClient({ data, relatedPages }: Props) {
         headlineAccent={data.hero.headlineAccent}
         description={data.hero.description}
         primaryCTA={{ text: "Book Security Assessment", href: "#book-call" }}
-        secondaryCTA={{ text: "See How We Work", href: "#services" }}
+        secondaryCTA={{ text: "See How We Work", href: "#process" }}
       />
 
       {/* Risks Section */}
@@ -150,7 +150,7 @@ export default function AISecurityPageClient({ data, relatedPages }: Props) {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-12"
+            className="text-center mb-12"
           >
             <p className="text-sm font-medium text-accent-light uppercase tracking-wider mb-4">
               The Risks
@@ -193,7 +193,7 @@ export default function AISecurityPageClient({ data, relatedPages }: Props) {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-12"
+            className="text-center mb-12"
           >
             <p className="text-sm font-medium text-accent-light uppercase tracking-wider mb-4">
               What We Do
@@ -240,13 +240,13 @@ export default function AISecurityPageClient({ data, relatedPages }: Props) {
       </section>
 
       {/* Process Section */}
-      <section className="py-16 sm:py-24 bg-surface">
+      <section id="process" className="py-16 sm:py-24 bg-surface scroll-mt-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-12"
+            className="text-center mb-12"
           >
             <p className="text-sm font-medium text-accent-light uppercase tracking-wider mb-4">
               How We Work
@@ -283,7 +283,7 @@ export default function AISecurityPageClient({ data, relatedPages }: Props) {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-12"
+            className="text-center mb-12"
           >
             <p className="text-sm font-medium text-accent-light uppercase tracking-wider mb-4">
               Is This For You?
@@ -344,39 +344,7 @@ export default function AISecurityPageClient({ data, relatedPages }: Props) {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 sm:py-24 bg-surface">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <p className="text-sm font-medium text-accent-light uppercase tracking-wider mb-4">
-              Questions
-            </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">
-              Frequently Asked Questions
-            </h2>
-          </motion.div>
-
-          <div className="space-y-0 divide-y divide-border">
-            {data.faqs.map((faq, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.05 }}
-                className="py-6"
-              >
-                <h3 className="text-lg font-semibold text-text-primary mb-3">{faq.question}</h3>
-                <p className="text-text-secondary leading-relaxed">{faq.answer}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {data.faqs.length > 0 && <FAQSection faqs={data.faqs} />}
 
       {/* Related Expertise */}
       {relatedPages.length > 0 && (
@@ -392,7 +360,7 @@ export default function AISecurityPageClient({ data, relatedPages }: Props) {
             viewport={{ once: true }}
             className="text-center mb-10"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
               Let&apos;s Find the Gaps{" "}
               <span className="text-highlight">Before Attackers Do</span>
             </h2>

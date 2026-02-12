@@ -683,30 +683,6 @@ export default function ApproachPage() {
               </Link>
             </motion.div>
 
-            {/* Stats row */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-3xl mx-auto"
-            >
-              {outcomes.map((outcome, idx) => (
-                <div
-                  key={idx}
-                  className="p-4 rounded-xl bg-surface-elevated/60 border border-border"
-                >
-                  <div className="flex items-baseline gap-1 justify-center mb-1">
-                    <span className="text-2xl sm:text-3xl font-bold text-highlight">
-                      {outcome.stat}
-                    </span>
-                    <span className="text-sm font-bold text-accent-light">
-                      {outcome.unit}
-                    </span>
-                  </div>
-                  <p className="text-xs text-text-muted">{outcome.label}</p>
-                </div>
-              ))}
-            </motion.div>
           </div>
         </motion.div>
 
@@ -798,7 +774,7 @@ export default function ApproachPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               How We Work
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-6 tracking-tight">
               From First Conversation{" "}
               <span className="text-highlight">to Production.</span>
             </h2>
@@ -863,15 +839,16 @@ export default function ApproachPage() {
           </div>
 
           {/* Phase Cards Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="flex flex-wrap justify-center gap-6">
             {processPhases.map((phase, idx) => (
-              <ProcessPhaseCard
-                key={phase.id}
-                phase={phase}
-                index={idx}
-                isActive={activePhase === idx}
-                onClick={() => setActivePhase(idx)}
-              />
+              <div key={phase.id} className="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]">
+                <ProcessPhaseCard
+                  phase={phase}
+                  index={idx}
+                  isActive={activePhase === idx}
+                  onClick={() => setActivePhase(idx)}
+                />
+              </div>
             ))}
           </div>
         </div>
@@ -905,7 +882,7 @@ export default function ApproachPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               What Makes Us Different
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-6 tracking-tight">
               Not Your Typical <span className="text-highlight">Dev Shop.</span>
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto text-base sm:text-lg">
@@ -947,7 +924,7 @@ export default function ApproachPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Our Principles
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-6 tracking-tight">
               The beliefs that{" "}
               <span className="text-highlight">guide our work.</span>
             </h2>
@@ -994,7 +971,7 @@ export default function ApproachPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               What You Can Expect
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-6 tracking-tight">
               Outcomes, <span className="text-highlight">Not Outputs.</span>
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto text-base sm:text-lg">

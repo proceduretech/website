@@ -230,7 +230,7 @@ export default function WhyUsPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Why Choose Procedure
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-6 tracking-tight">
               Five reasons teams choose{" "}
               <span className="text-highlight">Procedure for AI</span>
             </h2>
@@ -278,7 +278,7 @@ export default function WhyUsPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               The Comparison
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
               This is not your typical consultancy
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto">
@@ -451,7 +451,7 @@ export default function WhyUsPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Our Process
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
               From first call to{" "}
               <span className="text-highlight">production AI</span>
             </h2>

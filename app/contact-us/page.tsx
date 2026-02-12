@@ -565,7 +565,7 @@ export default function ContactPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-6">
               Global presence, local expertise
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto">
@@ -646,7 +646,7 @@ export default function ContactPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-6">
               Frequently asked questions
             </h2>
             <p className="text-text-secondary">
