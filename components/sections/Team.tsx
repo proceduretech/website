@@ -171,7 +171,7 @@ export function Team() {
           <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-3 sm:mb-4">
             Our Team
           </p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6 sm:mb-8">
             Senior Engineers. Production Focus. Your Extended Team.
           </h2>
           <p className="text-text-secondary max-w-2xl mx-auto leading-relaxed">

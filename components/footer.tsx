@@ -163,10 +163,10 @@ export function Footer() {
 
           {/* Column 1: AI & ML + Engineering */}
           <div className="md:col-span-3">
-            <h3 className="text-sm font-semibold text-text-primary mb-4">
+            <h3 className="text-sm font-semibold text-text-primary mb-5">
               AI & ML
             </h3>
-            <ul className="space-y-2.5 mb-6">
+            <ul className="space-y-3 mb-8">
               {footerLinks.aiServices.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -179,10 +179,10 @@ export function Footer() {
               ))}
             </ul>
 
-            <h3 className="text-sm font-semibold text-text-primary mb-4">
+            <h3 className="text-sm font-semibold text-text-primary mb-5">
               Engineering
             </h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-3">
               {footerLinks.productEngineering.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -198,10 +198,10 @@ export function Footer() {
 
           {/* Column 2: Cloud & Design + Industries */}
           <div className="md:col-span-3">
-            <h3 className="text-sm font-semibold text-text-primary mb-4">
+            <h3 className="text-sm font-semibold text-text-primary mb-5">
               Cloud & Design
             </h3>
-            <ul className="space-y-2.5 mb-6">
+            <ul className="space-y-3 mb-8">
               {footerLinks.cloudDesign.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -214,10 +214,10 @@ export function Footer() {
               ))}
             </ul>
 
-            <h3 className="text-sm font-semibold text-text-primary mb-4">
+            <h3 className="text-sm font-semibold text-text-primary mb-5">
               Industries
             </h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-3">
               {footerLinks.industries.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -233,10 +233,10 @@ export function Footer() {
 
           {/* Column 3: Company + Resources */}
           <div className="md:col-span-2">
-            <h3 className="text-sm font-semibold text-text-primary mb-4">
+            <h3 className="text-sm font-semibold text-text-primary mb-5">
               Company
             </h3>
-            <ul className="space-y-2.5 mb-6">
+            <ul className="space-y-3 mb-8">
               {footerLinks.company.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -249,10 +249,10 @@ export function Footer() {
               ))}
             </ul>
 
-            <h3 className="text-sm font-semibold text-text-primary mb-4">
+            <h3 className="text-sm font-semibold text-text-primary mb-5">
               Resources
             </h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-3">
               <li>
                 <Link
                   href="/events"

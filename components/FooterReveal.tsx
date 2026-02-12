@@ -13,7 +13,7 @@ export function FooterReveal() {
             textColor="var(--color-text-muted)"
             dotColor="var(--color-text-muted)"
             variant="outlined"
-            className="w-[120%] max-w-none h-auto opacity-70"
+            className="w-full max-w-none h-auto opacity-70"
           />
         </div>
       </div>

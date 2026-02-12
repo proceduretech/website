@@ -177,7 +177,7 @@ export function Services() {
             What You Get
           </p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">
-            AI engineering and product development services
+            AI Engineering and Product Development Services
           </h2>
         </m.div>
 

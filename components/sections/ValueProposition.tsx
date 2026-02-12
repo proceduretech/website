@@ -97,8 +97,8 @@ export function ValueProposition() {
           <p className="text-xs sm:text-sm font-medium text-accent-light uppercase tracking-wider mb-3">
             Why teams choose us
           </p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
-            AI engineers who build, not consultants who advise
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6 sm:mb-8">
+            AI Engineers Who Build, Not Consultants Who Advise
           </h2>
           <p className="text-base sm:text-lg text-text-secondary max-w-3xl mx-auto">
             Procedure delivers senior AI engineers who write production code, not

@@ -111,8 +111,8 @@ export function EngagementModels() {
           <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-3 sm:mb-4">
             Engagement Models
           </p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4 tracking-tight">
-            Enterprise partnership models built for scale
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6 sm:mb-8 tracking-tight">
+            Enterprise Partnership Models Built for Scale
           </h2>
           <p className="text-text-secondary max-w-xl mx-auto leading-relaxed">
             Three proven engagement frameworks designed for different business

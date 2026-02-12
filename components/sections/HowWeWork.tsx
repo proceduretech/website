@@ -69,9 +69,9 @@ export function HowWeWork() {
           <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-3 sm:mb-4">
             Our Process
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary mb-4 sm:mb-6 tracking-tight">
-            From first call to{" "}
-            <span className="text-highlight">production-ready code</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary mb-6 sm:mb-8 tracking-tight">
+            From First Call to{" "}
+            <span className="text-highlight">Production-Ready Code</span>
           </h2>
           <p className="text-text-secondary max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
             A proven engagement process built for enterprise velocity. Your team
