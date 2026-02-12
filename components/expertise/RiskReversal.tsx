@@ -119,7 +119,7 @@ export function RiskReversal({
                     <span className="text-text-secondary">
                       {block.title}
                     </span>
-                    <span className="text-text-muted"> — </span>
+                    <span className="text-text-muted"> - </span>
                     <span className="text-text-secondary">
                       {block.description}
                     </span>

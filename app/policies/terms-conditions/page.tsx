@@ -74,13 +74,13 @@ export default function TermsConditionsPage() {
                 By accessing, browsing, or using the Procedure website and any
                 of our services, you&apos;re agreeing to be bound by these Terms
                 & Conditions and our Privacy Policy. Think of it as a digital
-                handshake—you&apos;re saying &quot;yes&quot; to playing by our
+                handshake - you&apos;re saying &quot;yes&quot; to playing by our
                 rules.
               </p>
               <p>
                 <strong>
                   If you don&apos;t agree with these terms, that&apos;s totally
-                  fine—just don&apos;t use our site.
+                  fine -just don&apos;t use our site.
                 </strong>{" "}
                 We&apos;d appreciate a quick email to{" "}
                 <a
@@ -293,8 +293,8 @@ export default function TermsConditionsPage() {
                 Our Content
               </h4>
               <p>
-                All the content we create—including text, images, videos, logos,
-                and software—belongs to Procedure and is protected by Indian and
+                All the content we create -including text, images, videos, logos,
+                and software -belongs to Procedure and is protected by Indian and
                 international intellectual property laws. You can use our
                 content for personal, non-commercial purposes, but please
                 don&apos;t copy, redistribute, or create derivative works
@@ -617,8 +617,8 @@ export default function TermsConditionsPage() {
                 By Procedure
               </h4>
               <p>
-                We may suspend or end your account or access—without prior
-                notice—if we believe you&apos;ve:
+                We may suspend or end your account or access -without prior
+                notice -if we believe you&apos;ve:
               </p>
               <ul>
                 <li>Breached these Terms or applicable laws</li>
