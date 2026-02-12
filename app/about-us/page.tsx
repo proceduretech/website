@@ -280,8 +280,9 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="h-full"
               >
-                <div className="p-8 rounded-2xl bg-surface-elevated border border-border hover:border-accent/30 transition-colors">
+                <div className="h-full p-8 rounded-2xl bg-surface-elevated border border-border hover:border-accent/30 transition-colors">
                   <div className="w-12 h-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent-light mb-5">
                     {value.icon}
                   </div>
@@ -521,7 +522,7 @@ export default function AboutPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Trust & Compliance
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-12">
               Enterprise-grade security you can trust
             </h2>
 
