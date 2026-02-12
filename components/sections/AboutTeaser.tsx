@@ -15,8 +15,8 @@ export function AboutTeaser() {
           transition={{ duration: 0.6 }}
         >
           <p className="text-lg sm:text-xl md:text-2xl text-text-primary font-medium mb-2">
-            Seasoned builders delivering software products—
-            <span className="text-accent-light">with and without AI</span>.
+            Seasoned builders delivering software products.{" "}
+            <span className="text-accent-light">With and without AI</span>.
           </p>
           <p className="text-text-secondary mb-8">
             Production-tested engineering. Your partner for what&apos;s next.

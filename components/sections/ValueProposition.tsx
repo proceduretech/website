@@ -23,7 +23,7 @@ const values = [
     hoverBorder: "hover:border-accent/50",
     title: "AI That Ships to Production",
     description:
-      "From LLM applications to AI agents, you get production-ready AI systems built on deep engineering excellence. No science projects—real products that scale.",
+      "From LLM applications to AI agents, you get production-ready AI systems built on deep engineering excellence. No science projects. Real products that scale.",
   },
   {
     icon: (
@@ -67,7 +67,7 @@ const values = [
     hoverBorder: "hover:border-accent/50",
     title: "Your AI Team, Extended",
     description:
-      "Senior AI engineers embedded directly with your team—same tools, same standups, same commitment to shipping. You get AI capacity without the hiring overhead.",
+      "Senior AI engineers embedded directly with your team: same tools, same standups, same commitment to shipping. You get AI capacity without the hiring overhead.",
   },
 ];
 

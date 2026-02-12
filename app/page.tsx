@@ -36,7 +36,7 @@ const faqSchema = {
       name: "What AI systems do you build?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "We build production AI systems including LLM applications, AI agents, RAG systems, and AI-enhanced products. From conversational AI to document processing to intelligent automation—we handle the complete development lifecycle from architecture to secure production deployment.",
+        text: "We build production AI systems including LLM applications, AI agents, RAG systems, and AI-enhanced products. From conversational AI to document processing to intelligent automation. We handle the complete development lifecycle from architecture to secure production deployment.",
       },
     },
     {
@@ -44,7 +44,7 @@ const faqSchema = {
       name: "How quickly can you start our AI project?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Most AI engagements begin within 2-5 days. We match senior engineers based on your AI requirements and tech stack, then integrate them into your development workflow immediately. No months of discovery—we start building fast.",
+        text: "Most AI engagements begin within 2-5 days. We match senior engineers based on your AI requirements and tech stack, then integrate them into your development workflow immediately. No months of discovery. We start building fast.",
       },
     },
     {
@@ -68,7 +68,7 @@ const faqSchema = {
       name: "Do you only work with large enterprises?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No. We work with high-growth startups, scale-ups, and enterprises. What matters is the complexity of the AI challenge and your commitment to shipping production systems. If you need serious AI engineering—not consulting theater—we can help.",
+        text: "No. We work with high-growth startups, scale-ups, and enterprises. What matters is the complexity of the AI challenge and your commitment to shipping production systems. If you need serious AI engineering, not consulting theater, we can help.",
       },
     },
     {
@@ -84,7 +84,7 @@ const faqSchema = {
       name: "How do you handle AI security and compliance?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Security is built into every AI system we develop—not bolted on later. We implement secure LLM architectures, prevent prompt injection, ensure data privacy, and meet compliance requirements (SOC 2, HIPAA, GDPR). Our AI security expertise comes from building production systems that enterprises trust.",
+        text: "Security is built into every AI system we develop. Not bolted on later. We implement secure LLM architectures, prevent prompt injection, ensure data privacy, and meet compliance requirements (SOC 2, HIPAA, GDPR). Our AI security expertise comes from building production systems that enterprises trust.",
       },
     },
   ],
