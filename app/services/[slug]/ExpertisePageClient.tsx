@@ -204,7 +204,6 @@ export default function ExpertisePageClient({
         badge={pageData.hero.badge}
         headline={pageData.hero.headline}
         headlineAccent={pageData.hero.headlineAccent}
-        tagline={pageData.hero.tagline}
         description={pageData.hero.description}
         primaryCTA={
           expertise.slug === "frontend-development"

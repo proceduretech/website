@@ -72,22 +72,26 @@ export function SuccessMetrics({
               key={index}
               variants={cardVariants}
               className={cn(
-                "p-6 sm:p-8 rounded-2xl text-center",
+                "p-6 sm:p-8 rounded-2xl text-center flex flex-col",
                 "bg-gradient-to-br from-accent/10 to-accent-secondary/10",
                 "border border-accent/20",
                 "hover:border-accent/40 transition-colors duration-300",
               )}
             >
-              <div className="text-4xl sm:text-5xl font-bold text-highlight">
-                {metric.value}
+              <div className="flex-1 flex items-end justify-center pb-3">
+                <div className="text-3xl sm:text-4xl font-bold text-highlight whitespace-nowrap">
+                  {metric.value}
+                </div>
               </div>
-              <div className="text-text-primary font-medium mt-3">
+              <div className="text-text-primary font-medium">
                 {metric.label}
               </div>
-              {metric.context && (
+              {metric.context ? (
                 <div className="text-sm text-text-muted mt-1">
                   {metric.context}
                 </div>
+              ) : (
+                <div className="text-sm mt-1">&nbsp;</div>
               )}
             </motion.div>
           ))}
