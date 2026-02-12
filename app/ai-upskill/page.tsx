@@ -85,7 +85,7 @@ const faqs = [
   {
     question: "Will sessions be recorded?",
     answer:
-      "Yes, all sessions will be recorded. However, live attendance is strongly encouraged—the discussions, questions, and real-time collaboration are where the real learning happens.",
+      "Yes, all sessions will be recorded. However, live attendance is strongly encouraged. The discussions, questions, and real-time collaboration are where the real learning happens.",
   },
   {
     question: "Who pays for API costs?",
@@ -95,7 +95,7 @@ const faqs = [
   {
     question: "Is creating content mandatory?",
     answer:
-      "Yes. Part of this program's purpose is to establish Procedure as an AI engineering leader. Every participant contributes content—whether that's a LinkedIn post, blog article, newsletter contribution, or video. It's also great for your personal brand.",
+      "Yes. Part of this program's purpose is to establish Procedure as an AI engineering leader. Every participant contributes content, whether that's a LinkedIn post, blog article, newsletter contribution, or video. It's also great for your personal brand.",
   },
 ];
 
@@ -159,7 +159,7 @@ export default function AIUpskillPage() {
               A 12-week intensive bootcamp designed to transform developers into
               AI engineers. Master RAG, Agents, Fine-tuning, and MLOps through
               hands-on projects that ship to production. No theory-only
-              lectures—just practical skills that matter.
+              lectures. Just practical skills that matter.
             </motion.p>
 
             {/* Important Notice */}
@@ -343,7 +343,7 @@ export default function AIUpskillPage() {
                 <p>
                   We looked at where software engineering is heading in three,
                   five, and ten years. The answer was unanimous: AI. Not as a
-                  buzzword or a feature—but as the foundation of how software
+                  buzzword or a feature, but as the foundation of how software
                   gets built, deployed, and evolved.
                 </p>
                 <p>
@@ -359,7 +359,7 @@ export default function AIUpskillPage() {
                   <strong className="text-text-primary">
                     live and breathe AI
                   </strong>
-                  —as both producers and consumers of AI tools.
+                  , as both producers and consumers of AI tools.
                 </p>
               </motion.div>
             </motion.div>
@@ -420,7 +420,7 @@ export default function AIUpskillPage() {
               className="text-lg text-text-secondary max-w-3xl mx-auto"
             >
               A comprehensive curriculum covering the full spectrum of AI
-              engineering—from foundational concepts to production deployment.
+              engineering, from foundational concepts to production deployment.
               Every concept is examined through four levers: skills, cost,
               latency, and performance.
             </motion.p>
@@ -743,7 +743,7 @@ export default function AIUpskillPage() {
               <p className="text-text-secondary">
                 Learn from engineers actively building AI systems for enterprise
                 clients. Our instructors bring hands-on experience from real
-                deployments—not just theoretical knowledge. They&apos;ve shipped
+                deployments, not just theoretical knowledge. They&apos;ve shipped
                 RAG pipelines, agent architectures, and production ML systems.
               </p>
             </motion.div>

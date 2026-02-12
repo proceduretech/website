@@ -111,7 +111,7 @@ const involvementOptions = [
     ),
     title: "Support the Community",
     description:
-      "Help us keep events free and accessible. Whether it's food, swag, or venue support—your sponsorship directly fuels the community we're building together.",
+      "Help us keep events free and accessible. Whether it's food, swag, or venue support, your sponsorship directly fuels the community we're building together.",
     cta: "Become a sponsor",
     ctaIcon: (
       <svg
@@ -147,7 +147,7 @@ const involvementOptions = [
     ),
     title: "Open Your Doors",
     description:
-      "Have a space that can fit curious minds? We're always looking for venue partners—in Mumbai and beyond. Let's bring the community to your neighborhood.",
+      "Have a space that can fit curious minds? We're always looking for venue partners in Mumbai and beyond. Let's bring the community to your neighborhood.",
     cta: "Offer your space",
     ctaIcon: (
       <svg
@@ -216,7 +216,7 @@ export default function EventsPage() {
             >
               At Procedure, we believe the best ideas emerge when curious people
               come together. That&apos;s why we host free events, workshops, and
-              meetups—creating spaces where engineers, designers, and founders
+              meetups, creating spaces where engineers, designers, and founders
               can learn from each other, share what they&apos;re building, and
               form genuine connections.
             </motion.p>
@@ -320,7 +320,7 @@ export default function EventsPage() {
               Mumbai Meets AI - Edition 4
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto">
-              Mumbai Meets AI is our flagship community initiative—a free,
+              Mumbai Meets AI is our flagship community initiative: a free,
               monthly meetup that brings together AI practitioners, engineers,
               and builders. No sales pitches, no corporate speak. Just real
               conversations about what&apos;s working, what&apos;s not, and
@@ -538,7 +538,7 @@ export default function EventsPage() {
             <p className="text-text-secondary max-w-2xl mx-auto">
               Every event teaches us something new about building community.
               Here&apos;s a look back at the gatherings that brought us
-              together—and the conversations that continue to shape what we do
+              together, and the conversations that continue to shape what we do
               next.
             </p>
           </motion.div>
@@ -844,7 +844,7 @@ export default function EventsPage() {
               {
                 title: "Everyone Has Something to Teach",
                 description:
-                  "Whether you've shipped ten products or you're just getting started, your perspective matters. Our events create space for all voices—not just the loudest ones in the room.",
+                  "Whether you've shipped ten products or you're just getting started, your perspective matters. Our events create space for all voices, not just the loudest ones in the room.",
               },
               {
                 title: "Learning is Better Together",
@@ -854,7 +854,7 @@ export default function EventsPage() {
               {
                 title: "Free Means Accessible",
                 description:
-                  "We keep our events free because knowledge shouldn't have a price tag. No paywalls, no gatekeeping—just show up with curiosity.",
+                  "We keep our events free because knowledge shouldn't have a price tag. No paywalls, no gatekeeping. Just show up with curiosity.",
               },
               {
                 title: "Community Over Competition",
@@ -1006,7 +1006,7 @@ export default function EventsPage() {
             <p className="text-text-secondary max-w-2xl mx-auto">
               Our community grows stronger with every new voice. Whether you
               want to share your expertise, support what we&apos;re building, or
-              simply show up and be part of the conversation—you&apos;re welcome
+              simply show up and be part of the conversation. You&apos;re welcome
               here.
             </p>
           </motion.div>
@@ -1069,7 +1069,7 @@ export default function EventsPage() {
             <p className="text-lg text-text-secondary mb-10 max-w-2xl mx-auto">
               We&apos;re just getting started. New cities, new formats, new ways
               to bring builders together. Whether you join us at the next meetup
-              or connect with us online—we&apos;d love to meet you.
+              or connect with us online. We&apos;d love to meet you.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

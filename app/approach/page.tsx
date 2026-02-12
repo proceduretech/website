@@ -78,7 +78,7 @@ const processPhases = [
     tagline: "Ship Incrementally. Learn Continuously.",
     duration: "Ongoing Sprints",
     description:
-      "We work in tight iterations, shipping working software every week. Not features that almost work—features that are deployed, monitored, and ready for users. Our engineers pair program, conduct code reviews, and maintain production-grade standards from the first commit.",
+      "We work in tight iterations, shipping working software every week. Not features that almost work. Features that are deployed, monitored, and ready for users. Our engineers pair program, conduct code reviews, and maintain production-grade standards from the first commit.",
     deliverables: [
       "Weekly deployable increments",
       "Continuous integration and deployment",
@@ -108,7 +108,7 @@ const processPhases = [
     tagline: "Production is Day One, Not the Finish Line",
     duration: "Milestone-Based",
     description:
-      "Getting to production is just the beginning. We instrument everything, monitor performance, and iterate based on real user data. When issues arise—and they will—we're there to diagnose, fix, and improve. Your product gets better every week it's live.",
+      "Getting to production is just the beginning. We instrument everything, monitor performance, and iterate based on real user data. When issues arise (and they will), we're there to diagnose, fix, and improve. Your product gets better every week it's live.",
     deliverables: [
       "Production deployment and monitoring",
       "Performance optimization",
@@ -285,7 +285,7 @@ const principles = [
     number: "06",
     title: "Users First",
     description:
-      "Our compass is simple: make it useful, make it clear. We design for the person on the other side of the screen—not metrics, not trends. Real users, real solutions.",
+      "Our compass is simple: make it useful, make it clear. We design for the person on the other side of the screen, not metrics, not trends. Real users, real solutions.",
   },
 ];
 
@@ -975,7 +975,7 @@ export default function ApproachPage() {
               Outcomes, <span className="text-highlight">Not Outputs.</span>
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto text-base sm:text-lg">
-              We measure success by what ships and the impact it creates—not by
+              We measure success by what ships and the impact it creates, not by
               hours logged or tickets closed.
             </p>
           </motion.div>

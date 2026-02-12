@@ -56,7 +56,7 @@ export const caseStudies: CaseStudy[] = [
     serviceType: "AI Engineering",
     title: "AI-Powered Search That Increased Revenue by $180M Annually",
     description:
-      "A leading online retailer struggled with search relevance—customers were abandoning searches and leaving the site. We rebuilt their search infrastructure with semantic understanding and real-time personalization, transforming their highest-traffic feature into their highest-converting one.",
+      "A leading online retailer struggled with search relevance. Customers were abandoning searches and leaving the site. We rebuilt their search infrastructure with semantic understanding and real-time personalization, transforming their highest-traffic feature into their highest-converting one.",
     metrics: [
       { value: "34%", label: "Higher conversion rate" },
       { value: "$180M", label: "Additional annual revenue" },
@@ -107,7 +107,7 @@ export const caseStudies: CaseStudy[] = [
     serviceType: "Product Engineering",
     title: "Platform Modernization That Enabled 10x Scale",
     description:
-      "A fast-growing tech company hit a wall—their monolithic architecture could not handle increasing load and slowed development to a crawl. Our engineers led a strategic microservices transformation that unlocked both technical scalability and team velocity.",
+      "A fast-growing tech company hit a wall. Their monolithic architecture could not handle increasing load and slowed development to a crawl. Our engineers led a strategic microservices transformation that unlocked both technical scalability and team velocity.",
     metrics: [
       { value: "10x", label: "Traffic capacity increase" },
       { value: "3x", label: "Faster deployment cycles" },

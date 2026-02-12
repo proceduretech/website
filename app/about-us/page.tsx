@@ -63,7 +63,7 @@ const values = [
     ),
     title: "Embedded Partnership",
     description:
-      "We don't believe in the agency model where contractors disappear after handoff. Our engineers become true extensions of your team—attending your standups, understanding your codebase, and caring about your outcomes. Our certified best workplace culture means you get engaged, fulfilled engineers who stay for the long term.",
+      "We don't believe in the agency model where contractors disappear after handoff. Our engineers become true extensions of your team, attending your standups, understanding your codebase, and caring about your outcomes. Our certified best workplace culture means you get engaged, fulfilled engineers who stay for the long term.",
   },
   {
     icon: (
@@ -108,7 +108,7 @@ const values = [
     ),
     title: "Honest Conversations",
     description:
-      "No black boxes. No vague timelines. No surprise invoices. We keep it real because feedback isn't about being right—it's about making things better together. Respect and candor travel in both directions.",
+      "No black boxes. No vague timelines. No surprise invoices. We keep it real because feedback isn't about being right. It's about making things better together. Respect and candor travel in both directions.",
   },
 ];
 
@@ -205,7 +205,7 @@ export default function AboutPage() {
               className="text-lg sm:text-xl text-text-secondary leading-relaxed mb-10 max-w-2xl mx-auto"
             >
               We are forward-deployed engineers, designers, and thinkers who
-              stay close to the problem—not tucked behind layers of process.
+              stay close to the problem, not tucked behind layers of process.
               From idea to deploy, we move with intent, learn in the open, and
               keep the &quot;why&quot; visible.
             </motion.p>
@@ -266,7 +266,7 @@ export default function AboutPage() {
               work better, and that hasn&apos;t changed. Today, we&apos;re
               applying our engineering rigor to AI-powered systems, enterprise
               applications, and complex technical challenges. We still
-              experiment, break, fix, and ship together—because that&apos;s how
+              experiment, break, fix, and ship together, because that&apos;s how
               real products and real teams grow.
             </p>
           </motion.div>
@@ -319,7 +319,7 @@ export default function AboutPage() {
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto">
               Our founders have more than a decade of experience in their
-              respective fields. They lead by mentoring, not managing—helping
+              respective fields. They lead by mentoring, not managing, helping
               engineers and clients alike grow through real collaboration.
             </p>
           </motion.div>
@@ -579,7 +579,7 @@ export default function AboutPage() {
               Whether you&apos;re launching your first AI initiative, scaling an
               existing product, or trying to rescue a stalled project, we&apos;d
               love to hear about your challenges. Our team will give you an
-              honest assessment—even if the answer is that you don&apos;t need
+              honest assessment, even if the answer is that you don&apos;t need
               us yet.
             </p>
 

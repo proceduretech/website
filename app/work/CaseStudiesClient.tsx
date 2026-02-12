@@ -221,7 +221,7 @@ export function CaseStudiesClient({
             <p className="text-lg text-text-secondary max-w-2xl mx-auto">
               Every case study started with a conversation. Tell us about your
               AI challenges, and our engineers will give you an honest
-              assessment of how we can help—even if that means pointing you in a
+              assessment of how we can help, even if that means pointing you in a
               different direction.
             </p>
           </motion.div>

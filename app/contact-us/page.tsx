@@ -128,7 +128,7 @@ export default function ContactPage() {
               {/* Subheadline */}
               <p className="text-lg text-text-secondary leading-relaxed mb-10 max-w-lg">
                 Whether you need forward-deployed engineers, a rapid AI sprint,
-                or a full product build—tell us what you&apos;re working on and
+                or a full product build, tell us what you&apos;re working on and
                 we&apos;ll match you with senior AI talent within 2-5 days.
               </p>
 
@@ -416,7 +416,7 @@ export default function ContactPage() {
                         name="message"
                         required
                         rows={5}
-                        hint="Tell us about your AI initiative—what you're building, the problem you're solving, and where you need help."
+                        hint="Tell us about your AI initiative: what you're building, the problem you're solving, and where you need help."
                       />
 
                       {/* Submit Button */}
@@ -658,7 +658,7 @@ export default function ContactPage() {
             {[
               {
                 q: "What happens on the strategy call?",
-                a: "The strategy call is a focused 30-minute conversation with a senior AI engineer—not a sales rep. We'll discuss your technical requirements, existing infrastructure, and goals. You'll leave with a clear understanding of potential approaches, realistic timelines, and whether Procedure is the right fit for your project.",
+                a: "The strategy call is a focused 30-minute conversation with a senior AI engineer, not a sales rep. We'll discuss your technical requirements, existing infrastructure, and goals. You'll leave with a clear understanding of potential approaches, realistic timelines, and whether Procedure is the right fit for your project.",
               },
               {
                 q: "How do you determine pricing?",
