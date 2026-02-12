@@ -5,6 +5,7 @@ import {
   useTransform,
   useScroll,
   useSpring,
+  useMotionValueEvent,
 } from "motion/react";
 import { cn } from "@/lib/utils";
 
@@ -23,6 +24,11 @@ export const TracingBeam = ({
 
   const contentRef = useRef<HTMLDivElement>(null);
   const [svgHeight, setSvgHeight] = useState(0);
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    setHasScrolled(latest > 0);
+  });
 
   // Use ResizeObserver to avoid forced reflows
   useEffect(() => {
@@ -69,7 +75,7 @@ export const TracingBeam = ({
           }}
           animate={{
             boxShadow:
-              scrollYProgress.get() > 0
+              hasScrolled
                 ? "none"
                 : "var(--shadow-tracing-beam, rgba(0, 0, 0, 0.24) 0px 3px 8px)",
           }}
@@ -82,11 +88,11 @@ export const TracingBeam = ({
             }}
             animate={{
               backgroundColor:
-                scrollYProgress.get() > 0
+                hasScrolled
                   ? "var(--color-tracing-beam-dot-active)"
                   : "var(--color-tracing-beam-dot-inactive)",
               borderColor:
-                scrollYProgress.get() > 0
+                hasScrolled
                   ? "var(--color-tracing-beam-border-active)"
                   : "var(--color-tracing-beam-border-inactive)",
             }}
