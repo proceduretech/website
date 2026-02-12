@@ -1587,65 +1587,89 @@ iframe {
 }
 
 /* =============================================================================
-   KEKA CAREERS EMBED STYLING
-   Override Keka's default styles for better contrast on dark theme
+   JOB DESCRIPTION PROSE STYLING
+   Dark-theme styles for sanitized HTML content from Keka job descriptions
    ============================================================================= */
 
-#khembedjobs {
-  /* Give the embed a light background for readability */
-  background-color: #ffffff;
-  border-radius: 1rem;
-  padding: 1.5rem;
-  color: #1a1a1a;
+.prose-job-description {
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.75;
+  font-size: 0.9375rem;
 }
 
-/* Ensure all text inside Keka embed is readable */
-#khembedjobs * {
-  color-scheme: light;
+.prose-job-description h1,
+.prose-job-description h2,
+.prose-job-description h3,
+.prose-job-description h4,
+.prose-job-description h5,
+.prose-job-description h6 {
+  font-family: var(--font-outfit), system-ui, -apple-system, sans-serif;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
 }
 
-/* Style the job cards */
-#khembedjobs a,
-#khembedjobs .job-title,
-#khembedjobs h3,
-#khembedjobs h4 {
-  color: #1a1a1a !important;
+.prose-job-description h3 { font-size: 1.125rem; }
+.prose-job-description h4 { font-size: 1rem; }
+
+.prose-job-description p {
+  margin-bottom: 0.75rem;
 }
 
-/* Style secondary text */
-#khembedjobs p,
-#khembedjobs span,
-#khembedjobs .job-location,
-#khembedjobs .job-type {
-  color: #4a4a4a !important;
+.prose-job-description ul {
+  list-style-type: disc;
+  padding-left: 1.25rem;
+  margin-bottom: 0.75rem;
 }
 
-/* Style inputs and filters */
-#khembedjobs input,
-#khembedjobs select {
-  background-color: #f5f5f5 !important;
-  border-color: #e0e0e0 !important;
-  color: #1a1a1a !important;
+.prose-job-description ol {
+  list-style-type: decimal;
+  padding-left: 1.25rem;
+  margin-bottom: 0.75rem;
 }
 
-#khembedjobs input::placeholder {
-  color: #888 !important;
+.prose-job-description li {
+  margin-bottom: 0.375rem;
+  color: rgba(255, 255, 255, 0.65);
 }
 
-/* Style buttons within Keka */
-#khembedjobs button {
-  color: #1a1a1a !important;
+.prose-job-description li::marker {
+  color: var(--color-accent-light);
 }
 
-/* Job card hover states */
-#khembedjobs [class*="job"],
-#khembedjobs [class*="card"] {
-  background-color: #fafafa !important;
-  border-color: #e5e5e5 !important;
+.prose-job-description strong,
+.prose-job-description b {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
 }
 
-#khembedjobs [class*="job"]:hover,
-#khembedjobs [class*="card"]:hover {
-  background-color: #f0f0f0 !important;
-  border-color: var(--color-accent) !important;
+.prose-job-description a {
+  color: var(--color-accent-light);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose-job-description a:hover {
+  color: var(--color-accent);
+}
+
+.prose-job-description table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+.prose-job-description th,
+.prose-job-description td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--color-border);
+  text-align: left;
+}
+
+.prose-job-description th {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.05);
 }
