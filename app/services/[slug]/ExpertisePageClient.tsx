@@ -40,7 +40,7 @@ interface Props {
 // Customized booking section copy per expertise
 const bookingSubtext: Record<string, string> = {
   "ai-engineering":
-    "Share your AI project requirements—from model architecture to MLOps infrastructure. We'll outline a practical path from prototype to production-ready deployment.",
+    "Share your AI project requirements, from model architecture to MLOps infrastructure. We'll outline a practical path from prototype to production-ready deployment.",
   "ai-agents":
     "Tell us about the workflows you want to automate with AI agents. We'll discuss tool integrations, safety guardrails, and a realistic timeline to deployment.",
   "ai-security":
@@ -48,19 +48,19 @@ const bookingSubtext: Record<string, string> = {
   "ai-privacy":
     "Share your compliance requirements and data handling challenges. We'll discuss privacy-preserving architectures and how to meet GDPR, HIPAA, or SOC 2 standards.",
   "mobile-development":
-    "Walk us through your mobile app vision—native or cross-platform. We'll help you choose the right approach and plan for a smooth App Store launch.",
+    "Walk us through your mobile app vision, native or cross-platform. We'll help you choose the right approach and plan for a smooth App Store launch.",
   "frontend-development":
-    "Tell us about your web application challenges—whether a new build or performance optimization. We'll discuss framework choices, design implementation, and Core Web Vitals.",
+    "Tell us about your web application challenges, whether a new build or performance optimization. We'll discuss framework choices, design implementation, and Core Web Vitals.",
   "backend-development":
-    "Describe your backend architecture needs—APIs, data pipelines, or scaling challenges. We'll assess the right stack and infrastructure for your growth trajectory.",
+    "Describe your backend architecture needs: APIs, data pipelines, or scaling challenges. We'll assess the right stack and infrastructure for your growth trajectory.",
   "software-testing-and-qa":
-    "Share your testing challenges—flaky tests, missing coverage, or CI/CD gaps. We'll outline a test automation strategy that fits your development workflow.",
+    "Share your testing challenges: flaky tests, missing coverage, or CI/CD gaps. We'll outline a test automation strategy that fits your development workflow.",
   "product-design":
     "Tell us about your AI product and the user experience challenges you face. We'll discuss research methods, prototyping, and design patterns that build user trust.",
   "kubernetes":
-    "Describe your container orchestration needs—new clusters, migrations, or operational pain points. We'll assess your workloads and recommend a production-ready approach.",
+    "Describe your container orchestration needs: new clusters, migrations, or operational pain points. We'll assess your workloads and recommend a production-ready approach.",
   "dotnet":
-    "Talk directly with engineers\u2014not sales. We\u2019ll assess fit and give honest next steps.",
+    "Talk directly with engineers, not sales. We\u2019ll assess fit and give honest next steps.",
 };
 
 export default function ExpertisePageClient({
@@ -266,7 +266,7 @@ export default function ExpertisePageClient({
 
       <CapabilitiesGrid
         title={expertise.slug === "dotnet" ? ".NET Development Services We Offer" : "Key Capabilities"}
-        subtitle={expertise.slug === "dotnet" ? "End-to-end .NET services\u2014from greenfield builds to legacy modernization." : "Everything you need to build production-grade solutions"}
+        subtitle={expertise.slug === "dotnet" ? "End-to-end .NET services, from greenfield builds to legacy modernization." : "Everything you need to build production-grade solutions"}
         capabilities={capabilities}
       />
 
@@ -359,7 +359,7 @@ export default function ExpertisePageClient({
       {pageData.qualityMatters && (
         <QualityMatters
           title={expertise.slug === "frontend-development" ? "Why Frontend Quality Matters" : expertise.slug === "backend-development" ? "Why Backend Quality Matters" : "Why Quality Matters"}
-          subtitle={expertise.slug === "frontend-development" ? "The frontend is often the first—and only—touchpoint users have with your product" : expertise.slug === "backend-development" ? "Backend systems fail quietly — until they don't" : undefined}
+          subtitle={expertise.slug === "frontend-development" ? "The frontend is often the first, and often only, touchpoint users have with your product" : expertise.slug === "backend-development" ? "Backend systems fail quietly, until they don't" : undefined}
           costsTitle={expertise.slug === "frontend-development" ? "Poor frontend engineering costs you" : expertise.slug === "backend-development" ? "Poor backend engineering costs you" : "Poor engineering costs you"}
           costs={pageData.qualityMatters.costs}
           benefitsTitle={expertise.slug === "frontend-development" ? "Premium frontend development is an investment in" : expertise.slug === "backend-development" ? "Premium backend development is an investment in" : "Premium development is an investment in"}
@@ -381,7 +381,7 @@ export default function ExpertisePageClient({
                 Discuss Your <span className="text-highlight">.NET Project</span>
               </h2>
               <p className="text-lg text-text-secondary mb-8">
-                Whether modernizing legacy systems or building new&mdash;we&rsquo;re happy to talk through your situation.
+                Whether modernizing legacy systems or building new, we&rsquo;re happy to talk through your situation.
               </p>
               <a
                 href="#book-call"

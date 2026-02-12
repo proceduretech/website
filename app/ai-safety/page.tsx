@@ -103,7 +103,7 @@ const principles = [
     number: "05",
     title: "Security & Robustness",
     description:
-      "AI systems face unique attack vectors. We harden against adversarial inputs, prompt injection, data poisoning, and model extraction threats. Red-teaming is not a checkbox—we find vulnerabilities before adversaries do.",
+      "AI systems face unique attack vectors. We harden against adversarial inputs, prompt injection, data poisoning, and model extraction threats. Red-teaming is not a checkbox. We find vulnerabilities before adversaries do.",
     icon: (
       <svg
         className="w-6 h-6"

@@ -360,7 +360,7 @@ export default function CulturePage() {
               stay close to the problem, not tucked behind layers of process.
               From idea to deploy, we move with intent, learn in the open, and
               keep the &apos;why&apos; visible. Our certified best workplace culture
-              ensures engineers thrive—not just deliver.
+              ensures engineers thrive, not just deliver.
             </motion.p>
 
             {/* Stats row */}
@@ -512,7 +512,7 @@ export default function CulturePage() {
             <p className="text-lg text-text-secondary">
               These aren&apos;t corporate values on a poster. These are the
               beliefs that guide our daily decisions and how we treat each
-              other—and why we earned our Best Workplace certification.
+              other. That is why we earned our Best Workplace certification.
             </p>
           </motion.div>
 

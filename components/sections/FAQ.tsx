@@ -7,12 +7,12 @@ const faqs = [
   {
     question: "What AI systems do you build?",
     answer:
-      "We build production AI systems including LLM applications, AI agents, RAG systems, and AI-enhanced products. From conversational AI to document processing to intelligent automation—we handle the complete development lifecycle from architecture to secure production deployment.",
+      "We build production AI systems including LLM applications, AI agents, RAG systems, and AI-enhanced products. From conversational AI to document processing to intelligent automation. We handle the complete development lifecycle from architecture to secure production deployment.",
   },
   {
     question: "How quickly can you start our AI project?",
     answer:
-      "Most AI engagements begin within 2-5 days. We match senior engineers based on your AI requirements and tech stack, then integrate them into your development workflow immediately. No months of discovery—we start building fast.",
+      "Most AI engagements begin within 2-5 days. We match senior engineers based on your AI requirements and tech stack, then integrate them into your development workflow immediately. No months of discovery. We start building fast.",
   },
   {
     question: "How much does AI development cost?",
@@ -32,7 +32,7 @@ const faqs = [
   {
     question: "What makes you different from AI consultancies?",
     answer:
-      "Traditional AI consultants deliver slide decks and POCs that never ship. We deliver production AI. Our engineers embed with your team, write code daily, and ship AI systems that work. No handoffs, no knowledge silos—just AI that reaches production.",
+      "Traditional AI consultants deliver slide decks and POCs that never ship. We deliver production AI. Our engineers embed with your team, write code daily, and ship AI systems that work. No handoffs, no knowledge silos. Just AI that reaches production.",
   },
   {
     question: "Do you work with enterprise clients?",

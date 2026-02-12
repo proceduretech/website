@@ -12,7 +12,7 @@ const differentiators = [
     headline: "AI Engineering Excellence",
     title: "Production AI, Not POCs",
     description:
-      "Every Procedure engineer ships production AI systems. We do not deliver proof-of-concepts that need to be rebuilt. From LLM applications to AI agents, your systems are enterprise-ready from day one—secure, scalable, and production-grade.",
+      "Every Procedure engineer ships production AI systems. We do not deliver proof-of-concepts that need to be rebuilt. From LLM applications to AI agents, your systems are enterprise-ready from day one: secure, scalable, and production-grade.",
     stats: { value: "100+", label: "Products shipped to production" },
     accentColor: "teal" as const,
   },
@@ -32,7 +32,7 @@ const differentiators = [
     headline: "Security Built In",
     title: "AI Security From Day One",
     description:
-      "Your AI systems are protected from the start. Prompt injection defense, data leakage prevention, and AI-specific security measures are built into every system we deliver. No security theater—real protection for production AI.",
+      "Your AI systems are protected from the start. Prompt injection defense, data leakage prevention, and AI-specific security measures are built into every system we deliver. No security theater. Real protection for production AI.",
     stats: { value: "100%", label: "Security review pass rate" },
     accentColor: "teal" as const,
   },
@@ -204,7 +204,7 @@ export default function WhyUsPage() {
       <PageHero
         headline="AI That Ships."
         headlineAccent="Not Slide Decks."
-        description="Most AI consultancies deliver strategy documents and proof-of-concepts that never reach production. Procedure delivers senior engineers who embed with your team to ship production AI—LLM applications, AI agents, and secure AI systems—in days, not months."
+        description="Most AI consultancies deliver strategy documents and proof-of-concepts that never reach production. Procedure delivers senior engineers who embed with your team to ship production AI, including LLM applications, AI agents, and secure AI systems, in days, not months."
         primaryCTA={{ text: "Start Your AI Project", href: "/contact-us" }}
         secondaryCTA={{ text: "See AI Case Studies", href: "/work" }}
       />
