@@ -565,58 +565,73 @@ async function fetchPageContent(pageId: string): Promise<CaseStudyContent[]> {
 // Main Data Fetching Functions
 // =============================================================================
 
-// Cache for storing detailed case study data (includes pageId mapping)
+// Module-level cache for storing detailed case study data (includes pageId mapping)
+// Persists across React render contexts during the same build
 let cachedDetails: Map<string, Omit<CaseStudyDetail, "content">> | null = null;
+let cachedCaseStudies: CaseStudy[] | null = null;
 
 /**
  * Fetch all published case studies from Notion
- * This function is cached with React's cache() for build-time optimization
+ * Uses pagination to ensure ALL case studies are fetched
  */
 export const getNotionCaseStudies = cache(
   async (): Promise<CaseStudy[]> => {
+    // Return module-level cache if already populated (persists across render contexts)
+    if (cachedCaseStudies && cachedDetails && cachedDetails.size > 0) {
+      return cachedCaseStudies;
+    }
+
     if (!isNotionConfigured()) {
       console.warn(
         "Notion token not configured, falling back to static case studies data"
       );
-      // Fall back to static data if Notion is not configured
       const { caseStudies } = await import("./case-studies-data");
       return caseStudies;
     }
 
     try {
-      // Use the new dataSources.query() API in SDK v5
-      // This queries the data source (collection) within the database
-      const response: QueryDataSourceResponse = await notion.dataSources.query({
-        data_source_id: CASE_STUDIES_DATA_SOURCE_ID,
-        filter: {
-          property: "Status",
-          select: {
-            equals: "Published",
-          },
-        },
-        sorts: [
-          {
-            property: "Publish Date",
-            direction: "descending",
-          },
-        ],
-      });
+      // Paginate through all results to ensure we get every case study
+      const allPages: PageObjectResponse[] = [];
+      let hasMore = true;
+      let startCursor: string | undefined = undefined;
 
-      const caseStudies: CaseStudy[] = [];
-      cachedDetails = new Map();
+      while (hasMore) {
+        const response: QueryDataSourceResponse =
+          await notion.dataSources.query({
+            data_source_id: CASE_STUDIES_DATA_SOURCE_ID,
+            filter: {
+              property: "Status",
+              select: {
+                equals: "Published",
+              },
+            },
+            sorts: [
+              {
+                property: "Publish Date",
+                direction: "descending",
+              },
+            ],
+            ...(startCursor ? { start_cursor: startCursor } : {}),
+          });
 
-      for (const page of response.results) {
-        // Type guard: only process full page objects
-        if (!("properties" in page)) {
-          continue;
+        for (const page of response.results) {
+          if ("properties" in page) {
+            allPages.push(page as PageObjectResponse);
+          }
         }
 
-        const result = await transformNotionPageToCaseStudy(
-          page as PageObjectResponse
-        );
+        hasMore = response.has_more;
+        startCursor = response.next_cursor || undefined;
+      }
+
+      const caseStudies: CaseStudy[] = [];
+      const details = new Map<string, Omit<CaseStudyDetail, "content">>();
+
+      for (const page of allPages) {
+        const result = await transformNotionPageToCaseStudy(page);
         if (result) {
           caseStudies.push(result.caseStudy);
-          cachedDetails.set(result.caseStudy.id, result.detail);
+          details.set(result.caseStudy.id, result.detail);
         }
       }
 
@@ -625,17 +640,19 @@ export const getNotionCaseStudies = cache(
         console.warn(
           "No published case studies found in Notion, falling back to static data"
         );
-        cachedDetails = null;
         const { caseStudies: staticCaseStudies } = await import(
           "./case-studies-data"
         );
         return staticCaseStudies;
       }
 
+      // Set module-level cache atomically (after all processing is done)
+      cachedDetails = details;
+      cachedCaseStudies = caseStudies;
+
       return caseStudies;
     } catch (error) {
       console.error("Error fetching case studies from Notion:", error);
-      cachedDetails = null;
       // Fall back to static data on error
       const { caseStudies } = await import("./case-studies-data");
       return caseStudies;
