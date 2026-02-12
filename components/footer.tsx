@@ -166,7 +166,7 @@ export function Footer() {
             <h3 className="text-sm font-semibold text-text-primary mb-5">
               AI & ML
             </h3>
-            <ul className="space-y-3 mb-8">
+            <ul className="space-y-1.5 mb-10">
               {footerLinks.aiServices.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -182,7 +182,7 @@ export function Footer() {
             <h3 className="text-sm font-semibold text-text-primary mb-5">
               Engineering
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-1.5">
               {footerLinks.productEngineering.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -201,7 +201,7 @@ export function Footer() {
             <h3 className="text-sm font-semibold text-text-primary mb-5">
               Cloud & Design
             </h3>
-            <ul className="space-y-3 mb-8">
+            <ul className="space-y-1.5 mb-10">
               {footerLinks.cloudDesign.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -217,7 +217,7 @@ export function Footer() {
             <h3 className="text-sm font-semibold text-text-primary mb-5">
               Industries
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-1.5">
               {footerLinks.industries.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -236,7 +236,7 @@ export function Footer() {
             <h3 className="text-sm font-semibold text-text-primary mb-5">
               Company
             </h3>
-            <ul className="space-y-3 mb-8">
+            <ul className="space-y-1.5 mb-10">
               {footerLinks.company.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -252,7 +252,7 @@ export function Footer() {
             <h3 className="text-sm font-semibold text-text-primary mb-5">
               Resources
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-1.5">
               <li>
                 <Link
                   href="/events"
