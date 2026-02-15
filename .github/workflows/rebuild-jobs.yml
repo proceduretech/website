@@ -1,0 +1,23 @@
+name: Rebuild for Job Updates
+
+on:
+  schedule:
+    # Run twice daily at 6am and 6pm UTC
+    - cron: "0 6,18 * * *"
+  # Allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  trigger-rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Pages Deployment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'nextjs.yml',
+              ref: 'main',
+            });
