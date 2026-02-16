@@ -34,10 +34,6 @@ jobs:
         run: npm run build
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-          KEKA_CLIENT_ID: ${{ secrets.KEKA_CLIENT_ID }}
-          KEKA_CLIENT_SECRET: ${{ secrets.KEKA_CLIENT_SECRET }}
-          KEKA_API_KEY: ${{ secrets.KEKA_API_KEY }}
-          KEKA_COMPANY: ${{ secrets.KEKA_COMPANY }}
 
       - name: Check bundle size
         run: npm run bundle:check
