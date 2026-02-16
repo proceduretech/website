@@ -544,7 +544,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
           "Yes. We've integrated LLM applications with legacy systems, on-premise deployments, and every major cloud provider. Our engineers embed with your team and work in your codebase.",
       },
     ],
-    relatedExpertise: ["ai-agents", "ai-security", "ai-privacy"],
+    relatedExpertise: ["ai-agents", "backend"],
   },
 
   "ai-agents": {
@@ -644,206 +644,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
           "Most clients see a working prototype within the first week. Production deployment typically takes 2-4 weeks, depending on the complexity of your workflows and integration requirements.",
       },
     ],
-    relatedExpertise: ["llm-applications", "backend", "ai-security"],
-  },
-
-  "ai-security": {
-    slug: "ai-security",
-    category: "ai-ml",
-    meta: {
-      title: "AI Security & Threat Protection | LLM Safety | Procedure",
-      description:
-        "Protect your AI systems from prompt injection, jailbreaks, and adversarial attacks. Enterprise-grade LLM security from architecture to deployment.",
-    },
-    hero: {
-      badge: "AI Security",
-      headline: "Secure AI Systems From",
-      headlineAccent: "Architecture to Production",
-      tagline: "LLM security isn't an afterthought. It's foundational.",
-      description:
-        "Prompt injection. Jailbreaks. Data exfiltration. The attack surface for AI systems is different from traditional software, and most teams aren't prepared. We build AI security into your systems from the ground up, protecting against both known threats and emerging attack vectors.",
-    },
-    capabilities: [
-      {
-        icon: "shield",
-        title: "Prompt Injection Defense",
-        description:
-          "Implement input sanitization, prompt isolation, and detection systems that identify and block injection attacks before they reach your models.",
-      },
-      {
-        icon: "lock",
-        title: "Jailbreak Prevention",
-        description:
-          "Build multi-layer defenses against attempts to bypass safety guidelines. Our systems detect creative attacks that rule-based filters miss.",
-      },
-      {
-        icon: "eye",
-        title: "Output Filtering & Validation",
-        description:
-          "Scan LLM outputs for sensitive data, harmful content, and policy violations before they reach users. Defense in depth for AI systems.",
-      },
-      {
-        icon: "terminal",
-        title: "Red Team Testing",
-        description:
-          "Proactively attack your AI systems to find vulnerabilities before adversaries do. We bring deep expertise in AI-specific attack techniques.",
-      },
-      {
-        icon: "layers",
-        title: "Security Architecture Review",
-        description:
-          "Audit your AI system architecture for security gaps. From data pipelines to model serving, we identify risks across your AI stack.",
-      },
-      {
-        icon: "document",
-        title: "Incident Response Planning",
-        description:
-          "Develop playbooks for AI security incidents. When attacks happen, know exactly how to detect, contain, and recover.",
-      },
-    ],
-    technologies: [
-      "OWASP LLM",
-      "Guardrails AI",
-      "NeMo Guardrails",
-      "Rebuff",
-      "LLM Guard",
-      "Lakera",
-      "Prompt Armor",
-    ],
-    whyProcedure: [
-      "AI-native security expertise: We understand attacks unique to LLM systems",
-      "Offensive + defensive: We've red-teamed AI systems and built the defenses",
-      "Production-tested: Our security patterns protect systems handling real data",
-      "Compliance-ready: We help you meet SOC 2, HIPAA, and emerging AI regulations",
-    ],
-    cta: {
-      headline: "Secure Your AI Before You Ship It",
-      description:
-        "Get a security assessment of your AI systems from engineers who understand both AI and security. Find vulnerabilities before attackers do.",
-    },
-    faqs: [
-      {
-        question: "What is prompt injection and why should I care?",
-        answer:
-          "Prompt injection is when attackers craft inputs that manipulate your LLM into ignoring its instructions. It can lead to data leakage, unauthorized actions, and reputation damage. It's the SQL injection of the AI era, and just as dangerous.",
-      },
-      {
-        question:
-          "How is AI security different from traditional application security?",
-        answer:
-          "AI systems have unique attack surfaces: prompts can be manipulated, models can be confused by adversarial inputs, and outputs need filtering for harmful content. Traditional WAFs and security tools don't catch these AI-specific threats.",
-      },
-      {
-        question: "Can you secure an existing AI application?",
-        answer:
-          "Yes. We can add security layers to deployed systems, though building security in from the start is more effective. We'll assess your current state and prioritize improvements based on risk.",
-      },
-      {
-        question: "How do you stay current with AI security threats?",
-        answer:
-          "Our team actively researches emerging attack techniques, participates in red team exercises, and monitors the AI security community. We update our defense patterns as the threat landscape evolves.",
-      },
-    ],
-    relatedExpertise: ["ai-privacy", "llm-applications", "cloud"],
-  },
-
-  "ai-privacy": {
-    slug: "ai-privacy",
-    category: "ai-ml",
-    meta: {
-      title: "AI Privacy & Data Protection | Compliance | Procedure",
-      description:
-        "Build privacy-first AI systems that prevent data leakage and meet GDPR, HIPAA, and SOC 2 requirements. Enterprise AI privacy engineering.",
-    },
-    hero: {
-      badge: "AI Privacy",
-      headline: "Privacy-First AI Development That",
-      headlineAccent: "Doesn't Compromise Results",
-      tagline: "Protect sensitive data without sacrificing AI capabilities.",
-      description:
-        "AI systems can memorize training data, leak PII in outputs, and send sensitive information to third-party APIs. We build AI applications that protect data privacy by design, meeting compliance requirements while delivering the AI capabilities your business needs.",
-    },
-    capabilities: [
-      {
-        icon: "shield",
-        title: "Data Leakage Prevention",
-        description:
-          "Implement output scanning, PII detection, and content filtering to prevent sensitive data from appearing in AI responses.",
-      },
-      {
-        icon: "lock",
-        title: "Privacy-Preserving Architectures",
-        description:
-          "Design systems that minimize data exposure: on-premise deployments, data anonymization pipelines, and zero-trust API patterns.",
-      },
-      {
-        icon: "document",
-        title: "GDPR & HIPAA Compliance",
-        description:
-          "Build AI applications that meet regulatory requirements from day one. Data subject rights, audit trails, and consent management built in.",
-      },
-      {
-        icon: "eye",
-        title: "Model Privacy Audits",
-        description:
-          "Assess your models for memorization risks and data leakage vulnerabilities. Know what data your AI might expose.",
-      },
-      {
-        icon: "database",
-        title: "Secure Data Pipelines",
-        description:
-          "Build encrypted, access-controlled data pipelines for AI training and inference. Protect data at rest and in transit.",
-      },
-      {
-        icon: "globe",
-        title: "Third-Party Risk Management",
-        description:
-          "Evaluate and mitigate risks from LLM API providers. Understand what data leaves your environment and implement appropriate controls.",
-      },
-    ],
-    technologies: [
-      "Private AI",
-      "Presidio",
-      "Microsoft Purview",
-      "AWS Macie",
-      "Vault",
-      "SOPS",
-      "Age",
-    ],
-    whyProcedure: [
-      "Compliance expertise: We've built HIPAA-compliant and GDPR-ready AI systems",
-      "Technical depth: Privacy isn't just policy. We implement the technical controls",
-      "Privacy by design: We architect for privacy from the start, not as a patch",
-      "Pragmatic approach: We balance privacy requirements with business needs",
-    ],
-    cta: {
-      headline: "Build AI That Protects Data",
-      description:
-        "Talk to our engineers about building privacy-first AI systems. We'll help you meet compliance requirements without sacrificing AI capabilities.",
-    },
-    faqs: [
-      {
-        question: "Can we use LLM APIs while maintaining data privacy?",
-        answer:
-          "Yes, with the right architecture. Options include using enterprise API tiers with data processing agreements, on-premise deployments, or hybrid approaches that keep sensitive data local while leveraging cloud AI for non-sensitive tasks.",
-      },
-      {
-        question: "How do you prevent AI from exposing PII?",
-        answer:
-          "We implement multiple layers: input sanitization to remove PII before it reaches models, output scanning to catch leaked data, and architectural patterns that minimize PII exposure throughout the system.",
-      },
-      {
-        question: "What about AI and GDPR data subject rights?",
-        answer:
-          "We build systems that support right to access, erasure, and portability for data used in AI systems, including mechanisms to track which data influenced model training.",
-      },
-      {
-        question: "Can you make existing AI systems compliant?",
-        answer:
-          "Usually, yes. We audit current systems, identify gaps, and implement technical controls to meet compliance requirements. Some cases require architectural changes, which we can phase in without disrupting operations.",
-      },
-    ],
-    relatedExpertise: ["ai-security", "cloud", "backend"],
+    relatedExpertise: ["llm-applications", "backend", "cloud"],
   },
 
   frontend: {
@@ -1343,7 +1144,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
           "We can. Beyond initial architecture, we offer ongoing optimization, security monitoring, and infrastructure support as part of our engagement models.",
       },
     ],
-    relatedExpertise: ["kubernetes", "backend", "ai-privacy"],
+    relatedExpertise: ["kubernetes", "backend", "cloud"],
   },
 
   kubernetes: {

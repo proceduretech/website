@@ -91,26 +91,7 @@ export const navigationData = {
           icon: "cpu",
         },
       ],
-      sections: [
-        {
-          title: "AI Security",
-          items: [
-            {
-              label: "Threat Protection",
-              description:
-                "Guard against prompt injection, jailbreaks, and adversarial attacks.",
-              href: "/services/ai-security",
-              icon: "shield",
-            },
-            {
-              label: "Data & Privacy",
-              description: "Prevent data leakage and ensure compliance.",
-              href: "/services/ai-privacy",
-              icon: "lock",
-            },
-          ],
-        },
-      ],
+      sections: [],
     },
     {
       title: "Product Engineering",
@@ -263,7 +244,7 @@ export const navigationData = {
         {
           label: "About Procedure",
           description:
-            "AI engineering and security with proven delivery excellence. Learn about our team.",
+            "AI engineering with proven delivery excellence. Learn about our team.",
           href: "/about-us",
           icon: "info",
         },

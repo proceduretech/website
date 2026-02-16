@@ -176,7 +176,6 @@ export default function RootLayout({
     knowsAbout: [
       "Artificial Intelligence",
       "Machine Learning",
-      "AI Security",
       "LLM Applications",
       "Software Engineering",
       "Cloud Computing",

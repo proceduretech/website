@@ -43,10 +43,6 @@ const bookingSubtext: Record<string, string> = {
     "Share your AI project requirements, from model architecture to MLOps infrastructure. We'll outline a practical path from prototype to production-ready deployment.",
   "ai-agents":
     "Tell us about the workflows you want to automate with AI agents. We'll discuss tool integrations, safety guardrails, and a realistic timeline to deployment.",
-  "ai-security":
-    "Describe your AI system's architecture and security concerns. We'll assess prompt injection risks, output vulnerabilities, and recommend a defense strategy.",
-  "ai-privacy":
-    "Share your compliance requirements and data handling challenges. We'll discuss privacy-preserving architectures and how to meet GDPR, HIPAA, or SOC 2 standards.",
   "mobile-development":
     "Walk us through your mobile app vision, native or cross-platform. We'll help you choose the right approach and plan for a smooth App Store launch.",
   "frontend-development":
@@ -95,8 +91,6 @@ export default function ExpertisePageClient({
         serviceType:
           expertise.slug === "software-testing-and-qa"
             ? ["Software Testing", "Quality Assurance", "Test Automation", "Performance Testing", "API Testing"]
-            : expertise.slug === "ai-security"
-            ? ["AI Security", "LLM Security", "AI Threat Protection", "Secure AI Development"]
             : expertise.slug === "mobile-development"
             ? ["iOS App Development", "Android App Development", "Cross-Platform App Development", "Mobile Backend Development", "Mobile App Modernization"]
             : expertise.slug === "ai-engineering"
@@ -127,8 +121,6 @@ export default function ExpertisePageClient({
         category:
           expertise.slug === "software-testing-and-qa"
             ? ["Software Testing", "Quality Assurance", "Test Automation"]
-            : expertise.slug === "ai-security"
-            ? ["AI Security", "LLM Security", "AI Threat Modeling", "Secure AI Engineering"]
             : expertise.slug === "mobile-development"
             ? ["Mobile App Development", "iOS Development", "Android Development", "Cross-Platform Development"]
             : expertise.slug === "ai-engineering"
@@ -218,8 +210,6 @@ export default function ExpertisePageClient({
           [
             "ai-engineering",
             "ai-agents",
-            "ai-security",
-            "ai-privacy",
             "dotnet",
           ].includes(expertise.slug)
             ? undefined
