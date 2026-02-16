@@ -36,7 +36,6 @@ interface LinkSuggestion {
 // Service page mapping: keywords → service page
 const SERVICE_MAPPINGS: Record<string, { url: string; title: string }> = {
   'ai engineering': { url: '/services/ai-engineering', title: 'AI Engineering Services' },
-  'ai security': { url: '/services/ai-security', title: 'AI Security Services' },
   'ai agents': { url: '/services/ai-engineering', title: 'AI Engineering Services' },
   'llm': { url: '/services/ai-engineering', title: 'AI Engineering Services' },
   'machine learning': { url: '/services/ai-engineering', title: 'AI Engineering Services' },

@@ -91,19 +91,7 @@ export const navigationData = {
           icon: "cpu",
         },
       ],
-      sections: [
-        {
-          title: "AI Compliance",
-          items: [
-            {
-              label: "Data & Privacy",
-              description: "Prevent data leakage and ensure compliance.",
-              href: "/services/ai-privacy",
-              icon: "lock",
-            },
-          ],
-        },
-      ],
+      sections: [],
     },
     {
       title: "Product Engineering",
