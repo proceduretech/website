@@ -22,7 +22,6 @@ Procedure is an AI engineering company that builds production-ready AI products 
 ### AI & Machine Learning
 - **LLM Applications**: ChatGPT, Claude, and open-source LLM integrations. RAG, fine-tuning, and prompt engineering
 - **AI Agents & Automation**: Autonomous agents, workflow automation, and AI-powered business processes
-- **AI Security**: Guard against prompt injection, jailbreaks, and adversarial attacks
 - **AI Privacy**: Prevent data leakage and ensure compliance
 
 ### Product Engineering

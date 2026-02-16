@@ -136,7 +136,7 @@ const milestones = [
     year: "2024",
     title: "AI Engineering Focus",
     description:
-      "Deepened investment in AI engineering, AI security, and MLOps. Now shipping AI systems that reach production.",
+      "Deepened investment in AI engineering and MLOps. Now shipping AI systems that reach production.",
   },
   {
     year: "2025",

@@ -10,7 +10,6 @@ import {
 import { JsonLd } from "@/components/seo";
 import ServicePageClient from "./ServicePageClient";
 import ExpertisePageClient from "./ExpertisePageClient";
-import AISecurityPageClient from "./AISecurityPageClient";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -106,38 +105,6 @@ export default async function ServicePage({ params }: Props) {
     string,
     unknown
   >;
-
-  // Special handling for AI Security page with custom layout
-  if (slug === "ai-security" && frontmatter.aiSecurityData) {
-    const aiSecurityData = frontmatter.aiSecurityData as {
-      hero: {
-        badge: string;
-        headline: string;
-        headlineAccent: string;
-        description: string;
-      };
-      risks: Array<{ title: string; description: string; icon: string }>;
-      services: Array<{
-        title: string;
-        description: string;
-        features: string[];
-        output: string;
-        icon: string;
-      }>;
-      process: Array<{ number: number; title: string; description: string }>;
-      goodFit: Array<{ text: string }>;
-      notFit: Array<{ text: string }>;
-      faqs: Array<{ question: string; answer: string }>;
-      compliance: string[];
-    };
-
-    const relatedExpertise = (frontmatter.relatedExpertise as string[]) || [];
-    const relatedPages = getRelatedExpertiseForListing(relatedExpertise);
-
-    return (
-      <AISecurityPageClient data={aiSecurityData} relatedPages={relatedPages} />
-    );
-  }
 
   // Generate schema markup for the page
   const generateSchemas = (pageSlug: string, data: Record<string, unknown>) => {

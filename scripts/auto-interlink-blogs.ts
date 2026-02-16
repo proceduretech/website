@@ -58,10 +58,6 @@ const CONTENT_CLUSTERS: Record<string, string[]> = {
     'model-context-protocol-mcp-guide',
     'notion-mcp-connect-ai-agents'
   ],
-  'ai-security': [
-    'breaking-docker-llm-ai-security',
-    'ai-security-best-practices'
-  ],
   'llm-systems': [
     'server-sent-events-sse-llm-streaming',
     'model-context-protocol-mcp-guide'
