@@ -36,7 +36,6 @@ interface LinkSuggestion {
 // Service page mapping: keywords → service page
 const SERVICE_MAPPINGS: Record<string, { url: string; title: string }> = {
   'ai engineering': { url: '/services/ai-engineering', title: 'AI Engineering Services' },
-  'ai security': { url: '/services/ai-security', title: 'AI Security Services' },
   'ai agents': { url: '/services/ai-engineering', title: 'AI Engineering Services' },
   'llm': { url: '/services/ai-engineering', title: 'AI Engineering Services' },
   'machine learning': { url: '/services/ai-engineering', title: 'AI Engineering Services' },
@@ -57,10 +56,6 @@ const CONTENT_CLUSTERS: Record<string, string[]> = {
     'ai-agents-how-they-work-use-cases',
     'model-context-protocol-mcp-guide',
     'notion-mcp-connect-ai-agents'
-  ],
-  'ai-security': [
-    'breaking-docker-llm-ai-security',
-    'ai-security-best-practices'
   ],
   'llm-systems': [
     'server-sent-events-sse-llm-streaming',

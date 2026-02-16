@@ -52,14 +52,6 @@ const categoryCTAMap: Record<string, CTAContent> = {
     secondaryLabel: "View Our Work",
     secondaryHref: "/work",
   },
-  "ai-security": {
-    headingLine1: "Need to Secure Your",
-    headingLine2: "AI Systems?",
-    description:
-      "From prompt injection defense to model security, we help teams ship AI systems that are secure by design.",
-    secondaryLabel: "Explore AI Security Services",
-    secondaryHref: "/services/ai-security",
-  },
   "cloud-infrastructure": {
     headingLine1: "Ready to Scale Your",
     headingLine2: "Cloud Infrastructure?",

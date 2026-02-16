@@ -81,10 +81,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "How do you handle AI security and compliance?",
+      name: "How do you handle security and compliance?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Security is built into every AI system we develop. Not bolted on later. We implement secure LLM architectures, prevent prompt injection, ensure data privacy, and meet compliance requirements (SOC 2, HIPAA, GDPR). Our AI security expertise comes from building production systems that enterprises trust.",
+        text: "Security is built into every system we develop. Not bolted on later. We implement secure architectures, ensure data privacy, and meet compliance requirements (SOC 2, HIPAA, GDPR). Our security practices come from building production systems that enterprises trust.",
       },
     },
   ],

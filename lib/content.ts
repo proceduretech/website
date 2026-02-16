@@ -816,7 +816,7 @@ export function getExpertiseForListing(
   const { frontmatter, content } = expertise;
 
   // Return null if required fields for expertise pages are missing
-  // (e.g., ai-security uses custom layout without capabilities/technologies)
+  // (e.g., pages with custom layout without capabilities/technologies)
   if (!frontmatter.capabilities || !frontmatter.technologies) {
     return null;
   }

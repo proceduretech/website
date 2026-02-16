@@ -8,8 +8,6 @@ const footerLinks = {
   aiServices: [
     { label: "LLM Applications", href: "/services/ai-engineering" },
     { label: "AI Agents", href: "/services/ai-agents" },
-    { label: "Threat Protection", href: "/services/ai-security" },
-    { label: "Data & Privacy", href: "/services/ai-privacy" },
   ],
   productEngineering: [
     { label: "Frontend Development", href: "/services/frontend-development" },
