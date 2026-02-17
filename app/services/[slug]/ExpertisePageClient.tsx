@@ -67,6 +67,42 @@ const bookingSubtext: Record<string, string> = {
     "Tell us about your Python project. Whether it\u2019s backend APIs, AI engineering, or a full system migration, we\u2019ll discuss architecture and give honest next steps.",
 };
 
+// Technology logo paths for the "What you get" section
+const technologyLogos: Record<string, string> = {
+  react: "/technologies/react-logo.svg",
+  nodejs: "/technologies/nodejs-logo.svg",
+  python: "/technologies/python-logo.svg",
+  nextjs: "/technologies/nextjs-logo.svg",
+  angular: "/technologies/angular-logo.svg",
+  dotnet: "/technologies/dotnet-logo.svg",
+};
+
+// "What you get" content per technology - used in the hire section
+const whatYouGetContent: Record<string, { items: string[] } | { paragraph: string; footnote?: string }> = {
+  react: {
+    items: [
+      "Engineers with 3+ years building production React applications",
+      "Full-stack capability: React frontend + Node.js or Python backend",
+      "React Native experience available for cross-platform mobile projects",
+      "Same timezone overlap (India-based team, flexible to US working hours)",
+      "No recruiting overhead - engineers are vetted, onboarded, and managed",
+    ],
+  },
+  python: {
+    items: [
+      "Engineers with 3+ years building production Python systems in Django, FastAPI, or Flask",
+      "Full-stack capability: Python backend + React, Next.js, or Angular frontend",
+      "AI/ML experience available: PyTorch, scikit-learn, LangChain, data pipelines",
+      "Same timezone overlap (India-based team, flexible to US working hours)",
+      "No recruiting overhead - engineers are vetted, onboarded, and managed",
+    ],
+  },
+  nodejs: {
+    paragraph: "Engineers with 4+ years building production Node.js systems in NestJS, Express, or Fastify. Full backend capability spanning API design, database optimization, DevOps, and cloud infrastructure. TypeScript as standard. Clean, tested, documented code.",
+    footnote: "Our team is based in India with flexible hours overlapping US EST and PST time zones.",
+  },
+};
+
 export default function ExpertisePageClient({
   expertise,
   relatedPages,
@@ -1141,8 +1177,8 @@ export default function ExpertisePageClient({
 
       {pageData.engagementModels && (
         <div id={["nodejs", "nextjs", "react", "python"].includes(expertise.slug) ? "hire" : undefined}>
-          {/* React: "What you get" block before EngagementModels */}
-          {expertise.slug === "react" && (
+          {/* "What you get" block with technology logo - before EngagementModels */}
+          {whatYouGetContent[expertise.slug] && (
             <div className="bg-surface pt-12 sm:pt-16">
               <div className="max-w-5xl mx-auto px-4 sm:px-6">
                 <motion.div
@@ -1150,81 +1186,65 @@ export default function ExpertisePageClient({
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6 }}
-                  className="bg-surface-elevated/80 backdrop-blur-xl border border-border rounded-xl p-6 sm:p-8"
+                  className="relative overflow-hidden bg-surface-elevated/80 backdrop-blur-xl border border-border rounded-xl p-6 sm:p-8 md:p-10"
                 >
-                  <h3 className="text-lg font-semibold text-text-primary mb-4">What you get</h3>
-                  <ul className="space-y-2">
-                    {[
-                      "Engineers with 3+ years building production React applications",
-                      "Full-stack capability: React frontend + Node.js or Python backend",
-                      "React Native experience available for cross-platform mobile projects",
-                      "Same timezone overlap (India-based team, flexible to US working hours)",
-                      "No recruiting overhead - engineers are vetted, onboarded, and managed",
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-text-secondary">
-                        <svg className="w-4 h-4 text-accent mt-0.5 shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                          <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
-                        </svg>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              </div>
-            </div>
-          )}
+                  <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 items-center">
+                    <div className="relative z-10">
+                      <h3 className="text-xl sm:text-2xl font-semibold text-text-primary mb-5 tracking-tight">What you get</h3>
+                      {(() => {
+                        const content = whatYouGetContent[expertise.slug];
+                        if (!content) return null;
+                        if ("items" in content) {
+                          return (
+                            <ul className="space-y-2.5">
+                              {content.items.map((item, i) => (
+                                <li key={i} className="flex items-start gap-2.5 text-sm sm:text-base text-text-secondary">
+                                  <svg className="w-4 h-4 text-accent mt-1 shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+                                  </svg>
+                                  {item}
+                                </li>
+                              ))}
+                            </ul>
+                          );
+                        }
+                        return (
+                          <>
+                            <p className="text-sm sm:text-base text-text-secondary leading-relaxed">{content.paragraph}</p>
+                            {content.footnote && <p className="text-xs text-text-muted mt-4">{content.footnote}</p>}
+                          </>
+                        );
+                      })()}
+                    </div>
 
-          {/* Python: "What you get" block before EngagementModels */}
-          {expertise.slug === "python" && (
-            <div className="bg-surface pt-12 sm:pt-16">
-              <div className="max-w-5xl mx-auto px-4 sm:px-6">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  className="bg-surface-elevated/80 backdrop-blur-xl border border-border rounded-xl p-6 sm:p-8"
-                >
-                  <h3 className="text-lg font-semibold text-text-primary mb-4">What you get</h3>
-                  <ul className="space-y-2">
-                    {[
-                      "Engineers with 3+ years building production Python systems in Django, FastAPI, or Flask",
-                      "Full-stack capability: Python backend + React, Next.js, or Angular frontend",
-                      "AI/ML experience available: PyTorch, scikit-learn, LangChain, data pipelines",
-                      "Same timezone overlap (India-based team, flexible to US working hours)",
-                      "No recruiting overhead - engineers are vetted, onboarded, and managed",
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-text-secondary">
-                        <svg className="w-4 h-4 text-accent mt-0.5 shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                          <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
-                        </svg>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              </div>
-            </div>
-          )}
+                    {technologyLogos[expertise.slug] && (
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+                        className="hidden md:flex items-center justify-center w-32 lg:w-40 h-32 lg:h-40 shrink-0"
+                        aria-hidden="true"
+                      >
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={technologyLogos[expertise.slug]}
+                          alt=""
+                          className="w-full h-full object-contain opacity-[0.12] select-none pointer-events-none"
+                          style={{ filter: "brightness(0) saturate(100%) invert(52%) sepia(47%) saturate(522%) hue-rotate(113deg) brightness(96%) contrast(92%)" }}
+                        />
+                      </motion.div>
+                    )}
+                  </div>
 
-          {/* Node.js: "What you get" block before EngagementModels */}
-          {expertise.slug === "nodejs" && (
-            <div className="bg-surface pt-12 sm:pt-16">
-              <div className="max-w-5xl mx-auto px-4 sm:px-6">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  className="bg-surface-elevated/80 backdrop-blur-xl border border-border rounded-xl p-6 sm:p-8"
-                >
-                  <h3 className="text-lg font-semibold text-text-primary mb-3">What you get</h3>
-                  <p className="text-sm text-text-secondary leading-relaxed">
-                    Engineers with 4+ years building production Node.js systems in NestJS, Express, or Fastify. Full backend capability spanning API design, database optimization, DevOps, and cloud infrastructure. TypeScript as standard. Clean, tested, documented code.
-                  </p>
-                  <p className="text-xs text-text-muted mt-4">
-                    Our team is based in India with flexible hours overlapping US EST and PST time zones.
-                  </p>
+                  {/* Ambient glow behind logo */}
+                  {technologyLogos[expertise.slug] && (
+                    <div
+                      className="hidden md:block absolute -right-10 top-1/2 -translate-y-1/2 w-64 h-64 rounded-full pointer-events-none"
+                      style={{ background: "radial-gradient(circle, rgba(29, 155, 105, 0.08) 0%, transparent 70%)" }}
+                      aria-hidden="true"
+                    />
+                  )}
                 </motion.div>
               </div>
             </div>
