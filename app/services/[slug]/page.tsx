@@ -107,7 +107,8 @@ export default async function ServicePage({ params }: Props) {
   >;
 
   // Generate schema markup for the page
-  const generateSchemas = (pageSlug: string, data: Record<string, unknown>) => {
+  // skipFaq: expertise-style pages already have FAQPage in ExpertisePageClient's @graph
+  const generateSchemas = (pageSlug: string, data: Record<string, unknown>, { skipFaq = false } = {}) => {
     const schemas: Array<Record<string, unknown>> = [];
 
     // ProfessionalService schema with enhanced properties
@@ -175,8 +176,9 @@ export default async function ServicePage({ params }: Props) {
 
     schemas.push(serviceSchema);
 
-    // FAQPage schema if FAQs exist
-    if (data.faqs && Array.isArray(data.faqs)) {
+    // FAQPage schema if FAQs exist (skipped for expertise-style pages
+    // which already include FAQPage in ExpertisePageClient's combined @graph)
+    if (!skipFaq && data.faqs && Array.isArray(data.faqs)) {
       const faqSchema = {
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -222,7 +224,8 @@ export default async function ServicePage({ params }: Props) {
       expertise.relatedExpertise || [],
     );
 
-    const schemas = generateSchemas(slug, frontmatter);
+    // skipFaq: ExpertisePageClient already renders FAQPage in its @graph
+    const schemas = generateSchemas(slug, frontmatter, { skipFaq: true });
 
     return (
       <>
