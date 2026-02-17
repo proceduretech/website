@@ -3,7 +3,6 @@ import type { MetadataRoute } from "next";
 export const dynamic = "force-static";
 
 import {
-  getAllExpertiseSlugsFromContent,
   getAllIndustrySlugsFromContent,
   getAllUseCaseSlugsFromContent,
   getAllServiceSlugsFromContent,
@@ -39,7 +38,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
       changeFrequency: "monthly" as const,
     },
-    { path: "/culture", priority: 0.6, changeFrequency: "monthly" as const },
     {
       path: "/policies/privacy-policy",
       priority: 0.3,
@@ -69,17 +67,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.9,
-    });
-  }
-
-  // Expertise pages (dynamic) - now using /services/
-  const expertiseSlugs = getAllExpertiseSlugsFromContent();
-  for (const slug of expertiseSlugs) {
-    entries.push({
-      url: `${BASE_URL}/services/${slug}`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
     });
   }
 
