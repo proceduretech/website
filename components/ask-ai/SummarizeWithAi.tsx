@@ -58,7 +58,7 @@ export function SummarizeWithAi({ slug, title }: SummarizeWithAiProps) {
   return (
     <div className="mb-8">
       <p className="text-sm text-text-muted font-display mb-3">
-        Summarize with AI
+        Read summarized version with
       </p>
       <div className="flex flex-wrap items-center gap-2">
         {LLM_PROVIDERS.map((provider) => (
