@@ -59,6 +59,8 @@ const bookingSubtext: Record<string, string> = {
     "Talk directly with engineers, not sales. We\u2019ll assess fit and give honest next steps.",
   "nextjs":
     "Tell us about your Next.js project. Whether it\u2019s a new build, migration, or performance optimization, we\u2019ll discuss architecture and give honest next steps.",
+  "nodejs":
+    "Tell us about your backend requirements. Whether it\u2019s APIs, microservices, or a full system migration, we\u2019ll give honest architecture guidance.",
 };
 
 export default function ExpertisePageClient({
@@ -105,6 +107,8 @@ export default function ExpertisePageClient({
             ? [".NET Development Services", "ASP.NET Core Development", "C# Development", "Azure .NET Development", ".NET Migration Services", "Enterprise .NET Consulting"]
             : expertise.slug === "nextjs"
             ? ["Next.js Development Services", "React Development", "SSR Development", "Frontend Engineering", "Web Application Development"]
+            : expertise.slug === "nodejs"
+            ? ["Node.js Development Services", "API Development", "Microservices Development", "Backend Engineering", "Real-Time Applications"]
             : pageData.hero.badge,
         areaServed: [
           { "@type": "Country", name: "United States" },
@@ -141,6 +145,8 @@ export default function ExpertisePageClient({
             ? [".NET Development", "ASP.NET Core", "C# Development", "Azure Development", "Enterprise Software Development"]
             : expertise.slug === "nextjs"
             ? ["Next.js Development", "React Development", "Frontend Engineering", "Web Application Development", "Server-Side Rendering"]
+            : expertise.slug === "nodejs"
+            ? ["Node.js Development", "Backend Engineering", "API Development", "Microservices Architecture", "Real-Time Systems"]
             : [pageData.hero.badge, "Enterprise AI Engineering", "Software Development"],
       },
       // FAQ Schema (only if FAQs exist)
@@ -212,6 +218,8 @@ export default function ExpertisePageClient({
             ? { text: "Talk to a .NET Expert", href: "#book-call" }
             : expertise.slug === "nextjs"
             ? { text: "Talk to a Next.js Engineer", href: "#book-call" }
+            : expertise.slug === "nodejs"
+            ? { text: "Talk to a Node.js Engineer", href: "#book-call" }
             : undefined
         }
         secondaryCTA={
@@ -220,6 +228,7 @@ export default function ExpertisePageClient({
             "ai-agents",
             "dotnet",
             "nextjs",
+            "nodejs",
           ].includes(expertise.slug)
             ? undefined
             : { text: "View Case Studies", href: "/work" }
@@ -250,28 +259,76 @@ export default function ExpertisePageClient({
           </div>
         )}
         {expertise.slug === "nextjs" && (
-          <div className="flex items-center justify-center gap-3 text-xs text-text-muted -mt-6">
-            <div className="flex items-center gap-1.5">
-              <svg className="w-3.5 h-3.5 text-accent" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
-              </svg>
-              No strings attached
+          <>
+            <div className="flex items-center justify-center gap-3 text-xs text-text-muted -mt-6">
+              <div className="flex items-center gap-1.5">
+                <svg className="w-3.5 h-3.5 text-accent" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+                </svg>
+                No strings attached
+              </div>
+              <div className="w-1 h-1 rounded-full bg-border" />
+              <div className="flex items-center gap-1.5">
+                <svg className="w-3.5 h-3.5 text-accent" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+                </svg>
+                30-minute call
+              </div>
+              <div className="w-1 h-1 rounded-full bg-border" />
+              <div className="flex items-center gap-1.5">
+                <svg className="w-3.5 h-3.5 text-accent" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+                </svg>
+                Talk to engineers, not sales
+              </div>
             </div>
-            <div className="w-1 h-1 rounded-full bg-border" />
-            <div className="flex items-center gap-1.5">
-              <svg className="w-3.5 h-3.5 text-accent" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
-              </svg>
-              30-minute call
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mt-4 text-sm">
+              <a href="#services" className="text-accent hover:text-accent-light transition-colors flex items-center gap-1.5">
+                Need an app built?
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+              </a>
+              <a href="#hire" className="text-accent hover:text-accent-light transition-colors flex items-center gap-1.5">
+                Need developers on your team?
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+              </a>
             </div>
-            <div className="w-1 h-1 rounded-full bg-border" />
-            <div className="flex items-center gap-1.5">
-              <svg className="w-3.5 h-3.5 text-accent" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
-              </svg>
-              Talk to engineers, not sales
+          </>
+        )}
+        {expertise.slug === "nodejs" && (
+          <>
+            <div className="flex items-center justify-center gap-3 text-xs text-text-muted -mt-6">
+              <div className="flex items-center gap-1.5">
+                <svg className="w-3.5 h-3.5 text-accent" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+                </svg>
+                Zero commitment to start
+              </div>
+              <div className="w-1 h-1 rounded-full bg-border" />
+              <div className="flex items-center gap-1.5">
+                <svg className="w-3.5 h-3.5 text-accent" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+                </svg>
+                30-minute call
+              </div>
+              <div className="w-1 h-1 rounded-full bg-border" />
+              <div className="flex items-center gap-1.5">
+                <svg className="w-3.5 h-3.5 text-accent" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+                </svg>
+                Talk to engineers, not sales
+              </div>
             </div>
-          </div>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mt-4 text-sm">
+              <a href="#services" className="text-accent hover:text-accent-light transition-colors flex items-center gap-1.5">
+                Need a project built?
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+              </a>
+              <a href="#hire" className="text-accent hover:text-accent-light transition-colors flex items-center gap-1.5">
+                Need developers on your team?
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+              </a>
+            </div>
+          </>
         )}
       </ExpertiseHero>
 
@@ -287,11 +344,13 @@ export default function ExpertisePageClient({
         />
       )}
 
-      <CapabilitiesGrid
-        title={expertise.slug === "dotnet" ? ".NET Development Services We Offer" : expertise.slug === "nextjs" ? "What We Build With Next.js" : "Key Capabilities"}
-        subtitle={expertise.slug === "dotnet" ? "End-to-end .NET services, from greenfield builds to legacy modernization." : expertise.slug === "nextjs" ? "From marketing sites to complex web applications, we deliver production-grade Next.js solutions." : "Everything you need to build production-grade solutions"}
-        capabilities={capabilities}
-      />
+      <div id={["nodejs", "nextjs"].includes(expertise.slug) ? "services" : undefined}>
+        <CapabilitiesGrid
+          title={expertise.slug === "dotnet" ? ".NET Development Services We Offer" : expertise.slug === "nextjs" ? "What We Build With Next.js" : expertise.slug === "nodejs" ? "Node.js Development Services" : "Key Capabilities"}
+          subtitle={expertise.slug === "dotnet" ? "End-to-end .NET services, from greenfield builds to legacy modernization." : expertise.slug === "nextjs" ? "From marketing sites to complex web applications, we deliver production-grade Next.js solutions." : expertise.slug === "nodejs" ? "APIs, microservices, real-time systems, and the backend your product runs on." : "Everything you need to build production-grade solutions"}
+          capabilities={capabilities}
+        />
+      </div>
 
       {["frontend-development", "backend-development", "dotnet", "nextjs"].includes(expertise.slug) && pageData.whoWeWorkWith && (
         <WhoWeWorkWith
@@ -306,6 +365,72 @@ export default function ExpertisePageClient({
         />
       )}
 
+      {/* Node.js: Decision table - Is Node.js Right for Your Backend? */}
+      {expertise.slug === "nodejs" && (
+        <section id="fit" className="relative py-16 sm:py-24 bg-base">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-4">
+                Is Node.js Right for Your <span className="text-highlight">Backend?</span>
+              </h2>
+              <p className="text-text-secondary">The right tool for the job, not the trendy one.</p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+              {[
+                { need: "REST APIs and GraphQL services", fit: "Non-blocking I/O handles thousands of concurrent API calls without choking under load" },
+                { need: "Real-time applications (chat, notifications, live dashboards)", fit: "Event-driven architecture and native WebSocket support built for persistent connections" },
+                { need: "Microservices architecture", fit: "Lightweight runtime with fast cold starts and a small memory footprint per service" },
+                { need: "Full-stack JavaScript teams", fit: "Same language across frontend and backend. Shared types with TypeScript. Fewer context switches, faster cycles." },
+              ].map((row, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="bg-surface-elevated/80 backdrop-blur-xl border border-border rounded-xl p-6"
+                >
+                  <p className="font-semibold text-text-primary mb-2">{row.need}</p>
+                  <p className="text-sm text-text-secondary">{row.fit}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <p className="text-sm text-text-muted mb-6 max-w-3xl mx-auto text-center">
+                Not always the right call for CPU-intensive processing like video encoding or ML model training, or for teams deeply invested in Python or Java with no JavaScript experience. We&apos;ll tell you upfront if something else fits better.
+              </p>
+              <div className="text-center">
+                <a
+                  href="#book-call"
+                  className="inline-flex items-center text-accent hover:text-accent-light transition-colors text-sm font-medium"
+                >
+                  Book a free architecture call
+                  <svg className="w-4 h-4 ml-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+                <p className="text-xs text-text-muted mt-2">
+                  We&apos;ve recommended Python and Go over Node.js when the workload demanded it.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      )}
+
       {/* For dotnet: Philosophy section comes early, before TechStack */}
       {expertise.slug === "dotnet" && pageData.philosophy && (
         <PhilosophySection
@@ -316,11 +441,13 @@ export default function ExpertisePageClient({
       )}
 
       {pageData.process && (
-        <ProcessTimeline
-          title={expertise.slug === "frontend-development" ? "Our Frontend Development Process" : expertise.slug === "backend-development" ? "Our Backend Development Process" : expertise.slug === "nextjs" ? "How We Deliver Next.js Projects" : "Our Process"}
-          subtitle="A predictable process built for high-quality delivery"
-          steps={pageData.process}
-        />
+        <div id={expertise.slug === "nodejs" ? "process" : undefined}>
+          <ProcessTimeline
+            title={expertise.slug === "frontend-development" ? "Our Frontend Development Process" : expertise.slug === "backend-development" ? "Our Backend Development Process" : expertise.slug === "nextjs" ? "How We Deliver Next.js Projects" : expertise.slug === "nodejs" ? "How We Deliver Node.js Projects" : "Our Process"}
+            subtitle={expertise.slug === "nodejs" ? "Working software every sprint, not just progress updates." : "A predictable process built for high-quality delivery"}
+            steps={pageData.process}
+          />
+        </div>
       )}
 
       {pageData.whyProcedure.length > 0 && (
@@ -358,6 +485,76 @@ export default function ExpertisePageClient({
             { category: "CI/CD & Monitoring", items: ["GitHub Actions", "Vercel Analytics", "Sentry", "DataDog"] },
           ]}
         />
+      ) : expertise.slug === "nodejs" ? (
+        /* Node.js: Custom 3-column stack table */
+        <section id="stack" className="relative py-16 sm:py-24 bg-surface">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-text-primary mb-4">
+                Our <span className="text-highlight">Node.js</span> Stack
+              </h2>
+              <p className="text-text-secondary">Every tool earns its place. Here&apos;s what we ship with and why.</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="overflow-x-auto -mx-4 sm:mx-0"
+            >
+              <table className="w-full min-w-[640px] border-collapse">
+                <thead>
+                  <tr className="border-b border-border">
+                    <th className="text-left py-3 px-4 text-sm font-semibold text-text-primary w-[20%]">Layer</th>
+                    <th className="text-left py-3 px-4 text-sm font-semibold text-text-primary w-[30%]">Tools</th>
+                    <th className="text-left py-3 px-4 text-sm font-semibold text-text-primary w-[50%]">Why</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { layer: "Runtime", tools: "Node.js 22 LTS", why: "Long-term support, native ESM, meaningful performance gains over older versions" },
+                    { layer: "Framework", tools: "NestJS, Fastify, Express", why: "NestJS for enterprise patterns, Fastify for raw throughput, Express for ecosystem breadth" },
+                    { layer: "Language", tools: "TypeScript (strict mode)", why: "Type safety across the full stack. Non-negotiable on our projects." },
+                    { layer: "ORM / Query", tools: "Prisma, Drizzle ORM", why: "Prisma for type-safe queries and migrations. Drizzle when targeting edge or serverless runtimes." },
+                    { layer: "Database", tools: "PostgreSQL, MongoDB, Redis", why: "Postgres for relational data, MongoDB for document workloads, Redis for caching and job queues" },
+                    { layer: "Message Queue", tools: "BullMQ, AWS SQS, RabbitMQ", why: "BullMQ for straightforward background jobs. SQS or RabbitMQ for service-to-service communication." },
+                    { layer: "API Style", tools: "REST, GraphQL (Apollo), gRPC", why: "REST for public-facing APIs, GraphQL for frontend flexibility, gRPC for low-latency internal calls" },
+                    { layer: "Auth", tools: "Passport.js, JWT, OAuth2", why: "Strategy-based auth with Passport, stateless tokens via JWT, third-party login with OAuth2" },
+                    { layer: "Testing", tools: "Jest, Vitest, Supertest", why: "Unit and integration tests alongside every feature. Supertest for API endpoint validation." },
+                    { layer: "Hosting", tools: "AWS (ECS, Lambda), GCP, Vercel", why: "Containers when you need control, serverless when cost efficiency matters" },
+                    { layer: "CI/CD", tools: "GitHub Actions, Docker", why: "Automated test runs, container builds, and zero-downtime deployments on every merge" },
+                    { layer: "Monitoring", tools: "Datadog, Sentry, Prometheus + Grafana", why: "APM for performance bottlenecks, Sentry for error tracking, Grafana for custom dashboards" },
+                  ].map((row, i) => (
+                    <tr key={i} className="border-b border-border/50 hover:bg-surface-elevated/30 transition-colors">
+                      <td className="py-3 px-4 text-sm font-medium text-accent">{row.layer}</td>
+                      <td className="py-3 px-4 text-sm text-text-primary">{row.tools}</td>
+                      <td className="py-3 px-4 text-sm text-text-secondary">{row.why}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="mt-8 bg-surface-elevated/80 backdrop-blur-xl border border-border rounded-xl p-6 max-w-3xl mx-auto"
+            >
+              <p className="text-sm text-text-secondary">
+                We pick the framework based on your constraints. NestJS for enterprise structure, Fastify for raw throughput, Express for ecosystem breadth. There is no single right answer.
+              </p>
+            </motion.div>
+          </div>
+        </section>
       ) : (
         <TechStack
           title="Technologies We Use"
@@ -405,9 +602,9 @@ export default function ExpertisePageClient({
         />
       )}
 
-      {/* Mid-page CTA for dotnet/nextjs - before Architecture section */}
-      {(expertise.slug === "dotnet" || expertise.slug === "nextjs") && (
-        <section className="relative py-16 sm:py-24 bg-base">
+      {/* Mid-page CTA for dotnet/nextjs/nodejs - before Architecture section */}
+      {["dotnet", "nextjs", "nodejs"].includes(expertise.slug) && (
+        <section className="relative py-16 sm:py-24 bg-surface">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -415,12 +612,14 @@ export default function ExpertisePageClient({
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
-                Discuss Your <span className="text-highlight">{expertise.slug === "nextjs" ? "Next.js" : ".NET"} Project</span>
+              <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-6">
+                Discuss Your <span className="text-highlight">{expertise.slug === "nextjs" ? "Next.js" : expertise.slug === "nodejs" ? "Node.js" : ".NET"} Project</span>
               </h2>
               <p className="text-lg text-text-secondary mb-8">
                 {expertise.slug === "nextjs"
                   ? "Whether it\u2019s a new build, migration, or performance optimization, we\u2019re happy to talk through your situation."
+                  : expertise.slug === "nodejs"
+                  ? "Whether it\u2019s APIs, microservices, or a full backend migration, we\u2019re happy to talk through your situation."
                   : "Whether modernizing legacy systems or building new, we\u2019re happy to talk through your situation."}
               </p>
               <a
@@ -453,11 +652,64 @@ export default function ExpertisePageClient({
       )}
 
       {pageData.engagementModels && (
-        <EngagementModels
-          title={pageData.engagementModels.title}
-          subtitle={pageData.engagementModels.subtitle}
-          models={pageData.engagementModels.models}
-        />
+        <div id={["nodejs", "nextjs"].includes(expertise.slug) ? "hire" : undefined}>
+          {/* Node.js: "What you get" block before EngagementModels */}
+          {expertise.slug === "nodejs" && (
+            <div className="bg-surface pt-12 sm:pt-16">
+              <div className="max-w-5xl mx-auto px-4 sm:px-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  className="bg-surface-elevated/80 backdrop-blur-xl border border-border rounded-xl p-6 sm:p-8"
+                >
+                  <h3 className="text-lg font-semibold text-text-primary mb-3">What you get</h3>
+                  <p className="text-sm text-text-secondary leading-relaxed">
+                    Engineers with 4+ years building production Node.js systems in NestJS, Express, or Fastify. Full backend capability spanning API design, database optimization, DevOps, and cloud infrastructure. TypeScript as standard. Clean, tested, documented code.
+                  </p>
+                  <p className="text-xs text-text-muted mt-4">
+                    Our team is based in India with flexible hours overlapping US EST and PST time zones.
+                  </p>
+                </motion.div>
+              </div>
+            </div>
+          )}
+
+          <EngagementModels
+            title={pageData.engagementModels.title}
+            subtitle={pageData.engagementModels.subtitle}
+            models={pageData.engagementModels.models}
+          />
+
+          {/* Node.js: Pricing line + CTA after EngagementModels */}
+          {expertise.slug === "nodejs" && (
+            <section className="relative pt-0 pb-16 sm:pb-24 bg-surface">
+              <div className="max-w-5xl mx-auto px-4 sm:px-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  className="text-center"
+                >
+                  <p className="text-sm text-text-secondary mb-6">
+                    Starting at $3,500/month per developer for full-time dedicated engagement.
+                  </p>
+                  <a
+                    href="#book-call"
+                    className="inline-flex items-center px-8 py-3 rounded-lg bg-cta text-cta-text font-semibold hover:brightness-110 transition-all"
+                  >
+                    Talk to Us About Your Team
+                    <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </a>
+                </motion.div>
+              </div>
+            </section>
+          )}
+        </div>
       )}
 
       {pageData.riskReversal && (
@@ -506,10 +758,12 @@ export default function ExpertisePageClient({
       </section>
 
       {pageData.faqs.length > 0 && (
-        <FAQSection
-          title={expertise.slug === "dotnet" ? ".NET Development Services FAQ" : expertise.slug === "nextjs" ? "Next.js Development FAQ" : undefined}
-          faqs={pageData.faqs}
-        />
+        <div id={expertise.slug === "nodejs" ? "faq" : undefined}>
+          <FAQSection
+            title={expertise.slug === "dotnet" ? ".NET Development Services FAQ" : expertise.slug === "nextjs" ? "Next.js Development FAQ" : expertise.slug === "nodejs" ? "Node.js Development FAQ" : undefined}
+            faqs={pageData.faqs}
+          />
+        </div>
       )}
 
       {relatedPages.length > 0 && <RelatedExpertise pages={relatedPages} />}
