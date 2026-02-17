@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ReactNode, useState } from "react";
 import { cn } from "@/lib/utils";
+import { LinkedText } from "@/components/ui/LinkedText";
 
 interface TargetAudience {
   icon: ReactNode;
@@ -233,7 +234,8 @@ export function WhoWeWorkWith({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
                 {commonApplications.items.map((item, index) => {
                   const isObject = typeof item === "object";
-                  const description = isObject ? item.title : item;
+                  const title = isObject ? item.title : item;
+                  const description = isObject ? item.description : undefined;
 
                   return (
                     <div
@@ -242,7 +244,13 @@ export function WhoWeWorkWith({
                     >
                       <span className="text-accent mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-accent" />
                       <span className="text-text-secondary text-sm leading-relaxed">
-                        {description}
+                        <LinkedText text={title} />
+                        {description && (
+                          <>
+                            {": "}
+                            <LinkedText text={description} />
+                          </>
+                        )}
                       </span>
                     </div>
                   );

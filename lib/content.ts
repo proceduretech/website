@@ -615,6 +615,15 @@ export interface ExpertisePageForListing {
       description: string;
     }>;
   };
+  howItWorks?: {
+    title?: string;
+    subtitle?: string;
+    steps: Array<{
+      title: string;
+      description: string;
+    }>;
+    closingNote?: string;
+  };
   engagementModels?: {
     title?: string;
     subtitle?: string;
@@ -752,6 +761,7 @@ export function getExpertiseForListing(
     whyChoose: frontmatter.whyChoose,
     qualityMatters: frontmatter.qualityMatters,
     architecture: frontmatter.architecture,
+    howItWorks: frontmatter.howItWorks,
     engagementModels: frontmatter.engagementModels,
     riskReversal: frontmatter.riskReversal,
     ctaTestimonial: frontmatter.ctaTestimonial,

@@ -18,6 +18,7 @@ import {
   EngagementModels,
   RiskReversal,
   PhilosophySection,
+  HowItWorks,
 } from "@/components/expertise";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Stats } from "@/components/sections/Stats";
@@ -200,8 +201,8 @@ export default function ExpertisePageClient({
         badge={pageData.hero.badge}
         headline={pageData.hero.headline}
         headlineAccent={pageData.hero.headlineAccent}
-        tagline={pageData.hero.tagline}
-        description={pageData.hero.description}
+        tagline={expertise.slug === "dotnet-development" ? undefined : pageData.hero.tagline}
+        description={expertise.slug === "dotnet-development" ? pageData.hero.tagline : pageData.hero.description}
         primaryCTA={
           expertise.slug === "frontend-development"
             ? { text: "Talk to a Frontend Specialist", href: "#book-call" }
@@ -227,11 +228,12 @@ export default function ExpertisePageClient({
       {expertise.slug === "dotnet-development" && (
         <Stats
           title="Proven Outcomes from Enterprise .NET Engineering"
+          subtitle="Procedure has been building production .NET systems for over a decade, from enterprise platforms to high-throughput APIs serving millions of requests."
           stats={[
-            { value: "40+", label: ".NET systems running in production" },
-            { value: "6–8 weeks", label: "Typical time to production-ready release" },
-            { value: "95%+", label: "Client retention across long-term engagements" },
-            { value: "3+ years", label: "Average system lifecycle supported" },
+            { value: "40+", label: "Production .NET Systems" },
+            { value: "6–8 Weeks", label: "Time to Production Release" },
+            { value: "95%+", label: "Client Retention Rate" },
+            { value: ".NET 8 + Azure", label: "Primary Stack" },
           ]}
         />
       )}
@@ -284,10 +286,12 @@ export default function ExpertisePageClient({
           title=".NET Technology Stack (Production-Proven)"
           variant="grouped"
           groups={[
-            { category: "Runtime & Frameworks", items: [".NET 8", "ASP.NET Core", "C#", "Entity Framework Core"] },
-            { category: "Cloud & Infrastructure", items: ["Azure", "Docker", "Kubernetes"] },
-            { category: "Data & Caching", items: ["SQL Server", "PostgreSQL", "Redis"] },
-            { category: "Observability & Messaging", items: ["Serilog", "MediatR"] },
+            { category: "Runtime & Frameworks", items: [".NET 8 / .NET 9", "ASP.NET Core", "Blazor", "Entity Framework Core", "Minimal APIs"] },
+            { category: "Cloud Platforms", items: ["Microsoft Azure", "AWS", "GCP"] },
+            { category: "Infrastructure & DevOps", items: ["Docker", "[Kubernetes](/services/kubernetes)", "Terraform", "GitHub Actions", "Azure DevOps"] },
+            { category: "Data & Caching", items: ["SQL Server", "PostgreSQL", "Redis", "Azure Cosmos DB"] },
+            { category: "Observability", items: ["Application Insights", "Serilog", "OpenTelemetry", "Seq"] },
+            { category: "Messaging & Patterns", items: ["RabbitMQ", "Azure Service Bus", "MediatR", "MassTransit"] },
           ]}
         />
       ) : (
@@ -354,6 +358,15 @@ export default function ExpertisePageClient({
         />
       )}
 
+      {pageData.howItWorks && (
+        <HowItWorks
+          title={pageData.howItWorks.title}
+          subtitle={pageData.howItWorks.subtitle}
+          steps={pageData.howItWorks.steps}
+          closingNote={pageData.howItWorks.closingNote}
+        />
+      )}
+
       {pageData.riskReversal && (
         <RiskReversal
           title={pageData.riskReversal.title}
@@ -379,7 +392,11 @@ export default function ExpertisePageClient({
             <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-text-primary mb-6">
               Ready to Discuss Your
               <br />
-              <span className="text-highlight">{pageData.hero.badge} Project?</span>
+              <span className="text-highlight">
+                {expertise.slug === "dotnet-development"
+                  ? ".NET Project?"
+                  : `${pageData.hero.badge} Project?`}
+              </span>
             </h2>
             <p className="text-lg text-text-secondary max-w-2xl mx-auto">
               {bookingSubtext[expertise.slug] ||
