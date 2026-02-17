@@ -893,17 +893,31 @@ export function getRelatedExpertiseForListing(slugs: string[]): Array<{
   title: string;
   description: string;
   badge: string;
+  href?: string;
 }> {
   return slugs
     .map((slug) => {
+      // Try services first, then technologies
       const page = getExpertiseForListing(slug);
-      if (!page) return null;
-      return {
-        slug: page.slug,
-        title: `${page.hero.headline} ${page.hero.headlineAccent}`.trim(),
-        description: page.hero.tagline,
-        badge: page.hero.badge,
-      };
+      if (page) {
+        return {
+          slug: page.slug,
+          title: `${page.hero.headline} ${page.hero.headlineAccent}`.trim(),
+          description: page.hero.tagline,
+          badge: page.hero.badge,
+        };
+      }
+      const tech = getTechnologyForListing(slug);
+      if (tech) {
+        return {
+          slug: tech.slug,
+          title: `${tech.hero.headline} ${tech.hero.headlineAccent}`.trim(),
+          description: tech.hero.tagline,
+          badge: tech.hero.badge,
+          href: `/technologies/${tech.slug}`,
+        };
+      }
+      return null;
     })
     .filter((p): p is NonNullable<typeof p> => p !== null);
 }
