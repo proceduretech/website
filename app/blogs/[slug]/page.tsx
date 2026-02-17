@@ -27,6 +27,7 @@ import {
 } from "@/components/notion";
 import { TwitterEmbedReactTweet } from "@/components/notion/TwitterEmbedReactTweet";
 import { JsonLd } from "@/components/seo";
+import { SummarizeWithAi } from "@/components/ask-ai";
 
 // Force static generation at build time
 export const dynamic = "force-static";
@@ -619,6 +620,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {post.readTime} min read
             </span>
           </div>
+
+          {/* Summarize with AI */}
+          <SummarizeWithAi slug={slug} title={post.title} />
 
           {/* Featured Image */}
           {coverImageMetadata ? (
