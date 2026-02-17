@@ -759,6 +759,7 @@ export function getExpertiseForListing(
     useCasesSubtitle: frontmatter.useCasesSubtitle,
     useCases: frontmatter.useCases,
     whyChoose: frontmatter.whyChoose,
+    philosophy: frontmatter.philosophy,
     qualityMatters: frontmatter.qualityMatters,
     architecture: frontmatter.architecture,
     howItWorks: frontmatter.howItWorks,
