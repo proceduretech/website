@@ -376,7 +376,7 @@ export default function ExpertisePageClient({
               transition={{ duration: 0.6 }}
               className="text-center mb-12"
             >
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
+              <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-4">
                 Is Node.js Right for Your <span className="text-highlight">Backend?</span>
               </h2>
               <p className="text-text-secondary">The right tool for the job, not the trendy one.</p>
@@ -496,7 +496,7 @@ export default function ExpertisePageClient({
               transition={{ duration: 0.6 }}
               className="text-center mb-12"
             >
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
+              <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-text-primary mb-4">
                 Our <span className="text-highlight">Node.js</span> Stack
               </h2>
               <p className="text-text-secondary">Every tool earns its place. Here&apos;s what we ship with and why.</p>
@@ -547,10 +547,10 @@ export default function ExpertisePageClient({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-8 border-l-2 border-accent/40 pl-4 max-w-3xl"
+              className="mt-8 bg-surface-elevated/80 backdrop-blur-xl border border-border rounded-xl p-6 max-w-3xl mx-auto"
             >
               <p className="text-sm text-text-secondary">
-                We pick the framework based on your constraints. NestJS if your team values structure and enterprise patterns. Fastify if raw throughput is the priority. Express if simplicity and ecosystem size matter most. There is no single right answer, and anyone telling you otherwise is selling something.
+                We pick the framework based on your constraints. NestJS for enterprise structure, Fastify for raw throughput, Express for ecosystem breadth. There is no single right answer.
               </p>
             </motion.div>
           </div>
@@ -604,7 +604,7 @@ export default function ExpertisePageClient({
 
       {/* Mid-page CTA for dotnet/nextjs/nodejs - before Architecture section */}
       {["dotnet", "nextjs", "nodejs"].includes(expertise.slug) && (
-        <section className="relative py-16 sm:py-24 bg-base">
+        <section className="relative py-16 sm:py-24 bg-surface">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -612,7 +612,7 @@ export default function ExpertisePageClient({
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
+              <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-6">
                 Discuss Your <span className="text-highlight">{expertise.slug === "nextjs" ? "Next.js" : expertise.slug === "nodejs" ? "Node.js" : ".NET"} Project</span>
               </h2>
               <p className="text-lg text-text-secondary mb-8">
@@ -655,25 +655,25 @@ export default function ExpertisePageClient({
         <div id={["nodejs", "nextjs"].includes(expertise.slug) ? "hire" : undefined}>
           {/* Node.js: "What you get" block before EngagementModels */}
           {expertise.slug === "nodejs" && (
-            <section className="relative pt-16 sm:pt-24 pb-0 bg-base">
+            <div className="bg-surface pt-12 sm:pt-16">
               <div className="max-w-5xl mx-auto px-4 sm:px-6">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6 }}
-                  className="bg-surface-elevated/80 backdrop-blur-xl border border-border rounded-xl p-6 sm:p-8 mb-0"
+                  className="bg-surface-elevated/80 backdrop-blur-xl border border-border rounded-xl p-6 sm:p-8"
                 >
                   <h3 className="text-lg font-semibold text-text-primary mb-3">What you get</h3>
                   <p className="text-sm text-text-secondary leading-relaxed">
-                    Engineers with 4+ years building production Node.js systems in NestJS, Express, or Fastify. Not tutorial-level experience. Full backend capability spanning API design, database optimization, DevOps, and cloud infrastructure. TypeScript as standard across every project. Clean, tested, documented code.
+                    Engineers with 4+ years building production Node.js systems in NestJS, Express, or Fastify. Full backend capability spanning API design, database optimization, DevOps, and cloud infrastructure. TypeScript as standard. Clean, tested, documented code.
                   </p>
                   <p className="text-xs text-text-muted mt-4">
                     Our team is based in India with flexible hours overlapping US EST and PST time zones.
                   </p>
                 </motion.div>
               </div>
-            </section>
+            </div>
           )}
 
           <EngagementModels
@@ -684,7 +684,7 @@ export default function ExpertisePageClient({
 
           {/* Node.js: Pricing line + CTA after EngagementModels */}
           {expertise.slug === "nodejs" && (
-            <section className="relative pt-0 pb-8 bg-base">
+            <section className="relative pt-0 pb-16 sm:pb-24 bg-surface">
               <div className="max-w-5xl mx-auto px-4 sm:px-6">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
