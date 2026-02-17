@@ -1,8 +1,15 @@
-import { getBlogPostsWithFallback } from "@/lib/notion-blog";
+/**
+ * Post-build script: generates out/feed.xml from blog posts.
+ * Runs after `next build` via `npm run build`.
+ *
+ * Uses Notion API when NOTION_TOKEN is set, falls back to local MDX.
+ */
 
-export const dynamic = "force-static";
+import { writeFileSync, existsSync, mkdirSync } from "fs";
+import { getBlogPostsWithFallback } from "../lib/notion-blog";
 
 const SITE_URL = "https://procedure.tech";
+const OUT_DIR = "out";
 
 function escapeXml(str: string): string {
   return str
@@ -13,7 +20,7 @@ function escapeXml(str: string): string {
     .replace(/'/g, "&apos;");
 }
 
-export async function GET() {
+async function main() {
   const posts = await getBlogPostsWithFallback();
 
   const sortedPosts = posts
@@ -53,9 +60,17 @@ ${items}
   </channel>
 </rss>`;
 
-  return new Response(xml, {
-    headers: {
-      "Content-Type": "application/xml",
-    },
-  });
+  if (!existsSync(OUT_DIR)) {
+    mkdirSync(OUT_DIR, { recursive: true });
+  }
+
+  writeFileSync(`${OUT_DIR}/feed.xml`, xml, "utf-8");
+  console.log(
+    `Generated feed.xml with ${sortedPosts.length} posts → ${OUT_DIR}/feed.xml`
+  );
 }
+
+main().catch((err) => {
+  console.error("Failed to generate RSS feed:", err);
+  process.exit(1);
+});
