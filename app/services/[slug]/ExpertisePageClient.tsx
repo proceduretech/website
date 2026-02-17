@@ -1190,7 +1190,7 @@ export default function ExpertisePageClient({
                 >
                   <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 items-center">
                     <div className="relative z-10">
-                      <h3 className="text-xl sm:text-2xl font-semibold text-text-primary mb-5 tracking-tight">What you get</h3>
+                      <h3 className="text-xl sm:text-2xl font-semibold text-text-primary mb-8 tracking-tight">What you get</h3>
                       {(() => {
                         const content = whatYouGetContent[expertise.slug];
                         if (!content) return null;
@@ -1230,8 +1230,7 @@ export default function ExpertisePageClient({
                         <img
                           src={technologyLogos[expertise.slug]}
                           alt=""
-                          className="w-full h-full object-contain opacity-[0.12] select-none pointer-events-none"
-                          style={{ filter: "brightness(0) saturate(100%) invert(52%) sepia(47%) saturate(522%) hue-rotate(113deg) brightness(96%) contrast(92%)" }}
+                          className="w-full h-full object-contain opacity-[0.15] select-none pointer-events-none"
                         />
                       </motion.div>
                     )}

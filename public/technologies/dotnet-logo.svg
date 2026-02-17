@@ -1,3 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456 456">
-  <rect width="456" height="456" rx="50" fill="currentColor"/>
+  <rect width="456" height="456" rx="50" fill="#512BD4"/>
+  <text x="228" y="290" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, sans-serif" font-weight="700" font-size="140" fill="#fff">.NET</text>
 </svg>
