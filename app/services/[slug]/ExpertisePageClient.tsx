@@ -57,6 +57,8 @@ const bookingSubtext: Record<string, string> = {
     "Describe your container orchestration needs: new clusters, migrations, or operational pain points. We'll assess your workloads and recommend a production-ready approach.",
   "dotnet":
     "Talk directly with engineers, not sales. We\u2019ll assess fit and give honest next steps.",
+  "nextjs":
+    "Tell us about your Next.js project. Whether it\u2019s a new build, migration, or performance optimization, we\u2019ll discuss architecture and give honest next steps.",
 };
 
 export default function ExpertisePageClient({
@@ -101,6 +103,8 @@ export default function ExpertisePageClient({
             ? ["Kubernetes Consulting", "Container Orchestration", "Cloud Native Infrastructure", "Kubernetes Implementation", "Kubernetes Optimization"]
             : expertise.slug === "dotnet"
             ? [".NET Development Services", "ASP.NET Core Development", "C# Development", "Azure .NET Development", ".NET Migration Services", "Enterprise .NET Consulting"]
+            : expertise.slug === "nextjs"
+            ? ["Next.js Development Services", "React Development", "SSR Development", "Frontend Engineering", "Web Application Development"]
             : pageData.hero.badge,
         areaServed: [
           { "@type": "Country", name: "United States" },
@@ -135,6 +139,8 @@ export default function ExpertisePageClient({
             ? ["Frontend Engineering", "Web Development", "UI/UX Development"]
             : expertise.slug === "dotnet"
             ? [".NET Development", "ASP.NET Core", "C# Development", "Azure Development", "Enterprise Software Development"]
+            : expertise.slug === "nextjs"
+            ? ["Next.js Development", "React Development", "Frontend Engineering", "Web Application Development", "Server-Side Rendering"]
             : [pageData.hero.badge, "Enterprise AI Engineering", "Software Development"],
       },
       // FAQ Schema (only if FAQs exist)
@@ -204,6 +210,8 @@ export default function ExpertisePageClient({
             ? { text: "Talk to a Backend Specialist", href: "#book-call" }
             : expertise.slug === "dotnet"
             ? { text: "Talk to a .NET Expert", href: "#book-call" }
+            : expertise.slug === "nextjs"
+            ? { text: "Talk to a Next.js Engineer", href: "#book-call" }
             : undefined
         }
         secondaryCTA={
@@ -211,6 +219,7 @@ export default function ExpertisePageClient({
             "ai-engineering",
             "ai-agents",
             "dotnet",
+            "nextjs",
           ].includes(expertise.slug)
             ? undefined
             : { text: "View Case Studies", href: "/work" }
@@ -240,6 +249,30 @@ export default function ExpertisePageClient({
             </div>
           </div>
         )}
+        {expertise.slug === "nextjs" && (
+          <div className="flex items-center justify-center gap-3 text-xs text-text-muted -mt-6">
+            <div className="flex items-center gap-1.5">
+              <svg className="w-3.5 h-3.5 text-accent" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+              </svg>
+              No strings attached
+            </div>
+            <div className="w-1 h-1 rounded-full bg-border" />
+            <div className="flex items-center gap-1.5">
+              <svg className="w-3.5 h-3.5 text-accent" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+              </svg>
+              30-minute call
+            </div>
+            <div className="w-1 h-1 rounded-full bg-border" />
+            <div className="flex items-center gap-1.5">
+              <svg className="w-3.5 h-3.5 text-accent" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+              </svg>
+              Talk to engineers, not sales
+            </div>
+          </div>
+        )}
       </ExpertiseHero>
 
       {expertise.slug === "dotnet" && (
@@ -255,12 +288,12 @@ export default function ExpertisePageClient({
       )}
 
       <CapabilitiesGrid
-        title={expertise.slug === "dotnet" ? ".NET Development Services We Offer" : "Key Capabilities"}
-        subtitle={expertise.slug === "dotnet" ? "End-to-end .NET services, from greenfield builds to legacy modernization." : "Everything you need to build production-grade solutions"}
+        title={expertise.slug === "dotnet" ? ".NET Development Services We Offer" : expertise.slug === "nextjs" ? "What We Build With Next.js" : "Key Capabilities"}
+        subtitle={expertise.slug === "dotnet" ? "End-to-end .NET services, from greenfield builds to legacy modernization." : expertise.slug === "nextjs" ? "From marketing sites to complex web applications, we deliver production-grade Next.js solutions." : "Everything you need to build production-grade solutions"}
         capabilities={capabilities}
       />
 
-      {["frontend-development", "backend-development", "dotnet"].includes(expertise.slug) && pageData.whoWeWorkWith && (
+      {["frontend-development", "backend-development", "dotnet", "nextjs"].includes(expertise.slug) && pageData.whoWeWorkWith && (
         <WhoWeWorkWith
           title={pageData.whoWeWorkWith.title || "Who We Work With"}
           audiences={pageData.whoWeWorkWith.audiences.map((a) => ({
@@ -269,7 +302,7 @@ export default function ExpertisePageClient({
           }))}
           closingStatement={pageData.whoWeWorkWith.closingStatement}
           commonApplications={pageData.whoWeWorkWith.commonApplications}
-          variant={expertise.slug === "dotnet" ? "tabs" : "cards"}
+          variant={expertise.slug === "dotnet" || expertise.slug === "nextjs" ? "tabs" : "cards"}
         />
       )}
 
@@ -284,7 +317,7 @@ export default function ExpertisePageClient({
 
       {pageData.process && (
         <ProcessTimeline
-          title={expertise.slug === "frontend-development" ? "Our Frontend Development Process" : expertise.slug === "backend-development" ? "Our Backend Development Process" : "Our Process"}
+          title={expertise.slug === "frontend-development" ? "Our Frontend Development Process" : expertise.slug === "backend-development" ? "Our Backend Development Process" : expertise.slug === "nextjs" ? "How We Deliver Next.js Projects" : "Our Process"}
           subtitle="A predictable process built for high-quality delivery"
           steps={pageData.process}
         />
@@ -308,6 +341,21 @@ export default function ExpertisePageClient({
             { category: "Data & Caching", items: ["SQL Server", "PostgreSQL", "Redis", "Azure Cosmos DB"] },
             { category: "Observability", items: ["Application Insights", "Serilog", "OpenTelemetry", "Seq"] },
             { category: "Messaging & Patterns", items: ["RabbitMQ", "Azure Service Bus", "MediatR", "MassTransit"] },
+          ]}
+        />
+      ) : expertise.slug === "nextjs" ? (
+        <TechStack
+          title="Next.js Technology Stack We Use"
+          variant="grouped"
+          groups={[
+            { category: "Framework & Language", items: ["Next.js 14 / 15", "React 18 / 19", "TypeScript"] },
+            { category: "Styling & UI", items: ["Tailwind CSS", "CSS Modules", "Radix UI", "shadcn/ui", "Framer Motion"] },
+            { category: "CMS & Content", items: ["Sanity", "Contentful", "Strapi", "Notion API", "MDX"] },
+            { category: "Database & ORM", items: ["PostgreSQL", "Prisma", "Drizzle", "Supabase", "PlanetScale"] },
+            { category: "Auth & Identity", items: ["NextAuth.js", "Clerk", "Auth0", "Supabase Auth"] },
+            { category: "Hosting & Deployment", items: ["Vercel", "AWS Amplify", "Docker", "Cloudflare Pages"] },
+            { category: "Testing", items: ["Playwright", "Cypress", "Vitest", "React Testing Library"] },
+            { category: "CI/CD & Monitoring", items: ["GitHub Actions", "Vercel Analytics", "Sentry", "DataDog"] },
           ]}
         />
       ) : (
@@ -357,8 +405,8 @@ export default function ExpertisePageClient({
         />
       )}
 
-      {/* Mid-page CTA for dotnet - before Architecture section */}
-      {expertise.slug === "dotnet" && (
+      {/* Mid-page CTA for dotnet/nextjs - before Architecture section */}
+      {(expertise.slug === "dotnet" || expertise.slug === "nextjs") && (
         <section className="relative py-16 sm:py-24 bg-base">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
             <motion.div
@@ -368,10 +416,12 @@ export default function ExpertisePageClient({
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
-                Discuss Your <span className="text-highlight">.NET Project</span>
+                Discuss Your <span className="text-highlight">{expertise.slug === "nextjs" ? "Next.js" : ".NET"} Project</span>
               </h2>
               <p className="text-lg text-text-secondary mb-8">
-                Whether modernizing legacy systems or building new, we&rsquo;re happy to talk through your situation.
+                {expertise.slug === "nextjs"
+                  ? "Whether it\u2019s a new build, migration, or performance optimization, we\u2019re happy to talk through your situation."
+                  : "Whether modernizing legacy systems or building new, we\u2019re happy to talk through your situation."}
               </p>
               <a
                 href="#book-call"
@@ -457,7 +507,7 @@ export default function ExpertisePageClient({
 
       {pageData.faqs.length > 0 && (
         <FAQSection
-          title={expertise.slug === "dotnet" ? ".NET Development Services FAQ" : undefined}
+          title={expertise.slug === "dotnet" ? ".NET Development Services FAQ" : expertise.slug === "nextjs" ? "Next.js Development FAQ" : undefined}
           faqs={pageData.faqs}
         />
       )}
