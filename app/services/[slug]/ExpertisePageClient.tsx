@@ -219,7 +219,7 @@ export default function ExpertisePageClient({
             : expertise.slug === "nextjs"
             ? { text: "Talk to a Next.js Engineer", href: "#book-call" }
             : expertise.slug === "nodejs"
-            ? { text: "Talk to a Backend Engineer", href: "#book-call" }
+            ? { text: "Talk to a Node.js Engineer", href: "#book-call" }
             : undefined
         }
         secondaryCTA={
