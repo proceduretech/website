@@ -30,6 +30,9 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      - name: Check sitemap for duplicates
+        run: npm run sitemap:check
+
       - name: Build
         run: npm run build
         env:
