@@ -492,12 +492,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       url: post.author.linkedin || "https://www.linkedin.com/company/procedure-tech",
       worksFor: {
         "@type": "Organization",
+        "@id": "https://procedure.tech/#organization",
         name: "Procedure Technologies",
       },
     },
     publisher: {
       "@type": "Organization",
+      "@id": "https://procedure.tech/#organization",
       name: "Procedure Technologies",
+      url: "https://procedure.tech",
       logo: {
         "@type": "ImageObject",
         url: "https://procedure.tech/logo.svg",
