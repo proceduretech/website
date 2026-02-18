@@ -85,8 +85,7 @@ export default function ContactPage() {
     if (typeof window !== "undefined") {
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
-        event: "generate_lead",
-        lead_source: "contact_form",
+        event: "contact_form_submit",
         budget: formData.get("budget") as string || "",
         timeline: formData.get("timeline") as string || "",
       });
