@@ -11,8 +11,8 @@ type CookiePreferences = {
 
 const defaultPreferences: CookiePreferences = {
   necessary: true,
-  analytics: false,
-  marketing: false,
+  analytics: true,
+  marketing: true,
 };
 
 export function CookieBanner() {
@@ -46,6 +46,8 @@ export function CookieBanner() {
     localStorage.setItem("cookie-consent", JSON.stringify(prefs));
     localStorage.setItem("cookie-consent-date", new Date().toISOString());
     setIsVisible(false);
+    // Notify Analytics component so scripts load without a page reload
+    window.dispatchEvent(new Event("cookie-consent-updated"));
   };
 
   const acceptAll = () => {
@@ -91,12 +93,6 @@ export function CookieBanner() {
                       className="px-4 py-2.5 text-sm font-medium text-text-secondary hover:text-text-primary transition-colors"
                     >
                       Customize
-                    </button>
-                    <button
-                      onClick={rejectAll}
-                      className="px-4 py-2.5 text-sm font-medium bg-transparent text-text-primary border border-border hover:border-text-muted rounded-lg transition-all"
-                    >
-                      Reject All
                     </button>
                     <button
                       onClick={acceptAll}

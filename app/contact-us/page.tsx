@@ -81,6 +81,16 @@ export default function ContactPage() {
     // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 2000));
 
+    // Track form submission in GA4 via dataLayer
+    if (typeof window !== "undefined") {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "contact_form_submit",
+        budget: formData.get("budget") as string || "",
+        timeline: formData.get("timeline") as string || "",
+      });
+    }
+
     setIsSubmitting(false);
     setIsSubmitted(true);
   };
