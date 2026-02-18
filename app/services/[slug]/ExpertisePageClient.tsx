@@ -69,6 +69,8 @@ const bookingSubtext: Record<string, string> = {
     "Tell us about your Angular project. Whether it\u2019s a new build, AngularJS migration, or performance optimization, we\u2019ll discuss architecture and give honest next steps.",
   "flutter":
     "Tell us about your Flutter project. Whether it\u2019s a new app, migration from native, or multi-platform expansion, we\u2019ll discuss architecture and give honest next steps.",
+  "react-native":
+    "Tell us about your React Native project. Whether it\u2019s a new app, migration from native, or adding mobile to your React web app, we\u2019ll discuss architecture and give honest next steps.",
 };
 
 // Technology logo paths for the "What you get" section
@@ -80,6 +82,7 @@ const technologyLogos: Record<string, string> = {
   angular: "/technologies/angular-logo.svg",
   dotnet: "/technologies/dotnet-logo.svg",
   flutter: "/technologies/flutter-logo.svg",
+  "react-native": "/technologies/react-logo.svg",
 };
 
 // "What you get" content per technology - used in the hire section
@@ -119,6 +122,15 @@ const whatYouGetContent: Record<string, { items: string[] } | { paragraph: strin
       "Engineers shipping Flutter 3.38+ with Impeller, Dart 3.x, sound null safety",
       "Multi-platform experience (mobile + web + desktop, not just cross-platform mobile)",
       "Backend integration skills (Firebase, Supabase, Node.js, Python)",
+      "India-based, 4-5 hours of US timezone overlap (EST/PST)",
+      "Direct communication with engineers, not through project managers",
+    ],
+  },
+  "react-native": {
+    items: [
+      "Engineers comfortable with Expo SDK 55, TypeScript, and the New Architecture",
+      "React web + React Native mobile capability (full-stack mobile)",
+      "Node.js or Python backend experience in the same team",
       "India-based, 4-5 hours of US timezone overlap (EST/PST)",
       "Direct communication with engineers, not through project managers",
     ],
@@ -179,6 +191,8 @@ export default function ExpertisePageClient({
             ? ["Angular Development Services", "Enterprise Angular Applications", "AngularJS to Angular Migration", "Angular Performance Optimization", "Hire Angular Developers"]
             : expertise.slug === "flutter"
             ? ["Flutter App Development Services", "Cross-Platform App Development", "Dart Development", "Flutter Mobile Development", "Multi-Platform Development", "Flutter Migration"]
+            : expertise.slug === "react-native"
+            ? ["React Native Development Services", "Cross-Platform App Development", "Mobile App Development", "Expo Development", "React Native Migration"]
             : pageData.hero.badge,
         areaServed: [
           { "@type": "Country", name: "United States" },
@@ -225,6 +239,8 @@ export default function ExpertisePageClient({
             ? ["Angular Development", "Enterprise Web Applications", "Frontend Engineering", "SPA Development", "TypeScript Development"]
             : expertise.slug === "flutter"
             ? ["Flutter Development", "Cross-Platform Development", "Dart Development", "Mobile App Development", "Multi-Platform Engineering"]
+            : expertise.slug === "react-native"
+            ? ["React Native Development", "Cross-Platform Development", "Mobile App Development", "iOS Development", "Android Development"]
             : [pageData.hero.badge, "Enterprise AI Engineering", "Software Development"],
       },
       // FAQ Schema (only if FAQs exist)
@@ -306,6 +322,8 @@ export default function ExpertisePageClient({
             ? { text: "Talk to an Angular Engineer", href: "#book-call" }
             : expertise.slug === "flutter"
             ? { text: "Talk to a Flutter Engineer", href: "#book-call" }
+            : expertise.slug === "react-native"
+            ? { text: "Talk to a React Native Engineer", href: "#book-call" }
             : undefined
         }
         secondaryCTA={
@@ -319,6 +337,7 @@ export default function ExpertisePageClient({
             "python",
             "angular",
             "flutter",
+            "react-native",
           ].includes(expertise.slug)
             ? undefined
             : { text: "View Case Studies", href: "/work" }
@@ -564,6 +583,42 @@ export default function ExpertisePageClient({
             </div>
           </>
         )}
+        {expertise.slug === "react-native" && (
+          <>
+            <div className="flex items-center justify-center gap-3 text-xs text-text-muted -mt-6">
+              <div className="flex items-center gap-1.5">
+                <svg className="w-3.5 h-3.5 text-accent" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+                </svg>
+                Free architecture review
+              </div>
+              <div className="w-1 h-1 rounded-full bg-border" />
+              <div className="flex items-center gap-1.5">
+                <svg className="w-3.5 h-3.5 text-accent" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+                </svg>
+                30-minute call with an engineer
+              </div>
+              <div className="w-1 h-1 rounded-full bg-border" />
+              <div className="flex items-center gap-1.5">
+                <svg className="w-3.5 h-3.5 text-accent" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+                </svg>
+                Talk to builders, not account managers
+              </div>
+            </div>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mt-4 text-sm">
+              <a href="#services" className="text-accent hover:text-accent-light transition-colors flex items-center gap-1.5">
+                See our services
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+              </a>
+              <a href="#hire" className="text-accent hover:text-accent-light transition-colors flex items-center gap-1.5">
+                Hire React Native developers
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+              </a>
+            </div>
+          </>
+        )}
       </ExpertiseHero>
 
       {expertise.slug === "dotnet" && (
@@ -578,10 +633,10 @@ export default function ExpertisePageClient({
         />
       )}
 
-      <div id={["nodejs", "nextjs", "react", "python", "angular", "flutter"].includes(expertise.slug) ? "services" : undefined}>
+      <div id={["nodejs", "nextjs", "react", "python", "angular", "flutter", "react-native"].includes(expertise.slug) ? "services" : undefined}>
         <CapabilitiesGrid
-          title={expertise.slug === "dotnet" ? ".NET Development Services We Offer" : expertise.slug === "nextjs" ? "What We Build With Next.js" : expertise.slug === "nodejs" ? "Node.js Development Services" : expertise.slug === "react" ? "React Development Services" : expertise.slug === "python" ? "Python Development Services" : expertise.slug === "angular" ? "Angular Development Services" : expertise.slug === "flutter" ? "What We Build With Flutter" : "Key Capabilities"}
-          subtitle={expertise.slug === "dotnet" ? "End-to-end .NET services, from greenfield builds to legacy modernization." : expertise.slug === "nextjs" ? "From marketing sites to complex web applications, we deliver production-grade Next.js solutions." : expertise.slug === "nodejs" ? "APIs, microservices, real-time systems, and the backend your product runs on." : expertise.slug === "react" ? "From SPAs to enterprise dashboards, we build React applications that ship fast and stay maintainable." : expertise.slug === "python" ? "Backend systems, AI/ML, and the data infrastructure your product depends on." : expertise.slug === "angular" ? "Full-stack applications, migrations, and performance work." : expertise.slug === "flutter" ? "Cross-platform apps for mobile, web, and desktop from a single Dart codebase." : "Everything you need to build production-grade solutions"}
+          title={expertise.slug === "dotnet" ? ".NET Development Services We Offer" : expertise.slug === "nextjs" ? "What We Build With Next.js" : expertise.slug === "nodejs" ? "Node.js Development Services" : expertise.slug === "react" ? "React Development Services" : expertise.slug === "python" ? "Python Development Services" : expertise.slug === "angular" ? "Angular Development Services" : expertise.slug === "flutter" ? "What We Build With Flutter" : expertise.slug === "react-native" ? "What We Build With React Native" : "Key Capabilities"}
+          subtitle={expertise.slug === "dotnet" ? "End-to-end .NET services, from greenfield builds to legacy modernization." : expertise.slug === "nextjs" ? "From marketing sites to complex web applications, we deliver production-grade Next.js solutions." : expertise.slug === "nodejs" ? "APIs, microservices, real-time systems, and the backend your product runs on." : expertise.slug === "react" ? "From SPAs to enterprise dashboards, we build React applications that ship fast and stay maintainable." : expertise.slug === "python" ? "Backend systems, AI/ML, and the data infrastructure your product depends on." : expertise.slug === "angular" ? "Full-stack applications, migrations, and performance work." : expertise.slug === "flutter" ? "Cross-platform apps for mobile, web, and desktop from a single Dart codebase." : expertise.slug === "react-native" ? "Cross-platform mobile apps from a single TypeScript codebase." : "Everything you need to build production-grade solutions"}
           capabilities={capabilities}
         />
       </div>
@@ -1106,6 +1161,130 @@ export default function ExpertisePageClient({
         </section>
       )}
 
+      {/* React Native: Decision table - When React Native Makes Sense */}
+      {expertise.slug === "react-native" && (
+        <section id="fit" className="relative py-16 sm:py-24 bg-base">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-4">
+                When React Native <span className="text-highlight">Makes Sense</span>
+              </h2>
+              <p className="text-text-secondary">The right framework for the job, not the trending one.</p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+              {[
+                { situation: "Need iOS + Android from one team", fit: "Single codebase, shared logic, consistent UX. Ship both platforms simultaneously instead of maintaining two separate apps and two separate teams." },
+                { situation: "Your team already knows React", fit: "React Native uses the same component model, hooks, and state management. Your web developers can contribute to mobile without learning Swift or Kotlin." },
+                { situation: "Speed to market matters", fit: "Expo's managed workflow, over-the-air updates, and hot reloading mean faster iteration. MVP in 8-12 weeks, not 6 months." },
+                { situation: "Budget-conscious but quality-focused", fit: "Cross-platform cuts 30-40% vs. native iOS + native Android. You're not sacrificing quality - Instagram, Shopify, Discord, and Coinbase all run React Native in production." },
+              ].map((row, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="bg-surface-elevated/80 backdrop-blur-xl border border-border rounded-xl p-6"
+                >
+                  <p className="font-semibold text-text-primary mb-2">{row.situation}</p>
+                  <p className="text-sm text-text-secondary">{row.fit}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <p className="text-sm text-text-muted mb-6 max-w-3xl mx-auto text-center">
+                If your app is primarily 3D/gaming (Unity or native), needs extreme low-level hardware access (Bluetooth LE edge cases, heavy AR), or your team is already deep in Dart, you may want to explore <a href="/technologies/flutter" className="text-accent hover:text-accent-light transition-colors">Flutter</a> or go fully native. For SEO-critical marketing sites, <a href="/technologies/nextjs" className="text-accent hover:text-accent-light transition-colors">Next.js</a> is the better call. For complex backend needs alongside your mobile app, see our <a href="/technologies/nodejs" className="text-accent hover:text-accent-light transition-colors">Node.js</a> and <a href="/technologies/python" className="text-accent hover:text-accent-light transition-colors">Python</a> services.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+      )}
+
+      {/* React Native: React Native vs Flutter comparison */}
+      {expertise.slug === "react-native" && (
+        <section id="rn-vs-flutter" className="relative py-16 sm:py-24 bg-surface">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-4">
+                React Native vs Flutter: <span className="text-highlight">When You Need What</span>
+              </h2>
+              <p className="text-text-secondary">We build with both. Here&apos;s how we decide.</p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+              {[
+                {
+                  name: "React Native (JavaScript/TypeScript)",
+                  bestFor: "Teams with existing JavaScript/React expertise, code sharing with a React web app, brownfield integration into existing native apps",
+                  why: "React Native uses the same component model, hooks, and state management as React. Your web developers can contribute to mobile without learning a new language. JavaScript developers outnumber Dart developers roughly 20:1, making hiring easier.",
+                  useWhen: "React Native 0.83 ships with the New Architecture by default. The old performance criticisms were about the JavaScript bridge, which no longer exists. With Fabric, TurboModules, and Hermes, React Native now achieves near-native performance at 60fps on most devices.",
+                },
+                {
+                  name: "Flutter (Dart)",
+                  bestFor: "Pixel-perfect custom UI that looks identical on both platforms, heavy animation or graphically intensive apps, mobile + web + desktop from one codebase",
+                  why: "Flutter has surpassed React Native in GitHub stars (170K vs 121K) and shows 46% cross-platform market share vs React Native's 35%. But market share doesn't equal 'better' - it depends on your team and project.",
+                  useWhen: "Teams starting fresh with no existing JavaScript investment, apps targeting mobile + web + desktop from one codebase (Flutter's widget engine renders everywhere), or when pixel-perfect custom UI is the top priority.",
+                },
+              ].map((fw, i) => (
+                <motion.div
+                  key={fw.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="bg-surface-elevated/80 backdrop-blur-xl border border-border rounded-xl p-6"
+                >
+                  <h3 className="text-lg font-semibold text-text-primary mb-3">{fw.name}</h3>
+                  <div className="mb-3">
+                    <p className="text-xs font-medium text-accent uppercase tracking-wider mb-1">Best for</p>
+                    <p className="text-sm text-text-secondary">{fw.bestFor}</p>
+                  </div>
+                  <div className="mb-3">
+                    <p className="text-xs font-medium text-accent uppercase tracking-wider mb-1">Why</p>
+                    <p className="text-sm text-text-secondary">{fw.why}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-medium text-accent uppercase tracking-wider mb-1">Key context</p>
+                    <p className="text-sm text-text-secondary">{fw.useWhen}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="bg-surface-elevated/80 backdrop-blur-xl border border-border rounded-xl p-6 max-w-3xl mx-auto"
+            >
+              <p className="text-sm text-text-secondary italic">
+                Many companies use both. React Native for business apps where platform-native feel matters, Flutter for consumer apps where custom UI is the priority. We build with both - see our <a href="/technologies/flutter" className="text-accent hover:text-accent-light transition-colors">Flutter services</a>.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+      )}
+
       {/* For dotnet: Philosophy section comes early, before TechStack */}
       {expertise.slug === "dotnet" && pageData.philosophy && (
         <PhilosophySection
@@ -1116,10 +1295,10 @@ export default function ExpertisePageClient({
       )}
 
       {pageData.process && (
-        <div id={["nodejs", "react", "python", "angular", "flutter"].includes(expertise.slug) ? "process" : undefined}>
+        <div id={["nodejs", "react", "python", "angular", "flutter", "react-native"].includes(expertise.slug) ? "process" : undefined}>
           <ProcessTimeline
-            title={expertise.slug === "frontend-development" ? "Our Frontend Development Process" : expertise.slug === "backend-development" ? "Our Backend Development Process" : expertise.slug === "nextjs" ? "How We Deliver Next.js Projects" : expertise.slug === "nodejs" ? "How We Deliver Node.js Projects" : expertise.slug === "react" ? "How We Deliver React Projects" : expertise.slug === "python" ? "How We Deliver Python Projects" : expertise.slug === "angular" ? "How We Deliver Angular Projects" : expertise.slug === "flutter" ? "From Concept to App Store" : "Our Process"}
-            subtitle={expertise.slug === "nodejs" ? "Working software every sprint, not just progress updates." : expertise.slug === "react" ? "Working software every sprint, not just progress updates." : expertise.slug === "python" ? "Working software every sprint, not just progress updates." : expertise.slug === "flutter" ? "Working software every sprint, not just progress updates." : ["angular"].includes(expertise.slug) ? "Working software every sprint, not just progress updates." : "A predictable process built for high-quality delivery"}
+            title={expertise.slug === "frontend-development" ? "Our Frontend Development Process" : expertise.slug === "backend-development" ? "Our Backend Development Process" : expertise.slug === "nextjs" ? "How We Deliver Next.js Projects" : expertise.slug === "nodejs" ? "How We Deliver Node.js Projects" : expertise.slug === "react" ? "How We Deliver React Projects" : expertise.slug === "python" ? "How We Deliver Python Projects" : expertise.slug === "angular" ? "How We Deliver Angular Projects" : expertise.slug === "flutter" ? "From Concept to App Store" : expertise.slug === "react-native" ? "From Idea to App Store" : "Our Process"}
+            subtitle={expertise.slug === "nodejs" ? "Working software every sprint, not just progress updates." : expertise.slug === "react" ? "Working software every sprint, not just progress updates." : expertise.slug === "python" ? "Working software every sprint, not just progress updates." : expertise.slug === "flutter" ? "Working software every sprint, not just progress updates." : expertise.slug === "react-native" ? "Working software every sprint, not just progress updates." : ["angular"].includes(expertise.slug) ? "Working software every sprint, not just progress updates." : "A predictable process built for high-quality delivery"}
             steps={pageData.process}
           />
         </div>
@@ -1440,6 +1619,63 @@ export default function ExpertisePageClient({
             </motion.div>
           </div>
         </section>
+      ) : expertise.slug === "react-native" ? (
+        /* React Native: Custom 2-column stack table */
+        <section id="stack" className="relative py-16 sm:py-24 bg-surface">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-text-primary mb-4">
+                Our <span className="text-highlight">Technology</span> Stack
+              </h2>
+              <p className="text-text-secondary">Every tool earns its place. Here&apos;s what we ship with.</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="overflow-x-auto -mx-4 sm:mx-0"
+            >
+              <table className="w-full min-w-[480px] border-collapse">
+                <thead>
+                  <tr className="border-b border-border">
+                    <th className="text-left py-3 px-4 text-sm font-semibold text-text-primary w-[30%]">Layer</th>
+                    <th className="text-left py-3 px-4 text-sm font-semibold text-text-primary w-[70%]">What We Use</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { layer: "Framework", tools: "React Native 0.83 (New Architecture)" },
+                    { layer: "Development Platform", tools: "Expo SDK 55 (managed or bare workflow)" },
+                    { layer: "Language", tools: "TypeScript (strict mode)" },
+                    { layer: "JS Engine", tools: "Hermes (default), Hermes v1 (opt-in for advanced perf)" },
+                    { layer: "Navigation", tools: "Expo Router (file-based), React Navigation 7" },
+                    { layer: "State Management", tools: "Zustand, Redux Toolkit, React Query/TanStack Query" },
+                    { layer: "UI Components", tools: "React Native Paper, Tamagui, NativeWind (Tailwind for RN)" },
+                    { layer: "Animations", tools: "Reanimated 4 (UI thread), Moti, Lottie" },
+                    { layer: "Forms", tools: "React Hook Form + Zod validation" },
+                    { layer: "Testing", tools: "Jest, Detox (E2E), React Native Testing Library" },
+                    { layer: "CI/CD", tools: "EAS Build, EAS Submit, Fastlane" },
+                    { layer: "OTA Updates", tools: "EAS Update (Hermes bytecode diffing for smaller updates)" },
+                    { layer: "Monitoring", tools: "Sentry, Expo Insights" },
+                  ].map((row, i) => (
+                    <tr key={i} className="border-b border-border/50 hover:bg-surface-elevated/30 transition-colors">
+                      <td className="py-3 px-4 text-sm font-medium text-accent">{row.layer}</td>
+                      <td className="py-3 px-4 text-sm text-text-primary">{row.tools}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </motion.div>
+          </div>
+        </section>
       ) : expertise.slug === "flutter" ? (
         /* Flutter: Custom 2-column stack table */
         <section id="stack" className="relative py-16 sm:py-24 bg-surface">
@@ -1556,9 +1792,9 @@ export default function ExpertisePageClient({
         />
       )}
 
-      {/* Mid-page CTA for dotnet/nextjs/nodejs/react/python/angular/flutter - before Architecture section */}
-      {["dotnet", "nextjs", "nodejs", "react", "python", "angular", "flutter"].includes(expertise.slug) && (
-        <section id={["react", "python", "angular", "flutter"].includes(expertise.slug) ? "discuss" : undefined} className="relative py-16 sm:py-24 bg-surface">
+      {/* Mid-page CTA for dotnet/nextjs/nodejs/react/python/angular/flutter/react-native - before Architecture section */}
+      {["dotnet", "nextjs", "nodejs", "react", "python", "angular", "flutter", "react-native"].includes(expertise.slug) && (
+        <section id={["react", "python", "angular", "flutter", "react-native"].includes(expertise.slug) ? "discuss" : undefined} className="relative py-16 sm:py-24 bg-surface">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -1567,7 +1803,7 @@ export default function ExpertisePageClient({
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-6">
-                {expertise.slug === "flutter"
+                {expertise.slug === "flutter" || expertise.slug === "react-native"
                   ? <><span className="text-highlight">Let&apos;s Talk</span> About Your App</>
                   : <>Discuss Your <span className="text-highlight">{expertise.slug === "nextjs" ? "Next.js" : expertise.slug === "nodejs" ? "Node.js" : expertise.slug === "react" ? "React" : expertise.slug === "python" ? "Python" : expertise.slug === "angular" ? "Angular" : ".NET"} Project</span></>
                 }
@@ -1585,6 +1821,8 @@ export default function ExpertisePageClient({
                   ? "Whether it\u2019s a new build, migration, or performance optimization, we\u2019re happy to talk through your situation."
                   : expertise.slug === "flutter"
                   ? "Whether it\u2019s a new app, migration from native, or multi-platform expansion, we\u2019re happy to talk through your situation."
+                  : expertise.slug === "react-native"
+                  ? "Whether you\u2019re building from scratch or migrating an existing native app, we\u2019ll give you a straight answer on what React Native can and can\u2019t do for your project."
                   : "Whether modernizing legacy systems or building new, we\u2019re happy to talk through your situation."}
               </p>
               <a
@@ -1617,7 +1855,7 @@ export default function ExpertisePageClient({
       )}
 
       {pageData.engagementModels && (
-        <div id={["nodejs", "nextjs", "react", "python", "angular", "flutter"].includes(expertise.slug) ? "hire" : undefined}>
+        <div id={["nodejs", "nextjs", "react", "python", "angular", "flutter", "react-native"].includes(expertise.slug) ? "hire" : undefined}>
           {/* "What you get" block with technology logo - before EngagementModels */}
           {whatYouGetContent[expertise.slug] && (
             <div className="bg-surface pt-12 sm:pt-16">
@@ -1697,7 +1935,7 @@ export default function ExpertisePageClient({
           />
 
           {/* Node.js / React / Python / Angular / Flutter: Pricing line + CTA after EngagementModels */}
-          {["nodejs", "react", "python", "angular", "flutter"].includes(expertise.slug) && (
+          {["nodejs", "react", "python", "angular", "flutter", "react-native"].includes(expertise.slug) && (
             <section className="relative pt-0 pb-16 sm:pb-24 bg-surface">
               <div className="max-w-5xl mx-auto px-4 sm:px-6">
                 <motion.div
@@ -1772,9 +2010,9 @@ export default function ExpertisePageClient({
       </section>
 
       {pageData.faqs.length > 0 && (
-        <div id={["nodejs", "react", "python", "angular", "flutter"].includes(expertise.slug) ? "faq" : undefined}>
+        <div id={["nodejs", "react", "python", "angular", "flutter", "react-native"].includes(expertise.slug) ? "faq" : undefined}>
           <FAQSection
-            title={expertise.slug === "dotnet" ? ".NET Development Services FAQ" : expertise.slug === "nextjs" ? "Next.js Development FAQ" : expertise.slug === "nodejs" ? "Node.js Development FAQ" : expertise.slug === "react" ? "React Development FAQ" : expertise.slug === "python" ? "Python Development FAQ" : expertise.slug === "angular" ? "Angular Development FAQ" : expertise.slug === "flutter" ? "Flutter App Development FAQ" : undefined}
+            title={expertise.slug === "dotnet" ? ".NET Development Services FAQ" : expertise.slug === "nextjs" ? "Next.js Development FAQ" : expertise.slug === "nodejs" ? "Node.js Development FAQ" : expertise.slug === "react" ? "React Development FAQ" : expertise.slug === "python" ? "Python Development FAQ" : expertise.slug === "angular" ? "Angular Development FAQ" : expertise.slug === "flutter" ? "Flutter App Development FAQ" : expertise.slug === "react-native" ? "React Native Development FAQ" : undefined}
             faqs={pageData.faqs}
           />
         </div>
