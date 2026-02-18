@@ -67,6 +67,8 @@ const bookingSubtext: Record<string, string> = {
     "Tell us about your Python project. Whether it\u2019s backend APIs, AI engineering, or a full system migration, we\u2019ll discuss architecture and give honest next steps.",
   "angular":
     "Tell us about your Angular project. Whether it\u2019s a new build, AngularJS migration, or performance optimization, we\u2019ll discuss architecture and give honest next steps.",
+  "flutter":
+    "Tell us about your Flutter project. Whether it\u2019s a new app, migration from native, or multi-platform expansion, we\u2019ll discuss architecture and give honest next steps.",
 };
 
 // Technology logo paths for the "What you get" section
@@ -77,6 +79,7 @@ const technologyLogos: Record<string, string> = {
   nextjs: "/technologies/nextjs-logo.svg",
   angular: "/technologies/angular-logo.svg",
   dotnet: "/technologies/dotnet-logo.svg",
+  flutter: "/technologies/flutter-logo.svg",
 };
 
 // "What you get" content per technology - used in the hire section
@@ -109,6 +112,15 @@ const whatYouGetContent: Record<string, { items: string[] } | { paragraph: strin
       "Full-stack capability: Angular frontend + Node.js or Python backend",
       "Same timezone overlap (India-based team, flexible to US working hours)",
       "No recruiting overhead - engineers are vetted, onboarded, and managed",
+    ],
+  },
+  flutter: {
+    items: [
+      "Engineers shipping Flutter 3.38+ with Impeller, Dart 3.x, sound null safety",
+      "Multi-platform experience (mobile + web + desktop, not just cross-platform mobile)",
+      "Backend integration skills (Firebase, Supabase, Node.js, Python)",
+      "India-based, 4-5 hours of US timezone overlap (EST/PST)",
+      "Direct communication with engineers, not through project managers",
     ],
   },
 };
@@ -165,6 +177,8 @@ export default function ExpertisePageClient({
             ? ["Python Development Services", "Python Backend Development", "AI/ML Engineering", "API Development", "Data Engineering", "Legacy Migration"]
             : expertise.slug === "angular"
             ? ["Angular Development Services", "Enterprise Angular Applications", "AngularJS to Angular Migration", "Angular Performance Optimization", "Hire Angular Developers"]
+            : expertise.slug === "flutter"
+            ? ["Flutter App Development Services", "Cross-Platform App Development", "Dart Development", "Flutter Mobile Development", "Multi-Platform Development", "Flutter Migration"]
             : pageData.hero.badge,
         areaServed: [
           { "@type": "Country", name: "United States" },
@@ -209,6 +223,8 @@ export default function ExpertisePageClient({
             ? ["Python Development", "Backend Engineering", "AI/ML Engineering", "API Development", "Data Engineering"]
             : expertise.slug === "angular"
             ? ["Angular Development", "Enterprise Web Applications", "Frontend Engineering", "SPA Development", "TypeScript Development"]
+            : expertise.slug === "flutter"
+            ? ["Flutter Development", "Cross-Platform Development", "Dart Development", "Mobile App Development", "Multi-Platform Engineering"]
             : [pageData.hero.badge, "Enterprise AI Engineering", "Software Development"],
       },
       // FAQ Schema (only if FAQs exist)
@@ -288,6 +304,8 @@ export default function ExpertisePageClient({
             ? { text: "Talk to a Python Engineer", href: "#book-call" }
             : expertise.slug === "angular"
             ? { text: "Talk to an Angular Engineer", href: "#book-call" }
+            : expertise.slug === "flutter"
+            ? { text: "Talk to a Flutter Engineer", href: "#book-call" }
             : undefined
         }
         secondaryCTA={
@@ -300,6 +318,7 @@ export default function ExpertisePageClient({
             "react",
             "python",
             "angular",
+            "flutter",
           ].includes(expertise.slug)
             ? undefined
             : { text: "View Case Studies", href: "/work" }
@@ -509,6 +528,42 @@ export default function ExpertisePageClient({
             </div>
           </>
         )}
+        {expertise.slug === "flutter" && (
+          <>
+            <div className="flex items-center justify-center gap-3 text-xs text-text-muted -mt-6">
+              <div className="flex items-center gap-1.5">
+                <svg className="w-3.5 h-3.5 text-accent" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+                </svg>
+                No obligation
+              </div>
+              <div className="w-1 h-1 rounded-full bg-border" />
+              <div className="flex items-center gap-1.5">
+                <svg className="w-3.5 h-3.5 text-accent" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+                </svg>
+                30-minute call
+              </div>
+              <div className="w-1 h-1 rounded-full bg-border" />
+              <div className="flex items-center gap-1.5">
+                <svg className="w-3.5 h-3.5 text-accent" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+                </svg>
+                Talk to engineers, not sales
+              </div>
+            </div>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mt-4 text-sm">
+              <a href="#services" className="text-accent hover:text-accent-light transition-colors flex items-center gap-1.5">
+                Need an app built?
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+              </a>
+              <a href="#hire" className="text-accent hover:text-accent-light transition-colors flex items-center gap-1.5">
+                Need developers on your team?
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+              </a>
+            </div>
+          </>
+        )}
       </ExpertiseHero>
 
       {expertise.slug === "dotnet" && (
@@ -523,10 +578,10 @@ export default function ExpertisePageClient({
         />
       )}
 
-      <div id={["nodejs", "nextjs", "react", "python", "angular"].includes(expertise.slug) ? "services" : undefined}>
+      <div id={["nodejs", "nextjs", "react", "python", "angular", "flutter"].includes(expertise.slug) ? "services" : undefined}>
         <CapabilitiesGrid
-          title={expertise.slug === "dotnet" ? ".NET Development Services We Offer" : expertise.slug === "nextjs" ? "What We Build With Next.js" : expertise.slug === "nodejs" ? "Node.js Development Services" : expertise.slug === "react" ? "React Development Services" : expertise.slug === "python" ? "Python Development Services" : expertise.slug === "angular" ? "Angular Development Services" : "Key Capabilities"}
-          subtitle={expertise.slug === "dotnet" ? "End-to-end .NET services, from greenfield builds to legacy modernization." : expertise.slug === "nextjs" ? "From marketing sites to complex web applications, we deliver production-grade Next.js solutions." : expertise.slug === "nodejs" ? "APIs, microservices, real-time systems, and the backend your product runs on." : expertise.slug === "react" ? "From SPAs to enterprise dashboards, we build React applications that ship fast and stay maintainable." : expertise.slug === "python" ? "Backend systems, AI/ML, and the data infrastructure your product depends on." : expertise.slug === "angular" ? "Full-stack applications, migrations, and performance work." : "Everything you need to build production-grade solutions"}
+          title={expertise.slug === "dotnet" ? ".NET Development Services We Offer" : expertise.slug === "nextjs" ? "What We Build With Next.js" : expertise.slug === "nodejs" ? "Node.js Development Services" : expertise.slug === "react" ? "React Development Services" : expertise.slug === "python" ? "Python Development Services" : expertise.slug === "angular" ? "Angular Development Services" : expertise.slug === "flutter" ? "What We Build With Flutter" : "Key Capabilities"}
+          subtitle={expertise.slug === "dotnet" ? "End-to-end .NET services, from greenfield builds to legacy modernization." : expertise.slug === "nextjs" ? "From marketing sites to complex web applications, we deliver production-grade Next.js solutions." : expertise.slug === "nodejs" ? "APIs, microservices, real-time systems, and the backend your product runs on." : expertise.slug === "react" ? "From SPAs to enterprise dashboards, we build React applications that ship fast and stay maintainable." : expertise.slug === "python" ? "Backend systems, AI/ML, and the data infrastructure your product depends on." : expertise.slug === "angular" ? "Full-stack applications, migrations, and performance work." : expertise.slug === "flutter" ? "Cross-platform apps for mobile, web, and desktop from a single Dart codebase." : "Everything you need to build production-grade solutions"}
           capabilities={capabilities}
         />
       </div>
@@ -766,6 +821,69 @@ export default function ExpertisePageClient({
         </section>
       )}
 
+      {/* Flutter: Decision table - When Flutter Makes Sense */}
+      {expertise.slug === "flutter" && (
+        <section id="fit" className="relative py-16 sm:py-24 bg-base">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-4">
+                When Flutter <span className="text-highlight">Makes Sense</span>
+              </h2>
+              <p className="text-text-secondary">The right framework for the job, not the trendy one.</p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+              {[
+                { need: "Cross-platform mobile apps (iOS + Android)", fit: "Flutter's Impeller rendering engine compiles to native ARM code. No JavaScript bridge, no WebView. Your app renders at 60fps with pixel-perfect consistency across platforms." },
+                { need: "Multi-platform apps (mobile + web + desktop)", fit: "One codebase targeting six platforms. Flutter renders everything itself rather than delegating to platform UI components, so your app looks identical everywhere." },
+                { need: "Custom UI and animation-heavy experiences", fit: "Flutter's own rendering engine (Impeller, built on Vulkan/Metal) means you're not limited by platform UI components. If you can design it, Flutter can render it at 60fps." },
+                { need: "MVP validation on both platforms fast", fit: "Hot Reload lets developers see changes instantly without restarting the app. Validate on iOS and Android in 8-12 weeks, not 16-24 with two native teams." },
+              ].map((row, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="bg-surface-elevated/80 backdrop-blur-xl border border-border rounded-xl p-6"
+                >
+                  <p className="font-semibold text-text-primary mb-2">{row.need}</p>
+                  <p className="text-sm text-text-secondary">{row.fit}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <p className="text-sm text-text-muted mb-6 max-w-3xl mx-auto text-center">
+                Flutter isn&apos;t the right call for every project. Apps that need deep platform-native UI (following iOS HIG or Material Design exactly), or teams with existing React/JavaScript expertise where React Native would reuse skills better. We&apos;ll tell you upfront if something else fits.
+              </p>
+              <div className="text-center">
+                <a
+                  href="#book-call"
+                  className="inline-flex items-center text-accent hover:text-accent-light transition-colors text-sm font-medium"
+                >
+                  Book a free architecture call
+                  <svg className="w-4 h-4 ml-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      )}
+
       {/* React: React vs Next.js comparison */}
       {expertise.slug === "react" && (
         <section id="react-vs-nextjs" className="relative py-16 sm:py-24 bg-surface">
@@ -916,6 +1034,78 @@ export default function ExpertisePageClient({
         </section>
       )}
 
+      {/* Flutter: Flutter vs React Native comparison */}
+      {expertise.slug === "flutter" && (
+        <section id="flutter-vs-rn" className="relative py-16 sm:py-24 bg-surface">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-4">
+                Flutter vs React Native: <span className="text-highlight">When You Need What</span>
+              </h2>
+              <p className="text-text-secondary">We build with both. Here&apos;s how we decide.</p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+              {[
+                {
+                  name: "Flutter (Dart)",
+                  bestFor: "Custom UI, animation-heavy apps, multi-platform (mobile + web + desktop)",
+                  why: "Flutter renders every pixel itself via Impeller. Complete design control, 60fps animations, and one codebase targeting six platforms. Ideal when your app needs to look and feel exactly as designed.",
+                  useWhen: "Visual quality and brand consistency matter more than ecosystem breadth. You need web and desktop alongside mobile. Your team is open to learning Dart.",
+                },
+                {
+                  name: "React Native (JavaScript)",
+                  bestFor: "Teams with JavaScript expertise, code sharing with React web apps",
+                  why: "JavaScript developers outnumber Dart developers roughly 20:1. If your team knows React, React Native lets you share business logic, types, and components between web and mobile.",
+                  useWhen: "Hiring speed matters, your web app is already React, or you need the broadest possible talent pool.",
+                },
+              ].map((fw, i) => (
+                <motion.div
+                  key={fw.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="bg-surface-elevated/80 backdrop-blur-xl border border-border rounded-xl p-6"
+                >
+                  <h3 className="text-lg font-semibold text-text-primary mb-3">{fw.name}</h3>
+                  <div className="mb-3">
+                    <p className="text-xs font-medium text-accent uppercase tracking-wider mb-1">Best for</p>
+                    <p className="text-sm text-text-secondary">{fw.bestFor}</p>
+                  </div>
+                  <div className="mb-3">
+                    <p className="text-xs font-medium text-accent uppercase tracking-wider mb-1">Why</p>
+                    <p className="text-sm text-text-secondary">{fw.why}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-medium text-accent uppercase tracking-wider mb-1">We use it when</p>
+                    <p className="text-sm text-text-secondary">{fw.useWhen}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="bg-surface-elevated/80 backdrop-blur-xl border border-border rounded-xl p-6 max-w-3xl mx-auto"
+            >
+              <p className="text-sm text-text-secondary italic">
+                Some projects use both. A Flutter mobile app for the consumer experience, a React Native companion for a partner-facing tool sharing the same backend. We architect for this when it makes sense.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+      )}
+
       {/* For dotnet: Philosophy section comes early, before TechStack */}
       {expertise.slug === "dotnet" && pageData.philosophy && (
         <PhilosophySection
@@ -926,10 +1116,10 @@ export default function ExpertisePageClient({
       )}
 
       {pageData.process && (
-        <div id={["nodejs", "react", "python", "angular"].includes(expertise.slug) ? "process" : undefined}>
+        <div id={["nodejs", "react", "python", "angular", "flutter"].includes(expertise.slug) ? "process" : undefined}>
           <ProcessTimeline
-            title={expertise.slug === "frontend-development" ? "Our Frontend Development Process" : expertise.slug === "backend-development" ? "Our Backend Development Process" : expertise.slug === "nextjs" ? "How We Deliver Next.js Projects" : expertise.slug === "nodejs" ? "How We Deliver Node.js Projects" : expertise.slug === "react" ? "How We Deliver React Projects" : expertise.slug === "python" ? "How We Deliver Python Projects" : expertise.slug === "angular" ? "How We Deliver Angular Projects" : "Our Process"}
-            subtitle={["nodejs", "react", "python", "angular"].includes(expertise.slug) ? "Working software every sprint, not just progress updates." : "A predictable process built for high-quality delivery"}
+            title={expertise.slug === "frontend-development" ? "Our Frontend Development Process" : expertise.slug === "backend-development" ? "Our Backend Development Process" : expertise.slug === "nextjs" ? "How We Deliver Next.js Projects" : expertise.slug === "nodejs" ? "How We Deliver Node.js Projects" : expertise.slug === "react" ? "How We Deliver React Projects" : expertise.slug === "python" ? "How We Deliver Python Projects" : expertise.slug === "angular" ? "How We Deliver Angular Projects" : expertise.slug === "flutter" ? "From Concept to App Store" : "Our Process"}
+            subtitle={expertise.slug === "nodejs" ? "Working software every sprint, not just progress updates." : expertise.slug === "react" ? "Working software every sprint, not just progress updates." : expertise.slug === "python" ? "Working software every sprint, not just progress updates." : expertise.slug === "flutter" ? "Working software every sprint, not just progress updates." : ["angular"].includes(expertise.slug) ? "Working software every sprint, not just progress updates." : "A predictable process built for high-quality delivery"}
             steps={pageData.process}
           />
         </div>
@@ -1250,6 +1440,75 @@ export default function ExpertisePageClient({
             </motion.div>
           </div>
         </section>
+      ) : expertise.slug === "flutter" ? (
+        /* Flutter: Custom 2-column stack table */
+        <section id="stack" className="relative py-16 sm:py-24 bg-surface">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-text-primary mb-4">
+                Our <span className="text-highlight">Flutter</span> Stack
+              </h2>
+              <p className="text-text-secondary">Every tool earns its place. Here&apos;s what we ship with.</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="overflow-x-auto -mx-4 sm:mx-0"
+            >
+              <table className="w-full min-w-[480px] border-collapse">
+                <thead>
+                  <tr className="border-b border-border">
+                    <th className="text-left py-3 px-4 text-sm font-semibold text-text-primary w-[30%]">Layer</th>
+                    <th className="text-left py-3 px-4 text-sm font-semibold text-text-primary w-[70%]">What We Use</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { layer: "Framework", tools: "Flutter 3.41" },
+                    { layer: "Language", tools: "Dart 3.10 (sound null safety, strict typing)" },
+                    { layer: "Rendering Engine", tools: "Impeller (Vulkan on Android, Metal on iOS)" },
+                    { layer: "State Management", tools: "BLoC (enterprise), Riverpod (lean projects)" },
+                    { layer: "UI Framework", tools: "Material 3, Cupertino, custom widget libraries" },
+                    { layer: "Animation", tools: "Rive, Flutter implicit/explicit animations, Hero transitions" },
+                    { layer: "Navigation", tools: "GoRouter, Navigator 2.0" },
+                    { layer: "Backend / BaaS", tools: "Firebase, Supabase, custom REST/GraphQL APIs" },
+                    { layer: "Local Storage", tools: "Hive, Isar, Drift (SQLite)" },
+                    { layer: "Testing", tools: "Widget tests, integration tests, golden tests (visual regression)" },
+                    { layer: "CI/CD", tools: "Codemagic, Fastlane, GitHub Actions" },
+                    { layer: "Monitoring", tools: "Sentry, Firebase Crashlytics" },
+                    { layer: "Distribution", tools: "App Store, Play Store, Firebase App Distribution, TestFlight" },
+                  ].map((row, i) => (
+                    <tr key={i} className="border-b border-border/50 hover:bg-surface-elevated/30 transition-colors">
+                      <td className="py-3 px-4 text-sm font-medium text-accent">{row.layer}</td>
+                      <td className="py-3 px-4 text-sm text-text-primary">{row.tools}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="mt-8 bg-surface-elevated/80 backdrop-blur-xl border border-border rounded-xl p-6 max-w-3xl mx-auto"
+            >
+              <p className="text-sm text-text-secondary">
+                We pick state management based on your project complexity. BLoC for enterprise apps with complex business logic and testing requirements. Riverpod for leaner projects where simplicity matters. No dogma, just the right tool.
+              </p>
+            </motion.div>
+          </div>
+        </section>
       ) : (
         <TechStack
           title="Technologies We Use"
@@ -1297,9 +1556,9 @@ export default function ExpertisePageClient({
         />
       )}
 
-      {/* Mid-page CTA for dotnet/nextjs/nodejs/react/python/angular - before Architecture section */}
-      {["dotnet", "nextjs", "nodejs", "react", "python", "angular"].includes(expertise.slug) && (
-        <section id={["react", "python", "angular"].includes(expertise.slug) ? "discuss" : undefined} className="relative py-16 sm:py-24 bg-surface">
+      {/* Mid-page CTA for dotnet/nextjs/nodejs/react/python/angular/flutter - before Architecture section */}
+      {["dotnet", "nextjs", "nodejs", "react", "python", "angular", "flutter"].includes(expertise.slug) && (
+        <section id={["react", "python", "angular", "flutter"].includes(expertise.slug) ? "discuss" : undefined} className="relative py-16 sm:py-24 bg-surface">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -1308,7 +1567,10 @@ export default function ExpertisePageClient({
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-6">
-                Discuss Your <span className="text-highlight">{expertise.slug === "nextjs" ? "Next.js" : expertise.slug === "nodejs" ? "Node.js" : expertise.slug === "react" ? "React" : expertise.slug === "python" ? "Python" : expertise.slug === "angular" ? "Angular" : ".NET"} Project</span>
+                {expertise.slug === "flutter"
+                  ? <><span className="text-highlight">Let&apos;s Talk</span> About Your App</>
+                  : <>Discuss Your <span className="text-highlight">{expertise.slug === "nextjs" ? "Next.js" : expertise.slug === "nodejs" ? "Node.js" : expertise.slug === "react" ? "React" : expertise.slug === "python" ? "Python" : expertise.slug === "angular" ? "Angular" : ".NET"} Project</span></>
+                }
               </h2>
               <p className="text-lg text-text-secondary mb-8">
                 {expertise.slug === "nextjs"
@@ -1321,6 +1583,8 @@ export default function ExpertisePageClient({
                   ? "Whether it\u2019s APIs, AI engineering, or a full backend migration, we\u2019re happy to talk through your situation."
                   : expertise.slug === "angular"
                   ? "Whether it\u2019s a new build, migration, or performance optimization, we\u2019re happy to talk through your situation."
+                  : expertise.slug === "flutter"
+                  ? "Whether it\u2019s a new app, migration from native, or multi-platform expansion, we\u2019re happy to talk through your situation."
                   : "Whether modernizing legacy systems or building new, we\u2019re happy to talk through your situation."}
               </p>
               <a
@@ -1353,7 +1617,7 @@ export default function ExpertisePageClient({
       )}
 
       {pageData.engagementModels && (
-        <div id={["nodejs", "nextjs", "react", "python", "angular"].includes(expertise.slug) ? "hire" : undefined}>
+        <div id={["nodejs", "nextjs", "react", "python", "angular", "flutter"].includes(expertise.slug) ? "hire" : undefined}>
           {/* "What you get" block with technology logo - before EngagementModels */}
           {whatYouGetContent[expertise.slug] && (
             <div className="bg-surface pt-12 sm:pt-16">
@@ -1432,8 +1696,8 @@ export default function ExpertisePageClient({
             models={pageData.engagementModels.models}
           />
 
-          {/* Node.js / React / Python / Angular: Pricing line + CTA after EngagementModels */}
-          {["nodejs", "react", "python", "angular"].includes(expertise.slug) && (
+          {/* Node.js / React / Python / Angular / Flutter: Pricing line + CTA after EngagementModels */}
+          {["nodejs", "react", "python", "angular", "flutter"].includes(expertise.slug) && (
             <section className="relative pt-0 pb-16 sm:pb-24 bg-surface">
               <div className="max-w-5xl mx-auto px-4 sm:px-6">
                 <motion.div
@@ -1508,9 +1772,9 @@ export default function ExpertisePageClient({
       </section>
 
       {pageData.faqs.length > 0 && (
-        <div id={["nodejs", "react", "python", "angular"].includes(expertise.slug) ? "faq" : undefined}>
+        <div id={["nodejs", "react", "python", "angular", "flutter"].includes(expertise.slug) ? "faq" : undefined}>
           <FAQSection
-            title={expertise.slug === "dotnet" ? ".NET Development Services FAQ" : expertise.slug === "nextjs" ? "Next.js Development FAQ" : expertise.slug === "nodejs" ? "Node.js Development FAQ" : expertise.slug === "react" ? "React Development FAQ" : expertise.slug === "python" ? "Python Development FAQ" : expertise.slug === "angular" ? "Angular Development FAQ" : undefined}
+            title={expertise.slug === "dotnet" ? ".NET Development Services FAQ" : expertise.slug === "nextjs" ? "Next.js Development FAQ" : expertise.slug === "nodejs" ? "Node.js Development FAQ" : expertise.slug === "react" ? "React Development FAQ" : expertise.slug === "python" ? "Python Development FAQ" : expertise.slug === "angular" ? "Angular Development FAQ" : expertise.slug === "flutter" ? "Flutter App Development FAQ" : undefined}
             faqs={pageData.faqs}
           />
         </div>
