@@ -17,31 +17,31 @@ interface WhyChooseProcedureProps {
   outcomes: Outcome[];
 }
 
-const containerVariants = {
+const sectionVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.08,
+      staggerChildren: 0.12,
       delayChildren: 0.1,
     },
   },
 };
 
-const itemVariants = {
-  hidden: { opacity: 0, x: -16 },
+const outcomeCardVariants = {
+  hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
-    x: 0,
-    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as const },
+    y: 0,
+    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as const },
   },
 };
 
-const outcomeVariants = {
-  hidden: { opacity: 0, scale: 0.95 },
+const reasonVariants = {
+  hidden: { opacity: 0, y: 12 },
   visible: {
     opacity: 1,
-    scale: 1,
+    y: 0,
     transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as const },
   },
 };
@@ -63,9 +63,9 @@ export function WhyChooseProcedure({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12 sm:mb-16"
+          className="text-center mb-14 sm:mb-20"
         >
-          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-4">
+          <h2 className="font-outfit text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-4">
             {title}
           </h2>
           {subtitle && (
@@ -75,101 +75,131 @@ export function WhyChooseProcedure({
           )}
         </motion.div>
 
-        {/* Split layout */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-          {/* Left side - Reasons */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={containerVariants}
-            className={cn(
-              "p-6 sm:p-8 rounded-2xl",
-              "bg-surface-elevated/80 backdrop-blur-sm",
-              "border border-border"
-            )}
+        {/* Outcomes - prominent 3-column showcase */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          variants={sectionVariants}
+          className="mb-14 sm:mb-20"
+        >
+          <motion.h3
+            variants={reasonVariants}
+            className="font-outfit text-sm font-semibold uppercase tracking-widest text-accent-light mb-8 text-center"
           >
-            <h3 className="text-lg font-semibold text-text-primary mb-6">
-              {reasonsTitle}
-            </h3>
-            <ul className="space-y-4">
-              {reasons.map((reason, index) => (
-                <motion.li
-                  key={index}
-                  variants={itemVariants}
-                  className="flex items-start gap-4"
-                >
-                  <div
-                    className={cn(
-                      "flex-shrink-0 w-6 h-6 rounded-full mt-0.5",
-                      "bg-accent/20 border border-accent/30",
-                      "flex items-center justify-center"
-                    )}
-                  >
-                    <svg
-                      className="w-3.5 h-3.5 text-accent-light"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2.5}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                  </div>
-                  <span className="text-text-secondary leading-relaxed">
-                    {reason}
-                  </span>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
+            {outcomesTitle}
+          </motion.h3>
 
-          {/* Right side - Outcomes */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={containerVariants}
+          <div
             className={cn(
-              "p-6 sm:p-8 rounded-2xl",
-              "bg-gradient-to-br from-accent/10 via-accent/5 to-transparent",
-              "border border-accent/20"
+              "grid gap-4 sm:gap-6",
+              outcomes.length === 3
+                ? "grid-cols-1 sm:grid-cols-3 max-w-4xl mx-auto"
+                : outcomes.length === 2
+                  ? "grid-cols-1 sm:grid-cols-2 max-w-3xl mx-auto"
+                  : outcomes.length === 1
+                    ? "grid-cols-1 max-w-md mx-auto"
+                    : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
             )}
           >
-            <h3 className="text-lg font-semibold text-text-primary mb-6">
-              {outcomesTitle}
-            </h3>
-            <div className="grid gap-4">
-              {outcomes.map((outcome, index) => (
-                <motion.div
-                  key={index}
-                  variants={outcomeVariants}
+            {outcomes.map((outcome, index) => (
+              <motion.div
+                key={index}
+                variants={outcomeCardVariants}
+                className={cn(
+                  "group relative p-6 sm:p-8 rounded-2xl text-center",
+                  "bg-surface-elevated/80 backdrop-blur-sm",
+                  "border border-border",
+                  "hover:border-accent/30 transition-all duration-500"
+                )}
+              >
+                {/* Subtle accent glow on hover */}
+                <div
                   className={cn(
-                    "flex items-center gap-4 p-4 rounded-xl",
-                    "bg-surface-elevated/60 backdrop-blur-sm",
-                    "border border-border",
-                    "hover:border-accent/30 transition-colors duration-300"
+                    "absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100",
+                    "bg-gradient-to-b from-accent/5 via-transparent to-transparent",
+                    "transition-opacity duration-500 pointer-events-none"
+                  )}
+                />
+
+                <div className="relative">
+                  <span className="block font-outfit text-3xl sm:text-4xl font-bold text-highlight mb-3">
+                    {outcome.value}
+                  </span>
+                  <span className="text-sm sm:text-base text-text-secondary leading-relaxed">
+                    {outcome.label}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Divider */}
+        <div className="flex items-center gap-4 mb-14 sm:mb-20 max-w-4xl mx-auto">
+          <div className="flex-1 h-px bg-border" />
+          <div className="w-1.5 h-1.5 rounded-full bg-accent/40" />
+          <div className="flex-1 h-px bg-border" />
+        </div>
+
+        {/* Reasons */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          variants={sectionVariants}
+          className="max-w-4xl mx-auto"
+        >
+          <motion.h3
+            variants={reasonVariants}
+            className="font-outfit text-sm font-semibold uppercase tracking-widest text-text-muted mb-8 text-center"
+          >
+            {reasonsTitle}
+          </motion.h3>
+
+          <div className="grid sm:grid-cols-2 gap-4">
+            {reasons.map((reason, index) => (
+              <motion.div
+                key={index}
+                variants={reasonVariants}
+                className={cn(
+                  "flex items-start gap-3.5 p-4 sm:p-5 rounded-xl",
+                  "bg-surface-elevated/50 border border-border/60",
+                  "hover:border-border-light transition-colors duration-300",
+                  // If odd number of items, last one spans full width on sm+
+                  reasons.length % 2 !== 0 &&
+                    index === reasons.length - 1 &&
+                    "sm:col-span-2 sm:max-w-[calc(50%-0.5rem)] sm:mx-auto"
+                )}
+              >
+                <div
+                  className={cn(
+                    "flex-shrink-0 w-5 h-5 rounded-full mt-0.5",
+                    "bg-accent/15 border border-accent/25",
+                    "flex items-center justify-center"
                   )}
                 >
-                  <div className="flex-shrink-0">
-                    <span className="text-3xl sm:text-4xl font-bold text-highlight">
-                      {outcome.value}
-                    </span>
-                  </div>
-                  <div className="flex-1">
-                    <span className="text-text-primary font-medium">
-                      {outcome.label}
-                    </span>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
+                  <svg
+                    className="w-3 h-3 text-accent-light"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2.5}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </div>
+                <span className="text-sm sm:text-[0.9375rem] text-text-secondary leading-relaxed">
+                  {reason}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
