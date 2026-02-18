@@ -71,6 +71,8 @@ const bookingSubtext: Record<string, string> = {
     "Tell us about your Flutter project. Whether it\u2019s a new app, migration from native, or multi-platform expansion, we\u2019ll discuss architecture and give honest next steps.",
   "react-native":
     "Tell us about your React Native project. Whether it\u2019s a new app, migration from native, or adding mobile to your React web app, we\u2019ll discuss architecture and give honest next steps.",
+  "prometheus-monitoring":
+    "Talk directly with engineers, not sales. We'll assess your monitoring stack and give honest next steps - even if that means sticking with what you have.",
 };
 
 // Technology logo paths for the "What you get" section
@@ -193,6 +195,8 @@ export default function ExpertisePageClient({
             ? ["Flutter App Development Services", "Cross-Platform App Development", "Dart Development", "Flutter Mobile Development", "Multi-Platform Development", "Flutter Migration"]
             : expertise.slug === "react-native"
             ? ["React Native Development Services", "Cross-Platform App Development", "Mobile App Development", "Expo Development", "React Native Migration"]
+            : expertise.slug === "prometheus-monitoring"
+            ? ["Prometheus Consulting", "Prometheus Implementation", "Prometheus Commercial Support", "Observability Engineering", "Monitoring Migration"]
             : pageData.hero.badge,
         areaServed: [
           { "@type": "Country", name: "United States" },
@@ -241,6 +245,8 @@ export default function ExpertisePageClient({
             ? ["Flutter Development", "Cross-Platform Development", "Dart Development", "Mobile App Development", "Multi-Platform Engineering"]
             : expertise.slug === "react-native"
             ? ["React Native Development", "Cross-Platform Development", "Mobile App Development", "iOS Development", "Android Development"]
+            : expertise.slug === "prometheus-monitoring"
+            ? ["Prometheus Monitoring", "Observability", "Infrastructure Engineering", "DevOps", "Kubernetes Monitoring"]
             : [pageData.hero.badge, "Enterprise AI Engineering", "Software Development"],
       },
       // FAQ Schema (only if FAQs exist)
@@ -324,6 +330,8 @@ export default function ExpertisePageClient({
             ? { text: "Talk to a Flutter Engineer", href: "#book-call" }
             : expertise.slug === "react-native"
             ? { text: "Talk to a React Native Engineer", href: "#book-call" }
+            : expertise.slug === "prometheus-monitoring"
+            ? { text: "Talk to a Prometheus Engineer", href: "#book-call" }
             : undefined
         }
         secondaryCTA={
@@ -338,6 +346,7 @@ export default function ExpertisePageClient({
             "angular",
             "flutter",
             "react-native",
+            "prometheus-monitoring",
           ].includes(expertise.slug)
             ? undefined
             : { text: "View Case Studies", href: "/work" }
@@ -619,7 +628,54 @@ export default function ExpertisePageClient({
             </div>
           </>
         )}
+        {expertise.slug === "prometheus-monitoring" && (
+          <>
+            <div className="flex items-center justify-center gap-3 text-xs text-text-muted -mt-6">
+              <div className="flex items-center gap-1.5">
+                <svg className="w-3.5 h-3.5 text-accent" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+                </svg>
+                Free assessment
+              </div>
+              <div className="w-1 h-1 rounded-full bg-border" />
+              <div className="flex items-center gap-1.5">
+                <svg className="w-3.5 h-3.5 text-accent" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+                </svg>
+                30-minute call
+              </div>
+              <div className="w-1 h-1 rounded-full bg-border" />
+              <div className="flex items-center gap-1.5">
+                <svg className="w-3.5 h-3.5 text-accent" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+                </svg>
+                Talk with engineers, not sales
+              </div>
+            </div>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mt-4 text-sm">
+              <a href="#services" className="text-accent hover:text-accent-light transition-colors flex items-center gap-1.5">
+                See our services
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+              </a>
+              <a href="#fit" className="text-accent hover:text-accent-light transition-colors flex items-center gap-1.5">
+                Is Prometheus right for you?
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+              </a>
+            </div>
+          </>
+        )}
       </ExpertiseHero>
+
+      {expertise.slug === "prometheus-monitoring" && (
+        <Stats
+          title="Prometheus Track Record"
+          stats={[
+            { value: "15+", label: "Production Prometheus Deployments" },
+            { value: "6+ Years", label: "Prometheus & Kubernetes Experience" },
+            { value: "95%+", label: "Client Retention Rate" },
+          ]}
+        />
+      )}
 
       {expertise.slug === "dotnet" && (
         <Stats
@@ -633,15 +689,15 @@ export default function ExpertisePageClient({
         />
       )}
 
-      <div id={["nodejs", "nextjs", "react", "python", "angular", "flutter", "react-native"].includes(expertise.slug) ? "services" : undefined}>
+      <div id={["nodejs", "nextjs", "react", "python", "angular", "flutter", "react-native", "prometheus-monitoring"].includes(expertise.slug) ? "services" : undefined}>
         <CapabilitiesGrid
-          title={expertise.slug === "dotnet" ? ".NET Development Services We Offer" : expertise.slug === "nextjs" ? "What We Build With Next.js" : expertise.slug === "nodejs" ? "Node.js Development Services" : expertise.slug === "react" ? "React Development Services" : expertise.slug === "python" ? "Python Development Services" : expertise.slug === "angular" ? "Angular Development Services" : expertise.slug === "flutter" ? "What We Build With Flutter" : expertise.slug === "react-native" ? "What We Build With React Native" : "Key Capabilities"}
-          subtitle={expertise.slug === "dotnet" ? "End-to-end .NET services, from greenfield builds to legacy modernization." : expertise.slug === "nextjs" ? "From marketing sites to complex web applications, we deliver production-grade Next.js solutions." : expertise.slug === "nodejs" ? "APIs, microservices, real-time systems, and the backend your product runs on." : expertise.slug === "react" ? "From SPAs to enterprise dashboards, we build React applications that ship fast and stay maintainable." : expertise.slug === "python" ? "Backend systems, AI/ML, and the data infrastructure your product depends on." : expertise.slug === "angular" ? "Full-stack applications, migrations, and performance work." : expertise.slug === "flutter" ? "Cross-platform apps for mobile, web, and desktop from a single Dart codebase." : expertise.slug === "react-native" ? "Cross-platform mobile apps from a single TypeScript codebase." : "Everything you need to build production-grade solutions"}
+          title={expertise.slug === "dotnet" ? ".NET Development Services We Offer" : expertise.slug === "nextjs" ? "What We Build With Next.js" : expertise.slug === "nodejs" ? "Node.js Development Services" : expertise.slug === "react" ? "React Development Services" : expertise.slug === "python" ? "Python Development Services" : expertise.slug === "angular" ? "Angular Development Services" : expertise.slug === "flutter" ? "What We Build With Flutter" : expertise.slug === "react-native" ? "What We Build With React Native" : expertise.slug === "prometheus-monitoring" ? "Prometheus Consulting & Implementation Services" : "Key Capabilities"}
+          subtitle={expertise.slug === "dotnet" ? "End-to-end .NET services, from greenfield builds to legacy modernization." : expertise.slug === "nextjs" ? "From marketing sites to complex web applications, we deliver production-grade Next.js solutions." : expertise.slug === "nodejs" ? "APIs, microservices, real-time systems, and the backend your product runs on." : expertise.slug === "react" ? "From SPAs to enterprise dashboards, we build React applications that ship fast and stay maintainable." : expertise.slug === "python" ? "Backend systems, AI/ML, and the data infrastructure your product depends on." : expertise.slug === "angular" ? "Full-stack applications, migrations, and performance work." : expertise.slug === "flutter" ? "Cross-platform apps for mobile, web, and desktop from a single Dart codebase." : expertise.slug === "react-native" ? "Cross-platform mobile apps from a single TypeScript codebase." : expertise.slug === "prometheus-monitoring" ? "From initial setup to enterprise production support." : "Everything you need to build production-grade solutions"}
           capabilities={capabilities}
         />
       </div>
 
-      {["frontend-development", "backend-development", "dotnet", "nextjs"].includes(expertise.slug) && pageData.whoWeWorkWith && (
+      {["frontend-development", "backend-development", "dotnet", "nextjs", "prometheus-monitoring"].includes(expertise.slug) && pageData.whoWeWorkWith && (
         <WhoWeWorkWith
           title={pageData.whoWeWorkWith.title || "Who We Work With"}
           audiences={pageData.whoWeWorkWith.audiences.map((a) => ({
@@ -652,6 +708,185 @@ export default function ExpertisePageClient({
           commonApplications={pageData.whoWeWorkWith.commonApplications}
           variant={expertise.slug === "dotnet" || expertise.slug === "nextjs" ? "tabs" : "cards"}
         />
+      )}
+
+      {/* Prometheus: Why Engineering Teams Choose Prometheus */}
+      {expertise.slug === "prometheus-monitoring" && (
+        <section id="why-prometheus" className="relative py-16 sm:py-24 bg-surface">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-4">
+                Why Engineering Teams Choose <span className="text-highlight">Prometheus</span>
+              </h2>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[
+                {
+                  icon: (
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
+                    </svg>
+                  ),
+                  title: "Monitoring costs spiral fast",
+                  description: "Per-host and per-metric pricing from commercial tools breaks as your container count grows. Prometheus is open-source with no per-metric fees. You pay for infrastructure, not licenses.",
+                },
+                {
+                  icon: (
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+                    </svg>
+                  ),
+                  title: "Kubernetes made it the default",
+                  description: "82% of container-using organizations run Prometheus (CNCF Survey 2024). If you're on Kubernetes, your engineers already expect it.",
+                },
+                {
+                  icon: (
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                    </svg>
+                  ),
+                  title: "Your data should be yours",
+                  description: "Commercial tools own your dashboards, alert definitions, and metric history. Migrating away after 3 years means rebuilding everything. Prometheus gives you full data ownership.",
+                },
+                {
+                  icon: (
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+                    </svg>
+                  ),
+                  title: "Prometheus 3.x changed the game",
+                  description: "First major version in seven years (late 2024). Native Histograms, new UI, OpenTelemetry ingestion, Remote Write 2.0. It's not the same tool it was in 2019.",
+                },
+              ].map((card, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: idx * 0.1 }}
+                  className="p-6 rounded-xl bg-surface-elevated/80 backdrop-blur-sm border border-border hover:border-accent/30 transition-colors"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center text-accent-light mb-4">
+                    {card.icon}
+                  </div>
+                  <h3 className="text-lg font-semibold text-text-primary mb-2">{card.title}</h3>
+                  <p className="text-sm text-text-secondary leading-relaxed">{card.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Prometheus: Should You Use Prometheus? Decision Framework */}
+      {expertise.slug === "prometheus-monitoring" && (
+        <section id="fit" className="relative py-16 sm:py-24 bg-base">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-4">
+                Should You Use Prometheus? <span className="text-highlight">An Honest Assessment</span>
+              </h2>
+            </motion.div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+              {/* Good fit */}
+              <motion.div
+                initial={{ opacity: 0, x: -16 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="p-6 sm:p-8 rounded-xl bg-surface-elevated border border-accent/20"
+              >
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center">
+                    <svg className="w-4 h-4 text-accent-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-semibold text-text-primary">Prometheus is a good fit when</h3>
+                </div>
+                <ul className="space-y-3">
+                  {[
+                    "You're running Kubernetes (it's the native standard)",
+                    "You have 50+ services generating metrics",
+                    "Your monitoring bill is growing faster than your infrastructure",
+                    "You need metric retention beyond what commercial tools offer affordably",
+                    "Your team values data ownership and vendor independence",
+                    "You're already using or planning CNCF tools (Envoy, Istio, Flagger)",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2.5 text-sm text-text-secondary">
+                      <svg className="w-4 h-4 text-accent-light flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+
+              {/* Consider alternatives */}
+              <motion.div
+                initial={{ opacity: 0, x: 16 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="p-6 sm:p-8 rounded-xl bg-surface-elevated border border-border"
+              >
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-8 h-8 rounded-lg bg-accent-secondary/10 flex items-center justify-center">
+                    <svg className="w-4 h-4 text-accent-secondary-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-semibold text-text-primary">You might want to stick with your current tool when</h3>
+                </div>
+                <ul className="space-y-3">
+                  {[
+                    "Your team is under 10 engineers and nobody has monitoring experience",
+                    "You need APM (distributed tracing, code-level profiling) - Prometheus handles metrics, not traces",
+                    "You want a fully managed experience with zero operational overhead",
+                    "Your monitoring spend is modest enough that migration effort won't pay back quickly",
+                    "You need logs in the same tool (consider adding Grafana Loki alongside Prometheus, or stay with your current stack)",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2.5 text-sm text-text-secondary">
+                      <svg className="w-4 h-4 text-text-muted flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            </div>
+
+            {/* Hybrid approach */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="p-6 rounded-xl bg-surface-elevated/60 border border-border text-center"
+            >
+              <h3 className="text-base font-semibold text-text-primary mb-2">The hybrid approach (what most teams actually do)</h3>
+              <p className="text-sm text-text-secondary max-w-3xl mx-auto leading-relaxed">
+                Use Prometheus for infrastructure and Kubernetes metrics where volume is highest. Keep a commercial tool for APM/tracing if needed. Use Grafana as the unified dashboard layer across both.
+              </p>
+            </motion.div>
+          </div>
+        </section>
       )}
 
       {/* Dotnet: Specialized .NET Services hub section */}
@@ -1417,9 +1652,9 @@ export default function ExpertisePageClient({
       )}
 
       {pageData.process && (
-        <div id={["nodejs", "react", "python", "angular", "flutter", "react-native"].includes(expertise.slug) ? "process" : undefined}>
+        <div id={["nodejs", "react", "python", "angular", "flutter", "react-native", "prometheus-monitoring"].includes(expertise.slug) ? "process" : undefined}>
           <ProcessTimeline
-            title={expertise.slug === "frontend-development" ? "Our Frontend Development Process" : expertise.slug === "backend-development" ? "Our Backend Development Process" : expertise.slug === "nextjs" ? "How We Deliver Next.js Projects" : expertise.slug === "nodejs" ? "How We Deliver Node.js Projects" : expertise.slug === "react" ? "How We Deliver React Projects" : expertise.slug === "python" ? "How We Deliver Python Projects" : expertise.slug === "angular" ? "How We Deliver Angular Projects" : expertise.slug === "flutter" ? "From Concept to App Store" : expertise.slug === "react-native" ? "From Idea to App Store" : "Our Process"}
+            title={expertise.slug === "frontend-development" ? "Our Frontend Development Process" : expertise.slug === "backend-development" ? "Our Backend Development Process" : expertise.slug === "nextjs" ? "How We Deliver Next.js Projects" : expertise.slug === "nodejs" ? "How We Deliver Node.js Projects" : expertise.slug === "react" ? "How We Deliver React Projects" : expertise.slug === "python" ? "How We Deliver Python Projects" : expertise.slug === "angular" ? "How We Deliver Angular Projects" : expertise.slug === "flutter" ? "From Concept to App Store" : expertise.slug === "react-native" ? "From Idea to App Store" : expertise.slug === "prometheus-monitoring" ? "How Prometheus Consulting Works" : "Our Process"}
             subtitle={expertise.slug === "nodejs" ? "Working software every sprint, not just progress updates." : expertise.slug === "react" ? "Working software every sprint, not just progress updates." : expertise.slug === "python" ? "Working software every sprint, not just progress updates." : expertise.slug === "flutter" ? "Working software every sprint, not just progress updates." : expertise.slug === "react-native" ? "Working software every sprint, not just progress updates." : ["angular"].includes(expertise.slug) ? "Working software every sprint, not just progress updates." : "A predictable process built for high-quality delivery"}
             steps={pageData.process}
           />
@@ -1867,6 +2102,57 @@ export default function ExpertisePageClient({
             </motion.div>
           </div>
         </section>
+      ) : expertise.slug === "prometheus-monitoring" ? (
+        <section id="stack" className="relative py-16 sm:py-24 bg-surface">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-4">
+                Technologies We <span className="text-highlight">Deploy & Support</span>
+              </h2>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="overflow-hidden rounded-xl border border-border"
+            >
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-surface-elevated border-b border-border">
+                    <th className="text-left px-5 py-3 text-text-muted font-medium w-[35%]">Category</th>
+                    <th className="text-left px-5 py-3 text-text-muted font-medium">Tools</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { category: "Core", tools: "Prometheus 3.x (latest stable), Alertmanager" },
+                    { category: "Operator", tools: "Prometheus Operator (kube-prometheus-stack)" },
+                    { category: "Visualization", tools: "Grafana" },
+                    { category: "Long-term Storage", tools: "Thanos, Cortex, VictoriaMetrics" },
+                    { category: "Exporters", tools: "Node Exporter, kube-state-metrics, cAdvisor, Blackbox Exporter, custom exporters" },
+                    { category: "Alerting Integrations", tools: "PagerDuty, OpsGenie, Slack, email, custom webhooks" },
+                    { category: "Cloud Managed", tools: "Amazon Managed Prometheus, Google Cloud Managed Prometheus, Azure Monitor" },
+                    { category: "Infrastructure", tools: "Kubernetes, Docker, Terraform, Helm" },
+                    { category: "Observability Bridge", tools: "OpenTelemetry Collector (OTLP ingestion)" },
+                  ].map((row, idx) => (
+                    <tr key={idx} className={`border-b border-border last:border-0 ${idx % 2 === 0 ? "bg-base" : "bg-surface-elevated/30"}`}>
+                      <td className="px-5 py-3 font-medium text-text-primary">{row.category}</td>
+                      <td className="px-5 py-3 text-text-secondary">{row.tools}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </motion.div>
+          </div>
+        </section>
       ) : (
         <TechStack
           title="Technologies We Use"
@@ -1914,9 +2200,9 @@ export default function ExpertisePageClient({
         />
       )}
 
-      {/* Mid-page CTA for dotnet/nextjs/nodejs/react/python/angular/flutter/react-native - before Architecture section */}
-      {["dotnet", "nextjs", "nodejs", "react", "python", "angular", "flutter", "react-native"].includes(expertise.slug) && (
-        <section id={["react", "python", "angular", "flutter", "react-native"].includes(expertise.slug) ? "discuss" : undefined} className="relative py-16 sm:py-24 bg-surface">
+      {/* Mid-page CTA for dotnet/nextjs/nodejs/react/python/angular/flutter/react-native/prometheus-monitoring - before Architecture section */}
+      {["dotnet", "nextjs", "nodejs", "react", "python", "angular", "flutter", "react-native", "prometheus-monitoring"].includes(expertise.slug) && (
+        <section id={["react", "python", "angular", "flutter", "react-native", "prometheus-monitoring"].includes(expertise.slug) ? "discuss" : undefined} className="relative py-16 sm:py-24 bg-surface">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -1927,6 +2213,8 @@ export default function ExpertisePageClient({
               <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-6">
                 {expertise.slug === "flutter" || expertise.slug === "react-native"
                   ? <><span className="text-highlight">Let&apos;s Talk</span> About Your App</>
+                  : expertise.slug === "prometheus-monitoring"
+                  ? <>Not Sure If Prometheus Is <span className="text-highlight">Right for Your Stack?</span></>
                   : <>Discuss Your <span className="text-highlight">{expertise.slug === "nextjs" ? "Next.js" : expertise.slug === "nodejs" ? "Node.js" : expertise.slug === "react" ? "React" : expertise.slug === "python" ? "Python" : expertise.slug === "angular" ? "Angular" : ".NET"} Project</span></>
                 }
               </h2>
@@ -1945,6 +2233,8 @@ export default function ExpertisePageClient({
                   ? "Whether it\u2019s a new app, migration from native, or multi-platform expansion, we\u2019re happy to talk through your situation."
                   : expertise.slug === "react-native"
                   ? "Whether you\u2019re building from scratch or migrating an existing native app, we\u2019ll give you a straight answer on what React Native can and can\u2019t do for your project."
+                  : expertise.slug === "prometheus-monitoring"
+                  ? "We'll give you an honest assessment - even if the answer is \"stick with what you have.\""
                   : "Whether modernizing legacy systems or building new, we\u2019re happy to talk through your situation."}
               </p>
               <a
@@ -2132,9 +2422,9 @@ export default function ExpertisePageClient({
       </section>
 
       {pageData.faqs.length > 0 && (
-        <div id={["nodejs", "react", "python", "angular", "flutter", "react-native"].includes(expertise.slug) ? "faq" : undefined}>
+        <div id={["nodejs", "react", "python", "angular", "flutter", "react-native", "prometheus-monitoring"].includes(expertise.slug) ? "faq" : undefined}>
           <FAQSection
-            title={expertise.slug === "dotnet" ? ".NET Development Services FAQ" : expertise.slug === "nextjs" ? "Next.js Development FAQ" : expertise.slug === "nodejs" ? "Node.js Development FAQ" : expertise.slug === "react" ? "React Development FAQ" : expertise.slug === "python" ? "Python Development FAQ" : expertise.slug === "angular" ? "Angular Development FAQ" : expertise.slug === "flutter" ? "Flutter App Development FAQ" : expertise.slug === "react-native" ? "React Native Development FAQ" : undefined}
+            title={expertise.slug === "dotnet" ? ".NET Development Services FAQ" : expertise.slug === "nextjs" ? "Next.js Development FAQ" : expertise.slug === "nodejs" ? "Node.js Development FAQ" : expertise.slug === "react" ? "React Development FAQ" : expertise.slug === "python" ? "Python Development FAQ" : expertise.slug === "angular" ? "Angular Development FAQ" : expertise.slug === "flutter" ? "Flutter App Development FAQ" : expertise.slug === "react-native" ? "React Native Development FAQ" : expertise.slug === "prometheus-monitoring" ? "Prometheus Consulting FAQ" : undefined}
             faqs={pageData.faqs}
           />
         </div>
