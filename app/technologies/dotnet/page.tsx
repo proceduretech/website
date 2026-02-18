@@ -11,9 +11,23 @@ export default function DotnetPage() {
     notFound();
   }
 
-  const relatedPages = getRelatedExpertiseForListing(
-    technology.relatedExpertise || [],
-  );
+  const relatedPages = [
+    {
+      slug: "dotnet-modernization",
+      title: ".NET Modernization & Migration",
+      description: "Migrate from .NET Framework 4.x to .NET 8 without production downtime.",
+      badge: ".NET Modernization",
+      href: "/technologies/dotnet/modernization",
+    },
+    {
+      slug: "dotnet-staff-augmentation",
+      title: ".NET Staff Augmentation",
+      description: "Senior .NET engineers who integrate with your team and hit the ground running.",
+      badge: ".NET Staff Augmentation",
+      href: "/technologies/dotnet/staff-augmentation",
+    },
+    ...getRelatedExpertiseForListing(technology.relatedExpertise || []),
+  ];
 
   return (
     <ExpertisePageClient
