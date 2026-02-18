@@ -2169,7 +2169,7 @@ export default function ExpertisePageClient({
             ...uc,
             icon: Icons[uc.icon as keyof typeof Icons] || Icons.code,
           }))}
-          columns={2}
+          columns={pageData.useCases.length === 3 ? 3 : 2}
         />
       )}
 
