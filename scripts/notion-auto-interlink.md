@@ -61,7 +61,7 @@ Then link "AI engineering" to `/services/ai-engineering`
 
 Link:
 - "RAG systems" → `/blogs/rag-implementation-guide`
-- "security considerations" → `/services/ai-security`
+- "security considerations" → `/services/ai-engineering`
 ```
 
 ### 3. Related Resources Section
@@ -83,7 +83,7 @@ Link:
 | Post Topic | Link to Service Page |
 |------------|---------------------|
 | AI agents, LLM, ML | `/services/ai-engineering` |
-| AI security, prompt injection | `/services/ai-security` |
+| AI security, prompt injection | `/services/ai-engineering` |
 | Backend, APIs, databases | `/services/backend-development` |
 | Frontend, React, Next.js | `/services/frontend-development` |
 | Kubernetes, containers | `/services/kubernetes` |

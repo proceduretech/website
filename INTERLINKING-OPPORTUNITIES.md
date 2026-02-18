@@ -53,18 +53,12 @@ to deploy these agents reliably at scale.
 - Link: "Code review agents" → `/services/ai-engineering` or future blog post
 - **Reason:** Specific use case that drives service interest
 
-**Location 4:** In "Healthcare" section
-- Find: *"AI agents are being used to assist clinical teams"*
-- Link: "AI agents" → `/services/ai-security`
-- **Reason:** Healthcare = high compliance = AI security relevance
-
 #### Related Resources Section (Add at end before author bio)
 ```markdown
 ## Related Resources
 
 - [AI Engineering Services](https://procedure.tech/services/ai-engineering) - Build production-grade AI systems with embedded engineers
 - [Model Context Protocol (MCP) Guide](https://procedure.tech/blogs/model-context-protocol-mcp-guide) - Deep dive into AI agent architecture
-- [AI Security Services](https://procedure.tech/services/ai-security) - Secure your AI agents from prompt injection and data leaks
 - [Notion MCP Guide](https://procedure.tech/blogs/notion-mcp-connect-ai-agents) - Connect Notion to AI agents
 ```
 
@@ -88,7 +82,6 @@ to deploy these agents reliably at scale.
 
 #### Content Links
 1. *"agent orchestration"* → `/blogs/ai-agents-how-they-work-use-cases`
-2. *"security considerations"* → `/services/ai-security`
 
 #### Related Resources
 ```markdown
@@ -117,7 +110,7 @@ to deploy these agents reliably at scale.
 
 ---
 
-## 2. AI Security Cluster
+## 2. AI Security Content
 
 ### 🔥 "Breaking Docker's LLM in 30 Minutes - AI Security"
 **Page:** https://www.notion.so/2f1890710157803c89b5ddc90ddae9c3
@@ -125,22 +118,15 @@ to deploy these agents reliably at scale.
 **High-Priority Links:**
 
 #### Main Content
-1. *"AI security"* → `/services/ai-security` (HIGH PRIORITY - conversion link)
-2. *"production-grade AI engineering"* → `/services/ai-engineering`
-3. *"prompt injection"* → Future post or `/services/ai-security`
+1. *"production-grade AI engineering"* → `/services/ai-engineering`
 
 #### Related Resources
 ```markdown
 ## Related Resources
 
-- [AI Security Services](https://procedure.tech/services/ai-security) - Protect your AI systems from day one
 - [AI Engineering Services](https://procedure.tech/services/ai-engineering) - Build secure, production-ready AI
 - [AI Agents Security](https://procedure.tech/blogs/ai-agents-how-they-work-use-cases) - Understanding agent vulnerabilities
 ```
-
-**Expected Impact:**
-- 25-30% conversion to AI Security service page
-- High commercial intent audience
 
 ---
 
@@ -270,8 +256,7 @@ to deploy these agents reliably at scale.
 **Links to Add:**
 
 1. *"backend systems"* → `/services/backend-development`
-2. *"security"* → `/services/ai-security` (if AI-related) or backend
-3. *"access management"* → `/services/backend-development`
+2. *"access management"* → `/services/backend-development`
 
 ---
 
@@ -281,8 +266,8 @@ to deploy these agents reliably at scale.
 
 | Post Topic | Primary Service Link | Secondary Service Link |
 |------------|---------------------|------------------------|
-| AI Agents, LLM, MCP | `/services/ai-engineering` | `/services/ai-security` |
-| AI Security, Prompt Injection | `/services/ai-security` | `/services/ai-engineering` |
+| AI Agents, LLM, MCP | `/services/ai-engineering` | - |
+| AI Security, Prompt Injection | `/services/ai-engineering` | - |
 | Frontend, React, Web Workers | `/services/frontend-development` | - |
 | Backend, Databases, APIs | `/services/backend-development` | `/services/cloud` |
 | Mobile, React Native, Expo | `/services/mobile-development` | `/services/frontend-development` |
