@@ -34,12 +34,13 @@ export function NotionLinkPreview({
       className="group block my-8 rounded-xl border border-border bg-surface-elevated/50 overflow-hidden hover:border-accent/50 transition-colors no-underline"
     >
       {image && (
-        <div className="w-full h-48 overflow-hidden bg-surface">
+        <div className="relative w-full h-48 overflow-hidden bg-surface">
           <Image
             src={image}
             alt={displayTitle}
             fill
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            sizes="(max-width: 768px) 100vw, 720px"
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
             loading="lazy"
           />
         </div>

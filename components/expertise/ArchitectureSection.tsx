@@ -84,6 +84,7 @@ export function ArchitectureSection({
                   src={diagramSrc}
                   alt={diagramAlt}
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-contain p-6"
                 />
               </div>
