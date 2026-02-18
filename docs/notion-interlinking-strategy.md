@@ -58,8 +58,8 @@ High-value for SEO. Link to:
 
 **Example in Notion:**
 ```
-This guide covers AI security fundamentals. For implementation,
-see our [AI Security Services](/services/ai-security).
+This guide covers AI engineering fundamentals. For implementation,
+see our [AI Engineering Services](/services/ai-engineering).
 ```
 
 #### **B. Contextual In-Content Links**
@@ -88,7 +88,6 @@ At end of post, before CTA.
 
 #### **Service Page Links**
 Link from blog posts to relevant service pages:
-- `/blogs/ai-security-guide` → `/services/ai-security`
 - `/blogs/kubernetes-deployment` → `/services/kubernetes`
 - `/blogs/frontend-optimization` → `/services/frontend-development`
 
