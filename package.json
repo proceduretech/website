@@ -13,7 +13,8 @@
     "lighthouse": "lhci autorun",
     "bundle:check": "node scripts/bundle-budget.mjs",
     "bundle:analyze": "ANALYZE=true next build",
-    "polyfills:check": "node scripts/check-polyfills.mjs"
+    "polyfills:check": "node scripts/check-polyfills.mjs",
+    "sitemap:check": "npx tsx scripts/check-sitemap.ts"
   },
   "browserslist": [
     "chrome >= 109",

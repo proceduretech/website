@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ComplianceBadge } from "./badges/ComplianceBadge";
 import { ProcedureLogoShort } from "./logos";
 import { ObfuscatedEmail } from "./ui/ObfuscatedEmail";
+import { AskAiFooter } from "./ask-ai";
 
 const footerLinks = {
   aiServices: [
@@ -89,6 +90,9 @@ export function Footer() {
       }}
     >
       <div className="max-w-7xl mx-auto px-6 py-16">
+        {/* Ask AI about Procedure */}
+        <AskAiFooter />
+
         {/* Top row: Brand + Link columns */}
         <div className="grid grid-cols-2 md:grid-cols-12 gap-8 mb-12">
           {/* Brand & Contact */}
