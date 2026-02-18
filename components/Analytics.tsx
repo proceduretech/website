@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 
 // Production domains where analytics should fire
 const PRODUCTION_DOMAINS = ["procedure.tech", "www.procedure.tech"];
@@ -23,24 +23,37 @@ function isProductionDomain(): boolean {
 }
 
 /**
- * Analytics wrapper that only loads GA4, GTM, and Clarity on production domains.
- * Prevents analytics from firing on deploy previews and localhost.
+ * Check if the user has consented to analytics cookies.
+ * Default behavior is opt-in (track all cookies).
+ * Returns false only if user explicitly disabled analytics.
+ */
+function hasAnalyticsConsent(): boolean {
+  try {
+    const consent = localStorage.getItem("cookie-consent");
+    if (!consent) return true; // No choice made yet = default opt-in
+    const prefs = JSON.parse(consent);
+    return prefs.analytics !== false;
+  } catch {
+    return true;
+  }
+}
+
+/**
+ * Analytics wrapper that only loads GA4, GTM, and Clarity on production domains
+ * AND when the user has consented to analytics cookies.
+ *
+ * Listens for the "cookie-consent-updated" custom event dispatched by
+ * CookieBanner so scripts load immediately after consent is granted
+ * without requiring a page reload.
  */
 export function Analytics() {
   const isLoadedRef = useRef(false);
 
-  useEffect(() => {
-    const isProd = isProductionDomain();
-
-    if (!isProd) {
-      console.log(
-        `[Analytics] Skipped on non-production domain: ${window.location.hostname}`
-      );
-      return;
-    }
-
-    // Prevent double-loading
+  const loadScripts = useCallback(() => {
+    if (!isProductionDomain()) return;
     if (isLoadedRef.current) return;
+    if (!hasAnalyticsConsent()) return;
+
     isLoadedRef.current = true;
 
     // Load GTM
@@ -80,8 +93,26 @@ export function Analytics() {
     `;
     document.head.appendChild(clarityScript);
 
-    console.log("[Analytics] Loaded on production domain");
+    console.log("[Analytics] Loaded on production domain with consent");
   }, []);
+
+  useEffect(() => {
+    if (!isProductionDomain()) {
+      console.log(
+        `[Analytics] Skipped on non-production domain: ${window.location.hostname}`
+      );
+      return;
+    }
+
+    // Try loading immediately (user may have already consented on a previous visit)
+    loadScripts();
+
+    // Listen for consent changes from CookieBanner
+    const handleConsentUpdate = () => loadScripts();
+    window.addEventListener("cookie-consent-updated", handleConsentUpdate);
+    return () =>
+      window.removeEventListener("cookie-consent-updated", handleConsentUpdate);
+  }, [loadScripts]);
 
   return null;
 }
