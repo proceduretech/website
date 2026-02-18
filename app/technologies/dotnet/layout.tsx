@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: ".NET Development Services | C# & ASP.NET Core Experts | Procedure",
+  title: ".NET Development Services | Custom ASP.NET Core & Cloud-Native Solutions",
   description:
     "Expert .NET development services including ASP.NET Core, C#, Azure, and .NET modernization. Senior engineers, embedded teams, production-ready delivery.",
   alternates: {
     canonical: "/technologies/dotnet",
   },
   openGraph: {
-    title: ".NET Development Services | C# & ASP.NET Core Experts | Procedure",
+    title: ".NET Development Services | Custom ASP.NET Core & Cloud-Native Solutions",
     description:
       "Expert .NET development services including ASP.NET Core, C#, Azure, and .NET modernization. Senior engineers, embedded teams, production-ready delivery.",
     type: "website",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: ".NET Development Services | C# & ASP.NET Core Experts | Procedure",
+    title: ".NET Development Services | Custom ASP.NET Core & Cloud-Native Solutions",
     description:
       "Expert .NET development services including ASP.NET Core, C#, Azure, and .NET modernization. Senior engineers, embedded teams, production-ready delivery.",
     images: [
