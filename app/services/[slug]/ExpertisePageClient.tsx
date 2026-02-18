@@ -71,6 +71,8 @@ const bookingSubtext: Record<string, string> = {
     "Tell us about your Flutter project. Whether it\u2019s a new app, migration from native, or multi-platform expansion, we\u2019ll discuss architecture and give honest next steps.",
   "react-native":
     "Tell us about your React Native project. Whether it\u2019s a new app, migration from native, or adding mobile to your React web app, we\u2019ll discuss architecture and give honest next steps.",
+  "istio-consulting":
+    "Talk directly with engineers, not sales. We'll assess fit and give honest next steps.",
 };
 
 // Technology logo paths for the "What you get" section
@@ -193,6 +195,8 @@ export default function ExpertisePageClient({
             ? ["Flutter App Development Services", "Cross-Platform App Development", "Dart Development", "Flutter Mobile Development", "Multi-Platform Development", "Flutter Migration"]
             : expertise.slug === "react-native"
             ? ["React Native Development Services", "Cross-Platform App Development", "Mobile App Development", "Expo Development", "React Native Migration"]
+            : expertise.slug === "istio-consulting"
+            ? ["Istio Consulting", "Service Mesh Implementation", "Istio Commercial Support", "Istio Ambient Mode Migration"]
             : pageData.hero.badge,
         areaServed: [
           { "@type": "Country", name: "United States" },
@@ -241,6 +245,8 @@ export default function ExpertisePageClient({
             ? ["Flutter Development", "Cross-Platform Development", "Dart Development", "Mobile App Development", "Multi-Platform Engineering"]
             : expertise.slug === "react-native"
             ? ["React Native Development", "Cross-Platform Development", "Mobile App Development", "iOS Development", "Android Development"]
+            : expertise.slug === "istio-consulting"
+            ? ["Service Mesh", "Istio", "Kubernetes Networking", "Cloud Native Infrastructure", "Microservices"]
             : [pageData.hero.badge, "Enterprise AI Engineering", "Software Development"],
       },
       // FAQ Schema (only if FAQs exist)
@@ -324,6 +330,8 @@ export default function ExpertisePageClient({
             ? { text: "Talk to a Flutter Engineer", href: "#book-call" }
             : expertise.slug === "react-native"
             ? { text: "Talk to a React Native Engineer", href: "#book-call" }
+            : expertise.slug === "istio-consulting"
+            ? { text: "Talk to an Istio Engineer", href: "#book-call" }
             : undefined
         }
         secondaryCTA={
@@ -338,6 +346,7 @@ export default function ExpertisePageClient({
             "angular",
             "flutter",
             "react-native",
+            "istio-consulting",
           ].includes(expertise.slug)
             ? undefined
             : { text: "View Case Studies", href: "/work" }
@@ -619,6 +628,42 @@ export default function ExpertisePageClient({
             </div>
           </>
         )}
+        {expertise.slug === "istio-consulting" && (
+          <>
+            <div className="flex items-center justify-center gap-3 text-xs text-text-muted -mt-6">
+              <div className="flex items-center gap-1.5">
+                <svg className="w-3.5 h-3.5 text-accent" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+                </svg>
+                Free assessment
+              </div>
+              <div className="w-1 h-1 rounded-full bg-border" />
+              <div className="flex items-center gap-1.5">
+                <svg className="w-3.5 h-3.5 text-accent" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+                </svg>
+                30-minute call
+              </div>
+              <div className="w-1 h-1 rounded-full bg-border" />
+              <div className="flex items-center gap-1.5">
+                <svg className="w-3.5 h-3.5 text-accent" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+                </svg>
+                Talk with engineers, not sales
+              </div>
+            </div>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mt-4 text-sm">
+              <a href="#services" className="text-accent hover:text-accent-light transition-colors flex items-center gap-1.5">
+                See our services
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+              </a>
+              <a href="#fit" className="text-accent hover:text-accent-light transition-colors flex items-center gap-1.5">
+                Do you need a service mesh?
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+              </a>
+            </div>
+          </>
+        )}
       </ExpertiseHero>
 
       {expertise.slug === "dotnet" && (
@@ -633,15 +678,26 @@ export default function ExpertisePageClient({
         />
       )}
 
-      <div id={["nodejs", "nextjs", "react", "python", "angular", "flutter", "react-native"].includes(expertise.slug) ? "services" : undefined}>
+      {expertise.slug === "istio-consulting" && (
+        <Stats
+          title="Istio & Service Mesh Experience"
+          stats={[
+            { value: "10+", label: "Istio Deployments" },
+            { value: "6+", label: "Years Kubernetes & Service Mesh" },
+            { value: "95%+", label: "Client Retention Rate" },
+          ]}
+        />
+      )}
+
+      <div id={["nodejs", "nextjs", "react", "python", "angular", "flutter", "react-native", "istio-consulting"].includes(expertise.slug) ? "services" : undefined}>
         <CapabilitiesGrid
-          title={expertise.slug === "dotnet" ? ".NET Development Services We Offer" : expertise.slug === "nextjs" ? "What We Build With Next.js" : expertise.slug === "nodejs" ? "Node.js Development Services" : expertise.slug === "react" ? "React Development Services" : expertise.slug === "python" ? "Python Development Services" : expertise.slug === "angular" ? "Angular Development Services" : expertise.slug === "flutter" ? "What We Build With Flutter" : expertise.slug === "react-native" ? "What We Build With React Native" : "Key Capabilities"}
-          subtitle={expertise.slug === "dotnet" ? "End-to-end .NET services, from greenfield builds to legacy modernization." : expertise.slug === "nextjs" ? "From marketing sites to complex web applications, we deliver production-grade Next.js solutions." : expertise.slug === "nodejs" ? "APIs, microservices, real-time systems, and the backend your product runs on." : expertise.slug === "react" ? "From SPAs to enterprise dashboards, we build React applications that ship fast and stay maintainable." : expertise.slug === "python" ? "Backend systems, AI/ML, and the data infrastructure your product depends on." : expertise.slug === "angular" ? "Full-stack applications, migrations, and performance work." : expertise.slug === "flutter" ? "Cross-platform apps for mobile, web, and desktop from a single Dart codebase." : expertise.slug === "react-native" ? "Cross-platform mobile apps from a single TypeScript codebase." : "Everything you need to build production-grade solutions"}
+          title={expertise.slug === "dotnet" ? ".NET Development Services We Offer" : expertise.slug === "nextjs" ? "What We Build With Next.js" : expertise.slug === "nodejs" ? "Node.js Development Services" : expertise.slug === "react" ? "React Development Services" : expertise.slug === "python" ? "Python Development Services" : expertise.slug === "angular" ? "Angular Development Services" : expertise.slug === "flutter" ? "What We Build With Flutter" : expertise.slug === "react-native" ? "What We Build With React Native" : expertise.slug === "istio-consulting" ? "Istio Consulting & Implementation Services" : "Key Capabilities"}
+          subtitle={expertise.slug === "dotnet" ? "End-to-end .NET services, from greenfield builds to legacy modernization." : expertise.slug === "nextjs" ? "From marketing sites to complex web applications, we deliver production-grade Next.js solutions." : expertise.slug === "nodejs" ? "APIs, microservices, real-time systems, and the backend your product runs on." : expertise.slug === "react" ? "From SPAs to enterprise dashboards, we build React applications that ship fast and stay maintainable." : expertise.slug === "python" ? "Backend systems, AI/ML, and the data infrastructure your product depends on." : expertise.slug === "angular" ? "Full-stack applications, migrations, and performance work." : expertise.slug === "flutter" ? "Cross-platform apps for mobile, web, and desktop from a single Dart codebase." : expertise.slug === "react-native" ? "Cross-platform mobile apps from a single TypeScript codebase." : expertise.slug === "istio-consulting" ? "From fresh deployment to ambient mode migration and enterprise support." : "Everything you need to build production-grade solutions"}
           capabilities={capabilities}
         />
       </div>
 
-      {["frontend-development", "backend-development", "dotnet", "nextjs"].includes(expertise.slug) && pageData.whoWeWorkWith && (
+      {["frontend-development", "backend-development", "dotnet", "nextjs", "istio-consulting"].includes(expertise.slug) && pageData.whoWeWorkWith && (
         <WhoWeWorkWith
           title={pageData.whoWeWorkWith.title || "Who We Work With"}
           audiences={pageData.whoWeWorkWith.audiences.map((a) => ({
@@ -652,6 +708,154 @@ export default function ExpertisePageClient({
           commonApplications={pageData.whoWeWorkWith.commonApplications}
           variant={expertise.slug === "dotnet" || expertise.slug === "nextjs" ? "tabs" : "cards"}
         />
+      )}
+
+      {/* Istio: Why Engineering Teams Adopt Istio Service Mesh */}
+      {expertise.slug === "istio-consulting" && (
+        <section id="why-istio" className="relative py-16 sm:py-24 bg-base">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-4">
+                Why Engineering Teams Adopt <span className="text-highlight">Istio Service Mesh</span>
+              </h2>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[
+                {
+                  icon: "M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.15c0 .415.336.75.75.75z",
+                  title: "Microservices communication gets messy fast",
+                  description: "Once you're past 20-30 services, managing traffic routing, retries, timeouts, and circuit breaking in application code becomes a maintenance nightmare. Istio moves all of that to infrastructure.",
+                },
+                {
+                  icon: "M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z",
+                  title: "Zero-trust security without code changes",
+                  description: "Mutual TLS between every service, workload identity, and fine-grained authorization policies. All enforced at the mesh layer. Your application code stays clean. Compliance teams get audit trails.",
+                },
+                {
+                  icon: "M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z",
+                  title: "Ambient mode changed everything",
+                  description: "Istio's ambient mode (GA since v1.24) removes the sidecar proxy from every pod. Lower resource overhead, no pod restarts on mesh upgrades, simpler operations. It's the reason teams that passed on Istio before are reconsidering it now.",
+                },
+                {
+                  icon: "M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z",
+                  title: "It's the CNCF graduated standard",
+                  description: "Istio graduated from the Cloud Native Computing Foundation in July 2023. Same governance tier as Kubernetes and Prometheus. The ecosystem, tooling, and community support are unmatched by alternatives.",
+                },
+              ].map((card, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="bg-surface-elevated/80 backdrop-blur-xl border border-border rounded-xl p-6 sm:p-8"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
+                    <svg className="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d={card.icon} />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-semibold text-text-primary mb-2">{card.title}</h3>
+                  <p className="text-sm text-text-secondary leading-relaxed">{card.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Istio: Do You Actually Need a Service Mesh? Decision Framework */}
+      {expertise.slug === "istio-consulting" && (
+        <section id="fit" className="relative py-16 sm:py-24 bg-surface">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-4">
+                Do You Actually Need a <span className="text-highlight">Service Mesh?</span>
+              </h2>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="bg-surface-elevated/80 backdrop-blur-xl border border-accent/20 rounded-xl p-6 sm:p-8"
+              >
+                <h3 className="text-lg font-semibold text-accent mb-4">Istio is a good fit when:</h3>
+                <ul className="space-y-3">
+                  {[
+                    "You're running 30+ microservices on Kubernetes",
+                    "You need mTLS and zero-trust networking for compliance (SOC2, HIPAA, PCI)",
+                    "Traffic management is getting complex - canary releases, traffic splitting, retries",
+                    "You want observability (latency, error rates, traffic flow) without instrumenting every service",
+                    "You're running multi-cluster or multi-cloud Kubernetes",
+                    "Your API gateway is hitting its limits for east-west traffic",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3 text-sm text-text-secondary">
+                      <svg className="w-4 h-4 text-accent mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="bg-surface-elevated/80 backdrop-blur-xl border border-border rounded-xl p-6 sm:p-8"
+              >
+                <h3 className="text-lg font-semibold text-text-primary mb-4">You probably don&apos;t need Istio when:</h3>
+                <ul className="space-y-3">
+                  {[
+                    "You have fewer than 10 services and a small team",
+                    "Your services communicate over a message queue, not HTTP/gRPC",
+                    "You only need ingress traffic management (a simple gateway or ingress controller is enough)",
+                    "Your team has no Kubernetes experience yet - get Kubernetes stable first, then add the mesh",
+                    "You need a service mesh but want the simplest option - consider Linkerd for lighter-weight mesh",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3 text-sm text-text-secondary">
+                      <svg className="w-4 h-4 text-text-muted mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="bg-surface-elevated/80 backdrop-blur-xl border border-border rounded-xl p-6 sm:p-8"
+            >
+              <h3 className="text-lg font-semibold text-accent mb-3">The incremental approach (what most teams should do):</h3>
+              <p className="text-sm text-text-secondary leading-relaxed">
+                Start with ambient mode for L4 mTLS and identity. No sidecars, minimal overhead. Add L7 waypoint proxies only for namespaces that need traffic management or rich authorization. You don&apos;t have to mesh everything on day one.
+              </p>
+            </motion.div>
+          </div>
+        </section>
       )}
 
       {/* Dotnet: Specialized .NET Services hub section */}
@@ -1417,9 +1621,9 @@ export default function ExpertisePageClient({
       )}
 
       {pageData.process && (
-        <div id={["nodejs", "react", "python", "angular", "flutter", "react-native"].includes(expertise.slug) ? "process" : undefined}>
+        <div id={["nodejs", "react", "python", "angular", "flutter", "react-native", "istio-consulting"].includes(expertise.slug) ? "process" : undefined}>
           <ProcessTimeline
-            title={expertise.slug === "frontend-development" ? "Our Frontend Development Process" : expertise.slug === "backend-development" ? "Our Backend Development Process" : expertise.slug === "nextjs" ? "How We Deliver Next.js Projects" : expertise.slug === "nodejs" ? "How We Deliver Node.js Projects" : expertise.slug === "react" ? "How We Deliver React Projects" : expertise.slug === "python" ? "How We Deliver Python Projects" : expertise.slug === "angular" ? "How We Deliver Angular Projects" : expertise.slug === "flutter" ? "From Concept to App Store" : expertise.slug === "react-native" ? "From Idea to App Store" : "Our Process"}
+            title={expertise.slug === "frontend-development" ? "Our Frontend Development Process" : expertise.slug === "backend-development" ? "Our Backend Development Process" : expertise.slug === "nextjs" ? "How We Deliver Next.js Projects" : expertise.slug === "nodejs" ? "How We Deliver Node.js Projects" : expertise.slug === "react" ? "How We Deliver React Projects" : expertise.slug === "python" ? "How We Deliver Python Projects" : expertise.slug === "angular" ? "How We Deliver Angular Projects" : expertise.slug === "flutter" ? "From Concept to App Store" : expertise.slug === "react-native" ? "From Idea to App Store" : expertise.slug === "istio-consulting" ? "How Istio Consulting Works" : "Our Process"}
             subtitle={expertise.slug === "nodejs" ? "Working software every sprint, not just progress updates." : expertise.slug === "react" ? "Working software every sprint, not just progress updates." : expertise.slug === "python" ? "Working software every sprint, not just progress updates." : expertise.slug === "flutter" ? "Working software every sprint, not just progress updates." : expertise.slug === "react-native" ? "Working software every sprint, not just progress updates." : ["angular"].includes(expertise.slug) ? "Working software every sprint, not just progress updates." : "A predictable process built for high-quality delivery"}
             steps={pageData.process}
           />
@@ -1867,6 +2071,51 @@ export default function ExpertisePageClient({
             </motion.div>
           </div>
         </section>
+      ) : expertise.slug === "istio-consulting" ? (
+        <section id="stack" className="relative py-16 sm:py-24 bg-base">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-4">
+                Technologies We <span className="text-highlight">Deploy & Support</span>
+              </h2>
+            </motion.div>
+
+            <div className="bg-surface-elevated/80 backdrop-blur-xl border border-border rounded-xl overflow-hidden">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b border-border">
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-text-primary">Category</th>
+                    <th className="text-left px-6 py-4 text-sm font-semibold text-text-primary">Tools</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { category: "Core", tools: "Istio 1.29 (latest), 1.28.x (LTS), Envoy Proxy" },
+                    { category: "Data Plane Modes", tools: "Ambient mode (ztunnel + waypoint), Sidecar mode" },
+                    { category: "Traffic Management", tools: "VirtualService, DestinationRule, Kubernetes Gateway API" },
+                    { category: "Security", tools: "mTLS, AuthorizationPolicy, PeerAuthentication, RequestAuthentication" },
+                    { category: "Observability", tools: "Kiali, Prometheus, Grafana, Jaeger/Zipkin" },
+                    { category: "Multi-cluster", tools: "Multi-network, multi-primary, external control plane" },
+                    { category: "Platform", tools: "Kubernetes, EKS, GKE (with Istio add-on), AKS" },
+                    { category: "Gateway", tools: "Istio Ingress Gateway, Kubernetes Gateway API, integration with existing API gateways" },
+                    { category: "Extensions", tools: "Wasm plugins, EnvoyFilter, Telemetry API" },
+                  ].map((row, i) => (
+                    <tr key={i} className={i % 2 === 0 ? "bg-surface/30" : ""}>
+                      <td className="px-6 py-3.5 text-sm font-medium text-accent">{row.category}</td>
+                      <td className="px-6 py-3.5 text-sm text-text-secondary">{row.tools}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
       ) : (
         <TechStack
           title="Technologies We Use"
@@ -1914,9 +2163,9 @@ export default function ExpertisePageClient({
         />
       )}
 
-      {/* Mid-page CTA for dotnet/nextjs/nodejs/react/python/angular/flutter/react-native - before Architecture section */}
-      {["dotnet", "nextjs", "nodejs", "react", "python", "angular", "flutter", "react-native"].includes(expertise.slug) && (
-        <section id={["react", "python", "angular", "flutter", "react-native"].includes(expertise.slug) ? "discuss" : undefined} className="relative py-16 sm:py-24 bg-surface">
+      {/* Mid-page CTA for dotnet/nextjs/nodejs/react/python/angular/flutter/react-native/istio-consulting - before Architecture section */}
+      {["dotnet", "nextjs", "nodejs", "react", "python", "angular", "flutter", "react-native", "istio-consulting"].includes(expertise.slug) && (
+        <section id={["react", "python", "angular", "flutter", "react-native", "istio-consulting"].includes(expertise.slug) ? "discuss" : undefined} className="relative py-16 sm:py-24 bg-surface">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -1927,6 +2176,8 @@ export default function ExpertisePageClient({
               <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-6">
                 {expertise.slug === "flutter" || expertise.slug === "react-native"
                   ? <><span className="text-highlight">Let&apos;s Talk</span> About Your App</>
+                  : expertise.slug === "istio-consulting"
+                  ? <>Not Sure If You Need a <span className="text-highlight">Service Mesh?</span></>
                   : <>Discuss Your <span className="text-highlight">{expertise.slug === "nextjs" ? "Next.js" : expertise.slug === "nodejs" ? "Node.js" : expertise.slug === "react" ? "React" : expertise.slug === "python" ? "Python" : expertise.slug === "angular" ? "Angular" : ".NET"} Project</span></>
                 }
               </h2>
@@ -1945,6 +2196,8 @@ export default function ExpertisePageClient({
                   ? "Whether it\u2019s a new app, migration from native, or multi-platform expansion, we\u2019re happy to talk through your situation."
                   : expertise.slug === "react-native"
                   ? "Whether you\u2019re building from scratch or migrating an existing native app, we\u2019ll give you a straight answer on what React Native can and can\u2019t do for your project."
+                  : expertise.slug === "istio-consulting"
+                  ? "We'll give you an honest assessment. Sometimes the answer is 'not yet' or 'use something simpler.' We'd rather tell you that upfront."
                   : "Whether modernizing legacy systems or building new, we\u2019re happy to talk through your situation."}
               </p>
               <a
@@ -2132,9 +2385,9 @@ export default function ExpertisePageClient({
       </section>
 
       {pageData.faqs.length > 0 && (
-        <div id={["nodejs", "react", "python", "angular", "flutter", "react-native"].includes(expertise.slug) ? "faq" : undefined}>
+        <div id={["nodejs", "react", "python", "angular", "flutter", "react-native", "istio-consulting"].includes(expertise.slug) ? "faq" : undefined}>
           <FAQSection
-            title={expertise.slug === "dotnet" ? ".NET Development Services FAQ" : expertise.slug === "nextjs" ? "Next.js Development FAQ" : expertise.slug === "nodejs" ? "Node.js Development FAQ" : expertise.slug === "react" ? "React Development FAQ" : expertise.slug === "python" ? "Python Development FAQ" : expertise.slug === "angular" ? "Angular Development FAQ" : expertise.slug === "flutter" ? "Flutter App Development FAQ" : expertise.slug === "react-native" ? "React Native Development FAQ" : undefined}
+            title={expertise.slug === "dotnet" ? ".NET Development Services FAQ" : expertise.slug === "nextjs" ? "Next.js Development FAQ" : expertise.slug === "nodejs" ? "Node.js Development FAQ" : expertise.slug === "react" ? "React Development FAQ" : expertise.slug === "python" ? "Python Development FAQ" : expertise.slug === "angular" ? "Angular Development FAQ" : expertise.slug === "flutter" ? "Flutter App Development FAQ" : expertise.slug === "react-native" ? "React Native Development FAQ" : expertise.slug === "istio-consulting" ? "Istio Consulting FAQ" : undefined}
             faqs={pageData.faqs}
           />
         </div>

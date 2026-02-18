@@ -9,9 +9,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint
 
-## Post-Implementation Workflow
+## Git Workflow
 
-After completing changes, always commit, push, and create a PR without waiting to be asked.
+- **Never push directly to main.** Always create a feature/fix branch and open a PR.
+- After completing changes, always commit, push, and create a PR without waiting to be asked.
 
 ## Pre-Push Checklist
 

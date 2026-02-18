@@ -1,0 +1,169 @@
+---
+title: "Istio Consulting Services"
+headline: "Istio Consulting &"
+headlineAccent: "Enterprise Support Services"
+tagline: "Service mesh shouldn't take six months to get right. We implement, optimize, and support Istio so your team focuses on shipping services, not debugging sidecar configs."
+description: |
+  Procedure is a software engineering consultancy based in Mumbai and San Francisco that provides Istio service mesh consulting, implementation, and commercial support services for engineering teams running microservices on Kubernetes.
+capabilities:
+  - title: "Istio Implementation & Setup"
+    description: "Fresh Istio deployment on Kubernetes - control plane setup, data plane mode selection (ambient or sidecar), namespace onboarding strategy, mTLS configuration, and traffic policies. We get your mesh production-ready, not just running in a demo cluster."
+    icon: "layers"
+  - title: "Sidecar to Ambient Mode Migration"
+    description: "Already running Istio with sidecars? We plan and execute the migration to ambient mode - namespace-by-namespace, with rollback safety. Reduce resource consumption, simplify upgrades, and eliminate sidecar injection headaches."
+    icon: "workflow"
+  - title: "Traffic Management & Gateway API"
+    description: "Advanced traffic routing: canary deployments, A/B testing, fault injection, traffic mirroring, and circuit breaking. We implement using Kubernetes Gateway API (the future) or Istio VirtualService/DestinationRule (if you're already invested there)."
+    icon: "chart"
+  - title: "Istio Enterprise Support"
+    description: "Production incidents don't wait. We provide enterprise support for teams running Istio - incident response within SLA, managed upgrades, security patching (CVE response), multi-cluster troubleshooting, and performance optimization."
+    icon: "shield"
+technologies:
+  - Istio 1.29
+  - Istio 1.28.x (LTS)
+  - Envoy Proxy
+  - Ambient mode (ztunnel + waypoint)
+  - Sidecar mode
+  - Kubernetes Gateway API
+  - VirtualService
+  - DestinationRule
+  - AuthorizationPolicy
+  - PeerAuthentication
+  - RequestAuthentication
+  - mTLS
+  - Kiali
+  - Prometheus
+  - Grafana
+  - Jaeger
+  - Zipkin
+  - EKS
+  - GKE
+  - AKS
+  - Wasm plugins
+  - EnvoyFilter
+  - Telemetry API
+  - Kubernetes
+  - Helm
+  - Terraform
+relatedExpertise:
+  - kubernetes
+  - prometheus-monitoring
+  - backend-development
+whoWeWorkWith:
+  audiences:
+    - icon: "cloud"
+      title: "Teams Running Microservices on Kubernetes"
+      description: "Engineering teams past 20-30 services that need infrastructure-level traffic management, security, and observability without instrumenting every service."
+    - icon: "shield"
+      title: "Teams Needing Zero-Trust Networking"
+      description: "Organizations with compliance requirements (SOC2, HIPAA, PCI) that need mutual TLS, workload identity, and fine-grained authorization across their service mesh."
+    - icon: "trendingUp"
+      title: "Teams Needing Production Mesh Support"
+      description: "Companies running Istio in production that need enterprise-grade support, incident response, version upgrades, and CVE patching."
+  closingStatement: "With engineering leadership across India and a presence in San Francisco, we support teams operating Istio service mesh at global scale."
+process:
+  - number: 1
+    title: "Assessment"
+    description: "We audit your current architecture - service count, communication patterns, existing networking (ingress controllers, API gateways, network policies), security requirements, and team readiness. You get a written recommendation, whether you hire us or not."
+  - number: 2
+    title: "Architecture Design"
+    description: "Mesh topology, data plane mode selection (ambient vs sidecar vs hybrid), namespace onboarding order, mTLS rollout plan, traffic policies, observability integration, and multi-cluster strategy if applicable. Documented for your team to review."
+  - number: 3
+    title: "Implementation"
+    description: "Deploy Istio, onboard services namespace by namespace, configure traffic policies, set up observability (Kiali, Prometheus, tracing), implement security policies. We work in your infrastructure, with your team, using your CI/CD pipelines."
+  - number: 4
+    title: "Knowledge Transfer"
+    description: "Runbooks, troubleshooting guides, istioctl training, Kiali dashboards walkthrough, upgrade procedures. The goal: your team operates the mesh independently."
+  - number: 5
+    title: "Ongoing Support (optional)"
+    description: "We stay on for production support, version upgrades, CVE patching, performance tuning, and scaling guidance. Engagement scope based on your needs."
+useCases:
+  - icon: "users"
+    title: "Advisory Consulting"
+    description: "Architecture reviews, service mesh assessments, and strategic guidance for mesh adoption decisions"
+  - icon: "code"
+    title: "Hands-On Implementation"
+    description: "Istio deployment, ambient mode migration, and traffic management configuration alongside your engineering team"
+  - icon: "workflow"
+    title: "Ongoing Production Support"
+    description: "Continuous mesh optimization, incident response, version upgrades, and CVE patching as your infrastructure grows"
+whyChoose:
+  reasons:
+    - "Production Istio operations experience across 10+ deployments"
+    - "Deep Kubernetes and cloud-native infrastructure expertise"
+    - "Ambient mode migration specialists - the biggest Istio shift since launch"
+    - "Honest assessments - we'll tell you if you don't need a service mesh"
+    - "Knowledge transfer built into every engagement"
+  outcomes:
+    - value: "Simplified"
+      label: "Service-to-service communication with infrastructure-level management"
+    - value: "Secured"
+      label: "Workloads with zero-trust mTLS and fine-grained authorization"
+    - value: "Reduced"
+      label: "Operational overhead with ambient mode migration"
+qualityMatters:
+  costs:
+    - title: "Configuration Sprawl"
+      description: "Poorly planned mesh deployments lead to hundreds of VirtualService and DestinationRule configs that nobody understands"
+    - title: "Resource Overhead"
+      description: "Sidecar proxies consuming memory and CPU across every pod when ambient mode could eliminate that cost"
+    - title: "Security Gaps"
+      description: "Inconsistent mTLS rollout leaving service-to-service communication unencrypted in production"
+    - title: "Upgrade Fear"
+      description: "Teams stuck on old Istio versions because upgrades are risky and nobody owns the process"
+  benefits:
+    - title: "Production-grade service mesh"
+    - title: "Zero-trust networking without code changes"
+    - title: "Confident version upgrades and CVE response"
+    - title: "Team-wide mesh operational literacy"
+testimonials:
+  - name: "Shrivatsa Swadi"
+    role: "Director of Engineering"
+    company: "Setu"
+    quote: "The Procedure was the first consultancy we truly connected with, sharing our outlook on quality, process, and ownership. Over the years, they have not only augmented our internal team but also taken on critical core roles across teams. What started with one engineer nearly three years ago has grown into a team of five, each fully owning their deliverables and contributing meaningfully to our team's capacity. Ulhas maintains a keen awareness of the landscape, guiding his team through shifting challenges behind the scenes. We're extremely pleased with the commitment and engagement they bring."
+  - name: "Chad Laurans"
+    role: "Managing Partner"
+    company: "Workshop Ventures"
+    quote: "We have worked with Procedure to support our software development initiatives across our portfolio, and the experience has been exceptional from start to finish. They consistently deliver on every promise, and are very responsive to shifting project needs. They are great people to work with and we wholeheartedly recommend Procedure for anyone seeking a reliable, trustworthy development partner."
+  - name: "Faisal Anwar"
+    role: "CTO"
+    company: "Timely"
+    quote: "Procedure has been a partner for Timely from our inception and through our rapid growth. Our team members from Procedure are exceptionally talented and dedicated to their craft and have proven essential to building out our engineering capacity in a fast-paced environment. On top of that, the leadership at Procedure have been thought partners for us on key engineering decisions and in growing each team member to expand their impact with Timely. Couldn't recommend Procedure more highly!"
+  - name: "Eid AlMujaibel"
+    role: "CEO"
+    company: "Tenmeya"
+    quote: "Working with Procedure has been amazing! Their clear communication, smooth project management, and expertise made them feel like part of our team. They built and launched our app in just 12 weeks, helping us reach 1000+ paying users in the first 6 months. We're excited to keep building with them!"
+faqs:
+  - question: "What is Istio consulting and why would I need it?"
+    answer: "Istio consulting provides expert guidance on implementing, operating, and optimizing Istio service mesh in production Kubernetes environments. You'd need it when your team lacks deep service mesh experience, when you're adopting Istio for the first time, or when your existing mesh deployment needs optimization or migration to ambient mode."
+  - question: "What is Istio ambient mode and should we use it?"
+    answer: "Ambient mode is Istio's sidecar-less data plane, generally available since Istio 1.24 (November 2024). Instead of injecting an Envoy sidecar into every pod, it uses a per-node ztunnel proxy for L4 mTLS and optional per-namespace waypoint proxies for L7 features. It's lower overhead, simpler to operate, and doesn't require pod restarts on mesh upgrades. New Istio deployments should strongly consider ambient mode. Existing sidecar users can migrate incrementally."
+  - question: "How does Istio compare to Linkerd?"
+    answer: "Both are CNCF graduated service meshes. Istio is more feature-rich - it supports advanced traffic management, multi-cluster deployments, Wasm extensibility, and the Kubernetes Gateway API. Linkerd is lighter-weight and simpler to operate, which makes it better suited for smaller teams that need basic mTLS and observability without the operational complexity. We help teams evaluate which mesh fits their actual requirements."
+  - question: "What version of Istio do you deploy?"
+    answer: "We deploy Istio 1.29 (released February 2026) for new installations and support upgrades from older versions. Istio 1.29 includes ambient mesh improvements (DNS capture enabled by default, multi-network multicluster promoted to beta), enhanced Gateway API Inference Extension support, and improved istioctl tooling. For teams requiring extended support windows, we also work with LTS-track releases."
+  - question: "Can Istio work with our existing API gateway?"
+    answer: "Yes. Istio handles east-west traffic (service-to-service communication) while your existing API gateway (Kong, Apigee, AWS API Gateway) handles north-south traffic (external clients to your services). For teams looking to consolidate, Istio's implementation of the Kubernetes Gateway API can also handle ingress, potentially replacing a separate gateway for some use cases."
+  - question: "How does Istio integrate with Prometheus and Grafana?"
+    answer: "Istio generates detailed telemetry - request rates, error rates, latency distributions - for every service in the mesh without any code instrumentation. This data is exposed as Prometheus metrics by default. We set up Prometheus to scrape these metrics and build Grafana dashboards for service-level observability. Kiali provides mesh-specific visualization. If you need help with the full monitoring stack, see our Prometheus consulting services."
+  - question: "Do you offer Istio commercial support for production environments?"
+    answer: "Yes. We provide enterprise support for teams running Istio in production. This includes incident response within SLA, managed version upgrades, CVE patching (Istio and Envoy security bulletins), multi-cluster troubleshooting, and performance optimization. Support scope and engagement model are tailored to your team's needs."
+  - question: "Will our team be able to operate Istio independently after the engagement?"
+    answer: "That's the goal. Every engagement includes knowledge transfer - runbooks, istioctl training, Kiali dashboard walkthroughs, upgrade procedures, and troubleshooting guides. We want your team confident and self-sufficient. Ongoing support is available but never required."
+cta:
+  title: "Not Sure If You Need a Service Mesh?"
+  description: "We'll give you an honest assessment. Sometimes the answer is 'not yet' or 'use something simpler.' We'd rather tell you that upfront."
+  buttonText: "Schedule a Free Assessment"
+  buttonLink: "#book-call"
+seo:
+  title: "Istio Consulting & Support Services | Service Mesh Experts"
+  description: "Enterprise Istio consulting, service mesh implementation, and commercial support. Expert engineers for Kubernetes traffic management, mTLS, and observability."
+---
+
+## Get Started With Procedure
+
+Whether you need an Istio assessment, hands-on implementation, or ongoing production support, we're here to help.
+
+**[Schedule a call with our service mesh team](/contact-us)**
+
+This is Istio consulting for production reliability, zero-trust security, and operational confidence.
