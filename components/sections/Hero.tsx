@@ -6,7 +6,7 @@ import { ClientLogos } from "./ClientLogos";
 // Animations load as client components after hydration
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-base will-change-transform">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-base">
       {/* Background animations - client component, loads after */}
       <HeroAnimations />
 
