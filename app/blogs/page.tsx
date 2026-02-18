@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Blog | AI Engineering Insights | Procedure",
     description:
-      "Expert insights on AI engineering, LLM applications, production systems, and enterprise AI.",
+      "Technical deep dives on AI engineering, LLM integration, production-grade systems, DevOps, and architecture — written by engineers building enterprise AI.",
     type: "website",
     url: "/blogs",
     images: [defaultOgImage],
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Blog | AI Engineering Insights | Procedure",
     description:
-      "Expert insights on AI engineering, LLM applications, production systems, and enterprise AI.",
+      "Technical deep dives on AI engineering, LLM integration, production-grade systems, DevOps, and architecture — written by engineers building enterprise AI.",
     images: [defaultOgImage],
     site: "@procedurehq",
     creator: "@procedurehq",
