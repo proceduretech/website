@@ -27,6 +27,20 @@ export const metadata: Metadata = {
 
 // Homepage-specific FAQ schema (general company FAQs).
 // Subpages define their own FAQPage schemas; this prevents duplicates.
+// AggregateRating for the Organization, homepage only.
+// Kept out of root layout.tsx to avoid appearing on blog/article pages.
+const aggregateRatingSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://procedure.tech/#organization",
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.9",
+    reviewCount: "32",
+    bestRating: "5",
+  },
+};
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -95,6 +109,7 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen">
+      <JsonLd data={aggregateRatingSchema} />
       <JsonLd data={faqSchema} />
       <Hero />
       <ValueProposition />

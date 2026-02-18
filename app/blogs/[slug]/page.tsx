@@ -465,6 +465,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       ? await getImageMetadata(post.featuredImage)
       : null;
 
+  // Format dates to ISO 8601 with IST timezone (+05:30)
+  const formatISODate = (date: string | undefined) => {
+    if (!date) return undefined;
+    // Notion returns bare dates like "2024-01-15"; append time + IST offset
+    if (date.length === 10) return `${date}T00:00:00+05:30`;
+    // Already has time component - ensure timezone
+    if (!date.includes("+") && !date.includes("Z")) return `${date}+05:30`;
+    return date;
+  };
+
   // TechArticle schema for SEO
   const articleSchema = {
     "@type": "TechArticle",
@@ -473,12 +483,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     image: post.featuredImage
       ? `https://procedure.tech${post.featuredImage}`
       : undefined,
-    datePublished: post.publishedAt,
-    dateModified: post.updatedAt,
+    datePublished: formatISODate(post.publishedAt),
+    dateModified: formatISODate(post.updatedAt),
     author: {
       "@type": "Person",
       name: post.author.name,
       jobTitle: post.author.role || "Engineer",
+      url: post.author.linkedin || "https://www.linkedin.com/company/procedure-tech",
       worksFor: {
         "@type": "Organization",
         name: "Procedure Technologies",

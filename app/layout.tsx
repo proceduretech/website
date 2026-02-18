@@ -167,12 +167,8 @@ export default function RootLayout({
         sameAs: "https://www.linkedin.com/in/ulhasmandrawadkar",
       },
     ],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "32",
-      bestRating: "5",
-    },
+    // NOTE: aggregateRating moved to app/page.tsx (homepage only) to avoid
+    // it appearing on blog/article pages where it's inappropriate.
     knowsAbout: [
       "Artificial Intelligence",
       "Machine Learning",
