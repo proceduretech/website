@@ -1173,7 +1173,10 @@ html:not(.dark) .hero-grid-pattern {
   opacity: 0.06;
 }
 
-/* Hero fade-in animations - CSS-based for server-rendered content */
+/* Hero fade-in animations - CSS-based for server-rendered content.
+   IMPORTANT: No opacity:0 initial state. Setting opacity:0 in CSS delays LCP
+   because the browser won't count invisible elements as Largest Contentful Paint.
+   The keyframes handle the full transition from 0→1 without needing an initial state. */
 @keyframes heroFadeIn {
   from {
     opacity: 0;
@@ -1186,9 +1189,7 @@ html:not(.dark) .hero-grid-pattern {
 }
 
 .hero-fade-in {
-  animation: heroFadeIn 0.4s ease-out forwards;
-  animation-delay: 0.1s;
-  opacity: 0;
+  animation: heroFadeIn 0.4s ease-out 0.1s both;
 }
 
 .hero-fade-in-delay {
@@ -1202,8 +1203,7 @@ html:not(.dark) .hero-grid-pattern {
 }
 
 .hero-glow-fade {
-  animation: glowFadeIn 1.2s ease-out forwards;
-  opacity: 0;
+  animation: glowFadeIn 1.2s ease-out both;
 }
 
 /* Stats slide-up animation */
@@ -1219,13 +1219,11 @@ html:not(.dark) .hero-grid-pattern {
 }
 
 .hero-stats-container {
-  animation: heroSlideUp 0.4s ease-out 0.15s forwards;
-  opacity: 0;
+  animation: heroSlideUp 0.4s ease-out 0.15s both;
 }
 
 .hero-stat-item {
-  animation: heroSlideUp 0.3s ease-out forwards;
-  opacity: 0;
+  animation: heroSlideUp 0.3s ease-out both;
 }
 
 .hero-stat-item:nth-child(1) { animation-delay: 0.15s; }
@@ -1234,8 +1232,7 @@ html:not(.dark) .hero-grid-pattern {
 
 /* Children content fade-in */
 .hero-children-fade {
-  animation: heroFadeIn 0.5s ease-out 0.25s forwards;
-  opacity: 0;
+  animation: heroFadeIn 0.5s ease-out 0.25s both;
 }
 
 /* Hover state overrides for navigation */
