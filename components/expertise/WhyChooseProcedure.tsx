@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface Outcome {
@@ -58,7 +58,7 @@ export function WhyChooseProcedure({
     <section className="py-16 sm:py-24 bg-surface">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -73,22 +73,22 @@ export function WhyChooseProcedure({
               {subtitle}
             </p>
           )}
-        </motion.div>
+        </m.div>
 
         {/* Outcomes - prominent 3-column showcase */}
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
           variants={sectionVariants}
           className="mb-14 sm:mb-20"
         >
-          <motion.h3
+          <m.h3
             variants={reasonVariants}
             className="font-outfit text-sm font-semibold uppercase tracking-widest text-accent-light mb-8 text-center"
           >
             {outcomesTitle}
-          </motion.h3>
+          </m.h3>
 
           <div
             className={cn(
@@ -103,7 +103,7 @@ export function WhyChooseProcedure({
             )}
           >
             {outcomes.map((outcome, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 variants={outcomeCardVariants}
                 className={cn(
@@ -130,10 +130,10 @@ export function WhyChooseProcedure({
                     {outcome.label}
                   </span>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Divider */}
         <div className="flex items-center gap-4 mb-14 sm:mb-20 max-w-4xl mx-auto">
@@ -143,23 +143,23 @@ export function WhyChooseProcedure({
         </div>
 
         {/* Reasons */}
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
           variants={sectionVariants}
           className="max-w-4xl mx-auto"
         >
-          <motion.h3
+          <m.h3
             variants={reasonVariants}
             className="font-outfit text-sm font-semibold uppercase tracking-widest text-text-muted mb-8 text-center"
           >
             {reasonsTitle}
-          </motion.h3>
+          </m.h3>
 
           <div className="grid sm:grid-cols-2 gap-4">
             {reasons.map((reason, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 variants={reasonVariants}
                 className={cn(
@@ -196,10 +196,10 @@ export function WhyChooseProcedure({
                 <span className="text-sm sm:text-[0.9375rem] text-text-secondary leading-relaxed">
                   {reason}
                 </span>
-              </motion.div>
+              </m.div>
             ))}
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

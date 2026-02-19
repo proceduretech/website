@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import Link from "next/link";
 
 interface RelatedPage {
@@ -43,7 +43,7 @@ export function RelatedExpertise({
   return (
     <section className="py-16 sm:py-24 bg-surface">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -53,9 +53,9 @@ export function RelatedExpertise({
           <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-text-primary">
             {title}
           </h2>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
@@ -63,7 +63,7 @@ export function RelatedExpertise({
           className="grid md:grid-cols-3 gap-6"
         >
           {pages.map((page) => (
-            <motion.div key={page.slug} variants={cardVariants}>
+            <m.div key={page.slug} variants={cardVariants}>
               <Link
                 href={page.href || `/services/${page.slug}`}
                 className="block p-6 rounded-xl h-full bg-surface-elevated border border-border hover:border-accent/30 group transition-colors"
@@ -99,9 +99,9 @@ export function RelatedExpertise({
                   </svg>
                 </div>
               </Link>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

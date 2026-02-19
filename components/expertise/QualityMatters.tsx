@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 
@@ -65,7 +65,7 @@ export function QualityMatters({
     <section className="py-16 sm:py-24 bg-base">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -80,17 +80,17 @@ export function QualityMatters({
               {subtitle}
             </p>
           )}
-        </motion.div>
+        </m.div>
 
         {/* Costs section -- the pain points */}
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
           variants={sectionVariants}
           className="mb-12 sm:mb-16"
         >
-          <motion.div
+          <m.div
             variants={itemVariants}
             className="flex items-center gap-3 mb-8"
           >
@@ -118,11 +118,11 @@ export function QualityMatters({
             <h3 className="font-outfit text-sm font-semibold uppercase tracking-widest text-text-muted">
               {costsTitle}
             </h3>
-          </motion.div>
+          </m.div>
 
           <div className="grid sm:grid-cols-2 gap-4">
             {costs.map((cost, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 variants={itemVariants}
                 className={cn(
@@ -167,13 +167,13 @@ export function QualityMatters({
                     {cost.description}
                   </p>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Transition divider -- problem to solution */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -197,16 +197,16 @@ export function QualityMatters({
             </svg>
           </div>
           <div className="flex-1 h-px bg-border" />
-        </motion.div>
+        </m.div>
 
         {/* Benefits section -- the resolution */}
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
           variants={sectionVariants}
         >
-          <motion.div
+          <m.div
             variants={benefitVariants}
             className="flex items-center gap-3 mb-8"
           >
@@ -234,11 +234,11 @@ export function QualityMatters({
             <h3 className="font-outfit text-sm font-semibold uppercase tracking-widest text-accent-light">
               {benefitsTitle}
             </h3>
-          </motion.div>
+          </m.div>
 
           <div className="grid sm:grid-cols-2 gap-4">
             {benefits.map((benefit, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 variants={benefitVariants}
                 className={cn(
@@ -289,10 +289,10 @@ export function QualityMatters({
                     {benefit.title}
                   </span>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

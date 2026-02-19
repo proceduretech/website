@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
@@ -58,7 +58,7 @@ export function UseCasesGrid({
     <section className="py-16 sm:py-24 bg-base">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -73,7 +73,7 @@ export function UseCasesGrid({
               {subtitle}
             </p>
           )}
-        </motion.div>
+        </m.div>
 
         {/* Numbered list layout -- no cards, divider-based */}
         <div
@@ -85,7 +85,7 @@ export function UseCasesGrid({
           )}
         >
           {columnGroups.map((group, colIndex) => (
-            <motion.div
+            <m.div
               key={colIndex}
               initial="hidden"
               whileInView="visible"
@@ -102,7 +102,7 @@ export function UseCasesGrid({
                 const number = String(globalIndex + 1).padStart(2, "0");
 
                 return (
-                  <motion.div
+                  <m.div
                     key={globalIndex}
                     variants={itemVariants}
                     className="group"
@@ -139,10 +139,10 @@ export function UseCasesGrid({
 
                     {/* Divider line */}
                     <div className="h-px bg-border" />
-                  </motion.div>
+                  </m.div>
                 );
               })}
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface PhilosophyBlock {
@@ -23,7 +23,7 @@ export function PhilosophySection({
     <section className="py-16 sm:py-24 bg-base">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -38,12 +38,12 @@ export function PhilosophySection({
               {subtitle}
             </p>
           )}
-        </motion.div>
+        </m.div>
 
         {/* Philosophy blocks */}
         <div className="space-y-10">
           {blocks.map((block, index) => (
-            <motion.div
+            <m.div
               key={index}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -56,7 +56,7 @@ export function PhilosophySection({
               <p className="text-text-secondary leading-relaxed">
                 {block.description}
               </p>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>

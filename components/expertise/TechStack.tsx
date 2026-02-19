@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { TechIcon, hasTechIcon } from "@/lib/tech-icons";
 
 interface Technology {
@@ -53,7 +53,7 @@ export function TechStack({
     <section className="py-16 sm:py-24 bg-surface">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -66,11 +66,11 @@ export function TechStack({
           {subtitle && (
             <p className="text-text-secondary max-w-2xl mx-auto">{subtitle}</p>
           )}
-        </motion.div>
+        </m.div>
 
         {/* Grouped chips variant */}
         {variant === "grouped" && groups && (
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
@@ -79,7 +79,7 @@ export function TechStack({
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
               {groups.map((group, index) => (
-                <motion.div
+                <m.div
                   key={index}
                   variants={itemVariants}
                   className="relative p-5 sm:p-6 rounded-2xl bg-surface-elevated/80 border border-border hover:border-accent/20 transition-all duration-300 group"
@@ -106,15 +106,15 @@ export function TechStack({
                       ))}
                     </div>
                   </div>
-                </motion.div>
+                </m.div>
               ))}
             </div>
-          </motion.div>
+          </m.div>
         )}
 
         {/* Tech grid (default) */}
         {variant === "grid" && technologies && technologies.length > 0 && (
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
@@ -122,7 +122,7 @@ export function TechStack({
             className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3"
           >
             {technologies.map((tech, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 variants={itemVariants}
                 className="flex flex-col items-center gap-2 p-4 rounded-xl bg-surface-elevated border border-border hover:border-accent/30 transition-colors"
@@ -148,9 +148,9 @@ export function TechStack({
                 <span className="text-xs text-center font-medium text-text-muted">
                   {tech.name}
                 </span>
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
+          </m.div>
         )}
       </div>
     </section>

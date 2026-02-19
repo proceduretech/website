@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 interface Testimonial {
   name: string;
@@ -20,7 +20,7 @@ export function TestimonialsSection({
     <section className="relative py-16 sm:py-24 bg-base overflow-hidden">
       <div className="relative max-w-6xl mx-auto px-6 sm:px-8">
         {/* Section header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -33,12 +33,12 @@ export function TestimonialsSection({
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary">
             Hear Directly From Our Clients
           </h2>
-        </motion.div>
+        </m.div>
 
         {/* Testimonials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {testimonials.map((testimonial, index) => (
-            <motion.div
+            <m.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -74,7 +74,7 @@ export function TestimonialsSection({
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>

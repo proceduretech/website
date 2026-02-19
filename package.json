@@ -19,7 +19,7 @@
   "browserslist": [
     "chrome >= 109",
     "firefox >= 115",
-    "safari >= 16.4",
+    "safari >= 17",
     "edge >= 109",
     "not dead",
     "not op_mini all",

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
@@ -45,7 +45,7 @@ export function CapabilitiesGrid({
     <section className="py-16 sm:py-24 bg-surface">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -60,10 +60,10 @@ export function CapabilitiesGrid({
               {subtitle}
             </p>
           )}
-        </motion.div>
+        </m.div>
 
         {/* Capabilities grid */}
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -75,7 +75,7 @@ export function CapabilitiesGrid({
           )}
         >
           {capabilities.map((capability, index) => (
-            <motion.div
+            <m.div
               key={index}
               variants={cardVariants}
               className="group p-6 rounded-xl bg-surface-elevated border border-border hover:border-accent/30 transition-colors"
@@ -94,9 +94,9 @@ export function CapabilitiesGrid({
               <p className="text-text-secondary leading-relaxed">
                 {capability.description}
               </p>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui";
 
@@ -29,7 +29,7 @@ export function ExpertiseCTA({
       <div className="absolute top-0 left-0 right-0 h-px bg-border" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -116,7 +116,7 @@ export function ExpertiseCTA({
               Talk with engineers, not sales
             </div>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );
