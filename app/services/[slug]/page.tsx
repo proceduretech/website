@@ -10,6 +10,7 @@ import {
 import { JsonLd } from "@/components/seo";
 import ServicePageClient from "./ServicePageClient";
 import ExpertisePageClient from "./ExpertisePageClient";
+import { ExpertisePageHero } from "./ExpertisePageHero";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -232,7 +233,11 @@ export default async function ServicePage({ params }: Props) {
         {schemas.map((schema, index) => (
           <JsonLd key={index} data={schema} />
         ))}
-        <ExpertisePageClient expertise={expertise} relatedPages={relatedPages} />
+        <ExpertisePageClient
+          expertise={expertise}
+          relatedPages={relatedPages}
+          heroSlot={<ExpertisePageHero expertise={expertise} />}
+        />
       </>
     );
   }
