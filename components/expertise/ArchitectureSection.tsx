@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
@@ -48,7 +48,7 @@ export function ArchitectureSection({
     <section className="py-16 sm:py-24 bg-base">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -63,12 +63,12 @@ export function ArchitectureSection({
               {subtitle}
             </p>
           )}
-        </motion.div>
+        </m.div>
 
         {/* Two-column layout */}
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-start">
           {/* Left side - Diagram */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -134,10 +134,10 @@ export function ArchitectureSection({
                 </p>
               </div>
             )}
-          </motion.div>
+          </m.div>
 
           {/* Right side - Layer descriptions */}
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -145,7 +145,7 @@ export function ArchitectureSection({
             className="space-y-4"
           >
             {layers.map((layer, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 variants={itemVariants}
                 className={cn(
@@ -176,9 +176,9 @@ export function ArchitectureSection({
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>

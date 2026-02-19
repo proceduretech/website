@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui";
 import { cn } from "@/lib/utils";
@@ -37,7 +37,7 @@ export function ExpertiseCTAWithTestimonial({
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left side - CTA */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -75,10 +75,10 @@ export function ExpertiseCTAWithTestimonial({
                 {supportingNote}
               </p>
             )}
-          </motion.div>
+          </m.div>
 
           {/* Right side - Testimonial */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -140,7 +140,7 @@ export function ExpertiseCTAWithTestimonial({
                 </div>
               </footer>
             </blockquote>
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>

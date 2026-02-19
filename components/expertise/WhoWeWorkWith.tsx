@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { ReactNode, useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -65,7 +65,7 @@ export function WhoWeWorkWith({
     <section className="py-16 sm:py-24 bg-base">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -80,11 +80,11 @@ export function WhoWeWorkWith({
               {subtitle}
             </p>
           )}
-        </motion.div>
+        </m.div>
 
         {/* Tabs variant */}
         {variant === "tabs" && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -117,7 +117,7 @@ export function WhoWeWorkWith({
               )}
             >
               <AnimatePresence mode="wait">
-                <motion.div
+                <m.div
                   key={activeTab}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -142,15 +142,15 @@ export function WhoWeWorkWith({
                       ))}
                     </ul>
                   )}
-                </motion.div>
+                </m.div>
               </AnimatePresence>
             </div>
-          </motion.div>
+          </m.div>
         )}
 
         {/* Cards variant (original) */}
         {variant === "cards" && (
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -163,7 +163,7 @@ export function WhoWeWorkWith({
             )}
           >
             {audiences.map((audience, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 variants={cardVariants}
                 className={cn(
@@ -212,14 +212,14 @@ export function WhoWeWorkWith({
                     </p>
                   ) : null}
                 </div>
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
+          </m.div>
         )}
 
         {/* Common Applications - structured card grid */}
         {commonApplications && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -260,12 +260,12 @@ export function WhoWeWorkWith({
                 })}
               </div>
             </div>
-          </motion.div>
+          </m.div>
         )}
 
         {/* Legacy closing statement (fallback) */}
         {closingStatement && !commonApplications && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -283,7 +283,7 @@ export function WhoWeWorkWith({
                 {closingStatement}
               </p>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </div>
     </section>

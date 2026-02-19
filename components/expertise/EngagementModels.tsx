@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface EngagementModel {
@@ -44,7 +44,7 @@ export function EngagementModels({
     <section className="py-16 sm:py-24 bg-surface">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -59,10 +59,10 @@ export function EngagementModels({
               {subtitle}
             </p>
           )}
-        </motion.div>
+        </m.div>
 
         {/* Horizontal comparison layout -- no cards, column-based with vertical dividers */}
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -86,7 +86,7 @@ export function EngagementModels({
               const isLast = index === models.length - 1;
 
               return (
-                <motion.div
+                <m.div
                   key={index}
                   variants={columnVariants}
                   className={cn(
@@ -127,11 +127,11 @@ export function EngagementModels({
                       </p>
                     </div>
                   </div>
-                </motion.div>
+                </m.div>
               );
             })}
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

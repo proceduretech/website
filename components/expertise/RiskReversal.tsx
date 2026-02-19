@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface RiskReversalItem {
@@ -53,7 +53,7 @@ export function RiskReversal({
       <section className="py-16 sm:py-24 bg-surface">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section header */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -68,12 +68,12 @@ export function RiskReversal({
                 {subtitle}
               </p>
             )}
-          </motion.div>
+          </m.div>
 
           {/* Split layout */}
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
             {/* Left side - Trigger statements (editorial) */}
-            <motion.div
+            <m.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -84,7 +84,7 @@ export function RiskReversal({
                 When teams reach out
               </p>
               {leftTriggers.map((trigger, index) => (
-                <motion.div
+                <m.div
                   key={index}
                   variants={itemVariants}
                   className="flex items-start gap-3"
@@ -93,12 +93,12 @@ export function RiskReversal({
                   <p className="text-text-secondary leading-relaxed">
                     {trigger}
                   </p>
-                </motion.div>
+                </m.div>
               ))}
-            </motion.div>
+            </m.div>
 
             {/* Right side - Risk reduction blocks (compact) */}
-            <motion.div
+            <m.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -109,7 +109,7 @@ export function RiskReversal({
                 How we reduce risk
               </p>
               {rightBlocks.map((block, index) => (
-                <motion.div
+                <m.div
                   key={index}
                   variants={itemVariants}
                   className="flex items-start gap-3"
@@ -124,14 +124,14 @@ export function RiskReversal({
                       {block.description}
                     </span>
                   </div>
-                </motion.div>
+                </m.div>
               ))}
-            </motion.div>
+            </m.div>
           </div>
 
           {/* Closing note */}
           {closingNote && (
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -141,7 +141,7 @@ export function RiskReversal({
               <p className="text-text-secondary text-sm sm:text-base max-w-3xl mx-auto">
                 {closingNote}
               </p>
-            </motion.div>
+            </m.div>
           )}
         </div>
       </section>
@@ -153,7 +153,7 @@ export function RiskReversal({
     <section className="py-16 sm:py-24 bg-base">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -168,10 +168,10 @@ export function RiskReversal({
               {subtitle}
             </p>
           )}
-        </motion.div>
+        </m.div>
 
         {/* Items grid */}
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -179,7 +179,7 @@ export function RiskReversal({
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {items.map((item, index) => (
-            <motion.div
+            <m.div
               key={index}
               variants={itemVariants}
               className={cn(
@@ -224,13 +224,13 @@ export function RiskReversal({
                   {item.description}
                 </p>
               </div>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
 
         {/* Closing note */}
         {closingNote && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -247,7 +247,7 @@ export function RiskReversal({
                 {closingNote}
               </p>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </div>
     </section>
