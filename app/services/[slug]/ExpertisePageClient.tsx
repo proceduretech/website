@@ -2,27 +2,28 @@
 
 import type { ExpertisePageForListing } from "@/lib/content";
 import { Icons } from "@/lib/expertise-data";
-import {
-  ExpertiseHero,
-  CapabilitiesGrid,
-  WhyProcedure,
-  TechStack,
-  FAQSection,
-  RelatedExpertise,
-  WhoWeWorkWith,
-  ProcessTimeline,
-  UseCasesGrid,
-  WhyChooseProcedure,
-  QualityMatters,
-  ArchitectureSection,
-  EngagementModels,
-  RiskReversal,
-  PhilosophySection,
-} from "@/components/expertise";
-import { Testimonials } from "@/components/sections/Testimonials";
-import { Stats } from "@/components/sections/Stats";
-import { CalInline } from "@/components/CalInline";
-import { motion } from "framer-motion";
+import { ExpertiseHero } from "@/components/expertise";
+import dynamic from "next/dynamic";
+import { LazyMotion, domAnimation, m } from "framer-motion";
+
+// Dynamic import below-fold sections — defers JS hydration for faster LCP
+const CapabilitiesGrid = dynamic(() => import("@/components/expertise/CapabilitiesGrid").then(mod => ({ default: mod.CapabilitiesGrid })));
+const WhyProcedure = dynamic(() => import("@/components/expertise/WhyProcedure").then(mod => ({ default: mod.WhyProcedure })));
+const TechStack = dynamic(() => import("@/components/expertise/TechStack").then(mod => ({ default: mod.TechStack })));
+const FAQSection = dynamic(() => import("@/components/expertise/FAQSection").then(mod => ({ default: mod.FAQSection })));
+const RelatedExpertise = dynamic(() => import("@/components/expertise/RelatedExpertise").then(mod => ({ default: mod.RelatedExpertise })));
+const WhoWeWorkWith = dynamic(() => import("@/components/expertise/WhoWeWorkWith").then(mod => ({ default: mod.WhoWeWorkWith })));
+const ProcessTimeline = dynamic(() => import("@/components/expertise/ProcessTimeline").then(mod => ({ default: mod.ProcessTimeline })));
+const UseCasesGrid = dynamic(() => import("@/components/expertise/UseCasesGrid").then(mod => ({ default: mod.UseCasesGrid })));
+const WhyChooseProcedure = dynamic(() => import("@/components/expertise/WhyChooseProcedure").then(mod => ({ default: mod.WhyChooseProcedure })));
+const QualityMatters = dynamic(() => import("@/components/expertise/QualityMatters").then(mod => ({ default: mod.QualityMatters })));
+const ArchitectureSection = dynamic(() => import("@/components/expertise/ArchitectureSection").then(mod => ({ default: mod.ArchitectureSection })));
+const EngagementModels = dynamic(() => import("@/components/expertise/EngagementModels").then(mod => ({ default: mod.EngagementModels })));
+const RiskReversal = dynamic(() => import("@/components/expertise/RiskReversal").then(mod => ({ default: mod.RiskReversal })));
+const PhilosophySection = dynamic(() => import("@/components/expertise/PhilosophySection").then(mod => ({ default: mod.PhilosophySection })));
+const Testimonials = dynamic(() => import("@/components/sections/Testimonials").then(mod => ({ default: mod.Testimonials })));
+const Stats = dynamic(() => import("@/components/sections/Stats").then(mod => ({ default: mod.Stats })));
+const CalInline = dynamic(() => import("@/components/CalInline").then(mod => ({ default: mod.CalInline })));
 
 interface RelatedPage {
   slug: string;
@@ -301,6 +302,7 @@ export default function ExpertisePageClient({
   };
 
   return (
+    <LazyMotion features={domAnimation}>
     <main className="min-h-screen">
       {/* Combined JSON-LD Structured Data (Service + FAQ + Breadcrumb) */}
       <script
@@ -770,7 +772,7 @@ export default function ExpertisePageClient({
       {expertise.slug === "prometheus-monitoring" && (
         <section id="why-prometheus" className="relative py-16 sm:py-24 bg-surface">
           <div className="max-w-5xl mx-auto px-4 sm:px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -780,7 +782,7 @@ export default function ExpertisePageClient({
               <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-4">
                 Why Engineering Teams Choose <span className="text-highlight">Prometheus</span>
               </h2>
-            </motion.div>
+            </m.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
@@ -821,7 +823,7 @@ export default function ExpertisePageClient({
                   description: "First major version in seven years (late 2024). Native Histograms, new UI, OpenTelemetry ingestion, Remote Write 2.0. If you evaluated Prometheus before and passed, it's worth looking again.",
                 },
               ].map((card, idx) => (
-                <motion.div
+                <m.div
                   key={idx}
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -834,7 +836,7 @@ export default function ExpertisePageClient({
                   </div>
                   <h3 className="text-lg font-semibold text-text-primary mb-2">{card.title}</h3>
                   <p className="text-sm text-text-secondary leading-relaxed">{card.description}</p>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -845,7 +847,7 @@ export default function ExpertisePageClient({
       {expertise.slug === "prometheus-monitoring" && (
         <section id="fit" className="relative py-16 sm:py-24 bg-base">
           <div className="max-w-5xl mx-auto px-4 sm:px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -855,11 +857,11 @@ export default function ExpertisePageClient({
               <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-4">
                 Should You Use Prometheus? <span className="text-highlight">An Honest Assessment</span>
               </h2>
-            </motion.div>
+            </m.div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
               {/* Good fit */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, x: -16 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -891,10 +893,10 @@ export default function ExpertisePageClient({
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </m.div>
 
               {/* Consider alternatives */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, x: 16 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -925,11 +927,11 @@ export default function ExpertisePageClient({
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </m.div>
             </div>
 
             {/* Hybrid approach */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -940,7 +942,7 @@ export default function ExpertisePageClient({
               <p className="text-sm text-text-secondary max-w-3xl mx-auto leading-relaxed">
                 Use Prometheus for infrastructure and Kubernetes metrics where volume is highest. Keep a commercial tool for APM/tracing if needed. Use Grafana as the unified dashboard layer across both.
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       )}
@@ -949,7 +951,7 @@ export default function ExpertisePageClient({
       {expertise.slug === "istio-consulting" && (
         <section id="why-istio" className="relative py-16 sm:py-24 bg-surface">
           <div className="max-w-5xl mx-auto px-4 sm:px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -959,7 +961,7 @@ export default function ExpertisePageClient({
               <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-4">
                 Why Engineering Teams Adopt <span className="text-highlight">Istio Service Mesh</span>
               </h2>
-            </motion.div>
+            </m.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
@@ -1000,7 +1002,7 @@ export default function ExpertisePageClient({
                   description: "Istio graduated from the Cloud Native Computing Foundation in July 2023. Same governance tier as Kubernetes and Prometheus. The ecosystem, tooling, and long-term community support are unmatched by alternatives.",
                 },
               ].map((card, idx) => (
-                <motion.div
+                <m.div
                   key={idx}
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -1013,7 +1015,7 @@ export default function ExpertisePageClient({
                   </div>
                   <h3 className="text-lg font-semibold text-text-primary mb-2">{card.title}</h3>
                   <p className="text-sm text-text-secondary leading-relaxed">{card.description}</p>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -1024,7 +1026,7 @@ export default function ExpertisePageClient({
       {expertise.slug === "istio-consulting" && (
         <section id="fit" className="relative py-16 sm:py-24 bg-base">
           <div className="max-w-5xl mx-auto px-4 sm:px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1034,11 +1036,11 @@ export default function ExpertisePageClient({
               <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-4">
                 Do You Actually Need a <span className="text-highlight">Service Mesh?</span>
               </h2>
-            </motion.div>
+            </m.div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
               {/* Good fit */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, x: -16 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -1070,10 +1072,10 @@ export default function ExpertisePageClient({
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </m.div>
 
               {/* Don't need */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, x: 16 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -1104,11 +1106,11 @@ export default function ExpertisePageClient({
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </m.div>
             </div>
 
             {/* The incremental approach */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1119,7 +1121,7 @@ export default function ExpertisePageClient({
               <p className="text-sm text-text-secondary max-w-3xl mx-auto leading-relaxed">
                 Start with ambient mode for L4 mTLS and identity. No sidecars, minimal overhead. Add L7 waypoint proxies only for namespaces that need traffic management or rich authorization. You don&apos;t have to mesh everything on day one.
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       )}
@@ -1128,7 +1130,7 @@ export default function ExpertisePageClient({
       {expertise.slug === "dotnet" && (
         <section id="specialized-services" className="relative py-16 sm:py-24 bg-surface">
           <div className="max-w-5xl mx-auto px-4 sm:px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1141,7 +1143,7 @@ export default function ExpertisePageClient({
               <p className="text-text-secondary max-w-2xl mx-auto">
                 Deep-dive services for teams with specific .NET challenges.
               </p>
-            </motion.div>
+            </m.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
@@ -1158,7 +1160,7 @@ export default function ExpertisePageClient({
                   label: "Learn about .NET staff augmentation",
                 },
               ].map((service, i) => (
-                <motion.a
+                <m.a
                   key={i}
                   href={service.href}
                   initial={{ opacity: 0, y: 20 }}
@@ -1177,7 +1179,7 @@ export default function ExpertisePageClient({
                       <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </span>
-                </motion.a>
+                </m.a>
               ))}
             </div>
           </div>
@@ -1188,7 +1190,7 @@ export default function ExpertisePageClient({
       {expertise.slug === "dotnet" && (
         <section id="industries" className="relative py-16 sm:py-24 bg-base">
           <div className="max-w-5xl mx-auto px-4 sm:px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1201,7 +1203,7 @@ export default function ExpertisePageClient({
               <p className="text-text-secondary max-w-2xl mx-auto">
                 Domain expertise that accelerates delivery and reduces risk.
               </p>
-            </motion.div>
+            </m.div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {[
@@ -1226,7 +1228,7 @@ export default function ExpertisePageClient({
                   href: "/industries/education",
                 },
               ].map((industry, i) => (
-                <motion.a
+                <m.a
                   key={i}
                   href={industry.href}
                   initial={{ opacity: 0, y: 20 }}
@@ -1239,7 +1241,7 @@ export default function ExpertisePageClient({
                     {industry.title}
                   </h3>
                   <p className="text-sm text-text-secondary">{industry.description}</p>
-                </motion.a>
+                </m.a>
               ))}
             </div>
           </div>
@@ -1250,7 +1252,7 @@ export default function ExpertisePageClient({
       {expertise.slug === "nodejs" && (
         <section id="fit" className="relative py-16 sm:py-24 bg-base">
           <div className="max-w-5xl mx-auto px-4 sm:px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1261,7 +1263,7 @@ export default function ExpertisePageClient({
                 Is Node.js Right for Your <span className="text-highlight">Backend?</span>
               </h2>
               <p className="text-text-secondary">The right tool for the job, not the trendy one.</p>
-            </motion.div>
+            </m.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
               {[
@@ -1270,7 +1272,7 @@ export default function ExpertisePageClient({
                 { need: "Microservices architecture", fit: "Lightweight runtime with fast cold starts and a small memory footprint per service" },
                 { need: "Full-stack JavaScript teams", fit: "Same language across frontend and backend. Shared types with TypeScript. Fewer context switches, faster cycles." },
               ].map((row, i) => (
-                <motion.div
+                <m.div
                   key={i}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -1280,11 +1282,11 @@ export default function ExpertisePageClient({
                 >
                   <p className="font-semibold text-text-primary mb-2">{row.need}</p>
                   <p className="text-sm text-text-secondary">{row.fit}</p>
-                </motion.div>
+                </m.div>
               ))}
             </div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1307,7 +1309,7 @@ export default function ExpertisePageClient({
                   We&apos;ve recommended Python and Go over Node.js when the workload demanded it.
                 </p>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       )}
@@ -1316,7 +1318,7 @@ export default function ExpertisePageClient({
       {expertise.slug === "react" && (
         <section id="decision" className="relative py-16 sm:py-24 bg-base">
           <div className="max-w-5xl mx-auto px-4 sm:px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1327,7 +1329,7 @@ export default function ExpertisePageClient({
                 Is React Right for Your <span className="text-highlight">Project?</span>
               </h2>
               <p className="text-text-secondary">The most popular frontend library isn&apos;t always the right one.</p>
-            </motion.div>
+            </m.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
               {[
@@ -1336,7 +1338,7 @@ export default function ExpertisePageClient({
                 { need: "Your team knows JavaScript/TypeScript", fit: "React has the largest talent pool in frontend. 44.7% of developers use it (Stack Overflow 2025). Hiring is easier, onboarding is faster, and the community support is unmatched." },
                 { need: "SPAs where SEO isn't the primary concern", fit: "Internal tools, authenticated dashboards, B2B platforms where users log in first. React with Vite gives you fast builds and a simple mental model without SSR complexity." },
               ].map((row, i) => (
-                <motion.div
+                <m.div
                   key={i}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -1346,11 +1348,11 @@ export default function ExpertisePageClient({
                 >
                   <p className="font-semibold text-text-primary mb-2">{row.need}</p>
                   <p className="text-sm text-text-secondary">{row.fit}</p>
-                </motion.div>
+                </m.div>
               ))}
             </div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1359,7 +1361,7 @@ export default function ExpertisePageClient({
               <p className="text-sm text-text-muted mb-6 max-w-3xl mx-auto text-center">
                 If SEO and page speed are your top priority, <a href="/technologies/nextjs/" className="text-accent hover:text-accent-light">Next.js</a> gives you server-side rendering, static generation, and edge functions built on React. For structured enterprise apps with strict conventions, <a href="/technologies/angular/" className="text-accent hover:text-accent-light">Angular</a> provides routing, forms, and dependency injection out of the box. Need a lightweight backend to pair with React? <a href="/technologies/nodejs/" className="text-accent hover:text-accent-light">Node.js</a> or <a href="/technologies/python/" className="text-accent hover:text-accent-light">Python</a> depending on your workload. Not sure? That&apos;s what our <a href="#book-call" className="text-accent hover:text-accent-light">architecture consultation</a> is for.
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       )}
@@ -1368,7 +1370,7 @@ export default function ExpertisePageClient({
       {expertise.slug === "python" && (
         <section id="decision" className="relative py-16 sm:py-24 bg-base">
           <div className="max-w-5xl mx-auto px-4 sm:px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1379,7 +1381,7 @@ export default function ExpertisePageClient({
                 Is Python Right for Your <span className="text-highlight">Backend?</span>
               </h2>
               <p className="text-text-secondary">The right tool for the job. Not the trendy one.</p>
-            </motion.div>
+            </m.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
               {[
@@ -1388,7 +1390,7 @@ export default function ExpertisePageClient({
                 { need: "APIs serving high concurrency (with FastAPI)", fit: "FastAPI handles 20,000+ requests/second on Uvicorn. Native async, automatic OpenAPI docs, Pydantic validation. Built for the workloads Django wasn't designed for." },
                 { need: "Full-stack web apps with complex business logic", fit: "Django gives you ORM, auth, admin panel, and security middleware out of the box. Instagram, Spotify, and Dropbox run on it. Proven at scale." },
               ].map((row, i) => (
-                <motion.div
+                <m.div
                   key={i}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -1398,11 +1400,11 @@ export default function ExpertisePageClient({
                 >
                   <p className="font-semibold text-text-primary mb-2">{row.need}</p>
                   <p className="text-sm text-text-secondary">{row.fit}</p>
-                </motion.div>
+                </m.div>
               ))}
             </div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1411,7 +1413,7 @@ export default function ExpertisePageClient({
               <p className="text-sm text-text-muted mb-6 max-w-3xl mx-auto text-center">
                 Need raw API throughput without the Python ecosystem? <a href="/technologies/nodejs/" className="text-accent hover:text-accent-light">Node.js</a> with NestJS or Fastify handles I/O-bound workloads with a lighter runtime. Building a frontend-heavy application where the backend is thin? <a href="/technologies/nextjs/" className="text-accent hover:text-accent-light">Next.js</a> API routes might be all you need. CPU-intensive work like video encoding or real-time game servers? Go or Rust will outperform Python. Not sure? That&apos;s what our <a href="#book-call" className="text-accent hover:text-accent-light">architecture consultation</a> is for.
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       )}
@@ -1420,7 +1422,7 @@ export default function ExpertisePageClient({
       {expertise.slug === "angular" && (
         <section id="decision" className="relative py-16 sm:py-24 bg-base">
           <div className="max-w-5xl mx-auto px-4 sm:px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1431,7 +1433,7 @@ export default function ExpertisePageClient({
                 Is Angular Right for Your <span className="text-highlight">Project?</span>
               </h2>
               <p className="text-text-secondary">The right framework for the job. Not the trending one.</p>
-            </motion.div>
+            </m.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
               {[
@@ -1440,7 +1442,7 @@ export default function ExpertisePageClient({
                 { situation: "Data-heavy dashboards and admin panels", fit: "Built-in forms, validation, HTTP client, and RxJS for real-time data streams. No need to stitch together 8 different libraries." },
                 { situation: "Applications requiring strict security and compliance", fit: "Angular's built-in XSS protection, CSP support, and structured architecture make security audits straightforward. Banks and government agencies choose Angular for a reason." },
               ].map((row, i) => (
-                <motion.div
+                <m.div
                   key={i}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -1450,11 +1452,11 @@ export default function ExpertisePageClient({
                 >
                   <p className="font-semibold text-text-primary mb-2">{row.situation}</p>
                   <p className="text-sm text-text-secondary">{row.fit}</p>
-                </motion.div>
+                </m.div>
               ))}
             </div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1463,7 +1465,7 @@ export default function ExpertisePageClient({
               <p className="text-sm text-text-muted mb-6 max-w-3xl mx-auto">
                 Building a content-heavy marketing site? <a href="/technologies/nextjs" className="text-accent hover:text-accent-light transition-colors">Next.js</a> is likely a better fit. Need a lightweight, flexible UI for a smaller team? React with Vite gives you more freedom with less structure. Internal tool with simple CRUD? React or even a low-code solution might be faster. Not sure? That&apos;s what our <a href="#book-call" className="text-accent hover:text-accent-light transition-colors">architecture consultation</a> is for - we&apos;ve recommended against Angular when it wasn&apos;t the right call.
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       )}
@@ -1472,7 +1474,7 @@ export default function ExpertisePageClient({
       {expertise.slug === "flutter" && (
         <section id="fit" className="relative py-16 sm:py-24 bg-base">
           <div className="max-w-5xl mx-auto px-4 sm:px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1483,7 +1485,7 @@ export default function ExpertisePageClient({
                 When Flutter <span className="text-highlight">Makes Sense</span>
               </h2>
               <p className="text-text-secondary">The right framework for the job, not the trendy one.</p>
-            </motion.div>
+            </m.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
               {[
@@ -1492,7 +1494,7 @@ export default function ExpertisePageClient({
                 { need: "Custom UI and animation-heavy experiences", fit: "Flutter's own rendering engine (Impeller, built on Vulkan/Metal) means you're not limited by platform UI components. If you can design it, Flutter can render it at 60fps." },
                 { need: "MVP validation on both platforms fast", fit: "Hot Reload lets developers see changes instantly without restarting the app. Validate on iOS and Android in 8-12 weeks, not 16-24 with two native teams." },
               ].map((row, i) => (
-                <motion.div
+                <m.div
                   key={i}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -1502,11 +1504,11 @@ export default function ExpertisePageClient({
                 >
                   <p className="font-semibold text-text-primary mb-2">{row.need}</p>
                   <p className="text-sm text-text-secondary">{row.fit}</p>
-                </motion.div>
+                </m.div>
               ))}
             </div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1526,7 +1528,7 @@ export default function ExpertisePageClient({
                   </svg>
                 </a>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       )}
@@ -1535,7 +1537,7 @@ export default function ExpertisePageClient({
       {expertise.slug === "react" && (
         <section id="react-vs-nextjs" className="relative py-16 sm:py-24 bg-surface">
           <div className="max-w-5xl mx-auto px-4 sm:px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1546,7 +1548,7 @@ export default function ExpertisePageClient({
                 React vs Next.js: <span className="text-highlight">When You Need What</span>
               </h2>
               <p className="text-text-secondary">We build with both. Here&apos;s how we decide.</p>
-            </motion.div>
+            </m.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
               {[
@@ -1563,7 +1565,7 @@ export default function ExpertisePageClient({
                   useWhen: "Search traffic matters, you need a public-facing site, or you want one framework handling both frontend and backend.",
                 },
               ].map((fw, i) => (
-                <motion.div
+                <m.div
                   key={fw.name}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -1584,11 +1586,11 @@ export default function ExpertisePageClient({
                     <p className="text-xs font-medium text-accent uppercase tracking-wider mb-1">We use it when</p>
                     <p className="text-sm text-text-secondary">{fw.useWhen}</p>
                   </div>
-                </motion.div>
+                </m.div>
               ))}
             </div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1598,7 +1600,7 @@ export default function ExpertisePageClient({
               <p className="text-sm text-text-secondary italic">
                 Many projects use both. A public marketing site on Next.js, an authenticated dashboard on React + Vite, sharing the same component library and design system. We architect for this pattern regularly.
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       )}
@@ -1607,7 +1609,7 @@ export default function ExpertisePageClient({
       {expertise.slug === "python" && (
         <section id="frameworks" className="relative py-16 sm:py-24 bg-surface">
           <div className="max-w-5xl mx-auto px-4 sm:px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1618,7 +1620,7 @@ export default function ExpertisePageClient({
                 Django vs FastAPI vs Flask: <span className="text-highlight">Which One?</span>
               </h2>
               <p className="text-text-secondary">We use all three. Here&apos;s how we decide.</p>
-            </motion.div>
+            </m.div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
               {[
@@ -1641,7 +1643,7 @@ export default function ExpertisePageClient({
                   useWhen: "The service is small and focused, you're deploying to Lambda/serverless, or you need maximum control over the stack.",
                 },
               ].map((fw, i) => (
-                <motion.div
+                <m.div
                   key={fw.name}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -1662,11 +1664,11 @@ export default function ExpertisePageClient({
                     <p className="text-xs font-medium text-accent uppercase tracking-wider mb-1">We use it when</p>
                     <p className="text-sm text-text-secondary">{fw.useWhen}</p>
                   </div>
-                </motion.div>
+                </m.div>
               ))}
             </div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1676,7 +1678,7 @@ export default function ExpertisePageClient({
               <p className="text-sm text-text-secondary italic">
                 Most projects aren&apos;t purely one framework. We&apos;ve built systems where Django handles the main app, FastAPI serves the ML inference endpoints, and Flask runs lightweight webhook handlers. The framework follows the workload.
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       )}
@@ -1685,7 +1687,7 @@ export default function ExpertisePageClient({
       {expertise.slug === "flutter" && (
         <section id="flutter-vs-rn" className="relative py-16 sm:py-24 bg-surface">
           <div className="max-w-5xl mx-auto px-4 sm:px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1696,7 +1698,7 @@ export default function ExpertisePageClient({
                 Flutter vs React Native: <span className="text-highlight">When You Need What</span>
               </h2>
               <p className="text-text-secondary">We build with both. Here&apos;s how we decide.</p>
-            </motion.div>
+            </m.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
               {[
@@ -1713,7 +1715,7 @@ export default function ExpertisePageClient({
                   useWhen: "Hiring speed matters, your web app is already React, or you need the broadest possible talent pool.",
                 },
               ].map((fw, i) => (
-                <motion.div
+                <m.div
                   key={fw.name}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -1734,11 +1736,11 @@ export default function ExpertisePageClient({
                     <p className="text-xs font-medium text-accent uppercase tracking-wider mb-1">We use it when</p>
                     <p className="text-sm text-text-secondary">{fw.useWhen}</p>
                   </div>
-                </motion.div>
+                </m.div>
               ))}
             </div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1748,7 +1750,7 @@ export default function ExpertisePageClient({
               <p className="text-sm text-text-secondary italic">
                 Some projects use both. A Flutter mobile app for the consumer experience, a React Native companion for a partner-facing tool sharing the same backend. We architect for this when it makes sense.
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       )}
@@ -1757,7 +1759,7 @@ export default function ExpertisePageClient({
       {expertise.slug === "react-native" && (
         <section id="fit" className="relative py-16 sm:py-24 bg-base">
           <div className="max-w-5xl mx-auto px-4 sm:px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1768,7 +1770,7 @@ export default function ExpertisePageClient({
                 When React Native <span className="text-highlight">Makes Sense</span>
               </h2>
               <p className="text-text-secondary">The right framework for the job, not the trending one.</p>
-            </motion.div>
+            </m.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
               {[
@@ -1777,7 +1779,7 @@ export default function ExpertisePageClient({
                 { situation: "Speed to market matters", fit: "Expo's managed workflow, over-the-air updates, and hot reloading mean faster iteration. MVP in 8-12 weeks, not 6 months." },
                 { situation: "Budget-conscious but quality-focused", fit: "Cross-platform cuts 30-40% vs. native iOS + native Android. You're not sacrificing quality - Instagram, Shopify, Discord, and Coinbase all run React Native in production." },
               ].map((row, i) => (
-                <motion.div
+                <m.div
                   key={i}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -1787,11 +1789,11 @@ export default function ExpertisePageClient({
                 >
                   <p className="font-semibold text-text-primary mb-2">{row.situation}</p>
                   <p className="text-sm text-text-secondary">{row.fit}</p>
-                </motion.div>
+                </m.div>
               ))}
             </div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1800,7 +1802,7 @@ export default function ExpertisePageClient({
               <p className="text-sm text-text-muted mb-6 max-w-3xl mx-auto text-center">
                 If your app is primarily 3D/gaming (Unity or native), needs extreme low-level hardware access (Bluetooth LE edge cases, heavy AR), or your team is already deep in Dart, you may want to explore <a href="/technologies/flutter" className="text-accent hover:text-accent-light transition-colors">Flutter</a> or go fully native. For SEO-critical marketing sites, <a href="/technologies/nextjs" className="text-accent hover:text-accent-light transition-colors">Next.js</a> is the better call. For complex backend needs alongside your mobile app, see our <a href="/technologies/nodejs" className="text-accent hover:text-accent-light transition-colors">Node.js</a> and <a href="/technologies/python" className="text-accent hover:text-accent-light transition-colors">Python</a> services.
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       )}
@@ -1809,7 +1811,7 @@ export default function ExpertisePageClient({
       {expertise.slug === "react-native" && (
         <section id="rn-vs-flutter" className="relative py-16 sm:py-24 bg-surface">
           <div className="max-w-5xl mx-auto px-4 sm:px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1820,7 +1822,7 @@ export default function ExpertisePageClient({
                 React Native vs Flutter: <span className="text-highlight">When You Need What</span>
               </h2>
               <p className="text-text-secondary">We build with both. Here&apos;s how we decide.</p>
-            </motion.div>
+            </m.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
               {[
@@ -1837,7 +1839,7 @@ export default function ExpertisePageClient({
                   useWhen: "Teams starting fresh with no existing JavaScript investment, apps targeting mobile + web + desktop from one codebase (Flutter's widget engine renders everywhere), or when pixel-perfect custom UI is the top priority.",
                 },
               ].map((fw, i) => (
-                <motion.div
+                <m.div
                   key={fw.name}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -1858,11 +1860,11 @@ export default function ExpertisePageClient({
                     <p className="text-xs font-medium text-accent uppercase tracking-wider mb-1">Key context</p>
                     <p className="text-sm text-text-secondary">{fw.useWhen}</p>
                   </div>
-                </motion.div>
+                </m.div>
               ))}
             </div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1872,7 +1874,7 @@ export default function ExpertisePageClient({
               <p className="text-sm text-text-secondary italic">
                 Many companies use both. React Native for business apps where platform-native feel matters, Flutter for consumer apps where custom UI is the priority. We build with both - see our <a href="/technologies/flutter" className="text-accent hover:text-accent-light transition-colors">Flutter services</a>.
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       )}
@@ -1935,7 +1937,7 @@ export default function ExpertisePageClient({
         /* Node.js: Custom 3-column stack table */
         <section id="stack" className="relative py-16 sm:py-24 bg-surface">
           <div className="max-w-5xl mx-auto px-4 sm:px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1946,9 +1948,9 @@ export default function ExpertisePageClient({
                 Our <span className="text-highlight">Node.js</span> Stack
               </h2>
               <p className="text-text-secondary">Every tool earns its place. Here&apos;s what we ship with and why.</p>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1986,9 +1988,9 @@ export default function ExpertisePageClient({
                   ))}
                 </tbody>
               </table>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1998,14 +2000,14 @@ export default function ExpertisePageClient({
               <p className="text-sm text-text-secondary">
                 We pick the framework based on your constraints. NestJS for enterprise structure, Fastify for raw throughput, Express for ecosystem breadth. There is no single right answer.
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       ) : expertise.slug === "react" ? (
         /* React: Custom 3-column stack table */
         <section id="stack" className="relative py-16 sm:py-24 bg-surface">
           <div className="max-w-5xl mx-auto px-4 sm:px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -2016,9 +2018,9 @@ export default function ExpertisePageClient({
                 Our <span className="text-highlight">React</span> Stack
               </h2>
               <p className="text-text-secondary">Every tool earns its place. Here&apos;s what we ship with and why.</p>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -2056,9 +2058,9 @@ export default function ExpertisePageClient({
                   ))}
                 </tbody>
               </table>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -2068,14 +2070,14 @@ export default function ExpertisePageClient({
               <p className="text-sm text-text-secondary">
                 We pick the tooling based on your project. A dashboard doesn&apos;t need Next.js and Vercel - React + Vite + CloudFront is faster to build and cheaper to run. A marketing site doesn&apos;t need Redux - server state with React Query is enough. The stack follows the problem.
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       ) : expertise.slug === "python" ? (
         /* Python: Custom 3-column stack table */
         <section id="stack" className="relative py-16 sm:py-24 bg-surface">
           <div className="max-w-5xl mx-auto px-4 sm:px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -2086,9 +2088,9 @@ export default function ExpertisePageClient({
                 Our <span className="text-highlight">Python</span> Stack
               </h2>
               <p className="text-text-secondary">Every tool earns its place. Here&apos;s what we ship with and why.</p>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -2126,9 +2128,9 @@ export default function ExpertisePageClient({
                   ))}
                 </tbody>
               </table>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -2138,14 +2140,14 @@ export default function ExpertisePageClient({
               <p className="text-sm text-text-secondary">
                 We pick the framework based on your constraints. Django if your team needs structure and a built-in admin. FastAPI if throughput and async matter. Flask if simplicity and a small footprint are the priority. There is no single right answer.
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       ) : expertise.slug === "angular" ? (
         /* Angular: Custom 3-column stack table */
         <section id="stack" className="relative py-16 sm:py-24 bg-surface">
           <div className="max-w-5xl mx-auto px-4 sm:px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -2156,9 +2158,9 @@ export default function ExpertisePageClient({
                 Our <span className="text-highlight">Angular</span> Stack
               </h2>
               <p className="text-text-secondary">Every tool earns its place. Here&apos;s what we ship with and why.</p>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -2196,9 +2198,9 @@ export default function ExpertisePageClient({
                   ))}
                 </tbody>
               </table>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -2208,14 +2210,14 @@ export default function ExpertisePageClient({
               <p className="text-sm text-text-secondary">
                 We use Angular Material where it fits and swap in PrimeNG when the project needs data tables, tree views, or complex form controls that Material doesn&apos;t cover well. No dogma about component libraries - we pick what serves the project.
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       ) : expertise.slug === "react-native" ? (
         /* React Native: Custom 2-column stack table */
         <section id="stack" className="relative py-16 sm:py-24 bg-surface">
           <div className="max-w-5xl mx-auto px-4 sm:px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -2226,9 +2228,9 @@ export default function ExpertisePageClient({
                 Our <span className="text-highlight">Technology</span> Stack
               </h2>
               <p className="text-text-secondary">Every tool earns its place. Here&apos;s what we ship with.</p>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -2265,14 +2267,14 @@ export default function ExpertisePageClient({
                   ))}
                 </tbody>
               </table>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       ) : expertise.slug === "flutter" ? (
         /* Flutter: Custom 2-column stack table */
         <section id="stack" className="relative py-16 sm:py-24 bg-surface">
           <div className="max-w-5xl mx-auto px-4 sm:px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -2283,9 +2285,9 @@ export default function ExpertisePageClient({
                 Our <span className="text-highlight">Flutter</span> Stack
               </h2>
               <p className="text-text-secondary">Every tool earns its place. Here&apos;s what we ship with.</p>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -2322,9 +2324,9 @@ export default function ExpertisePageClient({
                   ))}
                 </tbody>
               </table>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -2334,13 +2336,13 @@ export default function ExpertisePageClient({
               <p className="text-sm text-text-secondary">
                 We pick state management based on your project complexity. BLoC for enterprise apps with complex business logic and testing requirements. Riverpod for leaner projects where simplicity matters. No dogma, just the right tool.
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       ) : expertise.slug === "prometheus-monitoring" ? (
         <section id="stack" className="relative py-16 sm:py-24 bg-surface">
           <div className="max-w-4xl mx-auto px-4 sm:px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -2350,9 +2352,9 @@ export default function ExpertisePageClient({
               <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-4">
                 Technologies We <span className="text-highlight">Deploy & Support</span>
               </h2>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -2385,13 +2387,13 @@ export default function ExpertisePageClient({
                   ))}
                 </tbody>
               </table>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       ) : expertise.slug === "istio-consulting" ? (
         <section id="stack" className="relative py-16 sm:py-24 bg-surface">
           <div className="max-w-4xl mx-auto px-4 sm:px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -2401,9 +2403,9 @@ export default function ExpertisePageClient({
               <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-4">
                 Technologies We <span className="text-highlight">Deploy & Support</span>
               </h2>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -2436,7 +2438,7 @@ export default function ExpertisePageClient({
                   ))}
                 </tbody>
               </table>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       ) : (
@@ -2490,7 +2492,7 @@ export default function ExpertisePageClient({
       {["dotnet", "nextjs", "nodejs", "react", "python", "angular", "flutter", "react-native", "prometheus-monitoring", "istio-consulting"].includes(expertise.slug) && (
         <section id={["react", "python", "angular", "flutter", "react-native", "prometheus-monitoring", "istio-consulting"].includes(expertise.slug) ? "discuss" : undefined} className="relative py-16 sm:py-24 bg-surface">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -2537,7 +2539,7 @@ export default function ExpertisePageClient({
                 </svg>
               </a>
               <p className="text-sm text-text-muted mt-4">No sales pitch. Just an honest conversation.</p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       )}
@@ -2562,7 +2564,7 @@ export default function ExpertisePageClient({
           {whatYouGetContent[expertise.slug] && (
             <div className="bg-surface pt-12 sm:pt-16">
               <div className="max-w-5xl mx-auto px-4 sm:px-6">
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -2599,7 +2601,7 @@ export default function ExpertisePageClient({
                     </div>
 
                     {technologyLogos[expertise.slug] && (
-                      <motion.div
+                      <m.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
@@ -2613,7 +2615,7 @@ export default function ExpertisePageClient({
                           alt=""
                           className="w-full h-full object-contain opacity-[0.15] select-none pointer-events-none"
                         />
-                      </motion.div>
+                      </m.div>
                     )}
                   </div>
 
@@ -2625,7 +2627,7 @@ export default function ExpertisePageClient({
                       aria-hidden="true"
                     />
                   )}
-                </motion.div>
+                </m.div>
               </div>
             </div>
           )}
@@ -2640,7 +2642,7 @@ export default function ExpertisePageClient({
           {["nodejs", "react", "python", "angular", "flutter", "react-native"].includes(expertise.slug) && (
             <section className="relative pt-0 pb-16 sm:pb-24 bg-surface">
               <div className="max-w-5xl mx-auto px-4 sm:px-6">
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -2659,7 +2661,7 @@ export default function ExpertisePageClient({
                       <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </a>
-                </motion.div>
+                </m.div>
               </div>
             </section>
           )}
@@ -2681,7 +2683,7 @@ export default function ExpertisePageClient({
       {/* Book a Call Section */}
       <section id="book-call" className="relative py-16 sm:py-24 bg-surface scroll-mt-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -2697,9 +2699,9 @@ export default function ExpertisePageClient({
               {bookingSubtext[expertise.slug] ||
                 "Schedule a call with our engineering team. We'll discuss your technical requirements and provide an honest assessment of how we can help."}
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -2707,7 +2709,7 @@ export default function ExpertisePageClient({
             className="rounded-2xl overflow-hidden border border-border bg-surface-elevated"
           >
             <CalInline className="h-[600px]" />
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -2722,5 +2724,6 @@ export default function ExpertisePageClient({
 
       {relatedPages.length > 0 && <RelatedExpertise pages={relatedPages} />}
     </main>
+    </LazyMotion>
   );
 }
