@@ -1,6 +1,7 @@
 "use client";
 
 import { LazyMotion, m } from "@/components/ui/LazyMotion";
+import { cn } from "@/lib/utils";
 
 const defaultStats = [
   { value: "100+", label: "Products Shipped to Production" },
@@ -46,7 +47,14 @@ export function Stats({
             </h2>
           </m.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+          <div
+            className={cn(
+              "grid gap-4 sm:gap-6",
+              stats.length === 3
+                ? "grid-cols-1 sm:grid-cols-3 max-w-4xl mx-auto"
+                : "grid-cols-2 md:grid-cols-4"
+            )}
+          >
             {stats.map((stat, idx) => (
               <m.div
                 key={stat.label}

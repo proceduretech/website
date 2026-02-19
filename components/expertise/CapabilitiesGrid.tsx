@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
+import { cn } from "@/lib/utils";
 
 interface Capability {
   icon: ReactNode;
@@ -67,7 +68,11 @@ export function CapabilitiesGrid({
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className={cn(
+            "grid grid-cols-1 md:grid-cols-2 gap-6",
+            (capabilities.length % 3 === 0 || capabilities.length === 3) &&
+              "lg:grid-cols-3"
+          )}
         >
           {capabilities.map((capability, index) => (
             <motion.div
