@@ -4,6 +4,7 @@ import {
   getRelatedExpertiseForListing,
 } from "@/lib/content";
 import ExpertisePageClient from "@/app/services/[slug]/ExpertisePageClient";
+import { ExpertisePageHero } from "@/app/services/[slug]/ExpertisePageHero";
 
 export default function AngularPage() {
   const technology = getTechnologyForListing("angular");
@@ -20,6 +21,7 @@ export default function AngularPage() {
       expertise={technology}
       relatedPages={relatedPages}
       basePath="/technologies"
+      heroSlot={<ExpertisePageHero expertise={technology} />}
     />
   );
 }

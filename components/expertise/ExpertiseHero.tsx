@@ -1,5 +1,3 @@
-"use client";
-
 import { PageHero } from "@/components/ui";
 import { ReactNode } from "react";
 

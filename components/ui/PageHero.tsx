@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui";
 import { ClientLogos } from "@/components/sections/ClientLogos";
@@ -32,9 +29,6 @@ interface PageHeroProps {
   showClientLogos?: boolean;
 }
 
-// Smooth easing curve for premium feel
-const smoothEasing = [0.16, 1, 0.3, 1] as const;
-
 export function PageHero({
   badge,
   badgeVariant = "teal",
@@ -55,15 +49,10 @@ export function PageHero({
 
   return (
     <section className="relative pt-32 pb-12 sm:pb-16 bg-base overflow-hidden">
-      {/* Animated background glow - decorative, OK to animate with JS */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.2 }}
-        className="absolute inset-0 pointer-events-none"
-      >
+      {/* Animated background glow - CSS animation, no JS needed */}
+      <div className="absolute inset-0 pointer-events-none hero-glow-fade">
         <div className={glowColor} />
-      </motion.div>
+      </div>
 
       {/* Main content - CENTERED */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -113,25 +102,13 @@ export function PageHero({
             {description}
           </p>
 
-          {/* Stats Row (optional) - below fold on most viewports, OK to use motion */}
+          {/* Stats Row (optional) - CSS animation for performance */}
           {stats && stats.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.15, ease: smoothEasing }}
-              className="grid grid-cols-3 gap-4 sm:gap-6 mb-10 max-w-2xl mx-auto"
-            >
+            <div className="grid grid-cols-3 gap-4 sm:gap-6 mb-10 max-w-2xl mx-auto hero-stats-container">
               {stats.map((stat, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{
-                    duration: 0.3,
-                    delay: 0.15 + index * 0.05,
-                    ease: smoothEasing,
-                  }}
-                  className="p-4 sm:p-6 rounded-xl text-center bg-surface-elevated border border-border"
+                  className="p-4 sm:p-6 rounded-xl text-center bg-surface-elevated border border-border hero-stat-item"
                 >
                   <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-highlight">
                     {stat.value}
@@ -139,9 +116,9 @@ export function PageHero({
                   <div className="text-xs sm:text-sm text-text-secondary mt-1 sm:mt-2">
                     {stat.label}
                   </div>
-                </motion.div>
+                </div>
               ))}
-            </motion.div>
+            </div>
           )}
 
           {/* CTAs - CSS animation for faster interactivity */}
@@ -173,16 +150,11 @@ export function PageHero({
             )}
           </div>
 
-          {/* Optional children content - below CTAs, OK to use motion */}
+          {/* Optional children content - CSS animation for performance */}
           {children && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.25 }}
-              className="mt-12"
-            >
+            <div className="mt-12 hero-children-fade">
               {children}
-            </motion.div>
+            </div>
           )}
 
           {/* Client Logos */}

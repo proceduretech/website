@@ -4,6 +4,7 @@ import {
   getRelatedExpertiseForListing,
 } from "@/lib/content";
 import ExpertisePageClient from "@/app/services/[slug]/ExpertisePageClient";
+import { ExpertisePageHero } from "@/app/services/[slug]/ExpertisePageHero";
 
 export default function DotnetPage() {
   const technology = getTechnologyForListing("dotnet");
@@ -34,6 +35,7 @@ export default function DotnetPage() {
       expertise={technology}
       relatedPages={relatedPages}
       basePath="/technologies"
+      heroSlot={<ExpertisePageHero expertise={technology} />}
     />
   );
 }
