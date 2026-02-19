@@ -41,6 +41,16 @@ const nextConfig = {
         'next/dist/build/polyfills/polyfill-module': false,
       };
 
+      // Remove the hardcoded polyfill-nomodule CopyFilePlugin.
+      // Next.js unconditionally bundles a 68 KiB polyfill-nomodule chunk via CopyFilePlugin
+      // regardless of browserslist. Filter it out since our targets don't need it.
+      config.plugins = config.plugins.filter((plugin) => {
+        if (plugin.constructor.name === 'CopyFilePlugin' && plugin.filePath) {
+          return !plugin.filePath.includes('polyfill-nomodule');
+        }
+        return true;
+      });
+
       // Merge splitChunks with Next.js defaults instead of replacing them
       const existingSplitChunks = config.optimization.splitChunks || {};
       config.optimization.splitChunks = {
