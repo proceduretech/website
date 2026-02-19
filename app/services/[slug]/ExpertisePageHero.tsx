@@ -14,12 +14,13 @@ const heroCTAMap: Record<string, { text: string; href: string }> = {
   "react-native": { text: "Talk to a React Native Engineer", href: "#book-call" },
   "prometheus-monitoring": { text: "Talk to a Prometheus Engineer", href: "#book-call" },
   "istio-consulting": { text: "Talk to an Istio Engineer", href: "#book-call" },
+  "thanos-long-term-storage": { text: "Talk to a Thanos Engineer", href: "#book-call" },
 };
 
 const noSecondaryCTASlugs = [
   "ai-engineering", "ai-agents", "dotnet", "nextjs", "nodejs",
   "react", "python", "angular", "flutter", "react-native",
-  "prometheus-monitoring", "istio-consulting",
+  "prometheus-monitoring", "istio-consulting", "thanos-long-term-storage",
 ];
 
 const checkSvg = (
@@ -136,6 +137,13 @@ const heroChildrenMap: Record<string, HeroChildrenConfig> = {
     links: [
       { href: "#services", text: "See our services" },
       { href: "#fit", text: "Do you need a service mesh?" },
+    ],
+  },
+  "thanos-long-term-storage": {
+    badges: ["Free assessment", "30-minute call", "Talk with engineers, not sales"],
+    links: [
+      { href: "#services", text: "See our services" },
+      { href: "#fit", text: "Is Thanos right for you?" },
     ],
   },
 };

@@ -9,6 +9,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint
 
+## Working Style
+
+- **Parallelize aggressively.** Use parallel tool calls and sub-agents whenever tasks are independent. Don't serialize work that can run concurrently.
+
 ## Post-Implementation Workflow
 
 After completing changes, always commit, push, and create a PR without waiting to be asked.

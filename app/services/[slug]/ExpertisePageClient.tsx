@@ -77,6 +77,8 @@ const bookingSubtext: Record<string, string> = {
     "Talk directly with engineers, not sales. We'll assess your monitoring stack and give honest next steps - even if that means sticking with what you have.",
   "istio-consulting":
     "Talk directly with engineers, not sales. We'll assess fit and give honest next steps.",
+  "thanos-long-term-storage":
+    "Talk directly with engineers, not sales. We'll assess your monitoring stack and give honest next steps - even if that means you don't need Thanos yet.",
 };
 
 // Technology logo paths for the "What you get" section
@@ -204,6 +206,8 @@ export default function ExpertisePageClient({
             ? ["Prometheus Consulting", "Prometheus Implementation", "Prometheus Commercial Support", "Observability Engineering"]
             : expertise.slug === "istio-consulting"
             ? ["Istio Consulting", "Service Mesh Implementation", "Istio Commercial Support", "Istio Ambient Mode Migration"]
+            : expertise.slug === "thanos-long-term-storage"
+            ? ["Thanos Consulting", "Thanos Implementation", "Thanos Commercial Support", "Observability Engineering", "Prometheus Long-term Storage"]
             : pageData.hero.badge,
         areaServed: [
           { "@type": "Country", name: "United States" },
@@ -256,6 +260,8 @@ export default function ExpertisePageClient({
             ? ["Prometheus Monitoring", "Observability", "Infrastructure Engineering", "DevOps", "Kubernetes Monitoring"]
             : expertise.slug === "istio-consulting"
             ? ["Service Mesh", "Istio", "Kubernetes Networking", "Cloud Native Infrastructure", "Microservices"]
+            : expertise.slug === "thanos-long-term-storage"
+            ? ["Thanos", "Prometheus Long-term Storage", "Multi-cluster Observability", "Infrastructure Engineering", "DevOps"]
             : [pageData.hero.badge, "Enterprise AI Engineering", "Software Development"],
       },
       // FAQ Schema (only if FAQs exist)
@@ -350,7 +356,7 @@ export default function ExpertisePageClient({
         />
       )}
 
-      <div id={["nodejs", "nextjs", "react", "python", "angular", "flutter", "react-native", "prometheus-monitoring", "istio-consulting"].includes(expertise.slug) ? "services" : undefined}>
+      <div id={["nodejs", "nextjs", "react", "python", "angular", "flutter", "react-native", "prometheus-monitoring", "istio-consulting", "thanos-long-term-storage"].includes(expertise.slug) ? "services" : undefined}>
         <CapabilitiesGrid
           title={expertise.slug === "dotnet" ? ".NET Development Services We Offer" : expertise.slug === "nextjs" ? "What We Build With Next.js" : expertise.slug === "nodejs" ? "Node.js Development Services" : expertise.slug === "react" ? "React Development Services" : expertise.slug === "python" ? "Python Development Services" : expertise.slug === "angular" ? "Angular Development Services" : expertise.slug === "flutter" ? "What We Build With Flutter" : expertise.slug === "react-native" ? "What We Build With React Native" : expertise.slug === "prometheus-monitoring" ? "Prometheus Consulting & Implementation Services" : expertise.slug === "istio-consulting" ? "Istio Consulting & Implementation Services" : "Key Capabilities"}
           subtitle={expertise.slug === "dotnet" ? "End-to-end .NET services, from greenfield builds to legacy modernization." : expertise.slug === "nextjs" ? "From marketing sites to complex web applications, we deliver production-grade Next.js solutions." : expertise.slug === "nodejs" ? "APIs, microservices, real-time systems, and the backend your product runs on." : expertise.slug === "react" ? "From SPAs to enterprise dashboards, we build React applications that ship fast and stay maintainable." : expertise.slug === "python" ? "Backend systems, AI/ML, and the data infrastructure your product depends on." : expertise.slug === "angular" ? "Full-stack applications, migrations, and performance work." : expertise.slug === "flutter" ? "Cross-platform apps for mobile, web, and desktop from a single Dart codebase." : expertise.slug === "react-native" ? "Cross-platform mobile apps from a single TypeScript codebase." : expertise.slug === "prometheus-monitoring" ? "From initial setup to enterprise production support." : expertise.slug === "istio-consulting" ? "From fresh deployment to ambient mode migration and enterprise support." : "Everything you need to build production-grade solutions"}
@@ -358,7 +364,7 @@ export default function ExpertisePageClient({
         />
       </div>
 
-      {["frontend-development", "backend-development", "dotnet", "nextjs", "prometheus-monitoring", "istio-consulting"].includes(expertise.slug) && pageData.whoWeWorkWith && (
+      {["frontend-development", "backend-development", "dotnet", "nextjs", "prometheus-monitoring", "istio-consulting", "thanos-long-term-storage"].includes(expertise.slug) && pageData.whoWeWorkWith && (
         <WhoWeWorkWith
           title={pageData.whoWeWorkWith.title || "Who We Work With"}
           audiences={pageData.whoWeWorkWith.audiences.map((a) => ({
@@ -723,6 +729,185 @@ export default function ExpertisePageClient({
               <h3 className="text-base font-semibold text-text-primary mb-2">The incremental approach (what most teams should do)</h3>
               <p className="text-sm text-text-secondary max-w-3xl mx-auto leading-relaxed">
                 Start with ambient mode for L4 mTLS and identity. No sidecars, minimal overhead. Add L7 waypoint proxies only for namespaces that need traffic management or rich authorization. You don&apos;t have to mesh everything on day one.
+              </p>
+            </m.div>
+          </div>
+        </section>
+      )}
+
+      {/* Thanos: Why Engineering Teams Deploy Thanos */}
+      {expertise.slug === "thanos-long-term-storage" && (
+        <section id="why-thanos" className="relative py-16 sm:py-24 bg-surface">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6">
+            <m.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-4">
+                Why Engineering Teams Deploy <span className="text-highlight">Thanos</span>
+              </h2>
+            </m.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[
+                {
+                  icon: (
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
+                    </svg>
+                  ),
+                  title: "Prometheus wasn't built for months of data",
+                  description: "Prometheus stores metrics locally with a default 15-day retention. Need six months of data for capacity planning or compliance? You're either burning disk or losing history. Thanos offloads metrics to cheap object storage like S3 or GCS.",
+                },
+                {
+                  icon: (
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+                    </svg>
+                  ),
+                  title: "Multi-cluster visibility is a real problem",
+                  description: "Ten Kubernetes clusters means ten separate Prometheus instances with no shared view. Thanos Query federates them into one PromQL endpoint, so your team gets a single pane of glass without building custom glue code or scripts.",
+                },
+                {
+                  icon: (
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+                    </svg>
+                  ),
+                  title: "Prometheus downtime means monitoring gaps",
+                  description: "A single Prometheus server is a single point of failure. When it restarts or crashes, you lose in-flight metrics. Thanos Sidecar plus replica deduplication gives you high availability without re-architecting your entire stack.",
+                },
+                {
+                  icon: (
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
+                    </svg>
+                  ),
+                  title: "Object storage is 10-50x cheaper than SSDs",
+                  description: "Storing terabytes of metrics on local SSDs is expensive and doesn't scale. Thanos uses S3, GCS, or Azure Blob as a storage backend - with automatic downsampling to keep long-range queries fast while reducing storage cost significantly.",
+                },
+              ].map((card, idx) => (
+                <m.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: idx * 0.1 }}
+                  className="p-6 rounded-xl bg-surface-elevated/80 backdrop-blur-sm border border-border hover:border-accent/30 transition-colors"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center text-accent-light mb-4">
+                    {card.icon}
+                  </div>
+                  <h3 className="text-lg font-semibold text-text-primary mb-2">{card.title}</h3>
+                  <p className="text-sm text-text-secondary leading-relaxed">{card.description}</p>
+                </m.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Thanos: Should You Use Thanos? Decision Framework */}
+      {expertise.slug === "thanos-long-term-storage" && (
+        <section id="fit" className="relative py-16 sm:py-24 bg-base">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6">
+            <m.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-4">
+                Should You Use Thanos? <span className="text-highlight">An Honest Assessment</span>
+              </h2>
+            </m.div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+              {/* Good fit */}
+              <m.div
+                initial={{ opacity: 0, x: -16 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="p-6 sm:p-8 rounded-xl bg-surface-elevated border border-accent/20"
+              >
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center">
+                    <svg className="w-4 h-4 text-accent-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-semibold text-text-primary">Thanos is a good fit when</h3>
+                </div>
+                <ul className="space-y-3">
+                  {[
+                    "You're running multiple Prometheus instances and need a unified query layer",
+                    "You need metric retention beyond 15-30 days (compliance, capacity planning, trend analysis)",
+                    "Your Prometheus storage costs are climbing and you want to offload to object storage",
+                    "You need high availability for monitoring - single Prometheus is a SPOF",
+                    "You're already on Kubernetes and using the Prometheus Operator",
+                    "You want to keep the Prometheus query language (PromQL) across everything",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2.5 text-sm text-text-secondary">
+                      <svg className="w-4 h-4 text-accent-light flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </m.div>
+
+              {/* Consider alternatives */}
+              <m.div
+                initial={{ opacity: 0, x: 16 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="p-6 sm:p-8 rounded-xl bg-surface-elevated border border-border"
+              >
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-8 h-8 rounded-lg bg-accent-secondary/10 flex items-center justify-center">
+                    <svg className="w-4 h-4 text-accent-secondary-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-semibold text-text-primary">You might not need Thanos when</h3>
+                </div>
+                <ul className="space-y-3">
+                  {[
+                    "You have a single small Prometheus instance with modest retention needs",
+                    "Your team is happy with 15-30 days of local retention and doesn't query historical data",
+                    "You're already using Grafana Mimir or Cortex for long-term storage",
+                    "You want a fully managed solution with zero operational overhead - consider Amazon Managed Prometheus or Grafana Cloud",
+                    "Your monitoring stack isn't Prometheus-based (Thanos only works with Prometheus)",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2.5 text-sm text-text-secondary">
+                      <svg className="w-4 h-4 text-text-muted flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </m.div>
+            </div>
+
+            {/* Common architecture */}
+            <m.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="p-6 rounded-xl bg-surface-elevated/60 border border-border text-center"
+            >
+              <h3 className="text-base font-semibold text-text-primary mb-2">The common architecture (what production teams actually run)</h3>
+              <p className="text-sm text-text-secondary max-w-3xl mx-auto leading-relaxed">
+                Prometheus with Thanos Sidecar in each cluster, metrics shipped to S3/GCS via Thanos Store Gateway, Compactor handling downsampling and retention, and Thanos Query sitting in front of everything for a unified PromQL endpoint. Grafana dashboards point at Thanos Query instead of individual Prometheus instances.
               </p>
             </m.div>
           </div>
@@ -1492,7 +1677,7 @@ export default function ExpertisePageClient({
       )}
 
       {pageData.process && (
-        <div id={["nodejs", "react", "python", "angular", "flutter", "react-native", "prometheus-monitoring", "istio-consulting"].includes(expertise.slug) ? "process" : undefined}>
+        <div id={["nodejs", "react", "python", "angular", "flutter", "react-native", "prometheus-monitoring", "istio-consulting", "thanos-long-term-storage"].includes(expertise.slug) ? "process" : undefined}>
           <ProcessTimeline
             title={expertise.slug === "frontend-development" ? "Our Frontend Development Process" : expertise.slug === "backend-development" ? "Our Backend Development Process" : expertise.slug === "nextjs" ? "How We Deliver Next.js Projects" : expertise.slug === "nodejs" ? "How We Deliver Node.js Projects" : expertise.slug === "react" ? "How We Deliver React Projects" : expertise.slug === "python" ? "How We Deliver Python Projects" : expertise.slug === "angular" ? "How We Deliver Angular Projects" : expertise.slug === "flutter" ? "From Concept to App Store" : expertise.slug === "react-native" ? "From Idea to App Store" : expertise.slug === "prometheus-monitoring" ? "How Prometheus Consulting Works" : expertise.slug === "istio-consulting" ? "How Istio Consulting Works" : "Our Process"}
             subtitle={expertise.slug === "nodejs" ? "Working software every sprint, not just progress updates." : expertise.slug === "react" ? "Working software every sprint, not just progress updates." : expertise.slug === "python" ? "Working software every sprint, not just progress updates." : expertise.slug === "flutter" ? "Working software every sprint, not just progress updates." : expertise.slug === "react-native" ? "Working software every sprint, not just progress updates." : ["angular"].includes(expertise.slug) ? "Working software every sprint, not just progress updates." : "A predictable process built for high-quality delivery"}
@@ -1993,6 +2178,58 @@ export default function ExpertisePageClient({
             </m.div>
           </div>
         </section>
+      ) : expertise.slug === "thanos-long-term-storage" ? (
+        <section id="stack" className="relative py-16 sm:py-24 bg-surface">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6">
+            <m.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-4">
+                Thanos Components We <span className="text-highlight">Deploy & Support</span>
+              </h2>
+            </m.div>
+
+            <m.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="overflow-hidden rounded-xl border border-border"
+            >
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-surface-elevated border-b border-border">
+                    <th className="text-left px-5 py-3 text-text-muted font-medium w-[35%]">Component</th>
+                    <th className="text-left px-5 py-3 text-text-muted font-medium">What It Does</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { category: "Thanos Sidecar", tools: "Ships metrics from Prometheus to object storage, exposes StoreAPI for real-time queries" },
+                    { category: "Thanos Receiver", tools: "Alternative to Sidecar - accepts remote write from Prometheus, supports multi-tenancy" },
+                    { category: "Thanos Store Gateway", tools: "Serves historical metrics from object storage (S3, GCS, Azure Blob, MinIO)" },
+                    { category: "Thanos Query", tools: "Federates queries across Sidecars, Store Gateways, and other Queriers - single PromQL endpoint" },
+                    { category: "Thanos Query Frontend", tools: "Caching and query splitting layer in front of Query for faster long-range queries" },
+                    { category: "Thanos Compactor", tools: "Downsamples historical data (5m, 1h) and compacts blocks to reduce storage cost" },
+                    { category: "Thanos Ruler", tools: "Evaluates recording and alerting rules against Thanos Query for global alerts" },
+                    { category: "Object Storage", tools: "S3, GCS, Azure Blob, MinIO - the actual long-term storage backend" },
+                    { category: "Grafana", tools: "Unified dashboards pointing at Thanos Query for cross-cluster visualization" },
+                    { category: "Prometheus Operator", tools: "kube-prometheus-stack with Thanos Sidecar integration via Helm" },
+                  ].map((row, idx) => (
+                    <tr key={idx} className={`border-b border-border last:border-0 ${idx % 2 === 0 ? "bg-base" : "bg-surface-elevated/30"}`}>
+                      <td className="px-5 py-3 font-medium text-text-primary">{row.category}</td>
+                      <td className="px-5 py-3 text-text-secondary">{row.tools}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </m.div>
+          </div>
+        </section>
       ) : expertise.slug === "istio-consulting" ? (
         <section id="stack" className="relative py-16 sm:py-24 bg-surface">
           <div className="max-w-4xl mx-auto px-4 sm:px-6">
@@ -2092,8 +2329,8 @@ export default function ExpertisePageClient({
       )}
 
       {/* Mid-page CTA for dotnet/nextjs/nodejs/react/python/angular/flutter/react-native/prometheus-monitoring/istio-consulting - before Architecture section */}
-      {["dotnet", "nextjs", "nodejs", "react", "python", "angular", "flutter", "react-native", "prometheus-monitoring", "istio-consulting"].includes(expertise.slug) && (
-        <section id={["react", "python", "angular", "flutter", "react-native", "prometheus-monitoring", "istio-consulting"].includes(expertise.slug) ? "discuss" : undefined} className="relative py-16 sm:py-24 bg-surface">
+      {["dotnet", "nextjs", "nodejs", "react", "python", "angular", "flutter", "react-native", "prometheus-monitoring", "istio-consulting", "thanos-long-term-storage"].includes(expertise.slug) && (
+        <section id={["react", "python", "angular", "flutter", "react-native", "prometheus-monitoring", "istio-consulting", "thanos-long-term-storage"].includes(expertise.slug) ? "discuss" : undefined} className="relative py-16 sm:py-24 bg-surface">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
             <m.div
               initial={{ opacity: 0, y: 20 }}
@@ -2106,6 +2343,8 @@ export default function ExpertisePageClient({
                   ? <><span className="text-highlight">Let&apos;s Talk</span> About Your App</>
                   : expertise.slug === "prometheus-monitoring"
                   ? <>Not Sure If Prometheus Is <span className="text-highlight">Right for Your Stack?</span></>
+                  : expertise.slug === "thanos-long-term-storage"
+                  ? <>Prometheus Metrics Growing Faster Than Your <span className="text-highlight">Retention Budget?</span></>
                   : expertise.slug === "istio-consulting"
                   ? <>Not Sure If You Need a <span className="text-highlight">Service Mesh?</span></>
                   : <>Discuss Your <span className="text-highlight">{expertise.slug === "nextjs" ? "Next.js" : expertise.slug === "nodejs" ? "Node.js" : expertise.slug === "react" ? "React" : expertise.slug === "python" ? "Python" : expertise.slug === "angular" ? "Angular" : ".NET"} Project</span></>
@@ -2128,6 +2367,8 @@ export default function ExpertisePageClient({
                   ? "Whether you\u2019re building from scratch or migrating an existing native app, we\u2019ll give you a straight answer on what React Native can and can\u2019t do for your project."
                   : expertise.slug === "prometheus-monitoring"
                   ? "We'll give you an honest assessment - even if the answer is \"stick with what you have.\""
+                  : expertise.slug === "thanos-long-term-storage"
+                  ? "We'll audit your current setup and tell you whether Thanos is the right move - or if something else makes more sense."
                   : expertise.slug === "istio-consulting"
                   ? "We'll give you an honest assessment. Sometimes the answer is \"not yet\" or \"use something simpler.\" We'd rather tell you that upfront."
                   : "Whether modernizing legacy systems or building new, we\u2019re happy to talk through your situation."}
@@ -2317,7 +2558,7 @@ export default function ExpertisePageClient({
       </section>
 
       {pageData.faqs.length > 0 && (
-        <div id={["nodejs", "react", "python", "angular", "flutter", "react-native", "prometheus-monitoring", "istio-consulting"].includes(expertise.slug) ? "faq" : undefined}>
+        <div id={["nodejs", "react", "python", "angular", "flutter", "react-native", "prometheus-monitoring", "istio-consulting", "thanos-long-term-storage"].includes(expertise.slug) ? "faq" : undefined}>
           <FAQSection
             title={expertise.slug === "dotnet" ? ".NET Development Services FAQ" : expertise.slug === "nextjs" ? "Next.js Development FAQ" : expertise.slug === "nodejs" ? "Node.js Development FAQ" : expertise.slug === "react" ? "React Development FAQ" : expertise.slug === "python" ? "Python Development FAQ" : expertise.slug === "angular" ? "Angular Development FAQ" : expertise.slug === "flutter" ? "Flutter App Development FAQ" : expertise.slug === "react-native" ? "React Native Development FAQ" : expertise.slug === "prometheus-monitoring" ? "Prometheus Consulting FAQ" : expertise.slug === "istio-consulting" ? "Istio Consulting FAQ" : undefined}
             faqs={pageData.faqs}
