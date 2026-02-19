@@ -196,7 +196,7 @@ export default function ExpertisePageClient({
             : expertise.slug === "react-native"
             ? ["React Native Development Services", "Cross-Platform App Development", "Mobile App Development", "Expo Development", "React Native Migration"]
             : expertise.slug === "prometheus-monitoring"
-            ? ["Prometheus Consulting", "Prometheus Implementation", "Prometheus Commercial Support", "Observability Engineering", "Monitoring Migration"]
+            ? ["Prometheus Consulting", "Prometheus Implementation", "Prometheus Commercial Support", "Observability Engineering"]
             : pageData.hero.badge,
         areaServed: [
           { "@type": "Country", name: "United States" },
@@ -735,7 +735,7 @@ export default function ExpertisePageClient({
                     </svg>
                   ),
                   title: "Monitoring costs spiral fast",
-                  description: "Per-host and per-metric pricing from commercial tools breaks as your container count grows. Prometheus is open-source with no per-metric fees. You pay for infrastructure, not licenses.",
+                  description: "Per-host and per-metric pricing from commercial tools breaks as your container count grows. Prometheus is open-source with no per-metric fees. You pay for infrastructure, not vendor licenses.",
                 },
                 {
                   icon: (
@@ -744,7 +744,7 @@ export default function ExpertisePageClient({
                     </svg>
                   ),
                   title: "Kubernetes made it the default",
-                  description: "82% of container-using organizations run Prometheus (CNCF Survey 2024). If you're on Kubernetes, your engineers already expect it.",
+                  description: "82% of container-using organizations run Prometheus (CNCF Survey 2024). If you're on Kubernetes, your engineers already expect it. Service meshes, CI/CD tools, and platforms all expose its metrics natively.",
                 },
                 {
                   icon: (
@@ -753,7 +753,7 @@ export default function ExpertisePageClient({
                     </svg>
                   ),
                   title: "Your data should be yours",
-                  description: "Commercial tools own your dashboards, alert definitions, and metric history. Migrating away after 3 years means rebuilding everything. Prometheus gives you full data ownership.",
+                  description: "Commercial tools own your dashboards, alert definitions, and metric history. Migrating away after 3 years means rebuilding everything from scratch. Prometheus gives you full data ownership and portability.",
                 },
                 {
                   icon: (
@@ -762,7 +762,7 @@ export default function ExpertisePageClient({
                     </svg>
                   ),
                   title: "Prometheus 3.x changed the game",
-                  description: "First major version in seven years (late 2024). Native Histograms, new UI, OpenTelemetry ingestion, Remote Write 2.0. It's not the same tool it was in 2019.",
+                  description: "First major version in seven years (late 2024). Native Histograms, new UI, OpenTelemetry ingestion, Remote Write 2.0. If you evaluated Prometheus before and passed, it's worth looking again.",
                 },
               ].map((card, idx) => (
                 <motion.div
