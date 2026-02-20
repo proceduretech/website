@@ -50,10 +50,10 @@
 
   /* Designer-approved solid colors */
   --color-highlight: #1D9B69;
-  --color-cta: #1D9B69;
-  --color-cta-text: #fcfcfc;
-  --color-cta-hover: #2AAE79;
-  --color-cta-shadow: rgba(29, 155, 105, 0.25);
+  --color-cta: #178556;
+  --color-cta-text: #ffffff;
+  --color-cta-hover: #1D9B69;
+  --color-cta-shadow: rgba(23, 133, 86, 0.25);
 
   /* Border Colors */
   --color-border: #1A2A45;

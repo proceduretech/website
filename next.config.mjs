@@ -1,3 +1,4 @@
+import { join } from "path";
 import createMDX from "@next/mdx";
 import bundleAnalyzer from "@next/bundle-analyzer";
 
@@ -31,15 +32,28 @@ const nextConfig = {
   },
 
   // Webpack optimizations for bundle size
-  webpack: (config, { isServer }) => {
+  webpack: (config, { isServer, webpack }) => {
     if (!isServer) {
       // Remove Next.js hardcoded polyfills (Array.at, Array.flat, Object.fromEntries, etc.)
       // These are unnecessary — browserslist targets Chrome 109+, Safari 17+, Firefox 115+
       // which natively support all polyfilled features including URL.canParse.
       config.resolve.alias = {
         ...config.resolve.alias,
+        // Alias both polyfill entry points to false (empty module)
         'next/dist/build/polyfills/polyfill-module': false,
+        'next/dist/build/polyfills/polyfill-nomodule': false,
       };
+
+      // Replace any remaining polyfill imports with empty modules via NormalModuleReplacementPlugin.
+      // This catches polyfills that slip through the alias (e.g., resolved via different paths).
+      config.plugins.push(
+        new webpack.NormalModuleReplacementPlugin(
+          /next[\\/]dist[\\/]build[\\/]polyfills/,
+          (resource) => {
+            resource.request = join(process.cwd(), 'lib/empty-module.js');
+          }
+        )
+      );
 
       // Remove the hardcoded polyfill-nomodule CopyFilePlugin.
       // Next.js unconditionally bundles a 68 KiB polyfill-nomodule chunk via CopyFilePlugin
