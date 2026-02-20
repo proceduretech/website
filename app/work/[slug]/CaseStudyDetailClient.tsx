@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m, LazyMotion, domAnimation } from "framer-motion";
 import { CalButton } from "@/components/CalButton";
 import { CaseStudyCard } from "@/components/ui";
 import type { CaseStudyDetail, CaseStudyContent } from "@/lib/notion-case-studies";
@@ -312,6 +312,7 @@ export function CaseStudyDetailClient({
   const groupedContent = groupListItems(filteredContent);
 
   return (
+    <LazyMotion features={domAnimation}>
     <main className="relative min-h-screen bg-base overflow-hidden">
       {/* Hero Section */}
       <section className="relative pt-32 pb-6 sm:pb-8 overflow-hidden">
@@ -324,7 +325,7 @@ export function CaseStudyDetailClient({
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
           {/* Service Type Badge */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
@@ -333,10 +334,10 @@ export function CaseStudyDetailClient({
             <span className="inline-flex px-3 py-1 text-xs font-medium rounded-full bg-accent/10 border border-accent/20 text-accent-light">
               {caseStudy.serviceType}
             </span>
-          </motion.div>
+          </m.div>
 
           {/* Client Logo - show logo if available, otherwise text */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.1 }}
@@ -356,21 +357,21 @@ export function CaseStudyDetailClient({
                 {caseStudy.client}
               </span>
             )}
-          </motion.div>
+          </m.div>
 
           {/* Title */}
-          <motion.h1
+          <m.h1
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.2 }}
             className="text-2xl sm:text-3xl lg:text-4xl font-bold text-text-primary leading-tight"
           >
             {caseStudy.title}
-          </motion.h1>
+          </m.h1>
 
           {/* Hero Image */}
           {caseStudy.image && (
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
@@ -384,7 +385,7 @@ export function CaseStudyDetailClient({
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1100px"
                 priority
               />
-            </motion.div>
+            </m.div>
           )}
         </div>
       </section>
@@ -393,7 +394,7 @@ export function CaseStudyDetailClient({
       {caseStudy.metrics.length > 0 && (
         <section className="relative py-8 bg-surface border-y border-border">
           <div className="max-w-4xl mx-auto px-4 sm:px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -407,7 +408,7 @@ export function CaseStudyDetailClient({
                   <div className="text-sm text-text-muted">{metric.label}</div>
                 </div>
               ))}
-            </motion.div>
+            </m.div>
           </div>
         </section>
       )}
@@ -415,7 +416,7 @@ export function CaseStudyDetailClient({
       {/* Content Section */}
       <section className="relative py-12 sm:py-16 bg-base">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
@@ -447,14 +448,14 @@ export function CaseStudyDetailClient({
                 })}
               </div>
             )}
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="relative py-16 sm:py-24 bg-surface">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -494,7 +495,7 @@ export function CaseStudyDetailClient({
                 Contact Us
               </Link>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -502,7 +503,7 @@ export function CaseStudyDetailClient({
       {relatedCaseStudies.length > 0 && (
         <section className="relative py-16 sm:py-24 bg-base">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -515,7 +516,7 @@ export function CaseStudyDetailClient({
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">
                 Related Case Studies
               </h2>
-            </motion.div>
+            </m.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {relatedCaseStudies.map((study, idx) => (
@@ -531,5 +532,6 @@ export function CaseStudyDetailClient({
         </section>
       )}
     </main>
+    </LazyMotion>
   );
 }

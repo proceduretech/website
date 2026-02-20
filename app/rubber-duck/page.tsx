@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -120,6 +120,7 @@ export default function RubberDuckPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
+    <LazyMotion features={domAnimation}>
     <main className="relative min-h-screen bg-base overflow-hidden">
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 sm:pb-24 overflow-hidden">
@@ -134,7 +135,7 @@ export default function RubberDuckPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
 {/* Headline */}
-            <motion.h1
+            <m.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -143,10 +144,10 @@ export default function RubberDuckPage() {
               Rubber Duck
               <br />
               <span className="text-highlight">The Bootcamp</span>
-            </motion.h1>
+            </m.h1>
 
             {/* Subheadline */}
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -157,10 +158,10 @@ export default function RubberDuckPage() {
               software engineering like development, infrastructure, deployment,
               best practices, estimation, metrics, working with teams, managing
               stakeholders, influence, networking and much more.
-            </motion.p>
+            </m.p>
 
             {/* Important Notice */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.35 }}
@@ -172,10 +173,10 @@ export default function RubberDuckPage() {
                 you. You will be paid for this. This is how we onboard and
                 induct new folks into our team.
               </span>
-            </motion.div>
+            </m.div>
 
             {/* Stats */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -194,10 +195,10 @@ export default function RubberDuckPage() {
                   </div>
                 </div>
               ))}
-            </motion.div>
+            </m.div>
 
             {/* CTA */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
@@ -230,7 +231,7 @@ export default function RubberDuckPage() {
               >
                 View Curriculum
               </a>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -238,34 +239,34 @@ export default function RubberDuckPage() {
       {/* What You'll Get Section */}
       <section className="relative py-16 sm:py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={stagger}
             className="text-center mb-16"
           >
-            <motion.span
+            <m.span
               variants={fadeInUp}
               className="inline-block text-sm font-medium text-accent-light uppercase tracking-wider mb-4"
             >
               The Bootcamp
-            </motion.span>
-            <motion.h2
+            </m.span>
+            <m.h2
               variants={fadeInUp}
               className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary mb-6"
             >
               What is <span className="text-highlight">Rubber Duck</span>?
-            </motion.h2>
-            <motion.p
+            </m.h2>
+            <m.p
               variants={fadeInUp}
               className="text-lg text-text-secondary max-w-3xl mx-auto"
             >
               This boot camp is the right blend of geekiness and pragmatism.
-            </motion.p>
-          </motion.div>
+            </m.p>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -294,7 +295,7 @@ export default function RubberDuckPage() {
                 text: "Chance to continue as a full-time employee at Procedure",
               },
             ].map((item, idx) => (
-              <motion.div
+              <m.div
                 key={idx}
                 variants={fadeInUp}
                 className="group relative p-6 rounded-2xl bg-base border border-border hover:border-accent/30 transition-all duration-300"
@@ -306,9 +307,9 @@ export default function RubberDuckPage() {
                     {item.text}
                   </p>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -316,25 +317,25 @@ export default function RubberDuckPage() {
       <section className="relative py-16 sm:py-24 bg-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <motion.div
+            <m.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
               variants={stagger}
             >
-              <motion.span
+              <m.span
                 variants={fadeInUp}
                 className="inline-block text-sm font-medium text-accent-light uppercase tracking-wider mb-4"
               >
                 Our Mission
-              </motion.span>
-              <motion.h2
+              </m.span>
+              <m.h2
                 variants={fadeInUp}
                 className="text-3xl sm:text-4xl font-bold text-text-primary mb-6"
               >
                 Why are we <span className="text-highlight">doing this</span>?
-              </motion.h2>
-              <motion.div
+              </m.h2>
+              <m.div
                 variants={fadeInUp}
                 className="space-y-4 text-text-secondary"
               >
@@ -368,10 +369,10 @@ export default function RubberDuckPage() {
                   and are fun. So if we like you and you like us, we will have a
                   great time working together.
                 </p>
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -395,7 +396,7 @@ export default function RubberDuckPage() {
                   ))}
                 </ul>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -403,37 +404,37 @@ export default function RubberDuckPage() {
       {/* Curriculum Section */}
       <section id="curriculum" className="relative py-16 sm:py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={stagger}
             className="text-center mb-16"
           >
-            <motion.span
+            <m.span
               variants={fadeInUp}
               className="inline-block text-sm font-medium text-accent-light uppercase tracking-wider mb-4"
             >
               Curriculum
-            </motion.span>
-            <motion.h2
+            </m.span>
+            <m.h2
               variants={fadeInUp}
               className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary mb-6"
             >
               What&apos;s in the{" "}
               <span className="text-highlight">boot camp</span>?
-            </motion.h2>
-            <motion.p
+            </m.h2>
+            <m.p
               variants={fadeInUp}
               className="text-lg text-text-secondary max-w-3xl mx-auto"
             >
               The idea is to introduce all the major skills of building
               software. This will help you choose your expertise for later.
-            </motion.p>
-          </motion.div>
+            </m.p>
+          </m.div>
 
           {/* Location Info */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -475,17 +476,17 @@ export default function RubberDuckPage() {
                 </svg>
               </a>
             </div>
-          </motion.div>
+          </m.div>
 
           {/* Skills Grid */}
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={stagger}
             className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
           >
-            <motion.div
+            <m.div
               variants={fadeInUp}
               className="bg-base rounded-2xl border border-border p-6"
             >
@@ -516,9 +517,9 @@ export default function RubberDuckPage() {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               variants={fadeInUp}
               className="bg-base rounded-2xl border border-border p-6"
             >
@@ -549,9 +550,9 @@ export default function RubberDuckPage() {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               variants={fadeInUp}
               className="bg-base rounded-2xl border border-border p-6"
             >
@@ -582,9 +583,9 @@ export default function RubberDuckPage() {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               variants={fadeInUp}
               className="bg-base rounded-2xl border border-border p-6"
             >
@@ -615,11 +616,11 @@ export default function RubberDuckPage() {
                   </li>
                 ))}
               </ul>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
 
           {/* Notice */}
-          <motion.p
+          <m.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -631,10 +632,10 @@ export default function RubberDuckPage() {
             </strong>{" "}
             course. Mastering each of these will take decades. So we won&apos;t
             try to sell you that you will become good at everything.
-          </motion.p>
+          </m.p>
 
           {/* T-Shaped Foundation */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -697,7 +698,7 @@ export default function RubberDuckPage() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -705,7 +706,7 @@ export default function RubberDuckPage() {
       <section className="relative py-16 sm:py-24 bg-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -737,37 +738,37 @@ export default function RubberDuckPage() {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
               variants={stagger}
               className="order-1 lg:order-2"
             >
-              <motion.span
+              <m.span
                 variants={fadeInUp}
                 className="inline-block text-sm font-medium text-accent-light uppercase tracking-wider mb-4"
               >
                 Requirements
-              </motion.span>
-              <motion.h2
+              </m.span>
+              <m.h2
                 variants={fadeInUp}
                 className="text-3xl sm:text-4xl font-bold text-text-primary mb-6"
               >
                 This is for <span className="text-highlight">you</span> if
                 you...
-              </motion.h2>
-              <motion.p
+              </m.h2>
+              <m.p
                 variants={fadeInUp}
                 className="text-text-secondary mb-6"
               >
                 We&apos;re looking for curious minds who want to build a strong
                 foundation in software engineering. If you check most of these
                 boxes, we&apos;d love to hear from you.
-              </motion.p>
-              <motion.div
+              </m.p>
+              <m.div
                 variants={fadeInUp}
                 className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-accent-secondary/10 border border-accent-secondary/20"
               >
@@ -779,8 +780,8 @@ export default function RubberDuckPage() {
                   </strong>{" "}
                   for this cohort.
                 </span>
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -788,30 +789,30 @@ export default function RubberDuckPage() {
       {/* Instructors Section */}
       <section className="relative py-16 sm:py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={stagger}
             className="text-center mb-16"
           >
-            <motion.span
+            <m.span
               variants={fadeInUp}
               className="inline-block text-sm font-medium text-accent-light uppercase tracking-wider mb-4"
             >
               Meet Your Mentors
-            </motion.span>
-            <motion.h2
+            </m.span>
+            <m.h2
               variants={fadeInUp}
               className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary mb-6"
             >
               Who are we, and why should you{" "}
               <span className="text-highlight">start your career</span> with us?
-            </motion.h2>
-          </motion.div>
+            </m.h2>
+          </m.div>
 
           <div className="grid lg:grid-cols-2 gap-8">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -836,9 +837,9 @@ export default function RubberDuckPage() {
                 built products for scale. He also advises startups on their
                 engineering practices.
               </p>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -865,10 +866,10 @@ export default function RubberDuckPage() {
                 engineering teams, including PayTm, Treebo, KredX, Arogya Setu,
                 and Setu.
               </p>
-            </motion.div>
+            </m.div>
           </div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -885,10 +886,10 @@ export default function RubberDuckPage() {
                 company. We have both.
               </p>
             </div>
-          </motion.div>
+          </m.div>
 
           {/* Glassdoor mention */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -906,42 +907,42 @@ export default function RubberDuckPage() {
               </a>
               .
             </p>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* Application Process Section */}
       <section className="relative py-16 sm:py-24 bg-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={stagger}
             className="text-center mb-16"
           >
-            <motion.span
+            <m.span
               variants={fadeInUp}
               className="inline-block text-sm font-medium text-accent-light uppercase tracking-wider mb-4"
             >
               Apply Now
-            </motion.span>
-            <motion.h2
+            </m.span>
+            <m.h2
               variants={fadeInUp}
               className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary mb-6"
             >
               How to apply, and what is the{" "}
               <span className="text-highlight">process</span>?
-            </motion.h2>
-            <motion.p
+            </m.h2>
+            <m.p
               variants={fadeInUp}
               className="text-lg text-text-secondary max-w-2xl mx-auto"
             >
               The entire process will not take more than two weeks.
-            </motion.p>
-          </motion.div>
+            </m.p>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -949,7 +950,7 @@ export default function RubberDuckPage() {
             className="grid md:grid-cols-3 gap-6 mb-12"
           >
             {applicationSteps.map((step, idx) => (
-              <motion.div
+              <m.div
                 key={idx}
                 variants={fadeInUp}
                 className="relative group"
@@ -983,11 +984,11 @@ export default function RubberDuckPage() {
                     </svg>
                   </div>
                 )}
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -1014,35 +1015,35 @@ export default function RubberDuckPage() {
                 />
               </svg>
             </a>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* FAQs Section */}
       <section className="relative py-16 sm:py-24 bg-surface">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={stagger}
             className="text-center mb-12"
           >
-            <motion.span
+            <m.span
               variants={fadeInUp}
               className="inline-block text-sm font-medium text-accent-light uppercase tracking-wider mb-4"
             >
               FAQs
-            </motion.span>
-            <motion.h2
+            </m.span>
+            <m.h2
               variants={fadeInUp}
               className="text-3xl sm:text-4xl font-bold text-text-primary"
             >
               Frequently Asked Questions
-            </motion.h2>
-          </motion.div>
+            </m.h2>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -1050,7 +1051,7 @@ export default function RubberDuckPage() {
             className="space-y-4"
           >
             {faqs.map((faq, idx) => (
-              <motion.div
+              <m.div
                 key={idx}
                 variants={fadeInUp}
                 className="bg-base rounded-xl border border-border overflow-hidden"
@@ -1083,9 +1084,9 @@ export default function RubberDuckPage() {
                     <p className="text-text-secondary">{faq.answer}</p>
                   </div>
                 )}
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -1096,7 +1097,7 @@ export default function RubberDuckPage() {
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -1190,9 +1191,10 @@ export default function RubberDuckPage() {
                 </a>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </main>
+    </LazyMotion>
   );
 }

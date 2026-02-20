@@ -26,7 +26,7 @@ import {
   ctaData,
   relatedServices,
 } from "@/lib/dotnet-modernization-data";
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 
 export default function DotnetModernizationPageClient() {
   const combinedSchema = {
@@ -109,6 +109,7 @@ export default function DotnetModernizationPageClient() {
   };
 
   return (
+    <LazyMotion features={domAnimation}>
     <main className="min-h-screen">
       {/* Combined JSON-LD Structured Data */}
       <script
@@ -215,7 +216,7 @@ export default function DotnetModernizationPageClient() {
         className="relative py-16 sm:py-24 bg-surface scroll-mt-20"
       >
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -229,9 +230,9 @@ export default function DotnetModernizationPageClient() {
               {ctaData.description}
             </p>
             <p className="text-sm text-text-muted">{ctaData.closingNote}</p>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -239,7 +240,7 @@ export default function DotnetModernizationPageClient() {
             className="rounded-2xl overflow-hidden border border-border bg-surface-elevated"
           >
             <CalInline className="h-[600px]" />
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -252,5 +253,6 @@ export default function DotnetModernizationPageClient() {
         services={relatedServices}
       />
     </main>
+    </LazyMotion>
   );
 }

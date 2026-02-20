@@ -1,6 +1,6 @@
 "use client";
 import { useEffect } from "react";
-import { motion, stagger, useAnimate } from "motion/react";
+import { m, stagger, useAnimate } from "motion/react";
 import { cn } from "@/lib/utils";
 
 export const TextGenerateEffect = ({
@@ -35,10 +35,10 @@ export const TextGenerateEffect = ({
 
   const renderWords = () => {
     return (
-      <motion.span ref={scope}>
+      <m.span ref={scope}>
         {wordsArray.map((word, idx) => {
           return (
-            <motion.span
+            <m.span
               key={word + idx}
               className="inline-block mr-[0.25em]"
               style={{
@@ -47,10 +47,10 @@ export const TextGenerateEffect = ({
               }}
             >
               {word}
-            </motion.span>
+            </m.span>
           );
         })}
-      </motion.span>
+      </m.span>
     );
   };
 
@@ -96,10 +96,10 @@ export const TextGenerateEffectHighlight = ({
 
   const renderWords = () => {
     return (
-      <motion.span ref={scope}>
+      <m.span ref={scope}>
         {wordsArray.map((word, idx) => {
           return (
-            <motion.span
+            <m.span
               key={word + idx}
               className="inline-block mr-[0.25em]"
               style={{
@@ -108,10 +108,10 @@ export const TextGenerateEffectHighlight = ({
               }}
             >
               {word}
-            </motion.span>
+            </m.span>
           );
         })}
-      </motion.span>
+      </m.span>
     );
   };
 

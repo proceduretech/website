@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import { PageHero } from "@/components/ui";
 import { CalInline } from "@/components/CalInline";
 import type { ServicePageForListing } from "@/lib/content";
@@ -81,6 +81,7 @@ export default function ServicePageClient({ service }: Props) {
   };
 
   return (
+    <LazyMotion features={domAnimation}>
     <main className="min-h-screen">
       <PageHero
         badge={hero.badge}
@@ -95,7 +96,7 @@ export default function ServicePageClient({ service }: Props) {
       {/* Benefits */}
       <section className="py-16 sm:py-24 bg-surface">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -104,11 +105,11 @@ export default function ServicePageClient({ service }: Props) {
             <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-6">
               {benefitsTitle}
             </h2>
-          </motion.div>
+          </m.div>
 
           <div className="grid md:grid-cols-2 gap-6">
             {benefits.map((benefit, idx) => (
-              <motion.div
+              <m.div
                 key={benefit.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -136,7 +137,7 @@ export default function ServicePageClient({ service }: Props) {
                 <p className="text-text-secondary text-sm leading-relaxed">
                   {benefit.description}
                 </p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -145,7 +146,7 @@ export default function ServicePageClient({ service }: Props) {
       {/* Process */}
       <section className="py-16 sm:py-24 bg-base">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -154,11 +155,11 @@ export default function ServicePageClient({ service }: Props) {
             <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-6">
               {processTitle}
             </h2>
-          </motion.div>
+          </m.div>
 
           <div className="grid md:grid-cols-4 gap-6">
             {process.map((step, idx) => (
-              <motion.div
+              <m.div
                 key={step.step}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -186,7 +187,7 @@ export default function ServicePageClient({ service }: Props) {
                 >
                   {step.duration}
                 </span>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -196,7 +197,7 @@ export default function ServicePageClient({ service }: Props) {
       {additionalItems && additionalItemsTitle && (
         <section className="py-16 sm:py-24 bg-surface">
           <div className="max-w-4xl mx-auto px-4 sm:px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -205,11 +206,11 @@ export default function ServicePageClient({ service }: Props) {
               <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-6">
                 {additionalItemsTitle}
               </h2>
-            </motion.div>
+            </m.div>
 
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {additionalItems.map((item, idx) => (
-                <motion.div
+                <m.div
                   key={idx}
                   initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -218,7 +219,7 @@ export default function ServicePageClient({ service }: Props) {
                   className="p-4 rounded-xl bg-surface-elevated border border-border text-center"
                 >
                   <span className="text-sm text-text-primary">{item}</span>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -229,7 +230,7 @@ export default function ServicePageClient({ service }: Props) {
       {service.compliance && service.compliance.length > 0 && (
         <section className="py-16 sm:py-24 bg-surface">
           <div className="max-w-4xl mx-auto px-4 sm:px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -238,11 +239,11 @@ export default function ServicePageClient({ service }: Props) {
               <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-6">
                 Compliance & Security
               </h2>
-            </motion.div>
+            </m.div>
 
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {service.compliance.map((item, idx) => (
-                <motion.div
+                <m.div
                   key={idx}
                   initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -251,7 +252,7 @@ export default function ServicePageClient({ service }: Props) {
                   className="p-4 rounded-xl bg-surface-elevated border border-border text-center"
                 >
                   <span className="text-sm text-text-primary">{item}</span>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -261,7 +262,7 @@ export default function ServicePageClient({ service }: Props) {
       {/* Ideal For */}
       <section className="py-16 sm:py-24 bg-base">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -270,11 +271,11 @@ export default function ServicePageClient({ service }: Props) {
             <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-6">
               {idealForTitle}
             </h2>
-          </motion.div>
+          </m.div>
 
           <div className="space-y-4">
             {idealFor.map((item, idx) => (
-              <motion.div
+              <m.div
                 key={idx}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -300,7 +301,7 @@ export default function ServicePageClient({ service }: Props) {
                   </svg>
                 </div>
                 <span className="text-text-primary">{item}</span>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -309,7 +310,7 @@ export default function ServicePageClient({ service }: Props) {
       {/* Book a Call Section */}
       <section id="book-call" className="relative py-16 sm:py-24 bg-surface scroll-mt-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -323,9 +324,9 @@ export default function ServicePageClient({ service }: Props) {
               {bookingSubtext[service.slug] ||
                 "Schedule a call with our team. We'll discuss your requirements and how we can help you achieve your goals."}
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -333,14 +334,14 @@ export default function ServicePageClient({ service }: Props) {
             className="rounded-2xl overflow-hidden border border-border bg-surface-elevated"
           >
             <CalInline className="h-[600px]" />
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* CTA */}
       <section className="py-16 sm:py-24 bg-surface">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -373,9 +374,10 @@ export default function ServicePageClient({ service }: Props) {
                 />
               </svg>
             </Link>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </main>
+    </LazyMotion>
   );
 }

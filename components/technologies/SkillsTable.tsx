@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface Skill {
@@ -53,7 +53,7 @@ export function SkillsTable({
     <section className="py-16 sm:py-24 bg-base">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -63,10 +63,10 @@ export function SkillsTable({
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-5">
             {title}
           </h2>
-        </motion.div>
+        </m.div>
 
         {/* Desktop table */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -135,10 +135,10 @@ export function SkillsTable({
               </tbody>
             </table>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Mobile cards */}
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -146,7 +146,7 @@ export function SkillsTable({
           className="md:hidden space-y-4"
         >
           {skills.map((skill, index) => (
-            <motion.div
+            <m.div
               key={index}
               variants={itemVariants}
               className={cn(
@@ -192,13 +192,13 @@ export function SkillsTable({
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
 
         {/* Specialized skills */}
         {specializedSkills && specializedSkills.length > 0 && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -275,7 +275,7 @@ export function SkillsTable({
                 </div>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </div>
     </section>

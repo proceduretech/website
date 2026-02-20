@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import Link from "next/link";
 import { Input, Textarea, Select, ObfuscatedEmailBlock } from "@/components/ui";
 import { CalButton } from "@/components/CalButton";
@@ -96,6 +96,7 @@ export default function ContactPage() {
   };
 
   return (
+    <LazyMotion features={domAnimation}>
     <main className="relative min-h-screen bg-base overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
@@ -122,7 +123,7 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-start">
             {/* Left Column - Hero Content */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -149,14 +150,14 @@ export default function ContactPage() {
                 </h2>
 
                 {/* Email - obfuscated to prevent bot scraping */}
-                <motion.div whileHover={{ x: 4 }}>
+                <m.div whileHover={{ x: 4 }}>
                   <ObfuscatedEmailBlock
                     user="hello"
                     domain="procedure"
                     tld="tech"
                     label="Email us directly"
                   />
-                </motion.div>
+                </m.div>
 
                 {/* Schedule a Call */}
                 <CalButton className="flex items-center gap-4 group text-left cursor-pointer">
@@ -291,10 +292,10 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
 
             {/* Right Column - Contact Form */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -311,7 +312,7 @@ export default function ContactPage() {
                 <div className="relative bg-surface/80 backdrop-blur-xl border border-border rounded-2xl p-8 sm:p-10 shadow-2xl shadow-black/20">
                   {isSubmitted ? (
                     /* Success State */
-                    <motion.div
+                    <m.div
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.4 }}
@@ -358,7 +359,7 @@ export default function ContactPage() {
                         </svg>
                         Back to home
                       </Link>
-                    </motion.div>
+                    </m.div>
                   ) : (
                     /* Form */
                     <form onSubmit={handleSubmit} className="space-y-6">
@@ -430,7 +431,7 @@ export default function ContactPage() {
                       />
 
                       {/* Submit Button */}
-                      <motion.button
+                      <m.button
                         type="submit"
                         disabled={isSubmitting}
                         whileHover={{ scale: isSubmitting ? 1 : 1.01 }}
@@ -490,7 +491,7 @@ export default function ContactPage() {
                             </svg>
                           </div>
                         )}
-                      </motion.button>
+                      </m.button>
 
                       {/* Privacy Note */}
                       <p className="text-xs text-text-muted text-center">
@@ -509,7 +510,7 @@ export default function ContactPage() {
               </div>
 
               {/* Bottom Trust Badge */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
@@ -559,8 +560,8 @@ export default function ContactPage() {
                   </svg>
                   256-bit SSL
                 </div>
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
           </div>
         </div>
       </div>
@@ -568,7 +569,7 @@ export default function ContactPage() {
       {/* Global Presence Section */}
       <section className="relative z-10 py-20 border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -582,9 +583,9 @@ export default function ContactPage() {
               Our distributed teams work across time zones to deliver continuous
               progress on your projects.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -605,7 +606,7 @@ export default function ContactPage() {
                 address: "Bay Area, California",
               },
             ].map((location, idx) => (
-              <motion.div
+              <m.div
                 key={location.city}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -640,16 +641,16 @@ export default function ContactPage() {
                     {location.address}
                   </p>
                 )}
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* FAQ Section */}
       <section className="relative z-10 py-20 bg-surface">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -662,7 +663,7 @@ export default function ContactPage() {
             <p className="text-text-secondary">
               Quick answers to common questions about working with us.
             </p>
-          </motion.div>
+          </m.div>
 
           <div className="space-y-4">
             {[
@@ -683,7 +684,7 @@ export default function ContactPage() {
                 a: "That's precisely what the strategy call is for. Many clients come to us with a business problem rather than a technical specification. Our engineers help translate business objectives into concrete AI implementation plans. If you're exploring whether AI is right for a particular use case, we can advise on feasibility before any commitment.",
               },
             ].map((faq, idx) => (
-              <motion.div
+              <m.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -697,11 +698,12 @@ export default function ContactPage() {
                 <p className="text-text-secondary text-sm leading-relaxed">
                   {faq.a}
                 </p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
       </section>
     </main>
+    </LazyMotion>
   );
 }

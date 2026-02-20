@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 interface BlogHeroProps {
   stats?: {
@@ -23,7 +23,7 @@ export function BlogHero({ stats }: BlogHeroProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="max-w-4xl mx-auto text-center">
 {/* Headline - reduced delays for better LCP */}
-          <motion.h1
+          <m.h1
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.05 }}
@@ -32,10 +32,10 @@ export function BlogHero({ stats }: BlogHeroProps) {
             Engineering Insights
             <br />
             <span className="text-highlight">From the Trenches</span>
-          </motion.h1>
+          </m.h1>
 
           {/* Subheadline */}
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.1 }}
@@ -43,10 +43,10 @@ export function BlogHero({ stats }: BlogHeroProps) {
           >
             Deep-dives on AI, product development, and cloud infrastructure from
             engineers building real systems.
-          </motion.p>
+          </m.p>
 
           {/* Stats row */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.15 }}
@@ -65,7 +65,7 @@ export function BlogHero({ stats }: BlogHeroProps) {
                 </div>
               </div>
             ))}
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>

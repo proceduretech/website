@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 
@@ -43,7 +43,7 @@ export function ChallengesSection({
     <section className="py-16 sm:py-20 bg-surface">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -53,10 +53,10 @@ export function ChallengesSection({
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-text-primary">
             {title}
           </h2>
-        </motion.div>
+        </m.div>
 
         {/* Challenges grid */}
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -64,7 +64,7 @@ export function ChallengesSection({
           className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
           {challenges.map((challenge, index) => (
-            <motion.div
+            <m.div
               key={index}
               variants={cardVariants}
               className={cn(
@@ -92,9 +92,9 @@ export function ChallengesSection({
               <p className="text-text-secondary leading-relaxed">
                 {challenge.description}
               </p>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

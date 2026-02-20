@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import type { CaseStudy } from "@/lib/case-studies-data";
 
 interface CaseStudyCardProps {
@@ -21,7 +21,7 @@ export function CaseStudyCard({
   const isCompact = variant === "compact";
 
   return (
-    <motion.article
+    <m.article
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -125,6 +125,6 @@ export function CaseStudyCard({
         </div>
       </div>
       </Link>
-    </motion.article>
+    </m.article>
   );
 }

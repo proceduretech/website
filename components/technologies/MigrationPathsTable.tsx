@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface MigrationPath {
@@ -63,7 +63,7 @@ export function MigrationPathsTable({
     <section className="py-16 sm:py-24 bg-surface">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -78,10 +78,10 @@ export function MigrationPathsTable({
               {intro}
             </p>
           )}
-        </motion.div>
+        </m.div>
 
         {/* Desktop table */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -135,10 +135,10 @@ export function MigrationPathsTable({
               </tbody>
             </table>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Mobile cards */}
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -146,7 +146,7 @@ export function MigrationPathsTable({
           className="md:hidden space-y-4"
         >
           {paths.map((path, index) => (
-            <motion.div
+            <m.div
               key={index}
               variants={itemVariants}
               className={cn(
@@ -215,13 +215,13 @@ export function MigrationPathsTable({
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
 
         {/* Note */}
         {note && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -231,7 +231,7 @@ export function MigrationPathsTable({
             <p className="text-text-muted text-sm italic max-w-2xl mx-auto">
               {note}
             </p>
-          </motion.div>
+          </m.div>
         )}
       </div>
     </section>

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { PageHero } from "@/components/ui";
@@ -156,6 +156,7 @@ const values = [
 
 export default function CareersPage() {
   return (
+    <LazyMotion features={domAnimation}>
     <main className="relative min-h-screen bg-base overflow-hidden">
       {/* ============================================
           HERO SECTION
@@ -201,7 +202,7 @@ export default function CareersPage() {
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -219,12 +220,12 @@ export default function CareersPage() {
               learning opportunities. Everything you need to do career-defining
               work on enterprise AI projects.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Benefits Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {benefits.map((benefit, idx) => (
-              <motion.div
+              <m.div
                 key={benefit.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -246,7 +247,7 @@ export default function CareersPage() {
                     {benefit.description}
                   </p>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -265,7 +266,7 @@ export default function CareersPage() {
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -283,12 +284,12 @@ export default function CareersPage() {
               and a shared commitment to delivering production AI systems that
               transform enterprises.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Values Grid */}
           <div className="grid md:grid-cols-2 gap-6">
             {values.map((value, idx) => (
-              <motion.div
+              <m.div
                 key={value.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -314,7 +315,7 @@ export default function CareersPage() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -333,7 +334,7 @@ export default function CareersPage() {
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -351,7 +352,7 @@ export default function CareersPage() {
               exceptional talent. From application to offer, we move quickly
               while ensuring the right fit for both sides.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Timeline - Desktop (Horizontal) */}
           <div className="hidden lg:block">
@@ -467,7 +468,7 @@ export default function CareersPage() {
                     ),
                   },
                 ].map((item, idx) => (
-                  <motion.div
+                  <m.div
                     key={item.step}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -501,7 +502,7 @@ export default function CareersPage() {
                         </p>
                       </div>
                     </div>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
             </div>
@@ -616,7 +617,7 @@ export default function CareersPage() {
                 ),
               },
             ].map((item, idx) => (
-              <motion.div
+              <m.div
                 key={item.step}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -652,12 +653,12 @@ export default function CareersPage() {
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
 
           {/* Additional info */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -672,7 +673,7 @@ export default function CareersPage() {
               have a dedicated point of contact throughout the process to answer
               questions and provide updates.
             </p>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -692,7 +693,7 @@ export default function CareersPage() {
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -710,17 +711,17 @@ export default function CareersPage() {
               engineers across every timezone and prioritize asynchronous
               collaboration.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Keka Careers Embed */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <KekaJobsEmbed />
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -736,7 +737,7 @@ export default function CareersPage() {
         <div className="absolute top-0 right-1/4 w-[300px] h-[300px] bg-accent-secondary/10 rounded-full blur-[80px]" />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -778,9 +779,10 @@ export default function CareersPage() {
                 Learn About Procedure
               </Link>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </main>
+    </LazyMotion>
   );
 }

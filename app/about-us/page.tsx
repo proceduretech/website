@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ClientLogos } from "@/components/sections/ClientLogos";
@@ -183,6 +183,7 @@ const certifications = [
 
 export default function AboutPage() {
   return (
+    <LazyMotion features={domAnimation}>
     <main className="relative min-h-screen bg-base overflow-hidden">
       {/* ============================================
           HERO SECTION
@@ -198,7 +199,7 @@ export default function AboutPage() {
             </h1>
 
             {/* Subheadline */}
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -208,10 +209,10 @@ export default function AboutPage() {
               stay close to the problem, not tucked behind layers of process.
               From idea to deploy, we move with intent, learn in the open, and
               keep the &quot;why&quot; visible.
-            </motion.p>
+            </m.p>
 
             {/* Stats row */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -231,7 +232,7 @@ export default function AboutPage() {
                   </div>
                 </div>
               ))}
-            </motion.div>
+            </m.div>
 
             {/* Client Logos */}
             <div className="mt-16">
@@ -247,7 +248,7 @@ export default function AboutPage() {
       <section className="relative py-16 sm:py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* Mission Statement */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -269,12 +270,12 @@ export default function AboutPage() {
               experiment, break, fix, and ship together, because that&apos;s how
               real products and real teams grow.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Values Grid - Bento Style */}
           <div className="grid md:grid-cols-2 gap-6">
             {values.map((value, idx) => (
-              <motion.div
+              <m.div
                 key={value.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -293,7 +294,7 @@ export default function AboutPage() {
                     {value.description}
                   </p>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -304,7 +305,7 @@ export default function AboutPage() {
           ============================================ */}
       <section className="relative py-16 sm:py-24 bg-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -322,12 +323,12 @@ export default function AboutPage() {
               respective fields. They lead by mentoring, not managing, helping
               engineers and clients alike grow through real collaboration.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Team Grid */}
           <div className="grid sm:grid-cols-2 gap-6 lg:gap-8 max-w-3xl mx-auto">
             {leadership.map((member, idx) => (
-              <motion.div
+              <m.div
                 key={member.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -376,7 +377,7 @@ export default function AboutPage() {
                     </a>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -387,7 +388,7 @@ export default function AboutPage() {
           ============================================ */}
       <section className="relative py-16 sm:py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -400,7 +401,7 @@ export default function AboutPage() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">
               From product engineering to AI-powered solutions
             </h2>
-          </motion.div>
+          </m.div>
 
           {/* Timeline */}
           <div className="relative">
@@ -409,7 +410,7 @@ export default function AboutPage() {
 
             <div className="space-y-8 md:space-y-0">
               {milestones.map((milestone, idx) => (
-                <motion.div
+                <m.div
                   key={milestone.year}
                   initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -443,7 +444,7 @@ export default function AboutPage() {
 
                   {/* Empty space for the other side */}
                   <div className="hidden md:block md:w-1/2" />
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -455,7 +456,7 @@ export default function AboutPage() {
           ============================================ */}
       <section className="relative py-16 sm:py-24 bg-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -472,12 +473,12 @@ export default function AboutPage() {
               We&apos;ve built our reputation on delivering results, not
               promises.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Differentiators Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {differentiators.map((diff, idx) => (
-              <motion.div
+              <m.div
                 key={diff.label}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -500,7 +501,7 @@ export default function AboutPage() {
                     {diff.description}
                   </p>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -512,7 +513,7 @@ export default function AboutPage() {
       <section className="relative py-16 sm:py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* Certifications */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -555,7 +556,7 @@ export default function AboutPage() {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -564,7 +565,7 @@ export default function AboutPage() {
           ============================================ */}
       <section className="relative py-16 sm:py-24 bg-base">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -642,9 +643,10 @@ export default function AboutPage() {
                 NDA Available
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </main>
+    </LazyMotion>
   );
 }

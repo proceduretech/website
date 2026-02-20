@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { BlogPost } from "@/lib/blog-types";
 import { BlogPostCard } from "./BlogPostCard";
 
@@ -19,7 +19,7 @@ export function BlogRelatedPosts({
 
   return (
     <section className="mt-20 pt-16 border-t border-border">
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -32,7 +32,7 @@ export function BlogRelatedPosts({
         <p className="text-text-secondary mt-2">
           More insights from the Procedure engineering team
         </p>
-      </motion.div>
+      </m.div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {posts.map((post, idx) => (

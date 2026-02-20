@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 
@@ -43,7 +43,7 @@ export function ComplianceBadges({
     <section className="py-16 sm:py-20 bg-surface">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -53,10 +53,10 @@ export function ComplianceBadges({
           <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-text-primary">
             {title}
           </h2>
-        </motion.div>
+        </m.div>
 
         {/* Badges */}
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
@@ -64,7 +64,7 @@ export function ComplianceBadges({
           className="flex flex-wrap justify-center gap-4 sm:gap-6"
         >
           {badges.map((badge, index) => (
-            <motion.div
+            <m.div
               key={index}
               variants={badgeVariants}
               className={cn(
@@ -86,9 +86,9 @@ export function ComplianceBadges({
                   </div>
                 )}
               </div>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

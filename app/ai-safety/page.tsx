@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { LazyMotion, domAnimation, m, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import { useRef } from "react";
 import { CalButton } from "@/components/CalButton";
@@ -405,7 +405,7 @@ function PrincipleCard({
   index: number;
 }) {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -436,7 +436,7 @@ function PrincipleCard({
           {principle.description}
         </p>
       </div>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -448,7 +448,7 @@ function ProcessPhaseCard({
   index: number;
 }) {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -503,7 +503,7 @@ function ProcessPhaseCard({
           </ul>
         </div>
       </div>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -515,7 +515,7 @@ function IndustryCard({
   index: number;
 }) {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -555,7 +555,7 @@ function IndustryCard({
           ))}
         </ul>
       </div>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -574,6 +574,7 @@ export default function AISafetyPage() {
   const heroScale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
 
   return (
+    <LazyMotion features={domAnimation}>
     <main className="min-h-screen">
       {/* ============================================
           HERO SECTION
@@ -586,7 +587,7 @@ export default function AISafetyPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-surface via-base to-base" />
 
         {/* Large ambient glows */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5 }}
@@ -595,7 +596,7 @@ export default function AISafetyPage() {
           <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-accent/8 rounded-full blur-[120px]" />
           <div className="absolute top-1/3 left-1/4 w-[600px] h-[400px] bg-accent-secondary/6 rounded-full blur-[100px]" />
           <div className="absolute top-1/3 right-1/4 w-[500px] h-[350px] bg-accent/5 rounded-full blur-[100px]" />
-        </motion.div>
+        </m.div>
 
         {/* Hexagon shield pattern */}
         <div
@@ -607,12 +608,12 @@ export default function AISafetyPage() {
 
         {/* Floating orbs */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <motion.div
+          <m.div
             animate={{ y: [0, -20, 0], opacity: [0.4, 0.6, 0.4] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             className="absolute top-[20%] left-[15%] w-3 h-3 bg-accent/40 rounded-full blur-sm"
           />
-          <motion.div
+          <m.div
             animate={{ y: [0, 15, 0], opacity: [0.3, 0.5, 0.3] }}
             transition={{
               duration: 5,
@@ -622,7 +623,7 @@ export default function AISafetyPage() {
             }}
             className="absolute top-[30%] right-[20%] w-2 h-2 bg-accent-secondary/50 rounded-full blur-sm"
           />
-          <motion.div
+          <m.div
             animate={{ y: [0, -15, 0], opacity: [0.3, 0.5, 0.3] }}
             transition={{
               duration: 7,
@@ -635,7 +636,7 @@ export default function AISafetyPage() {
         </div>
 
         {/* Main content */}
-        <motion.div
+        <m.div
           style={{ opacity: heroOpacity, scale: heroScale }}
           className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6"
         >
@@ -648,7 +649,7 @@ export default function AISafetyPage() {
             </h1>
 
             {/* Subheadline */}
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -659,10 +660,10 @@ export default function AISafetyPage() {
               models are tested, how outputs are validated, how systems fail
               gracefully. We build AI safety into your architecture from the
               first commit.
-            </motion.p>
+            </m.p>
 
             {/* CTAs */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
@@ -690,9 +691,9 @@ export default function AISafetyPage() {
               >
                 View AI Engineering Services
               </Link>
-            </motion.div>
+            </m.div>
           </div>
-        </motion.div>
+        </m.div>
       </section>
 
       {/* ============================================
@@ -708,7 +709,7 @@ export default function AISafetyPage() {
         />
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -736,7 +737,7 @@ export default function AISafetyPage() {
               before production. They avoid the costly rollbacks and reputation
               damage that come from deploying systems that behave unpredictably.
             </p>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -754,7 +755,7 @@ export default function AISafetyPage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           {/* Section Header */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -773,7 +774,7 @@ export default function AISafetyPage() {
               decisions we make on every AI project, operationalized into our
               development process.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Principles Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -802,7 +803,7 @@ export default function AISafetyPage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           {/* Section Header */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -820,7 +821,7 @@ export default function AISafetyPage() {
               AI safety is not a checklist at the end. It is woven into every
               phase of our development process.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Phase Cards Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -841,7 +842,7 @@ export default function AISafetyPage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           {/* Section Header */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -859,7 +860,7 @@ export default function AISafetyPage() {
               We do not invent our own definitions of safe AI. We align with
               established frameworks from leading institutions.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Two Column Layout */}
           <div className="grid lg:grid-cols-2 gap-12">
@@ -870,7 +871,7 @@ export default function AISafetyPage() {
               </h3>
               <div className="space-y-4">
                 {frameworks.map((framework, idx) => (
-                  <motion.div
+                  <m.div
                     key={framework.name}
                     initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -903,7 +904,7 @@ export default function AISafetyPage() {
                         </p>
                       </div>
                     </div>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
             </div>
@@ -915,7 +916,7 @@ export default function AISafetyPage() {
               </h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8">
                 {certifications.map((cert, idx) => (
-                  <motion.div
+                  <m.div
                     key={cert.name}
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
@@ -940,12 +941,12 @@ export default function AISafetyPage() {
                     <p className="text-xs text-accent-light">
                       {cert.status}
                     </p>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
 
               {/* Additional info */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -958,7 +959,7 @@ export default function AISafetyPage() {
                   SaaS, fair lending regulations for financial services, and DoD
                   ethical AI principles for defense applications.
                 </p>
-              </motion.div>
+              </m.div>
             </div>
           </div>
         </div>
@@ -978,7 +979,7 @@ export default function AISafetyPage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           {/* Section Header */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -995,7 +996,7 @@ export default function AISafetyPage() {
               Different industries face different AI risks. We bring specialized
               knowledge to each sector we serve.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Industries Grid */}
           <div className="grid md:grid-cols-3 gap-6">
@@ -1018,7 +1019,7 @@ export default function AISafetyPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-accent/5 to-accent-secondary/5" />
 
         {/* Animated orbs */}
-        <motion.div
+        <m.div
           animate={{
             y: [0, -30, 0],
             x: [0, 20, 0],
@@ -1026,7 +1027,7 @@ export default function AISafetyPage() {
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
           className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[150px]"
         />
-        <motion.div
+        <m.div
           animate={{
             y: [0, 30, 0],
             x: [0, -20, 0],
@@ -1036,7 +1037,7 @@ export default function AISafetyPage() {
         />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -1163,9 +1164,10 @@ export default function AISafetyPage() {
                 No commitment
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </main>
+    </LazyMotion>
   );
 }

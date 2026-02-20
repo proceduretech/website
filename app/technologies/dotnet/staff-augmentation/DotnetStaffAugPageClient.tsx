@@ -33,7 +33,7 @@ import {
   ctaData,
   relatedServices,
 } from "@/lib/dotnet-staff-augmentation-data";
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 
 export default function DotnetStaffAugPageClient() {
   const combinedSchema = {
@@ -130,6 +130,7 @@ export default function DotnetStaffAugPageClient() {
   };
 
   return (
+    <LazyMotion features={domAnimation}>
     <main className="min-h-screen">
       <script
         type="application/ld+json"
@@ -224,7 +225,7 @@ export default function DotnetStaffAugPageClient() {
         className="relative py-16 sm:py-24 bg-surface scroll-mt-20"
       >
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -238,9 +239,9 @@ export default function DotnetStaffAugPageClient() {
               {ctaData.description}
             </p>
             <p className="text-sm text-text-muted">{ctaData.closingNote}</p>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -248,7 +249,7 @@ export default function DotnetStaffAugPageClient() {
             className="rounded-2xl overflow-hidden border border-border bg-surface-elevated"
           >
             <CalInline className="h-[600px]" />
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -261,5 +262,6 @@ export default function DotnetStaffAugPageClient() {
         services={relatedServices}
       />
     </main>
+    </LazyMotion>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
 
@@ -124,6 +124,7 @@ export default function AIUpskillPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
+    <LazyMotion features={domAnimation}>
     <main className="relative min-h-screen bg-base overflow-hidden">
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 sm:pb-24 overflow-hidden">
@@ -138,7 +139,7 @@ export default function AIUpskillPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
 {/* Headline */}
-            <motion.h1
+            <m.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -147,10 +148,10 @@ export default function AIUpskillPage() {
               Become an AI Engineer.
               <br />
               <span className="text-highlight">Build What&apos;s Next.</span>
-            </motion.h1>
+            </m.h1>
 
             {/* Subheadline */}
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -160,10 +161,10 @@ export default function AIUpskillPage() {
               AI engineers. Master RAG, Agents, Fine-tuning, and MLOps through
               hands-on projects that ship to production. No theory-only
               lectures. Just practical skills that matter.
-            </motion.p>
+            </m.p>
 
             {/* Important Notice */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.35 }}
@@ -175,10 +176,10 @@ export default function AIUpskillPage() {
                 <strong className="text-warning">internal program</strong> for
                 Procedure team members. All API costs covered by Procedure.
               </span>
-            </motion.div>
+            </m.div>
 
             {/* Stats */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -197,10 +198,10 @@ export default function AIUpskillPage() {
                   </div>
                 </div>
               ))}
-            </motion.div>
+            </m.div>
 
             {/* CTA */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
@@ -231,7 +232,7 @@ export default function AIUpskillPage() {
               >
                 View Curriculum
               </a>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -239,35 +240,35 @@ export default function AIUpskillPage() {
       {/* What Is AI Upskill Section */}
       <section className="relative py-20 sm:py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={stagger}
             className="text-center mb-16"
           >
-            <motion.span
+            <m.span
               variants={fadeInUp}
               className="inline-block text-sm font-medium text-accent-light uppercase tracking-wider mb-4"
             >
               The Bootcamp
-            </motion.span>
-            <motion.h2
+            </m.span>
+            <m.h2
               variants={fadeInUp}
               className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary mb-6"
             >
               What is <span className="text-highlight">AI Upskill</span>?
-            </motion.h2>
-            <motion.p
+            </m.h2>
+            <m.p
               variants={fadeInUp}
               className="text-lg text-text-secondary max-w-3xl mx-auto"
             >
               A practical, problem-first AI engineering bootcamp that bridges
               the gap between where you are and where the industry is heading.
-            </motion.p>
-          </motion.div>
+            </m.p>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -296,7 +297,7 @@ export default function AIUpskillPage() {
                 text: "Problem-first approach: identify AI-fit problems, then build the solution",
               },
             ].map((item, idx) => (
-              <motion.div
+              <m.div
                 key={idx}
                 variants={fadeInUp}
                 className="group relative p-6 rounded-2xl bg-base border border-border hover:border-accent/30 transition-all duration-300"
@@ -308,9 +309,9 @@ export default function AIUpskillPage() {
                     {item.text}
                   </p>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -318,25 +319,25 @@ export default function AIUpskillPage() {
       <section className="relative py-20 sm:py-24 bg-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <motion.div
+            <m.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
               variants={stagger}
             >
-              <motion.span
+              <m.span
                 variants={fadeInUp}
                 className="inline-block text-sm font-medium text-accent-light uppercase tracking-wider mb-4"
               >
                 Our Vision
-              </motion.span>
-              <motion.h2
+              </m.span>
+              <m.h2
                 variants={fadeInUp}
                 className="text-3xl sm:text-4xl font-bold text-text-primary mb-6"
               >
                 Why <span className="text-highlight">AI Upskill</span> exists
-              </motion.h2>
-              <motion.div
+              </m.h2>
+              <m.div
                 variants={fadeInUp}
                 className="space-y-4 text-text-secondary"
               >
@@ -361,10 +362,10 @@ export default function AIUpskillPage() {
                   </strong>
                   , as both producers and consumers of AI tools.
                 </p>
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -388,7 +389,7 @@ export default function AIUpskillPage() {
                   ))}
                 </ul>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -396,26 +397,26 @@ export default function AIUpskillPage() {
       {/* Curriculum Section */}
       <section id="curriculum" className="relative py-20 sm:py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={stagger}
             className="text-center mb-16"
           >
-            <motion.span
+            <m.span
               variants={fadeInUp}
               className="inline-block text-sm font-medium text-accent-light uppercase tracking-wider mb-4"
             >
               Curriculum
-            </motion.span>
-            <motion.h2
+            </m.span>
+            <m.h2
               variants={fadeInUp}
               className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary mb-6"
             >
               What you&apos;ll <span className="text-highlight">learn</span>
-            </motion.h2>
-            <motion.p
+            </m.h2>
+            <m.p
               variants={fadeInUp}
               className="text-lg text-text-secondary max-w-3xl mx-auto"
             >
@@ -423,18 +424,18 @@ export default function AIUpskillPage() {
               engineering, from foundational concepts to production deployment.
               Every concept is examined through four levers: skills, cost,
               latency, and performance.
-            </motion.p>
-          </motion.div>
+            </m.p>
+          </m.div>
 
           {/* Skills Grid */}
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={stagger}
             className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
           >
-            <motion.div
+            <m.div
               variants={fadeInUp}
               className="bg-base rounded-2xl border border-border p-6"
             >
@@ -465,9 +466,9 @@ export default function AIUpskillPage() {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               variants={fadeInUp}
               className="bg-base rounded-2xl border border-border p-6"
             >
@@ -498,9 +499,9 @@ export default function AIUpskillPage() {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               variants={fadeInUp}
               className="bg-base rounded-2xl border border-border p-6"
             >
@@ -531,9 +532,9 @@ export default function AIUpskillPage() {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               variants={fadeInUp}
               className="bg-base rounded-2xl border border-border p-6"
             >
@@ -564,11 +565,11 @@ export default function AIUpskillPage() {
                   </li>
                 ))}
               </ul>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
 
           {/* Notice */}
-          <motion.p
+          <m.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -580,7 +581,7 @@ export default function AIUpskillPage() {
             </strong>{" "}
             course. Mastering each concept takes years. Our goal is to give you
             a strong foundation and the confidence to keep learning.
-          </motion.p>
+          </m.p>
         </div>
       </section>
 
@@ -588,7 +589,7 @@ export default function AIUpskillPage() {
       <section className="relative py-20 sm:py-24 bg-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -620,36 +621,36 @@ export default function AIUpskillPage() {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
               variants={stagger}
               className="order-1 lg:order-2"
             >
-              <motion.span
+              <m.span
                 variants={fadeInUp}
                 className="inline-block text-sm font-medium text-accent-light uppercase tracking-wider mb-4"
               >
                 Is This For You?
-              </motion.span>
-              <motion.h2
+              </m.span>
+              <m.h2
                 variants={fadeInUp}
                 className="text-3xl sm:text-4xl font-bold text-text-primary mb-6"
               >
                 This bootcamp is for <span className="text-highlight">you</span>{" "}
                 if you...
-              </motion.h2>
-              <motion.p
+              </m.h2>
+              <m.p
                 variants={fadeInUp}
                 className="text-text-secondary mb-6"
               >
                 AI Upskill is for Procedure team members who want to specialize
                 in AI engineering and lead AI initiatives on client engagements.
-              </motion.p>
-              <motion.div
+              </m.p>
+              <m.div
                 variants={fadeInUp}
                 className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-accent-secondary/10 border border-accent-secondary/20"
               >
@@ -661,8 +662,8 @@ export default function AIUpskillPage() {
                   </strong>{" "}
                   over and above your regular work schedule.
                 </span>
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -670,30 +671,30 @@ export default function AIUpskillPage() {
       {/* Instructors Section */}
       <section className="relative py-20 sm:py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={stagger}
             className="text-center mb-16"
           >
-            <motion.span
+            <m.span
               variants={fadeInUp}
               className="inline-block text-sm font-medium text-accent-light uppercase tracking-wider mb-4"
             >
               Your Mentors
-            </motion.span>
-            <motion.h2
+            </m.span>
+            <m.h2
               variants={fadeInUp}
               className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary mb-6"
             >
               Learn from{" "}
               <span className="text-highlight">engineers who ship</span>
-            </motion.h2>
-          </motion.div>
+            </m.h2>
+          </m.div>
 
           <div className="grid lg:grid-cols-2 gap-8">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -718,9 +719,9 @@ export default function AIUpskillPage() {
                 with startups acquired by listed companies and now advises
                 organizations on their AI engineering practices.
               </p>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -746,10 +747,10 @@ export default function AIUpskillPage() {
                 deployments, not just theoretical knowledge. They&apos;ve shipped
                 RAG pipelines, agent architectures, and production ML systems.
               </p>
-            </motion.div>
+            </m.div>
           </div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -765,42 +766,42 @@ export default function AIUpskillPage() {
                 Learn from engineers who&apos;ve shipped AI to production.
               </p>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* Application Process Section */}
       <section id="application" className="relative py-20 sm:py-24 bg-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={stagger}
             className="text-center mb-16"
           >
-            <motion.span
+            <m.span
               variants={fadeInUp}
               className="inline-block text-sm font-medium text-accent-light uppercase tracking-wider mb-4"
             >
               How It Works
-            </motion.span>
-            <motion.h2
+            </m.span>
+            <m.h2
               variants={fadeInUp}
               className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary mb-6"
             >
               Ready to become an{" "}
               <span className="text-highlight">AI Engineer</span>?
-            </motion.h2>
-            <motion.p
+            </m.h2>
+            <m.p
               variants={fadeInUp}
               className="text-lg text-text-secondary max-w-2xl mx-auto"
             >
               The process is simple. The commitment is real.
-            </motion.p>
-          </motion.div>
+            </m.p>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -808,7 +809,7 @@ export default function AIUpskillPage() {
             className="grid md:grid-cols-3 gap-6 mb-12"
           >
             {applicationSteps.map((step, idx) => (
-              <motion.div
+              <m.div
                 key={idx}
                 variants={fadeInUp}
                 className="relative group"
@@ -842,11 +843,11 @@ export default function AIUpskillPage() {
                     </svg>
                   </div>
                 )}
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -875,35 +876,35 @@ export default function AIUpskillPage() {
                 />
               </svg>
             </Link>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* FAQs Section */}
       <section className="relative py-20 sm:py-24 bg-surface">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={stagger}
             className="text-center mb-12"
           >
-            <motion.span
+            <m.span
               variants={fadeInUp}
               className="inline-block text-sm font-medium text-accent-light uppercase tracking-wider mb-4"
             >
               FAQs
-            </motion.span>
-            <motion.h2
+            </m.span>
+            <m.h2
               variants={fadeInUp}
               className="text-3xl sm:text-4xl font-bold text-text-primary"
             >
               Frequently Asked Questions
-            </motion.h2>
-          </motion.div>
+            </m.h2>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -911,7 +912,7 @@ export default function AIUpskillPage() {
             className="space-y-4"
           >
             {faqs.map((faq, idx) => (
-              <motion.div
+              <m.div
                 key={idx}
                 variants={fadeInUp}
                 className="bg-base rounded-xl border border-border overflow-hidden"
@@ -944,12 +945,13 @@ export default function AIUpskillPage() {
                     <p className="text-text-secondary">{faq.answer}</p>
                   </div>
                 )}
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
     </main>
+    </LazyMotion>
   );
 }

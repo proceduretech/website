@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface Metric {
@@ -44,7 +44,7 @@ export function SuccessMetrics({
     <section className="py-16 sm:py-20 bg-surface">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -57,10 +57,10 @@ export function SuccessMetrics({
           {subtitle && (
             <p className="text-text-secondary max-w-2xl mx-auto">{subtitle}</p>
           )}
-        </motion.div>
+        </m.div>
 
         {/* Metrics grid */}
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
@@ -68,7 +68,7 @@ export function SuccessMetrics({
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {metrics.map((metric, index) => (
-            <motion.div
+            <m.div
               key={index}
               variants={cardVariants}
               className={cn(
@@ -89,9 +89,9 @@ export function SuccessMetrics({
                   {metric.context}
                 </div>
               )}
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

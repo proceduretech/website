@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Author } from "@/lib/blog-types";
 
 interface BlogAuthorBioProps {
@@ -9,7 +9,7 @@ interface BlogAuthorBioProps {
 
 export function BlogAuthorBio({ author }: BlogAuthorBioProps) {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -80,6 +80,6 @@ export function BlogAuthorBio({ author }: BlogAuthorBioProps) {
           </div>
         </div>
       </div>
-    </motion.div>
+    </m.div>
   );
 }
