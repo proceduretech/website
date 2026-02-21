@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { BlogCategory } from "@/lib/blog-types";
 
 interface BlogFiltersProps {
@@ -31,7 +31,7 @@ export function BlogFilters({
               className="relative px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-200"
             >
               {activeCategory === category.slug && (
-                <motion.div
+                <m.div
                   layoutId="activeFilter"
                   className="absolute inset-0 bg-accent/20 border border-accent/30 rounded-full"
                   transition={{ type: "spring", stiffness: 500, damping: 30 }}

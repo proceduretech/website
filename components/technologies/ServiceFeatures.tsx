@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/lib/expertise-data";
@@ -47,7 +47,7 @@ function EditorialCard({
   index: number;
 }) {
   return (
-    <motion.div
+    <m.div
       variants={itemVariants}
       className={cn(
         "group relative rounded-2xl overflow-hidden",
@@ -109,13 +109,13 @@ function EditorialCard({
           </ul>
         )}
       </div>
-    </motion.div>
+    </m.div>
   );
 }
 
 function CompactCard({ feature }: { feature: ServiceFeature }) {
   return (
-    <motion.div
+    <m.div
       variants={itemVariants}
       className={cn(
         "group relative p-6 rounded-2xl",
@@ -153,7 +153,7 @@ function CompactCard({ feature }: { feature: ServiceFeature }) {
           {feature.description}
         </p>
       </div>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -167,7 +167,7 @@ export function ServiceFeatures({
     <section className={cn("py-16 sm:py-24", variant === "editorial" ? "bg-surface" : "bg-base", className)}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -177,10 +177,10 @@ export function ServiceFeatures({
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-5">
             {title}
           </h2>
-        </motion.div>
+        </m.div>
 
         {/* Feature cards */}
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -198,7 +198,7 @@ export function ServiceFeatures({
               <CompactCard key={index} feature={feature} />
             )
           )}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

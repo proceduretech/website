@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useMemo } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 // Use CSS custom properties for theme-aware colors
@@ -43,12 +43,12 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
       {...rest}
     >
       {rows.map((_, i) => (
-        <motion.div
+        <m.div
           key={`row` + i}
           className="relative h-8 w-16 border-l border-border/30"
         >
           {cols.map((_, j) => (
-            <motion.div
+            <m.div
               whileHover={{
                 backgroundColor: getColorForCell(i, j),
                 transition: { duration: 0 },
@@ -75,9 +75,9 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
                   />
                 </svg>
               ) : null}
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       ))}
     </div>
   );

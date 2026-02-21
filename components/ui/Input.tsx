@@ -1,7 +1,7 @@
 "use client";
 
 import { forwardRef, InputHTMLAttributes, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
@@ -89,7 +89,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         {/* Error message with animation */}
         <AnimatePresence mode="wait">
           {error && (
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: -4 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -4 }}
@@ -110,7 +110,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                 />
               </svg>
               {error}
-            </motion.p>
+            </m.p>
           )}
         </AnimatePresence>
       </div>

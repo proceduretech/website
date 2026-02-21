@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -43,7 +43,7 @@ export function RelatedDotnetServices({
     <section className="py-16 sm:py-24 bg-base">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -53,10 +53,10 @@ export function RelatedDotnetServices({
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-5">
             {title}
           </h2>
-        </motion.div>
+        </m.div>
 
         {/* Services grid */}
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
@@ -64,7 +64,7 @@ export function RelatedDotnetServices({
           className="grid md:grid-cols-3 gap-6"
         >
           {services.map((service, index) => (
-            <motion.div key={index} variants={cardVariants}>
+            <m.div key={index} variants={cardVariants}>
               <Link
                 href={service.href}
                 className={cn(
@@ -98,9 +98,9 @@ export function RelatedDotnetServices({
                   </svg>
                 </div>
               </Link>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

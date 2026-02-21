@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/lib/expertise-data";
@@ -46,7 +46,7 @@ export function ProblemSignals({
     <section className="py-16 sm:py-24 bg-base">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -61,10 +61,10 @@ export function ProblemSignals({
               {intro}
             </p>
           )}
-        </motion.div>
+        </m.div>
 
         {/* Signals grid */}
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -72,7 +72,7 @@ export function ProblemSignals({
           className="flex flex-wrap justify-center gap-6"
         >
           {signals.map((signal, index) => (
-            <motion.div
+            <m.div
               key={index}
               variants={itemVariants}
               className={cn(
@@ -108,9 +108,9 @@ export function ProblemSignals({
                   {signal.description}
                 </p>
               </div>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

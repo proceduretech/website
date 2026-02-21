@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { BlogPost } from "@/lib/blog-types";
 import {
   formatDateShort,
@@ -19,7 +19,7 @@ export function BlogPostCard({ post, index = 0 }: BlogPostCardProps) {
   const categoryColors = getCategoryColor(post.category.color);
 
   return (
-    <motion.article
+    <m.article
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -134,6 +134,6 @@ export function BlogPostCard({ post, index = 0 }: BlogPostCardProps) {
           </div>
         </div>
       </Link>
-    </motion.article>
+    </m.article>
   );
 }

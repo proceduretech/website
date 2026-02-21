@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 interface BlogNewsletterProps {
   variant?: "card" | "fullwidth";
@@ -38,7 +38,7 @@ export function BlogNewsletter({ variant = "card" }: BlogNewsletterProps) {
         <div className="absolute -bottom-20 left-1/4 w-[300px] h-[300px] bg-accent-secondary/10 rounded-full blur-[80px]" />
 
         <div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 text-center">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -98,7 +98,7 @@ export function BlogNewsletter({ variant = "card" }: BlogNewsletterProps) {
               We respect your inbox. Unsubscribe anytime. No third-party
               sharing.
             </p>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     );
@@ -106,7 +106,7 @@ export function BlogNewsletter({ variant = "card" }: BlogNewsletterProps) {
 
   // Card variant (for inline in grid)
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -166,6 +166,6 @@ export function BlogNewsletter({ variant = "card" }: BlogNewsletterProps) {
 
         <p className="text-xs text-text-muted mt-4">We respect your privacy.</p>
       </div>
-    </motion.div>
+    </m.div>
   );
 }
