@@ -1,0 +1,12 @@
+name = "procedure-contact-form"
+main = "src/index.ts"
+compatibility_date = "2024-12-01"
+
+[vars]
+ALLOWED_ORIGIN = "https://procedure.tech"
+
+# Secrets (set via `wrangler secret put <NAME>`):
+# SLACK_WEBHOOK_BUSINESS  - Slack incoming webhook URL for #website-leads
+# SLACK_WEBHOOK_CAREER    - Slack incoming webhook URL for #website-careers
+# GOOGLE_SHEET_ID         - Google Sheet ID for logging submissions
+# GOOGLE_SERVICE_ACCOUNT_KEY - JSON service account credentials
