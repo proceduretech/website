@@ -2,12 +2,28 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Extended Context
+
+When you need deeper context about past decisions, PR history, architecture evolution, or why something was built a certain way, read `@docs/PROJECT_HISTORY.md`. This file is the project's extended memory with every PR documented. **Do not guess about past decisions - check the history file first.**
+
+For content standards and brand voice: `@docs/COPYWRITING_GUIDELINES.md`
+For theme details: `@docs/THEME_SYSTEM.md`
+For interlinking strategy: `@docs/notion-interlinking-strategy.md`
+For performance approach: `@docs/PERFORMANCE_OPTIMIZATION_PLAN.md`
+
+## Subagent Model Policy
+
+All subagents should use the latest available model. Currently: **opus** for complex tasks (copywriting, design, SEO auditing), **sonnet** for lighter tasks (image generation, quick reviews). Check every ~100 days if newer models are available and ask the user for approval before updating.
+
 ## Commands
 
 - `npm run dev` - Start development server (http://localhost:3000)
 - `npm run build` - Build for production
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint
+- `npm run typecheck` - Run TypeScript type checking
+- `npm run test:e2e` - Run Playwright E2E tests
+- `npm run lighthouse` - Run Lighthouse CI audits
 
 ## Working Style
 
@@ -182,19 +198,7 @@ featuredImage: /content/blog/my-article/cover.jpg
 
 ### Client Portfolio
 
-| Client | Industry | Notable |
-|--------|----------|---------|
-| **Setu** | Fintech/API Banking | India's leading open banking infra, 3-year partnership |
-| **Pine Labs** | Payments/POS | Major payment processor |
-| **KredX** | Fintech/Invoice Financing | Supply chain finance |
-| **ESPN** | Media/Sports | Global brand recognition |
-| **Treebo** | Hospitality/Travel | Budget hotel chain |
-| **Turtlemint** | Insurtech | Insurance marketplace |
-| **Timely** | SaaS/EdTech | School scheduling, scaled to 30+ districts |
-| **Tenmeya** | Middle East startup | 1000+ paying users in 6 months |
-| **Last9** | Observability/DevOps | SRE tooling |
-| **MCLabs** | Telecommunications | Mission-critical communication software |
-| **Workshop Ventures** | VC/Investor | Portfolio-wide endorsement |
+Key clients: Setu (fintech/API banking, 3-year partnership), Pine Labs (payments), ESPN (media), KredX (fintech), Treebo (hospitality), Timely (EdTech), Last9 (observability), MCLabs (telecom). Full details with industries and proof points in `@docs/PROJECT_HISTORY.md`.
 
 **Industries with traction:** Fintech, Payments, SaaS, Healthcare, EdTech, Observability
 
@@ -207,16 +211,7 @@ featuredImage: /content/blog/my-article/cover.jpg
 
 ### Competitive Landscape
 
-**Competitors:**
-- Radixweb, Simform, OpenXcell, ValueCoders, Netguru
-- Iflexion, ScienceSoft, ELEKS, Hidden Brains, MindInventory, Toptal
-
-**Competitor characteristics:**
-- Larger body shops (500-2000+ engineers)
-- Generalist positioning (web, mobile, QA, DevOps - everything)
-- Price-competitive but lower senior density
-- Heavy SEO investment on broad generic terms
-- Technology-specific landing pages (React, Node, Python, etc.)
+Competitors: Radixweb, Simform, OpenXcell, ValueCoders, Netguru, Toptal, and similar IT services companies. They're mostly larger body shops (500-2000+ engineers) with generalist positioning. Procedure differentiates on senior density, embedded model, and specialization. See `@docs/COPYWRITING_GUIDELINES.md` for positioning details.
 
 ### Procedure's USPs (Differentiation)
 1. **Embedded model** - Extension of client's team, not a vendor
@@ -266,4 +261,4 @@ When building pages, structure content for AI discoverability:
 **GA4 Measurement ID:** G-2KW21KL401
 **GTM Container ID:** GTM-KD7CJ8RC
 
-**Key conversion event:** `generate_lead` (Cal.com booking)
+**Key conversion event:** `generate_lead` (Cal.com booking) and contact form submissions on /contact-us/ page
