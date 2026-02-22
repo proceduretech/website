@@ -311,6 +311,44 @@ When writing about Procedure, lean on these differentiators:
 
 ---
 
+## Buyer Psychology Principles
+
+These principles inform how we structure content, not just what we write. Every agent and skill references this section.
+
+### For Decision Makers (Enterprise Buyers)
+
+**Anchoring:** The first number or proof point sets the frame. Lead sections with the strongest metric. "100+ products shipped" before listing services. "3-year partnership with Setu" before explaining the engagement model.
+
+**Social proof before the ask:** Client logos, testimonials, and specific outcomes must appear BEFORE the CTA on every high-intent page. The sequence is always: proof -> value statement -> CTA. Never CTA-first.
+
+**Authority through specificity:** Replace every vague claim with a specific one. "Fast onboarding" becomes "2-5 business days to start." "Experienced team" becomes "Senior engineers only - not a pyramid of juniors." Specificity IS the trust signal.
+
+**Pre-suasion framing:** The content immediately before a CTA should make the reader feel the cost of inaction. Frame around their pain ("Every week without dedicated engineers is another sprint of tech debt"), then offer the resolution ("Book a 30-minute call").
+
+**Teach, don't pitch (Challenger approach):** High-intent pages should reframe the buyer's problem. "Most companies treat AI projects like software projects - and they fail because AI requires different iteration cycles and evaluation frameworks." Then position Procedure as the team that understands this difference. Don't just describe services - teach something the buyer didn't know.
+
+### For Engineers (Technical Audience)
+
+**Education over promotion.** Developers reject marketing on sight. Every piece of technical content must teach something genuinely useful before it mentions Procedure. The brand builds through demonstrated competence, not claims.
+
+**No gating, no friction.** Technical content is never gated behind forms. No forced demos, no "download the whitepaper" gates. Engineers will leave and never return.
+
+**Show, then tell.** Code examples, architecture diagrams, and specific technical decisions first. Company positioning second, if at all.
+
+**Respect their time.** Be concise. No filler paragraphs. No "in today's rapidly evolving landscape." Engineers will close the tab.
+
+**Honesty about tradeoffs.** When discussing technologies, be honest about limitations. "Here's when .NET is the right choice, and here's when it isn't." This builds more trust than unconditional advocacy.
+
+### For Shareable Content (Blog, Thought Leadership)
+
+**Social Currency:** Will sharing this make the reader look smart or well-informed? Content that provides a framework, names a pattern, or offers a contrarian-but-backed-by-evidence take gets shared.
+
+**Practical Value:** Can the reader use this right now? Tutorials, checklists, decision frameworks, and specific recommendations have high share rates.
+
+**Stories over abstractions:** Wrap insights in narratives. "When we built the payment system for Setu, we discovered..." beats "Payment systems require careful consideration of..."
+
+---
+
 ## Metrics That Matter
 
 ### Primary Goals
@@ -330,5 +368,5 @@ When writing about Procedure, lean on these differentiators:
 
 ---
 
-**Last Updated:** February 21, 2026
-**Used By:** enterprise-seo-copywriter agent, /content-brief command, /social-draft command, /tech-page command
+**Last Updated:** February 22, 2026
+**Used By:** enterprise-seo-copywriter agent, aeo-content-optimizer agent, demand-generation-strategist agent, /content-brief command, /social-draft command, /tech-page command
