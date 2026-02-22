@@ -301,7 +301,7 @@ export default function RootLayout({
         <style
           dangerouslySetInnerHTML={{
             __html: `
-              :root{--color-base:#0A1425;--color-surface:#070F1B;--color-surface-elevated:#111F35;--color-border:#1E293B;--color-text-primary:rgba(255,255,255,.9);--color-text-secondary:rgba(255,255,255,.65);--color-text-muted:rgba(255,255,255,.5);--color-accent:#14B8A6;--color-accent-light:#2AAE79;--color-cta:#178556;--color-cta-text:#fff;--color-highlight:#1D9B69}
+              :root{--color-base:#0A1425;--color-surface:#070F1B;--color-surface-elevated:#111F35;--color-border:#1E293B;--color-text-primary:rgba(255,255,255,.9);--color-text-secondary:rgba(255,255,255,.65);--color-text-muted:rgba(255,255,255,.5);--color-accent:#1D9B69;--color-accent-light:#2AAE79;--color-cta:#178556;--color-cta-text:#fff;--color-highlight:#1D9B69}
               *,::before,::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:currentColor}
               html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent;scrollbar-gutter:stable;scroll-behavior:smooth}
               body{margin:0;line-height:inherit;background-color:var(--color-base);color:var(--color-text-primary);font-family:var(--font-inter),system-ui,-apple-system,sans-serif}
@@ -343,24 +343,21 @@ export default function RootLayout({
           }}
         />
 
-        {/* Third-party resource hints - prioritized */}
-        {/* Note: next/font/google self-hosts fonts, so no preconnect to fonts.googleapis.com needed */}
-        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
+        {/* Third-party resource hints — all dns-prefetch since analytics defers 3.5s+ */}
+        {/* preconnect wastes a TCP+TLS connection during the critical LCP window */}
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.google.com" />
         <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
         <link rel="dns-prefetch" href="https://stats.g.doubleclick.net" />
         <link rel="dns-prefetch" href="https://www.clarity.ms" />
         <link rel="dns-prefetch" href="https://scripts.clarity.ms" />
-        <link rel="preconnect" href="https://cloudflareinsights.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://cloudflareinsights.com" />
 
         {/* Viewport optimization for mobile */}
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
 
-        {/* Preload critical assets */}
-        <link rel="preload" href="/icon.svg" as="image" type="image/svg+xml" />
-        {/* Note: Font preloads removed - next/font/google self-hosts fonts locally */}
-
+        {/* Note: Font preloads handled by next/font/google (self-hosted) */}
 
         {/* Analytics (GA4, GTM, Clarity) loaded via client component - only on production */}
 
