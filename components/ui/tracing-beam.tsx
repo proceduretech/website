@@ -6,7 +6,7 @@ import {
   useScroll,
   useSpring,
   useMotionValueEvent,
-} from "motion/react";
+} from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export const TracingBeam = ({
