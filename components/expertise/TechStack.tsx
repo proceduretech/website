@@ -2,6 +2,7 @@
 
 import { m } from "framer-motion";
 import { TechIcon, hasTechIcon } from "@/lib/tech-icons";
+import { LinkedText } from "@/components/ui/LinkedText";
 
 interface Technology {
   name: string;
@@ -101,7 +102,7 @@ export function TechStack({
                           key={itemIndex}
                           className="px-3 py-1.5 text-sm text-text-secondary bg-surface/80 border border-border rounded-lg hover:border-accent/20 hover:text-text-primary transition-colors duration-200"
                         >
-                          {item}
+                          <LinkedText text={item} />
                         </span>
                       ))}
                     </div>

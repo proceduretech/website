@@ -3,6 +3,7 @@
 import { m, AnimatePresence } from "framer-motion";
 import { ReactNode, useState } from "react";
 import { cn } from "@/lib/utils";
+import { LinkedText } from "@/components/ui/LinkedText";
 
 interface TargetAudience {
   icon: ReactNode;
@@ -246,9 +247,9 @@ export function WhoWeWorkWith({
                       <div>
                         {isObject ? (
                           <>
-                            <span className="block text-text-primary font-medium text-sm mb-1">{item.title}</span>
+                            <span className="block text-text-primary font-medium text-sm mb-1"><LinkedText text={item.title} /></span>
                             {item.description && (
-                              <span className="block text-text-muted text-sm leading-relaxed">{item.description}</span>
+                              <span className="block text-text-muted text-sm leading-relaxed"><LinkedText text={item.description} /></span>
                             )}
                           </>
                         ) : (

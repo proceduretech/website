@@ -17,11 +17,13 @@ interface Stat {
 
 interface StatsProps {
   title?: string;
+  subtitle?: string;
   stats?: Stat[];
 }
 
 export function Stats({
   title = "Proven Results from Embedded Engineering",
+  subtitle,
   stats = defaultStats,
 }: StatsProps) {
   return (
@@ -45,6 +47,11 @@ export function Stats({
             <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-text-primary">
               {title}
             </h2>
+            {subtitle && (
+              <p className="text-lg text-text-secondary max-w-3xl mx-auto mt-4">
+                {subtitle}
+              </p>
+            )}
           </m.div>
 
           <div

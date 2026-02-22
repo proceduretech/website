@@ -29,6 +29,7 @@ const ArchitectureSection = dynamic(() => import("@/components/expertise/Archite
 const EngagementModels = dynamic(() => import("@/components/expertise/EngagementModels").then(mod => ({ default: mod.EngagementModels })));
 const RiskReversal = dynamic(() => import("@/components/expertise/RiskReversal").then(mod => ({ default: mod.RiskReversal })));
 const PhilosophySection = dynamic(() => import("@/components/expertise/PhilosophySection").then(mod => ({ default: mod.PhilosophySection })));
+const HowItWorks = dynamic(() => import("@/components/expertise/HowItWorks").then(mod => ({ default: mod.HowItWorks })));
 const Testimonials = dynamic(() => import("@/components/sections/Testimonials").then(mod => ({ default: mod.Testimonials })));
 const Stats = dynamic(() => import("@/components/sections/Stats").then(mod => ({ default: mod.Stats })));
 const CalInline = dynamic(() => import("@/components/CalInline").then(mod => ({ default: mod.CalInline })));
@@ -354,10 +355,11 @@ export default function ExpertisePageClient({
 
       {expertise.slug === "dotnet" && (
         <Stats
-          title=".NET Development Track Record"
+          title="Proven Outcomes from Enterprise .NET Engineering"
+          subtitle="Procedure has been building production .NET systems for over a decade, from enterprise platforms to high-throughput APIs serving millions of requests."
           stats={[
             { value: "40+", label: "Production .NET Systems" },
-            { value: "6\u20138 Weeks", label: "Time to Production Release" },
+            { value: "6–8 Weeks", label: "Time to Production Release" },
             { value: "95%+", label: "Client Retention Rate" },
             { value: ".NET 8 + Azure", label: "Primary Stack" },
           ]}
@@ -366,8 +368,8 @@ export default function ExpertisePageClient({
 
       <div id={["nodejs", "nextjs", "react", "python", "angular", "flutter", "react-native", "prometheus-monitoring", "istio-consulting", "thanos-long-term-storage"].includes(expertise.slug) ? "services" : undefined}>
         <CapabilitiesGrid
-          title={expertise.slug === "dotnet" ? ".NET Development Services We Offer" : expertise.slug === "nextjs" ? "What We Build With Next.js" : expertise.slug === "nodejs" ? "Node.js Development Services" : expertise.slug === "react" ? "React Development Services" : expertise.slug === "python" ? "Python Development Services" : expertise.slug === "angular" ? "Angular Development Services" : expertise.slug === "flutter" ? "What We Build With Flutter" : expertise.slug === "react-native" ? "What We Build With React Native" : expertise.slug === "prometheus-monitoring" ? "Prometheus Consulting & Implementation Services" : expertise.slug === "istio-consulting" ? "Istio Consulting & Implementation Services" : "Key Capabilities"}
-          subtitle={expertise.slug === "dotnet" ? "End-to-end .NET services, from greenfield builds to legacy modernization." : expertise.slug === "nextjs" ? "From marketing sites to complex web applications, we deliver production-grade Next.js solutions." : expertise.slug === "nodejs" ? "APIs, microservices, real-time systems, and the backend your product runs on." : expertise.slug === "react" ? "From SPAs to enterprise dashboards, we build React applications that ship fast and stay maintainable." : expertise.slug === "python" ? "Backend systems, AI/ML, and the data infrastructure your product depends on." : expertise.slug === "angular" ? "Full-stack applications, migrations, and performance work." : expertise.slug === "flutter" ? "Cross-platform apps for mobile, web, and desktop from a single Dart codebase." : expertise.slug === "react-native" ? "Cross-platform mobile apps from a single TypeScript codebase." : expertise.slug === "prometheus-monitoring" ? "From initial setup to enterprise production support." : expertise.slug === "istio-consulting" ? "From fresh deployment to ambient mode migration and enterprise support." : "Everything you need to build production-grade solutions"}
+          title={expertise.slug === "dotnet" ? ".NET Development Capabilities for Production-Grade Systems" : expertise.slug === "nextjs" ? "What We Build With Next.js" : expertise.slug === "nodejs" ? "Node.js Development Services" : expertise.slug === "react" ? "React Development Services" : expertise.slug === "python" ? "Python Development Services" : expertise.slug === "angular" ? "Angular Development Services" : expertise.slug === "flutter" ? "What We Build With Flutter" : expertise.slug === "react-native" ? "What We Build With React Native" : expertise.slug === "prometheus-monitoring" ? "Prometheus Consulting & Implementation Services" : expertise.slug === "istio-consulting" ? "Istio Consulting & Implementation Services" : "Key Capabilities"}
+          subtitle={expertise.slug === "dotnet" ? "Everything required to design, modernize, and operate production-grade .NET systems at scale." : expertise.slug === "nextjs" ? "From marketing sites to complex web applications, we deliver production-grade Next.js solutions." : expertise.slug === "nodejs" ? "APIs, microservices, real-time systems, and the backend your product runs on." : expertise.slug === "react" ? "From SPAs to enterprise dashboards, we build React applications that ship fast and stay maintainable." : expertise.slug === "python" ? "Backend systems, AI/ML, and the data infrastructure your product depends on." : expertise.slug === "angular" ? "Full-stack applications, migrations, and performance work." : expertise.slug === "flutter" ? "Cross-platform apps for mobile, web, and desktop from a single Dart codebase." : expertise.slug === "react-native" ? "Cross-platform mobile apps from a single TypeScript codebase." : expertise.slug === "prometheus-monitoring" ? "From initial setup to enterprise production support." : expertise.slug === "istio-consulting" ? "From fresh deployment to ambient mode migration and enterprise support." : "Everything you need to build production-grade solutions"}
           capabilities={capabilities}
         />
       </div>
@@ -437,12 +439,12 @@ export default function ExpertisePageClient({
 
       {expertise.slug === "dotnet" ? (
         <TechStack
-          title=".NET Technology Stack We Use"
+          title=".NET Technology Stack (Production-Proven)"
           variant="grouped"
           groups={[
             { category: "Runtime & Frameworks", items: [".NET 8 / .NET 9", "ASP.NET Core", "Blazor", "Entity Framework Core", "Minimal APIs"] },
             { category: "Cloud Platforms", items: ["Microsoft Azure", "AWS", "GCP"] },
-            { category: "Infrastructure & DevOps", items: ["Docker", "Kubernetes", "Terraform", "GitHub Actions", "Azure DevOps"] },
+            { category: "Infrastructure & DevOps", items: ["Docker", "[Kubernetes](/services/kubernetes)", "Terraform", "GitHub Actions", "Azure DevOps"] },
             { category: "Data & Caching", items: ["SQL Server", "PostgreSQL", "Redis", "Azure Cosmos DB"] },
             { category: "Observability", items: ["Application Insights", "Serilog", "OpenTelemetry", "Seq"] },
             { category: "Messaging & Patterns", items: ["RabbitMQ", "Azure Service Bus", "MediatR", "MassTransit"] },
@@ -694,6 +696,15 @@ export default function ExpertisePageClient({
             </section>
           )}
         </div>
+      )}
+
+      {pageData.howItWorks && (
+        <HowItWorks
+          title={pageData.howItWorks.title}
+          subtitle={pageData.howItWorks.subtitle}
+          steps={pageData.howItWorks.steps}
+          closingNote={pageData.howItWorks.closingNote}
+        />
       )}
 
       {pageData.riskReversal && (
