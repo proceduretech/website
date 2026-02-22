@@ -1,5 +1,3 @@
-import { SignJWT, importPKCS8 } from "jose";
-
 // --- Types ---
 
 type InquiryType = "business" | "career";
@@ -19,8 +17,8 @@ interface Env {
   ALLOWED_ORIGIN: string;
   SLACK_WEBHOOK_BUSINESS: string;
   SLACK_WEBHOOK_CAREER: string;
-  GOOGLE_SHEET_ID: string;
-  GOOGLE_SERVICE_ACCOUNT_KEY: string;
+  NOTION_API_KEY: string;
+  NOTION_DATABASE_ID: string;
 }
 
 // --- Main Worker ---
@@ -50,15 +48,15 @@ export default {
       const body = await request.json<Record<string, unknown>>();
       const data = validateAndSanitize(body);
 
-      // Fire Slack and Sheets in parallel, don't let one failure block the other
+      // Fire Slack and Notion in parallel, don't let one failure block the other
       const results = await Promise.allSettled([
         sendSlackNotification(data, env),
-        appendToGoogleSheet(data, env),
+        createNotionEntry(data, env),
       ]);
 
       results.forEach((result, index) => {
         if (result.status === "rejected") {
-          const integration = index === 0 ? "Slack" : "Google Sheets";
+          const integration = index === 0 ? "Slack" : "Notion";
           console.error(`${integration} failed:`, result.reason);
         }
       });
@@ -192,87 +190,55 @@ async function sendSlackNotification(data: ContactFormData, env: Env): Promise<v
   }
 }
 
-// --- Google Sheets ---
+// --- Notion ---
 
-interface ServiceAccountKey {
-  client_email: string;
-  private_key: string;
-}
+async function createNotionEntry(data: ContactFormData, env: Env): Promise<void> {
+  if (!env.NOTION_API_KEY || !env.NOTION_DATABASE_ID) {
+    throw new Error("Missing Notion configuration");
+  }
 
-async function getGoogleAccessToken(serviceAccountKey: string): Promise<string> {
-  const { client_email, private_key }: ServiceAccountKey = JSON.parse(serviceAccountKey);
+  const isBusiness = data.inquiryType === "business";
 
-  const now = Math.floor(Date.now() / 1000);
-  const privateKey = await importPKCS8(private_key, "RS256");
+  const properties: Record<string, unknown> = {
+    Name: { title: [{ text: { content: data.name } }] },
+    Email: { email: data.email },
+    "Inquiry Type": { select: { name: isBusiness ? "Business" : "Career" } },
+    Message: { rich_text: [{ text: { content: data.message.slice(0, 2000) } }] },
+    "Submitted At": { date: { start: new Date().toISOString() } },
+    Status: { select: { name: "New" } },
+    "Source Page": { url: "https://procedure.tech/contact-us/" },
+  };
 
-  const jwt = await new SignJWT({
-    scope: "https://www.googleapis.com/auth/spreadsheets",
-  })
-    .setProtectedHeader({ alg: "RS256" })
-    .setIssuer(client_email)
-    .setSubject(client_email)
-    .setAudience("https://oauth2.googleapis.com/token")
-    .setIssuedAt(now)
-    .setExpirationTime(now + 3600)
-    .sign(privateKey);
+  if (isBusiness) {
+    if (data.company) {
+      properties["Company"] = { rich_text: [{ text: { content: data.company } }] };
+    }
+    if (data.budget) {
+      properties["Budget"] = { select: { name: data.budget } };
+    }
+    if (data.timeline) {
+      properties["Timeline"] = { select: { name: data.timeline } };
+    }
+  } else {
+    if (data.linkedIn) {
+      properties["LinkedIn"] = { url: data.linkedIn };
+    }
+  }
 
-  const tokenResponse = await fetch("https://oauth2.googleapis.com/token", {
+  const response = await fetch("https://api.notion.com/v1/pages", {
     method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams({
-      grant_type: "urn:ietf:params:oauth:grant-type:jwt-bearer",
-      assertion: jwt,
+    headers: {
+      Authorization: `Bearer ${env.NOTION_API_KEY}`,
+      "Content-Type": "application/json",
+      "Notion-Version": "2022-06-28",
+    },
+    body: JSON.stringify({
+      parent: { database_id: env.NOTION_DATABASE_ID },
+      properties,
     }),
   });
 
-  if (!tokenResponse.ok) {
-    throw new Error(`Google token exchange failed: ${tokenResponse.status}`);
-  }
-
-  const { access_token } = await tokenResponse.json<{ access_token: string }>();
-  return access_token;
-}
-
-async function appendToGoogleSheet(data: ContactFormData, env: Env): Promise<void> {
-  if (!env.GOOGLE_SHEET_ID || !env.GOOGLE_SERVICE_ACCOUNT_KEY) {
-    throw new Error("Missing Google Sheets configuration");
-  }
-
-  const accessToken = await getGoogleAccessToken(env.GOOGLE_SERVICE_ACCOUNT_KEY);
-
-  const sheetName =
-    data.inquiryType === "business" ? "Business Inquiries" : "Career Inquiries";
-
-  const timestamp = new Date().toISOString();
-
-  const values =
-    data.inquiryType === "business"
-      ? [
-          [
-            timestamp,
-            data.name,
-            data.email,
-            data.company || "",
-            data.budget || "",
-            data.timeline || "",
-            data.message,
-          ],
-        ]
-      : [[timestamp, data.name, data.email, data.linkedIn || "", data.message]];
-
-  const range = encodeURIComponent(`${sheetName}!A:G`);
-  const url = `https://sheets.googleapis.com/v4/spreadsheets/${env.GOOGLE_SHEET_ID}/values/${range}:append?valueInputOption=USER_ENTERED`;
-
-  const response = await fetch(url, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ values }),
-  });
-
   if (!response.ok) {
-    throw new Error(`Google Sheets API returned ${response.status}: ${await response.text()}`);
+    throw new Error(`Notion API returned ${response.status}: ${await response.text()}`);
   }
 }
