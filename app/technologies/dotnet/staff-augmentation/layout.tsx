@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title:
-    ".NET Staff Augmentation | Hire Senior .NET Developers | Procedure",
+    ".NET Staff Augmentation | Hire Senior .NET Developers | Procedure.tech",
   description:
     "Extend your team with senior .NET developers in 5 days. Pre-vetted ASP.NET Core, C#, and Azure experts who integrate with your workflows. No recruitment overhead.",
   alternates: {
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      ".NET Staff Augmentation | Hire Senior .NET Developers | Procedure",
+      ".NET Staff Augmentation | Hire Senior .NET Developers | Procedure.tech",
     description:
       "Extend your team with senior .NET developers in 5 days. Pre-vetted ASP.NET Core, C#, and Azure experts who integrate with your workflows. No recruitment overhead.",
     type: "website",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      ".NET Staff Augmentation | Hire Senior .NET Developers | Procedure",
+      ".NET Staff Augmentation | Hire Senior .NET Developers | Procedure.tech",
     description:
       "Extend your team with senior .NET developers in 5 days. Pre-vetted ASP.NET Core, C#, and Azure experts who integrate with your workflows. No recruitment overhead.",
     images: [
