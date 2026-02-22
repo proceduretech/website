@@ -15,8 +15,8 @@ interface ContactFormData {
 
 interface Env {
   ALLOWED_ORIGIN: string;
-  SLACK_WEBHOOK_BUSINESS: string;
-  SLACK_WEBHOOK_CAREER: string;
+  SLACK_WEBHOOK_BUSINESS?: string;
+  SLACK_WEBHOOK_CAREER?: string;
   NOTION_API_KEY: string;
   NOTION_DATABASE_ID: string;
 }
@@ -133,7 +133,8 @@ async function sendSlackNotification(data: ContactFormData, env: Env): Promise<v
       : env.SLACK_WEBHOOK_CAREER;
 
   if (!webhookUrl) {
-    throw new Error(`Missing SLACK_WEBHOOK_${data.inquiryType.toUpperCase()} secret`);
+    console.log(`Slack skipped: SLACK_WEBHOOK_${data.inquiryType.toUpperCase()} not configured`);
+    return;
   }
 
   const isBusiness = data.inquiryType === "business";
