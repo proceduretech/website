@@ -9,6 +9,7 @@ module.exports = {
       ],
       startServerCommand: "npm run start",
       startServerReadyPattern: "Accepting connections",
+      startServerReadyTimeout: 30000,
       // Single run is sufficient for CI checks - saves ~66% time
       // Use numberOfRuns: 3 locally for accurate measurements
       numberOfRuns: 1,
