@@ -4,6 +4,8 @@ user_invocable: true
 argument: Topic or page name to create the brief for
 ---
 
+Read `@docs/COPYWRITING_GUIDELINES.md` before generating any brief. Use its messaging pillars, trust signals, buyer psychology principles, and content standards as constraints.
+
 Generate a comprehensive content brief for: $ARGUMENTS
 
 ## Research Phase
@@ -29,6 +31,25 @@ Generate a comprehensive content brief for: $ARGUMENTS
 - **Estimated word count**: [range]
 - **Content type**: [service page / blog / comparison / guide]
 
+### Buyer Psychology Checklist
+- **Anchor:** What is the strongest proof point or metric to lead with?
+- **Social proof placement:** Where will testimonials/logos/metrics appear relative to CTAs?
+- **System 1 hook:** Does the H1 + hero subtext work on gut reaction alone?
+- **Challenger insight:** What will this page TEACH the buyer they didn't know?
+- **Pain framing:** What specific pain does this content address? (Not "we help with X" but "the cost of not solving X")
+- **Developer audience?** Will engineers read this page? If yes, ensure education > promotion, no gating, proof-first.
+
+### Messaging Pillar Alignment
+Which of the 6 pillars from `@docs/COPYWRITING_GUIDELINES.md` does this page reinforce? Minimum 2 per page.
+- [ ] Embedded, not outsourced
+- [ ] Senior engineers only
+- [ ] Speed
+- [ ] Low attrition
+- [ ] AI-native
+- [ ] Battle-tested
+
+List specific proof points for each selected pillar.
+
 ### AEO Optimization Notes
 - Definitive statements to include early (for LLM citation)
 - FAQ questions (natural language, what real people ask)
@@ -44,6 +65,13 @@ Generate a comprehensive content brief for: $ARGUMENTS
 ### Differentiation Points
 - What makes Procedure's take unique vs competitor content
 - Specific proof points (client names, metrics, timelines)
+
+### Shareability Check (for blog posts and thought leadership)
+- **Social Currency:** Does sharing this make the sharer look smart or informed?
+- **Practical Value:** Does this solve a real problem the reader has right now?
+- **Story:** Is there a narrative arc, not just information?
+
+If a piece scores 0 on all three, it won't be shared. Rethink the angle.
 
 ## Output
 Save the brief to `docs/briefs/[slug]-brief.md`

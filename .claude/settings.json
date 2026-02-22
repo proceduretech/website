@@ -1,5 +1,18 @@
 {
   "enabledPlugins": {
     "frontend-design@claude-plugins-official": true
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'Post-compaction reminder: Next.js 16 + React 19 + Tailwind v4 + static export. Copy marketing content verbatim - never paraphrase. Run npm run build && npm run lint before pushing. Check @docs/ files for context, not CLAUDE.md.'"
+          }
+        ]
+      }
+    ]
   }
 }
