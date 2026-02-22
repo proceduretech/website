@@ -29,6 +29,47 @@ All subagents should use the latest available model. Currently: **opus** for com
 
 - **Parallelize aggressively.** Use parallel tool calls and sub-agents whenever tasks are independent. Don't serialize work that can run concurrently.
 
+## Automatic Skill & Agent Usage
+
+Use the right skill or agent automatically based on the task. Don't wait for the user to invoke them by name.
+
+### When creating or modifying pages
+
+| Trigger | Action |
+|---------|--------|
+| Creating a new page with copy | Use `enterprise-seo-copywriter` agent for the copy, then verify with `/pre-deploy` |
+| Creating a new technology page | Use `/scaffold-technology-page` skill first, then `enterprise-seo-copywriter` for copy |
+| Writing or updating any marketing copy | Use `enterprise-seo-copywriter` agent |
+| Planning what content to create | Use `demand-generation-strategist` agent |
+| Planning a specific page or blog post | Use `/content-brief` skill before writing |
+| Optimizing existing page for LLM citations | Use `aeo-content-optimizer` agent |
+| Designing a new page layout or section | Use `enterprise-web-designer` agent |
+| Creating visual assets (illustrations, icons, hero images) | Use `creative-enterprise-designer` agent |
+| Adding or fixing schema markup | Use `/schema-markup` skill |
+
+### When optimizing performance
+
+| Trigger | Action |
+|---------|--------|
+| LCP > 2.5s or slow page loads | Use `/lcp-optimization` skill |
+| PageSpeed/Lighthouse scores need improvement | Use `lighthouse-optimizer` skill |
+| General SEO audit needed | Use `technical-seo-expert` skill (comprehensive) or `/seo-audit` (quick Playwright-based) |
+
+### Before shipping
+
+| Trigger | Action |
+|---------|--------|
+| About to push or create a PR | Run `/pre-deploy` skill automatically |
+| Content-heavy changes | Use `aeo-content-optimizer` agent to verify citability |
+
+### Chaining rules
+
+- **New page creation**: `/content-brief` -> `enterprise-web-designer` (layout) -> `enterprise-seo-copywriter` (copy) -> `/schema-markup` -> `/pre-deploy`
+- **Content optimization**: `aeo-content-optimizer` -> `enterprise-seo-copywriter` (rewrites) -> `/pre-deploy`
+- **Content strategy session**: `demand-generation-strategist` -> `/content-brief` for each approved piece
+
+These should be used proactively. If the user says "create a new services page," don't just write JSX - run the full chain.
+
 ## Post-Implementation Workflow
 
 After completing changes, always commit, push, and create a PR without waiting to be asked.
