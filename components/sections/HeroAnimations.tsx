@@ -1,11 +1,11 @@
 "use client";
 
-import { LazyMotion, domMax, m } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 
 // Client component - loads after initial render, provides visual enhancements
 export function HeroAnimations() {
   return (
-    <LazyMotion features={domMax}>
+    <LazyMotion features={domAnimation}>
       {/* Animated gradient background */}
       <div className="absolute inset-0 bg-gradient-to-b from-surface via-base to-base" />
 
@@ -136,7 +136,7 @@ export function HeroAnimations() {
 // Scroll indicator - separate client component
 export function HeroScrollIndicator() {
   return (
-    <LazyMotion features={domMax}>
+    <LazyMotion features={domAnimation}>
       <m.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
