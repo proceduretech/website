@@ -2,6 +2,7 @@
 
 import { m } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { renderLinkedText } from "@/lib/render-linked-text";
 
 interface MigrationPath {
   from: string;
@@ -119,7 +120,7 @@ export function MigrationPathsTable({
                       {path.from}
                     </td>
                     <td className="px-6 py-4 text-sm text-text-primary font-medium">
-                      {path.to}
+                      {renderLinkedText(path.to)}
                     </td>
                     <td className="px-6 py-4">
                       <ComplexityBadge complexity={path.complexity} />
@@ -183,7 +184,7 @@ export function MigrationPathsTable({
                       To
                     </span>
                     <p className="text-sm font-medium text-text-primary">
-                      {path.to}
+                      {renderLinkedText(path.to)}
                     </p>
                   </div>
                 </div>

@@ -177,7 +177,7 @@ export default function DotnetModernizationPageClient() {
 
       {/* Problem Signals Section */}
       <ProblemSignals
-        title="Is Your Legacy .NET Holding You Back?"
+        title="Is Your Legacy .NET Framework Holding You Back?"
         intro={problemIntro}
         signals={problemSignals}
       />
@@ -192,7 +192,7 @@ export default function DotnetModernizationPageClient() {
 
       {/* Approach / Process Timeline */}
       <ProcessTimeline
-        title="Our .NET Modernization Approach"
+        title="How .NET Modernization Works at Procedure"
         subtitle="A proven process that minimizes risk and maximizes velocity"
         steps={approachSteps}
       />

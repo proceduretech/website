@@ -8,7 +8,7 @@ export const heroData = {
   headlineAccent: "",
   tagline: "",
   description:
-    "Migrate your legacy .NET Framework applications to .NET 8 with confidence. We handle the complexity so you can focus on your business.",
+    "Migrate your legacy .NET Framework applications to modern .NET with confidence. We handle the complexity so you can focus on your business.",
   primaryCTA: {
     text: "Get Free Migration Assessment",
     href: "/contact-us",
@@ -39,13 +39,13 @@ export const problemSignals: ProblemSignal[] = [
   {
     title: "Rising maintenance costs",
     description:
-      "Finding developers who want to work on legacy .NET is getting harder (and more expensive). Your best engineers are leaving for teams that use modern stacks.",
+      "[Finding developers who want to work on legacy .NET is getting harder](/technologies/dotnet/staff-augmentation) (and more expensive). Your best engineers are leaving for teams that use modern stacks.",
     icon: "chart",
   },
   {
     title: "Deployment friction",
     description:
-      "Windows-only hosting. No containerization. Manual deployments. Your competitors are shipping features while you're fighting infrastructure.",
+      "Windows-only hosting. No [containerization](/services/kubernetes). Manual deployments. Your competitors are shipping features while you're fighting infrastructure.",
     icon: "server",
   },
   {
@@ -57,7 +57,7 @@ export const problemSignals: ProblemSignal[] = [
   {
     title: "Performance ceiling",
     description:
-      ".NET 8 delivers 20-40% better throughput than .NET Framework on identical hardware. That's real money on cloud hosting bills.",
+      "Modern .NET delivers 20-40% better throughput than .NET Framework on identical hardware, according to Microsoft's TechEmpower benchmark results. That's real money on cloud hosting bills.",
     icon: "bolt",
   },
 ];
@@ -87,14 +87,14 @@ export const migrationPaths: MigrationPath[] = [
   },
   {
     from: "ASP.NET Web Forms",
-    to: "Blazor or React",
+    to: "[Blazor or React](/services/frontend-development)",
     complexity: "High",
     timeline: "6-12 months",
     bestFor: "UI-heavy applications",
   },
   {
     from: "WCF Services",
-    to: "gRPC or REST APIs",
+    to: "[gRPC or REST APIs](/services/backend-development)",
     complexity: "Medium-High",
     timeline: "4-8 months",
     bestFor: "Service-oriented architectures",
@@ -120,13 +120,20 @@ export const migrationPaths: MigrationPath[] = [
     timeline: "3-5 months",
     bestFor: "Background processing",
   },
+  {
+    from: ".NET 8",
+    to: ".NET 10 (LTS)",
+    complexity: "Low",
+    timeline: "2-4 weeks",
+    bestFor: "Teams already on modern .NET needing LTS upgrade",
+  },
 ];
 
 export const migrationPathsIntro =
   "Every legacy .NET application is different. We assess your codebase, dependencies, and business constraints to recommend the right approach, not the most expensive one.";
 
 export const migrationPathsNote =
-  "Timeline estimates assume a mid-sized application (50K-200K lines of code) with typical dependencies. Your assessment will include specific estimates for your codebase.";
+  "Timeline estimates assume a mid-sized application (50K-200K lines of code) with typical dependencies. Your assessment will include specific estimates for your codebase. Most enterprise migrations target .NET 8 as the first modern .NET milestone. From there, upgrading to .NET 10 is a smaller, lower-risk step. We recommend this two-stage approach for teams still on .NET Framework.";
 
 // =============================================================================
 // Approach Steps (for ProcessTimeline component)
@@ -143,7 +150,7 @@ export const approachSteps: ApproachStep[] = [
     number: 1,
     title: "Discovery & Assessment (2 weeks)",
     description:
-      "We analyze your codebase, map dependencies, and identify migration blockers. You get a detailed report covering risk assessment, recommended strategy, and realistic timeline.",
+      "Procedure's discovery phase runs 2 weeks and costs between $5,000 and $15,000, depending on codebase size. We analyze your codebase, map dependencies, and identify migration blockers using tools like Microsoft's .NET Upgrade Assistant alongside manual review. You get a detailed report covering risk assessment, recommended strategy, and realistic timeline - before you commit any further budget.",
   },
   {
     number: 2,
@@ -155,7 +162,7 @@ export const approachSteps: ApproachStep[] = [
     number: 3,
     title: "Incremental Migration (varies)",
     description:
-      "We follow the Strangler Fig pattern, migrating module by module while keeping your application running. No big-bang deployments. No extended downtime. Zero disruption.",
+      "Procedure's engineering team follows the Strangler Fig pattern, migrating module by module while keeping your application running. No big-bang deployments. No extended downtime. Zero disruption.",
   },
   {
     number: 4,
@@ -167,7 +174,7 @@ export const approachSteps: ApproachStep[] = [
     number: 5,
     title: "Knowledge Transfer & Handoff",
     description:
-      "Your team gets documentation, architecture decision records, and hands-on training. We build for self-sufficiency, not dependency. You own the modernized stack completely.",
+      "Your team gets documentation, architecture decision records, and hands-on training from Procedure's engineers in Mumbai and San Francisco. We build for self-sufficiency, not dependency. You own the modernized stack completely.",
   },
 ];
 
@@ -213,8 +220,8 @@ export const technicalCapabilities: CapabilityGroup[] = [
     items: [
       "IIS-only \u2192 Kestrel with container support",
       "Windows Server \u2192 Linux containers (where appropriate)",
-      "On-premises \u2192 Azure App Services, AKS, or AWS ECS",
-      "Manual deployments \u2192 CI/CD with GitHub Actions or Azure DevOps",
+      "On-premises \u2192 [Azure App Services, AKS, or AWS ECS](/services/cloud)",
+      "Manual deployments \u2192 [CI/CD with GitHub Actions or Azure DevOps](/technologies/dotnet)",
     ],
   },
 ];
@@ -233,25 +240,25 @@ export const riskScenarios: RiskScenario[] = [
   {
     title: "\u201CThe migration broke production\u201D",
     description:
-      "We never do big-bang migrations. The Strangler Fig pattern lets us migrate incrementally while maintaining a working application. If something goes wrong, we roll back one module, not your entire system.",
+      "Procedure never does big-bang migrations. We use the Strangler Fig pattern to migrate module by module with zero planned downtime - your application stays live throughout the entire process. If something goes wrong, we roll back one module, not your entire system.",
     icon: "shield",
   },
   {
     title: "\u201CIt took 3x longer than estimated\u201D",
     description:
-      "Our discovery phase identifies blockers before you commit budget. We've walked away from projects where the migration cost exceeded the business value. Honesty upfront saves everyone time.",
+      "Procedure's discovery phase identifies blockers before you commit budget. We've walked away from projects where the migration cost exceeded the business value. Honesty upfront saves everyone time.",
     icon: "chart",
   },
   {
     title: "\u201COur team can't maintain the new code\u201D",
     description:
-      "We involve your developers from day one. Pair programming, code reviews, and documentation ensure knowledge transfer happens throughout the project, not as an afterthought.",
+      "Procedure involves your developers from day one. Pair programming, code reviews, and documentation ensure knowledge transfer happens throughout the project, not as an afterthought.",
     icon: "users",
   },
   {
     title: "\u201CDependencies weren't compatible\u201D",
     description:
-      "We run automated compatibility analysis against your full dependency tree. Third-party libraries without .NET 8 support get flagged early, with alternatives recommended.",
+      "We run automated compatibility analysis using Microsoft's .NET Upgrade Assistant and API Portability Analyzer against your full dependency tree. Third-party libraries without modern .NET support get flagged early, with alternatives recommended.",
     icon: "puzzle",
   },
   {
@@ -278,7 +285,7 @@ export const faqs: FAQ[] = [
   {
     question: "How much does .NET modernization cost?",
     answer:
-      "Migration costs depend on codebase size, complexity, and your target architecture. For reference: Simple migrations (.NET Core 3.1 \u2192 .NET 8): $15,000 - $40,000. Medium complexity (.NET Framework 4.8 \u2192 .NET 8): $50,000 - $150,000. Complex modernization (Web Forms/WCF \u2192 modern stack): $150,000 - $500,000+. Our discovery phase (typically $5,000 - $15,000) gives you accurate estimates before committing to full migration.",
+      ".NET modernization costs at Procedure range from $15,000 for simple version upgrades to $500,000+ for complex legacy rewrites, with most enterprise projects falling in the $50,000 to $150,000 range. Here's the breakdown: Simple migrations (.NET Core 3.1 \u2192 .NET 8/10): $15,000 - $40,000. Medium complexity (.NET Framework 4.8 \u2192 modern .NET): $50,000 - $150,000. Complex modernization (Web Forms/WCF \u2192 modern stack): $150,000 - $500,000+. Our discovery phase (2 weeks, $5,000 - $15,000) gives you accurate, codebase-specific estimates before committing to full migration.",
   },
   {
     question: "How long does a .NET migration take?",
@@ -301,9 +308,19 @@ export const faqs: FAQ[] = [
       "Yes. We use the Strangler Fig pattern to migrate module by module. Your application stays running throughout the migration. Each module is validated independently before traffic is switched.",
   },
   {
+    question: "Should we rewrite our .NET application or migrate incrementally?",
+    answer:
+      "In nearly every case, we recommend incremental migration over a full rewrite. Rewrites sound clean, but they're where .NET modernization projects go off the rails - scope creep, lost business logic, and timelines that double or triple. The Strangler Fig pattern lets you migrate one module at a time while keeping your application running in production. You get measurable progress every sprint, and you can pause or adjust priorities without losing work. The exception: if your application is under 20,000 lines of code and has good test coverage, a clean rewrite to modern .NET can sometimes be faster. Procedure's discovery phase will assess your specific situation and recommend the right approach with clear reasoning.",
+  },
+  {
     question: "What happens to our existing tests?",
     answer:
       "We migrate your test suites alongside your code. Unit tests are adapted to the new framework. Integration tests are updated to work with new hosting models. We also add regression tests to verify behavioral parity between old and new implementations.",
+  },
+  {
+    question: "Should we migrate to .NET 8, 9, or 10?",
+    answer:
+      "For most enterprise migrations from .NET Framework, we recommend targeting .NET 8 (LTS) as your first milestone. .NET 8 has long-term support through November 2026, a mature ecosystem, and the widest library compatibility. Once you're on .NET 8, upgrading to .NET 10 (LTS, released November 2025, supported through November 2028) is a much smaller step - typically 2-4 weeks for a mid-sized application. We don't recommend targeting .NET 9 for production workloads since it's a Standard Term Support release and will lose support before .NET 10. The exception: if your migration timeline extends past mid-2026, we may recommend going directly to .NET 10 to avoid an intermediate upgrade.",
   },
 ];
 

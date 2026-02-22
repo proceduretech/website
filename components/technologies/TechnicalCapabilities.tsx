@@ -2,6 +2,7 @@
 
 import { m } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { renderLinkedText } from "@/lib/render-linked-text";
 
 interface CapabilityGroup {
   title: string;
@@ -98,7 +99,7 @@ export function TechnicalCapabilities({
                         d="M8.25 4.5l7.5 7.5-7.5 7.5"
                       />
                     </svg>
-                    {item}
+                    {renderLinkedText(item)}
                   </li>
                 ))}
               </ul>
