@@ -1,19 +1,61 @@
 import type { Metadata } from "next";
-import {
-  Hero,
-  ValueProposition,
-  Services,
-  HowWeWork,
-  EngagementModels,
-  FeaturedCaseStudies,
-  Testimonials,
-  Stats,
-  AboutTeaser,
-  FAQ,
-  CTA,
-} from "@/components/sections";
+import nextDynamic from "next/dynamic";
+import { Hero } from "@/components/sections";
 import { JsonLd } from "@/components/seo";
 import { getNotionFeaturedCaseStudies } from "@/lib/notion-case-studies";
+
+// Code-split below-fold sections to reduce initial JS parse cost.
+// SSR is preserved — HTML renders on the server; only JS hydration is deferred.
+const ValueProposition = nextDynamic(() =>
+  import("@/components/sections/ValueProposition").then((m) => ({
+    default: m.ValueProposition,
+  }))
+);
+const Testimonials = nextDynamic(() =>
+  import("@/components/sections/Testimonials").then((m) => ({
+    default: m.Testimonials,
+  }))
+);
+const Services = nextDynamic(() =>
+  import("@/components/sections/Services").then((m) => ({
+    default: m.Services,
+  }))
+);
+const HowWeWork = nextDynamic(() =>
+  import("@/components/sections/HowWeWork").then((m) => ({
+    default: m.HowWeWork,
+  }))
+);
+const EngagementModels = nextDynamic(() =>
+  import("@/components/sections/EngagementModels").then((m) => ({
+    default: m.EngagementModels,
+  }))
+);
+const FeaturedCaseStudies = nextDynamic(() =>
+  import("@/components/sections/FeaturedCaseStudies").then((m) => ({
+    default: m.FeaturedCaseStudies,
+  }))
+);
+const Stats = nextDynamic(() =>
+  import("@/components/sections/Stats").then((m) => ({
+    default: m.Stats,
+  }))
+);
+const AboutTeaser = nextDynamic(() =>
+  import("@/components/sections/AboutTeaser").then((m) => ({
+    default: m.AboutTeaser,
+  }))
+);
+const FAQ = nextDynamic(() =>
+  import("@/components/sections/FAQ").then((m) => ({
+    default: m.FAQ,
+  }))
+);
+const CTA = nextDynamic(() =>
+  import("@/components/sections/CTA").then((m) => ({
+    default: m.CTA,
+  }))
+);
 
 // Force static generation at build time
 export const dynamic = "force-static";
