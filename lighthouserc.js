@@ -8,7 +8,7 @@ module.exports = {
         "http://localhost:3000/services/ai-engineering", // Key service page
       ],
       startServerCommand: "npm run start",
-      startServerReadyPattern: "Ready",
+      startServerReadyPattern: "Accepting connections",
       // Single run is sufficient for CI checks - saves ~66% time
       // Use numberOfRuns: 3 locally for accurate measurements
       numberOfRuns: 1,
