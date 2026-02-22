@@ -184,6 +184,14 @@ export interface ExpertiseFrontmatter extends BaseFrontmatter {
       title: string;
     }>;
   };
+  philosophy?: {
+    title: string;
+    subtitle?: string;
+    blocks: Array<{
+      title: string;
+      description: string;
+    }>;
+  };
   architecture?: {
     title: string;
     subtitle?: string;
@@ -192,6 +200,15 @@ export interface ExpertiseFrontmatter extends BaseFrontmatter {
       name: string;
       description: string;
     }>;
+  };
+  howItWorks?: {
+    title?: string;
+    subtitle?: string;
+    steps: Array<{
+      title: string;
+      description: string;
+    }>;
+    closingNote?: string;
   };
   engagementModels?: {
     title?: string;
@@ -205,11 +222,17 @@ export interface ExpertiseFrontmatter extends BaseFrontmatter {
   riskReversal?: {
     title?: string;
     subtitle?: string;
-    items: Array<{
+    items?: Array<{
       title: string;
       description: string;
     }>;
     closingNote?: string;
+    variant?: "grid" | "split";
+    leftTriggers?: string[];
+    rightBlocks?: Array<{
+      title: string;
+      description: string;
+    }>;
   };
   ctaTestimonial?: {
     name: string;

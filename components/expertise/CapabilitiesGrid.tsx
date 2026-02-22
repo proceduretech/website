@@ -3,6 +3,7 @@
 import { m } from "framer-motion";
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { LinkedText } from "@/components/ui/LinkedText";
 
 interface Capability {
   icon: ReactNode;
@@ -92,7 +93,7 @@ export function CapabilitiesGrid({
                 {capability.title}
               </h3>
               <p className="text-text-secondary leading-relaxed">
-                {capability.description}
+                <LinkedText text={capability.description} />
               </p>
             </m.div>
           ))}

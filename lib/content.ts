@@ -440,8 +440,10 @@ export function getTechnologyForListing(
     useCasesSubtitle: frontmatter.useCasesSubtitle,
     useCases: frontmatter.useCases,
     whyChoose: frontmatter.whyChoose,
+    philosophy: frontmatter.philosophy,
     qualityMatters: frontmatter.qualityMatters,
     architecture: frontmatter.architecture,
+    howItWorks: frontmatter.howItWorks,
     engagementModels: frontmatter.engagementModels,
     riskReversal: frontmatter.riskReversal,
     ctaTestimonial: frontmatter.ctaTestimonial,
@@ -734,6 +736,15 @@ export interface ExpertisePageForListing {
       description: string;
     }>;
   };
+  howItWorks?: {
+    title?: string;
+    subtitle?: string;
+    steps: Array<{
+      title: string;
+      description: string;
+    }>;
+    closingNote?: string;
+  };
   engagementModels?: {
     title?: string;
     subtitle?: string;
@@ -869,8 +880,10 @@ export function getExpertiseForListing(
     useCasesSubtitle: frontmatter.useCasesSubtitle,
     useCases: frontmatter.useCases,
     whyChoose: frontmatter.whyChoose,
+    philosophy: frontmatter.philosophy,
     qualityMatters: frontmatter.qualityMatters,
     architecture: frontmatter.architecture,
+    howItWorks: frontmatter.howItWorks,
     engagementModels: frontmatter.engagementModels,
     riskReversal: frontmatter.riskReversal,
     ctaTestimonial: frontmatter.ctaTestimonial,
