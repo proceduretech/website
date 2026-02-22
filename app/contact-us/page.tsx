@@ -1,10 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { LazyMotion, domAnimation, m } from "framer-motion";
+import { LazyMotion, domAnimation, m, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { Input, Textarea, Select, ObfuscatedEmailBlock } from "@/components/ui";
 import { CalButton } from "@/components/CalButton";
+
+// Worker URL - replace with your deployed Cloudflare Worker URL
+const CONTACT_API_URL =
+  process.env.NEXT_PUBLIC_CONTACT_API_URL || "https://procedure-contact-form.workers.dev";
+
+type InquiryType = "business" | "career";
 
 // Common free email providers to block - prospects should use work email
 const FREE_EMAIL_PROVIDERS = [
@@ -59,40 +65,73 @@ const timelineOptions = [
 ];
 
 export default function ContactPage() {
+  const [inquiryType, setInquiryType] = useState<InquiryType>("business");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [emailError, setEmailError] = useState<string | null>(null);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setEmailError(null);
+    setSubmitError(null);
 
     const formData = new FormData(e.currentTarget);
     const email = formData.get("email") as string;
 
-    // Validate work email
-    if (!isWorkEmail(email)) {
+    // Work email validation only for business inquiries
+    if (inquiryType === "business" && !isWorkEmail(email)) {
       setEmailError("Please use your work email address");
       return;
     }
 
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    // Track form submission in GA4 via dataLayer
-    if (typeof window !== "undefined") {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: "contact_form_submit",
-        budget: formData.get("budget") as string || "",
-        timeline: formData.get("timeline") as string || "",
+    try {
+      const response = await fetch(CONTACT_API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          inquiryType,
+          name: formData.get("name"),
+          email,
+          company: formData.get("company"),
+          message: formData.get("message"),
+          budget: formData.get("budget"),
+          timeline: formData.get("timeline"),
+          linkedIn: formData.get("linkedIn"),
+        }),
       });
-    }
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+      if (!response.ok) {
+        throw new Error("Submission failed");
+      }
+
+      // Track form submission in GA4 via dataLayer - fire AFTER successful API response
+      if (typeof window !== "undefined") {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "contact_form_submit",
+          inquiry_type: inquiryType,
+          budget:
+            inquiryType === "business"
+              ? (formData.get("budget") as string) || ""
+              : undefined,
+          timeline:
+            inquiryType === "business"
+              ? (formData.get("timeline") as string) || ""
+              : undefined,
+        });
+      }
+
+      setIsSubmitted(true);
+    } catch {
+      setSubmitError(
+        "Something went wrong. Please try again or email us directly at hello@procedure.tech."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -334,12 +373,41 @@ export default function ContactPage() {
                         </svg>
                       </div>
                       <h3 className="text-2xl font-bold text-text-primary mb-3">
-                        Message sent successfully
+                        {inquiryType === "business"
+                          ? "Message sent successfully"
+                          : "Application submitted"}
                       </h3>
                       <p className="text-text-secondary mb-8 max-w-sm mx-auto">
-                        Thank you for reaching out. We&apos;ll review your
-                        message and get back to you within 24 hours.
+                        {inquiryType === "business"
+                          ? "Thank you for reaching out. We'll review your message and get back to you within 24 hours."
+                          : "Thank you for your interest in Procedure. We'll review your application and reach out if there's a fit."}
                       </p>
+
+                      {/* Cal.com CTA - business inquiries only */}
+                      {inquiryType === "business" && (
+                        <div className="mb-8">
+                          <p className="text-sm text-text-muted mb-3">
+                            Want to talk sooner?
+                          </p>
+                          <CalButton className="inline-flex items-center gap-2 px-6 py-3 bg-cta text-cta-text rounded-xl font-semibold hover:brightness-110 transition-all shadow-lg shadow-cta/25 cursor-pointer">
+                            <svg
+                              className="w-5 h-5"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                              strokeWidth={1.5}
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"
+                              />
+                            </svg>
+                            Book a 30-minute call now
+                          </CalButton>
+                        </div>
+                      )}
+
                       <Link
                         href="/"
                         className="inline-flex items-center gap-2 text-accent-light font-medium hover:text-accent transition-colors"
@@ -366,13 +434,45 @@ export default function ContactPage() {
                       {/* Form Header */}
                       <div className="mb-8">
                         <h2 className="text-xl font-semibold text-text-primary mb-2">
-                          Tell Us About Your Project
+                          {inquiryType === "business"
+                            ? "Tell Us About Your Project"
+                            : "Join Our Team"}
                         </h2>
                         <p className="text-sm text-text-secondary">
-                          Share a few details and we&apos;ll schedule a strategy
-                          call with an AI engineering lead who understands your
-                          domain.
+                          {inquiryType === "business"
+                            ? "Share a few details and we'll schedule a strategy call with an AI engineering lead who understands your domain."
+                            : "Tell us about yourself and what excites you about working at Procedure."}
                         </p>
+                      </div>
+
+                      {/* Inquiry Type Toggle */}
+                      <div className="flex gap-2 p-1 bg-surface-elevated rounded-xl border border-border">
+                        {(
+                          [
+                            { value: "business", label: "Business Inquiry" },
+                            { value: "career", label: "Career Opportunity" },
+                          ] as const
+                        ).map((option) => (
+                          <button
+                            key={option.value}
+                            type="button"
+                            onClick={() => {
+                              setInquiryType(option.value);
+                              setEmailError(null);
+                              setSubmitError(null);
+                            }}
+                            className={`
+                              flex-1 py-2.5 px-4 rounded-lg text-sm font-medium transition-all duration-200
+                              ${
+                                inquiryType === option.value
+                                  ? "bg-accent/10 text-accent-light border border-accent/30 shadow-sm"
+                                  : "text-text-muted hover:text-text-secondary"
+                              }
+                            `}
+                          >
+                            {option.label}
+                          </button>
+                        ))}
                       </div>
 
                       {/* Name & Email Row */}
@@ -385,49 +485,79 @@ export default function ContactPage() {
                           autoComplete="name"
                         />
                         <Input
-                          label="Work Email"
+                          label={
+                            inquiryType === "business" ? "Work Email" : "Email"
+                          }
                           name="email"
                           type="email"
                           required
                           autoComplete="email"
                           error={emailError || undefined}
                           onChange={() => emailError && setEmailError(null)}
-                          hint="Please use your company email"
+                          hint={
+                            inquiryType === "business"
+                              ? "Please use your company email"
+                              : undefined
+                          }
                         />
                       </div>
 
-                      {/* Company */}
-                      <Input
-                        label="Company"
-                        name="company"
-                        type="text"
-                        required
-                        autoComplete="organization"
-                      />
+                      {/* Business-specific fields */}
+                      {inquiryType === "business" && (
+                        <>
+                          {/* Company */}
+                          <Input
+                            label="Company"
+                            name="company"
+                            type="text"
+                            required
+                            autoComplete="organization"
+                          />
 
-                      {/* Budget & Timeline Row */}
-                      <div className="grid sm:grid-cols-2 gap-4">
-                        <Select
-                          label="Budget Range"
-                          name="budget"
-                          options={budgetOptions}
-                          placeholder="Select budget"
+                          {/* Budget & Timeline Row */}
+                          <div className="grid sm:grid-cols-2 gap-4">
+                            <Select
+                              label="Budget Range"
+                              name="budget"
+                              options={budgetOptions}
+                              placeholder="Select budget"
+                            />
+                            <Select
+                              label="Timeline"
+                              name="timeline"
+                              options={timelineOptions}
+                              placeholder="Select timeline"
+                            />
+                          </div>
+                        </>
+                      )}
+
+                      {/* Career-specific fields */}
+                      {inquiryType === "career" && (
+                        <Input
+                          label="LinkedIn Profile"
+                          name="linkedIn"
+                          type="url"
+                          autoComplete="url"
+                          hint="Optional, but helpful"
                         />
-                        <Select
-                          label="Timeline"
-                          name="timeline"
-                          options={timelineOptions}
-                          placeholder="Select timeline"
-                        />
-                      </div>
+                      )}
 
                       {/* Message */}
                       <Textarea
-                        label="Project Details"
+                        label={
+                          inquiryType === "business"
+                            ? "Project Details"
+                            : "Tell Us About Yourself"
+                        }
                         name="message"
                         required
                         rows={5}
-                        hint="Tell us about your AI initiative: what you're building, the problem you're solving, and where you need help."
+                        hint={
+                          inquiryType === "business"
+                            ? "Tell us about your AI initiative: what you're building, the problem you're solving, and where you need help."
+                            : "What excites you about Procedure? What kind of work are you looking for?"
+                        }
                       />
 
                       {/* Submit Button */}
@@ -451,7 +581,9 @@ export default function ContactPage() {
                         <span
                           className={`flex items-center justify-center gap-2 ${isSubmitting ? "opacity-0" : ""}`}
                         >
-                          Request Strategy Call
+                          {inquiryType === "business"
+                            ? "Request Strategy Call"
+                            : "Send Application"}
                           <svg
                             className="w-5 h-5"
                             fill="none"
@@ -492,6 +624,20 @@ export default function ContactPage() {
                           </div>
                         )}
                       </m.button>
+
+                      {/* Error Message */}
+                      <AnimatePresence>
+                        {submitError && (
+                          <m.p
+                            initial={{ opacity: 0, y: -4 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -4 }}
+                            className="text-sm text-red-400 text-center"
+                          >
+                            {submitError}
+                          </m.p>
+                        )}
+                      </AnimatePresence>
 
                       {/* Privacy Note */}
                       <p className="text-xs text-text-muted text-center">
