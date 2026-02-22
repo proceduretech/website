@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { m, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { renderLinkedText } from "@/lib/render-linked-text";
 
 interface FAQ {
   question: string;
@@ -99,7 +100,7 @@ export function FAQSection({
                     <div className="px-6 pb-5">
                       <div className="h-px bg-border mb-4" />
                       <p className="text-text-secondary leading-relaxed">
-                        {faq.answer}
+                        {renderLinkedText(faq.answer)}
                       </p>
                     </div>
                   </m.div>

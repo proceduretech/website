@@ -4,6 +4,7 @@ import { m } from "framer-motion";
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/lib/expertise-data";
+import { renderLinkedText } from "@/lib/render-linked-text";
 
 interface UseCase {
   title: string;
@@ -116,7 +117,7 @@ export function UseCaseStories({
 
                 {/* Description */}
                 <p className="text-text-secondary text-sm leading-relaxed flex-grow">
-                  {useCase.description}
+                  {renderLinkedText(useCase.description)}
                 </p>
 
                 {/* Outcome bar */}

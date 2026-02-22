@@ -4,6 +4,7 @@ import { m } from "framer-motion";
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/lib/expertise-data";
+import { renderLinkedText } from "@/lib/render-linked-text";
 
 interface Signal {
   title: string;
@@ -105,7 +106,7 @@ export function ProblemSignals({
                   {signal.title}
                 </h3>
                 <p className="text-text-secondary text-sm leading-relaxed">
-                  {signal.description}
+                  {renderLinkedText(signal.description)}
                 </p>
               </div>
             </m.div>
