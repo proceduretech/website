@@ -175,14 +175,6 @@ export interface ExpertiseFrontmatter extends BaseFrontmatter {
       label: string;
     }>;
   };
-  philosophy?: {
-    title: string;
-    subtitle?: string;
-    blocks: Array<{
-      title: string;
-      description: string;
-    }>;
-  };
   qualityMatters?: {
     costs: Array<{
       title: string;
@@ -201,15 +193,6 @@ export interface ExpertiseFrontmatter extends BaseFrontmatter {
       description: string;
     }>;
   };
-  howItWorks?: {
-    title?: string;
-    subtitle?: string;
-    steps: Array<{
-      title: string;
-      description: string;
-    }>;
-    closingNote?: string;
-  };
   engagementModels?: {
     title?: string;
     subtitle?: string;
@@ -222,17 +205,11 @@ export interface ExpertiseFrontmatter extends BaseFrontmatter {
   riskReversal?: {
     title?: string;
     subtitle?: string;
-    items?: Array<{
+    items: Array<{
       title: string;
       description: string;
     }>;
     closingNote?: string;
-    variant?: "grid" | "split";
-    leftTriggers?: string[];
-    rightBlocks?: Array<{
-      title: string;
-      description: string;
-    }>;
   };
   ctaTestimonial?: {
     name: string;
@@ -398,6 +375,7 @@ export type ContentType =
   | "industries"
   | "use-cases"
   | "services"
+  | "technologies"
   | "pages";
 
 // Map content types to their frontmatter interfaces
@@ -408,5 +386,6 @@ export type ContentTypeMap = {
   industries: IndustryFrontmatter;
   "use-cases": UseCaseFrontmatter;
   services: ServiceFrontmatter;
+  technologies: ExpertiseFrontmatter;
   pages: BaseFrontmatter;
 };

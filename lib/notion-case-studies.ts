@@ -25,7 +25,7 @@ export interface CaseStudyDetail extends CaseStudy {
 }
 
 export interface CaseStudyContent {
-  type: "paragraph" | "heading_1" | "heading_2" | "heading_3" | "bulleted_list_item" | "numbered_list_item" | "quote" | "callout" | "image" | "divider" | "code" | "table";
+  type: "paragraph" | "heading_1" | "heading_2" | "heading_3" | "bulleted_list_item" | "numbered_list_item" | "quote" | "callout" | "image" | "divider" | "code" | "table" | "video" | "embed";
   text?: string;
   url?: string;
   language?: string;
@@ -435,6 +435,22 @@ function transformBlock(block: BlockObjectResponse): CaseStudyContent | null {
           rows: [], // Will be populated by fetchTableRows
         },
       };
+    case "video": {
+      const videoUrl = block.video.type === "external"
+        ? block.video.external.url
+        : block.video.type === "file"
+          ? block.video.file.url
+          : null;
+      if (videoUrl) {
+        return { type: "video", url: videoUrl };
+      }
+      return null;
+    }
+    case "embed":
+      if (block.embed.url) {
+        return { type: "embed", url: block.embed.url };
+      }
+      return null;
     default:
       return null;
   }
@@ -472,6 +488,55 @@ async function fetchTableRows(tableBlockId: string): Promise<string[][]> {
 }
 
 /**
+ * Fetch child blocks recursively (for toggle, column_list, etc.)
+ * Flattens nested content into the parent content array
+ */
+async function fetchChildBlocks(blockId: string): Promise<CaseStudyContent[]> {
+  try {
+    const response: ListBlockChildrenResponse = await notion.blocks.children.list({
+      block_id: blockId,
+      page_size: 100,
+    });
+
+    const content: CaseStudyContent[] = [];
+
+    for (const block of response.results) {
+      if (!("type" in block)) continue;
+      const typedBlock = block as BlockObjectResponse;
+      await processBlock(typedBlock, content);
+    }
+
+    return content;
+  } catch (error) {
+    console.warn(`Error fetching child blocks for ${blockId}:`, error);
+    return [];
+  }
+}
+
+/**
+ * Process a single block: transform it and recurse into children if needed
+ */
+async function processBlock(block: BlockObjectResponse, content: CaseStudyContent[]): Promise<void> {
+  const transformed = transformBlock(block);
+
+  if (transformed) {
+    // If it's a table, fetch the rows
+    if (transformed.type === "table" && transformed.tableData) {
+      const rows = await fetchTableRows(block.id);
+      transformed.tableData.rows = rows;
+    }
+    content.push(transformed);
+  }
+
+  // Recurse into child blocks (toggle, column_list, column, etc.)
+  // Skip table children (handled by fetchTableRows) and list items (already captured)
+  if (block.has_children && block.type !== "table") {
+    const childContent = await fetchChildBlocks(block.id);
+    content.push(...childContent);
+  }
+}
+
+/**
  * Fetch page content blocks from Notion
  */
 async function fetchPageContent(pageId: string): Promise<CaseStudyContent[]> {
@@ -485,18 +550,8 @@ async function fetchPageContent(pageId: string): Promise<CaseStudyContent[]> {
 
     for (const block of response.results) {
       if (!("type" in block)) continue;
-
       const typedBlock = block as BlockObjectResponse;
-      const transformed = transformBlock(typedBlock);
-
-      if (transformed) {
-        // If it's a table, fetch the rows
-        if (transformed.type === "table" && transformed.tableData) {
-          const rows = await fetchTableRows(typedBlock.id);
-          transformed.tableData.rows = rows;
-        }
-        content.push(transformed);
-      }
+      await processBlock(typedBlock, content);
     }
 
     return content;
@@ -510,58 +565,73 @@ async function fetchPageContent(pageId: string): Promise<CaseStudyContent[]> {
 // Main Data Fetching Functions
 // =============================================================================
 
-// Cache for storing detailed case study data (includes pageId mapping)
+// Module-level cache for storing detailed case study data (includes pageId mapping)
+// Persists across React render contexts during the same build
 let cachedDetails: Map<string, Omit<CaseStudyDetail, "content">> | null = null;
+let cachedCaseStudies: CaseStudy[] | null = null;
 
 /**
  * Fetch all published case studies from Notion
- * This function is cached with React's cache() for build-time optimization
+ * Uses pagination to ensure ALL case studies are fetched
  */
 export const getNotionCaseStudies = cache(
   async (): Promise<CaseStudy[]> => {
+    // Return module-level cache if already populated (persists across render contexts)
+    if (cachedCaseStudies && cachedDetails && cachedDetails.size > 0) {
+      return cachedCaseStudies;
+    }
+
     if (!isNotionConfigured()) {
       console.warn(
         "Notion token not configured, falling back to static case studies data"
       );
-      // Fall back to static data if Notion is not configured
       const { caseStudies } = await import("./case-studies-data");
       return caseStudies;
     }
 
     try {
-      // Use the new dataSources.query() API in SDK v5
-      // This queries the data source (collection) within the database
-      const response: QueryDataSourceResponse = await notion.dataSources.query({
-        data_source_id: CASE_STUDIES_DATA_SOURCE_ID,
-        filter: {
-          property: "Status",
-          select: {
-            equals: "Published",
-          },
-        },
-        sorts: [
-          {
-            property: "Publish Date",
-            direction: "descending",
-          },
-        ],
-      });
+      // Paginate through all results to ensure we get every case study
+      const allPages: PageObjectResponse[] = [];
+      let hasMore = true;
+      let startCursor: string | undefined = undefined;
 
-      const caseStudies: CaseStudy[] = [];
-      cachedDetails = new Map();
+      while (hasMore) {
+        const response: QueryDataSourceResponse =
+          await notion.dataSources.query({
+            data_source_id: CASE_STUDIES_DATA_SOURCE_ID,
+            filter: {
+              property: "Status",
+              select: {
+                equals: "Published",
+              },
+            },
+            sorts: [
+              {
+                property: "Publish Date",
+                direction: "descending",
+              },
+            ],
+            ...(startCursor ? { start_cursor: startCursor } : {}),
+          });
 
-      for (const page of response.results) {
-        // Type guard: only process full page objects
-        if (!("properties" in page)) {
-          continue;
+        for (const page of response.results) {
+          if ("properties" in page) {
+            allPages.push(page as PageObjectResponse);
+          }
         }
 
-        const result = await transformNotionPageToCaseStudy(
-          page as PageObjectResponse
-        );
+        hasMore = response.has_more;
+        startCursor = response.next_cursor || undefined;
+      }
+
+      const caseStudies: CaseStudy[] = [];
+      const details = new Map<string, Omit<CaseStudyDetail, "content">>();
+
+      for (const page of allPages) {
+        const result = await transformNotionPageToCaseStudy(page);
         if (result) {
           caseStudies.push(result.caseStudy);
-          cachedDetails.set(result.caseStudy.id, result.detail);
+          details.set(result.caseStudy.id, result.detail);
         }
       }
 
@@ -570,17 +640,19 @@ export const getNotionCaseStudies = cache(
         console.warn(
           "No published case studies found in Notion, falling back to static data"
         );
-        cachedDetails = null;
         const { caseStudies: staticCaseStudies } = await import(
           "./case-studies-data"
         );
         return staticCaseStudies;
       }
 
+      // Set module-level cache atomically (after all processing is done)
+      cachedDetails = details;
+      cachedCaseStudies = caseStudies;
+
       return caseStudies;
     } catch (error) {
       console.error("Error fetching case studies from Notion:", error);
-      cachedDetails = null;
       // Fall back to static data on error
       const { caseStudies } = await import("./case-studies-data");
       return caseStudies;

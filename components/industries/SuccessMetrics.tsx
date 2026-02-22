@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface Metric {
@@ -44,7 +44,7 @@ export function SuccessMetrics({
     <section className="py-16 sm:py-20 bg-surface">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -57,10 +57,10 @@ export function SuccessMetrics({
           {subtitle && (
             <p className="text-text-secondary max-w-2xl mx-auto">{subtitle}</p>
           )}
-        </motion.div>
+        </m.div>
 
         {/* Metrics grid */}
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
@@ -68,30 +68,30 @@ export function SuccessMetrics({
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {metrics.map((metric, index) => (
-            <motion.div
+            <m.div
               key={index}
               variants={cardVariants}
               className={cn(
-                "p-6 sm:p-8 rounded-2xl text-center",
+                "p-6 rounded-2xl text-center",
                 "bg-gradient-to-br from-accent/10 to-accent-secondary/10",
                 "border border-accent/20",
                 "hover:border-accent/40 transition-colors duration-300",
               )}
             >
-              <div className="text-4xl sm:text-5xl font-bold text-highlight">
+              <div className="text-3xl font-bold text-highlight mb-2">
                 {metric.value}
               </div>
-              <div className="text-text-primary font-medium mt-3">
+              <div className="text-sm text-text-primary font-medium">
                 {metric.label}
               </div>
               {metric.context && (
-                <div className="text-sm text-text-muted mt-1">
+                <div className="text-xs text-text-muted mt-1">
                   {metric.context}
                 </div>
               )}
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

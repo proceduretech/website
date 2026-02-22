@@ -1,3 +1,4 @@
+import { join } from "path";
 import createMDX from "@next/mdx";
 import bundleAnalyzer from "@next/bundle-analyzer";
 
@@ -16,13 +17,9 @@ const nextConfig = {
   },
   reactStrictMode: true,
 
-  // Exclude legacy polyfills for modern browsers (saves 14 KiB)
-  // Targets Chrome 100+, Safari 15+, Firefox 100+ per browserslist
-  excludeDefaultMomentLocales: true,
-
   // Experimental optimizations
   experimental: {
-    optimizeCss: true, // Optimize CSS loading
+    inlineCss: true, // Inline CSS into HTML to eliminate render-blocking stylesheet requests
     optimizePackageImports: [
       "framer-motion",
       "motion",
@@ -35,54 +32,74 @@ const nextConfig = {
   },
 
   // Webpack optimizations for bundle size
-  webpack: (config, { isServer }) => {
+  webpack: (config, { isServer, webpack }) => {
     if (!isServer) {
-      // Optimize client-side bundle
-      config.optimization = {
-        ...config.optimization,
-        usedExports: true,
-        sideEffects: false,
-        minimize: true,
-        moduleIds: 'deterministic', // Better long-term caching
-        splitChunks: {
-          chunks: "all",
-          maxInitialRequests: 25,
-          minSize: 20000,
-          maxSize: 244000, // Split large chunks (244KB gzipped ~= 1MB uncompressed)
-          cacheGroups: {
-            // React & React-DOM in separate chunk
-            react: {
-              test: /[\\/]node_modules[\\/](react|react-dom|scheduler)[\\/]/,
-              name: "react",
-              priority: 40,
-              reuseExistingChunk: true,
-              enforce: true,
-            },
-            // Separate framer-motion into its own chunk
-            framerMotion: {
-              test: /[\\/]node_modules[\\/](framer-motion|motion)[\\/]/,
-              name: "framer-motion",
-              priority: 30,
-              reuseExistingChunk: true,
-              enforce: true,
-            },
-            // Separate other UI libraries
-            uiLibs: {
-              test: /[\\/]node_modules[\\/](@radix-ui|lucide-react|react-icons)[\\/]/,
-              name: "ui-libs",
-              priority: 20,
-              reuseExistingChunk: true,
-            },
-            // Default vendor chunk
-            vendor: {
-              test: /[\\/]node_modules[\\/]/,
-              name: "vendor",
-              priority: 10,
-              reuseExistingChunk: true,
-            },
+      // Remove Next.js hardcoded polyfills (Array.at, Array.flat, Object.fromEntries, etc.)
+      // These are unnecessary — browserslist targets Chrome 109+, Safari 17+, Firefox 115+
+      // which natively support all polyfilled features including URL.canParse.
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        // Alias both polyfill entry points to false (empty module)
+        'next/dist/build/polyfills/polyfill-module': false,
+        'next/dist/build/polyfills/polyfill-nomodule': false,
+      };
+
+      // Replace any remaining polyfill imports with empty modules via NormalModuleReplacementPlugin.
+      // This catches polyfills that slip through the alias (e.g., resolved via different paths).
+      config.plugins.push(
+        new webpack.NormalModuleReplacementPlugin(
+          /next[\\/]dist[\\/]build[\\/]polyfills/,
+          (resource) => {
+            resource.request = join(process.cwd(), 'lib/empty-module.js');
+          }
+        )
+      );
+
+      // Remove the hardcoded polyfill-nomodule CopyFilePlugin.
+      // Next.js unconditionally bundles a 68 KiB polyfill-nomodule chunk via CopyFilePlugin
+      // regardless of browserslist. Filter it out since our targets don't need it.
+      config.plugins = config.plugins.filter((plugin) => {
+        if (plugin.constructor.name === 'CopyFilePlugin' && plugin.filePath) {
+          return !plugin.filePath.includes('polyfill-nomodule');
+        }
+        return true;
+      });
+
+      // Merge splitChunks with Next.js defaults instead of replacing them
+      const existingSplitChunks = config.optimization.splitChunks || {};
+      config.optimization.splitChunks = {
+        ...existingSplitChunks,
+        chunks: "all",
+        maxInitialRequests: 25,
+        minSize: 20000,
+        maxSize: 128000, // More aggressive splitting for faster parse on mobile
+        cacheGroups: {
+          ...(existingSplitChunks.cacheGroups || {}),
+          // React & React-DOM in separate chunk
+          react: {
+            test: /[\\/]node_modules[\\/](react|react-dom|scheduler)[\\/]/,
+            name: "react",
+            priority: 40,
+            reuseExistingChunk: true,
+          },
+          // Separate framer-motion into its own chunk
+          framerMotion: {
+            test: /[\\/]node_modules[\\/](framer-motion|motion)[\\/]/,
+            name: "framer-motion",
+            priority: 30,
+            reuseExistingChunk: true,
+          },
+          // Separate other UI libraries
+          uiLibs: {
+            test: /[\\/]node_modules[\\/](@radix-ui|lucide-react|react-icons)[\\/]/,
+            name: "ui-libs",
+            priority: 20,
+            reuseExistingChunk: true,
           },
         },
       };
+
+      config.optimization.moduleIds = 'deterministic';
 
       // Reduce bundle size by excluding source maps in production
       if (config.mode === 'production') {

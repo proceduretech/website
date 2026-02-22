@@ -1,13 +1,35 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import { LazyMotion, domAnimation, m, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { testimonials } from "@/lib/testimonials-data";
+import { cn } from "@/lib/utils";
 
 export function Testimonials() {
+  // Randomize starting testimonial to avoid showing the same first
+  // testimonial on every page across the site. Uses a ref to generate
+  // the random index once on mount, avoiding hydration mismatch by
+  // matching the SSR value (0) and only randomizing on client.
+  const hasRandomized = useRef(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const currentTestimonial = testimonials[currentIndex];
+
+  const handleRandomize = useCallback(() => {
+    if (!hasRandomized.current) {
+      hasRandomized.current = true;
+      const randomIndex = Math.floor(Math.random() * testimonials.length);
+      if (randomIndex !== 0) {
+        setCurrentIndex(randomIndex);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    // Defer randomization to after hydration via rAF
+    const id = requestAnimationFrame(handleRandomize);
+    return () => cancelAnimationFrame(id);
+  }, [handleRandomize]);
 
   return (
     <LazyMotion features={domAnimation}>
@@ -27,8 +49,8 @@ export function Testimonials() {
           <p className="text-sm font-medium text-accent-light uppercase tracking-wider mb-4">
             Testimonials
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary">
-            Trusted by engineering leaders
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-text-primary">
+            Trusted by Engineering Leaders
           </h2>
         </m.div>
 
@@ -53,7 +75,7 @@ export function Testimonials() {
               className="text-center"
             >
               {/* Quote text */}
-              <blockquote className="text-xl sm:text-2xl md:text-3xl text-text-primary font-medium leading-relaxed mb-10">
+              <blockquote className="text-lg sm:text-xl text-text-primary font-normal leading-relaxed mb-10">
                 &ldquo;{currentTestimonial.quote}&rdquo;
               </blockquote>
 
@@ -72,9 +94,22 @@ export function Testimonials() {
                   <div className="font-semibold text-text-primary text-lg">
                     {currentTestimonial.author}
                   </div>
-                  <div className="text-text-secondary">
-                    {currentTestimonial.role}, {currentTestimonial.company}
+                  <div className="text-text-secondary text-sm">
+                    {currentTestimonial.role}
                   </div>
+                  {currentTestimonial.logo && (
+                    <div className="mt-2 flex items-center justify-center">
+                      <Image
+                        src={currentTestimonial.logo}
+                        alt={currentTestimonial.company}
+                        width={80}
+                        height={24}
+                        className={cn(
+                          "h-5 w-auto object-contain brightness-0 invert opacity-60"
+                        )}
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
             </m.div>
@@ -101,8 +136,7 @@ export function Testimonials() {
           ))}
         </div>
       </div>
-    </section>
-  );
+      </section>
     </LazyMotion>
   );
 }

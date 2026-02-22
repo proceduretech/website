@@ -3,19 +3,19 @@ import Link from "next/link";
 import { ComplianceBadge } from "./badges/ComplianceBadge";
 import { ProcedureLogoShort } from "./logos";
 import { ObfuscatedEmail } from "./ui/ObfuscatedEmail";
+import { AskAiFooter } from "./ask-ai";
 
 const footerLinks = {
   aiServices: [
     { label: "LLM Applications", href: "/services/ai-engineering" },
     { label: "AI Agents", href: "/services/ai-agents" },
-    { label: "Threat Protection", href: "/services/ai-security" },
-    { label: "Data & Privacy", href: "/services/ai-privacy" },
   ],
   productEngineering: [
     { label: "Frontend Development", href: "/services/frontend-development" },
     { label: "Backend Development", href: "/services/backend-development" },
     { label: "Mobile Development", href: "/services/mobile-development" },
     { label: "QA & Testing", href: "/services/software-testing-and-qa" },
+    { label: ".NET Development", href: "/technologies/dotnet" },
   ],
   cloudDesign: [
     { label: "Cloud Architecture", href: "/services/cloud" },
@@ -70,6 +70,15 @@ const socialLinks = [
       </svg>
     ),
   },
+  {
+    label: "RSS Feed",
+    href: "/feed.xml",
+    icon: (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M6.503 20.752c0 1.794-1.456 3.248-3.251 3.248-1.796 0-3.252-1.454-3.252-3.248 0-1.794 1.456-3.248 3.252-3.248 1.795 0 3.251 1.454 3.251 3.248zm-6.503-12.572v4.811c6.05.062 10.96 4.966 11.022 11.009h4.817c-.062-8.742-7.099-15.783-15.839-15.82zm0-8.18v4.819c12.032.062 21.823 9.851 21.884 21.881h4.816c-.062-14.724-11.979-26.645-26.7-26.7z" />
+      </svg>
+    ),
+  },
 ];
 
 export function Footer() {
@@ -81,6 +90,9 @@ export function Footer() {
       }}
     >
       <div className="max-w-7xl mx-auto px-6 py-16">
+        {/* Ask AI about Procedure */}
+        <AskAiFooter />
+
         {/* Top row: Brand + Link columns */}
         <div className="grid grid-cols-2 md:grid-cols-12 gap-8 mb-12">
           {/* Brand & Contact */}
@@ -97,7 +109,7 @@ export function Footer() {
             </Link>
             <p className="mt-4 text-sm text-text-secondary max-w-xs">
               AI engineering and security for production systems. Proven
-              delivery excellence—now focused on AI.
+              delivery excellence, now focused on AI.
             </p>
 
             {/* Contact Info */}
@@ -162,10 +174,10 @@ export function Footer() {
 
           {/* Column 1: AI & ML + Engineering */}
           <div className="md:col-span-3">
-            <h3 className="text-sm font-semibold text-text-primary mb-4">
+            <h3 className="text-sm font-semibold text-text-primary mb-5">
               AI & ML
             </h3>
-            <ul className="space-y-2.5 mb-6">
+            <ul className="space-y-1.5 mb-10">
               {footerLinks.aiServices.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -178,10 +190,10 @@ export function Footer() {
               ))}
             </ul>
 
-            <h3 className="text-sm font-semibold text-text-primary mb-4">
+            <h3 className="text-sm font-semibold text-text-primary mb-5">
               Engineering
             </h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-1.5">
               {footerLinks.productEngineering.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -197,10 +209,10 @@ export function Footer() {
 
           {/* Column 2: Cloud & Design + Industries */}
           <div className="md:col-span-3">
-            <h3 className="text-sm font-semibold text-text-primary mb-4">
+            <h3 className="text-sm font-semibold text-text-primary mb-5">
               Cloud & Design
             </h3>
-            <ul className="space-y-2.5 mb-6">
+            <ul className="space-y-1.5 mb-10">
               {footerLinks.cloudDesign.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -213,10 +225,10 @@ export function Footer() {
               ))}
             </ul>
 
-            <h3 className="text-sm font-semibold text-text-primary mb-4">
+            <h3 className="text-sm font-semibold text-text-primary mb-5">
               Industries
             </h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-1.5">
               {footerLinks.industries.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -232,10 +244,10 @@ export function Footer() {
 
           {/* Column 3: Company + Resources */}
           <div className="md:col-span-2">
-            <h3 className="text-sm font-semibold text-text-primary mb-4">
+            <h3 className="text-sm font-semibold text-text-primary mb-5">
               Company
             </h3>
-            <ul className="space-y-2.5 mb-6">
+            <ul className="space-y-1.5 mb-10">
               {footerLinks.company.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -248,10 +260,10 @@ export function Footer() {
               ))}
             </ul>
 
-            <h3 className="text-sm font-semibold text-text-primary mb-4">
+            <h3 className="text-sm font-semibold text-text-primary mb-5">
               Resources
             </h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-1.5">
               <li>
                 <Link
                   href="/events"

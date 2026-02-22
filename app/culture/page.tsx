@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -296,6 +296,7 @@ const stats = [
 
 export default function CulturePage() {
   return (
+    <LazyMotion features={domAnimation}>
     <main className="relative min-h-screen bg-base overflow-hidden">
       {/* ============================================
           HERO SECTION
@@ -306,7 +307,7 @@ export default function CulturePage() {
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-surface via-base to-base" />
 
           {/* Animated gradient orbs */}
-          <motion.div
+          <m.div
             className="absolute top-1/4 right-0 w-[800px] h-[800px] bg-accent/6 rounded-full blur-[150px]"
             animate={{
               scale: [1, 1.2, 1],
@@ -314,7 +315,7 @@ export default function CulturePage() {
             }}
             transition={{ duration: 8, repeat: Infinity }}
           />
-          <motion.div
+          <m.div
             className="absolute bottom-0 left-1/4 w-[600px] h-[600px] bg-accent-secondary/8 rounded-full blur-[120px]"
             animate={{
               scale: [1.2, 1, 1.2],
@@ -338,7 +339,7 @@ export default function CulturePage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-32 pb-20">
           <div className="max-w-4xl mx-auto text-center">
 {/* Main headline */}
-            <motion.h1
+            <m.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -347,10 +348,10 @@ export default function CulturePage() {
               Built for Real Problems.
               <br />
               <span className="text-highlight">Shipped by Real Teams.</span>
-            </motion.h1>
+            </m.h1>
 
             {/* Subheadline */}
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -360,11 +361,11 @@ export default function CulturePage() {
               stay close to the problem, not tucked behind layers of process.
               From idea to deploy, we move with intent, learn in the open, and
               keep the &apos;why&apos; visible. Our certified best workplace culture
-              ensures engineers thrive—not just deliver.
-            </motion.p>
+              ensures engineers thrive, not just deliver.
+            </m.p>
 
             {/* Stats row */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -380,10 +381,10 @@ export default function CulturePage() {
                   </div>
                 </div>
               ))}
-            </motion.div>
+            </m.div>
 
             {/* Certification Badge */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.45 }}
@@ -399,10 +400,10 @@ export default function CulturePage() {
               <span className="text-sm font-medium text-accent-light">
                 TSOW Certified Best Workplace 2025-2026
               </span>
-            </motion.div>
+            </m.div>
 
             {/* CTAs */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
@@ -433,12 +434,12 @@ export default function CulturePage() {
               >
                 How We Work
               </a>
-            </motion.div>
+            </m.div>
           </div>
         </div>
 
         {/* Scroll indicator */}
-        <motion.div
+        <m.div
           className="absolute bottom-8 left-1/2 -translate-x-1/2"
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
@@ -446,7 +447,7 @@ export default function CulturePage() {
           <div className="w-6 h-10 border-2 border-border rounded-full flex justify-center">
             <div className="w-1 h-3 bg-text-muted rounded-full mt-2" />
           </div>
-        </motion.div>
+        </m.div>
       </section>
 
       {/* ============================================
@@ -454,7 +455,7 @@ export default function CulturePage() {
           ============================================ */}
       <section className="relative py-16 sm:py-24 bg-surface overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -464,20 +465,17 @@ export default function CulturePage() {
             <p className="text-sm font-semibold tracking-widest text-accent-light uppercase mb-6">
               How It Started
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary leading-tight mb-8">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-text-primary leading-tight mb-6">
               Procedure started as a small crew that just loved making things
               work better, and that hasn&apos;t changed.
-            </h2>
-            <p className="text-lg sm:text-xl text-text-secondary leading-relaxed">
-              Today, we&apos;re still experimenting, breaking, fixing, and
-              shipping together, because that&apos;s how real products and real
-              teams grow. Our team is a mixed bag. Of the smart and the hard
-              workers. Of the organised and slightly chaotic. Of the early
-              risers and the burners of the midnight oil. We appreciate
-              diversity and truly like having differing perspectives in the
-              room.
+            </h3>
+            <p className="text-lg text-text-secondary leading-relaxed max-w-3xl mx-auto">
+              We&apos;re still experimenting, breaking, fixing, and shipping
+              together - because that&apos;s how real products and real
+              teams grow. A diverse mix of perspectives, personalities, and
+              working styles, united by a shared love for the craft.
             </p>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -498,7 +496,7 @@ export default function CulturePage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           {/* Section header */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -515,20 +513,20 @@ export default function CulturePage() {
             <p className="text-lg text-text-secondary">
               These aren&apos;t corporate values on a poster. These are the
               beliefs that guide our daily decisions and how we treat each
-              other—and why we earned our Best Workplace certification.
+              other. That is why we earned our Best Workplace certification.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Beliefs Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="flex flex-wrap justify-center gap-6">
             {workBeliefs.map((belief, idx) => (
-              <motion.div
+              <m.div
                 key={belief.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="group relative"
+                className="group relative w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]"
               >
                 {/* Card glow effect */}
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/20 to-accent-secondary/20 rounded-2xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
@@ -551,7 +549,7 @@ export default function CulturePage() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -571,7 +569,7 @@ export default function CulturePage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           {/* Section header */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -591,12 +589,12 @@ export default function CulturePage() {
               our culture authentic. These principles earned us our certified best
               workplace recognition.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Principles Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {principles.map((principle, idx) => (
-              <motion.div
+              <m.div
                 key={principle.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -618,7 +616,7 @@ export default function CulturePage() {
                     {principle.description}
                   </p>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -638,7 +636,7 @@ export default function CulturePage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           {/* Section header */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -657,12 +655,12 @@ export default function CulturePage() {
               professional and a human. Because choosing a mentor is more
               important than choosing a company.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Growth Programs Grid */}
           <div className="grid sm:grid-cols-2 gap-6 lg:gap-8">
             {growthPrograms.map((program, idx) => (
-              <motion.div
+              <m.div
                 key={program.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -693,7 +691,7 @@ export default function CulturePage() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -706,7 +704,7 @@ export default function CulturePage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left content */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -741,10 +739,10 @@ export default function CulturePage() {
                   changed the definition of &quot;work&quot; for them.
                 </p>
               </div>
-            </motion.div>
+            </m.div>
 
             {/* Right content - Feature highlights */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -781,7 +779,7 @@ export default function CulturePage() {
                   </p>
                 </div>
               ))}
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -794,7 +792,7 @@ export default function CulturePage() {
         <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-base to-accent-secondary/10" />
 
         {/* Animated orbs */}
-        <motion.div
+        <m.div
           className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-accent/15 rounded-full blur-[150px]"
           animate={{
             scale: [1, 1.2, 1],
@@ -802,7 +800,7 @@ export default function CulturePage() {
           }}
           transition={{ duration: 8, repeat: Infinity }}
         />
-        <motion.div
+        <m.div
           className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-accent-secondary/15 rounded-full blur-[120px]"
           animate={{
             scale: [1.2, 1, 1.2],
@@ -820,7 +818,7 @@ export default function CulturePage() {
         />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -916,9 +914,10 @@ export default function CulturePage() {
                 <span>Continuous Learning</span>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </main>
+    </LazyMotion>
   );
 }

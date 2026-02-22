@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m, LazyMotion, domAnimation } from "framer-motion";
 import { CalButton } from "@/components/CalButton";
 import { CaseStudyCard } from "@/components/ui";
 import type { CaseStudyDetail, CaseStudyContent } from "@/lib/notion-case-studies";
@@ -10,6 +10,7 @@ import type { CaseStudy } from "@/lib/case-studies-data";
 
 // Client name to logo mapping - add new clients here
 // Include common variations to handle different naming from Notion
+// Logos under /assets/case-studies/ are full-color webp; /logos/client/ are monochrome SVGs
 const clientLogos: Record<string, string> = {
   "Setu": "/logos/client/setu.svg",
   "Pine Labs": "/logos/client/pinelabs.svg",
@@ -18,17 +19,18 @@ const clientLogos: Record<string, string> = {
   "ESPN": "/logos/client/espn.svg",
   "Treebo": "/logos/client/treebo.svg",
   "Turtlemint": "/logos/client/turtlemint.svg",
-  "Timely": "/logos/client/timely.svg",
-  "Timely.ai": "/logos/client/timely.svg",
-  "TimelyApp": "/logos/client/timely.svg",
+  "Timely": "/assets/case-studies/timely.webp",
+  "Timely.ai": "/assets/case-studies/timely.webp",
+  "TimelyApp": "/assets/case-studies/timely.webp",
+  "Timely AI": "/assets/case-studies/timely.webp",
   "Tenmeya": "/logos/client/tenmeya.svg",
   "Last9": "/logos/client/last9.svg",
   "Aster": "/logos/client/aster.svg",
   "Workshop Ventures": "/logos/client/workshopventure.svg",
   "WorkshopVentures": "/logos/client/workshopventure.svg",
-  "MCLabs": "/logos/client/mclabs.svg",
-  "MC Labs": "/logos/client/mclabs.svg",
-  "MC labs": "/logos/client/mclabs.svg",
+  "MCLabs": "/assets/case-studies/mclabs.png",
+  "MC Labs": "/assets/case-studies/mclabs.png",
+  "MC labs": "/assets/case-studies/mclabs.png",
 };
 
 /**
@@ -184,9 +186,73 @@ function ContentBlock({ block }: { block: CaseStudyContent }) {
           </table>
         </div>
       );
+    case "video":
+      if (!block.url) return null;
+      // Convert YouTube/Vimeo URLs to embed format
+      const embedUrl = getVideoEmbedUrl(block.url);
+      if (embedUrl) {
+        return (
+          <div className="relative w-full aspect-video rounded-xl overflow-hidden my-6">
+            <iframe
+              src={embedUrl}
+              className="absolute inset-0 w-full h-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              title="Video"
+            />
+          </div>
+        );
+      }
+      // Fallback: direct video file
+      return (
+        <div className="relative w-full aspect-video rounded-xl overflow-hidden my-6">
+          <video
+            src={block.url}
+            controls
+            className="w-full h-full object-cover"
+            preload="metadata"
+          />
+        </div>
+      );
+    case "embed":
+      if (!block.url) return null;
+      const iframeUrl = getVideoEmbedUrl(block.url) || block.url;
+      return (
+        <div className="relative w-full aspect-video rounded-xl overflow-hidden my-6">
+          <iframe
+            src={iframeUrl}
+            className="absolute inset-0 w-full h-full"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            title="Embedded content"
+          />
+        </div>
+      );
     default:
       return null;
   }
+}
+
+/**
+ * Convert video URLs (YouTube, Vimeo, Loom) to embeddable format
+ */
+function getVideoEmbedUrl(url: string): string | null {
+  // YouTube
+  const ytMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]+)/);
+  if (ytMatch) return `https://www.youtube.com/embed/${ytMatch[1]}`;
+
+  // Vimeo
+  const vimeoMatch = url.match(/vimeo\.com\/(\d+)/);
+  if (vimeoMatch) return `https://player.vimeo.com/video/${vimeoMatch[1]}`;
+
+  // Loom
+  const loomMatch = url.match(/loom\.com\/share\/([a-zA-Z0-9]+)/);
+  if (loomMatch) return `https://www.loom.com/embed/${loomMatch[1]}`;
+
+  // Already an embed URL
+  if (url.includes("/embed/") || url.includes("player.")) return url;
+
+  return null;
 }
 
 /**
@@ -246,9 +312,10 @@ export function CaseStudyDetailClient({
   const groupedContent = groupListItems(filteredContent);
 
   return (
+    <LazyMotion features={domAnimation}>
     <main className="relative min-h-screen bg-base overflow-hidden">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-12 sm:pb-16 overflow-hidden">
+      <section className="relative pt-32 pb-6 sm:pb-8 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-surface via-base to-base" />
@@ -258,7 +325,7 @@ export function CaseStudyDetailClient({
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
           {/* Service Type Badge */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
@@ -267,47 +334,48 @@ export function CaseStudyDetailClient({
             <span className="inline-flex px-3 py-1 text-xs font-medium rounded-full bg-accent/10 border border-accent/20 text-accent-light">
               {caseStudy.serviceType}
             </span>
-          </motion.div>
+          </m.div>
 
           {/* Client Logo - show logo if available, otherwise text */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.1 }}
             className="flex flex-wrap items-center gap-4 mb-4"
           >
             {getClientLogo(caseStudy.client) ? (
-              <Image
-                src={getClientLogo(caseStudy.client)!}
-                alt={caseStudy.client}
-                width={120}
-                height={40}
-                className="h-8 w-auto object-contain client-logo-filter"
-              />
+              <div className="relative h-8 w-[140px]">
+                <Image
+                  src={getClientLogo(caseStudy.client)!}
+                  alt={caseStudy.client}
+                  fill
+                  className={`object-contain object-left ${getClientLogo(caseStudy.client)!.endsWith(".svg") ? "client-logo-filter" : ""}`}
+                />
+              </div>
             ) : (
               <span className="font-medium text-text-secondary text-sm">
                 {caseStudy.client}
               </span>
             )}
-          </motion.div>
+          </m.div>
 
           {/* Title */}
-          <motion.h1
+          <m.h1
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.2 }}
-            className="text-2xl sm:text-3xl lg:text-4xl font-bold text-text-primary leading-tight mb-8"
+            className="text-2xl sm:text-3xl lg:text-4xl font-bold text-text-primary leading-tight"
           >
             {caseStudy.title}
-          </motion.h1>
+          </m.h1>
 
           {/* Hero Image */}
           {caseStudy.image && (
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="relative w-full aspect-[21/9] rounded-2xl overflow-hidden"
+              className="relative w-full aspect-video sm:aspect-[21/9] rounded-2xl overflow-hidden border border-border/50 mt-10 sm:mt-14"
             >
               <Image
                 src={caseStudy.image}
@@ -317,8 +385,7 @@ export function CaseStudyDetailClient({
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1100px"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-base/60 via-transparent to-transparent" />
-            </motion.div>
+            </m.div>
           )}
         </div>
       </section>
@@ -327,7 +394,7 @@ export function CaseStudyDetailClient({
       {caseStudy.metrics.length > 0 && (
         <section className="relative py-8 bg-surface border-y border-border">
           <div className="max-w-4xl mx-auto px-4 sm:px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -341,7 +408,7 @@ export function CaseStudyDetailClient({
                   <div className="text-sm text-text-muted">{metric.label}</div>
                 </div>
               ))}
-            </motion.div>
+            </m.div>
           </div>
         </section>
       )}
@@ -349,7 +416,7 @@ export function CaseStudyDetailClient({
       {/* Content Section */}
       <section className="relative py-12 sm:py-16 bg-base">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
@@ -381,20 +448,20 @@ export function CaseStudyDetailClient({
                 })}
               </div>
             )}
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="relative py-16 sm:py-24 bg-surface">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
               Ready to Build Your
               <br />
               <span className="text-highlight">Success Story?</span>
@@ -428,7 +495,7 @@ export function CaseStudyDetailClient({
                 Contact Us
               </Link>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -436,7 +503,7 @@ export function CaseStudyDetailClient({
       {relatedCaseStudies.length > 0 && (
         <section className="relative py-16 sm:py-24 bg-base">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -449,7 +516,7 @@ export function CaseStudyDetailClient({
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">
                 Related Case Studies
               </h2>
-            </motion.div>
+            </m.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {relatedCaseStudies.map((study, idx) => (
@@ -465,5 +532,6 @@ export function CaseStudyDetailClient({
         </section>
       )}
     </main>
+    </LazyMotion>
   );
 }

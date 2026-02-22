@@ -6,7 +6,7 @@ const engagementModels = [
   {
     title: "Team Augmentation",
     description:
-      "Senior engineers integrated directly into your engineering organization, reporting to your leadership and delivering against your roadmap.",
+      "Senior engineers integrated directly into your engineering organization. They report to your leadership and deliver against your roadmap from day one.",
     features: [
       "Full-time dedicated senior engineers",
       "Seamless adoption of your tech stack and workflows",
@@ -32,7 +32,7 @@ const engagementModels = [
   {
     title: "Managed Delivery",
     description:
-      "Full ownership of a defined scope—from architecture through deployment. You set the objectives; we deliver production-ready software on schedule.",
+      "Full ownership of a defined scope, from architecture through deployment. You set the objectives; we deliver production-ready software on schedule.",
     features: [
       "End-to-end technical ownership and accountability",
       "Dedicated delivery lead with direct stakeholder access",
@@ -58,7 +58,7 @@ const engagementModels = [
   {
     title: "AI Transformation",
     description:
-      "A strategic partnership to accelerate enterprise AI adoption—from opportunity assessment through production deployment and organizational enablement.",
+      "A strategic partnership to accelerate enterprise AI adoption. We take you from opportunity assessment through production deployment and enablement.",
     features: [
       "AI readiness and opportunity assessment",
       "Strategic roadmap with clear ROI milestones",
@@ -111,12 +111,12 @@ export function EngagementModels() {
           <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-3 sm:mb-4">
             Engagement Models
           </p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4 tracking-tight">
-            Enterprise partnership models built for scale
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6 sm:mb-8 tracking-tight">
+            Enterprise Partnership Models Built for Scale
           </h2>
           <p className="text-text-secondary max-w-xl mx-auto leading-relaxed">
             Three proven engagement frameworks designed for different business
-            objectives. Scale up, scale down, or pivot—without renegotiating
+            objectives. Scale up, scale down, or pivot. Without renegotiating
             contracts.
           </p>
         </m.div>

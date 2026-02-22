@@ -1,9 +1,8 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { ReactNode, useState } from "react";
 import { cn } from "@/lib/utils";
-import { LinkedText } from "@/components/ui/LinkedText";
 
 interface TargetAudience {
   icon: ReactNode;
@@ -66,14 +65,14 @@ export function WhoWeWorkWith({
     <section className="py-16 sm:py-24 bg-base">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-4">
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-5">
             {title}
           </h2>
           {subtitle && (
@@ -81,11 +80,11 @@ export function WhoWeWorkWith({
               {subtitle}
             </p>
           )}
-        </motion.div>
+        </m.div>
 
         {/* Tabs variant */}
         {variant === "tabs" && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -118,7 +117,7 @@ export function WhoWeWorkWith({
               )}
             >
               <AnimatePresence mode="wait">
-                <motion.div
+                <m.div
                   key={activeTab}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -137,21 +136,21 @@ export function WhoWeWorkWith({
                           key={i}
                           className="flex items-start gap-3 text-text-secondary leading-relaxed"
                         >
-                          <span className="text-accent mt-1.5 flex-shrink-0">•</span>
+                          <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-accent mt-[9px]" />
                           <span>{bullet}</span>
                         </li>
                       ))}
                     </ul>
                   )}
-                </motion.div>
+                </m.div>
               </AnimatePresence>
             </div>
-          </motion.div>
+          </m.div>
         )}
 
         {/* Cards variant (original) */}
         {variant === "cards" && (
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -164,7 +163,7 @@ export function WhoWeWorkWith({
             )}
           >
             {audiences.map((audience, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 variants={cardVariants}
                 className={cn(
@@ -213,56 +212,60 @@ export function WhoWeWorkWith({
                     </p>
                   ) : null}
                 </div>
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
+          </m.div>
         )}
 
-        {/* Common Applications - 2-column bullet list */}
+        {/* Common Applications - structured card grid */}
         {commonApplications && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
             className="mt-12 sm:mt-16"
           >
-            <div className="max-w-3xl mx-auto">
-              <h3 className="text-lg font-semibold text-text-primary mb-6 text-center">
+            <div className="max-w-5xl mx-auto">
+              <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-text-primary mb-8 text-center">
                 {commonApplications.title}
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
+              <div className={cn(
+                "grid grid-cols-1 sm:grid-cols-2 gap-4",
+                commonApplications.items.length % 3 === 0 ? "lg:grid-cols-3" : "lg:grid-cols-2"
+              )}>
                 {commonApplications.items.map((item, index) => {
                   const isObject = typeof item === "object";
-                  const title = isObject ? item.title : item;
-                  const description = isObject ? item.description : undefined;
 
                   return (
                     <div
                       key={index}
-                      className="flex items-start gap-3"
+                      className="flex items-start gap-3.5 p-4 sm:p-5 rounded-xl bg-surface-elevated/60 border border-border hover:border-accent/20 transition-all duration-200"
                     >
-                      <span className="text-accent mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-accent" />
-                      <span className="text-text-secondary text-sm leading-relaxed">
-                        <LinkedText text={title} />
-                        {description && (
+                      <span className="mt-1.5 flex-shrink-0 w-2 h-2 rounded-full bg-accent/60" />
+                      <div>
+                        {isObject ? (
                           <>
-                            {": "}
-                            <LinkedText text={description} />
+                            <span className="block text-text-primary font-medium text-sm mb-1">{item.title}</span>
+                            {item.description && (
+                              <span className="block text-text-muted text-sm leading-relaxed">{item.description}</span>
+                            )}
                           </>
+                        ) : (
+                          <span className="text-text-secondary text-sm leading-relaxed">{item}</span>
                         )}
-                      </span>
+                      </div>
                     </div>
                   );
                 })}
               </div>
             </div>
-          </motion.div>
+          </m.div>
         )}
 
         {/* Legacy closing statement (fallback) */}
         {closingStatement && !commonApplications && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -280,7 +283,7 @@ export function WhoWeWorkWith({
                 {closingStatement}
               </p>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </div>
     </section>

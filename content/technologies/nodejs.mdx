@@ -1,0 +1,97 @@
+---
+title: "Node.js Development Services"
+headline: "Node.js Development Services"
+headlineAccent: "Scalable APIs & Backend Systems"
+description: "APIs, microservices, and backend systems built by senior engineers who've shipped for companies like ESPN and Pine Labs."
+capabilities:
+  - title: "API Development (REST and GraphQL)"
+    description: "Fast, versioned, well-documented APIs. REST for mobile backends, GraphQL for complex frontend queries. Authentication, rate limiting, and proper error handling from day one. Not bolted on later."
+    icon: "globe"
+  - title: "Microservices Architecture"
+    description: "Monolith to microservices, done right. Service boundaries aligned to business domains, inter-service communication via message queues or gRPC, independent deployment and scaling per service. We design for the team you have, not the one you wish you had."
+    icon: "workflow"
+  - title: "Real-Time Applications"
+    description: "Chat systems, live notifications, collaborative editing, streaming dashboards. We use WebSockets (Socket.IO, ws) and event-driven patterns where data needs to flow the moment it changes. Not everything needs to be real-time, and we will tell you when polling is good enough."
+    icon: "bolt"
+  - title: "Backend for Frontend (BFF)"
+    description: "A custom backend layer that aggregates data from multiple services and shapes it for your specific frontend. Your React or Next.js app gets exactly what it needs in one call instead of five. Fewer round trips, faster load times, simpler frontend code."
+    icon: "layers"
+  - title: "Legacy Backend Modernization"
+    description: "Migrating PHP, Ruby, or aging Express apps to modern Node.js architecture. We pick NestJS when your team needs enterprise structure, Fastify when throughput is the bottleneck, or Express when simplicity matters most. The framework follows the problem, not the other way around."
+    icon: "document"
+  - title: "Cloud-Native Backend Services"
+    description: "Serverless functions (AWS Lambda, Vercel Functions), containerized services (Docker + Kubernetes), event-driven architectures (SQS, EventBridge, Kafka). Backends that scale with traffic and cost nothing when idle. No over-provisioning, no cold-start surprises."
+    icon: "chart"
+technologies:
+  - Node.js 22 LTS
+  - TypeScript
+  - NestJS
+  - Fastify
+  - Express
+  - PostgreSQL
+  - MongoDB
+  - Redis
+  - Prisma
+  - Docker
+  - AWS
+  - GitHub Actions
+relatedExpertise:
+  - nextjs
+  - angular
+  - backend-development
+process:
+  - number: 1
+    title: "Architecture and Discovery (1-2 weeks)"
+    description: "We map your system requirements, traffic patterns, and integration points. You get a technical proposal covering service boundaries, database selection, API design approach, hosting recommendation, and CI/CD pipeline setup. No code written until the architecture makes sense."
+  - number: 2
+    title: "API Design and Data Modeling (1-2 weeks)"
+    description: "API contracts documented in OpenAPI or GraphQL schema before a single endpoint is built. Database schema designed, relationships mapped, migration strategy defined. Your frontend team can start building against mocked endpoints immediately."
+  - number: 3
+    title: "Development and Iteration (6-16 weeks)"
+    description: "Sprint-based delivery with working API endpoints shipped every two weeks. Automated tests written alongside features, not after. Your team gets access to staging environments from week one. You see real progress, not slide decks."
+  - number: 4
+    title: "Load Testing and Hardening (1-2 weeks)"
+    description: "We simulate production traffic patterns, find bottlenecks, and fix them. Connection pooling, query optimization, caching layers, rate limiting. Nothing ships until it handles your expected load with headroom to spare."
+  - number: 5
+    title: "Handoff and Support"
+    description: "Complete documentation auto-generated from code, architecture decision records explaining every major choice, and runbooks for common operations. Your team owns the system entirely. We offer an optional support retainer if you want ongoing optimization, but there is no lock-in."
+engagementModels:
+  title: "Hire Node.js Developers"
+  subtitle: "Senior Node.js engineers who plug into your team and ship from week one."
+  models:
+    - title: "Dedicated Developer"
+      description: "Engineers with 4+ years building production Node.js systems in NestJS, Express, or Fastify. Full backend capability spanning API design, database optimization, DevOps, and cloud infrastructure."
+      bestFor: "Ongoing backend development, 3-month minimum engagement"
+    - title: "Backend Pod (2-4 Engineers + Lead)"
+      description: "A self-contained team that owns full API or service delivery. Architecture, implementation, testing, and deployment covered."
+      bestFor: "Full API or service ownership, 6-month minimum engagement"
+    - title: "Project-Based Delivery"
+      description: "Fixed-scope engagement with clear deliverables, timeline, and budget. Defined API contracts, agreed milestones, and transparent pricing."
+      bestFor: "Defined scope with clear deliverables, scope-dependent"
+faqs:
+  - question: "How much does Node.js backend development cost?"
+    answer: "It depends on scope. An API backend for a mobile app with 10-20 endpoints typically runs $15,000 to $40,000. A microservices platform with 5-10 services sits in the $50,000 to $150,000 range. Enterprise backends with complex integrations, auth systems, and real-time features can run $100,000 to $300,000 or more. Our architecture consultation is free and scopes your specific project."
+  - question: "Is Node.js good for enterprise applications?"
+    answer: "Yes. Netflix, PayPal, LinkedIn, Uber, and Walmart run critical backend services on Node.js. The difference between a reliable enterprise system and a fragile one comes down to architecture: strict TypeScript, NestJS for enterprise patterns, and microservices designed for independent scaling. Node.js handles I/O-heavy workloads exceptionally well. For CPU-heavy computation, we pair it with services written in Python or Go."
+  - question: "Should I use Express, NestJS, or Fastify?"
+    answer: "Express works well for smaller projects or teams that prefer minimal structure and maximum flexibility. NestJS fits enterprise applications where modularity, dependency injection, and standardized patterns matter. Fastify is the choice when raw HTTP throughput is the priority - benchmarks consistently show it handling 2-3x more requests per second than Express. We help you choose based on your team's experience and your project's actual requirements."
+  - question: "Node.js vs. Python for backend development?"
+    answer: "Node.js excels at I/O-heavy, concurrent workloads like APIs, real-time apps, and microservices. Python excels at data processing, ML/AI pipelines, and scientific computing. Many modern systems use both: Node.js for the API layer and Python for data processing behind it. We build in both and help you decide based on your actual workload, not framework popularity."
+  - question: "Can Node.js handle high traffic?"
+    answer: "Yes. The event-driven, non-blocking architecture handles thousands of concurrent connections per process. With clustering and proper load balancing, a well-built Node.js service handles 10,000+ requests per second. PayPal reported 35% faster response times after migrating from Java to Node.js for their checkout flow. The ceiling is architecture, not the runtime."
+  - question: "How do you handle Node.js security?"
+    answer: "We follow OWASP guidelines and build security into every API from the start. That means input validation with Zod or Joi, HTTP header hardening with Helmet.js, rate limiting on all public endpoints, and automated dependency scanning through npm audit and Snyk. Authentication and authorization enforced at every endpoint, not just the obvious ones. Security is not a feature we add before launch. It is part of how we write code."
+  - question: "Can you migrate our existing backend to Node.js?"
+    answer: "Yes. We have migrated PHP (Laravel), Ruby on Rails, and legacy Express backends to modern Node.js architecture. The approach is always incremental. We identify the highest-value services for migration first, run old and new systems in parallel, and cut over service by service. No big-bang rewrites. Your application stays live throughout the process."
+  - question: "Do you work with US-based teams from India?"
+    answer: "Yes. Our engineering team is based in Mumbai with working hours that overlap US EST and PST. We have delivered backend systems for US-based clients and communicate via Slack, daily standups, and weekly demos. Same tools, same cadence, different timezone."
+cta:
+  title: "Ready to Discuss Your Node.js Project?"
+  description: "Talk directly with engineers, not sales. We will assess fit and give honest next steps."
+  buttonText: "Talk to a Node.js Engineer"
+  buttonLink: "/contact-us"
+  supportingNote: "No obligation. No pressure. Clear technical direction."
+seo:
+  title: "Node.js Development Services | Scalable APIs & Backend Systems"
+  description: "Node.js development services for scalable APIs, microservices, and backend systems. Senior engineers, honest architecture guidance. Talk to the team."
+---

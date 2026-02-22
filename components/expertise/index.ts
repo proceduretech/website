@@ -18,4 +18,3 @@ export { EngagementModels } from "./EngagementModels";
 export { RiskReversal } from "./RiskReversal";
 export { ExpertiseCTAWithTestimonial } from "./ExpertiseCTAWithTestimonial";
 export { PhilosophySection } from "./PhilosophySection";
-export { HowItWorks } from "./HowItWorks";

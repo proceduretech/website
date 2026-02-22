@@ -13,7 +13,7 @@ const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
   // Variable font - includes all weights 100-900
-  display: "swap", // Prevents FOIT (Flash of Invisible Text)
+  display: "optional", // Prevents LCP re-trigger from font swap; ~100ms window then sticks with fallback
   preload: true, // Preloads font files for faster rendering
   adjustFontFallback: true, // Automatically adjust font fallback metrics
   fallback: ["system-ui", "-apple-system", "Segoe UI", "sans-serif"],
@@ -23,7 +23,7 @@ const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   // Variable font - includes all weights 100-900
-  display: "swap", // Prevents FOIT (Flash of Invisible Text)
+  display: "optional", // Prevents LCP re-trigger from font swap
   preload: true, // Preloads font files for faster rendering
   adjustFontFallback: true, // Automatically adjust font fallback metrics
   fallback: ["system-ui", "-apple-system", "Segoe UI", "sans-serif"],
@@ -103,6 +103,7 @@ export default function RootLayout({
     alternateName: "Procedure",
     url: "https://procedure.tech",
     logo: "https://procedure.tech/logo.svg",
+    image: "https://procedure.tech/og-image.png",
     description:
       "AI-native design & development studio. Senior AI engineers embedded with your team to build production-grade AI systems, LLM applications, and custom ML models.",
     foundingDate: "2017",
@@ -119,11 +120,17 @@ export default function RootLayout({
       "https://in.linkedin.com/company/procedurehq",
       "https://x.com/procedurehq",
       "https://github.com/proceduretech",
+      "https://www.instagram.com/procedure_hq/",
+      "https://clutch.co/profile/procedure-technologies-private",
+      "https://www.goodfirms.co/company/procedure-technologies",
     ],
     address: [
       {
         "@type": "PostalAddress",
+        streetAddress: "406, Srishti Square, Lal Bahadur Shastri Marg",
         addressLocality: "Mumbai",
+        addressRegion: "Maharashtra",
+        postalCode: "400078",
         addressCountry: "IN",
       },
       {
@@ -133,12 +140,17 @@ export default function RootLayout({
         addressCountry: "US",
       },
     ],
-    contactPoint: {
-      "@type": "ContactPoint",
-      contactType: "sales",
-      email: "hello@procedure.tech",
-      availableLanguage: ["English"],
-    },
+    telephone: "+91-97666-16776",
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: "+91-97666-16776",
+        email: "hello@procedure.tech",
+        contactType: "sales",
+        areaServed: ["United States", "Europe", "India"],
+        availableLanguage: ["English"],
+      },
+    ],
     founder: [
       {
         "@type": "Person",
@@ -155,19 +167,58 @@ export default function RootLayout({
         sameAs: "https://www.linkedin.com/in/ulhasmandrawadkar",
       },
     ],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "32",
-      bestRating: "5",
-    },
+    // NOTE: aggregateRating moved to app/page.tsx (homepage only) to avoid
+    // it appearing on blog/article pages where it's inappropriate.
     knowsAbout: [
       "Artificial Intelligence",
       "Machine Learning",
-      "AI Security",
       "LLM Applications",
       "Software Engineering",
       "Cloud Computing",
+    ],
+    service: [
+      {
+        "@type": "Service",
+        serviceType: "AI Engineering",
+        description:
+          "Model evaluation, prompt engineering, RAG, agents, and fine-tuning for production-ready AI.",
+      },
+      {
+        "@type": "Service",
+        serviceType: "Software Engineering",
+        description:
+          "Backend and full-stack development, APIs, integrations, and cloud architecture.",
+      },
+      {
+        "@type": "Service",
+        serviceType: "Product Design",
+        description:
+          "End-to-end UX/UI design, prototyping, design systems, and user experience strategy.",
+      },
+      {
+        "@type": "Service",
+        serviceType: "DevOps & MLOps",
+        description:
+          "Infrastructure as code, CI/CD pipelines, model lifecycle management, and scalability.",
+      },
+      {
+        "@type": "Service",
+        serviceType: "Front-End Development",
+        description:
+          "Custom web applications, progressive web apps, and modern front-end frameworks.",
+      },
+      {
+        "@type": "Service",
+        serviceType: "Software Testing & QA",
+        description:
+          "Comprehensive QA processes including automation, performance, and functional testing.",
+      },
+      {
+        "@type": "Service",
+        serviceType: "Mobile App Development",
+        description:
+          "Native and cross-platform mobile apps for Android and iOS.",
+      },
     ],
   };
 
@@ -218,67 +269,29 @@ export default function RootLayout({
     },
   };
 
-  const faqSchema = {
+  // NOTE: FAQPage schema moved to app/page.tsx (homepage only) to avoid
+  // duplicate FAQPage schemas on subpages that have their own FAQ sections.
+  // Google expects only one FAQPage schema per page.
+
+  const websiteSchema = {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "What AI systems do you build?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "We build production AI systems including LLM applications, AI agents, RAG systems, and AI-enhanced products. From conversational AI to document processing to intelligent automation—we handle the complete development lifecycle from architecture to secure production deployment.",
-        },
+    "@type": "WebSite",
+    "@id": "https://procedure.tech/#website",
+    url: "https://procedure.tech",
+    name: "Procedure",
+    description:
+      "AI, product design, and software development consulting studio.",
+    publisher: {
+      "@id": "https://procedure.tech/#organization",
+    },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: "https://procedure.tech/blogs?q={search_term_string}",
       },
-      {
-        "@type": "Question",
-        name: "How quickly can you start our AI project?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Most AI engagements begin within 2-5 days. We match senior engineers based on your AI requirements and tech stack, then integrate them into your development workflow immediately. No months of discovery—we start building fast.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "How much does AI development cost?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "AI development costs vary by engagement model. AI Sprints range from $15K-$50K for 2-4 week rapid prototypes. Forward-deployed engineering teams start at $50K/month for embedded senior engineers. Enterprise engagements are scoped based on compliance requirements and project complexity. Contact us for a detailed estimate based on your specific needs.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "How long does it take to build an AI product?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Timeline depends on scope and approach. AI Sprints deliver working prototypes in 2-4 weeks. Full product builds with embedded teams typically reach MVP in 8-12 weeks. Enterprise AI systems requiring compliance and security review take 17-20 weeks from architecture to production deployment.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Do you only work with large enterprises?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "No. We work with high-growth startups, scale-ups, and enterprises. What matters is the complexity of the AI challenge and your commitment to shipping production systems. If you need serious AI engineering—not consulting theater—we can help.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "What makes Procedure different from AI consultancies?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "We're engineers who write production code, not consultants who deliver slide decks. Our team embeds with yours, ships working systems, and leaves your team stronger. No months of discovery, no handoff nightmares, no POCs that never reach production.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "How do you handle AI security and compliance?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Security is built into every AI system we develop—not bolted on later. We implement secure LLM architectures, prevent prompt injection, ensure data privacy, and meet compliance requirements (SOC 2, HIPAA, GDPR). Our AI security expertise comes from building production systems that enterprises trust.",
-        },
-      },
-    ],
+      "query-input": "required name=search_term_string",
+    },
   };
 
   return (
@@ -288,7 +301,7 @@ export default function RootLayout({
         <style
           dangerouslySetInnerHTML={{
             __html: `
-              :root{--color-base:#0A1425;--color-surface:#070F1B;--color-surface-elevated:#111F35;--color-border:#1E293B;--color-text-primary:rgba(255,255,255,.9);--color-text-secondary:rgba(255,255,255,.65);--color-text-muted:rgba(255,255,255,.5);--color-accent:#14B8A6;--color-accent-light:#2AAE79;--color-cta:#1D9B69;--color-cta-text:#fcfcfc;--color-highlight:#1D9B69}
+              :root{--color-base:#0A1425;--color-surface:#070F1B;--color-surface-elevated:#111F35;--color-border:#1E293B;--color-text-primary:rgba(255,255,255,.9);--color-text-secondary:rgba(255,255,255,.65);--color-text-muted:rgba(255,255,255,.5);--color-accent:#1D9B69;--color-accent-light:#2AAE79;--color-cta:#178556;--color-cta-text:#fff;--color-highlight:#1D9B69}
               *,::before,::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:currentColor}
               html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent;scrollbar-gutter:stable;scroll-behavior:smooth}
               body{margin:0;line-height:inherit;background-color:var(--color-base);color:var(--color-text-primary);font-family:var(--font-inter),system-ui,-apple-system,sans-serif}
@@ -330,28 +343,27 @@ export default function RootLayout({
           }}
         />
 
-        {/* Third-party resource hints - prioritized */}
-        {/* Note: next/font/google self-hosts fonts, so no preconnect to fonts.googleapis.com needed */}
-        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
+        {/* Third-party resource hints — all dns-prefetch since analytics defers 3.5s+ */}
+        {/* preconnect wastes a TCP+TLS connection during the critical LCP window */}
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.google.com" />
         <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
         <link rel="dns-prefetch" href="https://stats.g.doubleclick.net" />
         <link rel="dns-prefetch" href="https://www.clarity.ms" />
+        <link rel="dns-prefetch" href="https://scripts.clarity.ms" />
+        <link rel="dns-prefetch" href="https://cloudflareinsights.com" />
 
         {/* Viewport optimization for mobile */}
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
 
-        {/* Preload critical assets */}
-        <link rel="preload" href="/icon.svg" as="image" type="image/svg+xml" />
-        {/* Note: Font preloads removed - next/font/google self-hosts fonts locally */}
-
+        {/* Note: Font preloads handled by next/font/google (self-hosted) */}
 
         {/* Analytics (GA4, GTM, Clarity) loaded via client component - only on production */}
 
         <JsonLd data={organizationSchema} />
         <JsonLd data={serviceSchema} />
-        <JsonLd data={faqSchema} />
+        <JsonLd data={websiteSchema} />
       </head>
       <body className={`${outfit.variable} ${inter.variable} antialiased`}>
         {/* Analytics (GA4, GTM, Clarity) - only loads on production domains */}

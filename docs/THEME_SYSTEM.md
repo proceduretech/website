@@ -118,20 +118,21 @@ All CSS custom properties are defined in `globals.css` and automatically switch 
 
 | Variable | Dark Mode | Light Mode | Usage |
 |----------|-----------|------------|-------|
-| `--color-accent` | `#0f766e` | `#0d9488` | Primary accent (dark) |
-| `--color-accent-light` | `#14b8a6` | `#14b8a6` | Primary accent (bright) |
+| `--color-accent` | `#1D9B69` | `#1D9B69` | Primary accent (green) |
+| `--color-accent-light` | `#2AAE79` | `#2AAE79` | Primary accent (bright green) |
+| `--color-accent-dark` | `#178556` | `#178556` | Primary accent (dark green) |
 | `--color-accent-secondary` | `#2563eb` | `#2563eb` | Secondary accent |
 | `--color-accent-secondary-light` | `#3b82f6` | `#3b82f6` | Secondary accent (bright) |
-| `--color-highlight` | `#0db5a5` | `#0d9488` | Key highlight text |
+| `--color-highlight` | `#1D9B69` | `#1D9B69` | Key highlight text |
 
 ### CTA/Interactive
 
 | Variable | Dark Mode | Light Mode | Usage |
 |----------|-----------|------------|-------|
-| `--color-cta` | `#0d9488` | `#0d9488` | Button background |
-| `--color-cta-text` | `#fcfcfc` | `#ffffff` | Button text |
-| `--color-cta-hover` | `#14b8a6` | `#0f766e` | Button hover state |
-| `--color-cta-shadow` | `rgba(13,148,136,0.25)` | `rgba(13,148,136,0.2)` | Button glow |
+| `--color-cta` | `#178556` | `#178556` | Button background |
+| `--color-cta-text` | `#ffffff` | `#ffffff` | Button text |
+| `--color-cta-hover` | `#1D9B69` | `#1D9B69` | Button hover state |
+| `--color-cta-shadow` | `rgba(23,133,86,0.25)` | `rgba(23,133,86,0.2)` | Button glow |
 
 ### Borders
 
@@ -141,7 +142,7 @@ All CSS custom properties are defined in `globals.css` and automatically switch 
 | `--color-border-light` | `#334155` | `#cbd5e1` | Hover borders |
 | `--color-border-subtle` | `#1e293b` | `#f1f5f9` | Subtle borders |
 | `--color-border-emphasis` | `#475569` | `#94a3b8` | Emphasized borders |
-| `--color-border-focus` | `#0f766e` | `#14b8a6` | Focus rings |
+| `--color-border-focus` | `#1D9B69` | `#2AAE79` | Focus rings |
 
 ### Shadows
 
@@ -150,9 +151,9 @@ All CSS custom properties are defined in `globals.css` and automatically switch 
 | `--shadow-sm` | Soft shadow | Soft shadow |
 | `--shadow-md` | Medium shadow | Medium shadow |
 | `--shadow-lg` | Large shadow | Large shadow |
-| `--shadow-cta-glow` | Teal glow (25% opacity) | Teal glow (15% opacity) |
-| `--shadow-mega-menu` | Deep teal shadow | Lighter teal shadow |
-| `--shadow-footer-glow` | Upward teal glow | Downward subtle glow |
+| `--shadow-cta-glow` | Green glow (25% opacity) | Green glow (15% opacity) |
+| `--shadow-mega-menu` | Deep green shadow | Lighter green shadow |
+| `--shadow-footer-glow` | Upward green glow | Downward subtle glow |
 
 ### Callout Colors
 
@@ -175,7 +176,7 @@ The `lib/theme.ts` file exports strongly-typed theme objects:
 import { darkTheme, lightTheme, primitives } from "@/lib/theme";
 
 // Access primitive colors
-const teal500 = primitives.teal[500]; // #14b8a6
+const green500 = primitives.teal[500]; // #1D9B69 (green accent)
 
 // Access semantic tokens
 const darkBackground = darkTheme.backgrounds.base;
@@ -297,8 +298,8 @@ text-text-primary    → Primary text
 text-text-secondary  → Body text
 text-text-muted      → Muted/placeholder
 text-highlight       → Highlight color
-text-accent     → Dark teal
-text-accent-light → Bright teal
+text-accent     → Green accent
+text-accent-light → Bright green accent
 ```
 
 ### Border Classes
@@ -455,8 +456,8 @@ Search for these patterns and replace:
 | `#050a15` | `var(--color-surface)` or `bg-surface` |
 | `#0f172a` | `var(--color-surface-elevated)` |
 | `#1e293b` | `var(--color-border)` |
-| `#14b8a6` | `var(--color-accent-light)` |
-| `#0d9488` | `var(--color-cta)` |
+| `#2AAE79` | `var(--color-accent-light)` |
+| `#178556` | `var(--color-cta)` |
 | `rgba(255,255,255,0.9)` | `var(--color-text-primary)` |
 | `rgba(255,255,255,0.65)` | `var(--color-text-secondary)` |
 

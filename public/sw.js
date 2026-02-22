@@ -23,6 +23,7 @@ const CACHE_FIRST_PATTERNS = [
 const NETWORK_FIRST_PATTERNS = [
   /\/api\//,
   /\.json$/,
+  /\.txt$/, // Next.js RSC payloads
 ];
 
 self.addEventListener('install', (event) => {
@@ -78,6 +79,25 @@ self.addEventListener('fetch', (event) => {
 
   // Network-first strategy for dynamic content
   if (NETWORK_FIRST_PATTERNS.some((pattern) => pattern.test(url.pathname))) {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          if (response.status === 200) {
+            const responseClone = response.clone();
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(request, responseClone);
+            });
+          }
+          return response;
+        })
+        .catch(() => caches.match(request))
+    );
+    return;
+  }
+
+  // Network-first for navigation requests (HTML pages)
+  // Prevents stale HTML from causing hydration mismatches during client-side nav
+  if (request.mode === 'navigate' || request.destination === 'document') {
     event.respondWith(
       fetch(request)
         .then((response) => {

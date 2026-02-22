@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 interface BlogEmptyProps {
   onReset: () => void;
@@ -8,7 +8,7 @@ interface BlogEmptyProps {
 
 export function BlogEmpty({ onReset }: BlogEmptyProps) {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       className="text-center py-16"
@@ -42,6 +42,6 @@ export function BlogEmpty({ onReset }: BlogEmptyProps) {
       >
         Clear all filters
       </button>
-    </motion.div>
+    </m.div>
   );
 }

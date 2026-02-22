@@ -460,7 +460,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
       headlineAccent: "Actually Work",
       tagline: "From prototype to production in days, not months.",
       description:
-        "Most LLM demos fail in production. Hallucinations, latency issues, and security gaps derail enterprise deployments. We build LLM applications engineered for real-world reliability—with RAG architectures, guardrails, and observability baked in from day one.",
+        "Most LLM demos fail in production. Hallucinations, latency issues, and security gaps derail enterprise deployments. We build LLM applications engineered for real-world reliability: RAG architectures, guardrails, and observability baked in from day one.",
     },
     capabilities: [
       {
@@ -514,7 +514,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
       "Production experience: We've shipped LLM apps handling millions of queries, not just demos",
       "Speed to value: First working prototype in 5 days, not 5 months of exploration",
       "Full-stack capability: From infrastructure to UI, we build the complete solution",
-      "Model-agnostic: OpenAI, Anthropic, open-source—we use what works best for your use case",
+      "Model-agnostic: OpenAI, Anthropic, open-source. We use what works best for your use case",
     ],
     cta: {
       headline: "Ready to Ship Your LLM Application?",
@@ -544,7 +544,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
           "Yes. We've integrated LLM applications with legacy systems, on-premise deployments, and every major cloud provider. Our engineers embed with your team and work in your codebase.",
       },
     ],
-    relatedExpertise: ["ai-agents", "ai-security", "ai-privacy"],
+    relatedExpertise: ["ai-agents", "backend"],
   },
 
   "ai-agents": {
@@ -561,14 +561,14 @@ export const expertisePages: Record<string, ExpertisePageData> = {
       headlineAccent: "Execute, Not Just Recommend",
       tagline: "From chatbots to agents that actually get work done.",
       description:
-        "The next wave of AI isn't about generating text—it's about taking action. We build AI agents that reason through complex tasks, use tools, and execute multi-step workflows autonomously. Production-ready agents that integrate with your systems and handle real business processes.",
+        "The next wave of AI isn't about generating text. It's about taking action. We build AI agents that reason through complex tasks, use tools, and execute multi-step workflows autonomously. Production-ready agents that integrate with your systems and handle real business processes.",
     },
     capabilities: [
       {
         icon: "brain",
         title: "Multi-Step Reasoning & Planning",
         description:
-          "Build agents that break down complex goals into actionable steps. Our agents plan, execute, and adapt—handling the nuanced decision-making that simple automation can't touch.",
+          "Build agents that break down complex goals into actionable steps. Our agents plan, execute, and adapt, handling the nuanced decision-making that simple automation can't touch.",
       },
       {
         icon: "puzzle",
@@ -620,13 +620,13 @@ export const expertisePages: Record<string, ExpertisePageData> = {
     cta: {
       headline: "Ready to Deploy AI Agents?",
       description:
-        "Talk to our team about automating your complex workflows with AI agents. We'll show you what's possible—and what's production-ready today.",
+        "Talk to our team about automating your complex workflows with AI agents. We'll show you what's possible, and what's production-ready today.",
     },
     faqs: [
       {
         question: "What's the difference between an AI agent and a chatbot?",
         answer:
-          "Chatbots respond to queries. Agents take action. An AI agent can research information, update databases, send emails, schedule meetings, and execute multi-step workflows autonomously—not just suggest what you should do.",
+          "Chatbots respond to queries. Agents take action. An AI agent can research information, update databases, send emails, schedule meetings, and execute multi-step workflows autonomously, not just suggest what you should do.",
       },
       {
         question: "How do you ensure AI agents are safe in production?",
@@ -636,7 +636,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
       {
         question: "Can AI agents work with our legacy systems?",
         answer:
-          "Yes. Our engineers specialize in building integration layers that connect modern AI capabilities with existing enterprise systems—even those without modern APIs.",
+          "Yes. Our engineers specialize in building integration layers that connect modern AI capabilities with existing enterprise systems, even those without modern APIs.",
       },
       {
         question: "How long until we have a working agent?",
@@ -644,206 +644,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
           "Most clients see a working prototype within the first week. Production deployment typically takes 2-4 weeks, depending on the complexity of your workflows and integration requirements.",
       },
     ],
-    relatedExpertise: ["llm-applications", "backend", "ai-security"],
-  },
-
-  "ai-security": {
-    slug: "ai-security",
-    category: "ai-ml",
-    meta: {
-      title: "AI Security & Threat Protection | LLM Safety | Procedure",
-      description:
-        "Protect your AI systems from prompt injection, jailbreaks, and adversarial attacks. Enterprise-grade LLM security from architecture to deployment.",
-    },
-    hero: {
-      badge: "AI Security",
-      headline: "Secure AI Systems From",
-      headlineAccent: "Architecture to Production",
-      tagline: "LLM security isn't an afterthought—it's foundational.",
-      description:
-        "Prompt injection. Jailbreaks. Data exfiltration. The attack surface for AI systems is different from traditional software—and most teams aren't prepared. We build AI security into your systems from the ground up, protecting against both known threats and emerging attack vectors.",
-    },
-    capabilities: [
-      {
-        icon: "shield",
-        title: "Prompt Injection Defense",
-        description:
-          "Implement input sanitization, prompt isolation, and detection systems that identify and block injection attacks before they reach your models.",
-      },
-      {
-        icon: "lock",
-        title: "Jailbreak Prevention",
-        description:
-          "Build multi-layer defenses against attempts to bypass safety guidelines. Our systems detect creative attacks that rule-based filters miss.",
-      },
-      {
-        icon: "eye",
-        title: "Output Filtering & Validation",
-        description:
-          "Scan LLM outputs for sensitive data, harmful content, and policy violations before they reach users. Defense in depth for AI systems.",
-      },
-      {
-        icon: "terminal",
-        title: "Red Team Testing",
-        description:
-          "Proactively attack your AI systems to find vulnerabilities before adversaries do. We bring deep expertise in AI-specific attack techniques.",
-      },
-      {
-        icon: "layers",
-        title: "Security Architecture Review",
-        description:
-          "Audit your AI system architecture for security gaps. From data pipelines to model serving, we identify risks across your AI stack.",
-      },
-      {
-        icon: "document",
-        title: "Incident Response Planning",
-        description:
-          "Develop playbooks for AI security incidents. When attacks happen, know exactly how to detect, contain, and recover.",
-      },
-    ],
-    technologies: [
-      "OWASP LLM",
-      "Guardrails AI",
-      "NeMo Guardrails",
-      "Rebuff",
-      "LLM Guard",
-      "Lakera",
-      "Prompt Armor",
-    ],
-    whyProcedure: [
-      "AI-native security expertise: We understand attacks unique to LLM systems",
-      "Offensive + defensive: We've red-teamed AI systems and built the defenses",
-      "Production-tested: Our security patterns protect systems handling real data",
-      "Compliance-ready: We help you meet SOC 2, HIPAA, and emerging AI regulations",
-    ],
-    cta: {
-      headline: "Secure Your AI Before You Ship It",
-      description:
-        "Get a security assessment of your AI systems from engineers who understand both AI and security. Find vulnerabilities before attackers do.",
-    },
-    faqs: [
-      {
-        question: "What is prompt injection and why should I care?",
-        answer:
-          "Prompt injection is when attackers craft inputs that manipulate your LLM into ignoring its instructions. It can lead to data leakage, unauthorized actions, and reputation damage. It's the SQL injection of the AI era—and just as dangerous.",
-      },
-      {
-        question:
-          "How is AI security different from traditional application security?",
-        answer:
-          "AI systems have unique attack surfaces: prompts can be manipulated, models can be confused by adversarial inputs, and outputs need filtering for harmful content. Traditional WAFs and security tools don't catch these AI-specific threats.",
-      },
-      {
-        question: "Can you secure an existing AI application?",
-        answer:
-          "Yes. We can add security layers to deployed systems, though building security in from the start is more effective. We'll assess your current state and prioritize improvements based on risk.",
-      },
-      {
-        question: "How do you stay current with AI security threats?",
-        answer:
-          "Our team actively researches emerging attack techniques, participates in red team exercises, and monitors the AI security community. We update our defense patterns as the threat landscape evolves.",
-      },
-    ],
-    relatedExpertise: ["ai-privacy", "llm-applications", "cloud"],
-  },
-
-  "ai-privacy": {
-    slug: "ai-privacy",
-    category: "ai-ml",
-    meta: {
-      title: "AI Privacy & Data Protection | Compliance | Procedure",
-      description:
-        "Build privacy-first AI systems that prevent data leakage and meet GDPR, HIPAA, and SOC 2 requirements. Enterprise AI privacy engineering.",
-    },
-    hero: {
-      badge: "AI Privacy",
-      headline: "Privacy-First AI Development That",
-      headlineAccent: "Doesn't Compromise Results",
-      tagline: "Protect sensitive data without sacrificing AI capabilities.",
-      description:
-        "AI systems can memorize training data, leak PII in outputs, and send sensitive information to third-party APIs. We build AI applications that protect data privacy by design—meeting compliance requirements while delivering the AI capabilities your business needs.",
-    },
-    capabilities: [
-      {
-        icon: "shield",
-        title: "Data Leakage Prevention",
-        description:
-          "Implement output scanning, PII detection, and content filtering to prevent sensitive data from appearing in AI responses.",
-      },
-      {
-        icon: "lock",
-        title: "Privacy-Preserving Architectures",
-        description:
-          "Design systems that minimize data exposure: on-premise deployments, data anonymization pipelines, and zero-trust API patterns.",
-      },
-      {
-        icon: "document",
-        title: "GDPR & HIPAA Compliance",
-        description:
-          "Build AI applications that meet regulatory requirements from day one. Data subject rights, audit trails, and consent management built in.",
-      },
-      {
-        icon: "eye",
-        title: "Model Privacy Audits",
-        description:
-          "Assess your models for memorization risks and data leakage vulnerabilities. Know what data your AI might expose.",
-      },
-      {
-        icon: "database",
-        title: "Secure Data Pipelines",
-        description:
-          "Build encrypted, access-controlled data pipelines for AI training and inference. Protect data at rest and in transit.",
-      },
-      {
-        icon: "globe",
-        title: "Third-Party Risk Management",
-        description:
-          "Evaluate and mitigate risks from LLM API providers. Understand what data leaves your environment and implement appropriate controls.",
-      },
-    ],
-    technologies: [
-      "Private AI",
-      "Presidio",
-      "Microsoft Purview",
-      "AWS Macie",
-      "Vault",
-      "SOPS",
-      "Age",
-    ],
-    whyProcedure: [
-      "Compliance expertise: We've built HIPAA-compliant and GDPR-ready AI systems",
-      "Technical depth: Privacy isn't just policy—we implement the technical controls",
-      "Privacy by design: We architect for privacy from the start, not as a patch",
-      "Pragmatic approach: We balance privacy requirements with business needs",
-    ],
-    cta: {
-      headline: "Build AI That Protects Data",
-      description:
-        "Talk to our engineers about building privacy-first AI systems. We'll help you meet compliance requirements without sacrificing AI capabilities.",
-    },
-    faqs: [
-      {
-        question: "Can we use LLM APIs while maintaining data privacy?",
-        answer:
-          "Yes, with the right architecture. Options include using enterprise API tiers with data processing agreements, on-premise deployments, or hybrid approaches that keep sensitive data local while leveraging cloud AI for non-sensitive tasks.",
-      },
-      {
-        question: "How do you prevent AI from exposing PII?",
-        answer:
-          "We implement multiple layers: input sanitization to remove PII before it reaches models, output scanning to catch leaked data, and architectural patterns that minimize PII exposure throughout the system.",
-      },
-      {
-        question: "What about AI and GDPR data subject rights?",
-        answer:
-          "We build systems that support right to access, erasure, and portability for data used in AI systems—including mechanisms to track which data influenced model training.",
-      },
-      {
-        question: "Can you make existing AI systems compliant?",
-        answer:
-          "Usually, yes. We audit current systems, identify gaps, and implement technical controls to meet compliance requirements. Some cases require architectural changes, which we can phase in without disrupting operations.",
-      },
-    ],
-    relatedExpertise: ["ai-security", "cloud", "backend"],
+    relatedExpertise: ["llm-applications", "backend", "cloud"],
   },
 
   frontend: {
@@ -860,7 +661,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
       headlineAccent: "Users Love",
       tagline: "Beautiful interfaces. Blazing performance. Built to last.",
       description:
-        "Great products need great interfaces. We build modern web applications using React, Next.js, and Vue—with attention to performance, accessibility, and user experience. Senior frontend engineers who've shipped products used by millions, now embedded with your team.",
+        "Great products need great interfaces. We build modern web applications using React, Next.js, and Vue, with attention to performance, accessibility, and user experience. Senior frontend engineers who've shipped products used by millions, now embedded with your team.",
     },
     capabilities: [
       {
@@ -879,7 +680,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
         icon: "bolt",
         title: "Performance Optimization",
         description:
-          "Core Web Vitals aren't just metrics—they're revenue. We optimize load times, interactivity, and visual stability for real business impact.",
+          "Core Web Vitals aren't just metrics. They're revenue. We optimize load times, interactivity, and visual stability for real business impact.",
       },
       {
         icon: "palette",
@@ -891,7 +692,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
         icon: "accessibility",
         title: "Accessibility Engineering",
         description:
-          "WCAG compliance isn't optional. We build interfaces that work for everyone—screen readers, keyboard navigation, and assistive technology.",
+          "WCAG compliance isn't optional. We build interfaces that work for everyone: screen readers, keyboard navigation, and assistive technology.",
       },
       {
         icon: "workflow",
@@ -925,7 +726,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
       {
         question: "Do you work with our existing codebase?",
         answer:
-          "Yes. Our engineers embed with your team and work in your codebase. We can join an existing project or start something new—either way, we follow your conventions and contribute to your codebase.",
+          "Yes. Our engineers embed with your team and work in your codebase. We can join an existing project or start something new. Either way, we follow your conventions and contribute to your codebase.",
       },
       {
         question: "How do you handle design handoff?",
@@ -940,7 +741,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
       {
         question: "Can you help with performance issues?",
         answer:
-          "Absolutely. We regularly diagnose and fix performance problems in existing applications—slow load times, janky interactions, bundle size issues. We measure improvements with real metrics.",
+          "Absolutely. We regularly diagnose and fix performance problems in existing applications: slow load times, janky interactions, bundle size issues. We measure improvements with real metrics.",
       },
     ],
     relatedExpertise: ["backend", "design-systems", "product-design"],
@@ -960,14 +761,14 @@ export const expertisePages: Record<string, ExpertisePageData> = {
       headlineAccent: "Built for Growth",
       tagline: "Infrastructure that won't hold you back.",
       description:
-        "Your backend is the foundation everything else builds on. We engineer robust, scalable systems using Node.js, Python, and Go—designed for the traffic you'll have tomorrow, not just today. Cloud-native architectures that grow with your business.",
+        "Your backend is the foundation everything else builds on. We engineer robust, scalable systems using Node.js, Python, and Go, designed for the traffic you'll have tomorrow, not just today. Cloud-native architectures that grow with your business.",
     },
     capabilities: [
       {
         icon: "api",
         title: "API Design & Development",
         description:
-          "Build APIs that developers love. REST, GraphQL, gRPC—we choose the right approach for your use case and implement it with production-grade reliability.",
+          "Build APIs that developers love. REST, GraphQL, gRPC. We choose the right approach for your use case and implement it with production-grade reliability.",
       },
       {
         icon: "layers",
@@ -979,13 +780,13 @@ export const expertisePages: Record<string, ExpertisePageData> = {
         icon: "workflow",
         title: "Data Pipeline Engineering",
         description:
-          "Build pipelines that process data reliably at scale. Kafka, Spark, Airflow—the tools change, but our engineering principles produce systems that work.",
+          "Build pipelines that process data reliably at scale. Kafka, Spark, Airflow. The tools change, but our engineering principles produce systems that work.",
       },
       {
         icon: "database",
         title: "Database Design & Optimization",
         description:
-          "Choose the right database, design the schema, and optimize for your query patterns. PostgreSQL, MongoDB, Redis, and the rest—we know when to use what.",
+          "Choose the right database, design the schema, and optimize for your query patterns. PostgreSQL, MongoDB, Redis, and the rest. We know when to use what.",
       },
       {
         icon: "lock",
@@ -1011,9 +812,9 @@ export const expertisePages: Record<string, ExpertisePageData> = {
       "GraphQL",
     ],
     whyProcedure: [
-      "Production veterans: We've run systems at scale—millions of requests, complex data pipelines",
+      "Production veterans: We've run systems at scale: millions of requests, complex data pipelines",
       "Polyglot pragmatism: We use the right language for the job, not the trendy one",
-      "Cloud-native experience: AWS, GCP, Azure—we build for modern infrastructure",
+      "Cloud-native experience: AWS, GCP, Azure. We build for modern infrastructure",
       "Operational mindset: We think about how systems fail, not just how they succeed",
     ],
     cta: {
@@ -1025,12 +826,12 @@ export const expertisePages: Record<string, ExpertisePageData> = {
       {
         question: "Which backend language should we use?",
         answer:
-          "It depends. Node.js for JavaScript-ecosystem teams and I/O-heavy services. Python for data-intensive applications and ML integration. Go for performance-critical services. We help you choose—and we're fluent in all three.",
+          "It depends. Node.js for JavaScript-ecosystem teams and I/O-heavy services. Python for data-intensive applications and ML integration. Go for performance-critical services. We help you choose, and we're fluent in all three.",
       },
       {
         question: "Can you help with our existing backend?",
         answer:
-          "Yes. We work with existing codebases regularly—adding features, improving performance, and evolving architecture. We embed with your team and contribute to your codebase.",
+          "Yes. We work with existing codebases regularly: adding features, improving performance, and evolving architecture. We embed with your team and contribute to your codebase.",
       },
       {
         question: "How do you approach testing for backend systems?",
@@ -1040,7 +841,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
       {
         question: "Do you handle DevOps as well?",
         answer:
-          "We're not just writing code—we can set up CI/CD, containerization, and cloud infrastructure. Our backend engineers understand the full stack from development to production.",
+          "We're not just writing code. We can set up CI/CD, containerization, and cloud infrastructure. Our backend engineers understand the full stack from development to production.",
       },
     ],
     relatedExpertise: ["frontend", "cloud", "kubernetes"],
@@ -1060,7 +861,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
       headlineAccent: "Across Every Platform",
       tagline: "iOS. Android. React Native. Built right.",
       description:
-        "Mobile users expect native-quality experiences—smooth animations, instant responsiveness, and offline capability. We build mobile applications that meet those expectations, whether native iOS, Android, or cross-platform with React Native.",
+        "Mobile users expect native-quality experiences: smooth animations, instant responsiveness, and offline capability. We build mobile applications that meet those expectations, whether native iOS, Android, or cross-platform with React Native.",
     },
     capabilities: [
       {
@@ -1079,7 +880,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
         icon: "code",
         title: "React Native Development",
         description:
-          "When you need to move fast across platforms, React Native delivers. We build React Native apps that feel native—because we know both the framework and the platforms beneath it.",
+          "When you need to move fast across platforms, React Native delivers. We build React Native apps that feel native, because we know both the framework and the platforms beneath it.",
       },
       {
         icon: "database",
@@ -1112,7 +913,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
     ],
     whyProcedure: [
       "Platform depth: Engineers who understand iOS and Android at the system level",
-      "Cross-platform pragmatism: We recommend React Native when it makes sense—not always",
+      "Cross-platform pragmatism: We recommend React Native when it makes sense, not always",
       "Performance obsession: Mobile users notice every dropped frame",
       "Launch experience: We've shipped apps to millions of users",
     ],
@@ -1123,7 +924,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
     },
     faqs: [
       {
-        question: "Native or React Native—which should we choose?",
+        question: "Native or React Native: which should we choose?",
         answer:
           "If you're building a platform-defining experience or need deep hardware integration, go native. For most B2B apps and MVPs, React Native offers faster development with acceptable tradeoffs. We help you make the right choice for your specific situation.",
       },
@@ -1160,14 +961,14 @@ export const expertisePages: Record<string, ExpertisePageData> = {
       headlineAccent: "Ships Confidence",
       tagline: "Automated testing. CI/CD. Zero regressions.",
       description:
-        "Shipping fast doesn't mean shipping broken. We build quality engineering practices into your development process—automated testing, CI/CD pipelines, and the systems that catch bugs before users do. Ship with confidence, not crossed fingers.",
+        "Shipping fast doesn't mean shipping broken. We build quality engineering practices into your development process: automated testing, CI/CD pipelines, and the systems that catch bugs before users do. Ship with confidence, not crossed fingers.",
     },
     capabilities: [
       {
         icon: "document",
         title: "Test Strategy & Architecture",
         description:
-          "Design a testing approach that fits your system. Unit tests, integration tests, end-to-end tests—the right mix for your architecture and risk profile.",
+          "Design a testing approach that fits your system. Unit tests, integration tests, end-to-end tests. The right mix for your architecture and risk profile.",
       },
       {
         icon: "check",
@@ -1212,7 +1013,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
     ],
     whyProcedure: [
       "Engineering-first QA: We write code, not just test cases",
-      "Automation focus: Manual testing doesn't scale—we build automated systems",
+      "Automation focus: Manual testing doesn't scale. We build automated systems",
       "Production insight: QA informed by production observability and real user behavior",
       "Process integration: We embed QA into your development workflow, not as a separate step",
     ],
@@ -1230,7 +1031,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
       {
         question: "What testing tools do you use?",
         answer:
-          "We use what works for your stack—Jest, Playwright, Cypress, pytest, JUnit, and many others. The specific tools matter less than the testing patterns and infrastructure we build around them.",
+          "We use what works for your stack: Jest, Playwright, Cypress, pytest, JUnit, and many others. The specific tools matter less than the testing patterns and infrastructure we build around them.",
       },
       {
         question: "How do you handle flaky tests?",
@@ -1240,7 +1041,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
       {
         question: "Can you help with performance testing?",
         answer:
-          "Yes. We design load testing strategies, implement performance test suites, and integrate performance monitoring into your CI/CD pipeline. Performance isn't just QA—it's continuous engineering.",
+          "Yes. We design load testing strategies, implement performance test suites, and integrate performance monitoring into your CI/CD pipeline. Performance isn't just QA. It's continuous engineering.",
       },
     ],
     relatedExpertise: ["backend", "frontend", "mobile"],
@@ -1260,7 +1061,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
       headlineAccent: "Scales With You",
       tagline: "AWS. GCP. Azure. Architected right.",
       description:
-        "Cloud infrastructure should accelerate your business, not slow it down with complexity and cost overruns. We design cloud architectures that scale with your growth, stay secure under attack, and don't break the bank—on AWS, GCP, or Azure.",
+        "Cloud infrastructure should accelerate your business, not slow it down with complexity and cost overruns. We design cloud architectures that scale with your growth, stay secure under attack, and don't break the bank, on AWS, GCP, or Azure.",
     },
     capabilities: [
       {
@@ -1291,7 +1092,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
         icon: "code",
         title: "Infrastructure as Code",
         description:
-          "Terraform, Pulumi, CloudFormation—reproducible infrastructure that lives in version control. No more snowflake servers.",
+          "Terraform, Pulumi, CloudFormation: reproducible infrastructure that lives in version control. No more snowflake servers.",
       },
       {
         icon: "workflow",
@@ -1311,10 +1112,10 @@ export const expertisePages: Record<string, ExpertisePageData> = {
       "PagerDuty",
     ],
     whyProcedure: [
-      "Cross-cloud expertise: We're not locked to one vendor—we design for your needs",
+      "Cross-cloud expertise: We're not locked to one vendor. We design for your needs",
       "Cost-conscious: We optimize for TCO, not just technical elegance",
       "Production experience: We've operated infrastructure at scale, not just designed it",
-      "Security-first: Cloud security isn't optional—it's foundational",
+      "Security-first: Cloud security isn't optional. It's foundational",
     ],
     cta: {
       headline: "Architect Your Cloud Right",
@@ -1325,7 +1126,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
       {
         question: "Which cloud provider should we use?",
         answer:
-          "It depends on your existing investments, team expertise, and specific workloads. AWS offers the broadest services, GCP excels at data and ML, Azure integrates well with Microsoft ecosystems. We help you choose—or design for multi-cloud when that makes sense.",
+          "It depends on your existing investments, team expertise, and specific workloads. AWS offers the broadest services, GCP excels at data and ML, Azure integrates well with Microsoft ecosystems. We help you choose, or design for multi-cloud when that makes sense.",
       },
       {
         question: "How do you approach cloud cost optimization?",
@@ -1343,7 +1144,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
           "We can. Beyond initial architecture, we offer ongoing optimization, security monitoring, and infrastructure support as part of our engagement models.",
       },
     ],
-    relatedExpertise: ["kubernetes", "backend", "ai-privacy"],
+    relatedExpertise: ["kubernetes", "backend", "cloud"],
   },
 
   kubernetes: {
@@ -1360,14 +1161,14 @@ export const expertisePages: Record<string, ExpertisePageData> = {
       headlineAccent: "Production-Grade",
       tagline: "Kubernetes complexity, handled.",
       description:
-        "Kubernetes is powerful—and complex. We help you run containers in production without getting lost in YAML files and obscure failure modes. From initial deployment to day-2 operations, we make Kubernetes work for your team instead of against it.",
+        "Kubernetes is powerful, and complex. We help you run containers in production without getting lost in YAML files and obscure failure modes. From initial deployment to day-2 operations, we make Kubernetes work for your team instead of against it.",
     },
     capabilities: [
       {
         icon: "cube",
         title: "Cluster Design & Deployment",
         description:
-          "Design Kubernetes clusters sized for your workloads. EKS, GKE, AKS, or self-managed—we deploy clusters you can actually operate.",
+          "Design Kubernetes clusters sized for your workloads. EKS, GKE, AKS, or self-managed. We deploy clusters you can actually operate.",
       },
       {
         icon: "layers",
@@ -1385,7 +1186,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
         icon: "globe",
         title: "Service Mesh Implementation",
         description:
-          "Istio, Linkerd, or simpler solutions—we implement service mesh when it adds value, and avoid it when it's overhead.",
+          "Istio, Linkerd, or simpler solutions. We implement service mesh when it adds value, and avoid it when it's overhead.",
       },
       {
         icon: "chart",
@@ -1397,7 +1198,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
         icon: "shield",
         title: "Security & Compliance",
         description:
-          "Pod security, network policies, RBAC, and secrets management. Secure Kubernetes isn't optional—we build it in from the start.",
+          "Pod security, network policies, RBAC, and secrets management. Secure Kubernetes isn't optional. We build it in from the start.",
       },
     ],
     technologies: [
@@ -1413,7 +1214,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
     whyProcedure: [
       "Production operators: We've run Kubernetes at scale, not just deployed it",
       "Pragmatic adoption: We implement what you need, not every CNCF project",
-      "Day-2 focus: Deployment is easy—we focus on long-term operations",
+      "Day-2 focus: Deployment is easy. We focus on long-term operations",
       "Knowledge transfer: We train your team to operate what we build",
     ],
     cta: {
@@ -1426,12 +1227,12 @@ export const expertisePages: Record<string, ExpertisePageData> = {
         question:
           "Should we use managed Kubernetes (EKS/GKE/AKS) or self-managed?",
         answer:
-          "For most teams, managed Kubernetes reduces operational burden and makes sense. We recommend self-managed only when you have specific requirements that managed services can't meet—and the team to support it.",
+          "For most teams, managed Kubernetes reduces operational burden and makes sense. We recommend self-managed only when you have specific requirements that managed services can't meet, and the team to support it.",
       },
       {
         question: "How do you handle Kubernetes complexity?",
         answer:
-          "We establish clear patterns, automate repetitive tasks, and document decisions. Most Kubernetes complexity comes from over-engineering—we build what you need, not what's technically impressive.",
+          "We establish clear patterns, automate repetitive tasks, and document decisions. Most Kubernetes complexity comes from over-engineering. We build what you need, not what's technically impressive.",
       },
       {
         question: "Can you help with an existing Kubernetes setup?",
@@ -1461,7 +1262,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
       headlineAccent: "AI-Powered Products",
       tagline: "Make AI usable. Make AI delightful.",
       description:
-        "AI capabilities mean nothing if users can't use them. We design AI products that feel intuitive—where the AI enhances the experience instead of creating confusion. Human-centered design that bridges the gap between powerful technology and real user needs.",
+        "AI capabilities mean nothing if users can't use them. We design AI products that feel intuitive, where the AI enhances the experience instead of creating confusion. Human-centered design that bridges the gap between powerful technology and real user needs.",
     },
     capabilities: [
       {
@@ -1474,7 +1275,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
         icon: "users",
         title: "User Research & Testing",
         description:
-          "Understand how users interact with AI. Research methods adapted for AI products—testing not just interfaces, but the mental models users bring.",
+          "Understand how users interact with AI. Research methods adapted for AI products: testing not just interfaces, but the mental models users bring.",
       },
       {
         icon: "bolt",
@@ -1513,7 +1314,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
     ],
     whyProcedure: [
       "AI-native designers: We understand how AI works, not just how to make things pretty",
-      "Engineer partnership: Our designers work directly with engineers—no lost-in-translation",
+      "Engineer partnership: Our designers work directly with engineers. No lost-in-translation",
       "Research-driven: We design based on user research, not assumptions",
       "Full-service: From research to prototypes to production assets",
     ],
@@ -1527,7 +1328,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
         question:
           "How is designing for AI different from regular product design?",
         answer:
-          "AI introduces uncertainty—outputs vary, latency is unpredictable, and users need to calibrate trust. We design patterns that handle these challenges: loading states for variable latency, confidence indicators, and fallback paths when AI fails.",
+          "AI introduces uncertainty: outputs vary, latency is unpredictable, and users need to calibrate trust. We design patterns that handle these challenges: loading states for variable latency, confidence indicators, and fallback paths when AI fails.",
       },
       {
         question: "Do you work with our existing design team?",
@@ -1542,7 +1343,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
       {
         question: "Can you help define the AI product strategy?",
         answer:
-          "Yes. Design and product strategy are connected—we help you figure out which AI capabilities to build and how to position them before jumping into detailed design.",
+          "Yes. Design and product strategy are connected. We help you figure out which AI capabilities to build and how to position them before jumping into detailed design.",
       },
     ],
     relatedExpertise: ["design-systems", "frontend", "llm-applications"],
@@ -1560,9 +1361,9 @@ export const expertisePages: Record<string, ExpertisePageData> = {
       badge: "Design Systems",
       headline: "Scalable Design Systems That",
       headlineAccent: "Accelerate Teams",
-      tagline: "Components, tokens, documentation—done right.",
+      tagline: "Components, tokens, documentation. Done right.",
       description:
-        "A good design system multiplies your team's output. We build design systems that developers love using—well-documented components, consistent tokens, and patterns that make the right thing easy to do. Stop reinventing the wheel on every feature.",
+        "A good design system multiplies your team's output. We build design systems that developers love using: well-documented components, consistent tokens, and patterns that make the right thing easy to do. Stop reinventing the wheel on every feature.",
     },
     capabilities: [
       {
@@ -1613,7 +1414,7 @@ export const expertisePages: Record<string, ExpertisePageData> = {
       "shadcn/ui",
     ],
     whyProcedure: [
-      "Engineering quality: Components built like production code—tested, accessible, performant",
+      "Engineering quality: Components built like production code: tested, accessible, performant",
       "Designer partnership: We work with your designers to capture intent accurately",
       "Adoption focus: We build for adoption, not just technical elegance",
       "Maintenance-conscious: Systems designed to evolve without accumulating debt",
@@ -1633,17 +1434,17 @@ export const expertisePages: Record<string, ExpertisePageData> = {
       {
         question: "How long does it take to build a design system?",
         answer:
-          "A foundational system (tokens, core components, basic documentation) can be production-ready in 4-6 weeks. Comprehensive systems take longer, but we structure for incremental value—you can use what we've built while we add more.",
+          "A foundational system (tokens, core components, basic documentation) can be production-ready in 4-6 weeks. Comprehensive systems take longer, but we structure for incremental value. You can use what we've built while we add more.",
       },
       {
         question: "How do you ensure adoption of the design system?",
         answer:
-          "We build for developer experience—good documentation, clear APIs, and components that are genuinely easier to use than building from scratch. We also work with teams during rollout to address feedback and friction.",
+          "We build for developer experience: good documentation, clear APIs, and components that are genuinely easier to use than building from scratch. We also work with teams during rollout to address feedback and friction.",
       },
       {
         question: "Can you improve an existing design system?",
         answer:
-          "Yes. We often help teams level up existing systems—improving accessibility, adding missing components, fixing inconsistencies, or upgrading documentation. We meet you where you are.",
+          "Yes. We often help teams level up existing systems: improving accessibility, adding missing components, fixing inconsistencies, or upgrading documentation. We meet you where you are.",
       },
     ],
     relatedExpertise: ["product-design", "frontend", "mobile"],

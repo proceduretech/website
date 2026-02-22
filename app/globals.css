@@ -50,10 +50,10 @@
 
   /* Designer-approved solid colors */
   --color-highlight: #1D9B69;
-  --color-cta: #1D9B69;
-  --color-cta-text: #fcfcfc;
-  --color-cta-hover: #2AAE79;
-  --color-cta-shadow: rgba(29, 155, 105, 0.25);
+  --color-cta: #178556;
+  --color-cta-text: #ffffff;
+  --color-cta-hover: #1D9B69;
+  --color-cta-shadow: rgba(23, 133, 86, 0.25);
 
   /* Border Colors */
   --color-border: #1A2A45;
@@ -1173,7 +1173,10 @@ html:not(.dark) .hero-grid-pattern {
   opacity: 0.06;
 }
 
-/* Hero fade-in animations - CSS-based for server-rendered content */
+/* Hero fade-in animations - CSS-based for server-rendered content.
+   IMPORTANT: No opacity:0 initial state. Setting opacity:0 in CSS delays LCP
+   because the browser won't count invisible elements as Largest Contentful Paint.
+   The keyframes handle the full transition from 0→1 without needing an initial state. */
 @keyframes heroFadeIn {
   from {
     opacity: 0;
@@ -1186,13 +1189,81 @@ html:not(.dark) .hero-grid-pattern {
 }
 
 .hero-fade-in {
-  animation: heroFadeIn 0.4s ease-out forwards;
-  animation-delay: 0.1s;
-  opacity: 0;
+  animation: heroFadeIn 0.4s ease-out 0.1s both;
 }
 
 .hero-fade-in-delay {
   animation-delay: 0.2s;
+}
+
+/* Background glow fade-in */
+@keyframes glowFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.hero-glow-fade {
+  animation: glowFadeIn 1.2s ease-out both;
+}
+
+/* Stats slide-up animation */
+@keyframes heroSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-stats-container {
+  animation: heroSlideUp 0.4s ease-out 0.15s both;
+}
+
+.hero-stat-item {
+  animation: heroSlideUp 0.3s ease-out both;
+}
+
+.hero-stat-item:nth-child(1) { animation-delay: 0.15s; }
+.hero-stat-item:nth-child(2) { animation-delay: 0.20s; }
+.hero-stat-item:nth-child(3) { animation-delay: 0.25s; }
+
+/* Children content fade-in */
+.hero-children-fade {
+  animation: heroFadeIn 0.5s ease-out 0.25s both;
+}
+
+/* Cookie banner — CSS animations to avoid framer-motion in root layout critical path */
+@keyframes cookieBannerEnter {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cookieBannerExit {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+
+.cookie-banner-enter {
+  animation: cookieBannerEnter 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.cookie-banner-exit {
+  animation: cookieBannerExit 0.3s ease-in both;
 }
 
 /* Hover state overrides for navigation */

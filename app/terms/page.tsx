@@ -1,24 +1,25 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import Link from "next/link";
 
 export default function TermsConditionsPage() {
   return (
+    <LazyMotion features={domAnimation}>
     <main className="relative min-h-screen bg-base overflow-hidden">
       {/* Hero Section */}
       <section className="relative pt-32 pb-16 sm:pb-20 bg-base">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div className="text-center">
-            <motion.h1
+            <m.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-4xl sm:text-5xl font-bold text-text-primary leading-[1.1] tracking-tight mb-4"
             >
               Terms & Conditions
-            </motion.h1>
-            <motion.div
+            </m.h1>
+            <m.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
@@ -26,7 +27,7 @@ export default function TermsConditionsPage() {
             >
               <span className="font-medium">Last Updated:</span>
               <span>Aug 12, 2025</span>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -34,7 +35,7 @@ export default function TermsConditionsPage() {
       {/* Terms Content */}
       <section className="relative pb-24 sm:pb-36 bg-base">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -74,13 +75,13 @@ export default function TermsConditionsPage() {
                 By accessing, browsing, or using the Procedure website and any
                 of our services, you&apos;re agreeing to be bound by these Terms
                 & Conditions and our Privacy Policy. Think of it as a digital
-                handshake—you&apos;re saying &quot;yes&quot; to playing by our
+                handshake - you&apos;re saying &quot;yes&quot; to playing by our
                 rules.
               </p>
               <p>
                 <strong>
                   If you don&apos;t agree with these terms, that&apos;s totally
-                  fine—just don&apos;t use our site.
+                  fine -just don&apos;t use our site.
                 </strong>{" "}
                 We&apos;d appreciate a quick email to{" "}
                 <a
@@ -293,8 +294,8 @@ export default function TermsConditionsPage() {
                 Our Content
               </h4>
               <p>
-                All the content we create—including text, images, videos, logos,
-                and software—belongs to Procedure and is protected by Indian and
+                All the content we create -including text, images, videos, logos,
+                and software -belongs to Procedure and is protected by Indian and
                 international intellectual property laws. You can use our
                 content for personal, non-commercial purposes, but please
                 don&apos;t copy, redistribute, or create derivative works
@@ -617,8 +618,8 @@ export default function TermsConditionsPage() {
                 By Procedure
               </h4>
               <p>
-                We may suspend or end your account or access—without prior
-                notice—if we believe you&apos;ve:
+                We may suspend or end your account or access -without prior
+                notice -if we believe you&apos;ve:
               </p>
               <ul>
                 <li>Breached these Terms or applicable laws</li>
@@ -780,10 +781,11 @@ export default function TermsConditionsPage() {
 
               <p>Thank you for being part of the Procedure community!</p>
             </TermsSection>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </main>
+    </LazyMotion>
   );
 }
 

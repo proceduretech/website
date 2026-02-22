@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 
@@ -45,7 +45,7 @@ export function ArchitectureDiagram({
     <section className="py-16 sm:py-24 bg-base">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -60,14 +60,14 @@ export function ArchitectureDiagram({
               {subtitle}
             </p>
           )}
-        </motion.div>
+        </m.div>
 
         {/* Desktop layout */}
         <div className="hidden lg:block relative">
           {/* Connecting line */}
           <div className="absolute top-24 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-accent/20 via-accent/40 to-accent-secondary/20" />
 
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -75,7 +75,7 @@ export function ArchitectureDiagram({
             className="grid grid-cols-4 gap-6"
           >
             {steps.map((step, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 variants={stepVariants}
                 className={cn(
@@ -102,13 +102,13 @@ export function ArchitectureDiagram({
                 <p className="text-sm text-text-secondary leading-relaxed">
                   {step.description}
                 </p>
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
+          </m.div>
         </div>
 
         {/* Mobile layout */}
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -116,7 +116,7 @@ export function ArchitectureDiagram({
           className="lg:hidden space-y-4"
         >
           {steps.map((step, index) => (
-            <motion.div
+            <m.div
               key={index}
               variants={stepVariants}
               className="flex items-start gap-4"
@@ -139,9 +139,9 @@ export function ArchitectureDiagram({
                   {step.description}
                 </p>
               </div>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

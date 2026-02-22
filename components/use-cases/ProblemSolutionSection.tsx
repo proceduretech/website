@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface ProblemSolutionSectionProps {
@@ -35,7 +35,7 @@ export function ProblemSolutionSection({
   return (
     <section className="py-16 sm:py-20 bg-surface">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -45,11 +45,11 @@ export function ProblemSolutionSection({
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-text-primary">
             The Transformation
           </h2>
-        </motion.div>
+        </m.div>
 
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
           {/* Before Card */}
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -77,7 +77,7 @@ export function ProblemSolutionSection({
             </div>
             <ul className="space-y-4">
               {before.map((item, index) => (
-                <motion.li
+                <m.li
                   key={index}
                   variants={itemVariants}
                   className="flex items-start gap-3"
@@ -98,13 +98,13 @@ export function ProblemSolutionSection({
                     </svg>
                   </div>
                   <span className="text-text-secondary">{item}</span>
-                </motion.li>
+                </m.li>
               ))}
             </ul>
-          </motion.div>
+          </m.div>
 
           {/* After Card */}
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -132,7 +132,7 @@ export function ProblemSolutionSection({
             </div>
             <ul className="space-y-4">
               {after.map((item, index) => (
-                <motion.li
+                <m.li
                   key={index}
                   variants={itemVariants}
                   className="flex items-start gap-3"
@@ -153,10 +153,10 @@ export function ProblemSolutionSection({
                     </svg>
                   </div>
                   <span className="text-text-primary">{item}</span>
-                </motion.li>
+                </m.li>
               ))}
             </ul>
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>

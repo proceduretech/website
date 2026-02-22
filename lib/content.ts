@@ -331,6 +331,125 @@ export function getRelatedExpertise(
 }
 
 // =============================================================================
+// Technology Functions
+// =============================================================================
+
+export const getAllTechnologies = cache(
+  (): ContentItem<ExpertiseFrontmatter>[] => {
+    return getAllContent<ExpertiseFrontmatter>("technologies");
+  },
+);
+
+export function getTechnology(
+  slug: string,
+): ContentItem<ExpertiseFrontmatter> | null {
+  return getContentBySlug<ExpertiseFrontmatter>("technologies", slug);
+}
+
+export function getAllTechnologySlugsFromContent(): string[] {
+  return getAllSlugs("technologies");
+}
+
+/**
+ * Auto-discover all technology page routes by scanning app/technologies/ for page.tsx files
+ * Returns paths like: ["dotnet", "dotnet/modernization", "dotnet/staff-augmentation"]
+ */
+export function getAllTechnologyRoutes(): string[] {
+  const techDir = path.join(process.cwd(), "app", "technologies");
+  if (!fs.existsSync(techDir)) return [];
+
+  const routes: string[] = [];
+
+  function scanDir(dir: string, prefix: string) {
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
+    const hasPage = entries.some((e) => e.isFile() && e.name === "page.tsx");
+    if (hasPage && prefix) {
+      routes.push(prefix);
+    }
+    for (const entry of entries) {
+      if (entry.isDirectory() && !entry.name.startsWith("[")) {
+        scanDir(path.join(dir, entry.name), prefix ? `${prefix}/${entry.name}` : entry.name);
+      }
+    }
+  }
+
+  scanDir(techDir, "");
+  return routes;
+}
+
+/**
+ * Get a technology page in the ExpertisePageForListing format
+ * (same shape as expertise pages for component compatibility)
+ */
+export function getTechnologyForListing(
+  slug: string,
+): ExpertisePageForListing | null {
+  const tech = getTechnology(slug);
+  if (!tech) return null;
+
+  const { frontmatter, content } = tech;
+
+  if (!frontmatter.capabilities || !frontmatter.technologies) {
+    return null;
+  }
+
+  const whyProcedure = parseWhyProcedureFromContent(content);
+
+  const headlineParts = frontmatter.headline
+    ? {
+        headline: frontmatter.headline,
+        headlineAccent: frontmatter.headlineAccent || "",
+      }
+    : parseExpertiseHeadline(frontmatter.title);
+
+  return {
+    slug,
+    meta: {
+      title: frontmatter.seo?.title || `${frontmatter.title} | Procedure`,
+      description: frontmatter.seo?.description || frontmatter.description,
+    },
+    hero: {
+      badge: frontmatter.title,
+      headline: headlineParts.headline,
+      headlineAccent: headlineParts.headlineAccent,
+      tagline: frontmatter.tagline,
+      description: frontmatter.description,
+    },
+    capabilities: frontmatter.capabilities.map((cap) => ({
+      icon: cap.icon,
+      title: cap.title,
+      description: cap.description,
+    })),
+    technologies: frontmatter.technologies,
+    whyProcedure,
+    cta: {
+      headline:
+        frontmatter.cta?.title ||
+        `Ready to Get Started with ${frontmatter.title}?`,
+      description:
+        frontmatter.cta?.description ||
+        "Talk to our engineers about your project.",
+      buttonText: frontmatter.cta?.buttonText,
+      buttonLink: frontmatter.cta?.buttonLink,
+      supportingNote: frontmatter.cta?.supportingNote,
+    },
+    faqs: frontmatter.faqs || [],
+    testimonials: frontmatter.testimonials || [],
+    whoWeWorkWith: frontmatter.whoWeWorkWith,
+    process: frontmatter.process,
+    useCasesSubtitle: frontmatter.useCasesSubtitle,
+    useCases: frontmatter.useCases,
+    whyChoose: frontmatter.whyChoose,
+    qualityMatters: frontmatter.qualityMatters,
+    architecture: frontmatter.architecture,
+    engagementModels: frontmatter.engagementModels,
+    riskReversal: frontmatter.riskReversal,
+    ctaTestimonial: frontmatter.ctaTestimonial,
+    relatedExpertise: frontmatter.relatedExpertise || [],
+  };
+}
+
+// =============================================================================
 // Industry Functions
 // =============================================================================
 
@@ -615,15 +734,6 @@ export interface ExpertisePageForListing {
       description: string;
     }>;
   };
-  howItWorks?: {
-    title?: string;
-    subtitle?: string;
-    steps: Array<{
-      title: string;
-      description: string;
-    }>;
-    closingNote?: string;
-  };
   engagementModels?: {
     title?: string;
     subtitle?: string;
@@ -706,7 +816,7 @@ export function getExpertiseForListing(
   const { frontmatter, content } = expertise;
 
   // Return null if required fields for expertise pages are missing
-  // (e.g., ai-security uses custom layout without capabilities/technologies)
+  // (e.g., pages with custom layout without capabilities/technologies)
   if (!frontmatter.capabilities || !frontmatter.technologies) {
     return null;
   }
@@ -759,10 +869,8 @@ export function getExpertiseForListing(
     useCasesSubtitle: frontmatter.useCasesSubtitle,
     useCases: frontmatter.useCases,
     whyChoose: frontmatter.whyChoose,
-    philosophy: frontmatter.philosophy,
     qualityMatters: frontmatter.qualityMatters,
     architecture: frontmatter.architecture,
-    howItWorks: frontmatter.howItWorks,
     engagementModels: frontmatter.engagementModels,
     riskReversal: frontmatter.riskReversal,
     ctaTestimonial: frontmatter.ctaTestimonial,
@@ -785,17 +893,31 @@ export function getRelatedExpertiseForListing(slugs: string[]): Array<{
   title: string;
   description: string;
   badge: string;
+  href?: string;
 }> {
   return slugs
     .map((slug) => {
+      // Try services first, then technologies
       const page = getExpertiseForListing(slug);
-      if (!page) return null;
-      return {
-        slug: page.slug,
-        title: `${page.hero.headline} ${page.hero.headlineAccent}`.trim(),
-        description: page.hero.tagline,
-        badge: page.hero.badge,
-      };
+      if (page) {
+        return {
+          slug: page.slug,
+          title: `${page.hero.headline} ${page.hero.headlineAccent}`.trim(),
+          description: page.hero.tagline,
+          badge: page.hero.badge,
+        };
+      }
+      const tech = getTechnologyForListing(slug);
+      if (tech) {
+        return {
+          slug: tech.slug,
+          title: `${tech.hero.headline} ${tech.hero.headlineAccent}`.trim(),
+          description: tech.hero.tagline,
+          badge: tech.hero.badge,
+          href: `/technologies/${tech.slug}`,
+        };
+      }
+      return null;
     })
     .filter((p): p is NonNullable<typeof p> => p !== null);
 }
@@ -903,8 +1025,9 @@ function parseMetricsFromContent(
         if (match) {
           const [, boldPart, context] = match;
           // Try to split bold part into value and label
+          // Matches: optional $, digits/symbols, optional letter suffix (e.g. "ms", "M", "x"), optional trailing +/%
           const valueLabelMatch = boldPart.match(
-            /^([\d\.\-<>%\+]+\s*[\w]*)\s+(.+)$/,
+            /^(\$?[\d.\-<>%+]+[A-Za-z]*[+%]?)\s+(.+)$/,
           );
           if (valueLabelMatch) {
             return {

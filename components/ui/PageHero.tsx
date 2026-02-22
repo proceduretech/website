@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui";
 import { ClientLogos } from "@/components/sections/ClientLogos";
@@ -32,9 +29,6 @@ interface PageHeroProps {
   showClientLogos?: boolean;
 }
 
-// Smooth easing curve for premium feel
-const smoothEasing = [0.16, 1, 0.3, 1] as const;
-
 export function PageHero({
   badge,
   badgeVariant = "teal",
@@ -55,15 +49,10 @@ export function PageHero({
 
   return (
     <section className="relative pt-32 pb-12 sm:pb-16 bg-base overflow-hidden">
-      {/* Animated background glow */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.2 }}
-        className="absolute inset-0 pointer-events-none"
-      >
+      {/* Animated background glow - CSS animation, no JS needed */}
+      <div className="absolute inset-0 pointer-events-none hero-glow-fade">
         <div className={glowColor} />
-      </motion.div>
+      </div>
 
       {/* Main content - CENTERED */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -85,63 +74,41 @@ export function PageHero({
             </motion.div>
           )} */}
 
-          {/* Headline - reduced delays for better LCP */}
+          {/* Headline - NO animation, visible immediately for LCP.
+              framer-motion's initial={{ opacity: 0 }} bakes into SSR HTML as
+              style="opacity:0", keeping text invisible until JS hydrates.
+              Removing motion wrapper ensures the H1 paints on first frame. */}
           <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-semibold leading-[1.1] tracking-tight text-text-primary mb-6">
             {headline}
             {headlineAccent && (
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.3, delay: 0.1 }}
-                className="text-highlight"
-              >
-                {" "}
-                {headlineAccent}
-              </motion.span>
+              <>
+                <br />
+                <span className="text-highlight">{headlineAccent}</span>
+              </>
             )}
           </h1>
 
-          {/* Tagline */}
+          {/* Tagline - CSS animation instead of framer-motion.
+              CSS animations start on stylesheet parse (~0ms with inline CSS),
+              framer-motion waits for JS hydration (potentially seconds). */}
           {tagline && (
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.05, ease: smoothEasing }}
-              className="text-xl sm:text-2xl text-text-secondary font-medium mb-4"
-            >
+            <p className="text-xl sm:text-2xl text-text-secondary font-medium mb-4 hero-fade-in">
               {tagline}
-            </motion.p>
+            </p>
           )}
 
-          {/* Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.1, ease: smoothEasing }}
-            className="text-lg text-text-secondary max-w-3xl mx-auto mb-10 leading-relaxed"
-          >
+          {/* Description - CSS animation for same reason */}
+          <p className="text-lg text-text-secondary max-w-3xl mx-auto mb-10 leading-relaxed hero-fade-in hero-fade-in-delay">
             {description}
-          </motion.p>
+          </p>
 
-          {/* Stats Row (optional) - reduced delays for better LCP */}
+          {/* Stats Row (optional) - CSS animation for performance */}
           {stats && stats.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.15, ease: smoothEasing }}
-              className="grid grid-cols-3 gap-4 sm:gap-6 mb-10 max-w-2xl mx-auto"
-            >
+            <div className="grid grid-cols-3 gap-4 sm:gap-6 mb-10 max-w-2xl mx-auto hero-stats-container">
               {stats.map((stat, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{
-                    duration: 0.3,
-                    delay: 0.15 + index * 0.05,
-                    ease: smoothEasing,
-                  }}
-                  className="p-4 sm:p-6 rounded-xl text-center bg-surface-elevated border border-border"
+                  className="p-4 sm:p-6 rounded-xl text-center bg-surface-elevated border border-border hero-stat-item"
                 >
                   <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-highlight">
                     {stat.value}
@@ -149,22 +116,13 @@ export function PageHero({
                   <div className="text-xs sm:text-sm text-text-secondary mt-1 sm:mt-2">
                     {stat.label}
                   </div>
-                </motion.div>
+                </div>
               ))}
-            </motion.div>
+            </div>
           )}
 
-          {/* CTAs - reduced delays for faster interactivity */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.4,
-              delay: stats ? 0.2 : 0.15,
-              ease: smoothEasing,
-            }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
+          {/* CTAs - CSS animation for faster interactivity */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center hero-fade-in" style={{ animationDelay: "0.15s" }}>
             <Link href={primaryCTA.href}>
               <Button variant="primary" size="lg">
                 {primaryCTA.text}
@@ -190,18 +148,13 @@ export function PageHero({
                 </Button>
               </Link>
             )}
-          </motion.div>
+          </div>
 
-          {/* Optional children content */}
+          {/* Optional children content - CSS animation for performance */}
           {children && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.25 }}
-              className="mt-12"
-            >
+            <div className="mt-12 hero-children-fade">
               {children}
-            </motion.div>
+            </div>
           )}
 
           {/* Client Logos */}

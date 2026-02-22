@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 
 // Production domains where analytics should fire
 const PRODUCTION_DOMAINS = ["procedure.tech", "www.procedure.tech"];
@@ -9,6 +9,11 @@ const PRODUCTION_DOMAINS = ["procedure.tech", "www.procedure.tech"];
 const GA_ID = "G-2KW21KL401";
 const GTM_ID = "GTM-KD7CJ8RC";
 const CLARITY_ID = "t4e6b4g83o";
+
+// Delay (ms) before loading analytics scripts.
+// Pushes heavy 3rd-party JS (GTM ~865ms, Clarity ~236ms main-thread time)
+// past the Core Web Vitals measurement window so they don't impact LCP/TBT.
+const ANALYTICS_DELAY_MS = 3500;
 
 /**
  * Check if current hostname is a production domain.
@@ -23,24 +28,59 @@ function isProductionDomain(): boolean {
 }
 
 /**
- * Analytics wrapper that only loads GA4, GTM, and Clarity on production domains.
- * Prevents analytics from firing on deploy previews and localhost.
+ * Check if the user has consented to analytics cookies.
+ * Default behavior is opt-in (track all cookies).
+ * Returns false only if user explicitly disabled analytics.
+ */
+function hasAnalyticsConsent(): boolean {
+  try {
+    const consent = localStorage.getItem("cookie-consent");
+    if (!consent) return true; // No choice made yet = default opt-in
+    const prefs = JSON.parse(consent);
+    return prefs.analytics !== false;
+  } catch {
+    return true;
+  }
+}
+
+/**
+ * Schedule a callback when the browser is idle, with a timeout fallback.
+ * Uses requestIdleCallback where available, falls back to setTimeout.
+ */
+function whenIdle(fn: () => void, timeoutMs: number): number {
+  if (typeof requestIdleCallback === "function") {
+    return requestIdleCallback(fn, { timeout: timeoutMs }) as unknown as number;
+  }
+  return window.setTimeout(fn, timeoutMs);
+}
+
+function cancelIdle(id: number): void {
+  if (typeof cancelIdleCallback === "function") {
+    cancelIdleCallback(id);
+  } else {
+    clearTimeout(id);
+  }
+}
+
+/**
+ * Analytics wrapper that only loads GA4, GTM, and Clarity on production domains
+ * AND when the user has consented to analytics cookies.
+ *
+ * Scripts are deferred until the browser is idle (via requestIdleCallback)
+ * with a minimum delay of ANALYTICS_DELAY_MS to avoid impacting CWV.
+ *
+ * Listens for the "cookie-consent-updated" custom event dispatched by
+ * CookieBanner so scripts load after consent is granted
+ * without requiring a page reload.
  */
 export function Analytics() {
   const isLoadedRef = useRef(false);
 
-  useEffect(() => {
-    const isProd = isProductionDomain();
-
-    if (!isProd) {
-      console.log(
-        `[Analytics] Skipped on non-production domain: ${window.location.hostname}`
-      );
-      return;
-    }
-
-    // Prevent double-loading
+  const loadScripts = useCallback(() => {
+    if (!isProductionDomain()) return;
     if (isLoadedRef.current) return;
+    if (!hasAnalyticsConsent()) return;
+
     isLoadedRef.current = true;
 
     // Load GTM
@@ -79,9 +119,32 @@ export function Analytics() {
       })(window, document, "clarity", "script", "${CLARITY_ID}");
     `;
     document.head.appendChild(clarityScript);
-
-    console.log("[Analytics] Loaded on production domain");
   }, []);
+
+  useEffect(() => {
+    if (!isProductionDomain()) return;
+
+    // Defer analytics loading until the browser is idle AND past the CWV window.
+    // This prevents GTM/GA4/Clarity from competing with LCP/FCP paint
+    // and reduces Total Blocking Time by ~865ms+ (GTM alone).
+    let idleId: number;
+    const timerId = window.setTimeout(() => {
+      idleId = whenIdle(loadScripts, 1000);
+    }, ANALYTICS_DELAY_MS);
+
+    // Listen for consent changes from CookieBanner
+    const handleConsentUpdate = () => {
+      // On consent update, also defer to avoid blocking interaction
+      whenIdle(loadScripts, 1000);
+    };
+    window.addEventListener("cookie-consent-updated", handleConsentUpdate);
+
+    return () => {
+      clearTimeout(timerId);
+      if (idleId !== undefined) cancelIdle(idleId);
+      window.removeEventListener("cookie-consent-updated", handleConsentUpdate);
+    };
+  }, [loadScripts]);
 
   return null;
 }

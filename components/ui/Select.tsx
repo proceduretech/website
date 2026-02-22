@@ -1,7 +1,7 @@
 "use client";
 
 import { forwardRef, SelectHTMLAttributes, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 
 interface SelectOption {
   value: string;
@@ -137,7 +137,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         {/* Error message with animation */}
         <AnimatePresence mode="wait">
           {error && (
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: -4 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -4 }}
@@ -158,7 +158,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                 />
               </svg>
               {error}
-            </motion.p>
+            </m.p>
           )}
         </AnimatePresence>
       </div>

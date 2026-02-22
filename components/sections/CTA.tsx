@@ -30,8 +30,8 @@ export function CTA() {
         transition={{ duration: 0.6 }}
         className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center"
       >
-        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-text-primary mb-4 sm:mb-6">
-          Ready to secure your AI initiatives?
+        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-text-primary mb-6 sm:mb-8">
+          Ready to Secure Your AI Initiatives?
         </h2>
         <p className="text-base sm:text-lg text-text-secondary mb-8 sm:mb-10 max-w-2xl mx-auto">
           Whether you&apos;re building your first LLM application or scaling

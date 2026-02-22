@@ -7,11 +7,6 @@ llm-engineering:
   description: "Building reliable LLM applications at scale—prompting strategies, fine-tuning approaches, and inference optimization for production workloads."
   color: "teal"
 
-ai-security:
-  name: "AI Security"
-  slug: "ai-security"
-  description: "Securing AI systems against adversarial attacks, prompt injection, model theft, and emerging threat vectors in production environments."
-  color: "blue"
 
 production-systems:
   name: "Production Systems"

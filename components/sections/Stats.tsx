@@ -1,6 +1,7 @@
 "use client";
 
 import { LazyMotion, m } from "@/components/ui/LazyMotion";
+import { cn } from "@/lib/utils";
 
 const defaultStats = [
   { value: "100+", label: "Products Shipped to Production" },
@@ -16,13 +17,11 @@ interface Stat {
 
 interface StatsProps {
   title?: string;
-  subtitle?: string;
   stats?: Stat[];
 }
 
 export function Stats({
-  title = "Proven results from embedded engineering",
-  subtitle,
+  title = "Proven Results from Embedded Engineering",
   stats = defaultStats,
 }: StatsProps) {
   return (
@@ -37,43 +36,49 @@ export function Stats({
         />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
           <m.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-10 sm:mb-12"
-        >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">
-            {title}
-          </h2>
-          {subtitle && (
-            <p className="text-lg text-text-secondary max-w-3xl mx-auto mt-4 leading-relaxed">
-              {subtitle}
-            </p>
-          )}
-        </m.div>
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-10 sm:mb-12"
+          >
+            <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-text-primary">
+              {title}
+            </h2>
+          </m.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
-          {stats.map((stat, idx) => (
-            <m.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="text-center"
-            >
-              <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-highlight mb-1 sm:mb-2">
-                {stat.value}
-              </div>
-              <div className="text-text-secondary text-xs sm:text-sm">
-                {stat.label}
-              </div>
-            </m.div>
-          ))}
+          <div
+            className={cn(
+              "grid gap-4 sm:gap-6",
+              stats.length === 3
+                ? "grid-cols-1 sm:grid-cols-3 max-w-4xl mx-auto"
+                : "grid-cols-2 md:grid-cols-4"
+            )}
+          >
+            {stats.map((stat, idx) => (
+              <m.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="relative text-center p-5 sm:p-6 rounded-2xl bg-surface-elevated/80 border border-border hover:border-accent/20 transition-all duration-300 group"
+              >
+                {/* Subtle accent glow on hover */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative">
+                  <div className="text-2xl sm:text-3xl font-bold text-highlight mb-1.5 tracking-tight">
+                    {stat.value}
+                  </div>
+                  <div className="text-text-muted text-xs sm:text-sm leading-snug">
+                    {stat.label}
+                  </div>
+                </div>
+              </m.div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
     </LazyMotion>
   );
 }

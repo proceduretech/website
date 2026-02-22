@@ -372,7 +372,7 @@ export const industryPages: Record<string, IndustryPageData> = {
       headlineAccent: "Speed of Markets",
       tagline: "Sub-100ms. SOC 2 compliant. Production-ready.",
       description:
-        "Financial markets don't wait. Your AI systems shouldn't either. We build AI applications engineered for the demands of finance—real-time processing, bulletproof reliability, and the compliance posture your regulators expect. From trading signals to fraud detection, we ship production AI in days.",
+        "Financial markets don't wait. Your AI systems shouldn't either. We build AI applications engineered for the demands of finance: real-time processing, bulletproof reliability, and the compliance posture your regulators expect. From trading signals to fraud detection, we ship production AI in days.",
       stats: [
         { value: "$47M+", label: "fraud prevented for clients" },
         { value: "<50ms", label: "average inference latency" },
@@ -410,14 +410,14 @@ export const industryPages: Record<string, IndustryPageData> = {
         icon: "bolt",
         title: "Real-Time ML Infrastructure",
         description:
-          "We build inference pipelines optimized for latency—model serving, feature stores, and data pipelines that deliver predictions in milliseconds, not seconds.",
+          "We build inference pipelines optimized for latency: model serving, feature stores, and data pipelines that deliver predictions in milliseconds, not seconds.",
         featured: true,
       },
       {
         icon: "document",
         title: "Regulatory-Ready Architecture",
         description:
-          "Audit logs, model versioning, decision explainability—compliance requirements built into the architecture, not bolted on after.",
+          "Audit logs, model versioning, decision explainability. Compliance requirements built into the architecture, not bolted on after.",
       },
       {
         icon: "shield",
@@ -435,7 +435,7 @@ export const industryPages: Record<string, IndustryPageData> = {
         icon: "server",
         title: "Risk Analytics & Modeling",
         description:
-          "Portfolio risk, credit risk, market risk—AI models that quantify and predict risk in real-time, integrated with your existing risk infrastructure.",
+          "Portfolio risk, credit risk, market risk: AI models that quantify and predict risk in real-time, integrated with your existing risk infrastructure.",
       },
       {
         icon: "clipboard",
@@ -487,7 +487,7 @@ export const industryPages: Record<string, IndustryPageData> = {
       {
         question: "Can you build AI systems that meet regulatory requirements?",
         answer:
-          "Yes. We build with compliance in mind from the start—audit trails, model explainability, access controls, and documentation that satisfies regulators. We've shipped systems that passed SOC 2 audits and regulatory reviews.",
+          "Yes. We build with compliance in mind from the start: audit trails, model explainability, access controls, and documentation that satisfies regulators. We've shipped systems that passed SOC 2 audits and regulatory reviews.",
       },
       {
         question: "How do you achieve sub-100ms latency for AI inference?",
@@ -520,7 +520,7 @@ export const industryPages: Record<string, IndustryPageData> = {
       headlineAccent: "Puts Patients First",
       tagline: "HIPAA compliant. Clinically validated. Life-saving.",
       description:
-        "Healthcare AI isn't about flashy demos—it's about improving patient outcomes without creating new risks. We build AI systems that clinicians trust, patients benefit from, and compliance teams approve. HIPAA-compliant from architecture to deployment.",
+        "Healthcare AI isn't about flashy demos. It's about improving patient outcomes without creating new risks. We build AI systems that clinicians trust, patients benefit from, and compliance teams approve. HIPAA-compliant from architecture to deployment.",
       stats: [
         { value: "2hrs+", label: "saved per physician daily" },
         { value: "98.7%", label: "diagnostic accuracy achieved" },
@@ -558,7 +558,7 @@ export const industryPages: Record<string, IndustryPageData> = {
         icon: "document",
         title: "Clinical Documentation AI",
         description:
-          "Reduce physician documentation burden with AI that assists with notes, summaries, and EHR entry—without compromising accuracy or compliance.",
+          "Reduce physician documentation burden with AI that assists with notes, summaries, and EHR entry, without compromising accuracy or compliance.",
         featured: true,
       },
       {
@@ -636,7 +636,7 @@ export const industryPages: Record<string, IndustryPageData> = {
       {
         question: "Can AI be trusted for clinical decisions?",
         answer:
-          "With appropriate design, yes. We build AI as decision support, not replacement—providing evidence and recommendations while keeping clinicians in control. Transparency and explainability are core requirements.",
+          "With appropriate design, yes. We build AI as decision support, not replacement, providing evidence and recommendations while keeping clinicians in control. Transparency and explainability are core requirements.",
       },
       {
         question: "How do you handle integration with EHR systems?",
@@ -646,7 +646,7 @@ export const industryPages: Record<string, IndustryPageData> = {
       {
         question: "What about FDA approval for medical AI?",
         answer:
-          "For AI that makes clinical claims, FDA clearance may be required. We understand the regulatory landscape and can help you navigate the appropriate pathway—whether that's 510(k), De Novo, or designing to avoid regulatory scope.",
+          "For AI that makes clinical claims, FDA clearance may be required. We understand the regulatory landscape and can help you navigate the appropriate pathway: whether that's 510(k), De Novo, or designing to avoid regulatory scope.",
       },
     ],
   },
@@ -664,7 +664,7 @@ export const industryPages: Record<string, IndustryPageData> = {
       headlineAccent: "Transforms How We Learn",
       tagline: "Personalized. Accessible. Effective.",
       description:
-        "Every learner is different—but most educational software treats them the same. We build AI that adapts to individual learners, generates engaging content, and measures what actually matters: learning outcomes. Education technology that works for students, not just administrators.",
+        "Every learner is different, but most educational software treats them the same. We build AI that adapts to individual learners, generates engaging content, and measures what actually matters: learning outcomes. Education technology that works for students, not just administrators.",
       stats: [
         { value: "45%", label: "improvement in learning outcomes" },
         { value: "3x", label: "faster content creation" },
@@ -676,7 +676,7 @@ export const industryPages: Record<string, IndustryPageData> = {
         icon: "users",
         title: "One Size Doesn't Fit All",
         description:
-          "Traditional courseware delivers the same content to every student. But learners have different backgrounds, paces, and styles—AI should adapt to them.",
+          "Traditional courseware delivers the same content to every student. But learners have different backgrounds, paces, and styles. AI should adapt to them.",
       },
       {
         icon: "document",
@@ -715,13 +715,13 @@ export const industryPages: Record<string, IndustryPageData> = {
         icon: "lightbulb",
         title: "Intelligent Tutoring Systems",
         description:
-          "Build AI tutors that provide personalized guidance—Socratic questioning, worked examples, and feedback tailored to each learner.",
+          "Build AI tutors that provide personalized guidance: Socratic questioning, worked examples, and feedback tailored to each learner.",
       },
       {
         icon: "clipboard",
         title: "Automated Assessment & Feedback",
         description:
-          "Grade essays, evaluate code, and assess complex work with AI—providing rapid, consistent feedback that helps students improve.",
+          "Grade essays, evaluate code, and assess complex work with AI, providing rapid, consistent feedback that helps students improve.",
       },
       {
         icon: "chart",
@@ -764,7 +764,7 @@ export const industryPages: Record<string, IndustryPageData> = {
       "Learning science informed: We build on research about how people actually learn",
       "Accessibility commitment: Inclusive design from the start, not an afterthought",
       "Scale experience: We've built platforms serving millions of learners",
-      "Outcome focus: We measure what matters—learning gains, not just usage",
+      "Outcome focus: We measure what matters: learning gains, not just usage",
     ],
     cta: {
       headline: "Build Education AI That Works",
@@ -775,17 +775,17 @@ export const industryPages: Record<string, IndustryPageData> = {
       {
         question: "How does adaptive learning AI actually work?",
         answer:
-          "We model learner knowledge state based on their interactions—questions answered, time spent, patterns of errors. The AI uses this model to select optimal next content: easier material to reinforce foundations, or harder challenges when ready to advance.",
+          "We model learner knowledge state based on their interactions: questions answered, time spent, patterns of errors. The AI uses this model to select optimal next content: easier material to reinforce foundations, or harder challenges when ready to advance.",
       },
       {
         question: "Can AI really grade essays and complex work?",
         answer:
-          "For many assessment types, yes—with appropriate human oversight. AI can provide consistent initial evaluation and detailed feedback. We design rubrics and validation processes that maintain assessment quality.",
+          "For many assessment types, yes, with appropriate human oversight. AI can provide consistent initial evaluation and detailed feedback. We design rubrics and validation processes that maintain assessment quality.",
       },
       {
         question: "How do you ensure accessibility?",
         answer:
-          "Accessibility is a design requirement from day one—not a retrofit. We follow WCAG guidelines, test with assistive technology, and involve users with disabilities in our design process.",
+          "Accessibility is a design requirement from day one, not a retrofit. We follow WCAG guidelines, test with assistive technology, and involve users with disabilities in our design process.",
       },
       {
         question: "What about student data privacy (FERPA/COPPA)?",
@@ -808,7 +808,7 @@ export const industryPages: Record<string, IndustryPageData> = {
       headlineAccent: "Customers Actually Want",
       tagline: "Smart features. Faster development. Competitive edge.",
       description:
-        "Your competitors are adding AI. Your customers are expecting it. We help SaaS companies ship AI features fast—intelligent automation, smart search, AI copilots—without derailing your product roadmap or blowing your infrastructure budget.",
+        "Your competitors are adding AI. Your customers are expecting it. We help SaaS companies ship AI features fast: intelligent automation, smart search, AI copilots, without derailing your product roadmap or blowing your infrastructure budget.",
       stats: [
         { value: "12 weeks", label: "from concept to production" },
         { value: "40%", label: "feature adoption driven by AI" },
@@ -915,7 +915,7 @@ export const industryPages: Record<string, IndustryPageData> = {
       "Full-stack capability: From infrastructure to UI, we build complete features",
     ],
     cta: {
-      headline: "Add AI to Your Product—Fast",
+      headline: "Add AI to Your Product, Fast",
       description:
         "Talk to our product AI team. We'll help you identify high-impact AI features and ship them without derailing your roadmap.",
     },
@@ -928,7 +928,7 @@ export const industryPages: Record<string, IndustryPageData> = {
       {
         question: "Can you work with our existing engineering team?",
         answer:
-          "Yes—that's our model. We embed with your team, work in your codebase, and transfer knowledge as we build. You're not outsourcing; you're augmenting.",
+          "Yes. That's our model. We embed with your team, work in your codebase, and transfer knowledge as we build. You're not outsourcing; you're augmenting.",
       },
       {
         question: "How long until we have an AI feature in production?",
@@ -938,7 +938,7 @@ export const industryPages: Record<string, IndustryPageData> = {
       {
         question: "What about AI reliability for paying customers?",
         answer:
-          "We implement extensive testing, output validation, and fallback mechanisms. AI features need to be as reliable as the rest of your product—we engineer for that standard.",
+          "We implement extensive testing, output validation, and fallback mechanisms. AI features need to be as reliable as the rest of your product. We engineer for that standard.",
       },
     ],
   },

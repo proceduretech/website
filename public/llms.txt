@@ -1,85 +1,128 @@
 # Procedure
 
-> AI Engineering & Product Development Company
+> AI-native software engineering studio. Senior engineers embedded with your team within 2-5 days. We build, not advise.
 
-Procedure is an AI engineering company that builds production-ready AI products and systems. We specialize in LLM applications, AI agents, and secure AI infrastructure for startups, scale-ups, and enterprises.
+Procedure is a B2B software engineering consultancy founded in 2017, headquartered in Mumbai (India) with a presence in San Francisco (US). We specialize in AI engineering, full-stack product development, and cloud infrastructure for enterprise and growth-stage companies.
 
-## Services
+Our clients include Setu (API infrastructure), Pine Labs (payments), KredX (fintech), Treebo (hospitality), and Last9 (observability). We've shipped 100+ products to production across fintech, healthcare, education, and SaaS.
 
-### By Engagement Model
-- **Forward-Deployed AI Teams**: Senior engineers embedded with your team, building AI-powered products
-- **AI Sprints**: Rapid 3-5 day engagements to prototype, validate, or ship AI features
-- **Full Product Build**: End-to-end AI product development from concept to production launch
-- **Staff Augmentation**: Scale your AI and engineering team with senior talent on demand
+What sets us apart: we embed senior engineers directly into client teams. Same Slack channels, same standups, same codebase. Not consultants who hand over slide decks - engineers who ship production code and own outcomes.
 
-### By Company Stage
-- **Startups**: Ship your AI-powered MVP or launch-ready product with velocity
-- **Scale-ups**: Scale your engineering team and AI capabilities as you grow
-- **Enterprise**: Enterprise-grade AI solutions with security and compliance built in
+## Core Capabilities
 
-## Expertise
+**AI & Machine Learning**
+- LLM application development (RAG, fine-tuning, prompt engineering)
+- AI agent architecture and orchestration
+- AI security (prompt injection defense, data leakage prevention)
+- MLOps and model deployment infrastructure
 
-### AI & Machine Learning
-- **LLM Applications**: ChatGPT, Claude, and open-source LLM integrations. RAG, fine-tuning, and prompt engineering
-- **AI Agents & Automation**: Autonomous agents, workflow automation, and AI-powered business processes
-- **AI Security**: Guard against prompt injection, jailbreaks, and adversarial attacks
-- **AI Privacy**: Prevent data leakage and ensure compliance
+**Product Engineering**
+- Frontend: React, Next.js, Angular, TypeScript
+- Backend: Node.js, Python, .NET, Go
+- Mobile: React Native, iOS, Android
+- APIs: REST, GraphQL, real-time systems
 
-### Product Engineering
-- **Frontend Development**: React, Next.js, Vue, and modern web applications
-- **Backend Development**: Node.js, Python, Go, and cloud-native architectures
-- **Mobile Development**: Native iOS, Android, and cross-platform React Native apps
-- **QA & Test Engineering**: Automated testing, CI/CD integration, and quality assurance
+**Cloud & Infrastructure**
+- Cloud architecture: AWS, GCP, Azure
+- Kubernetes and container orchestration
+- CI/CD pipelines, DevOps automation
+- GPU optimization for AI workloads
 
-### Cloud & DevOps
-- **Cloud Architecture**: AWS, GCP, Azure. Scalable and cost-optimized infrastructure
-- **Kubernetes**: Container orchestration and cloud-native deployments
-
-### Design
-- **Product Design**: Human-centered UX for AI-powered products
-- **Design Systems**: Scalable component libraries and design tokens
-
-## Industries
-
-- **Financial Services**: AI for trading, risk analysis, fraud detection, and regulatory compliance
-- **Healthcare**: HIPAA-compliant AI for diagnostics and clinical workflows
-- **Education**: AI-powered learning platforms, content generation, and adaptive education
-- **SaaS & Technology**: AI features and infrastructure for software companies
-
-## Use Cases
-
-- **AI-Powered Search**: Semantic search, recommendations, and intelligent discovery
-- **Document Intelligence**: Extract, classify, and analyze documents at scale
-- **Conversational AI**: Chatbots, voice assistants, and customer service automation
-
-## Compliance
-
-- SOC 2 Type II
-- HIPAA compliant
-- GDPR ready
-- AI governance frameworks
-
-## Programs
-
-- **AI Upskill**: 12-week AI engineering bootcamp transforming developers into AI engineers
-- **Rubber Duck**: 8-week intensive cohort for fresh graduates to become industry-ready engineers
+**Design & Experience**
+- Product design and UX research
+- Design systems and component libraries
+- AI-native interface patterns
 
 ## Key Pages
 
-- /: Homepage
-- /about: About Procedure - our team and mission
-- /approach: How we work differently - forward-deployed, production-first
-- /why-us: Why choose Procedure
-- /culture: Our values and team culture
-- /careers: Join our team
-- /contact: Get in touch
-- /blog: Engineering blog with technical deep-dives on AI, LLMs, and production systems
-- /case-studies: Client success stories
-- /ai-safety: Our commitment to responsible AI development
-- /ai-upskill: AI engineering bootcamp program
-- /rubber-duck: Graduate engineering program
-- /events: Meetups, workshops, and conferences
+### Homepage
+- https://procedure.tech/ - Main landing page with service overview, client logos, testimonials, and engagement process
+
+### AI & ML Services
+- https://procedure.tech/services/ai-engineering - End-to-end AI development: LLM apps, RAG systems, fine-tuning, and production ML pipelines
+- https://procedure.tech/services/ai-agents - Custom AI agent development for automation, workflows, and autonomous task execution
+- https://procedure.tech/services/ai-sprints - 2-4 week rapid prototyping sprints to validate AI use cases before full investment
+
+### Engineering Services
+- https://procedure.tech/services/frontend-development - React, Next.js, Angular, and TypeScript development for web applications
+- https://procedure.tech/services/backend-development - Scalable backend systems with Node.js, Python, .NET, and cloud-native architecture
+- https://procedure.tech/services/mobile-development - Cross-platform mobile apps with React Native, plus native iOS and Android
+- https://procedure.tech/services/software-testing-and-qa - QA strategy, test automation, and quality assurance for production systems
+- https://procedure.tech/services/product-build - Full product development from concept to launch, including design, engineering, and deployment
+- https://procedure.tech/services/dotnet-development - .NET and C# development for enterprise applications and legacy modernization
+
+### Cloud & DevOps Services
+- https://procedure.tech/services/cloud - Cloud architecture, migration, and optimization across AWS, GCP, and Azure
+- https://procedure.tech/services/kubernetes - Kubernetes deployment, cluster management, and container orchestration
+- https://procedure.tech/services/enterprise - Enterprise-grade solutions with security, compliance, and scale requirements
+
+### Design Services
+- https://procedure.tech/services/product-design - UX research, UI design, and product strategy for digital products
+- https://procedure.tech/services/design-systems - Scalable design systems and component libraries for consistent product experiences
+
+### Engagement Models
+- https://procedure.tech/services/staff-augmentation - Senior engineers integrated into your existing team, reporting to your leadership
+- https://procedure.tech/services/forward-deployed - On-site engineering teams embedded at client locations for high-touch engagements
+- https://procedure.tech/services/startups - Flexible partnerships for early-stage companies building their first products
+- https://procedure.tech/services/scale-ups - Engineering capacity for growth-stage companies scaling existing products
+
+### Technology Expertise
+- https://procedure.tech/technologies/react - React 19 development with Server Components, hooks architecture, and performance optimization
+- https://procedure.tech/technologies/nextjs - Next.js 15 development with App Router, SSR/SSG, and full-stack capabilities
+- https://procedure.tech/technologies/nodejs - Node.js backend development for APIs, microservices, and real-time applications
+- https://procedure.tech/technologies/python - Python development for AI/ML, data engineering, backend APIs, and automation
+- https://procedure.tech/technologies/angular - Angular enterprise applications with TypeScript and scalable architecture
+- https://procedure.tech/technologies/dotnet - .NET 8 development for enterprise systems, APIs, and cloud-native applications
+- https://procedure.tech/technologies/dotnet/modernization - Legacy .NET Framework to .NET 8 migration and modernization services
+- https://procedure.tech/technologies/dotnet/staff-augmentation - Dedicated .NET developers integrated into your team
+
+### Industries
+- https://procedure.tech/industries/financial-services - Fintech, banking, and payments technology with compliance and security focus
+- https://procedure.tech/industries/healthcare - Healthcare technology, HIPAA-compliant systems, and clinical workflow automation
+- https://procedure.tech/industries/education - EdTech platforms, learning management systems, and educational content delivery
+- https://procedure.tech/industries/saas - SaaS product development, multi-tenant architecture, and subscription platforms
+
+### AI Use Cases
+- https://procedure.tech/use-cases/ai-search - AI-powered semantic search, knowledge retrieval, and enterprise search solutions
+- https://procedure.tech/use-cases/conversational-ai - Chatbots, voice assistants, and conversational interfaces powered by LLMs
+- https://procedure.tech/use-cases/document-ai - Intelligent document processing, extraction, and automated workflows
+
+### Company
+- https://procedure.tech/about-us - Our story, team, values, and what makes Procedure different
+- https://procedure.tech/work - Case studies showcasing delivered projects across industries and technologies
+- https://procedure.tech/careers - Open engineering and design positions, hiring process, and benefits
+- https://procedure.tech/contact-us - Get in touch for project inquiries, partnerships, or general questions
+- https://procedure.tech/blogs - Technical blog with engineering insights, AI tutorials, and industry perspectives
+- https://procedure.tech/events - Tech meetups, workshops, and community events hosted by Procedure
+- https://procedure.tech/culture - Our engineering culture, values, and how we work
+- https://procedure.tech/ai-safety - Our commitment to responsible AI development and safety practices
 
 ## Contact
 
-Website: https://procedure.tech
+- Website: https://procedure.tech
+- Email: hello@procedure.tech
+- San Francisco, USA (serving US and EU clients)
+- Mumbai, India (engineering headquarters)
+
+## Trust Signals
+
+- Glassdoor rating: 4.9/5
+- Certified Great Place to Work (Dec 2025 - Dec 2026, India)
+- 100+ products shipped to production
+- 98% client retention rate
+- 3+ years average client partnership duration
+- Clients: Setu, ESPN, Pine Labs, KredX, Treebo, Timely, Last9, Turtlemint
+
+## Engagement Models
+
+1. **Team Augmentation** - Senior engineers join your team full-time, adopt your tools and workflows, report to your engineering leadership. Best for: teams scaling for growth or critical initiatives.
+
+2. **Managed Delivery** - We own end-to-end delivery of a defined scope, from architecture to deployment. Weekly demos, transparent reporting, dedicated delivery lead. Best for: new product launches or strategic features.
+
+3. **AI Transformation** - Strategic partnership for enterprise AI adoption, from opportunity assessment through production deployment and team enablement. Best for: organizations building enterprise-wide AI capabilities.
+
+## Optional
+
+- Blog RSS: https://procedure.tech/rss.xml
+- Sitemap: https://procedure.tech/sitemap.xml
+- robots.txt: https://procedure.tech/robots.txt

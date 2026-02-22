@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 
@@ -46,7 +46,7 @@ export function ProcessTimeline({
     <section className="py-16 sm:py-24 bg-surface">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -61,10 +61,10 @@ export function ProcessTimeline({
               {subtitle}
             </p>
           )}
-        </motion.div>
+        </m.div>
 
         {/* Timeline */}
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -77,7 +77,7 @@ export function ProcessTimeline({
           {/* Steps */}
           <div className="space-y-6">
             {steps.map((step, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 variants={stepVariants}
                 className="relative"
@@ -144,10 +144,10 @@ export function ProcessTimeline({
                     </svg>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

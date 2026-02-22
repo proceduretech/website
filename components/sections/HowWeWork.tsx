@@ -8,7 +8,7 @@ const processSteps = [
     step: "01",
     title: "Discovery & Alignment",
     description:
-      "A focused conversation with our technical leadership to understand your objectives, architecture constraints, and success criteria. You receive an honest assessment—not a sales pitch.",
+      "A focused conversation with our technical leadership to understand your objectives, architecture constraints, and success criteria. You receive an honest assessment, not a sales pitch.",
     duration: "30 min",
   },
   {
@@ -29,14 +29,14 @@ const processSteps = [
     step: "04",
     title: "Seamless Integration",
     description:
-      "Your dedicated engineers integrate directly with your team—participating in standups, adopting your tools, and aligning with your workflows. They operate as true extensions of your engineering organization.",
+      "Your dedicated engineers integrate directly with your team: participating in standups, adopting your tools, and aligning with your workflows. They operate as true extensions of your engineering organization.",
     duration: "Ongoing",
   },
   {
     step: "05",
     title: "Deliver & Evolve",
     description:
-      "Your team ships production-ready code with comprehensive documentation and knowledge transfer. As your requirements evolve, we scale capacity up or down—no long-term lock-ins.",
+      "Your team ships production-ready code with comprehensive documentation and knowledge transfer. As your requirements evolve, we scale capacity up or down. No long-term lock-ins.",
     duration: "Continuous",
   },
 ];
@@ -69,13 +69,13 @@ export function HowWeWork() {
           <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-3 sm:mb-4">
             Our Process
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary mb-4 sm:mb-6 tracking-tight">
-            From first call to{" "}
-            <span className="text-highlight">production-ready code</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary mb-6 sm:mb-8 tracking-tight">
+            From First Call to{" "}
+            <span className="text-highlight">Production-Ready Code</span>
           </h2>
           <p className="text-text-secondary max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
             A proven engagement process built for enterprise velocity. Your team
-            gains senior engineering capacity within days—not weeks.
+            gains senior engineering capacity within days, not weeks.
           </p>
         </m.div>
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ClientLogos } from "@/components/sections/ClientLogos";
@@ -63,7 +63,7 @@ const values = [
     ),
     title: "Embedded Partnership",
     description:
-      "We don't believe in the agency model where contractors disappear after handoff. Our engineers become true extensions of your team—attending your standups, understanding your codebase, and caring about your outcomes. Our certified best workplace culture means you get engaged, fulfilled engineers who stay for the long term.",
+      "We don't believe in the agency model where contractors disappear after handoff. Our engineers become true extensions of your team, attending your standups, understanding your codebase, and caring about your outcomes. Our certified best workplace culture means you get engaged, fulfilled engineers who stay for the long term.",
   },
   {
     icon: (
@@ -108,7 +108,7 @@ const values = [
     ),
     title: "Honest Conversations",
     description:
-      "No black boxes. No vague timelines. No surprise invoices. We keep it real because feedback isn't about being right—it's about making things better together. Respect and candor travel in both directions.",
+      "No black boxes. No vague timelines. No surprise invoices. We keep it real because feedback isn't about being right. It's about making things better together. Respect and candor travel in both directions.",
   },
 ];
 
@@ -136,7 +136,7 @@ const milestones = [
     year: "2024",
     title: "AI Engineering Focus",
     description:
-      "Deepened investment in AI engineering, AI security, and MLOps. Now shipping AI systems that reach production.",
+      "Deepened investment in AI engineering and MLOps. Now shipping AI systems that reach production.",
   },
   {
     year: "2025",
@@ -183,6 +183,7 @@ const certifications = [
 
 export default function AboutPage() {
   return (
+    <LazyMotion features={domAnimation}>
     <main className="relative min-h-screen bg-base overflow-hidden">
       {/* ============================================
           HERO SECTION
@@ -198,20 +199,20 @@ export default function AboutPage() {
             </h1>
 
             {/* Subheadline */}
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-lg sm:text-xl text-text-secondary leading-relaxed mb-10 max-w-2xl mx-auto"
             >
               We are forward-deployed engineers, designers, and thinkers who
-              stay close to the problem—not tucked behind layers of process.
+              stay close to the problem, not tucked behind layers of process.
               From idea to deploy, we move with intent, learn in the open, and
               keep the &quot;why&quot; visible.
-            </motion.p>
+            </m.p>
 
             {/* Stats row */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -231,7 +232,7 @@ export default function AboutPage() {
                   </div>
                 </div>
               ))}
-            </motion.div>
+            </m.div>
 
             {/* Client Logos */}
             <div className="mt-16">
@@ -247,7 +248,7 @@ export default function AboutPage() {
       <section className="relative py-16 sm:py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* Mission Statement */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -266,22 +267,23 @@ export default function AboutPage() {
               work better, and that hasn&apos;t changed. Today, we&apos;re
               applying our engineering rigor to AI-powered systems, enterprise
               applications, and complex technical challenges. We still
-              experiment, break, fix, and ship together—because that&apos;s how
+              experiment, break, fix, and ship together, because that&apos;s how
               real products and real teams grow.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Values Grid - Bento Style */}
           <div className="grid md:grid-cols-2 gap-6">
             {values.map((value, idx) => (
-              <motion.div
+              <m.div
                 key={value.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="h-full"
               >
-                <div className="p-8 rounded-2xl bg-surface-elevated border border-border hover:border-accent/30 transition-colors">
+                <div className="h-full p-8 rounded-2xl bg-surface-elevated border border-border hover:border-accent/30 transition-colors">
                   <div className="w-12 h-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent-light mb-5">
                     {value.icon}
                   </div>
@@ -292,7 +294,7 @@ export default function AboutPage() {
                     {value.description}
                   </p>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -303,7 +305,7 @@ export default function AboutPage() {
           ============================================ */}
       <section className="relative py-16 sm:py-24 bg-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -313,20 +315,20 @@ export default function AboutPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Leadership
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
               Choosing a mentor is more important than choosing a company
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto">
               Our founders have more than a decade of experience in their
-              respective fields. They lead by mentoring, not managing—helping
+              respective fields. They lead by mentoring, not managing, helping
               engineers and clients alike grow through real collaboration.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Team Grid */}
           <div className="grid sm:grid-cols-2 gap-6 lg:gap-8 max-w-3xl mx-auto">
             {leadership.map((member, idx) => (
-              <motion.div
+              <m.div
                 key={member.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -375,7 +377,7 @@ export default function AboutPage() {
                     </a>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -386,7 +388,7 @@ export default function AboutPage() {
           ============================================ */}
       <section className="relative py-16 sm:py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -399,7 +401,7 @@ export default function AboutPage() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">
               From product engineering to AI-powered solutions
             </h2>
-          </motion.div>
+          </m.div>
 
           {/* Timeline */}
           <div className="relative">
@@ -408,7 +410,7 @@ export default function AboutPage() {
 
             <div className="space-y-8 md:space-y-0">
               {milestones.map((milestone, idx) => (
-                <motion.div
+                <m.div
                   key={milestone.year}
                   initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -442,7 +444,7 @@ export default function AboutPage() {
 
                   {/* Empty space for the other side */}
                   <div className="hidden md:block md:w-1/2" />
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -454,7 +456,7 @@ export default function AboutPage() {
           ============================================ */}
       <section className="relative py-16 sm:py-24 bg-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -464,19 +466,19 @@ export default function AboutPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Why Procedure
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
               The numbers speak for themselves
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto">
               We&apos;ve built our reputation on delivering results, not
               promises.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Differentiators Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {differentiators.map((diff, idx) => (
-              <motion.div
+              <m.div
                 key={diff.label}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -499,7 +501,7 @@ export default function AboutPage() {
                     {diff.description}
                   </p>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -511,7 +513,7 @@ export default function AboutPage() {
       <section className="relative py-16 sm:py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* Certifications */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -521,7 +523,7 @@ export default function AboutPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Trust & Compliance
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-16">
               Enterprise-grade security you can trust
             </h2>
 
@@ -554,7 +556,7 @@ export default function AboutPage() {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -563,7 +565,7 @@ export default function AboutPage() {
           ============================================ */}
       <section className="relative py-16 sm:py-24 bg-base">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -578,7 +580,7 @@ export default function AboutPage() {
               Whether you&apos;re launching your first AI initiative, scaling an
               existing product, or trying to rescue a stalled project, we&apos;d
               love to hear about your challenges. Our team will give you an
-              honest assessment—even if the answer is that you don&apos;t need
+              honest assessment, even if the answer is that you don&apos;t need
               us yet.
             </p>
 
@@ -641,9 +643,10 @@ export default function AboutPage() {
                 NDA Available
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </main>
+    </LazyMotion>
   );
 }

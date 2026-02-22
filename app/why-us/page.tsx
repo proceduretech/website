@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { PageHero } from "@/components/ui";
@@ -12,7 +12,7 @@ const differentiators = [
     headline: "AI Engineering Excellence",
     title: "Production AI, Not POCs",
     description:
-      "Every Procedure engineer ships production AI systems. We do not deliver proof-of-concepts that need to be rebuilt. From LLM applications to AI agents, your systems are enterprise-ready from day one—secure, scalable, and production-grade.",
+      "Every Procedure engineer ships production AI systems. We do not deliver proof-of-concepts that need to be rebuilt. From LLM applications to AI agents, your systems are enterprise-ready from day one: secure, scalable, and production-grade.",
     stats: { value: "100+", label: "Products shipped to production" },
     accentColor: "teal" as const,
   },
@@ -30,9 +30,9 @@ const differentiators = [
     id: "security",
     number: "03",
     headline: "Security Built In",
-    title: "AI Security From Day One",
+    title: "Security From Day One",
     description:
-      "Your AI systems are protected from the start. Prompt injection defense, data leakage prevention, and AI-specific security measures are built into every system we deliver. No security theater—real protection for production AI.",
+      "Your systems are protected from the start. Data leakage prevention, access controls, and security measures are built into every system we deliver. No security theater. Real protection for production software.",
     stats: { value: "100%", label: "Security review pass rate" },
     accentColor: "teal" as const,
   },
@@ -66,7 +66,7 @@ const comparisonData = {
       "3-6 month discovery phases",
       "Junior developers learning AI on your dime",
       "Strategy decks and POCs that never ship",
-      "No AI security considerations",
+      "No security considerations",
       "Prototypes that need complete rebuilds",
       "Ongoing dependency on vendor",
     ],
@@ -78,7 +78,7 @@ const comparisonData = {
       "AI engineers deployed in 2-5 days",
       "Senior engineers from a certified best workplace",
       "Production AI from week one",
-      "AI security built in from day one",
+      "Security built in from day one",
       "Production-grade from first commit",
       "Full knowledge transfer, no lock-in",
     ],
@@ -138,7 +138,7 @@ function DifferentiatorCard({
   const isBlue = data.accentColor === "blue";
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -193,18 +193,19 @@ function DifferentiatorCard({
           </span>
         </div>
       </div>
-    </motion.div>
+    </m.div>
   );
 }
 
 export default function WhyUsPage() {
   return (
+    <LazyMotion features={domAnimation}>
     <main className="min-h-screen">
       {/* Hero Section */}
       <PageHero
         headline="AI That Ships."
         headlineAccent="Not Slide Decks."
-        description="Most AI consultancies deliver strategy documents and proof-of-concepts that never reach production. Procedure delivers senior engineers who embed with your team to ship production AI—LLM applications, AI agents, and secure AI systems—in days, not months."
+        description="Most AI consultancies deliver strategy documents and proof-of-concepts that never reach production. Procedure delivers senior engineers who embed with your team to ship production AI, including LLM applications, AI agents, and secure AI systems, in days, not months."
         primaryCTA={{ text: "Start Your AI Project", href: "/contact-us" }}
         secondaryCTA={{ text: "See AI Case Studies", href: "/work" }}
       />
@@ -220,7 +221,7 @@ export default function WhyUsPage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           {/* Section Header */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -230,7 +231,7 @@ export default function WhyUsPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Why Choose Procedure
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-6 tracking-tight">
               Five reasons teams choose{" "}
               <span className="text-highlight">Procedure for AI</span>
             </h2>
@@ -239,7 +240,7 @@ export default function WhyUsPage() {
               experienced as engineering leaders. Here is what makes us
               different.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Differentiators Grid - First Row (3 cards) */}
           <div className="grid md:grid-cols-3 gap-6 mb-6">
@@ -268,7 +269,7 @@ export default function WhyUsPage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           {/* Section Header */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -278,19 +279,19 @@ export default function WhyUsPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               The Comparison
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
               This is not your typical consultancy
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto">
               We have experienced the frustrations of working with traditional
               consultancies. We built Procedure to be different.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Comparison Grid */}
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
             {/* Traditional Side */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -326,7 +327,7 @@ export default function WhyUsPage() {
 
                 <ul className="space-y-4">
                   {comparisonData.traditional.items.map((item, idx) => (
-                    <motion.li
+                    <m.li
                       key={item}
                       initial={{ opacity: 0, x: -10 }}
                       whileInView={{ opacity: 1, x: 0 }}
@@ -350,14 +351,14 @@ export default function WhyUsPage() {
                         </svg>
                       </div>
                       <span className="text-text-muted text-sm">{item}</span>
-                    </motion.li>
+                    </m.li>
                   ))}
                 </ul>
               </div>
-            </motion.div>
+            </m.div>
 
             {/* Procedure Side */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -395,7 +396,7 @@ export default function WhyUsPage() {
 
                 <ul className="space-y-4">
                   {comparisonData.procedure.items.map((item, idx) => (
-                    <motion.li
+                    <m.li
                       key={item}
                       initial={{ opacity: 0, x: 10 }}
                       whileInView={{ opacity: 1, x: 0 }}
@@ -421,12 +422,12 @@ export default function WhyUsPage() {
                       <span className="text-text-primary text-sm font-medium">
                         {item}
                       </span>
-                    </motion.li>
+                    </m.li>
                   ))}
                 </ul>
 
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -441,7 +442,7 @@ export default function WhyUsPage() {
         />
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -451,20 +452,20 @@ export default function WhyUsPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Our Process
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
               From first call to{" "}
               <span className="text-highlight">production AI</span>
             </h2>
             <p className="text-text-secondary max-w-xl mx-auto">
               A proven process designed to ship AI fast.
             </p>
-          </motion.div>
+          </m.div>
 
           <div className="relative">
             {/* Connection Line - Desktop */}
             <div className="hidden lg:block absolute top-[32px] left-[12%] right-[12%] h-[2px]">
               <div className="absolute inset-0 bg-border/50" />
-              <motion.div
+              <m.div
                 className="absolute inset-0 bg-cta"
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
@@ -476,7 +477,7 @@ export default function WhyUsPage() {
 
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
               {processSteps.map((step, idx) => (
-                <motion.div
+                <m.div
                   key={step.step}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -499,7 +500,7 @@ export default function WhyUsPage() {
                   <p className="text-sm text-text-secondary">
                     {step.description}
                   </p>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -517,7 +518,7 @@ export default function WhyUsPage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           {/* Stats Row */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -525,7 +526,7 @@ export default function WhyUsPage() {
             className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16"
           >
             {socialProofStats.map((stat, idx) => (
-              <motion.div
+              <m.div
                 key={stat.label}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -537,12 +538,12 @@ export default function WhyUsPage() {
                   {stat.value}
                 </div>
                 <div className="text-sm text-text-secondary">{stat.label}</div>
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
+          </m.div>
 
           {/* Featured Testimonial */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -582,9 +583,9 @@ export default function WhyUsPage() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -610,7 +611,7 @@ export default function WhyUsPage() {
                 />
               </svg>
             </Link>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -627,7 +628,7 @@ export default function WhyUsPage() {
         />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -720,9 +721,10 @@ export default function WhyUsPage() {
                 30 min call
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </main>
+    </LazyMotion>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -111,7 +111,7 @@ const involvementOptions = [
     ),
     title: "Support the Community",
     description:
-      "Help us keep events free and accessible. Whether it's food, swag, or venue support—your sponsorship directly fuels the community we're building together.",
+      "Help us keep events free and accessible. Whether it's food, swag, or venue support, your sponsorship directly fuels the community we're building together.",
     cta: "Become a sponsor",
     ctaIcon: (
       <svg
@@ -147,7 +147,7 @@ const involvementOptions = [
     ),
     title: "Open Your Doors",
     description:
-      "Have a space that can fit curious minds? We're always looking for venue partners—in Mumbai and beyond. Let's bring the community to your neighborhood.",
+      "Have a space that can fit curious minds? We're always looking for venue partners in Mumbai and beyond. Let's bring the community to your neighborhood.",
     cta: "Offer your space",
     ctaIcon: (
       <svg
@@ -183,6 +183,7 @@ export default function EventsPage() {
   };
 
   return (
+    <LazyMotion features={domAnimation}>
     <main className="relative min-h-screen bg-base overflow-hidden">
       {/* ============================================
           HERO SECTION
@@ -196,7 +197,7 @@ export default function EventsPage() {
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center">
 {/* Headline */}
-            <motion.h1
+            <m.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -205,10 +206,10 @@ export default function EventsPage() {
               Building Community,
               <br />
               <span className="text-highlight">One Meetup at a Time</span>
-            </motion.h1>
+            </m.h1>
 
             {/* Subheadline */}
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -216,13 +217,13 @@ export default function EventsPage() {
             >
               At Procedure, we believe the best ideas emerge when curious people
               come together. That&apos;s why we host free events, workshops, and
-              meetups—creating spaces where engineers, designers, and founders
+              meetups, creating spaces where engineers, designers, and founders
               can learn from each other, share what they&apos;re building, and
               form genuine connections.
-            </motion.p>
+            </m.p>
 
             {/* Quick Stats */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -234,7 +235,7 @@ export default function EventsPage() {
                 { value: "Free", label: "Always Free" },
                 { value: "1+", label: "Cities (Growing)" },
               ].map((stat, idx) => (
-                <motion.div
+                <m.div
                   key={stat.label}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -247,12 +248,12 @@ export default function EventsPage() {
                   <div className="text-xs sm:text-sm text-text-secondary mt-1">
                     {stat.label}
                   </div>
-                </motion.div>
+                </m.div>
               ))}
-            </motion.div>
+            </m.div>
 
             {/* CTAs */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
@@ -296,7 +297,7 @@ export default function EventsPage() {
                   />
                 </svg>
               </a>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -306,7 +307,7 @@ export default function EventsPage() {
           ============================================ */}
       <section id="upcoming" className="relative py-16 sm:py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -316,20 +317,20 @@ export default function EventsPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Flagship Meetup
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
               Mumbai Meets AI - Edition 4
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto">
-              Mumbai Meets AI is our flagship community initiative—a free,
+              Mumbai Meets AI is our flagship community initiative: a free,
               monthly meetup that brings together AI practitioners, engineers,
               and builders. No sales pitches, no corporate speak. Just real
               conversations about what&apos;s working, what&apos;s not, and
               what&apos;s next.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Upcoming Event Card - February 2026 */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -513,7 +514,7 @@ export default function EventsPage() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -522,7 +523,7 @@ export default function EventsPage() {
           ============================================ */}
       <section className="relative py-16 sm:py-24 bg-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -532,21 +533,21 @@ export default function EventsPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Event Archive
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
               Where We&apos;ve Been
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto">
               Every event teaches us something new about building community.
               Here&apos;s a look back at the gatherings that brought us
-              together—and the conversations that continue to shape what we do
+              together, and the conversations that continue to shape what we do
               next.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Past Events Grid */}
           <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
             {pastEvents.map((event, idx) => (
-              <motion.div
+              <m.div
                 key={event.edition}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -697,12 +698,12 @@ export default function EventsPage() {
                     </a>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
 
           {/* Growth indicator */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -748,7 +749,7 @@ export default function EventsPage() {
                   )}
                 </div>
               ))}
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -779,7 +780,7 @@ export default function EventsPage() {
         </div>
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -789,11 +790,11 @@ export default function EventsPage() {
             <h2 className="text-xl sm:text-2xl font-bold text-text-primary">
               Community Impact
             </h2>
-          </motion.div>
+          </m.div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
             {stats.map((stat, idx) => (
-              <motion.div
+              <m.div
                 key={stat.label}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -807,7 +808,7 @@ export default function EventsPage() {
                 <div className="text-text-secondary text-xs sm:text-sm">
                   {stat.label}
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -818,7 +819,7 @@ export default function EventsPage() {
           ============================================ */}
       <section className="relative py-16 sm:py-24 bg-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -828,7 +829,7 @@ export default function EventsPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Our Philosophy
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
               Why We Show Up
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto">
@@ -836,7 +837,7 @@ export default function EventsPage() {
               open-source contributors, and strangers at meetups who took the
               time to explain things. Hosting events is how we pay that forward.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Philosophy Cards */}
           <div className="grid sm:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
@@ -844,7 +845,7 @@ export default function EventsPage() {
               {
                 title: "Everyone Has Something to Teach",
                 description:
-                  "Whether you've shipped ten products or you're just getting started, your perspective matters. Our events create space for all voices—not just the loudest ones in the room.",
+                  "Whether you've shipped ten products or you're just getting started, your perspective matters. Our events create space for all voices, not just the loudest ones in the room.",
               },
               {
                 title: "Learning is Better Together",
@@ -854,7 +855,7 @@ export default function EventsPage() {
               {
                 title: "Free Means Accessible",
                 description:
-                  "We keep our events free because knowledge shouldn't have a price tag. No paywalls, no gatekeeping—just show up with curiosity.",
+                  "We keep our events free because knowledge shouldn't have a price tag. No paywalls, no gatekeeping. Just show up with curiosity.",
               },
               {
                 title: "Community Over Competition",
@@ -862,7 +863,7 @@ export default function EventsPage() {
                   "We're not here to collect leads or push services. We're here because strong communities make everyone better at what they do.",
               },
             ].map((item, idx) => (
-              <motion.div
+              <m.div
                 key={item.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -877,7 +878,7 @@ export default function EventsPage() {
                     {item.description}
                   </p>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -888,7 +889,7 @@ export default function EventsPage() {
           ============================================ */}
       <section id="notify" className="relative py-16 sm:py-24 bg-surface">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -926,7 +927,7 @@ export default function EventsPage() {
               </div>
 
               <div className="relative text-center">
-                <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-4">
+                <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-6">
                   Stay in the Loop
                 </h2>
                 <p className="text-text-secondary mb-8 max-w-xl mx-auto">
@@ -981,7 +982,7 @@ export default function EventsPage() {
                 </p>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -990,7 +991,7 @@ export default function EventsPage() {
           ============================================ */}
       <section className="relative py-16 sm:py-24 bg-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -1000,21 +1001,21 @@ export default function EventsPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Join Us
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">
               There&apos;s a Place for You Here
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto">
               Our community grows stronger with every new voice. Whether you
               want to share your expertise, support what we&apos;re building, or
-              simply show up and be part of the conversation—you&apos;re welcome
+              simply show up and be part of the conversation. You&apos;re welcome
               here.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Involvement Cards */}
           <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
             {involvementOptions.map((option, idx) => (
-              <motion.div
+              <m.div
                 key={option.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -1039,7 +1040,7 @@ export default function EventsPage() {
                     {option.ctaIcon}
                   </Link>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -1055,7 +1056,7 @@ export default function EventsPage() {
         </div>
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -1069,7 +1070,7 @@ export default function EventsPage() {
             <p className="text-lg text-text-secondary mb-10 max-w-2xl mx-auto">
               We&apos;re just getting started. New cities, new formats, new ways
               to bring builders together. Whether you join us at the next meetup
-              or connect with us online—we&apos;d love to meet you.
+              or connect with us online. We&apos;d love to meet you.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -1145,9 +1146,10 @@ export default function EventsPage() {
                 </svg>
               </a>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </main>
+    </LazyMotion>
   );
 }

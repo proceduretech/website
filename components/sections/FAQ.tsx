@@ -7,12 +7,12 @@ const faqs = [
   {
     question: "What AI systems do you build?",
     answer:
-      "We build production AI systems including LLM applications, AI agents, RAG systems, and AI-enhanced products. From conversational AI to document processing to intelligent automation—we handle the complete development lifecycle from architecture to secure production deployment.",
+      "We build production AI systems including LLM applications, AI agents, RAG systems, and AI-enhanced products. From conversational AI to document processing to intelligent automation. We handle the complete development lifecycle from architecture to secure production deployment.",
   },
   {
     question: "How quickly can you start our AI project?",
     answer:
-      "Most AI engagements begin within 2-5 days. We match senior engineers based on your AI requirements and tech stack, then integrate them into your development workflow immediately. No months of discovery—we start building fast.",
+      "Most AI engagements begin within 2-5 days. We match senior engineers based on your AI requirements and tech stack, then integrate them into your development workflow immediately. No months of discovery. We start building fast.",
   },
   {
     question: "How much does AI development cost?",
@@ -25,14 +25,9 @@ const faqs = [
       "Timeline depends on scope and approach. AI Sprints deliver working prototypes in 2-4 weeks. Full product builds with embedded teams typically reach MVP in 8-12 weeks. Enterprise AI systems requiring compliance and security review take 17-20 weeks from architecture to production deployment.",
   },
   {
-    question: "How do you handle AI security?",
-    answer:
-      "AI security is built into every system we deliver. We implement prompt injection defense, data leakage prevention, access controls, and AI-specific security measures from day one. Your AI systems pass enterprise security review.",
-  },
-  {
     question: "What makes you different from AI consultancies?",
     answer:
-      "Traditional AI consultants deliver slide decks and POCs that never ship. We deliver production AI. Our engineers embed with your team, write code daily, and ship AI systems that work. No handoffs, no knowledge silos—just AI that reaches production.",
+      "Traditional AI consultants deliver slide decks and POCs that never ship. We deliver production AI. Our engineers embed with your team, write code daily, and ship AI systems that work. No handoffs, no knowledge silos. Just AI that reaches production.",
   },
   {
     question: "Do you work with enterprise clients?",
@@ -67,7 +62,7 @@ export function FAQ() {
             FAQ
           </p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">
-            Frequently asked questions
+            Frequently Asked Questions
           </h2>
         </m.div>
 

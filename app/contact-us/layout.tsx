@@ -24,6 +24,19 @@ export const metadata: Metadata = {
   },
 };
 
+const contactPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "@id": "https://procedure.tech/contact-us/#contactpage",
+  url: "https://procedure.tech/contact-us",
+  name: "Contact Procedure",
+  description:
+    "Contact the Procedure team for AI, product engineering, and development consulting.",
+  publisher: {
+    "@id": "https://procedure.tech/#organization",
+  },
+};
+
 const contactFAQSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -33,7 +46,7 @@ const contactFAQSchema = {
       name: "What happens on the strategy call?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The strategy call is a focused 30-minute conversation with a senior AI engineer—not a sales rep. We'll discuss your technical requirements, existing infrastructure, and goals. You'll leave with a clear understanding of potential approaches, realistic timelines, and whether Procedure is the right fit for your project.",
+        text: "The strategy call is a focused 30-minute conversation with a senior AI engineer, not a sales rep. We'll discuss your technical requirements, existing infrastructure, and goals. You'll leave with a clear understanding of potential approaches, realistic timelines, and whether Procedure is the right fit for your project.",
       },
     },
     {
@@ -57,7 +70,7 @@ const contactFAQSchema = {
       name: "What if we're not sure what we need?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "That's exactly what the strategy call is for. Bring your business problem, and our senior engineers will help you identify the right AI approach—whether that's LLM integration, custom models, or AI agents. We'll outline realistic options and timelines based on what you're trying to achieve.",
+        text: "That's exactly what the strategy call is for. Bring your business problem, and our senior engineers will help you identify the right AI approach, whether that's LLM integration, custom models, or AI agents. We'll outline realistic options and timelines based on what you're trying to achieve.",
       },
     },
   ],
@@ -73,6 +86,13 @@ export default function ContactLayout({
       {/* Preconnect to Cal.com for faster calendar widget loading */}
       <link rel="preconnect" href="https://app.cal.com" />
       <link rel="dns-prefetch" href="https://app.cal.com" />
+      <Script
+        id="contact-page-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(contactPageSchema),
+        }}
+      />
       <Script
         id="contact-faq-schema"
         type="application/ld+json"

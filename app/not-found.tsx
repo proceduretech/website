@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 
 const quickLinks = [
   { label: "Services", href: "/services" },
@@ -13,6 +13,7 @@ const quickLinks = [
 
 export default function NotFound() {
   return (
+    <LazyMotion features={domAnimation}>
     <main className="relative min-h-[calc(100vh-5rem)] bg-base overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
@@ -30,7 +31,7 @@ export default function NotFound() {
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center px-4 sm:px-6 pt-24 pb-20">
         {/* Mascot Illustration */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
@@ -45,12 +46,12 @@ export default function NotFound() {
             className="relative z-10 w-full h-auto"
             priority
           />
-        </motion.div>
+        </m.div>
 
         {/* Text Content */}
         <div className="mt-12 text-center max-w-2xl">
           {/* 404 Badge */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -59,29 +60,29 @@ export default function NotFound() {
             <span className="text-xs font-semibold tracking-widest uppercase text-accent-light">
               Error 404
             </span>
-          </motion.div>
+          </m.div>
 
           {/* Headlines */}
-          <motion.h1
+          <m.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mt-6 text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary tracking-tight leading-tight"
           >
             Not all who wander are lost.
-          </motion.h1>
+          </m.h1>
 
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mt-2 text-xl sm:text-2xl font-medium text-highlight"
           >
             But this page definitely is.
-          </motion.p>
+          </m.p>
 
           {/* Body Text */}
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
@@ -90,10 +91,10 @@ export default function NotFound() {
             Our team has deployed a search party, but the page you&apos;re
             looking for seems to have gone off-grid. Let us help you find your
             way back.
-          </motion.p>
+          </m.p>
 
           {/* Button Group */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
@@ -137,10 +138,10 @@ export default function NotFound() {
               </svg>
               Contact Our Team
             </Link>
-          </motion.div>
+          </m.div>
 
           {/* Quick Links */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}
@@ -160,9 +161,10 @@ export default function NotFound() {
                 )}
               </span>
             ))}
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </main>
+    </LazyMotion>
   );
 }

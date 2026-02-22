@@ -26,6 +26,8 @@ import {
   VideoEmbed,
 } from "@/components/notion";
 import { TwitterEmbedReactTweet } from "@/components/notion/TwitterEmbedReactTweet";
+import { JsonLd } from "@/components/seo";
+import { SummarizeWithAi } from "@/components/ask-ai";
 
 // Force static generation at build time
 export const dynamic = "force-static";
@@ -463,26 +465,45 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       ? await getImageMetadata(post.featuredImage)
       : null;
 
-  // Article schema for SEO
+  // Format dates to ISO 8601 with IST timezone (+05:30)
+  const formatISODate = (date: string | undefined) => {
+    if (!date) return undefined;
+    // Notion returns bare dates like "2024-01-15"; append time + IST offset
+    if (date.length === 10) return `${date}T00:00:00+05:30`;
+    // Already has time component - ensure timezone
+    if (!date.includes("+") && !date.includes("Z")) return `${date}+05:30`;
+    return date;
+  };
+
+  // TechArticle schema for SEO
   const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "TechArticle",
     headline: post.title,
     description: post.excerpt,
-    image: post.featuredImage,
-    datePublished: post.publishedAt,
-    dateModified: post.updatedAt,
+    image: post.featuredImage
+      ? `https://procedure.tech${post.featuredImage}`
+      : undefined,
+    datePublished: formatISODate(post.publishedAt),
+    dateModified: formatISODate(post.updatedAt),
     author: {
       "@type": "Person",
       name: post.author.name,
-      jobTitle: post.author.role,
+      jobTitle: post.author.role || "Engineer",
+      url: post.author.linkedin || "https://www.linkedin.com/company/procedure-tech",
+      worksFor: {
+        "@type": "Organization",
+        "@id": "https://procedure.tech/#organization",
+        name: "Procedure Technologies",
+      },
     },
     publisher: {
       "@type": "Organization",
-      name: "Procedure",
+      "@id": "https://procedure.tech/#organization",
+      name: "Procedure Technologies",
+      url: "https://procedure.tech",
       logo: {
         "@type": "ImageObject",
-        url: "https://procedure.tech/logos/procedure/green-logo.svg",
+        url: "https://procedure.tech/logo.svg",
       },
     },
     mainEntityOfPage: {
@@ -493,7 +514,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   // BreadcrumbList schema for SEO
   const breadcrumbSchema = {
-    "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
       {
@@ -525,25 +545,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <main className="min-h-screen bg-base">
-      {/* Article Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(articleSchema),
-        }}
-      />
-
-      {/* Breadcrumb Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbSchema),
-        }}
-      />
+      {/* Schema Markup */}
+      <JsonLd data={articleSchema} />
+      <JsonLd data={breadcrumbSchema} />
 
       {/* Share buttons - sidebar (desktop only) */}
       <BlogShareButtons
-        url={`/blog/${slug}`}
+        url={`/blogs/${slug}`}
         title={post.title}
         variant="sidebar"
       />
@@ -568,7 +576,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </Link>
             <span>/</span>
             <Link
-              href={`/blog?category=${post.category.slug}`}
+              href={`/blogs?category=${post.category.slug}`}
               className="hover:text-accent-light transition-colors"
             >
               {post.category.name}
@@ -627,9 +635,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </span>
           </div>
 
+          {/* Summarize with AI */}
+          <SummarizeWithAi slug={slug} title={post.title} />
+
           {/* Featured Image */}
           {coverImageMetadata ? (
-            <div className="relative w-full aspect-21/9 rounded-2xl overflow-hidden">
+            <div className="relative w-full aspect-video sm:aspect-[21/9] rounded-2xl overflow-hidden border border-border/50">
               <Image
                 src={coverImageMetadata.src}
                 alt={post.title}
@@ -643,7 +654,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </div>
           ) : post.featuredImage &&
             post.featuredImage !== "/blog/default.jpg" ? (
-            <div className="relative w-full aspect-21/9 rounded-2xl overflow-hidden">
+            <div className="relative w-full aspect-video sm:aspect-[21/9] rounded-2xl overflow-hidden border border-border/50">
               <Image
                 src={post.featuredImage}
                 alt={post.title}
@@ -654,7 +665,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               />
             </div>
           ) : (
-            <div className="relative w-full aspect-21/9 rounded-2xl overflow-hidden bg-linear-to-br from-accent/20 to-accent-secondary/20">
+            <div className="relative w-full aspect-video sm:aspect-[21/9] rounded-2xl overflow-hidden border border-border/50 bg-linear-to-br from-accent/20 to-accent-secondary/20">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-20 h-20 rounded-2xl bg-surface-elevated/50 backdrop-blur border border-border flex items-center justify-center">
                   <svg
@@ -759,7 +770,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {/* Share Buttons - Inline (mobile/tablet) */}
               <div className="xl:hidden">
                 <BlogShareButtons
-                  url={`/blog/${slug}`}
+                  url={`/blogs/${slug}`}
                   title={post.title}
                   variant="inline"
                 />
@@ -782,7 +793,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       )}
 
       {/* CTA Section */}
-      <BlogCTA />
+      <BlogCTA categorySlug={post.category.slug} />
     </main>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 interface WhyProcedureProps {
   title?: string;
@@ -36,7 +36,7 @@ export function WhyProcedure({
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left side - Title */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -50,10 +50,10 @@ export function WhyProcedure({
               patterns to every engagement. No junior developers learning on
               your project.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Right side - Points */}
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -61,7 +61,7 @@ export function WhyProcedure({
             className="space-y-4"
           >
             {points.map((point, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 variants={itemVariants}
                 className="flex items-start gap-4 p-4 rounded-xl bg-surface-elevated border border-border"
@@ -84,9 +84,9 @@ export function WhyProcedure({
                 <p className="text-text-primary leading-relaxed pt-1">
                   {point}
                 </p>
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>

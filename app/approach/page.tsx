@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { LazyMotion, domAnimation, m, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { useRef, useState } from "react";
@@ -78,7 +78,7 @@ const processPhases = [
     tagline: "Ship Incrementally. Learn Continuously.",
     duration: "Ongoing Sprints",
     description:
-      "We work in tight iterations, shipping working software every week. Not features that almost work—features that are deployed, monitored, and ready for users. Our engineers pair program, conduct code reviews, and maintain production-grade standards from the first commit.",
+      "We work in tight iterations, shipping working software every week. Not features that almost work. Features that are deployed, monitored, and ready for users. Our engineers pair program, conduct code reviews, and maintain production-grade standards from the first commit.",
     deliverables: [
       "Weekly deployable increments",
       "Continuous integration and deployment",
@@ -108,7 +108,7 @@ const processPhases = [
     tagline: "Production is Day One, Not the Finish Line",
     duration: "Milestone-Based",
     description:
-      "Getting to production is just the beginning. We instrument everything, monitor performance, and iterate based on real user data. When issues arise—and they will—we're there to diagnose, fix, and improve. Your product gets better every week it's live.",
+      "Getting to production is just the beginning. We instrument everything, monitor performance, and iterate based on real user data. When issues arise (and they will), we're there to diagnose, fix, and improve. Your product gets better every week it's live.",
     deliverables: [
       "Production deployment and monitoring",
       "Performance optimization",
@@ -285,7 +285,7 @@ const principles = [
     number: "06",
     title: "Users First",
     description:
-      "Our compass is simple: make it useful, make it clear. We design for the person on the other side of the screen—not metrics, not trends. Real users, real solutions.",
+      "Our compass is simple: make it useful, make it clear. We design for the person on the other side of the screen, not metrics, not trends. Real users, real solutions.",
   },
 ];
 
@@ -332,7 +332,7 @@ function ProcessPhaseCard({
   onClick: () => void;
 }) {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -406,7 +406,7 @@ function ProcessPhaseCard({
         </p>
 
         {/* Deliverables (expanded when active) */}
-        <motion.div
+        <m.div
           initial={false}
           animate={{
             height: isActive ? "auto" : 0,
@@ -440,7 +440,7 @@ function ProcessPhaseCard({
               ))}
             </ul>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Expand Indicator */}
         <div
@@ -463,7 +463,7 @@ function ProcessPhaseCard({
           </svg>
         </div>
       </div>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -475,7 +475,7 @@ function DifferentiatorCard({
   index: number;
 }) {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -501,7 +501,7 @@ function DifferentiatorCard({
           {data.description}
         </p>
       </div>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -513,7 +513,7 @@ function PrincipleCard({
   index: number;
 }) {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -536,7 +536,7 @@ function PrincipleCard({
           {principle.description}
         </p>
       </div>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -556,6 +556,7 @@ export default function ApproachPage() {
   const heroScale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
 
   return (
+    <LazyMotion features={domAnimation}>
     <main className="min-h-screen">
       {/* ============================================
           HERO SECTION
@@ -568,7 +569,7 @@ export default function ApproachPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-surface via-base to-base" />
 
         {/* Large ambient glows */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5 }}
@@ -577,7 +578,7 @@ export default function ApproachPage() {
           <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-accent/8 rounded-full blur-[120px]" />
           <div className="absolute top-1/3 left-1/4 w-[600px] h-[400px] bg-accent-secondary/6 rounded-full blur-[100px]" />
           <div className="absolute top-1/3 right-1/4 w-[500px] h-[350px] bg-accent/5 rounded-full blur-[100px]" />
-        </motion.div>
+        </m.div>
 
         {/* Hexagon pattern */}
         <div
@@ -589,12 +590,12 @@ export default function ApproachPage() {
 
         {/* Floating orbs */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <motion.div
+          <m.div
             animate={{ y: [0, -20, 0], opacity: [0.4, 0.6, 0.4] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             className="absolute top-[20%] left-[15%] w-3 h-3 bg-accent/40 rounded-full blur-sm"
           />
-          <motion.div
+          <m.div
             animate={{ y: [0, 15, 0], opacity: [0.3, 0.5, 0.3] }}
             transition={{
               duration: 5,
@@ -604,7 +605,7 @@ export default function ApproachPage() {
             }}
             className="absolute top-[30%] right-[20%] w-2 h-2 bg-accent-secondary/50 rounded-full blur-sm"
           />
-          <motion.div
+          <m.div
             animate={{ y: [0, -15, 0], opacity: [0.3, 0.5, 0.3] }}
             transition={{
               duration: 7,
@@ -614,7 +615,7 @@ export default function ApproachPage() {
             }}
             className="absolute top-[40%] left-[10%] w-4 h-4 bg-accent/30 rounded-full blur-sm"
           />
-          <motion.div
+          <m.div
             animate={{ y: [0, 20, 0], opacity: [0.2, 0.4, 0.2] }}
             transition={{
               duration: 8,
@@ -627,7 +628,7 @@ export default function ApproachPage() {
         </div>
 
         {/* Main content */}
-        <motion.div
+        <m.div
           style={{ opacity: heroOpacity, scale: heroScale }}
           className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6"
         >
@@ -640,7 +641,7 @@ export default function ApproachPage() {
             </h1>
 
             {/* Subheadline */}
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -650,10 +651,10 @@ export default function ApproachPage() {
               for months. We&apos;re forward-deployed engineers who embed with
               your team, understand your constraints, and ship production code
               from week one. No layers. No handoffs. Just focused engineering.
-            </motion.p>
+            </m.p>
 
             {/* CTAs */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -681,50 +682,26 @@ export default function ApproachPage() {
               >
                 View Case Studies
               </Link>
-            </motion.div>
+            </m.div>
 
-            {/* Stats row */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-3xl mx-auto"
-            >
-              {outcomes.map((outcome, idx) => (
-                <div
-                  key={idx}
-                  className="p-4 rounded-xl bg-surface-elevated/60 border border-border"
-                >
-                  <div className="flex items-baseline gap-1 justify-center mb-1">
-                    <span className="text-2xl sm:text-3xl font-bold text-highlight">
-                      {outcome.stat}
-                    </span>
-                    <span className="text-sm font-bold text-accent-light">
-                      {outcome.unit}
-                    </span>
-                  </div>
-                  <p className="text-xs text-text-muted">{outcome.label}</p>
-                </div>
-              ))}
-            </motion.div>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Scroll indicator */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2"
         >
-          <motion.div
+          <m.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
             className="w-6 h-10 border-2 border-border rounded-full flex justify-center"
           >
             <div className="w-1 h-3 bg-text-muted rounded-full mt-2" />
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </section>
 
       {/* ============================================
@@ -740,7 +717,7 @@ export default function ApproachPage() {
         />
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -770,7 +747,7 @@ export default function ApproachPage() {
               it&apos;s for. When engineers understand the problem firsthand,
               they build better solutions.
             </p>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -788,7 +765,7 @@ export default function ApproachPage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           {/* Section Header */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -798,7 +775,7 @@ export default function ApproachPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               How We Work
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-6 tracking-tight">
               From First Conversation{" "}
               <span className="text-highlight">to Production.</span>
             </h2>
@@ -806,7 +783,7 @@ export default function ApproachPage() {
               A proven methodology designed for speed without sacrificing craft.
               Every phase builds on the last, and every decision stays visible.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Timeline visualization - Desktop */}
           <div className="hidden lg:block mb-12">
@@ -814,7 +791,7 @@ export default function ApproachPage() {
               {/* Connection line */}
               <div className="absolute left-0 right-0 h-1 top-1/2 -translate-y-1/2">
                 <div className="h-full bg-border rounded-full" />
-                <motion.div
+                <m.div
                   className="absolute inset-0 bg-gradient-to-r from-accent to-accent-secondary rounded-full"
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
@@ -826,7 +803,7 @@ export default function ApproachPage() {
 
               {/* Phase dots */}
               {processPhases.map((phase, idx) => (
-                <motion.button
+                <m.button
                   key={phase.id}
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
@@ -840,7 +817,7 @@ export default function ApproachPage() {
                   }`}
                 >
                   <span className="text-sm font-bold">{phase.number}</span>
-                </motion.button>
+                </m.button>
               ))}
             </div>
 
@@ -863,15 +840,16 @@ export default function ApproachPage() {
           </div>
 
           {/* Phase Cards Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="flex flex-wrap justify-center gap-6">
             {processPhases.map((phase, idx) => (
-              <ProcessPhaseCard
-                key={phase.id}
-                phase={phase}
-                index={idx}
-                isActive={activePhase === idx}
-                onClick={() => setActivePhase(idx)}
-              />
+              <div key={phase.id} className="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]">
+                <ProcessPhaseCard
+                  phase={phase}
+                  index={idx}
+                  isActive={activePhase === idx}
+                  onClick={() => setActivePhase(idx)}
+                />
+              </div>
             ))}
           </div>
         </div>
@@ -895,7 +873,7 @@ export default function ApproachPage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           {/* Section Header */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -905,14 +883,14 @@ export default function ApproachPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               What Makes Us Different
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-6 tracking-tight">
               Not Your Typical <span className="text-highlight">Dev Shop.</span>
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto text-base sm:text-lg">
               We built Procedure because we were tired of how agencies work.
               Here&apos;s what we do differently.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Differentiators Grid */}
           <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -937,7 +915,7 @@ export default function ApproachPage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           {/* Section Header */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -947,7 +925,7 @@ export default function ApproachPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               Our Principles
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-6 tracking-tight">
               The beliefs that{" "}
               <span className="text-highlight">guide our work.</span>
             </h2>
@@ -955,7 +933,7 @@ export default function ApproachPage() {
               These are not just words on a wall. They are the principles we use
               to make decisions every day.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Principles Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -984,7 +962,7 @@ export default function ApproachPage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           {/* Section Header */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -994,19 +972,19 @@ export default function ApproachPage() {
             <p className="text-xs sm:text-sm font-semibold tracking-widest text-accent-light uppercase mb-4">
               What You Can Expect
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-6 tracking-tight">
               Outcomes, <span className="text-highlight">Not Outputs.</span>
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto text-base sm:text-lg">
-              We measure success by what ships and the impact it creates—not by
+              We measure success by what ships and the impact it creates, not by
               hours logged or tickets closed.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Large Stats Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {outcomes.map((outcome, idx) => (
-              <motion.div
+              <m.div
                 key={outcome.label}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -1030,12 +1008,12 @@ export default function ApproachPage() {
                     {outcome.description}
                   </p>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
 
           {/* Testimonial */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -1076,7 +1054,7 @@ export default function ApproachPage() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -1088,7 +1066,7 @@ export default function ApproachPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-accent/5 to-accent-secondary/5" />
 
         {/* Animated orbs */}
-        <motion.div
+        <m.div
           animate={{
             y: [0, -30, 0],
             x: [0, 20, 0],
@@ -1096,7 +1074,7 @@ export default function ApproachPage() {
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
           className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[150px]"
         />
-        <motion.div
+        <m.div
           animate={{
             y: [0, 30, 0],
             x: [0, -20, 0],
@@ -1114,7 +1092,7 @@ export default function ApproachPage() {
         />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -1224,9 +1202,10 @@ export default function ApproachPage() {
                 No commitment
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </main>
+    </LazyMotion>
   );
 }

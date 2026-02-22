@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { BlogPost } from "@/lib/blog-types";
 import { BlogPostCard } from "./BlogPostCard";
 import { BlogNewsletter } from "./BlogNewsletter";
@@ -64,7 +64,7 @@ export function BlogGrid({
 
   return (
     <AnimatePresence mode="wait">
-      <motion.div
+      <m.div
         key={activeCategory}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -73,7 +73,7 @@ export function BlogGrid({
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
       >
         {renderItems()}
-      </motion.div>
+      </m.div>
     </AnimatePresence>
   );
 }

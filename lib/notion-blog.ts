@@ -275,15 +275,6 @@ function generateSlug(title: string): string {
 }
 
 // =============================================================================
-// Read Time Calculation
-// =============================================================================
-
-function calculateReadTime(content: string): number {
-  const wordsPerMinute = 200;
-  const words = content.trim().split(/\s+/).length;
-  return Math.ceil(words / wordsPerMinute);
-}
-
 // =============================================================================
 // Transform Notion Page to BlogPost
 // =============================================================================
@@ -681,52 +672,77 @@ async function fetchPageContent(pageId: string): Promise<BlogContent[]> {
 // Main Data Fetching Functions
 // =============================================================================
 
-// Cache for storing detailed blog post data
+// Module-level cache for storing detailed blog post data
+// Persists across React render contexts during the same build
 let cachedDetails: Map<string, Omit<BlogPostDetail, "notionContent">> | null =
   null;
+let cachedBlogPosts: BlogPost[] | null = null;
 
 /**
  * Fetch all published blog posts from Notion
+ * Uses pagination to ensure ALL posts are fetched, not just the first page
  */
 export const getNotionBlogPosts = cache(async (): Promise<BlogPost[]> => {
+  // Return module-level cache if already populated (persists across render contexts)
+  if (cachedBlogPosts && cachedDetails && cachedDetails.size > 0) {
+    return cachedBlogPosts;
+  }
+
   if (!isNotionConfigured()) {
     console.warn("Notion token not configured, returning empty blog posts");
     return [];
   }
 
   try {
-    // Query without filter first to see all posts, then filter in code
-    const response: QueryDataSourceResponse = await notion.dataSources.query({
-      data_source_id: BLOG_DATA_SOURCE_ID,
-      sorts: [
-        {
-          property: "Publish Date",
-          direction: "descending",
-        },
-      ],
-    });
+    // Paginate through all results to ensure we get every post
+    const allPages: PageObjectResponse[] = [];
+    let hasMore = true;
+    let startCursor: string | undefined = undefined;
+
+    while (hasMore) {
+      const response: QueryDataSourceResponse =
+        await notion.dataSources.query({
+          data_source_id: BLOG_DATA_SOURCE_ID,
+          sorts: [
+            {
+              property: "Publish Date",
+              direction: "descending",
+            },
+          ],
+          ...(startCursor ? { start_cursor: startCursor } : {}),
+        });
+
+      for (const page of response.results) {
+        if ("properties" in page) {
+          allPages.push(page as PageObjectResponse);
+        }
+      }
+
+      hasMore = response.has_more;
+      startCursor = response.next_cursor || undefined;
+    }
 
     const blogPosts: BlogPost[] = [];
-    cachedDetails = new Map();
+    const details = new Map<
+      string,
+      Omit<BlogPostDetail, "notionContent">
+    >();
 
-    for (const page of response.results) {
-      if (!("properties" in page)) {
-        continue;
-      }
-
-      const result = await transformNotionPageToBlogPost(
-        page as PageObjectResponse
-      );
+    for (const page of allPages) {
+      const result = await transformNotionPageToBlogPost(page);
       if (result) {
         blogPosts.push(result.blogPost);
-        cachedDetails.set(result.blogPost.slug, result.detail);
+        details.set(result.blogPost.slug, result.detail);
       }
     }
+
+    // Set module-level cache atomically (after all processing is done)
+    cachedDetails = details;
+    cachedBlogPosts = blogPosts;
 
     return blogPosts;
   } catch (error) {
     console.error("Error fetching blog posts from Notion:", error);
-    cachedDetails = null;
     return [];
   }
 });
@@ -787,18 +803,18 @@ export const getNotionBlogPostBySlug = cache(
       // Cache any images in the content to public folder
       await cacheContentImages(notionContent, slug, "blog");
 
-      // Generate content string for read time calculation
+      // Generate content string
       const contentText = notionContent
         .filter((block) => block.text)
         .map((block) => block.text)
         .join(" ");
 
-      const readTime = calculateReadTime(contentText) || detail.readTime;
-
+      // Use the same readTime from Notion property as the listing cards
+      // to ensure consistency between blog cards and blog post pages.
+      // The Notion "Read Time" property (or default 5) is set in processNotionPage().
       return {
         ...detail,
         content: contentText,
-        readTime,
         notionContent,
       };
     }

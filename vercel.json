@@ -1,4 +1,62 @@
 {
+  "redirects": [
+    {
+      "source": "/services/dotnet-development",
+      "destination": "/technologies/dotnet",
+      "permanent": true
+    },
+
+    { "source": "/services/backend", "destination": "/services/backend-development", "permanent": true },
+    { "source": "/services/devops-solutions", "destination": "/services/kubernetes", "permanent": true },
+
+    { "source": "/contact", "destination": "/contact-us", "permanent": true },
+    { "source": "/about", "destination": "/about-us", "permanent": true },
+    { "source": "/about/:path*", "destination": "/about-us", "permanent": true },
+    { "source": "/privacy-policy", "destination": "/policies/privacy-policy", "permanent": true },
+
+    { "source": "/capabilities/dx-modernization", "destination": "/technologies/dotnet/modernization", "permanent": true },
+    { "source": "/capabilities/security", "destination": "/ai-safety", "permanent": true },
+    { "source": "/capabilities/mobile-solutions", "destination": "/services/mobile-development", "permanent": true },
+    { "source": "/capabilities/devops", "destination": "/services/kubernetes", "permanent": true },
+    { "source": "/capabilities/process-consulting", "destination": "/approach", "permanent": true },
+    { "source": "/capabilities/managed-services", "destination": "/services/enterprise", "permanent": true },
+    { "source": "/capabilities/swat-interventions", "destination": "/services/forward-deployed", "permanent": true },
+    { "source": "/capabilities/app-development", "destination": "/services/mobile-development", "permanent": true },
+    { "source": "/capabilities/innovation", "destination": "/approach", "permanent": true },
+    { "source": "/capabilities/quality-testing", "destination": "/services/software-testing-and-qa", "permanent": true },
+    { "source": "/capabilities/product-engineering", "destination": "/services/product-build", "permanent": true },
+    { "source": "/capabilities/cloud", "destination": "/services/cloud", "permanent": true },
+    { "source": "/capabilities/ux-ui", "destination": "/services/product-design", "permanent": true },
+    { "source": "/capabilities/agile", "destination": "/approach", "permanent": true },
+    { "source": "/capabilities/digital-ventures", "destination": "/services/startups", "permanent": true },
+    { "source": "/capabilities/performance-governance", "destination": "/approach", "permanent": true },
+    { "source": "/capabilities", "destination": "/services", "permanent": true },
+    { "source": "/capabilities/:path*", "destination": "/services", "permanent": true },
+
+    { "source": "/industries/banking", "destination": "/industries/financial-services", "permanent": true },
+    { "source": "/industries/fintech", "destination": "/industries/financial-services", "permanent": true },
+    { "source": "/industries/edtech", "destination": "/industries/education", "permanent": true },
+    { "source": "/industries/foodtech", "destination": "/industries", "permanent": true },
+    { "source": "/industries/insurtech", "destination": "/industries", "permanent": true },
+    { "source": "/industries/case-studies", "destination": "/work", "permanent": true },
+
+    { "source": "/lifeprocedure/cultureprocedure", "destination": "/culture", "permanent": true },
+    { "source": "/lifeprocedure/:path*", "destination": "/culture", "permanent": true },
+    { "source": "/lifeprocedure", "destination": "/culture", "permanent": true },
+
+    { "source": "/blog/:path*", "destination": "/blogs", "permanent": true },
+    { "source": "/tag/:path*", "destination": "/blogs", "permanent": true },
+    { "source": "/case_study/:path*", "destination": "/work", "permanent": true },
+    { "source": "/team_members/:path*", "destination": "/about-us", "permanent": true },
+
+    { "source": "/reducing-our-deployment-times-by-87", "destination": "/blogs", "permanent": true },
+    { "source": "/frontend-performance-testing-best-practices", "destination": "/blogs", "permanent": true },
+    { "source": "/connecting-django-to-rds-via-pgbouncer-using-iam-auth", "destination": "/blogs", "permanent": true },
+
+    { "source": "/Procedure", "destination": "/", "permanent": true },
+    { "source": "/home_recreated1234", "destination": "/", "permanent": true },
+    { "source": "/services_recreated1234/:path*", "destination": "/services", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*\\.(?:svg|jpg|jpeg|png|webp|avif|gif|ico))",

@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 interface BlogHeroProps {
   stats?: {
     value: string;
@@ -22,35 +18,26 @@ export function BlogHero({ stats }: BlogHeroProps) {
     <section className="relative pt-32 pb-24 sm:pb-36 bg-base">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="max-w-4xl mx-auto text-center">
-{/* Headline - reduced delays for better LCP */}
-          <motion.h1
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.05 }}
+          {/* H1 visible immediately - no animation to avoid LCP penalty */}
+          <h1
             className="text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary leading-[1.1] tracking-tight mb-6"
           >
             Engineering Insights
             <br />
             <span className="text-highlight">From the Trenches</span>
-          </motion.h1>
+          </h1>
 
-          {/* Subheadline */}
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.1 }}
-            className="text-lg sm:text-xl text-text-secondary leading-relaxed mb-10 max-w-3xl mx-auto"
+          {/* Subheadline - CSS animation (no JS dependency) */}
+          <p
+            className="hero-fade-in text-lg sm:text-xl text-text-secondary leading-relaxed mb-10 max-w-3xl mx-auto"
           >
             Deep-dives on AI, product development, and cloud infrastructure from
             engineers building real systems.
-          </motion.p>
+          </p>
 
-          {/* Stats row */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.15 }}
-            className="grid grid-cols-3 gap-4 sm:gap-6 max-w-2xl mx-auto"
+          {/* Stats row - CSS animation */}
+          <div
+            className="hero-stats-container grid grid-cols-3 gap-4 sm:gap-6 max-w-2xl mx-auto"
           >
             {displayStats.map((stat) => (
               <div
@@ -65,7 +52,7 @@ export function BlogHero({ stats }: BlogHeroProps) {
                 </div>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

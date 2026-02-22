@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence, LazyMotion, domAnimation } from "framer-motion";
 import { CalInline } from "@/components/CalInline";
 import { PageHero, CaseStudyCard } from "@/components/ui";
 import type { CaseStudy } from "@/lib/case-studies-data";
@@ -28,6 +28,7 @@ export function CaseStudiesClient({
   });
 
   return (
+    <LazyMotion features={domAnimation}>
     <main className="relative min-h-screen bg-base overflow-hidden">
       {/* ============================================
           HERO SECTION
@@ -82,7 +83,7 @@ export function CaseStudiesClient({
       <section className="relative py-16 sm:py-24 bg-base z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <AnimatePresence mode="wait">
-            <motion.div
+            <m.div
               key={activeServiceFilter}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -98,12 +99,12 @@ export function CaseStudiesClient({
                   variant="default"
                 />
               ))}
-            </motion.div>
+            </m.div>
           </AnimatePresence>
 
           {/* Empty state */}
           {filteredStudies.length === 0 && (
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               className="text-center py-16"
@@ -135,7 +136,7 @@ export function CaseStudiesClient({
               >
                 Clear all filters
               </button>
-            </motion.div>
+            </m.div>
           )}
         </div>
       </section>
@@ -145,7 +146,7 @@ export function CaseStudiesClient({
           ============================================ */}
       <section className="relative py-16 sm:py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -158,11 +159,11 @@ export function CaseStudiesClient({
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">
               What our clients say
             </h2>
-          </motion.div>
+          </m.div>
 
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
             {testimonials.slice(0, 2).map((testimonial, idx) => (
-              <motion.blockquote
+              <m.blockquote
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -195,7 +196,7 @@ export function CaseStudiesClient({
                     </div>
                   </div>
                 </footer>
-              </motion.blockquote>
+              </m.blockquote>
             ))}
           </div>
         </div>
@@ -206,7 +207,7 @@ export function CaseStudiesClient({
           ============================================ */}
       <section id="book-call" className="relative py-16 sm:py-24 bg-base scroll-mt-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -221,13 +222,13 @@ export function CaseStudiesClient({
             <p className="text-lg text-text-secondary max-w-2xl mx-auto">
               Every case study started with a conversation. Tell us about your
               AI challenges, and our engineers will give you an honest
-              assessment of how we can help—even if that means pointing you in a
+              assessment of how we can help, even if that means pointing you in a
               different direction.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Inline Cal.com booking widget */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -235,9 +236,10 @@ export function CaseStudiesClient({
             className="rounded-2xl overflow-hidden border border-border bg-surface-elevated"
           >
             <CalInline className="h-[600px]" />
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </main>
+    </LazyMotion>
   );
 }

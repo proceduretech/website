@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
@@ -22,19 +22,18 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.08,
       delayChildren: 0.2,
     },
   },
 };
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 20, scale: 0.98 },
+const itemVariants = {
+  hidden: { opacity: 0, x: -12 },
   visible: {
     opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as const },
+    x: 0,
+    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as const },
   },
 };
 
@@ -44,18 +43,29 @@ export function UseCasesGrid({
   useCases,
   columns = 2,
 }: UseCasesGridProps) {
+  // Split use cases into columns for the two-column layout
+  const midpoint = Math.ceil(useCases.length / (columns === 3 ? 3 : 2));
+  const columnGroups =
+    columns === 3
+      ? [
+          useCases.slice(0, midpoint),
+          useCases.slice(midpoint, midpoint * 2),
+          useCases.slice(midpoint * 2),
+        ]
+      : [useCases.slice(0, midpoint), useCases.slice(midpoint)];
+
   return (
     <section className="py-16 sm:py-24 bg-base">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-4">
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text-primary mb-5">
             {title}
           </h2>
           {subtitle && (
@@ -63,58 +73,78 @@ export function UseCasesGrid({
               {subtitle}
             </p>
           )}
-        </motion.div>
+        </m.div>
 
-        {/* Use cases grid */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
+        {/* Numbered list layout -- no cards, divider-based */}
+        <div
           className={cn(
-            "grid gap-5",
+            "grid gap-x-12 lg:gap-x-16",
             columns === 3
               ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
               : "grid-cols-1 md:grid-cols-2"
           )}
         >
-          {useCases.map((useCase, index) => (
-            <motion.div
-              key={index}
-              variants={cardVariants}
-              className={cn(
-                "group relative flex gap-4 p-5 rounded-xl",
-                "bg-surface-elevated/60 backdrop-blur-sm",
-                "border border-border",
-                "hover:border-accent/30 hover:bg-surface-elevated/80",
-                "transition-all duration-300"
-              )}
+          {columnGroups.map((group, colIndex) => (
+            <m.div
+              key={colIndex}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={containerVariants}
+              className="flex flex-col"
             >
-              {/* Icon container */}
-              <div
-                className={cn(
-                  "flex-shrink-0 w-12 h-12 rounded-lg",
-                  "bg-accent/10 border border-accent/20",
-                  "flex items-center justify-center",
-                  "group-hover:border-accent/40 group-hover:bg-accent/15",
-                  "transition-all duration-300"
-                )}
-              >
-                <div className="w-6 h-6 text-accent-light">{useCase.icon}</div>
-              </div>
+              {/* Top border for the column */}
+              <div className="h-px bg-border" />
 
-              {/* Content */}
-              <div className="flex-1 min-w-0">
-                <h3 className="text-lg font-semibold text-text-primary mb-1.5 group-hover:text-highlight transition-colors duration-300">
-                  {useCase.title}
-                </h3>
-                <p className="text-sm text-text-secondary leading-relaxed">
-                  {useCase.description}
-                </p>
-              </div>
-            </motion.div>
+              {group.map((useCase, index) => {
+                const globalIndex =
+                  colIndex * midpoint + index;
+                const number = String(globalIndex + 1).padStart(2, "0");
+
+                return (
+                  <m.div
+                    key={globalIndex}
+                    variants={itemVariants}
+                    className="group"
+                  >
+                    <div className="flex gap-5 sm:gap-6 py-6 sm:py-7">
+                      {/* Large subtle number */}
+                      <span
+                        className={cn(
+                          "flex-shrink-0 font-outfit text-2xl sm:text-3xl font-semibold",
+                          "text-text-muted/30 tabular-nums leading-none pt-0.5",
+                          "group-hover:text-accent/40 transition-colors duration-300",
+                          "select-none w-8 sm:w-10"
+                        )}
+                      >
+                        {number}
+                      </span>
+
+                      {/* Content */}
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2.5 mb-1.5">
+                          {/* Inline icon */}
+                          <div className="flex-shrink-0 w-5 h-5 text-accent-light opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                            {useCase.icon}
+                          </div>
+                          <h3 className="text-base sm:text-lg font-semibold text-text-primary group-hover:text-highlight transition-colors duration-300">
+                            {useCase.title}
+                          </h3>
+                        </div>
+                        <p className="text-sm text-text-secondary leading-relaxed pl-[30px]">
+                          {useCase.description}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Divider line */}
+                    <div className="h-px bg-border" />
+                  </m.div>
+                );
+              })}
+            </m.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
