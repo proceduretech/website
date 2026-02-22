@@ -7,3 +7,4 @@ export { ServiceFeatures } from "./ServiceFeatures";
 export { SkillsTable } from "./SkillsTable";
 export { UseCaseStories } from "./UseCaseStories";
 export { EngagementModels } from "./EngagementModels";
+export { ComparisonTable } from "./ComparisonTable";

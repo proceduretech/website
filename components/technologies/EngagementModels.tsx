@@ -8,6 +8,7 @@ interface EngagementModel {
   description: string;
   teamSize?: string;
   bestFor?: string;
+  typicalDuration?: string;
 }
 
 interface EngagementModelsProps {
@@ -108,6 +109,13 @@ export function EngagementModels({
                 <p className="text-text-secondary text-sm leading-relaxed">
                   {model.description}
                 </p>
+
+                {/* Typical Duration */}
+                {model.typicalDuration && (
+                  <p className="mt-4 text-xs font-medium text-accent-light">
+                    {model.typicalDuration}
+                  </p>
+                )}
               </div>
             </m.div>
           ))}

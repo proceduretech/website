@@ -10,6 +10,7 @@ import {
   SkillsTable,
   UseCaseStories,
   EngagementModels,
+  ComparisonTable,
   RelatedDotnetServices,
 } from "@/components/technologies";
 import {
@@ -29,6 +30,8 @@ import {
   whyProcedure,
   engagementModelsTitle,
   engagementModels,
+  comparisonTitle,
+  comparisonRows,
   faqs,
   ctaData,
   relatedServices,
@@ -218,6 +221,9 @@ export default function DotnetStaffAugPageClient() {
         title={engagementModelsTitle}
         models={engagementModels}
       />
+
+      {/* Comparison Table */}
+      <ComparisonTable title={comparisonTitle} rows={comparisonRows} />
 
       {/* CTA Section with Cal.com Embed */}
       <section

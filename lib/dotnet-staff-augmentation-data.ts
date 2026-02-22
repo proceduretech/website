@@ -52,22 +52,22 @@ export const problemSignals: ProblemSignal[] = [
   {
     title: "Modernization skills gap",
     description:
-      "You are modernizing legacy .NET Framework applications and need specialized skills",
+      "You are modernizing [legacy .NET Framework](/technologies/dotnet/modernization) applications and need specialized skills",
     icon: "cog",
   },
   {
     title: "Cloud-native expertise",
     description:
-      "You require Azure or cloud-native .NET experience your team lacks",
+      "You require [Azure or cloud-native](/services/cloud) .NET experience your team lacks",
     icon: "cloud",
   },
 ];
 
 export const problemTitle =
-  "Why Engineering Teams Choose .NET Staff Augmentation";
+  "When Does .NET Staff Augmentation Make Sense?";
 
 export const problemIntro =
-  "Hiring a senior .NET engineer takes 4 to 6 months. Staff augmentation gives you production-ready .NET talent who contribute from week one.";
+  "Hiring a senior .NET engineer takes 4 to 6 months. Procedure's staff augmentation gives you production-ready .NET talent who contribute from week one.";
 
 // =============================================================================
 // What You Get (Service Features)
@@ -83,13 +83,13 @@ export const serviceFeatures: ServiceFeature[] = [
   {
     title: "Senior Engineers Only",
     description:
-      "Every .NET developer in our team has shipped production applications. They have worked with enterprise codebases, handled complex integrations, and solved the kinds of problems that only come from years of real-world experience. No junior developers learning on your project.",
+      "Every .NET developer in our team has a minimum of 5 years of production experience, shipping real applications for enterprise clients. They have worked with large-scale codebases, handled complex integrations, and solved the kinds of problems that only come with years in production environments. No junior developers learning on your project.",
   },
   {
     title: "Full .NET Stack Coverage",
     description: "Our engineers work across the entire .NET ecosystem.",
     items: [
-      "Backend: ASP.NET Core, .NET 8, Entity Framework Core, Dapper",
+      "Backend: [ASP.NET Core](/technologies/dotnet/), .NET 8, Entity Framework Core, Dapper",
       "Frontend: Blazor, Razor Pages, integration with React and Angular",
       "Cloud: Azure App Service, Azure Functions, Azure SQL, Azure DevOps",
       "Desktop: WPF, WinForms, .NET MAUI for cross-platform",
@@ -104,7 +104,7 @@ export const serviceFeatures: ServiceFeature[] = [
 ];
 
 export const serviceFeaturesTitle =
-  "What Our .NET Staff Augmentation Includes";
+  "What You Get with .NET Staff Augmentation";
 
 // =============================================================================
 // How It Works (for ProcessTimeline component)
@@ -127,7 +127,7 @@ export const approachSteps: ApproachStep[] = [
     number: 2,
     title: "Candidate Matching (1 to 2 days)",
     description:
-      "Based on your requirements, we present senior .NET developers who match your needs. You receive detailed profiles covering their technical expertise, project history, and relevant experience.",
+      "Based on your requirements, we present senior .NET developers from Procedure's engineering team who match your needs. You receive detailed profiles covering their technical expertise, project history, and relevant experience.",
   },
   {
     number: 3,
@@ -160,7 +160,7 @@ export interface SkillEntry {
 }
 
 export const skillsTitle =
-  ".NET Skills Available Through Staff Augmentation";
+  "Senior .NET Developer Skills & Experience Levels";
 
 export const skillsTable: SkillEntry[] = [
   {
@@ -230,7 +230,7 @@ export const useCases: UseCase[] = [
   {
     title: "Specialized Expertise",
     description:
-      "An enterprise with a large .NET Framework codebase wanted to modernize to .NET 8 without disrupting operations. Their team knew the business logic but lacked migration experience. We provided two developers with specific experience in incremental modernization strategies. They worked alongside the internal team, transferring knowledge while executing the migration.",
+      "An enterprise with a large .NET Framework codebase wanted to [modernize to .NET 8](/technologies/dotnet/modernization) without disrupting operations. Their team knew the business logic but lacked migration experience. We provided two developers with specific experience in incremental modernization strategies. They worked alongside the internal team, transferring knowledge while executing the migration.",
     category: "Enterprise",
     highlight: "Incremental migration without disruption",
     icon: "cog",
@@ -262,7 +262,7 @@ export const whyProcedure: ValueProp[] = [
   {
     title: "Production Experience",
     description:
-      "Our .NET developers come from building products, not just completing coursework. They have worked on payment systems, healthcare platforms, fintech applications, and enterprise integrations. When they join your team, they bring patterns and practices from real production environments.",
+      "Procedure's .NET developers come from building products, not just completing coursework. They have worked on [payment systems](/industries/financial-services), healthcare platforms, [fintech applications](/industries/financial-services), and enterprise integrations. When they join your team, they bring patterns and practices from real production environments.",
     icon: "code",
   },
   {
@@ -274,7 +274,7 @@ export const whyProcedure: ValueProp[] = [
   {
     title: "Same Timezone Collaboration",
     description:
-      "With teams in India and access to developers across timezones, we structure engagements for meaningful overlap with your working hours. Daily standups, real-time collaboration, and quick responses are standard, not exceptions.",
+      "With engineering teams in Mumbai and San Francisco and access to developers across timezones, we structure engagements for meaningful overlap with your working hours. Daily standups, real-time collaboration, and quick responses are standard, not exceptions.",
     icon: "globe",
   },
   {
@@ -294,6 +294,7 @@ export interface EngagementModel {
   description: string;
   teamSize: string;
   bestFor: string;
+  typicalDuration?: string;
 }
 
 export const engagementModelsTitle =
@@ -306,6 +307,7 @@ export const engagementModels: EngagementModel[] = [
       "Add a single senior .NET developer to your existing team. They participate in your standups, follow your processes, and report to your technical lead. Best for filling specific skill gaps or adding capacity to an established team.",
     teamSize: "1",
     bestFor: "Skill gaps & capacity boost",
+    typicalDuration: "Typical duration: 3-6 months",
   },
   {
     title: "Pod Model",
@@ -313,6 +315,7 @@ export const engagementModels: EngagementModel[] = [
       "Bring in a small, self-contained unit: typically a senior developer and a mid-level developer who work together. The senior developer provides technical leadership while both contribute to delivery. Best for projects that need more than one person but not a full team.",
     teamSize: "2",
     bestFor: "Focused project delivery",
+    typicalDuration: "Typical duration: 4-12 months",
   },
   {
     title: "Extended Team",
@@ -320,6 +323,53 @@ export const engagementModels: EngagementModel[] = [
       "Augment with multiple developers across different seniority levels, potentially including QA and DevOps expertise. We can include a technical lead who coordinates the augmented team's work. Best for significant initiatives where you need substantial capacity.",
     teamSize: "3+",
     bestFor: "Large-scale initiatives",
+    typicalDuration: "Typical duration: 6-18 months",
+  },
+];
+
+// =============================================================================
+// Comparison Table (Staff Augmentation vs Full-Time Hiring)
+// =============================================================================
+
+export interface ComparisonRow {
+  factor: string;
+  fullTimeHire: string;
+  staffAug: string;
+}
+
+export const comparisonTitle =
+  "Staff Augmentation vs Full-Time Hiring: What Makes Sense?";
+
+export const comparisonRows: ComparisonRow[] = [
+  {
+    factor: "Time to start",
+    fullTimeHire: "4-6 months (recruiting + onboarding)",
+    staffAug: "5 business days",
+  },
+  {
+    factor: "Annual cost (senior)",
+    fullTimeHire: "$150K-$200K+ (total comp)",
+    staffAug: "Flexible - pay only for what you use",
+  },
+  {
+    factor: "Commitment",
+    fullTimeHire: "Long-term headcount",
+    staffAug: "Month-to-month after initial period",
+  },
+  {
+    factor: "Scaling",
+    fullTimeHire: "New hire per person needed",
+    staffAug: "Add or reduce capacity in days",
+  },
+  {
+    factor: "Risk if project changes",
+    fullTimeHire: "Layoff or redeployment",
+    staffAug: "Adjust engagement scope",
+  },
+  {
+    factor: "Best for",
+    fullTimeHire: "Core team, long-term product roles",
+    staffAug: "Project-specific needs, capacity bursts, specialized skills",
   },
 ];
 
@@ -336,7 +386,7 @@ export const faqs: FAQ[] = [
   {
     question: "How quickly can .NET developers start?",
     answer:
-      "Typically within 5 business days of your selection. We maintain a bench of available senior .NET developers specifically to enable fast starts. For specialized requirements, matching may take 1 to 2 weeks.",
+      "Procedure's .NET developers can start within 5 business days of your selection. We maintain a bench of senior .NET developers from our Mumbai and San Francisco offices specifically to enable fast starts. For specialized requirements like legacy migration expertise, matching may take 1 to 2 weeks.",
   },
   {
     question: "What if the developer is not the right fit?",
@@ -356,7 +406,7 @@ export const faqs: FAQ[] = [
   {
     question: "What are the typical rates for .NET staff augmentation?",
     answer:
-      "Rates vary based on seniority, specific skills, and engagement duration. Contact us for a detailed quote based on your requirements. We provide transparent pricing with no hidden fees.",
+      ".NET staff augmentation rates at Procedure range from $30 to $65 per hour depending on seniority level, engagement model, and duration. Individual senior .NET developers typically fall in the $40 to $60/hour range for engagements of 3 months or longer. Pod model and extended team engagements are priced per team rather than per developer, and longer commitments come with better rates. We provide a detailed cost breakdown after the initial requirements discussion - no hidden fees or surprise markups. [Talk to our team](/contact-us) for a quote tailored to your project.",
   },
   {
     question: "Do developers work exclusively on my project?",
@@ -372,6 +422,24 @@ export const faqs: FAQ[] = [
     question: "Can staff augmentation help with .NET modernization projects?",
     answer:
       "Yes. Many of our .NET developers have specific experience migrating .NET Framework applications to .NET 8. They can work alongside your team to execute modernization while transferring knowledge.",
+  },
+  {
+    question:
+      "What is the difference between .NET staff augmentation and outsourcing?",
+    answer:
+      "Staff augmentation and outsourcing solve different problems. With .NET staff augmentation, Procedure's developers join your existing team - they attend your standups, use your tools, and report to your technical lead. You retain full control over architecture decisions, code reviews, and priorities. With outsourcing, you hand off an entire project or workstream to an external team that manages itself. Staff augmentation is the better fit when you have a strong engineering culture and need to add specific skills or capacity without giving up control. Outsourcing works when you want to delegate a self-contained deliverable and don't want to manage the team directly. Most of our .NET clients choose staff augmentation because their CTOs want to maintain code quality standards and architectural consistency across the codebase.",
+  },
+  {
+    question:
+      "Can I hire a .NET developer for a short-term project (under 3 months)?",
+    answer:
+      "Yes. While our most common .NET staff augmentation engagements run 3 to 12 months, we regularly support shorter projects - particularly for deadline-driven deliverables, migration sprints, or proof-of-concept work. For engagements under 3 months, we recommend the individual developer model where one senior .NET developer integrates with your team for a focused initiative. The minimum engagement is typically 4 weeks. Short-term engagements follow the same process: requirements discussion, candidate matching within 48 hours, and onboarding within 5 business days.",
+  },
+  {
+    question:
+      "How long do .NET staff augmentation engagements typically last?",
+    answer:
+      "Most .NET staff augmentation engagements at Procedure run between 3 and 12 months, though we support everything from 4-week sprints to multi-year partnerships. The most common pattern: a client starts with one senior developer for 3 months, then extends or expands as the working relationship proves out. There are no long-term lock-ins - engagements renew monthly after an initial commitment period. About 70% of our staff augmentation clients extend beyond their original timeline.",
   },
 ];
 

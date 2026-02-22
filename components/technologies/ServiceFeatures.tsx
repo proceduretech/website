@@ -4,6 +4,7 @@ import { m } from "framer-motion";
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/lib/expertise-data";
+import { renderLinkedText } from "@/lib/render-linked-text";
 
 interface ServiceFeature {
   title: string;
@@ -79,7 +80,7 @@ function EditorialCard({
 
         {/* Description */}
         <p className="text-text-secondary text-sm leading-relaxed">
-          {feature.description}
+          {renderLinkedText(feature.description)}
         </p>
 
         {/* Optional items in 2-column grid */}
@@ -103,7 +104,7 @@ function EditorialCard({
                     d="M8.25 4.5l7.5 7.5-7.5 7.5"
                   />
                 </svg>
-                {item}
+                {renderLinkedText(item)}
               </li>
             ))}
           </ul>
@@ -150,7 +151,7 @@ function CompactCard({ feature }: { feature: ServiceFeature }) {
 
         {/* Description */}
         <p className="text-text-secondary text-sm leading-relaxed">
-          {feature.description}
+          {renderLinkedText(feature.description)}
         </p>
       </div>
     </m.div>
