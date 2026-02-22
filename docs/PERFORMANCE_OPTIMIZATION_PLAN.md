@@ -266,6 +266,46 @@ npx lighthouse https://localhost:3000 --view
 
 ---
 
+## ⚠️ Cloudflare Email-Decode: Render-Blocking Script (Feb 2026)
+
+Cloudflare's "Email Address Obfuscation" feature injects `email-decode.min.js` as a **render-blocking** synchronous script. PageSpeed Insights flags it under "Render blocking requests" (1.2 KiB, ~150ms on slow 4G).
+
+This script cannot be fixed from code — it must be disabled in Cloudflare Dashboard:
+1. Go to Cloudflare Dashboard → your domain → **Scrape Shield** (or **Security** → **Settings**)
+2. Disable **Email Address Obfuscation**
+3. Alternatively, add `data-cfasync="false"` to email-containing elements or use a Cloudflare Worker to add `defer` to the script tag
+
+**Impact**: ~150ms added to mobile LCP render delay. Combined with the simulated slow 4G RTT, this contributes meaningfully to the 1,280ms element render delay observed in lab data.
+
+**Trade-off**: Disabling removes spam protection for email addresses displayed on the site. If emails are exposed in HTML (e.g., contact page), consider JS-based obfuscation instead.
+
+---
+
+## 📊 PageSpeed Baseline (Feb 22, 2026)
+
+### Field Data (CrUX, 28 days)
+| Metric | Mobile | Desktop | Target |
+|--------|--------|---------|--------|
+| LCP | 3.0s | 2.2s | ≤ 2.5s |
+| INP | 152ms | 78ms | ≤ 200ms |
+| CLS | 0 | 0.05 | ≤ 0.1 |
+| FCP | 2.2s | 1.4s | ≤ 1.8s |
+| TTFB | 0.9s | 0.6s | ≤ 800ms |
+
+### Lab Data (Lighthouse)
+| Metric | Mobile | Desktop |
+|--------|--------|---------|
+| Performance | 87 | 100 |
+| FCP | 1.2s | 0.4s |
+| LCP | 3.8s | 0.7s |
+| TBT | 30ms | 20ms |
+
+**CWV Status**: Mobile FAILED (LCP), Desktop PASSED
+**LCP Element**: H1 "AI Engineering Services That Ship to Production"
+**LCP Bottleneck**: 1,280ms element render delay (100% of the problem — TTFB is 0ms in lab)
+
+---
+
 **Created**: December 31, 2025
 **Target Completion**: Before production launch
 **Owner**: Engineering Team

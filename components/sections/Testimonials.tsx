@@ -1,14 +1,35 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import { LazyMotion, domAnimation, m, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { testimonials } from "@/lib/testimonials-data";
 import { cn } from "@/lib/utils";
 
 export function Testimonials() {
+  // Randomize starting testimonial to avoid showing the same first
+  // testimonial on every page across the site. Uses a ref to generate
+  // the random index once on mount, avoiding hydration mismatch by
+  // matching the SSR value (0) and only randomizing on client.
+  const hasRandomized = useRef(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const currentTestimonial = testimonials[currentIndex];
+
+  const handleRandomize = useCallback(() => {
+    if (!hasRandomized.current) {
+      hasRandomized.current = true;
+      const randomIndex = Math.floor(Math.random() * testimonials.length);
+      if (randomIndex !== 0) {
+        setCurrentIndex(randomIndex);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    // Defer randomization to after hydration via rAF
+    const id = requestAnimationFrame(handleRandomize);
+    return () => cancelAnimationFrame(id);
+  }, [handleRandomize]);
 
   return (
     <LazyMotion features={domAnimation}>

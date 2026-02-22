@@ -1235,6 +1235,37 @@ html:not(.dark) .hero-grid-pattern {
   animation: heroFadeIn 0.5s ease-out 0.25s both;
 }
 
+/* Cookie banner — CSS animations to avoid framer-motion in root layout critical path */
+@keyframes cookieBannerEnter {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cookieBannerExit {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+
+.cookie-banner-enter {
+  animation: cookieBannerEnter 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.cookie-banner-exit {
+  animation: cookieBannerExit 0.3s ease-in both;
+}
+
 /* Hover state overrides for navigation */
 .hover\:bg-surface-elevated:hover,
 .lg\:hover\:bg-surface-elevated:hover,
